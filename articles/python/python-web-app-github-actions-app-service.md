@@ -87,8 +87,8 @@ If there is an existing workflow file that conflicts with the name App Service u
 
 What the command does:
 
-* Create new workflow file: .github/workflows/<workflow-name>.yml; the name of the file will contain the name of your App Service.
-* Fetch a publish profile with secrets for your App Service and add that as a GitHub as a secret with a name similar to AZUREAPPSERVICE_PUBLISHPROFILE_GUID that is referenced in the workflow file.
+* Creates new workflow file: *.github/workflows/\<workflow-name>.yml*; the name of the file will contain the name of your App Service.
+* Fetches a publish profile with secrets for your App Service and add that as a GitHub as a secret with a name similar to AZUREAPPSERVICE_PUBLISHPROFILE_GUID that is referenced in the workflow file.
 
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
