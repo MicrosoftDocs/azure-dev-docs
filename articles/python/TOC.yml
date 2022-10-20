@@ -48,7 +48,7 @@
       items:
       - name: GitHub Actions with App Service
         href: python-web-app-github-actions-app-service.md
-      - name: Azure pipelines with App Service
+      - name: Azure Pipelines with App Service
         href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Add sign in
       href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json

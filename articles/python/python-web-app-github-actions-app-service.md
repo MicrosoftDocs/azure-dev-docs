@@ -75,6 +75,61 @@ az webapp config set -g <resource-group-name> -n <app-service-name> --startup-fi
 
 In the steps below, you'll set up continuous deployment (CD), which means a new code deployment happens when a trigger is fired. The trigger in this tutorial is any change to the main branch of your repository, such as with a pull request (PR).
 
+**Step 1.** Add GitHub Action with the [az webapp deployment github-actions add][4] command.
+
+```bash
+az webapp deployment github-actions add --repo "<githubUser>/<githubRepo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+```
+
+The `--login-with-github` uses an interactive method of retrieving personal access token. Follow the prompts to complete the authentication.
+
+If there is an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file.
+
+What the command does:
+
+* Create new workflow file: .github/workflows/<workflow-name>.yml; the name of the file will contain the name of your App Service.
+* Fetch a publish profile with secrets for your App Service and add that as a GitHub as a secret with a name similar to AZUREAPPSERVICE_PUBLISHPROFILE_GUID that is referenced in the workflow file.
+
+**Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
+
+```bash
+az webapp deployment source show --name <app-service-name> --resource-group <resource-group-name>
+```
+
+## GitHub workflow and actions explained
+
+A workflow is defined by a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process that associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow.
+
+Each workflow is made up of one or more jobs. Each job in turn is a set of steps. And finally, each step is a shell script or an action.
+
+In terms of the workflow set up with your Python code for deployment to App Service, the workflow has the following actions:
+
+|Action|Description|
+|------|-----------|
+|[checkout][6]|Check out the repository on a *runner*, a GitHub Actions agent.|
+|[setup-python][7]|Install Python on the runner.|
+|[appservice-build][8]|Builds the web app.|
+|[webapps-deploy][9]|Deploys the web app using a publish profile credential to authenticate in Azure. The credential is stored in a [GitHub secret][10].|
+
+The workflow template that is used to create the workflow check [Azure/actions-workflow-samples][11].
+
+The workflow is triggered on push event to the specified branch, in this case main/master. The event is defined at the beginning of the workflow file.
+
+```yml
+on:
+  push:
+    branches:
+    - master
+```
+
 [1]: https://code.visualstudio.com/docs/python/tutorial-flask
 [2]: /cli/azure/webapp#az-webapp-up
 [3]: /cli/azure/webapp/config#az-webapp-config-set
+[4]: /cli/azure/webapp/deployment/github-actions#az-webapp-deployment-github-actions-add
+[5]: /cli/azure/webapp/deployment/source#az-webapp-deployment-source-show
+[6]: https://github.com/actions/checkout
+[7]: https://github.com/actions/setup-python
+[8]: https://github.com/azure/appservice-build
+[9]: https://github.com/azure/webapps-deploy
+[10]: https://docs.github.com/en/actions/reference/encrypted-secrets
+[11]: https://github.com/Azure/actions-workflow-samples/blob/master/AppService/python-webapp-on-azure.yml
