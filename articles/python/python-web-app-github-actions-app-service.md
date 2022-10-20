@@ -167,13 +167,31 @@ You can also kick off the workflow manually.
 
 To check a workflow's status, go to the Actions tab of the repo. If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
 
-* If your app fails because of a missing dependency, then your requirements.txt file was not processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the az webapp up command as shown in this article.
+* If your app fails because of a missing dependency, then your *requirements.txt* file was not processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
 
 * The `az webapp up` command specifically sets the build action SCM_DO_BUILD_DURING_DEPLOYMENT to true. If you provisioned the app service through the portal, however, this action is not automatically set.
 
 * If you see an error message with "TLS handshake timeout", run the workflow manually by selecting Trigger auto deployment under the Actions tab of the repo to see if the timeout is a temporary issue.
 
 * If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is initially created automatically for you. If you modified it, remove the modifications to see if they are causing the failure.
+
+## Run a post-deployment script
+
+A post-deployment script can, for example, define environment variables expected by the app code. Add the script as part of the app code and execute it using startup command.
+
+To avoid hard-coding specific variable values in your workflow YML file, you can instead define variables in the GitHub web interface and then refer to the variable name in the script. You can create encrypted secrets for a repository or for an environment (account repository). For more information, see [Encrypted secrets in GitHub Docs][13].
+
+## Considerations for Django
+
+As noted earlier in this article, you can use GitHub Actions to deploy Django apps to Azure App Service on Linux, if you're using a separate database. You can't use a SQLite database, because App Service locks the db.sqlite3 file, preventing both reads and writes. This behavior doesn't affect an external database.
+
+As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. If you want to customize the startup command in any way, use the StartupCommand parameter in the AzureWebApp@1 step of your YAML pipeline file, as described in the previous section.
+
+When using Django, you typically want to migrate the data models using manage.py migrate after deploying the app code. You can add startUpCommand with post-deployment script for this purpose:
+
+```yml
+startUpCommand: python3.7manage.pymigrate
+```
 
 [1]: https://code.visualstudio.com/docs/python/tutorial-flask
 [2]: /cli/azure/webapp#az-webapp-up
@@ -184,6 +202,8 @@ To check a workflow's status, go to the Actions tab of the repo. If there's a fa
 [7]: https://github.com/actions/setup-python
 [8]: https://github.com/azure/appservice-build
 [9]: https://github.com/azure/webapps-deploy
-[10]: https://docs.github.com/en/actions/reference/encrypted-secrets
+[10]: https://docs.github.com/actions/reference/encrypted-secrets
 [11]: https://github.com/Azure/actions-workflow-samples/blob/master/AppService/python-webapp-on-azure.yml
 [12]: /azure/app-service/deploy-github-actions
+[13]: https://docs.github.com/actions/security-guides/encrypted-secrets
+[14]: /azure/app-service/containers/how-to-configure-python#container-startup-process
