@@ -1285,6 +1285,10 @@
       {
         "source_path": "articles/python/tutorial-deploy-containers-05.md",
         "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+      },
+      {
+        "source_path": "articles/python/how-to-create-static-sites.md",
+        "redirect_url": "/azure/developer/python/index"
       }
     ]
   }
