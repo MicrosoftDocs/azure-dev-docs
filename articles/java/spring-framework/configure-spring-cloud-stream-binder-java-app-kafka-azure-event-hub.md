@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 # Use Spring Kafka with Azure Event Hubs
 
-This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Azure Event Hubs for Kafka](https://learn.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) sending and receiving messages with Azure Event Hubs.
+This article shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
 In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and Shared Access Signatures (SAS) authentication. The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
 
