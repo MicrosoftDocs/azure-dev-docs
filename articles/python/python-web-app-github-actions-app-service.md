@@ -122,6 +122,59 @@ on:
     - master
 ```
 
+### OAuth authorized apps
+
+When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under Integrations/Applications of your account.
+
+[IMAGE]
+
+### Workflow publish profile secret
+
+In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see a placeholder for publish profile credentials that are needed for the deploy job of the workflow. The publish profile information is stored encrypted in the repository **Settings**, under **Security/Actions**.
+
+[IMAGE]
+
+In this article, the GitHub Actions authenticates with a publish profile credential. There are other ways to authenticate such as with a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
+
+## Run the workflow
+
+Now you'll test the workflow by making a change to the repo.
+
+**Step 1.** Go to your fork of the sample repository (or the repository you used) and select the branch you set as the trigger.
+
+[IMAGE]
+
+For example, if you used the VS Code Flask tutorial, you can
+
+* Go to the /hello-app/templates/home.html file.
+* Select **Edit** and add the text "Redeployed!".
+
+**Step 3.** Commit the change directly to the branch you are working in.
+
+* On the bottom of the page you editing, select the **Commit** button.
+* The commit kicks off the GitHub Actions workflow.
+
+> [!NOTE]
+> We showed making a change directly in the main branch. In typical software workflows, you'll make a change in a branch other than main and then create a pull request (PR) to merge those change into main. PRs also kick off the workflow.
+
+You can also kick off the workflow manually.
+
+**Step 1.** Go to the **Actions** tab of the repo set up for continuous deployment.
+
+**Step 2.** Select the workflow in the list of workflows and then select **Run workflow**.
+
+### Troubleshooting a failed workflow
+
+To check a workflow's status, go to the Actions tab of the repo. If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
+
+* If your app fails because of a missing dependency, then your requirements.txt file was not processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the az webapp up command as shown in this article.
+
+* The `az webapp up` command specifically sets the build action SCM_DO_BUILD_DURING_DEPLOYMENT to true. If you provisioned the app service through the portal, however, this action is not automatically set.
+
+* If you see an error message with "TLS handshake timeout", run the workflow manually by selecting Trigger auto deployment under the Actions tab of the repo to see if the timeout is a temporary issue.
+
+* If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is initially created automatically for you. If you modified it, remove the modifications to see if they are causing the failure.
+
 [1]: https://code.visualstudio.com/docs/python/tutorial-flask
 [2]: /cli/azure/webapp#az-webapp-up
 [3]: /cli/azure/webapp/config#az-webapp-config-set
@@ -133,3 +186,4 @@ on:
 [9]: https://github.com/azure/webapps-deploy
 [10]: https://docs.github.com/en/actions/reference/encrypted-secrets
 [11]: https://github.com/Azure/actions-workflow-samples/blob/master/AppService/python-webapp-on-azure.yml
+[12]: /azure/app-service/deploy-github-actions
