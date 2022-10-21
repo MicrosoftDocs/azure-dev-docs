@@ -9,7 +9,7 @@ ms.prod: azure-python
 
 # Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux
 
-Use GitHub Actions continuous integration and continuous delivery (CI/CD) to deploy a Python web app to Azure App Service on Linux. Your GitHub Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other functionalities in your pipeline, such as test scripts, security checks, and multistages deployment.
+Use GitHub Actions continuous integration and continuous delivery (CI/CD) to deploy a Python web app to Azure App Service on Linux. Your GitHub Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other functionalities in your GitHub action workflow, such as test scripts, security checks, and multistages deployment.
 
 ## Create a repository for your app code
 
@@ -18,11 +18,11 @@ If you already have a Python web app to use, make sure it's committed to a GitHu
 If you need an app to work with, you can fork and clone the repository at https://github.com/Microsoft/python-sample-vscode-flask-tutorial. The code is from the tutorial [Flask in Visual Studio Code][1].
 
 > [!NOTE]
-> If your app uses Django and a SQLite database, it won't work for this tutorial. For more information, see considerations for Django later in this article. If your Django app uses a separate database, you can use it with this tutorial.
+> If your app uses Django and a SQLite database, it won't work for this tutorial. If your Django app uses a separate database like PostgreSQL, you can use it with this tutorial. For more information about Django, see [considerations for Django](#considerations-for-django) later in this article.
 
 ## Create the target Azure App Service
 
-The quickest way to create an App Service instance is to use the Azure command-line interface (CLI) through the interactive Azure Cloud Shell. In the following steps, you use [az webapp up][2] to both create the App Service and do the first deployment of your app.
+The quickest way to create an App Service instance is to use the [Azure command-line interface][16] (CLI) through the interactive Azure Cloud Shell. In the following steps, you'll use [az webapp up][2] to both create the App Service and do the first deployment of your app. You'll use the CLI command in an [Azure Cloud Shell][17], which has the CLI installed and can be accessed in a browser.
 
 **Step 1.** Sign in to the Azure portal at https://portal.azure.com.
 
@@ -242,3 +242,5 @@ If you delete the resource group, you can also make the following modifications 
 [13]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [14]: /azure/app-service/containers/how-to-configure-python#container-startup-process
 [15]: /cli/azure/webapp/deployment/github-actions#az-webapp-deployment-github-actions-remove
+[16]: /cli/azure/what-is-azure-cli
+[17]: /azure/cloud-shell/overview
