@@ -34,24 +34,24 @@ The quickest way to create an App Service instance is to use the [Azure command-
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-bash.png" alt-text="Screenshot showing an Azure Cloud Shell Bash shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-bash.png":::
 
-**Step 4.** In the Cloud Shell, clone your repository using git clone. For the example app, use:
+**Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For the example app, use:
 
 ```bash
 git clone https://github.com/<your-alias>/python-sample-vscode-flask-tutorial
 ```
 
-Replace \<your-alias> with the name of the GitHub account where you'll set up GitHub Actions. If you used the VS Code Flask tutorial, this is the account where you forked the the tutorial repository.
+Replace \<your-alias> with the name of the GitHub account where you forked the repo. If you are using a different repository, this is where you'll set up GitHub actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
 
-**Step 5.** In the Cloud Shell, change directories into the repository folder that has your Python app, so the az webapp up command will recognize the app as Python.
+**Step 5.** In the Cloud Shell, change directory into the repository folder that has your Python app, so the [az webapp up][2] command will recognize the app as Python. For the example app:
 
 ```bash
 cd python-sample-vscode-flask-tutorial
 ```
 
-**Step 6.** In the Cloud Shell, use az webapp up to create an App Service and initially deploy your app.
+**Step 6.** In the Cloud Shell, use [az webapp up][2] to create an App Service and initially deploy your app.
 
 ```bash
 az webapp up -n <app-service-name>
@@ -63,13 +63,13 @@ az webapp up -n <app-service-name>
 **Step 7.** If your app uses a custom startup command, set the [az webapp config][3] property. For example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains its specific startup command, so you set the `az webapp config` property to *startup.txt*.
 
 * From the first line of output from the previous `az webapp up` command, copy the name of your resource group, which is similar to *\<your-name>_rg_<random_numbers>*.
-* Enter the following command, using your resource group name, your app service name (*\<your-appservice>*), and your startup file or command (*startup.txt*).
+* Enter the following command, using your resource group name, your app service name, and your startup file or command (*startup.txt*).
 
 ```bash
 az webapp config set -g <resource-group-name> -n <app-service-name> --startup-file <startup-file-or-command>
 ```
 
-**Step 8.** To see the running app, open a browser and go to *http://\<your-appservice>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
+**Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
 
 ## Set up continuous deployment in App Service 
 
@@ -244,3 +244,4 @@ If you delete the resource group, you can also make the following modifications 
 [15]: /cli/azure/webapp/deployment/github-actions#az-webapp-deployment-github-actions-remove
 [16]: /cli/azure/what-is-azure-cli
 [17]: /azure/cloud-shell/overview
+[18]: https://git-scm.com/docs/git-clone
