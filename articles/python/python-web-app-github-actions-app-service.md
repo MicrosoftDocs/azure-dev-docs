@@ -78,7 +78,12 @@ In the steps below, you'll set up continuous deployment (CD), which means a new 
 **Step 1.** Add GitHub Action with the [az webapp deployment github-actions add][4] command.
 
 ```bash
-az webapp deployment github-actions add --repo "<github-user>/<github-repo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+az webapp deployment github-actions add \
+  --repo "<github-user>/<github-repo>" \
+  --resource-group <resource-group-name> \
+  --branch <branch-name> \
+  --name <app-service-name> \
+  --login-with-github
 ```
 
 The `--login-with-github` uses an interactive method to retrieves a personal access token. Follow the prompts to complete the authentication.
@@ -93,7 +98,9 @@ What the command does:
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
 ```bash
-az webapp deployment source show --name <app-service-name> --resource-group <resource-group-name>
+az webapp deployment source show \
+  --name <app-service-name> \
+  --resource-group <resource-group-name>
 ```
 
 ## GitHub workflow and actions explained
@@ -190,7 +197,7 @@ As described in the article [Configure Python app on App Service - Container sta
 When using Django, you typically want to migrate the data models using manage.py migrate after deploying the app code. You can add startUpCommand with post-deployment script for this purpose:
 
 ```yml
-startUpCommand: python3.7manage.pymigrate
+startUpCommand: python3.7 manage.py migrate
 ```
 
 ## Disconnect GitHub Actions
@@ -200,7 +207,12 @@ Disconnecting GitHub Actions from your App Service allows you to reconfigure the
 Disconnecting with Azure CLI [az webapp deployment github-actions remote][15] command.
 
 ```bash
-az webapp deployment github-actions remote --repo "<github-user>/<github-repo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+az webapp deployment github-actions remote \
+  --repo "<github-user>/<github-repo>" \
+  --resource-group <resource-group-name> \
+  --branch <branch-name> \
+  --name <app-service-name> \
+  --login-with-github
 ```
 
 ## Clean up resources
