@@ -11,6 +11,8 @@ groups:
     title: Python
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-java
+    title: Java
 - id: azd-devenv-set
   title: Development environment
   prompt: Choose a development environment

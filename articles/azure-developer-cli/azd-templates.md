@@ -3,7 +3,7 @@ title: Azure Developer CLI templates (preview)
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/19/2022
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -26,6 +26,7 @@ As part of Azure Developer CLI preview, we’ve authored an initial set of templ
 - Python
 - JavaScript/TypeScript
 - C#
+- Java
 
 Each template was written for hosts such as:
 
@@ -72,8 +73,16 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 
 | Template      | App host | Tech stack	 | 
 | ----------- | ----------| ----------- | 
-| [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep | 
-| [Todo C# Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
+| [ToDo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep | 
+| [ToDo C# Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
+
+
+### [Java](#tab/java)
+
+| Template      | App host | Tech stack	 | 
+| ----------- | ----------| ----------- | 
+| [ToDo Java Mongo](https://github.com/Azure-Samples/todo-java-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
+| [ToDo Java Mongo ACA](https://github.com/Azure-Samples/todo-java-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
 
 ---
 

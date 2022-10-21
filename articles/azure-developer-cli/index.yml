@@ -64,6 +64,8 @@ landingContent:
             url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
           - text: ToDo C# Azure SQL Database
             url: https://github.com/azure-samples/todo-csharp-sql
+          - text: ToDo Java Mongo Database
+            url: https://github.com/azure-samples/todo-csharp-sql
           - text: ToDo NodeJs Mongo (Terraform)
             url: https://github.com/azure-samples/todo-nodejs-mongo-terraform
           - text: ToDo Python Mongo (Terraform)
