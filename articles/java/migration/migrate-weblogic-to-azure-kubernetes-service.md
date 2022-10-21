@@ -159,7 +159,7 @@ If your application is using local EJB, you'll need to migrate them to clustered
 
 ### Account for load-balancing requirements
 
-The best way to account for load balancing is to use the App Gateway integration provided by the built-in Azure Marketplace offer. For more information, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
+The best way to account for load balancing is to use the App Gateway integration provided by the built-in Azure Marketplace offer. For more information, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](./migrate-weblogic-with-app-gateway.md).
 
 ### Determine whether the Java EE Application Client feature is used
 

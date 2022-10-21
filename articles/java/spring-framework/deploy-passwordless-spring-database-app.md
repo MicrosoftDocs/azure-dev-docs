@@ -23,7 +23,7 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 
 ## Prerequisites
 
-- [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install).
+- [JDK 8 or JDK 11](../fundamentals/java-jdk-install.md).
 - An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above required.
 - The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.

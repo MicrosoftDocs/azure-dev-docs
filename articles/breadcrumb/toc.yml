@@ -134,6 +134,12 @@
     - name: Python
       tocHref: /azure/azure-monitor
       topicHref: /azure/developer/python/index
+    - name: Python
+      tocHref: /azure/storage/blobs
+      topicHref: /azure/developer/python/index
+    - name: Python
+      tocHref: /azure/static-web-apps/getting-started
+      topicHref: /azure/developer/python/index
     - name: Mobile Apps
       tocHref: /azure/developer/mobile-apps
       topicHref: /azure/developer/mobile-apps/index

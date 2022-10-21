@@ -12,8 +12,6 @@ Azure Active Directory (Azure AD) along with Azure Key Vault provide a comprehen
 
 After providing some background, this walkthrough explains these authentication features in the context of the sample, [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication).
 
-For convenience, the sample is already deployed to Azure as [msdocs-example-main-app.azurewebsites.net](https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode) so you can see it in operation. Should you want to deploy the sample to your own Azure subscription, the repository also includes Azure CLI deployment scripts.
-
 ## Part 1: Background
 
 Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Cognitive Services, Key Vault, and Event Hubs.

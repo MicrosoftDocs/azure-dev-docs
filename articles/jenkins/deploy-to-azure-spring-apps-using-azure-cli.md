@@ -260,7 +260,7 @@ Before running the job, edit the text in the login input box to **enter login ID
 
 After the job is complete, navigate to the public IP of the `gateway` application and verify that your application has been updated.
 
-![Updated Piggy Metrics](./media/deploy-to-azure-spring-cloud-using-azure-cli/piggymetrics.png)
+![Updated Piggy Metrics](./media/deploy-to-azure-spring-apps-using-azure-cli/piggymetrics.png)
 
 ## Clean up resources
 
