@@ -223,13 +223,13 @@ To delete the resource group from the Azure portal, find the resources by search
 
 ---
 
-To delete the storage account that maintains the file system for Cloud Shell, which incurs a small monthly charge, delete the resource group that begins with *cloud-shell-storage-*.
+To delete the storage account that maintains the file system for Cloud Shell, which incurs a small monthly charge, delete the resource group that begins with *cloud-shell-storage-*. If you are the only user of the group, it's safe to delete the resource group. If there are other users, you can delete the storage account from the resource group.
 
-If you deleted the Azure resource group, consider also make the following modifications to your repo that was connected for continuous deployment:
+If you deleted the Azure resource group, consider also make the following modifications to the account and repo that was connected for continuous deployment:
 
-* In your repository, remove the *.github/workflows/\<workflow-name>.yml* file.
-* In your repository settings, remove the AZUREAPPSERVICE_PUBLISHPROFILE_ secret key created for the workflow.
-* In your GitHub account settings, remove Azure App Service as an authorized Oauth App for your GitHub account.
+* In the repository, remove the *.github/workflows/\<workflow-name>.yml* file.
+* In the repository settings, remove the AZUREAPPSERVICE_PUBLISHPROFILE_ secret key created for the workflow.
+* In the GitHub account settings, remove Azure App Service as an authorized Oauth App for your GitHub account.
 
 [1]: https://code.visualstudio.com/docs/python/tutorial-flask
 [2]: /cli/azure/webapp#az-webapp-up
