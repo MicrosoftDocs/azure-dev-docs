@@ -88,7 +88,7 @@ If there's an existing workflow file that conflicts with the name App Service us
 What the command does:
 
 * Creates new workflow file: *.github/workflows/\<workflow-name>.yml*; the name of the file will contain the name of your App Service.
-* Fetches a publish profile with secrets for your App Service and add it as a GitHub as a secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE. This secret is referenced in the workflow file.
+* Fetches a publish profile with secrets for your App Service and add it as a GitHub as a secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE_. This secret is referenced in the workflow file.
 
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
@@ -193,6 +193,40 @@ When using Django, you typically want to migrate the data models using manage.py
 startUpCommand: python3.7manage.pymigrate
 ```
 
+## Disconnect GitHub Actions
+
+Disconnecting GitHub Actions from your App Service allows you to reconfigure the app deployment. You can choose what happens to your workflow file after you disconnect, whether to save or delete the file.
+
+Disconnecting with Azure CLI [az webapp deployment github-actions remote][15] command.
+
+```bash
+az webapp deployment github-actions remote --repo "<githubUser>/<githubRepo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+```
+
+## Clean up resources
+
+To avoid incurring charges on the Azure resources created in this tutorial, delete the resource group that contains the App Service and the App Service Plan.
+
+### [Azure CLI](#tab/azure-cli-clean)
+
+Anywhere the Azure CLI is installed including the Azure Cloud Shell.
+
+You can also use az group delete in the Cloud Shell to delete resource groups.
+
+### [Azure portal](#tab/azure-portal-clean)
+
+To delete the resource group from the Azure portal, select Resource groups in the left navigation. In the resource group list, select the ... to the right of the resource group you want to delete, select Delete resource group, and follow the prompts.
+
+---
+
+To delete the storage account that maintains the file system for Cloud Shell, which incurs a small monthly charge, delete the resource group that begins with cloud-shell-storage-.
+
+If you delete the resource group, you can also make the following modifications to your repo that was connected for continuous deployment:
+
+* In your repository, remove the *.github/workflows/\<workflow-name>.yml* file.
+* In your repository settings, remove the AZUREAPPSERVICE_PUBLISHPROFILE_ secret key created for the workflow.
+* In your GitHub account settings, remove Azure App Service as an authorized Oauth App for your GitHub account.
+
 [1]: https://code.visualstudio.com/docs/python/tutorial-flask
 [2]: /cli/azure/webapp#az-webapp-up
 [3]: /cli/azure/webapp/config#az-webapp-config-set
@@ -207,3 +241,4 @@ startUpCommand: python3.7manage.pymigrate
 [12]: /azure/app-service/deploy-github-actions
 [13]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [14]: /azure/app-service/containers/how-to-configure-python#container-startup-process
+[15]: /cli/azure/webapp/deployment/github-actions#az-webapp-deployment-github-actions-remove
