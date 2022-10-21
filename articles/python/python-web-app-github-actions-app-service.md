@@ -9,7 +9,7 @@ ms.prod: azure-python
 
 # Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux
 
-Use GitHub Actions continuous integration and continuous delivery (CI/CD) to deploy a Python web app to Azure App Service on Linux. Your Github Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other functionalities in your pipeline, such as test scripts, security checks, and multistages deployment.
+Use GitHub Actions continuous integration and continuous delivery (CI/CD) to deploy a Python web app to Azure App Service on Linux. Your GitHub Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other functionalities in your pipeline, such as test scripts, security checks, and multistages deployment.
 
 ## Create a repository for your app code
 
@@ -20,9 +20,9 @@ If you need an app to work with, you can fork and clone the repository at https:
 > [!NOTE]
 > If your app uses Django and a SQLite database, it won't work for this tutorial. For more information, see considerations for Django later in this article. If your Django app uses a separate database, you can use it with this tutorial.
 
-## Provision the target Azure App Service
+## Create the target Azure App Service
 
-The quickest way to create an App Service instance is to use the Azure command-line interface (CLI) through the interactive Azure Cloud Shell. In the following steps, you use [az webapp up][2] to both provision the App Service and do the first deployment of your app.
+The quickest way to create an App Service instance is to use the Azure command-line interface (CLI) through the interactive Azure Cloud Shell. In the following steps, you use [az webapp up][2] to both create the App Service and do the first deployment of your app.
 
 **Step 1.** Sign in to the Azure portal at https://portal.azure.com.
 
@@ -83,12 +83,12 @@ az webapp deployment github-actions add --repo "<githubUser>/<githubRepo>" -g <r
 
 The `--login-with-github` uses an interactive method of retrieving personal access token. Follow the prompts to complete the authentication.
 
-If there is an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file.
+If there's an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file.
 
 What the command does:
 
 * Creates new workflow file: *.github/workflows/\<workflow-name>.yml*; the name of the file will contain the name of your App Service.
-* Fetches a publish profile with secrets for your App Service and add that as a GitHub as a secret with a name similar to AZUREAPPSERVICE_PUBLISHPROFILE_GUID that is referenced in the workflow file.
+* Fetches a publish profile with secrets for your App Service and add it as a GitHub as a secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE. This secret is referenced in the workflow file.
 
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
@@ -124,7 +124,7 @@ on:
 
 ### OAuth authorized apps
 
-When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under Integrations/Applications of your account.
+When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub action YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under Integrations/Applications of your account.
 
 [IMAGE]
 
@@ -134,7 +134,7 @@ In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to 
 
 [IMAGE]
 
-In this article, the GitHub Actions authenticates with a publish profile credential. There are other ways to authenticate such as with a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
+In this article, the GitHub action authenticates with a publish profile credential. There are other ways to authenticate such as with a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
 
 ## Run the workflow
 
@@ -149,10 +149,10 @@ For example, if you used the VS Code Flask tutorial, you can
 * Go to the /hello-app/templates/home.html file.
 * Select **Edit** and add the text "Redeployed!".
 
-**Step 3.** Commit the change directly to the branch you are working in.
+**Step 3.** Commit the change directly to the branch you're working in.
 
 * On the bottom of the page you editing, select the **Commit** button.
-* The commit kicks off the GitHub Actions workflow.
+* The commit kicks off the GitHub action workflow.
 
 > [!NOTE]
 > We showed making a change directly in the main branch. In typical software workflows, you'll make a change in a branch other than main and then create a pull request (PR) to merge those change into main. PRs also kick off the workflow.
@@ -167,19 +167,19 @@ You can also kick off the workflow manually.
 
 To check a workflow's status, go to the Actions tab of the repo. If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
 
-* If your app fails because of a missing dependency, then your *requirements.txt* file was not processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
+* If your app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
 
-* The `az webapp up` command specifically sets the build action SCM_DO_BUILD_DURING_DEPLOYMENT to true. If you provisioned the app service through the portal, however, this action is not automatically set.
+* The `az webapp up` command specifically sets the build action SCM_DO_BUILD_DURING_DEPLOYMENT to true. If you provisioned the app service through the portal, however, this action isn't automatically set.
 
 * If you see an error message with "TLS handshake timeout", run the workflow manually by selecting Trigger auto deployment under the Actions tab of the repo to see if the timeout is a temporary issue.
 
-* If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is initially created automatically for you. If you modified it, remove the modifications to see if they are causing the failure.
+* If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is initially created automatically for you. If you modified it, remove the modifications to see if they're causing the failure.
 
 ## Run a post-deployment script
 
 A post-deployment script can, for example, define environment variables expected by the app code. Add the script as part of the app code and execute it using startup command.
 
-To avoid hard-coding specific variable values in your workflow YML file, you can instead define variables in the GitHub web interface and then refer to the variable name in the script. You can create encrypted secrets for a repository or for an environment (account repository). For more information, see [Encrypted secrets in GitHub Docs][13].
+To avoid hard-coding variable values in your workflow YML file, you can instead them in the GitHub web interface and then refer to the variable name in the script. You can create encrypted secrets for a repository or for an environment (account repository). For more information, see [Encrypted secrets in GitHub Docs][13].
 
 ## Considerations for Django
 

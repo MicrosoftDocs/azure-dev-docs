@@ -48,11 +48,11 @@
         href: configure-python-web-app-local-environment.md
       - name: Configure a startup file
         href: configure-python-web-app-on-app-service.md
-    - name: Set up CI/CD
+    - name: CI/CD with App Service
       items:
-      - name: GitHub Actions with App Service
+      - name: GitHub Actions
         href: python-web-app-github-actions-app-service.md
-      - name: Azure Pipelines with App Service
+      - name: Azure Pipelines
         href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Add sign in
       href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
