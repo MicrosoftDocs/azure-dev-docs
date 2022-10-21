@@ -41,7 +41,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql
 ```
 
 > [!NOTE]
-> Spring Cloud Azure currently supports passwordless connections only in version `4.5.0-beta.1`. If you want to use passwordless connections, be sure to specify the version as `4.5.0-beta.1`.
+> Spring Cloud Azure currently supports passwordless connections only in version `4.5.0-beta.1`. If you want to use passwordless connections, be sure to specify the version as `4.5.0-beta.1`. For more information, see [PostgreSQL Reference Doc](spring-cloud-azure.md?tabs=maven#postgresql-support)
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
@@ -52,8 +52,8 @@ Open the *src/main/resources/application.properties* file, and add the following
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 spring.datasource.azure.passwordless-enabled=true
 
 spring.jpa.show-sql=true
@@ -66,8 +66,8 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 spring.datasource.password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
 
 spring.jpa.show-sql=true
