@@ -62,7 +62,7 @@ az webapp up -n <app-service-name>
 
 **Step 7.** If your app uses a custom startup command, set the [az webapp config][3] property. For example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains its specific startup command, so you set the `az webapp config` property to *startup.txt*.
 
-* From the first line of output from the previous `az webapp up` command, copy the name of your resource group, which is similar to *\<your-name>_rg_<random_numbers>*.
+* From the first line of output from the previous `az webapp up` command, copy the name of your resource group, which is similar to *\<your-name>\_rg\_<random_numbers>*.
 * Enter the following command, using your resource group name, your app service name, and your startup file or command (*startup.txt*).
 
 ```bash
