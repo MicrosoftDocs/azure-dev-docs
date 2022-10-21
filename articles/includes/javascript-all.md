@@ -163,6 +163,7 @@
 | Resource Management - Domain Services | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-domainservices/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-domainservices-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/domainservices/arm-domainservices) |
 | Resource Management - Dynatrace | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Education | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.2/sdk/education/arm-education/) |
+| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsan/arm-elasticsan/) |
 | Resource Management - Event Grid | npm [14.0.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.0.0) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extendedlocation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.2/sdk/extendedlocation/arm-extendedlocation/) |
@@ -270,7 +271,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221020.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221020.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221021.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221021.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -534,7 +535,7 @@
 | Speech | npm [1.14.1](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk/v/1.14.1) | [docs](/javascript/api/overview/azure/microsoft-cognitiveservices-speech-sdk-readme) |  |
 | Spell Check | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-spellcheck/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-spellcheck) |
 | Storage | npm [2.10.3](https://www.npmjs.com/package/azure-storage/v/2.10.3) |  |  |
-| Stream Analytics CI/CD | npm [2.3.2](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/2.3.2) |  |  |
+| Stream Analytics CI/CD | npm [2.4.0](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/2.4.0) |  |  |
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
 | Tables | npm [13.2.0](https://www.npmjs.com/package/@azure/data-tables/v/13.2.0) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.2.0/sdk/tables/data-tables/) |
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [6.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/) |
@@ -639,6 +640,7 @@
 | Resource Management - Dynatrace | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Edge Gateway | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-edgegateway/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/edgegateway/arm-edgegateway) |
 | Resource Management - Education | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.2/sdk/education/arm-education/) |
+| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsan/arm-elasticsan/) |
 | Resource Management - Event Grid | npm [14.0.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.0.0) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extendedlocation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.2/sdk/extendedlocation/arm-extendedlocation/) |
