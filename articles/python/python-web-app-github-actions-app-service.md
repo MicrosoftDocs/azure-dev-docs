@@ -91,7 +91,7 @@ az webapp deployment github-actions add \
 
 The `--login-with-github` uses an interactive method to retrieves a personal access token. Follow the prompts to complete the authentication.
 
-If there's an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file.
+If there's an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file. If you don't use the `--force` option, you'll be asked to choose to overwrite.
 
 What the command does:
 
@@ -156,16 +156,13 @@ Now you'll test the workflow by making a change to the repo.
 
 For example, if you used the VS Code Flask tutorial, you can
 
-* Go to the /hello-app/templates/home.html file.
+* Go to the /hello-app/templates/home.html file of the branch the GitHub action is set up for.
 * Select **Edit** and add the text "Redeployed!".
 
 **Step 3.** Commit the change directly to the branch you're working in.
 
 * On the bottom of the page you editing, select the **Commit** button.
 * The commit kicks off the GitHub action workflow.
-
-> [!NOTE]
-> We showed making a change directly in the main branch. In typical software workflows, you'll make a change in a branch other than main and then create a pull request (PR) to merge those change into main. PRs also kick off the workflow.
 
 You can also kick off the workflow manually.
 
