@@ -200,7 +200,7 @@ Disconnecting GitHub Actions from your App Service allows you to reconfigure the
 Disconnecting with Azure CLI [az webapp deployment github-actions remote][15] command.
 
 ```bash
-az webapp deployment github-actions remote --repo "<githubUser>/<githubRepo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+az webapp deployment github-actions remote --repo "<github-user>/<github-repo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
 ```
 
 ## Clean up resources
