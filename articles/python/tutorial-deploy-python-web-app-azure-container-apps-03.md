@@ -342,10 +342,10 @@ If you plan on building on this tutorial, here are some next steps you can take.
 [17]: https://github.com/
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
-[20]: /azure/developer/github/github-actions
+[20]: ../github/github-actions.md
 [21]: /azure/active-directory/fundamentals/service-accounts-principal
 [22]: /azure/container-apps/scale-app
 [23]: /azure/container-apps/custom-domains-certificates
 [24]: /azure/container-apps/monitor
-[25]: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-05
+[25]: ./tutorial-containerize-deploy-python-web-app-azure-05.md
 [26]: /cli/azure/containerapp/logs#az-containerapp-logs-show

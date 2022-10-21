@@ -27,21 +27,21 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 ### Inspect application components
 
-[!INCLUDE [identify-local-state](includes/identify-local-state-azure-spring-cloud.md)]
+[!INCLUDE [identify-local-state-azure-spring-apps](includes/identify-local-state-azure-spring-apps.md)]
 
-[!INCLUDE [static-content-azure-spring-cloud](includes/determine-whether-and-how-the-file-system-is-used-azure-spring-cloud.md)]
+[!INCLUDE [static-content-azure-spring-apps](includes/determine-whether-and-how-the-file-system-is-used-azure-spring-apps.md)]
 
 #### Determine whether any of the services contain OS-specific code
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
-[!INCLUDE [switch-to-a-supported-platform-azure-spring-cloud](includes/switch-to-a-supported-platform-azure-spring-cloud.md)]
+[!INCLUDE [switch-to-a-supported-platform-azure-spring-apps](includes/switch-to-a-supported-platform-azure-spring-apps.md)]
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
 For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
 
-[!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
+[!INCLUDE [identify-logs-metrics-apm-azure-spring-apps](includes/identify-logs-metrics-apm-azure-spring-apps.md)]
 
 ### Inventory external resources
 
@@ -55,7 +55,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
+[!INCLUDE [identify-external-caches-azure-spring-apps](includes/identify-external-caches-azure-spring-apps.md)]
 
 [!INCLUDE [inventory-identity-providers-spring-boot.md](includes/inventory-identity-providers-spring-boot.md)]
 
@@ -73,8 +73,8 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ## Migration
 
-[!INCLUDE [migrate-steps-spring-boot-azure-spring-cloud](includes/migrate-steps-spring-boot-azure-spring-cloud.md)]
+[!INCLUDE [migrate-steps-spring-boot-azure-spring-apps](includes/migrate-steps-spring-boot-azure-spring-apps.md)]
 
 ## Post-migration
 
-[!INCLUDE [post-migration-spring-boot-azure-spring-cloud](includes/post-migration-spring-boot-azure-spring-cloud.md)]
+[!INCLUDE [post-migration-spring-boot-azure-spring-apps](includes/post-migration-spring-boot-azure-spring-apps.md)]

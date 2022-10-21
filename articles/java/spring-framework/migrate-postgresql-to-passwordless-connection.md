@@ -155,7 +155,7 @@ Next, create a non-admin Azure AD user and grant all permissions on the `$AZ_DAT
 Create a SQL script called *create_ad_user_local.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-cat << EOF > create_ad_user.sql
+cat << EOF > create_ad_user_local.sql
 SET aad_validate_oids_in_tenant = off;
 CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
 GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
@@ -299,7 +299,7 @@ You can also enable managed identity on an Azure hosting environment by using th
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Spring Apps
 - Azure Container Apps
 
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
