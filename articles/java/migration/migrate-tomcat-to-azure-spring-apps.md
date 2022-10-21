@@ -60,7 +60,7 @@ Certain production scenarios may require additional changes or impose additional
 
 Inspect the application's *web.xml* file for any [configured filters](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#Expires_Filter/Basic_configuration_sample).
 
-[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud.md)]
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps.md)]
 
 #### Determine whether non-HTTP connectors are used
 
@@ -139,8 +139,8 @@ The following table shows a summary of necessary migrations and code changes to 
 
 Test the application by running `mvn spring-boot:run`. Verify that the resulting application runs with full functionality before proceeding.
 
-[!INCLUDE [migrate-steps-spring-boot-azure-spring-cloud](includes/migrate-steps-spring-boot-azure-spring-cloud.md)]
+[!INCLUDE [migrate-steps-spring-boot-azure-spring-apps](includes/migrate-steps-spring-boot-azure-spring-apps.md)]
 
 ## Post-migration
 
-[!INCLUDE [post-migration-spring-boot-azure-spring-cloud](includes/post-migration-spring-boot-azure-spring-cloud.md)]
+[!INCLUDE [post-migration-spring-boot-azure-spring-apps](includes/post-migration-spring-boot-azure-spring-apps.md)]

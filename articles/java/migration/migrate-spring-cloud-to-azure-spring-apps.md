@@ -29,13 +29,13 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 ### Inspect application components
 
-[!INCLUDE [determine-whether-and-how-the-file-system-is-used-azure-spring-cloud](includes/determine-whether-and-how-the-file-system-is-used-azure-spring-cloud.md)]
+[!INCLUDE [determine-whether-and-how-the-file-system-is-used-azure-spring-apps](includes/determine-whether-and-how-the-file-system-is-used-azure-spring-apps.md)]
 
 #### Determine whether any of the services contain OS-specific code
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
-[!INCLUDE [switch-to-a-supported-platform-azure-spring-cloud](includes/switch-to-a-supported-platform-azure-spring-cloud.md)]
+[!INCLUDE [switch-to-a-supported-platform-azure-spring-apps](includes/switch-to-a-supported-platform-azure-spring-apps.md)]
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
@@ -68,7 +68,7 @@ ext {
 
 You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
 
-[!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
+[!INCLUDE [identify-logs-metrics-apm-azure-spring-apps.md](includes/identify-logs-metrics-apm-azure-spring-apps.md)]
 
 #### Identify Zipkin dependencies
 
@@ -89,7 +89,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
+[!INCLUDE [identify-external-caches-azure-spring-apps](includes/identify-external-caches-azure-spring-apps.md)]
 
 #### Identity providers
 
@@ -155,9 +155,9 @@ Configure the configuration server in your Azure Spring Apps instance. For more 
 > [!NOTE]
 > If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
 
-[!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
+[!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps.md)]
 
-[!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
+[!INCLUDE [configure-persistent-storage-azure-spring-apps](includes/configure-persistent-storage-azure-spring-apps.md)]
 
 ::: zone-end
 

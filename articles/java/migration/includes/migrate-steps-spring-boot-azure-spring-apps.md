@@ -8,11 +8,11 @@ ms.date: 8/25/2020
 
 Provision an Azure Spring Apps instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/quickstart).
 
-[!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
+[!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps](ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps.md)]
 
-[!INCLUDE [configure-persistent-storage-azure-spring-cloud](configure-persistent-storage-azure-spring-cloud.md)]
+[!INCLUDE [configure-persistent-storage-azure-spring-apps](configure-persistent-storage-azure-spring-apps.md)]
 
-[!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-cloud](migrate-all-certificates-to-keyvault-azure-spring-cloud.md)]
+[!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-apps](migrate-all-certificates-to-keyvault-azure-spring-apps.md)]
 
 ### Remove application performance management (APM) integrations
 
