@@ -22,7 +22,7 @@ ms.service: azure-dev-cli
 ## Property descriptions
 
 | Element Name | Required | Description |
-| --- | --- | --- | 
+| ------------ | -------- | ----------- | 
 | `name` | Y | _(string)_ Name of the application. |
 | `resourceGroup` | N | _(string)_ Name of the Azure resource group. When specified, will override the resource group name used for infrastructure provisioning. |
 | `metadata` | N | _(object)_ [Can contain additional properties](#metadata-properties). |
