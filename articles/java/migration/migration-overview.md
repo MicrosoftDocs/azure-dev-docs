@@ -171,9 +171,9 @@ Use the rows below to find your Java EE application type running on a specific a
 [12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [14]: migrate-spring-boot-to-azure-kubernetes-service.md
-[15]: migrate-spring-cloud-to-azure-spring-cloud.md
-[16]: migrate-spring-boot-to-azure-spring-cloud.md
-[17]: migrate-tomcat-to-azure-spring-cloud.md
+[15]: migrate-spring-cloud-to-azure-spring-apps.md
+[16]: migrate-spring-boot-to-azure-spring-apps.md
+[17]: migrate-tomcat-to-azure-spring-apps.md
 [18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
 [19]: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
 [20]: migrate-websphere-to-jboss-eap-on-azure-app-service.md

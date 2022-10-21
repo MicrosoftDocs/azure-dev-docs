@@ -364,7 +364,7 @@ When using Service Connector, it can help to create the system-assigned managed 
 The following compute services are currently supported:
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Spring Apps
 - Azure Container Apps
 
 For this migration guide, you'll use App Service, but the steps are similar for Azure Spring Apps and Azure Container Apps.

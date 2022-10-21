@@ -240,7 +240,7 @@ You can inject any per-service configuration settings into each service as envir
 1. Enter the variables to configure.
 1. Select **Save**.
 
-![Spring Cloud App Configuration Settings](media/migrate-spring-cloud-to-azure-spring-cloud/spring-cloud-app-configuration-settings.png)
+![Spring Cloud App Configuration Settings](media/migrate-spring-cloud-to-azure-spring-apps/spring-cloud-app-configuration-settings.png)
 
 ### Migrate and enable the identity provider
 

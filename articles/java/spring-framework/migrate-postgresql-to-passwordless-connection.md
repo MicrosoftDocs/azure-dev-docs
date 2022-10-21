@@ -299,7 +299,7 @@ You can also enable managed identity on an Azure hosting environment by using th
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Spring Apps
 - Azure Container Apps
 
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
