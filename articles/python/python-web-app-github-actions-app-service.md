@@ -37,10 +37,10 @@ The quickest way to create an App Service instance is to use the [Azure command-
 **Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For the example app, use:
 
 ```bash
-git clone https://github.com/<your-alias>/python-sample-vscode-flask-tutorial
+git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial
 ```
 
-Replace \<your-alias> with the name of the GitHub account where you forked the repo. If you are using a different repository, this is where you'll set up GitHub actions.
+Replace \<github-user> with the name of the GitHub account where you forked the repo. If you are using a different repository, this is where you'll set up GitHub actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
@@ -71,17 +71,17 @@ az webapp config set -g <resource-group-name> -n <app-service-name> --startup-fi
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
 
-## Set up continuous deployment in App Service 
+## Set up continuous deployment in App Service
 
 In the steps below, you'll set up continuous deployment (CD), which means a new code deployment happens when a trigger is fired. The trigger in this tutorial is any change to the main branch of your repository, such as with a pull request (PR).
 
 **Step 1.** Add GitHub Action with the [az webapp deployment github-actions add][4] command.
 
 ```bash
-az webapp deployment github-actions add --repo "<githubUser>/<githubRepo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
+az webapp deployment github-actions add --repo "<github-user>/<github-repo>" -g <resource-group-name> -b <branch-name> -n <app-service-name> --login-with-github
 ```
 
-The `--login-with-github` uses an interactive method of retrieving personal access token. Follow the prompts to complete the authentication.
+The `--login-with-github` uses an interactive method to retrieves a personal access token. Follow the prompts to complete the authentication.
 
 If there's an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file.
 
@@ -209,13 +209,17 @@ To avoid incurring charges on the Azure resources created in this tutorial, dele
 
 ### [Azure CLI](#tab/azure-cli-clean)
 
-Anywhere the Azure CLI is installed including the Azure Cloud Shell.
+Anywhere the Azure CLI is installed including the Azure Cloud Shell, you can use the [az group delete][19] command to delete the resource group.
 
-You can also use az group delete in the Cloud Shell to delete resource groups.
+```bash
+az group delete --name <resource-group-name>
+```
 
 ### [Azure portal](#tab/azure-portal-clean)
 
-To delete the resource group from the Azure portal, select Resource groups in the left navigation. In the resource group list, select the ... to the right of the resource group you want to delete, select Delete resource group, and follow the prompts.
+To delete the resource group from the Azure portal, find the resources by searching for it's name and then in the **Overview** resource select **Delete resource group** and follow the prompts.
+
+:::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot showing how to delete a resource group in Azure portal." lightbox="media/github-actions-app-service/azure-portal-delete-resource-group.png":::
 
 ---
 
@@ -245,3 +249,4 @@ If you delete the resource group, you can also make the following modifications 
 [16]: /cli/azure/what-is-azure-cli
 [17]: /azure/cloud-shell/overview
 [18]: https://git-scm.com/docs/git-clone
+[19]: /cli/azure/group#az-group-delete
