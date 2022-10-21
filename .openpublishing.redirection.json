@@ -1134,6 +1134,10 @@
         "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
       },
       {
+        "source_path": "articles/jenkins/deploy-to-azure-spring-cloud-using-azure-cli.md",
+        "redirect_url": "/azure/developer/jenkins/deploy-to-azure-spring-apps-using-azure-cli"
+      },
+      {
         "source_path": "articles/terraform/get-started-cloud-shell.md",
         "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
       },
