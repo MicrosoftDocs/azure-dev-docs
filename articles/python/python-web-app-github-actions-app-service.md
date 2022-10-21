@@ -126,13 +126,13 @@ on:
 
 When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub action YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under Integrations/Applications of your account.
 
-[IMAGE]
+:::image type="content" source="media/github-actions-app-service/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to view authorized OAuth Apps for a GitHub account." lightbox="media/github-actions-app-service/github-authorized-oauth-apps.png":::
 
 ### Workflow publish profile secret
 
 In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see a placeholder for publish profile credentials that are needed for the deploy job of the workflow. The publish profile information is stored encrypted in the repository **Settings**, under **Security/Actions**.
 
-[IMAGE]
+:::image type="content" source="media/github-actions-app-service/github-repo-action-secrets.png" alt-text="Screenshot showing how to view action secrets in GitHub." lightbox="media/github-actions-app-service/github-repo-action-secrets.png":::
 
 In this article, the GitHub action authenticates with a publish profile credential. There are other ways to authenticate such as with a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
 
