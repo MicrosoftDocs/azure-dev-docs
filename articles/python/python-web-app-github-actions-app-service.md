@@ -28,11 +28,11 @@ The quickest way to create an App Service instance is to use the [Azure command-
 
 **Step 2.** Open the Azure CLI by selecting the Cloud Shell button on the portal's toolbar.
 
-[IMAGE]
+:::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-icon.png" alt-text="Screenshot showing how to open Azure Cloud Shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-icon.png":::
 
 **Step 3.** In the Cloud Shell, select Bash from the dropdown.
 
-[IMAGE]
+:::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-bash.png" alt-text="Screenshot showing an Azure Cloud Shell Bash shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-bash.png":::
 
 **Step 4.** In the Cloud Shell, clone your repository using git clone. For the example app, use:
 
@@ -40,7 +40,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
 git clone https://github.com/<your-alias>/python-sample-vscode-flask-tutorial
 ```
 
-Replace \<your-alias> with the name of the GitHub account you used to fork the repository.
+Replace \<your-alias> with the name of the GitHub account where you'll set up GitHub Actions. If you used the VS Code Flask tutorial, this is the account where you forked the the tutorial repository.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
