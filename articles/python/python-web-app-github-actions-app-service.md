@@ -66,7 +66,10 @@ az webapp up -n <app-service-name>
 * Enter the following command, using your resource group name, your app service name, and your startup file or command (*startup.txt*).
 
 ```bash
-az webapp config set -g <resource-group-name> -n <app-service-name> --startup-file <startup-file-or-command>
+az webapp config set \
+  --resource-group <resource-group-name> \
+  --name <app-service-name> \
+  --startup-file <startup-file-or-command>
 ```
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
