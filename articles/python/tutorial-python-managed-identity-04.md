@@ -1,8 +1,6 @@
 ---
 title: Create an Azure storage account with managed identity
 description: Create a storage account that a deployed Python (Django or Flask) web app can access in Azure using managed identity.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/20/2022
