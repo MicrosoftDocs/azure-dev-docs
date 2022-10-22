@@ -155,7 +155,7 @@ Next, create a non-admin Azure AD user and grant all permissions on the `$AZ_DAT
 Create a SQL script called *create_ad_user_local.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-cat << EOF > create_ad_user.sql
+cat << EOF > create_ad_user_local.sql
 SET aad_validate_oids_in_tenant = off;
 CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
 GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
