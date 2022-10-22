@@ -135,7 +135,7 @@ on:
 
 ### OAuth authorized apps
 
-When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub action YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under Integrations/Applications of your account.
+When you set up continuous deployment, you authorize Azure App Service  as an authorized OAuth App for your GitHub account. App Service uses the authorized access to create a GitHub action YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under your GitHub accounts **Settings**, under **Integrations/Applications**.
 
 :::image type="content" source="media/github-actions-app-service/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to view authorized OAuth Apps for a GitHub account." lightbox="media/github-actions-app-service/github-authorized-oauth-apps.png":::
 
@@ -151,13 +151,16 @@ In this article, the GitHub action authenticates with a publish profile credenti
 
 Now you'll test the workflow by making a change to the repo.
 
-**Step 1.** Go to your fork of the sample repository (or the repository you used) and select the branch you set as the trigger.
+**Step 1.** Go to your fork of the sample repository (or the repository you used) and select the branch you set as part of the trigger.
 
-[IMAGE]
+:::image type="content" source="media/github-actions-app-service/github-repo-make-small-change.png" alt-text="Screenshot showing how to go to the repo and branch where the GitHub Actions workflow is defined." lightbox="media/github-actions-app-service/github-repo-make-small-change.png":::
+
+
+**Step 2.** Make a small change.
 
 For example, if you used the VS Code Flask tutorial, you can
 
-* Go to the /hello-app/templates/home.html file of the branch the GitHub action is set up for.
+* Go to the */hello-app/templates/home.html* file of the trigger branch.
 * Select **Edit** and add the text "Redeployed!".
 
 **Step 3.** Commit the change directly to the branch you're working in.
