@@ -225,6 +225,7 @@ az webapp deployment github-actions remote \
 
 In the Azure portal, go to the App Service and select **Deployment Center**. Select **Disconnect**.
 
+:::image type="content" source="media/github-actions-app-service/azure-portal-disconnect-github-actions.png" alt-text="Screenshot showing how to disconnect GitHub actions from an App Service in Azure portal." lightbox="media/github-actions-app-service/azure-portal-disconnect-github-actions.png":::
 
 ---
 
@@ -244,7 +245,7 @@ az group delete --name <resource-group-name>
 
 To delete the resource group from the Azure portal, find the resources by searching for it's name and then in the **Overview** resource select **Delete resource group** and follow the prompts.
 
-:::image type="content" source="media/github-actions-app-service/azure-portal-disconnect-github-actions.png" alt-text="Screenshot showing how to disconnect GitHub actions from an App Service in Azure portal." lightbox="media/github-actions-app-service/azure-portal-disconnect-github-actions.png":::
+:::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot showing how to delete a resource group in Azure portal." lightbox="media/github-actions-app-service/azure-portal-delete-resource-group.png":::
 
 ---
 
