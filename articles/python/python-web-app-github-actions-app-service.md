@@ -176,11 +176,11 @@ You can also kick off the workflow manually.
 
 ### Troubleshooting a failed workflow
 
-To check a workflow's status, go to the Actions tab of the repo. If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
+To check a workflow's status, go to the Actions tab of the repo. When you drill into the workflow file created in this tutorial, you'll see two jobs "build" and "deploy". For a failed job, look at the output of job tasks for an indication of the failure. Some common issues are:
 
-* If your app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
+* If the app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
 
-* The `az webapp up` command specifically sets the build action SCM_DO_BUILD_DURING_DEPLOYMENT to true. If you provisioned the app service through the portal, however, this action isn't automatically set.
+* If you provisioned the app service through the portal, the build action SCM_DO_BUILD_DURING_DEPLOYMENT setting may not have been set. This setting must be set to `true`. The `az webapp up` command sets the build action automatically.
 
 * If you see an error message with "TLS handshake timeout", run the workflow manually by selecting Trigger auto deployment under the Actions tab of the repo to see if the timeout is a temporary issue.
 
@@ -196,13 +196,12 @@ To avoid hard-coding variable values in your workflow YML file, you can instead 
 
 As noted earlier in this article, you can use GitHub Actions to deploy Django apps to Azure App Service on Linux, if you're using a separate database. You can't use a SQLite database, because App Service locks the db.sqlite3 file, preventing both reads and writes. This behavior doesn't affect an external database.
 
-As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. If you want to customize the startup command in any way, use the StartupCommand parameter in the AzureWebApp@1 step of your YAML pipeline file, as described in the previous section.
-
-When using Django, you typically want to migrate the data models using manage.py migrate after deploying the app code. You can add startUpCommand with post-deployment script for this purpose:
+As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command is not available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code snippet shows how to specify the startup command in the workflow file:
 
 ```yml
-startUpCommand: python3.7 manage.py migrate
+startup-command: startup.txt
 ```
+When using Django, you typically want to migrate the data models using `python manage.py migrate` command after deploying the app code. You can run the post migrate command in a post-deployment script.
 
 ## Disconnect GitHub Actions
 
