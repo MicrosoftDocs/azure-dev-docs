@@ -9,7 +9,7 @@ ms.prod: azure-python
 
 # Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux
 
-Use GitHub Actions continuous integration and continuous delivery (CI/CD) to deploy a Python web app to Azure App Service on Linux. Your GitHub Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other functionalities in your GitHub action workflow, such as test scripts, security checks, and multistages deployment.
+Use the GitHub Actions continuous integration and continuous delivery (CI/CD) platform to deploy a Python web app to Azure App Service on Linux. Your GitHub Actions workflow automatically builds the code and deploys it to the App Service whenever there's a commit to the repository. You can add other automation in your GitHub Actions workflow, such as test scripts, security checks, and multistages deployment.
 
 ## Create a repository for your app code
 
@@ -22,11 +22,11 @@ If you need an app to work with, you can fork and clone the repository at https:
 
 ## Create the target Azure App Service
 
-The quickest way to create an App Service instance is to use the [Azure command-line interface][16] (CLI) through the interactive Azure Cloud Shell. In the following steps, you'll use [az webapp up][2] to both create the App Service and do the first deployment of your app. You'll use the CLI command in an [Azure Cloud Shell][17], which has the CLI installed and can be accessed in a browser.
+The quickest way to create an App Service instance is to use the [Azure command-line interface][16] (CLI) through the interactive [Azure Cloud Shell][17]. The Cloud Shell includes [Git][20] and Azure CLI . In the following steps, you'll use [az webapp up][2] to both create the App Service and do the first deployment of your app.
 
 **Step 1.** Sign in to the Azure portal at https://portal.azure.com.
 
-**Step 2.** Open the Azure CLI by selecting the Cloud Shell button on the portal's toolbar.
+**Step 2.** Open the Azure CLI by selecting the Cloud Shell button on the portal toolbar.
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-icon.png" alt-text="Screenshot showing how to open Azure Cloud Shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-icon.png":::
 
@@ -60,23 +60,24 @@ az webapp up -n <app-service-name>
 > [!TIP]
 > If you encounter a "Permission denied" error with a *.zip* file, you may have tried to run the command from a folder that doesn't contain a Python app. The `az webapp up` command then tries to create a Windows app service plan, and fails.
 
-**Step 7.** If your app uses a custom startup command, set the [az webapp config][3] property. For example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains its specific startup command, so you set the `az webapp config` property to *startup.txt*.
+**Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] command to create a configuration property. If your app doesn't have a custom startup command, skip this step.
 
-* From the first line of output from the previous `az webapp up` command, copy the name of your resource group, which is similar to *\<your-name>\_rg\_<random_numbers>*.
-* Enter the following command, using your resource group name, your app service name, and your startup file or command (*startup.txt*).
+or example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains its specific startup command that you can use as follows:
 
 ```bash
 az webapp config set \
   --resource-group <resource-group-name> \
   --name <app-service-name> \
-  --startup-file <startup-file-or-command>
+  --startup-file startup.txt
 ```
+
+You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will look like *\<your-name>\_rg\_<random_numbers>*.
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
 
 ## Set up continuous deployment in App Service
 
-In the steps below, you'll set up continuous deployment (CD), which means a new code deployment happens when a trigger is fired. The trigger in this tutorial is any change to the main branch of your repository, such as with a pull request (PR).
+In the steps below, you'll set up continuous deployment (CD), which means a new code deployment happens when a workflow is triggered. The trigger in this tutorial is any change to the main branch of your repository, such as with a pull request (PR).
 
 **Step 1.** Add GitHub Action with the [az webapp deployment github-actions add][4] command.
 
@@ -91,12 +92,12 @@ az webapp deployment github-actions add \
 
 The `--login-with-github` uses an interactive method to retrieves a personal access token. Follow the prompts to complete the authentication.
 
-If there's an existing workflow file that conflicts with the name App Service used, add the `--force` option to overwrite that file. If you don't use the `--force` option, you'll be asked to choose to overwrite.
+If there's an existing workflow file that conflicts with the name App Service uses, add the `--force` option to overwrite that file. If you don't use the `--force` option, you'll be asked to choose whether to overwrite.
 
-What the command does:
+What the add command does:
 
-* Creates new workflow file: *.github/workflows/\<workflow-name>.yml*; the name of the file will contain the name of your App Service.
-* Fetches a publish profile with secrets for your App Service and add it as a GitHub as a secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE_. This secret is referenced in the workflow file.
+* Creates new workflow file: *.github/workflows/\<workflow-name>.yml* in your repo; the name of the file will contain the name of your App Service.
+* Fetches a publish profile with secrets for your App Service and adds it as a GitHub Actions secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE_. This secret is referenced in the workflow file.
 
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
@@ -118,18 +119,18 @@ In terms of the workflow set up with your Python code for deployment to App Serv
 |------|-----------|
 |[checkout][6]|Check out the repository on a *runner*, a GitHub Actions agent.|
 |[setup-python][7]|Install Python on the runner.|
-|[appservice-build][8]|Builds the web app.|
-|[webapps-deploy][9]|Deploys the web app using a publish profile credential to authenticate in Azure. The credential is stored in a [GitHub secret][10].|
+|[appservice-build][8]|Build the web app.|
+|[webapps-deploy][9]|Deploy the web app using a publish profile credential to authenticate in Azure. The credential is stored in a [GitHub secret][10].|
 
-The workflow template that is used to create the workflow check [Azure/actions-workflow-samples][11].
+The workflow template that is used to create the workflow is [Azure/actions-workflow-samples][11].
 
-The workflow is triggered on push event to the specified branch, in this case main/master. The event is defined at the beginning of the workflow file.
+The workflow is triggered on push events to the specified branch. The event and branch are defined at the beginning of the workflow file. For example, the following code snippet shows the workflow is triggered on push events to the *main* branch:
 
 ```yml
 on:
   push:
     branches:
-    - master
+    - main
 ```
 
 ### OAuth authorized apps
@@ -262,3 +263,4 @@ If you deleted the Azure resource group, consider also make the following modifi
 [17]: /azure/cloud-shell/overview
 [18]: https://git-scm.com/docs/git-clone
 [19]: /cli/azure/group#az-group-delete
+[20]: https://git-scm.com/
