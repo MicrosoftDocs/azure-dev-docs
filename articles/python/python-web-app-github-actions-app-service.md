@@ -201,13 +201,16 @@ As described in the article [Configure Python app on App Service - Container sta
 ```yml
 startup-command: startup.txt
 ```
-When using Django, you typically want to migrate the data models using `python manage.py migrate` command after deploying the app code. You can run the post migrate command in a post-deployment script.
+
+When using Django, you typically want to migrate the data models using `python manage.py migrate` command after deploying the app code. You can run the  migrate command in a post-deployment script.
 
 ## Disconnect GitHub Actions
 
 Disconnecting GitHub Actions from your App Service allows you to reconfigure the app deployment. You can choose what happens to your workflow file after you disconnect, whether to save or delete the file.
 
-Disconnecting with Azure CLI [az webapp deployment github-actions remote][15] command.
+### [Azure CLI](#tab/azure-cli)
+
+Disconnect GitHub Actions with Azure CLI [az webapp deployment github-actions remote][15] command.
 
 ```bash
 az webapp deployment github-actions remote \
@@ -218,11 +221,18 @@ az webapp deployment github-actions remote \
   --login-with-github
 ```
 
+### [Azure portal](#tab/azure-portal)
+
+In the Azure portal, go to the App Service and select **Deployment Center**. Select **Disconnect**.
+
+
+---
+
 ## Clean up resources
 
 To avoid incurring charges on the Azure resources created in this tutorial, delete the resource group that contains the App Service and the App Service Plan.
 
-### [Azure CLI](#tab/azure-cli-clean)
+### [Azure CLI](#tab/azure-cli)
 
 Anywhere the Azure CLI is installed including the Azure Cloud Shell, you can use the [az group delete][19] command to delete the resource group.
 
@@ -230,11 +240,11 @@ Anywhere the Azure CLI is installed including the Azure Cloud Shell, you can use
 az group delete --name <resource-group-name>
 ```
 
-### [Azure portal](#tab/azure-portal-clean)
+### [Azure portal](#tab/azure-portal)
 
 To delete the resource group from the Azure portal, find the resources by searching for it's name and then in the **Overview** resource select **Delete resource group** and follow the prompts.
 
-:::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot showing how to delete a resource group in Azure portal." lightbox="media/github-actions-app-service/azure-portal-delete-resource-group.png":::
+:::image type="content" source="media/github-actions-app-service/azure-portal-disconnect-github-actions.png" alt-text="Screenshot showing how to disconnect GitHub actions from an App Service in Azure portal." lightbox="media/github-actions-app-service/azure-portal-disconnect-github-actions.png":::
 
 ---
 
