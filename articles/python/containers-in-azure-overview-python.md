@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 10/10/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Overview of Python Container Apps in Azure
