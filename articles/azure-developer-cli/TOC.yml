@@ -29,7 +29,7 @@
     href: faq.yml   
   - name: Reference
     items: 
-    - name: Reference
-      href: reference.md
     - name: azure.yaml
       href: azd-schema.md
+    - name: Reference
+      href: reference.md
