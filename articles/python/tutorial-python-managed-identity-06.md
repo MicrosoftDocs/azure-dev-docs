@@ -1,8 +1,6 @@
 ---
 title: Deploy a Python web app to App Service
 description: Shows configuration and deployment of a Python (Django or Flask) web app to App Service using managed identity to access to Azure Storage and PostgreSQL.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/21/2022
