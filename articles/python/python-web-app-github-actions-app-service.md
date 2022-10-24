@@ -26,7 +26,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
 
 **Step 1.** Sign in to the Azure portal at https://portal.azure.com.
 
-**Step 2.** Open the Azure CLI by selecting the Cloud Shell button on the portal toolbar.
+**Step 2.** Open the Azure CLI by selecting the Cloud Shell icon on the portal toolbar.
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-icon.png" alt-text="Screenshot showing how to open Azure Cloud Shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-icon.png":::
 
@@ -34,18 +34,18 @@ The quickest way to create an App Service instance is to use the [Azure command-
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-bash.png" alt-text="Screenshot showing an Azure Cloud Shell Bash shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-bash.png":::
 
-**Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For the example app, use:
+**Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you are using the Flask sample app the command is:
 
 ```bash
 git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial
 ```
 
-Replace \<github-user> with the name of the GitHub account where you forked the repo. If you are using a different repository, this is where you'll set up GitHub actions.
+Replace \<github-user> with the name of the GitHub account where you forked the repo. If you are using a different app repo, this is where you'll set up GitHub Actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
 
-**Step 5.** In the Cloud Shell, change directory into the repository folder that has your Python app, so the [az webapp up][2] command will recognize the app as Python. For the example app:
+**Step 5.** In the Cloud Shell, change directory into the repository folder that has your Python app so the [az webapp up][2] command will recognize the app as Python. For the example, for the Flask sample app:
 
 ```bash
 cd python-sample-vscode-flask-tutorial
@@ -57,12 +57,14 @@ cd python-sample-vscode-flask-tutorial
 az webapp up -n <app-service-name>
 ```
 
+Specify an App Service name that is unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
+
 > [!TIP]
-> If you encounter a "Permission denied" error with a *.zip* file, you may have tried to run the command from a folder that doesn't contain a Python app. The `az webapp up` command then tries to create a Windows app service plan, and fails.
+> If you encounter a "Permission denied" error with a *.zip* file, you may have tried to run the command from a folder that doesn't contain a Python app. The error occurs because the `az webapp up` command then tries to create a Windows app service plan, and fails.
 
-**Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] command to create a configuration property. If your app doesn't have a custom startup command, skip this step.
+**Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] use that command. If your app doesn't have a custom startup command, skip this step.
 
-or example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains its specific startup command that you can use as follows:
+For example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains a startup command that you can use as follows:
 
 ```bash
 az webapp config set \
