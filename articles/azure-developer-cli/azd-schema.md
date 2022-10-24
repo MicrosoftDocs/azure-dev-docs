@@ -3,7 +3,7 @@ title: Azure Developer CLI schema
 description: Describes the schema for the Azure Developer CLI.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 10/17/2022
+ms.date: 10/24/2022
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -25,10 +25,10 @@ ms.service: azure-dev-cli
 | ------------ | -------- | ----------- | 
 | `name` | Y | _(string)_ Name of the application. |
 | `resourceGroup` | N | _(string)_ Name of the Azure resource group. When specified, will override the resource group name used for infrastructure provisioning. |
-| `metadata` | N | _(object)_ [Can contain additional properties](#metadata-properties). |
-| `infra` | N | _(object)_ Provides additional configuration for Azure infrastruction provisioning. [Can contain additional properties.](#infra-properties) |
-| `services` | Y | _(object)_ | Definition of services that comprise the application. [Can contain additional properties.](#services-properties) |
-| `pipeline` | N | _(object)_ | Definition of continuous integration pipeline. [Can contain additional properties.](#pipeline-properties) |
+| `metadata` | N | _(object)_ See [metadata properties](#metadata-properties) for more details. |
+| `infra` | N | _(object)_ Provides additional configuration for Azure infrastruction provisioning. See [infra properties](#infra-properties) for more details. |
+| `services` | Y | _(object)_ Definition of services that comprise the application. See [services properties](#services-properties) for more details. |
+| `pipeline` | N | _(object)_ Definition of continuous integration pipeline. See [pipeline properties](#pipeline-properties) for more details. |
 
 ### `metadata` properties
 
@@ -53,8 +53,8 @@ ms.service: azure-dev-cli
 | `host` | Y | _(string)_ Type of Azure resource used for service implementation. If omitted, App Service will be assumed. | `"appservice"`, `"containerapp"`, `"function"`, `"staticwebapp"` | 
 | `language` | Y | _(string)_ Service implementation language. If omitted, .NET will be assumed. | `"dotnet"`, `"csharp"`, `"fsharp"`, `"py"`, `"python"`, `"js"`, `"ts"`, `"java"` |
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
-| `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. |  |
-| `docker` | N | This is only applicable when `host` is `containerapp`. Cannot contain additional properties. | <ul><li>`path` _(string)_: Path to the Dockerfile. Default: `"./Dockerfile"`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `"."`</li><li>`platform` _(string)_: The platform target. Default: `"amd64"` |
+| `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | 
+| `docker` | N | This is only applicable when `host` is `containerapp`. Cannot contain additional properties. | <ul><li>`path` _(string)_: Path to the Dockerfile. Default: `"./Dockerfile"`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `"."`</li><li>`platform` _(string)_: The platform target. Default: `"amd64"` </li></ul> |
 
 ### `pipeline` properties
 
