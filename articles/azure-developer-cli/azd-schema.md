@@ -13,7 +13,7 @@ ms.service: azure-dev-cli
 
 [Templates](./overview.md#azure-developer-cli-templates) are sample repositories that include app code, tools, and infrastructure code. You can use these templates to create your own solutions using Azure Developer CLI (azd). The [azure.yaml](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/) schema defines and describes the apps and types of Azure resources that are included in these templates.
 
-## Samples
+## Sample
 
 Below is a generic example of an `azure.yaml` required for your `azd` template.
 
@@ -72,7 +72,7 @@ services:
 
 | Element Name | Required | Description | Example |
 | --- | --- | --- | --- |
-| `provider` | N | _(string)_ The infrastructure provisioning provider used to provision the Azure resources for the application. (Default: bicep). | See the [Terraform sample](#terraform-as-iac-provider-sample) below. `"bicep"`, `"terraform"` |
+| `provider` | N | _(string)_ The infrastructure provisioning provider used to provision the Azure resources for the application. (Default: bicep). | See the [Terraform sample](#terraform-as-iac-provider-sample) below. `bicep`, `terraform` |
 | `path` | N | _(string)_ The relative folder path to the location containing Azure provisioning templates for the specified provider. (Default: infra). |  |
 | `module` | N | _(string)_ The name of the default module withing the Azure provisioning templates. (Default: main). |  |
 
@@ -100,13 +100,13 @@ infra:
 
 | Element Name | Required | Description | Example |
 | --- | --- | --- | --- |
-| `resourceName` | N | _(string)_ Name of the Azure resource that implements the service. If not specified, the resource name will be constructed from the current environment name, concatenated with the service name (`<environment-name><resource-name>`). | `"prodapi"` |
+| `resourceName` | N | _(string)_ Name of the Azure resource that implements the service. If not specified, the resource name will be constructed from the current environment name, concatenated with the service name (`<environment-name><resource-name>`). | `prodapi` |
 | `project` | Y | _(string)_ Path to the service source code directory. |  |
-| `host` | Y | _(string)_ Type of Azure resource used for service implementation. If omitted, App Service will be assumed. | `"appservice"`, `"containerapp"`, `"function"`, `"staticwebapp"` | 
-| `language` | Y | _(string)_ Service implementation language. If omitted, .NET will be assumed. | `"dotnet"`, `"csharp"`, `"fsharp"`, `"py"`, `"python"`, `"js"`, `"ts"`, `"java"` |
+| `host` | Y | _(string)_ Type of Azure resource used for service implementation. If omitted, App Service will be assumed. | `appservice`, `containerapp`, `function`, `staticwebapp` | 
+| `language` | Y | _(string)_ Service implementation language. If omitted, .NET will be assumed. | `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java` |
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
 | `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | `build` |
-| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. <br><ul><li>`path` _(string)_: Path to the Dockerfile. Default: `"./Dockerfile"`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `"."`</li><li>`platform` _(string)_: The platform target. Default: `"amd64"` </li></ul> |
+| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. <br><ul><li>`path` _(string)_: Path to the Dockerfile. Default: `./Dockerfile`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `.`</li><li>`platform` _(string)_: The platform target. Default: `amd64` </li></ul> |
 
 #### Docker options sample
 
@@ -134,7 +134,7 @@ services:
 
 | Element Name | Required | Description | Example |
 | --- | --- | --- | --- |
-| `provider` | N | _(string)_ The pipeline provider to be used for continuous integration. (Default: `"github"`). | `"github"`, `"azdo"` |
+| `provider` | N | _(string)_ The pipeline provider to be used for continuous integration. (Default: `github`). | `github`, `azdo` |
 
 #### AzDo as pipeline sample
 
