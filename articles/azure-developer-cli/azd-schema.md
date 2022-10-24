@@ -106,7 +106,7 @@ infra:
 | `language` | Y | _(string)_ Service implementation language. If omitted, .NET will be assumed. | `"dotnet"`, `"csharp"`, `"fsharp"`, `"py"`, `"python"`, `"js"`, `"ts"`, `"java"` |
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
 | `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | `build` |
-| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#custom-docker-sample) below. <br><ul><li>`path` _(string)_: Path to the Dockerfile. Default: `"./Dockerfile"`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `"."`</li><li>`platform` _(string)_: The platform target. Default: `"amd64"` </li></ul> |
+| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. <br><ul><li>`path` _(string)_: Path to the Dockerfile. Default: `"./Dockerfile"`</li><li>`context` _(string)_: The docker build context. When specified, overrides default context. Default: `"."`</li><li>`platform` _(string)_: The platform target. Default: `"amd64"` </li></ul> |
 
 #### Docker options sample
 
