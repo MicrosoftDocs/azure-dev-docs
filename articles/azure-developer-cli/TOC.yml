@@ -31,5 +31,5 @@
     items: 
     - name: Reference
       href: reference.md
-    - name: Azure Developer CLI schema
+    - name: azure.yaml
       href: azd-schema.md
