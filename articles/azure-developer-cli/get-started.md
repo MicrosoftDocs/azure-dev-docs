@@ -435,7 +435,7 @@ Upon successful completion of the `azd up` command:
 
 ## Run a Java template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [ToDo Application with a Java API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-java-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Java template applications. We'll use the [ToDo Application with a Java API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-java-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -448,7 +448,7 @@ Select your preferred environment to continue:
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java (version 8)](https://www.java.com/en/download/)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
 
 ### Run `up` command
 
@@ -490,7 +490,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 Upon successful completion of the `azd up` command:
 
-- The repo referenced by the [Java `azd` template](https://github.com/azure-samples/todo-nodejs-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
+- The repo referenced by the [Java `azd` template](https://github.com/azure-samples/todo-java-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
 - The [Azure resources referenced in the templates `README.md` file](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
 - The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
@@ -499,13 +499,13 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-java-mongo/blob/main/.devcontainer/Dockerfile).
 
 ### Pre-requisites
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
 
 ### Initialize project
 
