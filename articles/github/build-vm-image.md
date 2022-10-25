@@ -86,7 +86,7 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
 
 [!INCLUDE [include](~/../docs/reusable-content/github-actions/generate-deployment-credentials.md)]
 
-## Create a GitHub secrets
+## Create GitHub secrets
 
 [!INCLUDE [include](~/../docs/reusable-content/github-actions/create-secrets-with-openid.md)]
 
