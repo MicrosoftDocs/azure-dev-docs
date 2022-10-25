@@ -2,7 +2,7 @@
 | ---- | ------- | ---- | ------ |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.3.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.3.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.3.0/sdk/keyvault/keyvault-admin/) |
-| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) |  | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
+| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
 | App Configuration | npm [1.3.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.1)<br>npm [1.4.0-beta.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.4.0-beta.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.1/sdk/appconfiguration/app-configuration/)<br>GitHub [1.4.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.4.0-beta.1/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.11) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.11](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.11/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
@@ -271,11 +271,11 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221024.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221024.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221025.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221025.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [4.3.0](https://www.npmjs.com/package/@autorest/gotest/v/4.3.0) |  |  |
+| @autorest/gotest | npm [4.4.0](https://www.npmjs.com/package/@autorest/gotest/v/4.4.0) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/system-requirements | npm [1.0.1](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.1) |  |  |
 | @autorest/testmodeler | npm [2.3.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.3.2) |  |  |
@@ -315,7 +315,7 @@
 | @azure-tools/cadl-azure-core | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.8.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.11.0) |  |  |
 | @azure-tools/cadl-csharp | npm [0.1.6-dev.2](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.6-dev.2) |  |  |
-| @azure-tools/cadl-dpg | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.1.0) |  |  |
+| @azure-tools/cadl-dpg | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.2.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.0-dev.10](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.0-dev.10) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.22.0) |  |  |
@@ -374,7 +374,7 @@
 | @azure/communication-react | npm [1.3.1](https://www.npmjs.com/package/@azure/communication-react/v/1.3.1) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.3.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.3.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.3.0/sdk/keyvault/keyvault-admin/) |
-| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) |  | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
+| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
 | Anomaly Detector | npm [2.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-anomalydetector) |
 | App Configuration | npm [1.3.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.1)<br>npm [1.4.0-beta.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.4.0-beta.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.1/sdk/appconfiguration/app-configuration/)<br>GitHub [1.4.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.4.0-beta.1/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.11) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.11](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.11/sdk/synapse/synapse-artifacts/) |
