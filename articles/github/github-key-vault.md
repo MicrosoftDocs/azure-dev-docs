@@ -66,7 +66,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 Create secrets for your Azure credentials, resource group, and subscriptions.
 
-[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-secrets-service-principal.md)]
+[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ## Add a role assignment 
  

@@ -162,7 +162,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 ### Create GitHub secrets
 
-[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-login-action-secrets.md)]
+[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-login-action-secrets.md)]
 
 ### Set up Azure Login with OpenID Connect authentication
 
@@ -279,7 +279,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
 
 ### Add the service principal as a GitHub secret
 
-[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-secrets-service-principal.md)]
+[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ### Use the Azure login action
 
