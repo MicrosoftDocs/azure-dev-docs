@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI schema
 
-[Templates](./overview.md#azure-developer-cli-templates) are sample repositories that include app code, tools, and infrastructure code. You can use these templates to create your own solutions using Azure Developer CLI (azd). The [azure.yaml](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/) schema defines and describes the apps and types of Azure resources that are included in these templates.
+[`azd` templates](./overview.md#azure-developer-cli-templates) are sample repositories that include app code, tools, and infrastructure code. You can use these templates to create your own solutions using Azure Developer CLI (azd). The [azure.yaml](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/) schema defines and describes the apps and types of Azure resources that are included in these templates.
 
 ## Sample
 
@@ -23,12 +23,12 @@ metadata:
   template: yourApp@0.0.1-beta
 services:
   web:
-    project: src/web # path to your web project
+    project: ./src/web # path to your web project
     dist: build # relative path to service deployment artifacts
     language: js # one of the supported languages
     host: appservice # one of the supported Azure services
   api:
-    project: src/api # path to your api
+    project: ./src/api # path to your api
     language: js # one of the supported languages
     host: appservice # one of the supported Azure services
 ```

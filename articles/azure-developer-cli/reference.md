@@ -3,7 +3,7 @@ title: Azure Developer CLI reference (preview)
 description: This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 07/11/2022
+ms.date: 10/24/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -15,37 +15,35 @@ This article explains the syntax and parameters for the various Azure Developer 
 
 ## azd
 
-Azure Developer CLI is a command-line interface for developers who build Azure solutions.
+Azure Developer CLI (`azd`) is a command-line interface for developers who build Azure solutions.
 
 ### Synopsis
 
-Azure Developer CLI is a command-line interface for developers who build Azure solutions.
-
 To begin working with Azure Developer CLI, run the `azd up` command by supplying a sample template in an empty directory:
 
-```		
+```azdeveloper
 azd up –-template todo-nodejs-mongo
 ```
 
-You can pick a template by running `azd template list` and then supplying the repo name as a value to `–-template`.
-		
+You can pick a template by running `azd template list` and then supplying the repo name as a value to `--template`.
+
 The most common next commands are:
 
-```	
+```azdeveloper
 azd pipeline config
 azd deploy
 azd monitor --overview
 ```
-	
+
 For more information, visit the [Azure Developer CLI Dev Hub](./overview.md).
 
 ### Options
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
--h, --help                 Gets help for Azure Developer CLI.
+-h, --help                 Gets help for azd.
     --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
@@ -77,12 +75,12 @@ When no `--service` value is specified, all services in the *azure.yaml* file (f
 
 Examples:
 
-```
+```azdeveloper
 azd deploy
-azd deploy –-service api
-azd deploy –-service web
+azd deploy --service api
+azd deploy --service web
 ```
-
+	
 After the deployment is complete, the endpoint is printed. To start the service, select the endpoint or paste it in a browser.
 
 ```
@@ -91,7 +89,7 @@ azd deploy [flags]
 
 ### Options
 
-```
+```azdeveloper
 -h, --help             Gets help for the deployment.
 -o, --output string    The output format (the supported formats are JSON, none; the default is none).
     --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
@@ -99,7 +97,7 @@ azd deploy [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -114,13 +112,13 @@ azd deploy [flags]
 
 Delete Azure resources for an app.
 
-```
+```azdeveloper
 azd down [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
     --force           Does not require confirmation before it deletes resources.
 -h, --help            Gets help for down.
 -o, --output string   The output format (the supported formats are JSON, none; the default is none).
@@ -129,7 +127,7 @@ azd down [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -148,19 +146,19 @@ Manage environments.
 
 Manage environments.
 
-With this command group, you can create a new environment or get, set, and list your app environments. An app can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources.
+With this command group, you can create a new environment or get, set, and list your app environments. An app can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources. 
 
 You can find all environment configurations under the `.azure\<environment-name>` directories. The environment name is stored as the AZURE_ENV_NAME environment variable in the `.azure\<environment-name>\directory\.env` file.
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for the environment.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -179,22 +177,22 @@ You can find all environment configurations under the `.azure\<environment-name>
 
 ## azd env get-values
 
-Get all environment values
+Get all environment values.
 
-```
+```azdeveloper
 azd env get-values [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for get-values.
 -o, --output string   The output format (the supported formats are JSON, dotenv; the default is dotenv).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -210,20 +208,20 @@ azd env get-values [flags]
 
 To list the environments, run:
 
-```
+```azdeveloper
 azd env list [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for list.
 -o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -239,19 +237,21 @@ azd env list [flags]
 
 Create a new environment.
 
-```
+```azdeveloper
 azd env new <environment> [flags]
 ```
 
 ### Options
 
-```
--h, --help   Gets help for new.
+```azdeveloper
+-h, --help                  Gets help for new.
+-l, --location string       Azure location for the new environment
+    --subscription string   Name or ID of an Azure subscription to use for the new environment
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -267,20 +267,20 @@ azd env new <environment> [flags]
 
 Refresh environment settings by using information from a previous infrastructure provision.
 
-```
+```azdeveloper
 azd env refresh [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for refresh.
 -o, --output string   The output format (the supported formats are JSON, none; the default is none).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -296,19 +296,19 @@ azd env refresh [flags]
 
 Set the default environment.
 
-```
+```azdeveloper
 azd env select <environment> [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for select.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -324,19 +324,19 @@ azd env select <environment> [flags]
 
 Set a value in the environment.
 
-```
+```azdeveloper
 azd env set <key> <value> [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for set.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -354,13 +354,13 @@ Manage Azure resources.
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for infra.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -377,13 +377,13 @@ Manage Azure resources.
 
 Create Azure resources for an app.
 
-```
+```azdeveloper
 azd infra create [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for create.
     --no-progress     Suppresses progress information.
 -o, --output string   The output format (the supported formats are JSON, none; the default is none).
@@ -391,7 +391,7 @@ azd infra create [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -407,13 +407,13 @@ azd infra create [flags]
 
 Delete Azure resources for an app.
 
-```
+```azdeveloper
 azd infra delete [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
     --force   Doesn't require confirmation before deleting resources.
 -h, --help    Gets help for delete.
     --purge   Permanently deletes resources that are soft-deleted by default (for example, key vaults).
@@ -421,7 +421,7 @@ azd infra delete [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -451,15 +451,17 @@ azd init [flags]
 
 ### Options
 
-```
--b, --branch string     The template branch to initialize from.
--h, --help              Gets help for init.
--t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
+```azdeveloper
+-b, --branch string         The template branch to initialize from.
+-h, --help                  Gets help for init.
+-l, --location string       Azure location for the new environment
+    --subscription string   Name or ID of an Azure subscription to use for the new environment
+-t, --template string       The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -474,13 +476,13 @@ azd init [flags]
 
 Log in to Azure.
 
-```
+```azdeveloper
 azd login [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
     --check-status      Checks the log-in status instead of logging in.
 -h, --help              Gets help for login.
 -o, --output string     The output format (the supported formats are JSON, table; the default is table).
@@ -489,7 +491,7 @@ azd login [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -510,21 +512,21 @@ Monitor a deployed app.
 		
 Examples:
 
-```
+```azdeveloper
 azd monitor --overview
 azd monitor -–live
 azd monitor --logs
 ```
-
+		
 For more information, see [Monitor your app using Azure Developer CLI (azd)](./monitor-your-app.md).
 
-```
+```azdeveloper
 azd monitor [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help       Gets help for monitor.
     --live       Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for the Python app.
     --logs       Open a browser to Application Insights Logs.
@@ -533,7 +535,7 @@ azd monitor [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -546,25 +548,25 @@ azd monitor [flags]
 
 ## azd pipeline
 
-Manage GitHub Actions pipelines.
+Manage GitHub Actions or Azure Pipelines.
 
 ### Synopsis
 
-Manage GitHub Actions pipelines.
+Manage GitHub Actions or Azure pipelines.
 
-The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the `.github/workflows` directory) that deploys your app whenever code is pushed to the main branch.
-		
+The Azure Developer CLI template includes a GitHub Actions and a Azure pipeline configuration file in the `.github/workflows` directory and `.azdo/pipelines` respectively. The configuration file deploys your app whenever code is pushed to the main branch.
+
 For more information, see [Configure a pipeline and push updates using GitHub Actions](./configure-devops-pipeline.md).
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for pipeline.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -578,34 +580,35 @@ For more information, see [Configure a pipeline and push updates using GitHub Ac
 
 ## azd pipeline config
 
-Create and configure your deployment pipeline by using GitHub Actions.
+Create and configure your deployment pipeline by using GitHub Actions or Azure Pipelines.
 
 ### Synopsis
 
-Create and configure your deployment pipeline by using GitHub Actions.
-		
-For more information, see [Configure a pipeline and push updates using GitHub Actions](./configure-devops-pipeline.md).
+Create and configure your deployment pipeline by using GitHub Actions or Azure Pipelines.
 
-```
+For more information, see [Configure a pipeline and push updates](./configure-devops-pipeline.md)
+
+```azdeveloper
 azd pipeline config [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help                    Gets help for config.
     --principal-name string   The name of the service principal to use to grant access to Azure resources as part of the pipeline.
     --principal-role string   The role to assign to the service principal (the default is Contributor).
+    --provider string         The pipeline provider to use (GitHub and Azdo supported).
     --remote-name string      The name of the git remote to configure the pipeline to run on (the default is origin)
 ```
 
 ### Options inherited from parent commands
 
 ```
--C, --cwd string           Sets the current working directory.
-    --debug                Enables debugging and diagnostics logging.
--e, --environment string   The name of the environment to use.
-    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -622,20 +625,19 @@ Provision the Azure resources for an app.
 Provision the Azure resources for an app.
 
 The command prompts you for the following values:
-
-* Environment name: The name of your environment.
-* Azure location: The Azure location where your resources will be deployed.
-* Azure subscription: The Azure subscription where your resources will be deployed.
+- Environment name: The name of your environment.
+- Azure location: The Azure location where your resources will be deployed.
+- Azure subscription: The Azure subscription where your resources will be deployed.
 
 Depending on what Azure resources are created, running this command might take a while. To view progress, go to the Azure portal and search for the resource group that contains your environment name.
 
-```
+```azdeveloper
 azd provision [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for provision.
     --no-progress     Suppresses progress information.
 -o, --output string   The output format (the supported formats are JSON, none; the default is none).
@@ -643,7 +645,7 @@ azd provision [flags]
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -666,20 +668,20 @@ Run this command to download and install all the required libraries so that you 
 
 For the best local run and debug experience, see [Debug by using the Visual Studio Code extension](./debug.md?pivots=ide-vs-code).
 
-```
+```azdeveloper
 azd restore [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help             Gets help for restore.
-    --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
+    --service string   Restores a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are restored).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -692,20 +694,20 @@ azd restore [flags]
 
 ## azd template
 
-Manage templates
+Manage templates.
 
 ### Options
 
-```
+```azdeveloper
 -h, --help   Gets help for template.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
--e, --environment string   The name of the environment to use
+-e, --environment string   The name of the environment to use.
     --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
@@ -717,22 +719,22 @@ Manage templates
 
 ## azd template list
 
-List templates
+List templates.
 
-```
+```azdeveloper
 azd template list [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for list.
 -o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -746,15 +748,15 @@ azd template list [flags]
 
 ## azd template show
 
-Show the template details
+Show the template details.
 
-```
+```azdeveloper
 azd template show <template> [flags]
 ```
 
 ### Options
 
-```
+```azdeveloper
 -h, --help            Gets help for show.
 -o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
@@ -775,7 +777,7 @@ azd template show <template> [flags]
 
 ## azd up
 
-Initialize app, provision Azure resources, and deploy your project with a single command
+Initialize app, provision Azure resources, and deploy your project with a single command.
 
 ### Synopsis
 
@@ -783,7 +785,7 @@ If the project directory hasn't been initialized or cloned from a template, the 
 
 This command executes the following in one step:
 
-```
+```azdeveloper
 azd init
 azd provision
 azd deploy
@@ -791,24 +793,26 @@ azd deploy
 
 When no template is supplied, you can optionally select an Azure Developer CLI template for cloning. Otherwise, running `azd up` initializes the current directory so that your project is compatible with Azure Developer CLI.
 
-```
+```azdeveloper
 azd up [flags]
 ```
 
 ### Options
 
-```
--b, --branch string     The template branch to initialize from.
--h, --help              Gets help for up.
-    --no-progress       Suppresses progress information.
--o, --output string     The output format (the supported formats are JSON, none; the default is none).
-    --service string    Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
--t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
+```azdeveloper
+-b, --branch string         The template branch to initialize from.
+-h, --help                  Gets help for up.
+-l, --location string       Azure location for the new environment
+    --no-progress           Suppresses progress information.
+-o, --output string         The output format (the supported formats are JSON, none; the default is none).
+    --service string        Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
+    --subscription string   Name or ID of an Azure subscription to use for the new environment
+-t, --template string       The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
@@ -823,19 +827,20 @@ azd up [flags]
 
 Print the version number of Azure Developer CLI.
 
-```
+```azdeveloper
 azd version [flags]
 ```
 
 ### Options
 
-```
--h, --help   Gets help for version.
+```azdeveloper
+-h, --help            Gets help for version.
+-o, --output string   The output format (the supported formats are JSON, none; the default is none).
 ```
 
 ### Options inherited from parent commands
 
-```
+```azdeveloper
 -C, --cwd string           Sets the current working directory.
     --debug                Enables debugging and diagnostics logging.
 -e, --environment string   The name of the environment to use.
