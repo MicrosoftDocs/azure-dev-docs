@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 11/30/2021
+ms.date: 10/25/2022
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -162,25 +162,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 ### Create GitHub secrets
 
-You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings**.
-
-    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
-
-1. Select **Secrets** and then **New Secret**.
-
-    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Azure Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Azure Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
+[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-login-action-secrets.md)]
 
 ### Set up Azure Login with OpenID Connect authentication
 
@@ -265,7 +247,7 @@ Open the `Az CLI login` action and verify that it ran successfully. You should s
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
 
-### Create a service principal and add it as a GitHub secret
+### Create a service principal
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
@@ -295,19 +277,9 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
     }
     ```
 
-1. Open your GitHub repository and go to **Settings**.
+### Add the service principal as a GitHub secret
 
-    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
-
-1. Select **Secrets** and then **New Secret**.
-
-    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
-
-1. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
-
-    :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub":::
-
-1. Save by selecting **Add secret**.
+[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ### Use the Azure login action
 

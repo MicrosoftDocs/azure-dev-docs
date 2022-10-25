@@ -64,15 +64,9 @@ In the example above, replace the placeholders with your subscription ID and res
 
 ## Create a GitHub secret
 
-Create secrets for your Azure credentials, resource group, and subscriptions. 
+Create secrets for your Azure credentials, resource group, and subscriptions.
 
-1. In [GitHub](https://github.com/), browse your repository.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Paste the JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
-
-1. Copy the value of `clientId` to use later. 
+[!INCLUDE [include](~/../docs/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ## Add a role assignment 
  
