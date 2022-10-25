@@ -62,7 +62,7 @@
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
 | Microsoft Authentication Library | npm [1.14.0](https://www.npmjs.com/package/@azure/msal-node/v/1.14.0) |  | GitHub [1.14.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) |
 | Monitor Ingestion | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0-beta.3/sdk/monitor/monitor-ingestion/) |
-| Monitor OpenTelemetry Exporter | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.8) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.8/sdk/monitor/monitor-opentelemetry-exporter/) |
+| Monitor OpenTelemetry Exporter | npm [1.0.0-beta.9](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.9) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.9](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.9/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Monitor Query | npm [1.0.3](https://www.npmjs.com/package/@azure/monitor-query/v/1.0.3) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.3/sdk/monitor/monitor-query/) |
 | Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest) |
@@ -163,7 +163,7 @@
 | Resource Management - Domain Services | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-domainservices/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-domainservices-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/domainservices/arm-domainservices) |
 | Resource Management - Dynatrace | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Education | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.2/sdk/education/arm-education/) |
-| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsan/arm-elasticsan/) |
+| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsans/arm-elasticsan/) |
 | Resource Management - Event Grid | npm [14.0.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.0.0) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extendedlocation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.2/sdk/extendedlocation/arm-extendedlocation/) |
@@ -271,11 +271,11 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221021.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221021.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221025.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221025.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [4.3.0](https://www.npmjs.com/package/@autorest/gotest/v/4.3.0) |  |  |
+| @autorest/gotest | npm [4.4.0](https://www.npmjs.com/package/@autorest/gotest/v/4.4.0) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/system-requirements | npm [1.0.1](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.1) |  |  |
 | @autorest/testmodeler | npm [2.3.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.3.2) |  |  |
@@ -315,7 +315,7 @@
 | @azure-tools/cadl-azure-core | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.8.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.11.0) |  |  |
 | @azure-tools/cadl-csharp | npm [0.1.6-dev.2](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.6-dev.2) |  |  |
-| @azure-tools/cadl-dpg | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.1.0) |  |  |
+| @azure-tools/cadl-dpg | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.2.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.0-dev.10](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.0-dev.10) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.22.0) |  |  |
@@ -325,7 +325,7 @@
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.11) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.3.7](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.3.7) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.4.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -501,7 +501,7 @@
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
 | Microsoft Authentication Library | npm [1.14.0](https://www.npmjs.com/package/@azure/msal-node/v/1.14.0) |  | GitHub [1.14.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) |
 | Monitor Ingestion | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0-beta.3/sdk/monitor/monitor-ingestion/) |
-| Monitor OpenTelemetry Exporter | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.8) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.8/sdk/monitor/monitor-opentelemetry-exporter/) |
+| Monitor OpenTelemetry Exporter | npm [1.0.0-beta.9](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.9) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.9](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.9/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Monitor Query | npm [1.0.3](https://www.npmjs.com/package/@azure/monitor-query/v/1.0.3) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.3/sdk/monitor/monitor-query/) |
 | Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
 | MS REST - Azure Env | npm [2.0.0](https://www.npmjs.com/package/@azure/ms-rest-azure-env/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/ms-rest-azure-env) |
@@ -640,7 +640,7 @@
 | Resource Management - Dynatrace | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Edge Gateway | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-edgegateway/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/edgegateway/arm-edgegateway) |
 | Resource Management - Education | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.2/sdk/education/arm-education/) |
-| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsan/arm-elasticsan/) |
+| Resource Management - Elasticsan | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsans/arm-elasticsan/) |
 | Resource Management - Event Grid | npm [14.0.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.0.0) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extendedlocation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.2/sdk/extendedlocation/arm-extendedlocation/) |
