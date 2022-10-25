@@ -2,7 +2,7 @@
 author: hhunter-ms
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 08/10/2022
+ms.date: 10/25/2022
 ms.author: hannahhunter
 ---
 
@@ -52,6 +52,9 @@ Explore the following files included in the `.vscode` directory:
 | ---- | ----------- |
 | `launch.json` | Defines the debug configurations such as **Debug Web** and **Debug API**. to see the debug configuration options, select **Run** from the **View** menu. The available debug configurations are listed at the top of the pane. To learn more about debugging in Visual Studio Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging). |
 | `tasks.json` | Defines the configurations to start the web or API server. To see these configuration options, open the Command Palette and run **Task: run task**. To learn more about Visual Studio Code Tasks, see [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks). |
+
+> ![NOTE]
+> If you're using the [C# SWA-func MS SQL template](https://github.com/azure-samples/todo-csharp-sql), you'll need to manually start the **Start API** task and then **Debug API (F5)**. When asked to pick from a list of running .NET processes, search for the name of your application and select it.
 
 ## Provision the Azure resources
 

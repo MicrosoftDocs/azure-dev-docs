@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 07/11/2022
+ms.date: 10/25/2022
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -21,7 +21,7 @@ If you're unable to find what you're looking for in this article or you want to 
 
 You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
-## The .azure directory
+## The `.azure` directory
 
 Azure Developer CLI assumes that any directories that are stored in the `.azure` directory are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
 
@@ -63,13 +63,38 @@ The troubleshooting steps might differ, depending on the root cause.
 
 For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
-## 'azd monitor' for development container
+## `azd monitor` for development container
 
 `azd monitor` is currently not supported if you use a development container as your development environment.
 
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
+
+## `azd pipeline config` using AzDo for Java templates on Windows
+
+You may encounter a failure when running `azd pipeline config` with AzDo for Java templates on Windows. For example, you've:
+
+1. Run the following on Windows:
+
+   ```azdeveloper
+   azd init --template Azure-Samples/todo-java-mongo
+   azd pipeline config
+   ```
+
+1. Received the following error:
+
+   :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
+
+
+### Solution
+
+This is a known issue. While we address this issue, try the following command:
+
+```bash
+git update-index --chmod=+x src/api/mvnw && git commit -m "Fix executable bit permissions" && git push
+```
+
 
 ## Live metrics support for Python
 

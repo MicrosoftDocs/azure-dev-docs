@@ -81,8 +81,8 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 ## [Azure DevOps](#tab/azdo)
 
-
-
+> ![NOTE]
+> If you're using Azure DevOps for a Java template on Windows, see [the corresponding section in the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows). 
 
 ### Create or use an existing Azure DevOps Organization
 
@@ -176,6 +176,8 @@ When creating your PAT, set the following scopes:
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
 1. Visit the web frontend URL to inspect the update.
+
+---
 
 ## Clean up resources
 
