@@ -81,7 +81,7 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 ## [Azure DevOps](#tab/azdo)
 
-> ![NOTE]
+> [!NOTE]
 > If you're using Azure DevOps for a Java template on Windows, see [the corresponding section in the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows). 
 
 ### Create or use an existing Azure DevOps Organization
