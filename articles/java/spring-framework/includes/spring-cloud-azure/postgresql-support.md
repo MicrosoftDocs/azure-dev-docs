@@ -82,19 +82,19 @@ Add the following dependency to your project. This will automatically include th
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create a PostgreSQL server and set up admin user](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?branch=release-cred-free-java&tabs=passwordless#create-a-postgresql-server-and-set-up-admin-user) section.
+> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create a PostgreSQL server and set up admin user](../../configure-spring-data-jdbc-with-azure-postgresql.md?branch=release-cred-free-java&tabs=passwordless#create-a-postgresql-server-and-set-up-admin-user) section.
 
 #### Connect to Azure PostgreSQL locally without password
 
-1. To create users and grant permission, see the [Create a PostgreSQL non-admin user and grant permission](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?branch=release-cred-free-java&tabs=passwordless#create-a-postgresql-non-admin-user-and-grant-permission) section.
+1. To create users and grant permission, see the [Create a PostgreSQL non-admin user and grant permission](../../configure-spring-data-jdbc-with-azure-postgresql.md?branch=release-cred-free-java&tabs=passwordless#create-a-postgresql-non-admin-user-and-grant-permission) section.
 
 1. Configure the following properties in your *application.yml* file:
 
    ```yaml
    spring:
      datasource:
-       url: jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+       url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
        azure:
          passwordless-enabled: true
    ```
@@ -111,7 +111,7 @@ The following sections show the classic Spring Boot application usage scenarios.
       ```bash
       export AZ_POSTGRESQL_AD_SP_USERNAME=<service-principal-name>
 
-      cat << EOF > create_ad_user_mi.sql
+      cat << EOF > create_ad_user_sp.sql
       SET aad_validate_oids_in_tenant = off;
       CREATE ROLE "$AZ_POSTGRESQL_AD_SP_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
       GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_SP_USERNAME";
@@ -121,7 +121,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. Use the following command to run the SQL script to create the Azure AD non-admin user:
 
       ```bash
-      psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user_sp.sql
+      psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user_sp.sql
       ```
 
    1. Now use the following command to remove the temporary SQL script file:
@@ -142,17 +142,17 @@ The following sections show the classic Spring Boot application usage scenarios.
          profile:
            tenant-id: ${AZURE_TENANT_ID}
      datasource:
-       url: jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_SP_USERNAME}@${AZ_DATABASE_NAME}
+       url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+       username: ${AZ_POSTGRESQL_AD_SP_USERNAME}@${AZ_DATABASE_SERVER_NAME}
        azure:
          passwordless-enabled: true
    ```
 
 #### Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps
 
-1. To enable managed identity, see the [Create the managed identity using the Azure portal](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?branch=release-cred-free-java&tabs=sign-in-azure-cli%2Cjava%2Cazure-portal%2Cspring-apps%2Cspring-apps-identity#create-the-managed-identity-using-the-azure-portal) section.
+1. To enable managed identity, see the [Create the managed identity using the Azure portal](../../migrate-postgresql-to-passwordless-connection.md?branch=release-cred-free-java&tabs=sign-in-azure-cli%2cjava%2cazure-portal%2cspring-apps%2cspring-apps-identity#create-the-managed-identity-using-the-azure-portal) section.
 
-1. To grant permissions, see the [Assign role to managed identity](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?branch=release-cred-free-java&tabs=sign-in-azure-cli%2Cjava%2Cazure-portal%2Cspring-apps%2Cspring-apps-identity#assign-roles-to-the-managed-identity) section.
+1. To grant permissions, see the [Assign role to managed identity](../../migrate-postgresql-to-passwordless-connection.md?branch=release-cred-free-java&tabs=sign-in-azure-cli%2cjava%2cazure-portal%2cspring-apps%2cspring-apps-identity#assign-roles-to-the-managed-identity) section.
 
 1. Configure the following properties in your *application.yml* file:
 
@@ -164,7 +164,7 @@ The following sections show the classic Spring Boot application usage scenarios.
            managed-identity-enabled: true
            client-id: ${AZURE_CLIENT_ID}
      datasource:
-       url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
+       url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
        username: ${AZ_POSTGRESQL_AD_MI_USERNAME}@${AZ_DATABASE_SERVER_NAME}
        azure:
          passwordless-enabled: true

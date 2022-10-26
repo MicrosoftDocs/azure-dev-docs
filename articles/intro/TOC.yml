@@ -66,6 +66,8 @@ items:
                 href: ../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
+              - name: Blob Storage
+                href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with MySQL
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with PostgreSQL
@@ -96,6 +98,10 @@ items:
             items:
               - name: Blob Storage
                 href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus queues
+                href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus topics
+                href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
   - name: Azure developer centers
     items:
       - name: Azure developer home

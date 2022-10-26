@@ -6,9 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
-ms.date: 10/04/2021
+ms.date: 10/14/2022
 ---
 
 # Create resources for a cloud-based, serverless ETL solution using Python on Azure
@@ -25,13 +23,13 @@ This article shows you how to use Azure CLI to deploy and configure the Azure re
 Before you can begin the steps in this article, complete the tasks below:
 
 * Azure subscription, if you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/)
-* [Python 3.7 or later](https://www.python.org/downloads/) is installed
+* [Python 3.7 or later](https://www.python.org/downloads/) is installed.
 
     ```Terminal
     python --version
     ```
 
-* Azure CLI; the CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or you can [install Azure CLI](/cli/azure/install-azure-cli) locally
+* Azure CLI (2.0.46 or later); the CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or you can [install Azure CLI](/cli/azure/install-azure-cli) locally.
 
     ```Terminal
     az --version
@@ -43,7 +41,7 @@ Before you can begin the steps in this article, complete the tasks below:
     code --version
     ```
 
-* Install the latest version of [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
+* Install the latest version of [Azure Functions Core Tools](/azure/azure-functions/functions-run-local), version 4 or later. 
 
     ```Terminal
     func --version
@@ -326,6 +324,8 @@ A local Python Function project is needed to build and execute our function duri
     ```console
     func new --name demo_relational_data_cloudetl --template "HTTP trigger" --authlevel "anonymous"
     ```
+
+    **Troubleshooting**: If you get an error `Functions version 2 is not supported for runtime python with version 3.7 and os linux. Supported functions versions are ['4', '3'].`, you need to update your [azure-functions-core-tools](https://www.npmjs.com/package/azure-functions-core-tools) using the command `npm i -g azure-functions-core-tools@4 --unsafe-perm true`. In order to make sure all references to the previous version are removed, the best practice is to remove all files and folders created by `func init` and rerun the steps in this section. 
 
 * **Step 4:** Check that the function was correctly created by running the function locally. Start the local Azure Functions runtime host from the _CloudETLDemo_Local_ folder:
 

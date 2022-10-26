@@ -41,9 +41,7 @@ landingContent:
           - text: Python (Django or Flask) + PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Containers using Visual Studio Code
-            url: tutorial-deploy-containers-01.md
-          - text: Static sites using Azure Storage
-            url: how-to-create-static-sites.md
+            url: containers-in-azure-overview-python.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp          
   - title: Data and storage

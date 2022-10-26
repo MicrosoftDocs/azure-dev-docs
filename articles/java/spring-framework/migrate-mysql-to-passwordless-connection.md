@@ -41,9 +41,9 @@ Although it's possible to connect to Azure Database for MySQL with passwords, yo
 
 With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables.
 
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application is not passwordless.
+To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application isn't passwordless.
 
-In your local development environment, you can authenticate with Azure CLI, Azure Powershell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
+In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
 When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
@@ -64,7 +64,7 @@ export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
 export AZ_DATABASE_NAME=demo
 export AZ_MYSQL_AD_NON_ADMIN_USERNAME=<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>
 export AZ_MYSQL_AD_MI_USERNAME=<YOUR_AZURE_AD_MI_DISPLAY_NAME>
-export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName --output tsv)
 export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv)
 ```
@@ -72,10 +72,10 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
-- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Azure AD non-admin user. Make sure the name is a valid user in your Azure AD tenant.
 - `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Azure AD user for your managed identity. Make sure the name is a valid user in your Azure AD tenant.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com).
+- `<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>`: The name of your user-assigned managed identity server, which should be unique across Azure.
 
 ### 1) Configure Azure Database for MySQL
 
@@ -89,14 +89,35 @@ If you're using Azure CLI, run the following command to make sure it has suffici
 az login --scope https://graph.microsoft.com/.default
 ```
 
+Run the following command to the create user identity for assigning:
+
+```azurecli
+az identity create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_USER_IDENTITY_NAME
+```
+
+> [!IMPORTANT]
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+
+Run the following command to assign the identity to the MySQL server for creating the Azure AD admin:
+
+```azurecli
+az mysql flexible-server identity assign \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --server-name $AZ_DATABASE_SERVER_NAME \
+    --identity $AZ_USER_IDENTITY_NAME
+```
+
 Then, run following command to set the Azure AD admin:
 
 ```azurecli
-az mysql server ad-admin create \
+az mysql flexible-server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_SERVER_NAME \
     --display-name $CURRENT_USERNAME \
-    --object-id $CURRENT_USER_OBJECTID
+    --object-id $CURRENT_USER_OBJECTID \
+    --identity $AZ_USER_IDENTITY_NAME
 ```
 
 This command will set the Azure AD admin to the current signed-in user.
@@ -108,23 +129,11 @@ This command will set the Azure AD admin to the current signed-in user.
 
 #### 2.1) Configure a firewall rule for local IP
 
-Azure Database for MySQL instances are secured by default. These instances have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection.
 
-Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
+You can skip this step if you're using Bash because the `flexible-server create` command already detected your local IP address and set it on MySQL server.
 
-```azurecli
-az mysql server firewall-rule create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
-    --server $AZ_DATABASE_SERVER_NAME \
-    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --output tsv
-```
-
-If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you'll need to add the WSL host ID to your firewall.
-
-Obtain the IP address of your host machine by running the following command in WSL:
+If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you'll need to add the WSL host ID to your firewall. Obtain the IP address of your host machine by running the following command in WSL:
 
 ```bash
 cat /etc/resolv.conf
@@ -168,7 +177,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -204,10 +213,10 @@ Next, use the following steps to update your code to use passwordless connection
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
-   user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME
+   user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME
    ```
 
-1. Replace the two `$AZ_DATABASE_SERVER_NAME` variables and one `$AZ_MYSQL_AD_NON_ADMIN_USERNAME` variable with the values that you configured at the beginning of this article.
+1. Replace the one `$AZ_DATABASE_SERVER_NAME` variable, one `$AZ_DATABASE_NAME` variable and one `$AZ_MYSQL_AD_NON_ADMIN_USERNAME` variable with the values that you configured at the beginning of this article.
 
 1. Remove the `password` from the JDBC URL.
 
@@ -229,7 +238,7 @@ Next, use the following steps to update your code to use passwordless connection
    spring:
      datasource:
        url: jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?serverTimezone=UTC
-       username: ${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+       username: ${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
        azure:
          passwordless-enabled: true​
    ```
@@ -244,9 +253,24 @@ After making these code changes, run your application locally. The new configura
 
 After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage.
 
+In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
+
+- Create the managed identity for your Azure hosting environment.
+- Assign roles to the managed identity.
+
+> [!NOTE]
+> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with PostgreSQL. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
+
+> [!IMPORTANT]
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
+
 #### Create the managed identity using the Azure portal
 
 The following steps show you how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+
+### [Service Connector](#tab/service-connector)
+
+When using Service Connector, it can help to create the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to create the identity.
 
 ### [Azure App Service](#tab/app-service)
 
@@ -283,6 +307,64 @@ The following steps show you how to create a system-assigned managed identity fo
 ---
 
 You can also enable managed identity on an Azure hosting environment by using the Azure CLI.
+
+### [Service Connector](#tab/service-connector-identity)
+
+You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
+
+- Azure App Service
+- Azure Spring Apps
+- Azure Container Apps
+
+Before starting, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+
+```azurecli
+AZ_IDENTITY_RESOURCE_ID=$(az identity create \
+    --name <user-identity-name> \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --query id \
+    --output tsv)
+```
+
+> [!IMPORTANT]
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+
+If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
+
+```azurecli
+az webapp connection create mysql-flexible \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name <app-service-name>
+    --target-resource-group $AZ_RESOURCE_GROUP \
+    --server $AZ_DATABASE_SERVER_NAME \
+    --database $AZ_DATABASE_NAME \
+    --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
+```
+
+If you're using Azure Spring Apps, use `the az spring connection` command, as shown in the following example:
+
+```azurecli
+az spring connection create mysql-flexible \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --service <service-name> \
+    --app <service-instance-name> \
+    --target-resource-group $AZ_RESOURCE_GROUP \
+    --server $AZ_DATABASE_SERVER_NAME \
+    --database $AZ_DATABASE_NAME \
+    --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
+```
+
+If you're using Azure Container Apps, use the `az containerapp connection` command, as shown in the following example:
+
+```azurecli
+az containerapp connection create mysql-flexible \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name <app-service-name>
+    --target-resource-group $AZ_RESOURCE_GROUP \
+    --server $AZ_DATABASE_SERVER_NAME \
+    --database $AZ_DATABASE_NAME \
+    --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
+```
 
 ### [Azure App Service](#tab/app-service-identity)
 
@@ -370,7 +452,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -388,7 +470,7 @@ Before deploying the app to the hosting environment, you need to make one more c
 Update your code to use the user created for the managed identity:
 
 ```java
-properties.put("user", "$AZ_MYSQL_AD_MI_USERNAME@$AZ_DATABASE_SERVER_NAME");
+properties.put("user", "$AZ_MYSQL_AD_MI_USERNAME");
 ```
 
 ### [Spring](#tab/spring)
@@ -399,7 +481,7 @@ Update the *application.yaml* or *application.properties* file. Change the `spri
 spring:
   datasource:
     url: jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?serverTimezone=UTC
-    username: ${AZ_MYSQL_AD_MI_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+    username: ${AZ_MYSQL_AD_MI_USERNAME}
     azure:
       passwordless-enabled: true​
 ```

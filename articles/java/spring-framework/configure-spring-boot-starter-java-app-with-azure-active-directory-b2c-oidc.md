@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
 
    * Under **Project**, select **Maven Project**.
    * Under **Language**, select **Java**.
-   * Under **Spring Boot**, select **2.7.3**.
+   * Under **Spring Boot**, select **2.7.4**.
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill some of these out as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
