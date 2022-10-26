@@ -335,7 +335,7 @@ If you plan on building on this tutorial, here are some next steps you can take.
 [10]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [11]: /cli/azure/containerapp/github-action#az-containerapp-github-action-add
 [12]: /azure/role-based-access-control/built-in-roles#general
-[13]: /get-started/quickstart/fork-a-repo
+[13]: /azure/devops/repos/git/forks
 [14]: https://git-scm.com/
 [15]: https://github.com/Azure/azure-cli/issues/16317
 [16]: https://git-scm.com/docs/git-config
