@@ -5,9 +5,9 @@ ms.date: 08/08/2022
 ---
 <a name="create-a-cosmos-db-resource-for-mongodb"></a>
 
-## Create a Cosmos DB resource for MongoDB with Azure CLI
+## Create an Azure Cosmos DB resource for MongoDB with Azure CLI
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Azure Cosmos DB resource for a mongoDB database. 
 
 ```azurecli
 az cosmosdb create \
@@ -159,7 +159,7 @@ Connect to the mongoDB database with a connection string. Make sure your service
 
 ## Configure your Azure web app with the connection string with Azure CLI
 
-Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) so the web app connects to the Cosmos DB resource:
+Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) so the web app connects to the Azure Cosmos DB resource:
 
 ```azurecli
 az webapp config appsettings set \

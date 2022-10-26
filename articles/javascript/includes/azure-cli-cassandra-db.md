@@ -5,7 +5,7 @@ ms.date: 08/08/2022
 ---
 
 
-## Create a Cosmos DB resource for Cassandra DB
+## Create an Azure Cosmos DB resource for Cassandra DB
 
 Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database. 
 

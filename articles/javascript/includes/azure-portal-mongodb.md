@@ -6,7 +6,7 @@ ms.date: 08/09/2022
 
 ## Create and use a MongoDB database with Azure portal 
 
-1. Use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) to create a Cosmos DB API for MongoDB. 
+1. Use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) to create an Azure Cosmos DB for MongoDB. 
 2. On the **Basics** page, make sure you select the **version** of MongoDB you intend to use. Learn more about MongoDB versions:
    * [4.2](/azure/cosmos-db/mongodb/feature-support-42)
    * [4.0](/azure/cosmos-db/mongodb/feature-support-40) 
