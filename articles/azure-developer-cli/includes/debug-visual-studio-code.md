@@ -6,7 +6,7 @@ ms.date: 08/10/2022
 ms.author: hannahhunter
 ---
 
-Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
+Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
@@ -121,11 +121,12 @@ To test this pattern, do the following steps:
 
 1. Running the web app will cause your default browser to open the following URL: `http://localhost:3000`. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**.
 
-   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample NodeJS Mongo app.":::
+   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample Node J S Mongo D B app.":::
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks, such as:
+
    - Inspect variables
    - Look at the call stack
-   - Set other breakpoints. 
+   - Set other breakpoints
 
 1. Press `<F5>` to continue running the app and the selected item will be deleted.

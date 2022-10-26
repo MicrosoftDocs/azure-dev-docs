@@ -125,7 +125,7 @@ conceptualContent:
         - text: Spring Boot Starters
           itemType: get-started
           url: spring-framework/spring-boot-starters-for-azure.md
-        - text: Spring Data Azure Cosmos DB
+        - text: Spring Data for Azure Cosmos DB
           itemType: how-to-guide
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
