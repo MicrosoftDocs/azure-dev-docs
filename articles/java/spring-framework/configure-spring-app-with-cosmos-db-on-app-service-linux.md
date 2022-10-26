@@ -1,5 +1,5 @@
 ---
-title: How to use Spring and Cosmos DB with App Service on Linux
+title: How to use Spring and Azure Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
 ms.reviewer: joshuapa
@@ -9,13 +9,13 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# How to use Spring and Cosmos DB with App Service on Linux
+# How to use Spring and Azure Cosmos DB with App Service on Linux
 
 This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 
 It will demonstrate the usage of the following components:
 
-- [Spring Boot Starter with the Azure Cosmos DB SQL API](configure-spring-boot-starter-java-app-with-cosmos-db.md)
+- [Spring Boot Starter with Azure Cosmos DB for NoSQL](configure-spring-boot-starter-java-app-with-cosmos-db.md)
 - [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
 - [App Service Linux](/azure/app-service/containers/app-service-linux-intro)
 
@@ -33,7 +33,8 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Clone the Sample Java Web App Repository
 
-For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
+For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Azure Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
+
 1. Clone the Spring Todo app and copy the contents of the *.prep* folder to initialize the project:
 
     For bash:
@@ -59,7 +60,7 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
 
 ## Create an Azure Cosmos DB from Azure CLI
 
-The following procedure creates Azure Cosmos database using CLI.
+The following procedure creates Azure Cosmos DB database using CLI.
 
 1. Sign in to your Azure CLI, and set your subscription ID.
 
@@ -80,8 +81,8 @@ The following procedure creates Azure Cosmos database using CLI.
     -l <your-resource-group-region>
     ```
 
-4. Create the Cosmos DB and specify the type as GlobalDocumentDB.
-The name of the Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You'll need this later.
+4. Create the Azure Cosmos DB and specify the type as GlobalDocumentDB.
+The name of the Azure Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You'll need this later.
 
     ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
@@ -99,7 +100,7 @@ The name of the Cosmos DB must use only lower case letters. Make sure to note th
 
 The following procedure runs the application on the development computer.
 
-1. Within your console of choice configure the environment variables shown in the following code sections with the Azure and Cosmos DB connection information you gathered previously in this article. You'll need to provide a unique name for **WEBAPP_NAME** and value for the **REGION** variables.
+1. Within your console of choice configure the environment variables shown in the following code sections with the Azure and Azure Cosmos DB connection information you gathered previously in this article. You'll need to provide a unique name for **WEBAPP_NAME** and value for the **REGION** variables.
 
 For Linux (Bash):
 
@@ -342,7 +343,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Azure Cosmos DB Documentation]: /azure/cosmos-db/
 [Azure for Java Developers]: ../index.yml
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java 
-[Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
+[Spring Data for Azure Cosmos DB]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: https://azure.microsoft.com/services/devops/java/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
