@@ -138,14 +138,14 @@ Serverless functions remove much of the server configuration and management so y
 * Low-code functions: With Azure Functions, you can create functions that are triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
 * High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
 
-## Cosmos DB integration
+## Azure Cosmos DB integration
 
-Cosmos DB currently provides the following integration for functions:
+Azure Cosmos DB currently provides the following integration for functions:
 
 |Type|API|Description|
 |--|--|--|
-|API & Binding|SQL|Connect to SQL API with either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/cosmos SDK](https://www.npmjs.com/package/@azure/cosmos).| 
-|API only|MongoDB|Use any MongoDB npm package with the Cosmos DB connection string provided in the Azure portal for your resource. Common MongoDB packages include [Mongoose](https://www.npmjs.com/package/mongoose) and [MongoDB](https://www.npmjs.com/package/mongodb).|
+|API & Binding|SQL|Connect to Azure Cosmos DB for NoSQL via either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/Azure Cosmos DB SDK](https://www.npmjs.com/package/@azure/cosmos).|
+|API only|MongoDB|Use any MongoDB npm package with the Azure Cosmos DB connection string provided in the Azure portal for your resource. Common MongoDB packages include [Mongoose](https://www.npmjs.com/package/mongoose) and [MongoDB](https://www.npmjs.com/package/mongodb).|
 
 
 
