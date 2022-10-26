@@ -1,8 +1,6 @@
 ---
 title: Create a PostgreSQL database with managed identity
 description: Create an Azure Database for PostgreSQL services that a deployed Python (Django or Flask) web app can access in Azure using managed identity.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/10/2022

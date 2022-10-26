@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 09/21/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Configure continuous deployment for a Python web app in Azure Container Apps
@@ -337,17 +335,17 @@ If you plan on building on this tutorial, here are some next steps you can take.
 [10]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [11]: /cli/azure/containerapp/github-action#az-containerapp-github-action-add
 [12]: /azure/role-based-access-control/built-in-roles#general
-[13]: /get-started/quickstart/fork-a-repo
+[13]: /azure/devops/repos/git/forks
 [14]: https://git-scm.com/
 [15]: https://github.com/Azure/azure-cli/issues/16317
 [16]: https://git-scm.com/docs/git-config
 [17]: https://github.com/
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
-[20]: /azure/developer/github/github-actions
+[20]: ../github/github-actions.md
 [21]: /azure/active-directory/fundamentals/service-accounts-principal
 [22]: /azure/container-apps/scale-app
 [23]: /azure/container-apps/custom-domains-certificates
 [24]: /azure/container-apps/monitor
-[25]: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-05
+[25]: ./tutorial-containerize-deploy-python-web-app-azure-05.md
 [26]: /cli/azure/containerapp/logs#az-containerapp-logs-show

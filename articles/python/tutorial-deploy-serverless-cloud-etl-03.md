@@ -6,8 +6,6 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ms.date: 10/02/2021
 ---
 # Ingest data from Azure Blob Storage using a Python Azure Function and Azure Key Vault

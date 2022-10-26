@@ -14,7 +14,7 @@ This article explains how to migrate from traditional authentication methods to 
 
 Application requests to Azure Event Hubs for Kafka must be authenticated. Azure Event Hubs for Kafka provides different ways for apps to connect securely. One of the ways is to use a connection string. However, you should prioritize passwordless connections in your applications when possible.
 
-The passwordless connections is supported since Spring Cloud Azure 4.3.0. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
+Passwordless connections are supported since Spring Cloud Azure 4.3.0. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
 
 ## Compare authentication options
 
@@ -351,7 +351,7 @@ In this section, you'll execute two steps to enable your application to run in a
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
 #### Create the managed identity for your Azure hosting environment
 
@@ -364,8 +364,8 @@ When using Service Connector, it can help to create the system-assigned managed 
 The following compute services are currently supported:
 
 - Azure App Service
-- Azure Spring Cloud
-- Azure Container Apps (preview)
+- Azure Spring Apps
+- Azure Container Apps
 
 For this migration guide, you'll use App Service, but the steps are similar for Azure Spring Apps and Azure Container Apps.
 

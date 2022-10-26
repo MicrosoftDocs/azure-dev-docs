@@ -102,7 +102,7 @@ Sign in, Subscription, and Location Commands:
 |---|---|---|
 |Sign in with Web Browser|az login|Connect-AzAccount|
 |Get available subscriptions|az account list|Get-AzSubscription|
-|Set Subscription|az account set –subscription \<SubscriptionId>|Set-AzContext -Subscription \<SubscriptionID>|
+|Set Subscription|az account set –-subscription \<SubscriptionId>|Set-AzContext -Subscription \<SubscriptionID>|
 |List Azure Locations|az account list-locations|Get-AzLocation|
 
 ---

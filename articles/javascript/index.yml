@@ -86,9 +86,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Databases on Azure
-            url: /how-to/with-database/getting-started
+            url: /azure/developer/javascript/how-to/with-database/getting-started
           - text: GraphQL on Azure
-            url: /azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world?tabs=visualstudiocode
+            url: ./how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
           - text: Full stack serverless with Mongoose
             url: /azure/static-web-apps/add-mongoose
           - text: Serverless API + DB
@@ -138,7 +138,7 @@ landingContent:
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
           - text: Azure Developer CLI (preview)
-            url: /azure/developer/azure-developer-cli/overview
+            url: ../azure-developer-cli/overview.md
           - text: Windows Terminal
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
