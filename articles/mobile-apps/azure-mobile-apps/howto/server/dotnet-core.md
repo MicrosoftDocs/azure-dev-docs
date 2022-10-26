@@ -179,7 +179,7 @@ By default, a user can do anything they want to entities within a table - create
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
 * `PreCommitHookAsync()` adjusts any entity immediately before being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure an HttpContextAccessor][4].
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure a HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -301,9 +301,9 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-You can also set the container, partition key, and other Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
+You can also set the container, partition key, and other Azure Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Azure Cosmos DB][cosmos-sample] available in the GitHub repository.
 
 ### SqLite
 

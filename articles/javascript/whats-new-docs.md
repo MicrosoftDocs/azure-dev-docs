@@ -16,11 +16,10 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|Cosmos DB Core (SQL) - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
-|Cosmos DB Core (SQL) - Training module|Visual Studio Code + Cosmos DB SDK - Updated [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/training/modules/build-node-cosmos-app-vscode). Updates include more code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/training/build-node-cosmos-app-vscode) using @azure/cosmos with queries using keywords such as LIKE, JOIN, WHERE.|
-|Docs - Blob Storage| Added [Connect with passwordless authentication to Azure](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-passwordless-authentication-to-azure)|
-|Docs - Blob Storage| Added [Get URL for container or blob](/azure/storage/blobs/storage-blob-get-url-javascript) - thanks to contribution from @Scottlexium. |
-
+|Azure Cosmos DB for NoSQL - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
+|Azure Cosmos DB for NoSQL - Learn module|Visual Studio Code + Azure Cosmos DB - Updated [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/training/modules/build-node-cosmos-app-vscode). Updates include more code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/training/build-node-cosmos-app-vscode) using @azure/cosmos with queries using keywords such as LIKE, JOIN, WHERE.|
+|Blob Storage| Added [Connect with passwordless authentication to Azure](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-passwordless-authentication-to-azure)|
+|Blob Storage| Added [Get URL for container or blob](/azure/storage/blobs/storage-blob-get-url-javascript) - thanks to contribution from @Scottlexium. |
 
 ## 2022 August
 
@@ -53,14 +52,13 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|JavaScript on Cosmos DB MongoDB API|* New [quickstart](/azure/cosmos-db/mongodb/quickstart-javascript?tabs=azure-cli%2Cwindows)<br>* [Developer Guide](/azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows)|
+|JavaScript on Azure Cosmos DB for MongoDB|* New [quickstart](/azure/cosmos-db/mongodb/quickstart-javascript?tabs=azure-cli%2Cwindows)<br>* [Developer Guide](/azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows)|
 
 ### Updated in June
 
 |Name|Description|
 |---------------------------------------|--|
-|[Get connection string from Key vault](how-to/with-web-app/use-secret-environment-variables.md)|This has been updated to flow from the initial [App Service + Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). As part of the update, the sample has been replaced with this sample: [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git).|
-
+|[Get connection string from Key Vault](how-to/with-web-app/use-secret-environment-variables.md)|This has been updated to flow from the initial [App Service + Azure Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). As part of the update, the sample has been replaced with this sample: [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git).|
 
 ## 2022 May
 
@@ -101,7 +99,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[App Service + MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Learn how to deploy an Express.js app to Azure App Service. Create and configure the Cosmos DB using the MongoDB API.|
+|[App Service + MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Learn how to deploy an Express.js app to Azure App Service. Create and configure an Azure Cosmos DB for MongoDB instance.|
 |[Test strategies with Azure SDK](./core/test-azure-sdk-integrated-code.md)|When developing applications integrated with Azure SDKs, consider how much integration your code base has with the Azure SDKs.|
 
 ### Updated in February
@@ -173,7 +171,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Azure Functions: Add Cosmos DB for MongoDB API integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Fixed connection pooling.|
+|[Azure Functions: Add Azure Cosmos DB for MongoDB integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Fixed connection pooling.|
 
 ## 2021 September 
 
@@ -189,7 +187,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
+|[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with an Azure Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
 |[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 |[Clone and use a GitHub repository in Visual Studio Code](how-to/with-visual-studio-code/clone-github-repository.md)|Updated and clarified for new functionality.|
 
@@ -283,21 +281,19 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Notes|
 |---------------------------------------|--|
-|[How to use Cassandra on Azure Cosmos DB](./how-to/with-database/use-cassandra-as-cosmos-db.md)|To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
-|[How to use MongoDB on Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md)|To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
+|[How to use Cassandra on Azure Cosmos DB](./how-to/with-database/use-cassandra-as-cosmos-db.md)|To create, move, or use a Cassandra DB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database. |
+|[How to use MongoDB on Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md)|To create, move, or use a mongoDB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database. |
 |[How to use MariaDb on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
 |[How to use MySql on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
 |[How to use PostgreSQL on Azure](./how-to/with-database/use-postgresql-db.md)|To create, move, or use a PostgreSQL database to Azure, you need a **Azure Database for PostgreSQL server** resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
-|[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
+|[Develop a JavaScript application for Azure Cosmos DB for NoSQL](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Azure Cosmos DB for NoSQL**, use an Azure Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
 
 ### Updated in February
 
 |Name|Notes|
 |---------------------------------------|--|
 |[Top tasks for JavaScript developers](/azure/azure-monitor/app/api-custom-events-metrics)|
-
-
 
 ### <a name="top-10"></a>Top 10 documents, by page view, for JavaScript Developers
 
@@ -322,7 +318,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[What's new with Developer Advocates](whats-new-developer-advocacy.md)|Blogs, videos, Learn modules|
 |[Tutorial: Convert text to speech](./tutorial/convert-text-to-speech-cognitive-services.md)|In this tutorial, add Cognitive Services Speech to an existing Express.js app to add conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio.|
-|How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb) |
+|How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)<br>* [Create and use MongoDB on Azure with Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb) |
 |How-to guide with Visual Studio Code|* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|
 
 ### Updated in January
