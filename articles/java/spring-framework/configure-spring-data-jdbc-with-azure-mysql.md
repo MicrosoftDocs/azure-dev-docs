@@ -37,7 +37,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.3 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.4 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Open the *src/main/resources/application.properties* file, and add:
 logging.level.org.springframework.jdbc.core=DEBUG
 
 spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.username=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 spring.datasource.azure.passwordless-enabled=true
 
 spring.sql.init.mode=always
@@ -65,7 +65,7 @@ spring.sql.init.mode=always
 logging.level.org.springframework.jdbc.core=DEBUG
 
 spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.username=${AZ_MYSQL_NON_ADMIN_USERNAME}
 spring.datasource.password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
 
 spring.sql.init.mode=always

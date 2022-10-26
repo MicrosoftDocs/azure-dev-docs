@@ -1,8 +1,6 @@
 ---
 title: 'Deploy a Python web app to Azure with managed identity: deploy the container image to App Service'
 description: How to deploy a containerized Python web app (Django or Flask) to App Service.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/17/2022
