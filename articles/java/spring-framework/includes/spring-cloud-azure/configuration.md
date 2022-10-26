@@ -40,7 +40,7 @@ The configuration properties' prefixes have been unified to the `spring.cloud.az
 | Azure service               | Configuration property prefix             | Configuration Properties Link                                                                                |
 |-----------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Azure App Configuration     | *spring.cloud.azure*.appconfiguration     | [App Configuration Properties](../../spring-cloud-azure-appendix.md#azure-app-configuration-properties)           |
-| Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Cosmos DB Properties](../../spring-cloud-azure-appendix.md#azure-cosmos-db-properties)                                 |
+| Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Azure Cosmos DB Properties](../../spring-cloud-azure-appendix.md#azure-cosmos-db-properties)                                 |
 | Azure Event Hubs            | *spring.cloud.azure*.eventhubs            | [Event Hubs Properties](../../spring-cloud-azure-appendix.md#azure-event-hubs-properties)                         |
 | Azure Key Vault Certificate | *spring.cloud.azure*.keyvault.certificate | [Key Vault Certificates Properties](../../spring-cloud-azure-appendix.md#azure-key-vault-certificates-properties) |
 | Azure Key Vault Secret      | *spring.cloud.azure*.keyvault.secret      | [Key Vault Secrets Properties](../../spring-cloud-azure-appendix.md#azure-key-vault-secrets-properties)           |
