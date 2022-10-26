@@ -1,20 +1,20 @@
 ---
-title: Use JavaScript on Azure Cosmos DB with SQL API
-description: To create a SQL database to Azure, you need a Cosmos DB resource. 
+title: Use JavaScript on Azure Cosmos DB with Azure Cosmos DB for NoSQL
+description: To create a SQL database to Azure, you need an Azure Cosmos DB resource. 
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Develop a JavaScript application for Cosmos DB with SQL API 
+# Develop a JavaScript application for Azure Cosmos DB for NoSQL
 
-To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.
+To create or use Azure Cosmos DB for NoSQL, create an Azure Cosmos DB resource. Learn how to create the Azure Cosmos DB resource and use your database.
 
-## Locally develop with the CosmosDB emulator
+## Locally develop with the Azure Cosmos DB emulator
 
-Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for SQL API development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#sql-api). 
+Learn how to install the [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Azure Cosmos DB for NoSQL development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#sql-api).
 
-## Create a Cosmos DB resource for a SQL API database
+## Create a resource for an Azure Cosmos DB for NoSQL database
 
 You can create a resource with:
 
@@ -24,21 +24,21 @@ You can create a resource with:
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-cosmos-db-sql-api.md)]
 
-## View and use your SQL API database on Azure Cosmos DB
+## View and use your Azure Cosmos DB for NoSQL database
 
-While developing your SQL API database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
+While developing your Azure Cosmos DB for NoSQL database with JavaScript, use [Azure Cosmos DB explorer](https://cosmos.azure.com/) to work with your database.
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your database.":::
+:::image type="content" source="../../media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your database.":::
 
-The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
+The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-## Use @azure/cosmos SDK to connect to database
+## Use @azure/Azure Cosmos DB SDK to connect to database
 
-Connect to your Azure Cosmos DB with SQL API using the following Azure SDK:
+Connect to your Azure Cosmos DB for NoSQL database using the following Azure SDK:
 
-* [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos)
+* [@azure/Azure Cosmos DB](https://www.npmjs.com/package/@azure/cosmos)
 
-To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the following procedure.
+To connect and use your Azure Cosmos DB for NoSQL database with JavaScript, use the following procedure.
 
 1. Make sure Node.js and npm are installed.
 1. Create a Node.js project in a new folder:
@@ -68,7 +68,7 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
     const COSMOS_DB_RESOURCE_NAME = "YOUR-RESOURCE-NAME";
     const COSMOS_DB_RESOURCE_KEY = "YOUR-RESOURCE-KEY";
 
-    let client = null;      // Cosmos DB SQL API connection object
+    let client = null;      // Azure Cosmos DB connection object
     let db = null;          // DB object
     let container = null;   // Container object
 
@@ -152,7 +152,7 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
             return new CosmosClient(connectToCosmosDB);
 
         } catch (err) {
-            console.log('Cosmos DB SQL API - can\'t connected - err');
+            console.log('Azure Cosmos DB - can\'t connect - err');
             console.log(err);
         }
     }
@@ -211,9 +211,9 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
         console.log(err)
     })
     ```
- 
+
 1. Replace the following variables in the script:
-    * `YOUR-RESOURCE-NAME` - the name you used when creating your Cosmos DB resource
+    * `YOUR-RESOURCE-NAME` - the name you used when creating your Azure Cosmos DB resource
     * `YOUR-RESOURCE-KEY` - one of the read/write keys for your resource
 
 1. Run the script.
@@ -235,5 +235,5 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for SQL API documentation](/azure/cosmos-db)
-* [Cosmos DB for SQL API quickstart](/azure/cosmos-db/create-sql-api-nodejs)
+* [Azure Cosmos DB for NoSQL documentation](/azure/cosmos-db)
+* [Azure Cosmos DB for NoSQL quickstart](/azure/cosmos-db/create-sql-api-nodejs)

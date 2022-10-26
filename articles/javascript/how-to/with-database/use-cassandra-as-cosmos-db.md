@@ -1,6 +1,6 @@
 ---
 title: Use JavaScript with Cassandra on Azure Cosmos DB
-description: To create or move your Cassandra database to Azure, you need a Cosmos DB resource. 
+description: To create or move your Cassandra database to Azure, you need an Azure Cosmos DB resource. 
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.custom: devx-track-js, devx-track-azurecli
@@ -9,13 +9,13 @@ ms.custom: devx-track-js, devx-track-azurecli
 # Develop a JavaScript application with Cassandra on Azure
 
 
-To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database.
+To create, move, or use a Cassandra DB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database.
 
-## Locally develop with the CosmosDB emulator
+## Locally develop with the Azure Cosmos DB emulator
 
-Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Cassandra development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#cassandra-api). 
+Learn how to install the [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Cassandra development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#cassandra-api). 
 
-## Create a Cosmos DB resource for a Cassandra DB database
+## Create an Azure Cosmos DB resource for a Cassandra DB database
 
 You can create a resource with:
 
@@ -27,26 +27,24 @@ You can create a resource with:
 
 ## View and use your Cassandra DB on Azure Cosmos DB
 
-While developing your Cassandra DB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
+While developing your Cassandra DB database with JavaScript, use [Azure Cosmos DB explorer](https://cosmos.azure.com/) to work with your database.
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-cassandra-add-table-row.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your Cassandra DB database.":::
+:::image type="content" source="../../media/howto-database/cosmos-explorer-cassandra-add-table-row.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your Cassandra DB database.":::
 
+The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
-
-
-:::image type="content" source="../../media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Cosmos explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
+:::image type="content" source="../../media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
 
 ## Use native SDK packages to connect to Cassandra DB on Azure
 
-The Cassandra DB database on Cosmos DB uses npm packages already available, such as:
+The Cassandra DB database on Azure Cosmos DB uses npm packages already available, such as:
 
 * [cassandra-driver](https://www.npmjs.com/package/cassandra-driver)
 
 **localDataCenter** using cassandra-driver:
 
 * V3, use the default of `dataCenter1`
-* V4, you must specify the data center, such as `Central US` in the following code block. 
+* V4, you must specify the data center, such as `Central US` in the following code block.
 
 ```javascript
   let client = new cassandra.Client({
@@ -58,7 +56,7 @@ The Cassandra DB database on Cosmos DB uses npm packages already available, such
       rejectUnauthorized: false,
     },
   });
-``` 
+```
 
 If you are unsure of your localDataCenter, remove the property, run the sample code, and the value of the property is returned in the error text. 
 
@@ -93,8 +91,8 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 1. Copy the following JavaScript code into `index.js`:
 
     :::code language="JavaScript" source="~/../js-e2e/database/cassandra/index.js" :::
- 
-1. Replace the following in the script with your Cosmos DB Cassandra connection information:
+
+1. Replace the following in the script with your Azure Cosmos DB Cassandra connection information:
 
     * YOUR-RESOURCE-NAME
     * YOUR-USERNAME - replace with YOUR-RESOURCE-NAME
@@ -124,6 +122,6 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for Cassandra DB documentation](/azure/cosmos-db/cassandra-introduction)
-* [Cosmos DB for Cassandra DB quickstart](/azure/cosmos-db/create-cassandra-nodejs)
-* [Migration guide to move to Cosmos DB for Cassandra DB](/azure/cosmos-db/cassandra-migrate-cosmos-db-databricks)
+* [Azure Cosmos DB for Cassandra DB documentation](/azure/cosmos-db/cassandra-introduction)
+* [Azure Cosmos DB for Cassandra DB quickstart](/azure/cosmos-db/create-cassandra-nodejs)
+* [Migration guide to move to Azure Cosmos DB for Cassandra DB](/azure/cosmos-db/cassandra-migrate-cosmos-db-databricks)
