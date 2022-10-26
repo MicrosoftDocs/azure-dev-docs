@@ -37,19 +37,19 @@ This example walks through replacing values in `employee.json` using the [variab
     }
     ```
 
-2. Open your GitHub repository and go to **Settings**.
+1. Open your GitHub repository and go to **Settings**.
 
     :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
 
-3. Select **Secrets** and then **New Secret**.
+1. Select **Security > Secrets and variables > Actions**.
 
-    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
+1. Select **New repository secret**.
 
-4. Add a new secret `PASSWORD` with the value `5v{W<$2B<GR2=t4#` (or a password you select). Save your secret. 
+1. Add a new secret `PASSWORD` with the value `5v{W<$2B<GR2=t4#` (or a password you select). Save your secret. 
 
-5. Go to **Actions** and select **set up a workflow yourself**.
+1. Go to **Actions** and select **set up a workflow yourself**.
 
-6. Add a workflow file. The username value in your json file will be replaced with `tcranz`. The password will be replaced with your GitHub secret. The url field will be populated with a URL that includes the GitHub variable `github.repository`.
+1. Add a workflow file. The username value in your json file will be replaced with `tcranz`. The password will be replaced with your GitHub secret. The url field will be populated with a URL that includes the GitHub variable `github.repository`.
 
     ```yaml
     on: [push]

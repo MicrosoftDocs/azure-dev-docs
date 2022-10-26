@@ -25,7 +25,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.WPF`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.WinUI` project:
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.WinUI`project as the startup project.  
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
@@ -96,7 +96,7 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
 }
 ```
 
-The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired bad token is produced instead.
+The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired token is produced instead.  An expired or invalid token will cause the underlying operation to fail appropriately.
 
 ## Test the app
 

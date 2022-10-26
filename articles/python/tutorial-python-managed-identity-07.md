@@ -1,8 +1,6 @@
 ---
 title: Clean up resource from Python web app tutorial
 description: Clean up resources used and show next steps of the tutorial showing how to deploy a Python (Django or Flask) web app to Azure.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022

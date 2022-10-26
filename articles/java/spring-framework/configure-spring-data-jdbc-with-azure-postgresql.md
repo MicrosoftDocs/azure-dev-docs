@@ -37,7 +37,7 @@ In this article, you'll code a sample application. If you want to go faster, thi
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.3 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.4 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 > [!NOTE]
@@ -52,8 +52,8 @@ Open the *src/main/resources/application.properties* file, and add the following
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 spring.datasource.azure.passwordless-enabled=true
 
 spring.sql.init.mode=always
@@ -64,8 +64,8 @@ spring.sql.init.mode=always
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
+spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 spring.datasource.password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
 
 spring.sql.init.mode=always
@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-Stop the running application, and start it again using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again using the following command. The application will now use the database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
