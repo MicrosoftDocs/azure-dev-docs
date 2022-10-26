@@ -77,6 +77,6 @@ The following are some Learn modules that explore the technologies and themes co
 
 * [Get Started with the MongoDB API in Azure Cosmos DB](/training/modules/get-started-mongodb-api-azure-cosmos-db/)
 
-* [Migrate on-premises MongoDB databases to Cosmos DB](/training/modules/migrate-on-premises-mongodb-databases-azure-database-mongodb/)
+* [Migrate on-premises MongoDB databases to Azure Cosmos DB](/training/modules/migrate-on-premises-mongodb-databases-azure-database-mongodb/)
 
 * [Build a containerized web application with Docker](/training/modules/intro-to-containers/)

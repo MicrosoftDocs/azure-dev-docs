@@ -43,11 +43,11 @@ The components supporting this tutorial and shown in the diagram above are:
 
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
-* [Azure Cosmos DB API for MongoDB][2]
+* [Azure Cosmos DB for MongoDB][2]
 
-  * The API for MongoDB is a NoSQL database used in this tutorial to store data.
+  * The Azure Cosmos DB for MongoDB is a NoSQL database used in this tutorial to store data.
 
-  * Access to Cosmos DB resource is via a connection string, which is passed as an environment variable to the containerized app.
+  * Access to Azure Cosmos DB resource is via a connection string, which is passed as an environment variable to the containerized app.
 
 ## Authentication
 
@@ -55,7 +55,7 @@ In this tutorial, you'll build a Docker image (either locally or directly in Azu
 
 The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need to specify credentials. Specifically, this tutorial uses a system assigned managed identity. Managed identity is configured during setup of App Service to use a registry container image.
 
-The tutorial sample web app uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. 
+The tutorial sample web app uses MongoDB to store data. The sample code connects to Azure Cosmos DB via a connection string. 
 
 ## Prerequisites
 
@@ -64,8 +64,8 @@ To complete this tutorial, you'll need:
 * An Azure account where you can create:
 
   * [Azure Container Registry][11]
-  * [Azure App Service][1] 
-  * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create an Azure Cosmos DB for MongoDB, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
+  * [Azure App Service][1]
+  * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create an Azure Cosmos DB for MongoDB database, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
 
@@ -73,7 +73,7 @@ To complete this tutorial, you'll need:
 
 * Python packages:
 
-  * [PyMongo][8] for connecting to Mongo DB.
+  * [PyMongo][8] for connecting to MongoDB.
   * [Flask][9] or [Django][10] as a web framework.
 
 * [Docker][4] installed locally if you want to run container locally.

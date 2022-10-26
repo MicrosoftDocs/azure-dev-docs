@@ -77,7 +77,7 @@ In this article, you learn how to:
     echo "$(terraform output resource_group_name)"
     ```
 
-1. Get the Cosmos DB account name.
+1. Get the Azure Cosmos DB account name.
 
     ```console
     echo "$(terraform output cosmosdb_account_name)"
@@ -93,7 +93,7 @@ In this article, you learn how to:
   
 ## Test application
 
-1. Get the Cosmos DB account name.
+1. Get the Azure Cosmos DB account name.
 
     ```console
     echo "$(terraform output dns)"
@@ -115,4 +115,3 @@ In this article, you learn how to:
 
 > [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
-
