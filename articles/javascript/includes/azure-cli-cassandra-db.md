@@ -4,10 +4,11 @@ ms.topic: include
 ms.date: 08/08/2022
 ---
 
+<a name="create-a-cosmos-db-resource-for-cassandra-db"></a>
 
-## Create a Cosmos DB resource for Cassandra DB
+## Create a resource for Azure Cosmos DB for Apache Cassandra
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database.
 
 ```azurecli
 az cosmosdb create \
@@ -17,7 +18,7 @@ az cosmosdb create \
     --capabilities EnableCassandra
 ```
 
-This command may take a couple of minutes to complete and creates a publicly available resource. You don't need to configure firewall rules to allow your client IP address through. 
+This command may take a couple of minutes to complete and creates a publicly available resource. You don't need to configure firewall rules to allow your client IP address through.
 
 The response includes your server's configuration details including: 
 

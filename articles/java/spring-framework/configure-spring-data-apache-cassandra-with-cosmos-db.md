@@ -1,6 +1,6 @@
 ---
-title: How to use Spring Data Apache Cassandra API with Azure Cosmos DB
-description: Learn how to use Spring Data Apache Cassandra API with Azure Cosmos DB.
+title: How to use Spring Data with Azure Cosmos DB for Apache Cassandra
+description: Learn how to use Spring Data with Azure Cosmos DB for Apache Cassandra.
 services: cosmos-db
 documentationcenter: java
 ms.date: 07/15/2022
@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: devx-track-java
 ---
 
-# How to use Spring Data Apache Cassandra API with Azure Cosmos DB
+# How to use Spring Data with Azure Cosmos DB for Apache Cassandra
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
 ## Create an Azure Cosmos DB account
 
-The following procedure creates and configures a Cosmos account in the Azure portal.
+The following procedure creates and configures an Azure Cosmos DB account in the Azure portal.
 
-### Create a Cosmos DB account using the Azure portal
+### Create an Azure Cosmos DB account using the Azure portal
 
 > [!NOTE]
-> You can read more detailed information about creating Azure Cosmos DB accounts in [Azure Cosmos DB Documentation](/azure/cosmos-db/).
+> You can read more detailed information about creating accounts in the [Azure Cosmos DB documentation](/azure/cosmos-db/).
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -40,19 +40,19 @@ The following procedure creates and configures a Cosmos account in the Azure por
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
    - **API**: Specify *Cassandra* for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
    >[!div class="mx-imgBorder"]
-   >![Specify your Cosmos DB account settings.][COSMOSDB03]
+   >![Specify your Azure Cosmos DB account settings.][COSMOSDB03]
 
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
    
    >[!div class="mx-imgBorder"]
-   >![Review your Cosmos DB account settings.][COSMOSDB04]
+   >![Review your Azure Cosmos DB account settings.][COSMOSDB04]
 
 It will take a few minutes to deploy the database.
 
@@ -68,7 +68,7 @@ It will take a few minutes to deploy the database.
    >![Select new keyspace.][COSMOSDB05]
 
    >[!div class="mx-imgBorder"]
-   >![Create a Cosmos DB keyspace.][COSMOSDB05-1]
+   >![Create an Azure Cosmos DB keyspace.][COSMOSDB05-1]
 
 ### Retrieve the connection settings for your Azure Cosmos DB account
 
@@ -79,7 +79,7 @@ It will take a few minutes to deploy the database.
 1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
 
    >[!div class="mx-imgBorder"]
-   >![Retrieve your Cosmos DB connection settings.][COSMOSDB06]
+   >![Retrieve your Azure Cosmos DB connection settings.][COSMOSDB06]
 
 ## Configure the sample application
 
@@ -159,7 +159,7 @@ Browse to the directory that contains the .pom file to build and test the applic
 
 ## Summary
 
-In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information using the Azure Cosmos DB Cassandra API.
+In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information using Azure Cosmos DB for Apache Cassandra.
 
 ## Clean up resources
 

@@ -61,19 +61,19 @@ landingContent:
           url: /azure/mysql/connect-java
         - text: PostgreSQL
           url: /azure/postgresql/connect-java
-  - title: Cosmos DB
+  - title: Azure Cosmos DB
     linkLists:
       - linkListType: quickstart
         links:
-        - text: SQL API
+        - text: Azure Cosmos DB for NoSQL
           url: /azure/cosmos-db/create-sql-api-java
-        - text: Table API
+        - text: Azure Cosmos DB for Table
           url: /azure/cosmos-db/create-table-java
-        - text: Graph API
+        - text: Azure Cosmos DB for Apache Gremlin
           url: /azure/cosmos-db/create-graph-java
-        - text: Cassandra API
+        - text: Azure Cosmos DB for Apache Cassandra
           url: /azure/cosmos-db/create-cassandra-java
-        - text: MongoDB API
+        - text: Azure Cosmos DB for MongoDB
           url: /azure/cosmos-db/create-mongodb-java
   - title: Eventing
     linkLists:
