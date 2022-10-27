@@ -120,13 +120,13 @@ Provide authentication.
 |Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mariadb-connection-string-with-azure-cli)|
 |Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
-### MongoDB API on Azure Cosmos DB
+### Azure Cosmos DB for MongoDB
 
 [Service documentation](/azure/cosmos-db/)
 
 |Task|using|
 |--|--|
-|Create Azure Cosmos DB - MongoDB resource|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#create-a-cosmos-db-resource-for-mongodb)|
+|Create an Azure Cosmos DB for MongoDB resource|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#create-a-cosmos-db-resource-for-mongodb)|
 |Get Azure Cosmos DB connection string|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli#get-cosmos-db-connection-string)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#get-the-mongodb-connection-string-for-your-resource)|
 |View Azure Cosmos DB|[Azure Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use Mongoose SDK with Azure Cosmos DB for MongoDB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
