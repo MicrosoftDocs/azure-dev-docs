@@ -62,9 +62,6 @@ az webapp up --name <app-service-name>
 
 Specify an App Service name that is unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
 
-> [!TIP]
-> If you encounter a "Permission denied" error with a *.zip* file, you may have tried to run the command from a folder that doesn't contain a Python app. The error occurs because the `az webapp up` command then tries to create a Windows app service plan, and fails.
-
 **Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] use that command. If your app doesn't have a custom startup command, skip this step.
 
 For example, the *python-sample-vscode-flask-tutorial* app contains a file named *startup.txt* that contains a startup command that you can use as follows:
