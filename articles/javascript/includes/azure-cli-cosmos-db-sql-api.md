@@ -4,6 +4,7 @@ ms.topic: include
 ms.date: 08/08/2022
 ---
 
+<a name="create-a-cosmos-db-resource-for-sql-api"></a>
 
 ## Create a resource for Azure Cosmos DB for NoSQL
 

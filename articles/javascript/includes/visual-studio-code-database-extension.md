@@ -38,12 +38,13 @@ Use this procedure for the following types of resources for Azure Cosmos DB:
     |Resource group|Select an existing resource group or create a new resource group. This is a logical unit of all resources associated with a certain product, feature, or website.|
     |Location|Select a location close to you.|
 
-1. The Azure activity log displays the status. 
-    
+1. The Azure activity log displays the status.
+
+<a name="create-a-postgresql-server-for-cosmos-db"></a>
 
 ## Create a PostgreSQL server for Azure Cosmos DB
 
-1. Select one of the **PostgreSQL** options from the list. 
+1. Select one of the **PostgreSQL** options from the list.
 1. Use the following table to answer the questions to create the resource.
 
     |Prompt|Answer|
@@ -55,7 +56,7 @@ Use this procedure for the following types of resources for Azure Cosmos DB:
     |Resource group|Select an existing resource group or create a new resource group. This is a logical unit of all resources associated with a certain product, feature, or website.|
     |Location|Select a location close to you.|
     |||
-    
-1. The Azure activity log displays the status. 
+
+1. The Azure activity log displays the status.
 
     :::image type="content" source="../media/visual-studio-code-database/azure-activity-log.png" alt-text="Partial screenshot showing the Azure activity log while resource creation is in progress.":::

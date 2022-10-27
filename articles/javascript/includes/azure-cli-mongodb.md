@@ -3,9 +3,10 @@ ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
 ms.date: 08/08/2022
 ---
+
 <a name="create-a-cosmos-db-resource-for-mongodb"></a>
 
-## Create an Azure Cosmos DB resource for MongoDB with Azure CLI
+## Create a resource for Azure Cosmos DB for MongoDB via the Azure CLI
 
 Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Azure Cosmos DB resource for a mongoDB database. 
 

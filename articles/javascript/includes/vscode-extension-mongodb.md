@@ -8,14 +8,14 @@ ms.custom: vscode-azure-extension-update-completed
 
 ## Create and use database with VS Code extension
 
-Create an Azure Cosmos DB resource first because this will take several minutes. 
+Create an Azure Cosmos DB resource first because this will take several minutes.
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
-1. In the **Resources** section, select your subscription, then right-click on **Azure Cosmos DB** and select **Create Server**. 
+1. In the **Resources** section, select your subscription, then right-click on **Azure Cosmos DB** and select **Create Server**.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-azure-extension-select-database-section.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-azure-extension-select-database-section.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon":::
 
-1. In the **Create new Azure Database Server** Command Palette, select **Azure Cosmos DB for MongoDB API**. 
+1. In the **Create new Azure Database Server** Command Palette, select **Azure Cosmos DB for MongoDB API**.
 1. Follow the prompts using the following table to understand how your values are used. The database may take up to 15 minutes to create.
 
     |Property|Value|
