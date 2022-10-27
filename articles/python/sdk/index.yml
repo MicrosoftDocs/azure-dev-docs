@@ -7,8 +7,6 @@ summary: |
 metadata:
   title: Azure SDK for Python
   description: Learn how to use the Azure SDK for Python to access Azure resources from your Python apps.
-  author: kraigb
-  ms.author: kraigb
   ms.date: 04/18/2022
   ms.topic: landing-page
   ms.collection: collection

@@ -1,6 +1,4 @@
 ---
-author: jess-johnson-msft
-ms.author: jejohn
 ms.topic: include
 ms.date: 08/19/2022
 ---
