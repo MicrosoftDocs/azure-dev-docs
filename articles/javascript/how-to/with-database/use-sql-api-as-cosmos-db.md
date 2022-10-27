@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 To create or use Azure Cosmos DB for NoSQL, create an Azure Cosmos DB resource. Learn how to create the Azure Cosmos DB resource and use your database.
 
-<a name="locally-develop-with-the-cosmos-db-emulator"></a>
+<a name="locally-develop-with-the-cosmosdb-emulator"></a>
 
 ## Locally develop with the Azure Cosmos DB emulator
 
