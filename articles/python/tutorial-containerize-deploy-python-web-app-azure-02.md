@@ -131,7 +131,7 @@ You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-
 
 Create a database named "restaurants_reviews" and a collection named "restaurants_reviews". You can do this using the [Azure Cloud Shell](/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use the VS Code [Azure Database](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to create databases and collections.
 
-At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form "mongodb://\<server-name>:\<password>@\<server-name>.MongoDB.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", a database named "restaurants_reviews", and a collection named "restaurants_reviews". 
+At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`. 
 
 If you are working in VS Code, you can right-click on the MongoDB server and get the connection string.
 
