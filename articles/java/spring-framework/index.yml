@@ -22,11 +22,11 @@ landingContent:
             url: ./configure-spring-data-jdbc-with-azure-mysql.md
           - text: PostgreSQL
             url: ./configure-spring-data-jdbc-with-azure-postgresql.md
-          - text: Cosmos DB - SQL
+          - text: Azure Cosmos DB - SQL
             url: ./configure-spring-boot-starter-java-app-with-cosmos-db.md
-          - text: Cosmos DB - MongoDB
+          - text: Azure Cosmos DB - MongoDB
             url: ./configure-spring-data-mongodb-with-cosmos-db.md
-          - text: Cosmos DB - Cassandra
+          - text: Azure Cosmos DB - Cassandra
             url: ./configure-spring-data-apache-cassandra-with-cosmos-db.md
   - title: R2DBC
     linkLists:
