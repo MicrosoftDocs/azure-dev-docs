@@ -94,7 +94,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 
     :::code language="JavaScript" source="~/../js-e2e/database/cassandra/index.js" :::
 
-1. Replace the following in the script with your Azure Cosmos DB Cassandra connection information:
+1. Replace the following in the script with your Azure Cosmos DB for Apache Cassandra connection information:
 
     * YOUR-RESOURCE-NAME
     * YOUR-USERNAME - replace with YOUR-RESOURCE-NAME
