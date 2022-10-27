@@ -121,7 +121,7 @@ To test this pattern, do the following steps:
 
 1. Running the web app will cause your default browser to open the following URL: `http://localhost:3000`. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**.
 
-   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample Node J S Mongo D B app.":::
+   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample Node JS Mongo DB app.":::
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks, such as:
 
