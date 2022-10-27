@@ -37,7 +37,7 @@ To get started, clone the sample project using the following steps:
 
 1. Select (or create) the local directory into which you want to clone the project.
 
-    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-mongodb-explorer.png" alt-text="Partial screenshot of Visual Studio Code showing the file explorer for a Node J S and MongoDB D B project.":::
+    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-mongodb-explorer.png" alt-text="Partial screenshot of Visual Studio Code showing the file explorer for a Node J S and Mongo D B project.":::
 
 ## Install dependencies
 
