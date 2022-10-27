@@ -27,7 +27,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 * [10: How to set up a custom domain name in Azure Static Web Apps](https://www.youtube.com/watch?v=SpQgKfJ87fE&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=10)
 * [14: Create JavaScript serverless apps with Azure Static Web Apps](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)
 * [15: How to create your Azure Static Web Apps from a GitHub template](https://www.youtube.com/watch?v=oV4XMevxpiM&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=15)
-* [16: Setup Azure Cosmos DB w/ a MongoDB API to use w/ Azure Static Web Apps](https://www.youtube.com/watch?v=R9qhGra9FHs&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=16)
+* [16: Set up Azure Cosmos DB for MongoDB to use with Azure Static Web Apps](https://www.youtube.com/watch?v=R9qhGra9FHs&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=16)
 
 **Samples**:
 
