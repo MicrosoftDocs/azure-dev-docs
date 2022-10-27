@@ -144,7 +144,7 @@ Azure Cosmos DB currently provides the following integration for functions:
 
 |Type|API|Description|
 |--|--|--|
-|API & Binding|SQL|Connect to Azure Cosmos DB for NoSQL via either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/Azure Cosmos DB SDK](https://www.npmjs.com/package/@azure/cosmos).|
+|API & Binding|SQL|Connect to Azure Cosmos DB for NoSQL via either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/cosmos SDK](https://www.npmjs.com/package/@azure/cosmos).|
 |API only|MongoDB|Use any MongoDB npm package with the Azure Cosmos DB connection string provided in the Azure portal for your resource. Common MongoDB packages include [Mongoose](https://www.npmjs.com/package/mongoose) and [MongoDB](https://www.npmjs.com/package/mongodb).|
 
 
