@@ -1279,6 +1279,10 @@
         "redirect_url": "/azure/app-service/quickstart-python"
       },
       {
+        "source_path": "articles/azure-cli/choose-the-right-azure-command-line-tool.md",
+        "redirect_url": "/cli/azure/choose-the-right-azure-command-line-tool"
+      },
+      {
         "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
         "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
       },
