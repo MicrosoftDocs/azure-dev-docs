@@ -11,7 +11,7 @@ adobe-target: true
 
 Create an Azure Function API to store data with Mongoose API into Azure Cosmos DB, then deploy the Function application to the Azure cloud for hosting with a public HTTP endpoint. 
 
-:::image type="content" source="../media/azure-function-cosmos-db-mongo-api/flow-client-serverless-cosmos-db.png" alt-text="Flow chart showing path of HTTP request to pass data through Azure Functions and store in Azure Cosmos D B.":::
+:::image type="content" source="../media/azure-function-cosmos-db-mongo-api/flow-client-serverless-cosmos-db.png" alt-text="Flow chart showing path of HTTP request to pass data through Azure Functions and store in Azure Cosmos DB.":::
 
 Full source code for this Azure Function app:
 
