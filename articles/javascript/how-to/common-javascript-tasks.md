@@ -157,7 +157,7 @@ Provide authentication.
 ### Azure Cosmos DB for NoSQL
 
 * [Service documentation](/azure/cosmos-db/)
-* [@azure/Azure Cosmos DB](https://www.npmjs.com/package/@azure/cosmos) npm package
+* [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) npm package
 
 |Task|using|
 |--|--|
