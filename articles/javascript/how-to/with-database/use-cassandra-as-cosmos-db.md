@@ -11,7 +11,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 To create, move, or use a Cassandra DB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database.
 
-<a name="locally-develop-with-the-cosmos-db-emulator"></a>
+<a name="locally-develop-with-the-cosmosdb-emulator"></a>
 
 ## Locally develop with the Azure Cosmos DB emulator
 
