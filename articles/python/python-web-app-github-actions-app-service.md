@@ -76,7 +76,7 @@ az webapp config set \
   --startup-file startup.txt
 ```
 
-You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will look like *\<your-name>\_rg\_<random_numbers>*.
+You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will start with *\<your-name>\_rg\_*.
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
 
