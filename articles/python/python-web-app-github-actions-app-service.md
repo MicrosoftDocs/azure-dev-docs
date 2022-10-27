@@ -57,7 +57,7 @@ cd python-sample-vscode-flask-tutorial
 **Step 6.** In the Cloud Shell, use [az webapp up][2] to create an App Service and initially deploy your app.
 
 ```bash
-az webapp up --name <app-service-name>
+az webapp up --name <app-service-name> --runtime "PYTHON:3.9"
 ```
 
 Specify an App Service name that is unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
