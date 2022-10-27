@@ -56,7 +56,7 @@ In VS Code, review the changes and commit the changes. While developing the samp
     |CLIENT_SECRET|Application's (client) secret|
     |TENANT_INFO|Directory (tenant) ID|
     |EXPECTED_SCOPES|`access_as_user`|
-    |MONGODB_URL|Azure Cosmos DB for MongoDB API connection string|
+    |MONGODB_URL|Azure Cosmos DB for MongoDB connection string|
  
     :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/vscode-static-web-app-add-application-settings.png" alt-text="A browser screenshot show VS Code's Azure explorer app settings for the static web app.":::
 
