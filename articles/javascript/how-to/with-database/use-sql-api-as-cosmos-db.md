@@ -34,11 +34,11 @@ While developing your Azure Cosmos DB for NoSQL database with JavaScript, use [A
 
 The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-## Use @azure/Azure Cosmos DB SDK to connect to database
+## Use @azure/cosmos SDK to connect to database
 
 Connect to your Azure Cosmos DB for NoSQL database using the following Azure SDK:
 
-* [@azure/Azure Cosmos DB](https://www.npmjs.com/package/@azure/cosmos)
+* [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos)
 
 To connect and use your Azure Cosmos DB for NoSQL database with JavaScript, use the following procedure.
 
