@@ -45,7 +45,7 @@ Replace \<github-user> with the name of the GitHub account where you forked the 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
 
-< [!TIP]
+> [!TIP]
 > To paste into the Cloud Shell, use **Ctrl**+**Shift**+**V**, or right-click and select **Paste** from the context menu.
 
 **Step 5.** In the Cloud Shell, change directory into the repository folder that has your Python app so the [az webapp up][2] command will recognize the app as Python. For the example, for the Flask sample app:
