@@ -124,6 +124,6 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Azure Cosmos DB for Cassandra DB documentation](/azure/cosmos-db/cassandra-introduction)
-* [Azure Cosmos DB for Cassandra DB quickstart](/azure/cosmos-db/create-cassandra-nodejs)
-* [Migration guide to move to Azure Cosmos DB for Cassandra DB](/azure/cosmos-db/cassandra-migrate-cosmos-db-databricks)
+* [Azure Cosmos DB for Apache Cassandra documentation](/azure/cosmos-db/cassandra-introduction)
+* [Azure Cosmos DB for Apache Cassandra quickstart](/azure/cosmos-db/create-cassandra-nodejs)
+* [Migration guide to move to Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-migrate-cosmos-db-databricks)
