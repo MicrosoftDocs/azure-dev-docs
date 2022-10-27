@@ -1,6 +1,4 @@
 ---
-author: jessmjohnson
-ms.author: jejohn
 ms.topic: include
 ms.date: 08/10/2022
 ms.service: app-service
