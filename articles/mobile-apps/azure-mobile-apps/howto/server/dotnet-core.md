@@ -190,7 +190,7 @@ public class PrivateAccessControlProvider<T>: IAccessControlProvider<T>
 {
     private readonly IHttpContextAccessor _accessor;
 
-    public PrivateAccessControlProvider(IHttpContextAccessor accessor) 
+    public PrivateAccessControlProvider(IHttpContextAccessor accessor)
     {
         _accessor = accessor;
     }
@@ -204,7 +204,7 @@ public class PrivateAccessControlProvider<T>: IAccessControlProvider<T>
         : model => model.UserId == UserId;
     }
 
-    public Task<bool> IsAuthorizedAsync(TableOperation op, T entity, CancellationToken token = default) 
+    public Task<bool> IsAuthorizedAsync(TableOperation op, T entity, CancellationToken token = default)
     {
         if (op == TableOperation.Create || op == TableOperation.Query)
         {
