@@ -447,5 +447,4 @@ If you run into an error that isn't listed above, open an issue on this article 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a Cosmos DB resource](create-configure-cosmos-db.md)
-
+> [Create an Azure Cosmos DB resource](create-configure-cosmos-db.md)
