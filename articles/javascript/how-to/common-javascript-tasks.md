@@ -97,7 +97,7 @@ Provide authentication.
 
 ## Databases
 
-### Cassandra API on Cosmos DB
+### Azure Cosmos DB for Apache Cassandra
 
 [Service documentation](/azure/cosmos-db/)
 
@@ -107,7 +107,7 @@ Provide authentication.
 |Create keystore on resource|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
 |Create table on keystore|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
 |Get connection information|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#get-the-cassandra-connection-string-with-azure-cli)|
-|Use cassandra-driver API on Cosmos DB|[JavaScript](./with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
+|Use cassandra-driver API on Azure Cosmos DB|[JavaScript](./with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
 
 ### MariaDB
 
@@ -120,16 +120,16 @@ Provide authentication.
 |Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mariadb-connection-string-with-azure-cli)|
 |Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
-### MongoDB API on Cosmos DB
+### Azure Cosmos DB for MongoDB
 
 [Service documentation](/azure/cosmos-db/)
 
 |Task|using|
 |--|--|
-|Create Cosmos DB - MongoDB resource|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#create-a-cosmos-db-resource-for-mongodb)|
-|Get Cosmos DB connection string|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli#get-cosmos-db-connection-string)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#get-the-mongodb-connection-string-for-your-resource)|
-|View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
-|Use Mongoose API for mongoDB on Cosmos DB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
+|Create an Azure Cosmos DB for MongoDB resource|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#create-a-cosmos-db-resource-for-mongodb)|
+|Get Azure Cosmos DB connection string|[Visual Studio Code extension](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli#get-cosmos-db-connection-string)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#get-the-mongodb-connection-string-for-your-resource)|
+|View Azure Cosmos DB|[Azure Cosmos DB Explorer](https://cosmos.azure.com/)|
+|Use Mongoose SDK with Azure Cosmos DB for MongoDB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
 
 ### MySQL
 
@@ -154,26 +154,25 @@ Provide authentication.
 |View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
 |Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)
 
-### SQL API on Cosmos DB
+### Azure Cosmos DB for NoSQL
 
 * [Service documentation](/azure/cosmos-db/)
-* [@azure/cosmosdb](https://www.npmjs.com/package/@azure/cosmos) npm package
+* [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) npm package
 
 |Task|using|
 |--|--|
 |Add firewall rule for your client IP address|[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#add-firewall-rule-for-your-client-ip-address)
-|Create Cosmos DB - SQL API resource|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#create-a-cosmos-db-resource-for-sql-api)|
-|Get Cosmos DB keys|[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#get-the-cosmos-db-keys-for-your-resource)|
-|Get Cosmos DB connection string|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|
-|View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
-|Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
+|Create an Azure Cosmos DB for NoSQL resource|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#create-a-cosmos-db-resource-for-sql-api)|
+|Get Azure Cosmos DB keys|[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#get-the-cosmos-db-keys-for-your-resource)|
+|Get Azure Cosmos DB connection string|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|
+|View Azure Cosmos DB|[Azure Cosmos DB Explorer](https://cosmos.azure.com/)|
+|Use Azure Cosmos DB for NoSQL|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
 
 ### GraphQL
 
 |Task|using|
 |--|--|
 |Deploy a `Hello World` GraphQL API as an Azure Function|[VSCode](with-web-app/graphql/azure-function-hello-world.md)|
-
 
 ## Deployment to hosting environment
 
@@ -283,11 +282,11 @@ Provide authentication.
 |Azure Function app with MongoDB|The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items<br><br>[Tutorial](../tutorial/azure-function-cosmos-db-mongo-api.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)|
 |Azure Function app upload file to Blob Storage|This article shows you how to create an Azure Function API, which uploads a file to Azure Storage using an _out_ binding to move the file contents from the API to Storage.<br><br>* Locally develop and run with Azurite Storage emulation and Azure Functions Core tools.<br>* Deploy to Azure Functions with a Storage resource<br>* Review logs in Application Insights<br><br>[Tutorial](./with-web-app/azure-function-file-upload.md) - [Sample code](https://github.com/azure-Samples/js-e2e-azure-function-upload-file)|
 |Azure Function app to manage resource groups|In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.<br><br>Features and functionality of this article series:<br><br>* Create local Azure Function app project in Visual Studio Code<br>* Create function APIs boilerplate code in Visual Studio Code<br>* Deploy to Azure Functions<br>* Create service principal<br>* Configure local and remote application settings<br>* Use DefaultAzureCredential in both local and remote environments<br>* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs<br>* Use your local and cloud APIs to create, delete, and list resource groups in your subscription.<br>[Article series](with-web-app/azure-function-resource-group-management/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)|
-|Express.js app with MongoDB database|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating a Cosmos DB resource for the Mongo API, getting the connection information and setting that in the app service configuration setting to connect to a cloud database.<br>[Tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
+|Express.js app with Azure Cosmos DB for MongoDB|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating an Azure Cosmos DB for MongoDB resource, getting the connection information, and setting that value in the app service configuration setting to connect to a cloud database.<br>[Tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |Express.js app deployed to VM with cloud-init file|Create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.<br>[Tutorial](../tutorial/nodejs-virtual-machine-vm/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |GraphQL serverless function| Hello world with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello)|
 |GraphQL serverless CRUD function| CRUD operations with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations)|
-|GraphQL static web app|Static web app with React client and Azure Function, both with shared TypeScript models demonstrating a Trivia game, with data held in Cosmos DB SQL API. [Sample code](https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app)|
+|GraphQL static web app|Static web app with React client and Azure Function, both with shared TypeScript models demonstrating a Trivia game, with data held in Azure Cosmos DB for NoSQL. [Sample code](https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app)|
 
 Use the JavaScript end-to-end snippets collection, [https://github.com/azure-samples/js-e2e](https://github.com/azure-samples/js-e2e), to find or submit JavaScript or TypeScript code examples. 
 

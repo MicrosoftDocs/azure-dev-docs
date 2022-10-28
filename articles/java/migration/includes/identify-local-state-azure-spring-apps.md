@@ -19,5 +19,5 @@ In any of these cases, the original instance will remain running until the new i
 Before migrating to Azure Spring Apps, ensure that your code does not contain local state that must not be lost or duplicated. If local state exists, change the code to store that state outside the application. Cloud-ready applications typically store application state in locations such as the following:
 
 * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started)
-* [Azure CosmosDB](/azure/cosmos-db/create-sql-api-java)
+* [Azure Cosmos DB](/azure/cosmos-db/create-sql-api-java)
 * Another external database, such as [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure DB for MySQL](/azure/mysql/overview), or [Azure DB for PostgreSQL](/azure/postgresql/overview).

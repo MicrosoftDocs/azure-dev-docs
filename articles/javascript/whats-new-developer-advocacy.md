@@ -7,11 +7,11 @@ ms.date: 10/10/2022
 
 # What's new with JavaScript Developer Advocates
 
-This content is primarily from Developer Advocates and other members of the Azure JavaScript community. 
+This content is primarily from Developer Advocates and other members of the Azure JavaScript community.
 
-* [JavaScript Community Hub](/javascript) to see more from the community. 
+* [JavaScript Community Hub](/javascript) to see more from the community.
 
-## Recurring events 
+## Recurring events
 
 * [Microsoft Learn Events](/events/)
 * [Web Wednesday - reoccurring](/Shows/Web-Wednesday/)
@@ -54,14 +54,14 @@ A real study case application how to apply Node.Js with:
 |**[Vídeo 06 - Important Resources & Recap](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/important-resources-recap-6-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                         | Recap on what we learned and how you can dig deeper into Prisma.                                                                            |
 | **[Vídeo 07 - Module 02: Overview](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/module-02-overview-7-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                                        | In this video you'll see what will learn during the Module 02 about Azure SQL.                                                            |
 | **[Vídeo 08 - What is Azure SQL?](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/what-is-azure-sql-8-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                                          | In this video you'll understand what is Azure SQL and the different options like: Single Database and Elastic Pool.                       |
-| **[Vídeo 09 - Why should we use Azure SQL?  ](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/why-should-we-use-azure-sql-9-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                    | In this video you'll understand why is so important to use Azure SQL in your projects!                                                    |
+| **[Vídeo 09 - Why should we use Azure SQL?](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/why-should-we-use-azure-sql-9-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                    | In this video you'll understand why is so important to use Azure SQL in your projects!                                                    |
 |**[Vídeo 10 - Azure SQL Support in Prisma](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/azure-sql-support-in-prisma-10-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                      | In this video we'll show you that Azure SQL has a perfect fit with Prisma!                                                                |
 | **[Vídeo 11 - Important Resources & Recap](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/important-resources-recap-11-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                        | Recap on what we learned and how you can dig deeper into Azure SQL.                                                                         |
 | **[Vídeo 12 - Module 03: Overview](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/module-03-overview-12-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                                       | In this video you'll see what will learn during the Module 03 about Azure Static Web Apps.                                                |
 | **[Vídeo 13 - What is Azure Static Web Apps?](/en-us/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/what-are-azure-static-web-apps-13-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners)**                                                            | In this video we'll learn what is Azure Static Web Apps.                                                                                  |
 | **[Vídeo 14 - Understanding the Azure Static Web Apps Workflow](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/azure-static-web-apps-workflow-14-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**              | In this video we'll understand under the hood how the Azure Static Web Apps workflow works.                                               |
 | **[Vídeo 15 - Why should we use Azure Static Web Apps?](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/why-should-we-use-aswa-15-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                              | In this video we'll understand the benefits to use Azure Static Web Apps!                                                                 |
-| **[Vídeo 16 - Which libs/frameworks can I use with Azure Static Web Apps? ](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/frameworks-we-can-use-with-aswa-16-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)** | In this video we'll see that can use Azure Static Web Apps with different libs and the most popular frameworks!                           |
+| **[Vídeo 16 - Which libs/frameworks can I use with Azure Static Web Apps?](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/frameworks-we-can-use-with-aswa-16-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)** | In this video we'll see that can use Azure Static Web Apps with different libs and the most popular frameworks!                           |
 | **[Vídeo 17 - Important Resources & Recap](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/important-resources-recap-17-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                        | Recap on what we learned and how you can dig deeper into Azure Static Web Apps.                                                             |
 | **[Vídeo 18 - Dev Tools Overview & Installation](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/dev-tools-overview-installation-18-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                            | In this video we're going to install all the necessary dev tools that we'll go into need to develop our application in the BackEnd side. |
 | **[Vídeo 19 - Configuring the .devContainer folder](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/configuring-devcontainer-folder-19-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                         | In this video we'll understand the importance around to create a `.devContainer` folder in any project and a little overview about it!      |
@@ -82,8 +82,7 @@ A real study case application how to apply Node.Js with:
 |  **[Vídeo 34 - Developing 'UpdateEmployee'](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/developing-updateemployee-34-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                        | In this video we're going to develop the functionality to update an employee by ID using Azure Functions.                                  |
 |  **[Vídeo 35 - Developing 'DeleteEmployee'](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/developing-deleteemployee-35-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                        | In this video we're going to develop the functionality to delete an employee by ID using Azure Functions.                                  |
 | **[Vídeo 36 - Deploying the App with ASWA](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/deploying-the-app-with-aswa-36-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                      | In this video we're going to deploy our application using Azure Static Web Apps with GitHub Actions Integration!                           |
-|  **[Vídeo 37 - Next Steps](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/next-steps-37-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                                                        | In this video we're going to see the next steps that you should see after this course!                          
-
+|  **[Vídeo 37 - Next Steps](/shows/beginners-series-to-learn-a-full-stack-application-with-azure-sql-prisma/next-steps-37-of-37-learn-a-full-stack-application-with-azure-sql-prisma-for-beginners?WT.mc_id=javascript-52133-gllemos)**                                                                        | In this video we're going to see the next steps that you should see after this course!
 
 ## 2022 August
 
@@ -102,7 +101,6 @@ A real study case application how to apply Node.Js with:
 |[Aaron Powell][Aaron]|Taking a Static Web apps (SWA) DevOps pipeline to the next level|[Blog](https://www.aaron-powell.com/posts/2022-07-20-taking-a-swa-devops-pipeline-to-the-next-level/)|
 |[Aaron Powell][Aaron]|Working with add-mask a GitHub actions for Dynamic secrets|[Blog](https://www.aaron-powell.com/posts/2022-06-29-deploy-swa-with-bicep/)|
 
-
 ## 2022 June
 
 |Cloud Advocate|Contributions|Link|
@@ -119,8 +117,6 @@ A real study case application how to apply Node.Js with:
 |[Glaucia Lemos][Glaucia]|Developing a Star Wars Intro w/ HTML, CSS, JavaScript and Node.Js|**Portuguese** - [dev.to](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
 |[Christopher Harrison][Christopher]|Web Wednesday: WebAssembly for Browser Desktop Environment with Dustin Brett|[Microsoft Video](/shows/web-wednesday/web-wednesday-webassembly-for-browser-desktop-environment-with-dustin-brett)|
 |[Christopher Harrison][Christopher]|Web Wednesday: 30 Days of Static Web Apps (#30DaysOfSWA) with Nitya Narasimhan|[Microsoft Video](/shows/web-wednesday/web-wednesday-30-days-of-static-web-apps-30daysofswa-with-nitya-narasimhan)|
-
-
 
 ## 2022 April
 
@@ -163,7 +159,7 @@ A real study case application how to apply Node.Js with:
 |[Aysegul Yonet][Aysegul]|The AI Show - Ep 50 - Artificial Nose and 30 Days of Learn: AI Fundamentals|[YouTube Video](https://www.youtube.com/watch?v=tjDL8w1afjw)|
 |[Wassim Chegham][Wassim]|Behind the Git SHA-dow!|[dev.to Blob](https://dev.to/wassimchegham/behind-the-git-sha-dow-1pib)|
 |[Aaron Powell][Aaron]|PaaS Deployment guide for Azure|[Strapi Docs](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/azure.html#paas-deployment-guides)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
 |[Oliver Leplus][Olivier]|Azure Tips & Tricks: Static Web Apps. |**French** - [YouTube](https://www.youtube.com/watch?v=FY5syL3WdtM&list=PLbl2SbVIi-Wosee1GtXCiopNBQ6vFW2Ra)|
 |[Aaron Powell][Aaron]|OpenAPI for JavaScript/TypeScript Functions|[Blog](https://www.aaron-powell.com/posts/2022-02-08-openapi-for-javascript-azure-functions/)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #37 - Demo - Switch...case|**Portuguese** - [YouTube](https://youtu.be/kaKlKebVqco)|
@@ -179,16 +175,15 @@ A real study case application how to apply Node.Js with:
 |[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
 |[Aysegul Yonet][Aysegul]|Mixed Reality with Cognitive services, Speech|[Docs](https://yonet.gitbook.io/mixed-reality-docs/ai-lessons/speech)|
 |[Aysegul Yonet][Aysegul]|Intelligent Kiosk for Web - AI Playground|[GitHub](https://github.com/aiadvocates/AIPlayground)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 18|**Portuguese** - [YouTube](https://youtu.be/TmGnuRhX_hI)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 18|**Portuguese** - [YouTube](https://youtu.be/TmGnuRhX_hI)|
 |[Aaron Powell][Aaron]|Web Wednesday - GraphQL and TypeScript|[GitHub](https://www.youtube.com/watch?v=WjFspnutTtI)|
 |[Yohan Lasorsa][Yohan]|Raspberry Pi usage in my mobile studio setup. |[RaspberryPi](https://www.youtube.com/watch?v=x3sQu31jGu4)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #34 - If...else|**Portuguese** - [YouTube](https://youtu.be/sU9miGUUJrI)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #35 - Demo: If...else|**Portuguese** - [YouTube](https://youtu.be/_KkjHVo4x_M)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #36 - Switch...case|**Portuguese** - [YouTube](https://youtu.be/-rUHKfnbq7g)|
 |[Glaucia Lemos][Glaucia]|Cloud & AI Study Groups |**English, Spanish, Portuguese** - [YouTube](https://github.com/cyz/skilling)|
-
 
 ## 2021 December
 
@@ -212,10 +207,9 @@ A real study case application how to apply Node.Js with:
 |[Aaron Powell][Aaron]|GraphQL Summit panel: The State of Serverless|[YouTube](https://www.youtube.com/watch?v=MBPmOVR09kI)|
 |[Aaron Powell][Aaron]|Scaffolding Static Web Apps|[Blog](https://dev.to/azure/scaffolding-static-web-apps-4p97)|
 |[Aaron Powell][Aaron]|create-swa-app:a command line tool|[Blog](https://www.aaron-powell.com/posts/2021-11-16-scaffolding-static-web-apps/)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 13|**Portuguese** - [YouTube](https://youtu.be/8gG1OwMIDts)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 14|**Portuguese** - [YouTube](https://youtu.be/UcKm1ADpWlQ)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 15|**Portuguese** - [YouTube](https://youtu.be/cQxoBu2rexE)|
-
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 13|**Portuguese** - [YouTube](https://youtu.be/8gG1OwMIDts)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 14|**Portuguese** - [YouTube](https://youtu.be/UcKm1ADpWlQ)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 15|**Portuguese** - [YouTube](https://youtu.be/cQxoBu2rexE)|
 
 ## 2021 October
 
@@ -225,10 +219,8 @@ A real study case application how to apply Node.Js with:
 |[Aaron Powell][Aaron]|Host Strapi 3 on Azure|[Blog](https://www.aaron-powell.com/posts/2021-10-14-host-strapi-3-on-azure/)|
 |[Yohan Lasorsa][Yohan]|Azure Check-In: a streamlined onboarding experience with Azure Pass for your events. You can use it for workshops, meetups or student classes. |[GitHub](https://azcheck.in)|
 |[Yohan Lasorsa][Yohan]|GitHub Template repo in sync with dev.to blog posts|[GitHub](https://github.com/sinedied/devto-github-template)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 12|**Portuguese** - [YouTube](https://youtu.be/LtSeR3jy28Y)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 11|**Portuguese** - [YouTube](https://youtu.be/5VSzUFIAh1U)|
-
-
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 12|**Portuguese** - [YouTube](https://youtu.be/LtSeR3jy28Y)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 11|**Portuguese** - [YouTube](https://youtu.be/5VSzUFIAh1U)|
 
 ## 2021 September
 
@@ -250,13 +242,10 @@ A real study case application how to apply Node.Js with:
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #24|**Portuguese** - [YouTube](https://youtu.be/6XFn4Gny8WU)|
 |[Glaucia Lemos][Glaucia]|Astro Framework/Vue.js + Azure Static Web Apps CLI|**Portuguese** - [Blog](https://dev.to/glaucia86/criando-aplicacoes-com-astro-build-azure-static-web-cli-39nb)|
 
-
-## 2021 July 
-
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
 |[April Edwards][April]|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
-|[Christopher Harrison][Christopher]|How to use Mongoose to connect to Cosmos DB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
+|[Christopher Harrison][Christopher]|How to use Mongoose to connect to Azure Cosmos DB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
 |[Aaron Powell][Aaron]|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
 |[Aaron Powell][Aaron]|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
 |[Aaron Powell][Aaron]|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
@@ -274,12 +263,12 @@ A real study case application how to apply Node.Js with:
 |[Yohan Lasorsa][Yohan]|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)
 |[Yohan Lasorsa][Yohan]|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)|
 |[Yohan Lasorsa][Yohan]|Azure Tips & Tricks: Static Web Apps #2|[Blog](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/AppsonAzureBlog/article-id/439)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 10|**Portuguese** - [YouTube](https://youtu.be/oLXCKIvOPK4)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video 10|**Portuguese** - [YouTube](https://youtu.be/oLXCKIvOPK4)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - Type Enum #19|**Portuguese** - [YouTube](https://youtu.be/oBlnDsKloAY)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - Demo - Type Enum #20|**Portuguese** - [YouTube](https://youtu.be/aU5rKsHyxHk)|
 |[Glaucia Lemos][Glaucia]|JavaScript 101 for beginners|**Portuguese** - [GitHub repo and YouTube video series](https://github.com/glaucia86/js-101-beginners-ms)|
 
-## 2021 June 
+## 2021 June
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
@@ -301,7 +290,7 @@ A real study case application how to apply Node.Js with:
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
 |[Glaucia Lemos][Glaucia]|Playwright - Testes Inteligentes, Automatizados e Rápidos em Cross-Browser com Playwright!|**Portuguese​** - [GitHub repo](https://github.com/glaucia86/demos-playwright-e2e)|
-|[Aaron Powell][Aaron]|Local Dev With Cosmos DB and devcontainers|[Blog](https://www.aaron-powell.com/posts/2021-05-27-local-dev-with-cosmosdb-and-devcontainers/)|
+|[Aaron Powell][Aaron]|Local Dev with Azure Cosmos DB and devcontainers|[Blog](https://www.aaron-powell.com/posts/2021-05-27-local-dev-with-cosmosdb-and-devcontainers/)|
 |[Aaron Powell][Aaron]|[Leveling up Static web apps with the CLI|[Blog](https://www.aaron-powell.com/posts/2021-05-25-leveling-up-static-web-apps-with-the-cli/)|
 |[Glaucia Lemos][Glaucia]|Publicando Aplicações Estáticas com Static Web Apps & Azure DevOps!|**Portuguese** - [Blog](https://dev.to/glaucia86/publicando-aplicacoes-estaticas-com-static-web-apps-azure-devops-4c1o) and [YouTube](https://www.youtube.com/watch?v=3pnIBJWoRjM)|
 |[Glaucia Lemos][Glaucia]|Publicación de Aplicaciones Estáticas con Azure Static Web Apps y Azure DevOps|**Spanish​** - [Blog](https://dev.to/glaucia86/publicacion-de-aplicaciones-estaticas-con-azure-static-web-apps-y-azure-devops-5c63)|
@@ -311,8 +300,8 @@ A real study case application how to apply Node.Js with:
 |[Lucas Santos][Lucas]|What's new in TypeScript 4.3|**Portuguese** - [Blog](https://blog.lsantos.dev/o-que-ha-de-novo-no-beta-do-typescript-4-3/)|
 |[Lucas Santos][Lucas]|The Complete Guide to gRPC part 3 - gRPC and TypeScript|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-3/)|
 |[Lucas Santos][Lucas]|The Complete Guide to gRPC part 2 - gRPC and JavaScript|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-2/)|
- 
-## 2021 April 
+
+## 2021 April
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
@@ -320,7 +309,7 @@ A real study case application how to apply Node.Js with:
 |[Aaron Powell][Aaron] and [Christopher Harrison][Christopher]|Web Wednesday - Getting started with React & TypeScript|[YouTube](https://www.youtube.com/watch?v=BlaHWppdLpQ)|
 |[Aaron Powell][Aaron]|Azure Cosmos DB Conf - EMEA Live Stream|[YouTube](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328)|
 |[Olivier Leplus][Olivier] and [Maud Levy][Maud]|Static Web apps demo - Microsoft Developers France|**French** - [YouTube](https://www.youtube.com/watch?v=aI9XFDpsGaA)|
-|[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
+|[Christopher Harrison][Christopher]|Tutorial: Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
 |[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/guia-grpc-1/)|
@@ -341,7 +330,7 @@ A real study case application how to apply Node.Js with:
 |[Wassim Chegham][Wassim]|Deploy Rust/WASM on SWA - updated|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) |
 |[Yohan Lasorsa][Yohan]|GitHub template for building a shareable web components library with Svelte|[GitHub repo](https://github.com/sinedied/svelte-web-components-template)|
 |[Glaucia Lemos][Glaucia]|Desenvolvendo an Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated||
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video #8|**Portuguese​** - [YouTube](https://youtu.be/6fUcm4aSEjM)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project - Video #8|**Portuguese​** - [YouTube](https://youtu.be/6fUcm4aSEjM)|
 |[Glaucia Lemos][Glaucia]|TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/lancamento-modulo-01-typescript-zero-to-hero-40n4)<br>[Video #01](https://youtu.be/u7K1sdnCv5Y)<br>[Video #02](https://youtu.be/_pDsn0gE6ys)<br>[Video #03](https://youtu.be/J-sMh3DF10U)<br>[Video #04](https://youtu.be/iYXzT08sX5Y)<br>[Video #05](https://youtu.be/iTCRgdEyq0k)<br>[Video #06](https://youtu.be/VIYnya9DUxg)|
 |[Glaucia Lemos][Glaucia]|Live Coding - Season 2021 & News|[YouTube](https://youtu.be/6TED799e0_g)|
 
@@ -355,8 +344,8 @@ A real study case application how to apply Node.Js with:
 |[Yohan Lasorsa][Yohan] and [Maud Levy][Maud]|Beginner's Series to Node.js video series|**French** - [YouTube](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1)<br>|
 |[Tomomi Imura][Tomomi]|Beginner's Series to Node.js video series|**Japanese** - [YouTube](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI)|
 |[Aaron Powell][Aaron]|GraphQL and TypeScript Workshop|[GitHub repo](https://github.com/aaronpowell/graphql-typescript-workshop)|
-|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project: Video #6 and Video #7|**Portuguese​** - [YouTube #6](https://youtu.be/_-3DWpuXXvU) and [YouTube #7](https://youtu.be/OckHsZPIRrQ)|
-|[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 02|**Portuguese​** - [YouTube](https://youtu.be/lUH5gzKq1YA)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + MongoDB + Vue Project: Video #6 and Video #7|**Portuguese​** - [YouTube #6](https://youtu.be/_-3DWpuXXvU) and [YouTube #7](https://youtu.be/OckHsZPIRrQ)|
+|[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Azure Cosmos DB - Day 02|**Portuguese​** - [YouTube](https://youtu.be/lUH5gzKq1YA)|
 |[Glaucia Lemos][Glaucia]|Developing a CRUD Node.js Application with PostgreSQL|[Blog](https://dev.to/glaucia86/developing-a-crud-node-js-application-with-postgresql-4c9o)|
 |[Glaucia Lemos][Glaucia]|TypeScript and Azure Functions|**Portuguese​** - [YouTube](https://www.youtube.com/watch?v=J9OoXt1dvm8&t=2772s)|
 |[Wassim Chegham][Wassim]|Deploy your JAMStack app on Azure Static Web Apps!|[YouTube](https://www.youtube.com/watch?v=I2Tg2MO-RP8&feature=youtu.be)|
@@ -374,8 +363,8 @@ A real study case application how to apply Node.Js with:
 |[Chris Noring][Chris]|Node.js Learn module: Create a Node HTTP Server|[Learn module](/training/modules/build-web-api-nodejs-express/)|
 |[Chris Noring][Chris]|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
 |[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|**Portuguese​** - [YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
-|[Glaucia Lemos][Glaucia]|JWT + Node + Mongo+ Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|
-|[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 01|[YouTube](https://youtu.be/nVbU9BlF5hs)|
+|[Glaucia Lemos][Glaucia]|JWT + Node + MongoDB + Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|
+|[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Azure Cosmos DB - Day 01|[YouTube](https://youtu.be/nVbU9BlF5hs)|
 |[Wassim Chegham][Wassim]|Angular, Rust, WebAssembly, Node.js, Serverless, and... the NEW Azure Static Web Apps!]|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb)|
 
 [Wassim]:https://wassimchegham.bio.link

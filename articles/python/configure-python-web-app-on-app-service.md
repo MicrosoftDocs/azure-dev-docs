@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 06/20/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Configure a custom startup file for Python apps on Azure App Service

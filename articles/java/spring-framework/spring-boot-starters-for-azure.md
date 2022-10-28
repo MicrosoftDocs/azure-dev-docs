@@ -37,7 +37,7 @@ The following Spring Boot Starters are currently available for Azure:
 <a name="azure-support"></a>
 ## Azure Support
 
-This Spring Boot Starter provides auto-configuration support for Azure Services; for example: Service Bus, Storage, Active Directory, Cosmos DB, Key Vault, etc.
+This Spring Boot Starter provides auto-configuration support for Azure Services; for example: Service Bus, Storage, Active Directory, Azure Cosmos DB, Key Vault, etc.
 
 For examples of how to use the various Azure features that are provided by this starter, see the following:
 

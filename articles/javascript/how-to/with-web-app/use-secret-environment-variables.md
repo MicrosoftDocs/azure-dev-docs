@@ -13,9 +13,9 @@ With Azure CLI, store secrets in Azure Key Vault, then use those secrets program
 
 ## Prepare your development environment
 
-Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
+Complete the [Express.js with Azure Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
 
-When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
+When you complete the previous tutorial, you should have an Express.js app using an Azure Cosmos DB database deployed to an Azure web app. 
 
 ## Sign in to Azure CLI
 
