@@ -49,6 +49,7 @@ For more information, visit the [Azure Developer CLI Dev Hub](./overview.md).
 
 ### See also
 
+* [azd config](#azd-config): Manage the Azure Developer CLI user configuration.
 * [azd deploy](#azd-deploy): Deploy the app's code to Azure.
 * [azd down](#azd-down): Delete Azure resources for an app.
 * [azd env](#azd-env): Manage environments.
@@ -62,6 +63,195 @@ For more information, visit the [Azure Developer CLI Dev Hub](./overview.md).
 * [azd template](#azd-template): Manage templates.
 * [azd up](#azd-up): Initialize the app, provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
+
+## azd config
+
+Manage the Azure Developer CLI user configuration, which includes your default Azure subscription and location. 
+
+### Synopsis
+
+The easiest way to configure azd is to run `azd init`. The subscription and location you select will be stored in the config.json file located at $AZURE_CONFIG_DIR. The default value of AZURE_CONFIG_DIR is:
+- `$HOME/.azd` on Linux and macOS
+- `%USERPROFILE%\.azd` on Windows
+
+```azdeveloper
+azd config [command]
+```  
+
+Use "azd config [command] --help" for more information about a command.
+
+### Options
+
+```azdeveloper
+-h, --help   Gets help for config.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config get](#azd-config-get): Gets a configuration
+- [azd config list](#azd-config-list): Lists all configuration values
+- [azd config reset](#azd-config-reset): Resets configuration to default
+- [azd config set](#azd-config-set): Sets a configuration
+- [azd config unset](#azd-config-unset): Unsets a configuration
+- [Back to top](#azd)
+
+## azd config get
+
+Gets a configuration in $AZURE_CONFIG_DIR/config.json.
+
+```azdeveloper
+azd config get <path> [flags]
+```
+
+### Options
+
+```azdeveloper
+-h, --help            Gets help for get.
+-o, --output string   The output format (the supported formats are json). (default "json")
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config](#azd-config): Manage user configurations
+- [Back to top](#azd)
+
+## azd config list
+
+Lists all configuration values in $AZURE_CONFIG_DIR/config.json.
+
+```azdeveloper
+azd config list [flags]
+```  
+
+### Options
+
+```azdeveloper
+-h, --help            Gets help for list.
+-o, --output string   The output format (the supported formats are json). (default "json")
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config](#azd-config): Manage user configurations
+- [Back to top](#azd)
+
+## azd config set
+
+Sets a configuration in $AZURE_CONFIG_DIR/config.json. 
+
+```azdeveloper
+azd config set <path> <value> [flags]
+```
+
+Example:
+
+```azdeveloper
+azd config set defaults.subscription <yourSubscriptionID>
+azd config set defaults.location eastus
+```
+ 
+### Options
+
+```azdeveloper
+-h, --help   Gets help for set.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config](#azd-config): Manage user configurations
+- [Back to top](#azd)
+
+## azd config reset
+
+Resets all configuration in $AZURE_CONFIG_DIR/config.json to the default.
+
+```azdeveloper
+azd config reset [flags]
+```
+
+### Options
+
+```azdeveloper
+-h, --help   Gets help for reset.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config](#azd-config): Manage user configurations
+- [Back to top](#azd)
+
+## azd config unset
+
+Removes a configuration in $AZURE_CONFIG_DIR/config.json. For example:
+
+```azdeveloper
+azd config unset <path> [flags]
+```
+
+### Options   
+
+```azdeveloper
+-h, --help   Gets help for unset.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+- [azd config](#azd-config): Manage user configurations
+- [Back to top](#azd)
 
 ## azd deploy
 
