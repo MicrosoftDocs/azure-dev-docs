@@ -102,7 +102,7 @@ When creating your PAT, set the following scopes:
 
 ### Invoke the Pipeline configure command
 
-1. (Optional) To update the default pipeline provider from GitHub Actions to Azure DevOps, edit `azure.yaml` located at the root of your project and add the following:
+1. (Optional) To update the default pipeline provider from GitHub Actions to Azure DevOps, [edit `azure.yaml`](./azd-schema.md#azure-pipelines-azdo-as-a-cicd-pipeline-sample) located at the root of your project and add the following:
 
    ``` yaml
    pipeline: 

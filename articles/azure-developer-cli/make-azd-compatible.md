@@ -90,7 +90,7 @@ Learn more about:
       - Environment name
       - Location
       - Azure subscription
-    - A file named `azure.yaml` is created in the root of your project.
+    - A file named [`azure.yaml`](./azd-schema.md) is created in the root of your project.
 
 ## Add Bicep files
 
@@ -267,7 +267,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 ## Update azure.yaml
 
-To deploy the app, `azd` needs to know more about your app. Specify the app's source code location, the app type, and the Azure service that will be hosting your app in the `azure.yaml` file.
+To deploy the app, `azd` needs to know more about your app. Specify the app's source code location, the app type, and the Azure service that will be hosting your app in the [`azure.yaml` file](./azd-schema.md).
 
 1. Edit `azure.yaml` by adding the following lines:
 
@@ -289,7 +289,7 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
     | `language` | Service implementation language. `py` for Python. If not specified, .NET will be assumed. |
     | `host` | Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed. |
 
-    For full details, refer to [azure.yaml.json](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/).
+    For full details, refer to [the azure.yaml schema](./azd-schema.md).
 
 1. Run the following command to deploy the app to Azure:
 
@@ -313,7 +313,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 1. Within the `.github` directory, create a directory named `workflows`.
 
-1. Copy the **azure-dev.yml** file from any [azd template](./azd-templates.md) (for example, [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml)) and paste as new file into the `.github/workflows` directory.
+1. Copy the **azure-dev.yml** file from any [azd template](./azd-templates.md) (for example, [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml) and paste as new file into the `.github/workflows` directory.
 
 1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
@@ -362,6 +362,7 @@ The following hierarchy shows the complete directory structure of an `azd` templ
 - [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI) for an introduction to working with Bicep files.
 - [Bicep Samples](/samples/browse/?languages=bicep)
 - [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
+- [Azure Developer CLI's azure.yaml schema](./azd-schema.md)
 
 ## Next steps
 

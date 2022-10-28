@@ -15,7 +15,7 @@ Azure Developer CLI templates are sample repositories created using the Azure De
 
 - Application code
 - Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
-- An `azure.yaml` file that describes your application
+- An [`azure.yaml` file](./azd-schema.md) that describes your application
 
 These templates are extensible and customizable to your specific use case.
 
