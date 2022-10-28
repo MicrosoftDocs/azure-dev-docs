@@ -56,16 +56,16 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: ToDo NodeJs Mongo
-            url: https://github.com/azure-samples/todo-nodejs-mongo
-          - text: ToDo Python Mongo
-            url: https://github.com/azure-samples/todo-python-mongo
           - text: ToDo C# Cosmos DB (SQL)
             url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
           - text: ToDo C# Azure SQL Database
             url: https://github.com/azure-samples/todo-csharp-sql
           - text: ToDo Java Mongo 
             url: https://github.com/azure-samples/todo-java-mongo
+          - text: ToDo NodeJs Mongo
+            url: https://github.com/azure-samples/todo-nodejs-mongo
+          - text: ToDo Python Mongo
+            url: https://github.com/azure-samples/todo-python-mongo
           - text: ToDo NodeJs Mongo (Terraform)
             url: https://github.com/azure-samples/todo-nodejs-mongo-terraform
           - text: ToDo Python Mongo (Terraform)
@@ -75,16 +75,18 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
+          - text: ToDo Java Mongo ACA
+            url: https://github.com/azure-samples/todo-java-mongo-aca
           - text: ToDo NodeJs Mongo ACA
             url: https://github.com/azure-samples/todo-nodejs-mongo-aca
           - text: ToDo Python Mongo ACA
             url: https://github.com/azure-samples/todo-python-mongo-aca
-          - text: ToDo Java Mongo ACA
-            url: https://github.com/azure-samples/todo-java-mongo-aca
   - title: Azure Static Web Apps & Azure Functions templates
     linkLists:
       - linkListType: sample
         links:
+          - text: ToDo C# Azure SQL + SWA + Functions
+            url: https://github.com/Azure-Samples/todo-csharp-sql-swa-func
           - text: ToDo NodeJs Mongo SWA + Function
             url: https://github.com/azure-samples/todo-nodejs-mongo-swa-func
           - text: ToDo Python Mongo SWA + Function
