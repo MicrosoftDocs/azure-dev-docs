@@ -1,6 +1,6 @@
 ---
-title: Azure Developer CLI schema
-description: DDescribes the schema for the Azure Developer CLI azure.yaml file
+title: Azure Developer CLI's azure.yaml schema
+description: Describes the schema for the Azure Developer CLI azure.yaml file
 author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 10/24/2022
@@ -9,7 +9,7 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-# Azure Developer CLI schema
+# Azure Developer CLI's azure.yaml schema
 
 [`azd` templates](./overview.md#azure-developer-cli-templates) are sample repositories that include app code, tools, and infrastructure code. You can use these templates to create your own solutions using Azure Developer CLI (`azd`). The [azure.yaml](https://aka.ms/azure.yaml.json) schema defines and describes the apps and types of Azure resources that are included in these templates.
 
@@ -25,10 +25,6 @@ services:
   web:
     project: ./src/web # path to your web project
     dist: build # relative path to service deployment artifacts
-    language: js # one of the supported languages
-    host: appservice # one of the supported Azure services
-  api:
-    project: ./src/api # path to your api
     language: js # one of the supported languages
     host: appservice # one of the supported Azure services
 ```

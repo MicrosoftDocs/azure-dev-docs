@@ -21,7 +21,7 @@ The following diagram gives a quick overview of the process to create an `azd` t
 
 :::image type="content" source="media/make-azd-compatible/workflow.png" alt-text="Diagram of Azure Developer CLI template workflow.":::
 
-All `azd` templates have the same file structure, based on `azd` conventions. The following hierarchy shows the directory structure you'll build in this tutorial. For the complete directory structure, refer to the [azd conventions](#azd-conventions) section.
+All `azd` templates have the same file structure, based on `azd` conventions. The following hierarchy shows the directory structure you'll build in this tutorial. 
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
@@ -31,6 +31,9 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 │   └── resources.bicep        [ Resources file ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
+Learn more about:
+- [The complete directory structure](#azd-conventions).
+- [Azure Developer CLI's azure.yaml schema](./azd-schema.md).
 
 ## Create the project and source directories
 
