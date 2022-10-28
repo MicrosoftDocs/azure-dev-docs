@@ -37,7 +37,7 @@ In VS Code, review the changes and commit the changes. While developing the samp
     |Prompts 1-8|Value|
     |--|--|
     |Enter a name for the new static web app.|Accept the default value `ms-identity-javascript-react-tutorial`. |
-    |Select a resource group for new resources.| Select the resource group used to create your Cosmos DB resource.|
+    |Select a resource group for new resources.| Select the resource group used to create your Azure Cosmos DB resource.|
     |Select a sku|Free|
     |Choose build preset to configure default project structure. |Select **Custom**, because the sample code is deeply nested inside the MSAL sample repo.|
     |Enter the location of your application code. |Enter `/4-Deployment/2-deploy-static/App/` to indicate where the React app's package.json is.|
@@ -56,7 +56,7 @@ In VS Code, review the changes and commit the changes. While developing the samp
     |CLIENT_SECRET|Application's (client) secret|
     |TENANT_INFO|Directory (tenant) ID|
     |EXPECTED_SCOPES|`access_as_user`|
-    |MONGODB_URL|Cosmos DB for MongoDB API connection string|
+    |MONGODB_URL|Azure Cosmos DB for MongoDB connection string|
  
     :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/vscode-static-web-app-add-application-settings.png" alt-text="A browser screenshot show VS Code's Azure explorer app settings for the static web app.":::
 
@@ -129,7 +129,7 @@ The Active Directory app, through MSAL, doesn't know about the new static web ap
 1. Go to the **Function API** page and see that your favorite color, entered when you ran the sample locally, is still set. 
 1. Change the color and submit. 
 
-    You've run the sample locally and remotely, signing in to your Active Directory-secured identity app, and accessing your Microsoft Graph identity information, and setting your favorite color in Cosmos DB.
+    You've run the sample locally and remotely, signing in to your Active Directory-secured identity app, and accessing your Microsoft Graph identity information, and setting your favorite color in Azure Cosmos DB.
 
 ## Clean up resources
 

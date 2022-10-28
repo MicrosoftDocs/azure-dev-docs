@@ -6,7 +6,7 @@ ms.author: v-yonghuiye
 
 ## Production ready
 
-We’ve added health indicators for App Configuration, Event Hubs, Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File, as well as Spring Cloud Sleuth support for all HTTP-based Azure SDKs. As an example, you now can probe to determine whether a storage blob is up or down via Spring Boot actuator endpoint, as well as track dependencies and latencies going from your application to Key Vault.
+We’ve added health indicators for App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File, as well as Spring Cloud Sleuth support for all HTTP-based Azure SDKs. As an example, you now can probe to determine whether a storage blob is up or down via Spring Boot actuator endpoint, as well as track dependencies and latencies going from your application to Key Vault.
 
 ### Enable health indicator
 
@@ -24,7 +24,7 @@ The following table lists configurable properties to enable or disable health in
 | Azure Service         | Property                                               |
 |-----------------------|--------------------------------------------------------|
 | App Configuration     | *management.health.azure*-appconfiguration.enabled     |
-| Cosmos DB             | *management.health.azure*-cosmos.enabled               |
+| Azure Cosmos DB             | *management.health.azure*-cosmos.enabled               |
 | Event Hubs            | *management.health.azure*-eventhubs.enabled            |
 | Key Vault Certificate | *management.health.azure*-keyvault-certificate.enabled |
 | Key Vault Secret      | *management.health.azure*-keyvault-secret.enabled      |
@@ -33,7 +33,7 @@ The following table lists configurable properties to enable or disable health in
 | Storage Queue         | *management.health.azure*-storage-queue.enabled        |
 
 > [!IMPORTANT]
-> Calling the health endpoint of Azure services may cause extra charges. For example, if you call `http://HOST_NAME:{port}/actuator/health/cosmos` to get the Cosmos DB health info, it will calculate Request Units (RUs). For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
+> Calling the health endpoint of Azure services may cause extra charges. For example, if you call `http://HOST_NAME:{port}/actuator/health/cosmos` to get Azure Cosmos DB health info, it will calculate Request Units (RUs). For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
 > [!NOTE]
 > For calling the health endpoint of `Cosmos`, the option `spring.cloud.azure.cosmos.database` should be configured; Otherwise, the health status of `unknown` will be returned.

@@ -27,11 +27,11 @@ Use the following services to manage and store mobile application data in the cl
 
 ### Azure Cosmos DB features
 
-- Supports a wide range of APIs, which includes the SQL (Core) API, Cassandra API, MongoDB API, Gremlin API, and Table API.
+- Supports a wide range of APIs such as NoSQL, Apache Cassandra, MongoDB, Apache Gremlin, and Table.
 - Turnkey global distribution replicates your data wherever your users are. Your users can interact with a replica of the data that's closest to them.
 - No schema or index management because the database engine is fully schema agnostic.
 - Ubiquitous regional presence because Azure Cosmos DB is available in all Azure regions worldwide, which includes 54+ regions in the public cloud.
-- Precisely defined, multiple consistency choices because Azure Cosmos DB's multi-master replication protocol is carefully designed to offer five well-defined consistency choices. These five choices are strong, bounded staleness, session, consistent prefix, and eventual.
+- Precisely defined, multiple consistency choices because Azure Cosmos DB multi-master replication protocol is carefully designed to offer five well-defined consistency choices. These five choices are strong, bounded staleness, session, consistent prefix, and eventual.
 - 99.999% availability for both reads and writes.
 - Programmatically (or via the Azure portal) invoke the regional failover of your Azure Cosmos DB account to ensure that your application is designed to withstand a regional disaster.
 - Guaranteed low latency at the 99th percentile worldwide.

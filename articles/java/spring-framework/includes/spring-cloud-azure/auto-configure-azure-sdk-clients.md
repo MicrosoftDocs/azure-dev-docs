@@ -39,7 +39,7 @@ There are two ways to use Spring Cloud Azure starters. The first way is to use A
 </dependency>
 ```
 
-The second way is to avoid adding Azure SDK dependencies and instead include the Spring Cloud Azure Starter for each Service directly. For example, with Cosmos DB, you would add the following dependency:
+The second way is to avoid adding Azure SDK dependencies and instead include the Spring Cloud Azure Starter for each Service directly. For example, with Azure Cosmos DB, you would add the following dependency:
 
 ```xml
 <dependency>
@@ -63,7 +63,7 @@ Configuration properties for each Azure service are under prefix `spring.cloud.a
 
 ### Basic usage
 
-Adding the following properties to your *application.yaml* file will autoconfigure the Cosmos DB client for you.
+Adding the following properties to your *application.yaml* file will autoconfigure the Azure Cosmos DB client for you.
 
 ```yaml
 spring:

@@ -59,7 +59,7 @@ The following table lists starters for Spring Data support:
 > [!div class="mx-tdBreakAll"]
 > | Name                                   | Description                                                      |
 > |----------------------------------------|------------------------------------------------------------------|
-> | spring-cloud-azure-starter-data-cosmos | The starter for using Azure Cosmos DB and Spring Data Cosmos DB. |
+> | spring-cloud-azure-starter-data-cosmos | The starter for using Spring Data for Azure Cosmos DB. |
 
 The following table lists starters for Spring Integration support:
 

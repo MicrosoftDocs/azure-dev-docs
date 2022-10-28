@@ -39,10 +39,10 @@ The following features are supported:
 
 The Spring Cloud Azure support for Spring Native is still in the early stages and continues to be updated. The following features are not yet supported:
 
-* Azure Cosmos clients auto-configuration
+* Azure Cosmos DB clients auto-configuration
 * Azure Service Bus clients auto-configuration
 * Spring Data for Azure Cache for Redis
-* Spring Data for Azure Cosmos
+* Spring Data for Azure Cosmos DB
 * Spring Cloud Stream for Azure Event Hubs
 * Spring Cloud Stream for Azure Service Bus
 * Spring Kafka for Azure Event Hubs

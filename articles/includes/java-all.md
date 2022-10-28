@@ -324,9 +324,9 @@
 | applicationinsights-runtime-attach | Maven [3.4.2](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.4.2/jar/) |  |  |
 | azure-analytics-purview-administration | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar/) |  |  |
 | azure-appservice-maven-plugin-lib | Maven [1.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.24.0/jar/) |  |  |
-| azure-autorest-customization | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.5/jar/) |  |  |
-| azure-autorest-extension | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.2/jar/) |  |  |
-| azure-autorest-parent | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.2/jar/) |  |  |
+| azure-autorest-customization | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.6/jar/) |  |  |
+| azure-autorest-extension | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.3/jar/) |  |  |
+| azure-autorest-parent | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.3/jar/) |  |  |
 | azure-communication-administration | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-communication-administration/1.0.0-beta.4/jar/) |  |  |
 | azure-communication-callingserver | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-communication-callingserver/1.0.0-beta.4/jar/) |  |  |
 | azure-core-http-vertx | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-core-http-vertx/1.0.0-beta.1/jar/) |  |  |
