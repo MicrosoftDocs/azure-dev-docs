@@ -115,6 +115,8 @@ az webapp deployment source show \
   --resource-group <resource-group-name>
 ```
 
+In the output from the command, confirm the values for the `repoUrl` and `branch` properties. These values should match the values you specified in the previous step.
+
 **Step 3.** List the workflow file in your repo and confirm that the workflow file contains the correct deploy action.
 
 In Azure Cloud Shell and starting in the root of your project, get and list the workflow file with the following commands:
