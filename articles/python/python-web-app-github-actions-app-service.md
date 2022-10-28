@@ -62,7 +62,9 @@ az webapp up --name <app-service-name> --runtime "PYTHON:3.9"
 
 Specify an App Service name that is unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
 
-Use `az webapp list-runtimes` to get a list of available runtimes.
+Use `az webapp list-runtimes` to get a list of available runtimes. Use the `PYTHON|X.Y` format, where `X.Y` is the Python version.
+
+You can also specify the location of the App Service with the `--location` parameter. Use the `az account list-locations --output table` command to get a list of available locations.
 
 **Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] use that command. If your app doesn't have a custom startup command, skip this step.
 
@@ -77,7 +79,9 @@ az webapp config set \
 
 You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will start with *\<your-name>\_rg\_*.
 
-**Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*. If you see a generic page, wait a few seconds for the App Service to start, and refresh the page.
+**Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*.
+
+If you see a generic page, wait a few seconds for the App Service to start, and refresh the page. If you continue to see the generic page, check that you deployed from the correct folder. If you're using the Flask sample app, the folder is *python-sample-vscode-flask-tutorial*. Also, for the Flask sample app, check that you set the startup command correctly.
 
 ## Set up continuous deployment in App Service
 
