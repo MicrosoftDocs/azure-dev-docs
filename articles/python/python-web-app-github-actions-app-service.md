@@ -22,7 +22,7 @@ If you need an app to work with, you can fork and clone the repository at https:
 
 ## Create the target Azure App Service
 
-The quickest way to create an App Service instance is to use the [Azure command-line interface][16] (CLI) through the interactive [Azure Cloud Shell][17]. The Cloud Shell includes [Git][20] and Azure CLI . In the following steps, you'll use [az webapp up][2] to both create the App Service and do the first deployment of your app.
+The quickest way to create an App Service instance is to use the [Azure command-line interface][16] (CLI) through the interactive [Azure Cloud Shell][17]. The Cloud Shell includes [Git][20] and Azure CLI. In the following steps, you'll use [az webapp up][2] to both create the App Service and do the first deployment of your app.
 
 **Step 1.** Sign in to the Azure portal at https://portal.azure.com.
 
@@ -34,13 +34,13 @@ The quickest way to create an App Service instance is to use the [Azure command-
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-cloud-shell-bash.png" alt-text="Screenshot showing an Azure Cloud Shell Bash shell in Azure portal." lightbox="media/github-actions-app-service/azure-portal-cloud-shell-bash.png":::
 
-**Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you are using the Flask sample app the command is:
+**Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you're using the Flask sample app the command is:
 
 ```bash
 git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial
 ```
 
-Replace \<github-user> with the name of the GitHub account where you forked the repo. If you are using a different app repo, this is where you'll set up GitHub Actions.
+Replace \<github-user> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
@@ -61,6 +61,8 @@ az webapp up --name <app-service-name> --runtime "PYTHON:3.9"
 ```
 
 Specify an App Service name that is unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
+
+Use `az webapp list-runtimes` to get a list of available runtimes.
 
 **Step 7.** If your app uses a custom startup command, then use the [az webapp config][3] use that command. If your app doesn't have a custom startup command, skip this step.
 
@@ -92,14 +94,14 @@ az webapp deployment github-actions add \
   --login-with-github
 ```
 
-The `--login-with-github` uses an interactive method to retrieves a personal access token. Follow the prompts to complete the authentication.
+The `--login-with-github` uses an interactive method to retrieve a personal access token. Follow the prompts to complete the authentication.
 
 If there's an existing workflow file that conflicts with the name App Service uses, add the `--force` option to overwrite that file. If you don't use the `--force` option, you'll be asked to choose whether to overwrite.
 
 What the add command does:
 
 * Creates new workflow file: *.github/workflows/\<workflow-name>.yml* in your repo; the name of the file will contain the name of your App Service.
-* Fetches a publish profile with secrets for your App Service and adds it as a GitHub Actions secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE_. This secret is referenced in the workflow file.
+* Fetches a publish profile with secrets for your App Service and adds it as a GitHub action secret. The name of the secret will start with AZUREAPPSERVICE_PUBLISHPROFILE_. This secret is referenced in the workflow file.
 
 **Step 2.** Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command.
 
@@ -178,7 +180,7 @@ You can also kick off the workflow manually.
 
 ### Troubleshooting a failed workflow
 
-To check a workflow's status, go to the Actions tab of the repo. When you drill into the workflow file created in this tutorial, you'll see two jobs "build" and "deploy". For a failed job, look at the output of job tasks for an indication of the failure. Some common issues are:
+To check a workflow's status, go to the Actions tab of the repo. When you drill into the workflow file created in this tutorial, you'll see two jobs "build", and "deploy". For a failed job, look at the output of job tasks for an indication of the failure. Some common issues are:
 
 * If the app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than using the `az webapp up` command as shown in this article.
 
@@ -198,7 +200,7 @@ To avoid hard-coding variable values in your workflow YML file, you can instead 
 
 As noted earlier in this article, you can use GitHub Actions to deploy Django apps to Azure App Service on Linux, if you're using a separate database. You can't use a SQLite database, because App Service locks the db.sqlite3 file, preventing both reads and writes. This behavior doesn't affect an external database.
 
-As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command is not available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code snippet shows how to specify the startup command in the workflow file:
+As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command isn't available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code snippet shows how to specify the startup command in the workflow file:
 
 ```yml
 startup-command: startup.txt
@@ -245,15 +247,15 @@ az group delete --name <resource-group-name>
 
 ### [Azure portal](#tab/azure-portal)
 
-To delete the resource group from the Azure portal, find the resources by searching for it's name and then in the **Overview** resource select **Delete resource group** and follow the prompts.
+To delete the resource group from the Azure portal, find the resources by searching for its name and then in the **Overview** resource select **Delete resource group** and follow the prompts.
 
 :::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot showing how to delete a resource group in Azure portal." lightbox="media/github-actions-app-service/azure-portal-delete-resource-group.png":::
 
 ---
 
-To delete the storage account that maintains the file system for Cloud Shell, which incurs a small monthly charge, delete the resource group that begins with *cloud-shell-storage-*. If you are the only user of the group, it's safe to delete the resource group. If there are other users, you can delete a storage account in the resource group.
+To delete the storage account that maintains the file system for Cloud Shell, which incurs a small monthly charge, delete the resource group that begins with *cloud-shell-storage-*. If you're the only user of the group, it's safe to delete the resource group. If there are other users, you can delete a storage account in the resource group.
 
-If you deleted the Azure resource group, consider also make the following modifications to the GitHub account and repo that was connected for continuous deployment:
+If you deleted the Azure resource group, consider also making the following modifications to the GitHub account and repo that was connected for continuous deployment:
 
 * In the repository, remove the *.github/workflows/\<workflow-name>.yml* file.
 * In the repository settings, remove the AZUREAPPSERVICE_PUBLISHPROFILE_ secret key created for the workflow.
