@@ -115,6 +115,26 @@ az webapp deployment source show \
   --resource-group <resource-group-name>
 ```
 
+**Step 3.** List the workflow file in your repo and confirm that the workflow file contains the correct deploy action.
+
+In Azure Cloud Shell and starting in the root of your project, get and list the workflow file with the following commands:
+
+```bash
+git pull
+more .github/workflows/<workflow-name>.yml
+```
+
+Confirm that the deploy action looks like the following:
+
+```yml
+- name: 'Deploy to Azure Web App'
+  uses: azure/webapps-deploy@v2
+  with: 
+    app-name: '<app-service-name>'
+    slot-name: 'production'
+    publish-profile: ${{ secrets.AzureAppService_PublishProfile_<some-guid> }}
+```
+
 ## GitHub workflow and actions explained
 
 A workflow is defined by a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process that associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow.
