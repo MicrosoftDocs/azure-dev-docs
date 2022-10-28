@@ -81,7 +81,7 @@ You can find the resource group name from the output from the previous `az webap
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*.
 
-If you see a generic page, wait a few seconds for the App Service to start, and refresh the page. If you continue to see the generic page, check that you deployed from the correct folder. If you're using the Flask sample app, the folder is *python-sample-vscode-flask-tutorial*. Also, for the Flask sample app, check that you set the startup command correctly.
+If you see a generic page, wait a few seconds for the App Service to start, and refresh the page. If you continue to see the generic page, check that you deployed from the correct folder. For example, if you're using the Flask sample app, the folder is *python-sample-vscode-flask-tutorial*. Also, for the Flask sample app, check that you set the startup command correctly.
 
 ## Set up continuous deployment in App Service
 
