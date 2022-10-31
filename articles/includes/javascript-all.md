@@ -56,6 +56,7 @@
 | IoT Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest) |
 | Keys | npm [4.6.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.6.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.6.0/sdk/keyvault/keyvault-keys/) |
 | Language Text | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0/sdk/cognitivelanguage/ai-language-text/) |
+| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/@azure-rest/load-testing/) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Maps Common | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/maps-common/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/maps-common-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-common_1.0.0-beta.1/sdk/maps/maps-common/) |
 | Maps Search | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/maps-search/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/maps-search-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/maps/maps-search/) |
@@ -271,7 +272,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221027.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221027.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221030.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221030.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -310,7 +311,7 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-apiview | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-apiview/v/0.2.0) |  |  |
+| @azure-tools/cadl-apiview | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/cadl-apiview/v/0.2.1) |  |  |
 | @azure-tools/cadl-autorest | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.21.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.8.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.11.0) |  |  |
@@ -321,11 +322,11 @@
 | @azure-tools/cadl-providerhub | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.22.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.17.0) |  |  |
 | @azure-tools/cadl-python | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.3) |  |  |
-| @azure-tools/cadl-ranch | npm [0.2.7](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.7) |  |  |
+| @azure-tools/cadl-ranch | npm [0.2.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.8) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.11) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.4.1) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.4.2) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -490,6 +491,7 @@
 | Key Vault | npm [3.0.5](https://www.npmjs.com/package/azure-keyvault/v/3.0.5) |  |  |
 | Keys | npm [4.6.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.6.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.6.0/sdk/keyvault/keyvault-keys/) |
 | Language Text | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0/sdk/cognitivelanguage/ai-language-text/) |
+| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/@azure-rest/load-testing/) |
 | Local Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-localsearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-localsearch) |
 | Log Analytics | npm [0.3.0](https://www.npmjs.com/package/@azure/loganalytics/v/0.3.0) |  | GitHub [0.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/loganalytics) |
 | Logger JS | npm [1.3.2](https://www.npmjs.com/package/@azure/logger-js/v/1.3.2) |  | GitHub [1.3.2](https://github.com/Azure/logger-js) |
