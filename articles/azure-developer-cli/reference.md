@@ -3,7 +3,7 @@ title: Azure Developer CLI reference (preview)
 description: This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 10/24/2022
+ms.date: 10/31/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -67,6 +67,8 @@ For more information, visit the [Azure Developer CLI Dev Hub](./overview.md).
 ## azd config
 
 Manage the Azure Developer CLI user configuration, which includes your default Azure subscription and location. 
+
+Available since `azure-dev-cli_0.4.0-beta.1`. 
 
 ### Synopsis
 
