@@ -75,7 +75,7 @@ To set a minimum heap size, developers can use `-Xms` for absolute amounts, or `
 > The flag `-XX:MinRAMPercentage`, despite what the name suggests, it is used for setting the default _maximum_ RAM percentage for systems with up to 256 MB of RAM available in the system.
 
 > [!div class="mx-imgBorder"]
-![Default Heap Size on OpenJDK 17](media/default-heap-size-openjdk17.png)
+![Default Heap Size on OpenJDK 17](media/default-heap-chart-openjdk17.png)
 
 
 ### Determine which GC to use
