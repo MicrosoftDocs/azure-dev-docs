@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 10/25/2022
+ms.date: 10/31/2022
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -95,6 +95,9 @@ This is a known issue. While we address this issue, try the following command:
 git update-index --chmod=+x src/api/mvnw && git commit -m "Fix executable bit permissions" && git push
 ```
 
+## `azd pipeline config` support
+
+`azd pipeline config` is currently not supported in [DevContainers/VS Code Remote Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
 ## Live metrics support for Python
 
