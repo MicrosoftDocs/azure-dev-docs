@@ -42,14 +42,13 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ----
 
-## 2. Next steps 
+## 2. Next steps
 
 After completing this tutorial, here are some next steps you can take to build upon what you learned and move the tutorial code and deployment closer to production ready:
 
 * [Deploy a web app from a geo-replicated Azure container registry](/azure/container-registry/container-registry-tutorial-deploy-app)
 
 * [Review Security in Azure Cosmos DB](/azure/cosmos-db/database-security)
-
 
 * Map a custom DNS name to your app, see [Tutorial: Map custom DNS name to your app](/azure/app-service/app-service-web-tutorial-custom-domain).
 
