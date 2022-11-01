@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Containerized Python web apps on Azure: build image in Azure Container Registry'
-description: Build a containerized Python web app in the cloud.
+title: Build a containerized Python web app in Azure Container Registry
+description: Build a containerized Python web app (Django or Flask) in Azure Container Registry, without the need for Docker installed locally.
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
@@ -13,7 +13,7 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In the previous *optional* part of this tutorial, a container image was build and run locally. In contrast, in this part of the tutorial, you'll build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
-Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service. 
+Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service.
 
 The service diagram shown below highlights the components covered in this article.
 

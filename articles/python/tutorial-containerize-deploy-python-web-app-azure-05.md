@@ -1,6 +1,6 @@
 ---
-title: 'Deploy a Python containerized web app to Azure with managed identity: clean up resources'
-description: How to clean up resources used in a tutorial showing how to containerize a Python (Django or Flask) web app and deploy it to App Service.
+title: Clean up Azure resources used in Python container tutorial
+description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/24/2022
