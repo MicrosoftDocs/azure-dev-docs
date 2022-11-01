@@ -1,5 +1,5 @@
 ---
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -79,4 +79,4 @@ spring:
 
 ### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1) for more details.
