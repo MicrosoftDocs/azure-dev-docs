@@ -84,7 +84,7 @@ You may encounter a failure when running `azd pipeline config` with AzDo for Jav
 
 1. Received the following error:
 
-   :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
+   :::image type="content" source="media/troubleshoot/error-pipeline.png" alt-text="Screenshot showing the error received when running azd pipeline config with AzDo for Java on Windows.":::
 
 
 ### Solution
