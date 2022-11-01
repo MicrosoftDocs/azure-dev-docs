@@ -37,7 +37,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
 **Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you're using the Flask sample app the command is:
 
 ```bash
-git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial
+git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial.git
 ```
 
 Replace \<github-user> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
@@ -77,7 +77,7 @@ az webapp config set \
   --startup-file startup.txt
 ```
 
-You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will start with *\<your-name>\_rg\_*.
+You can find the resource group name from the output from the previous `az webapp up` command. The resource group name will start with *\<azure-account-name>\_rg\_*.
 
 **Step 8.** To see the running app, open a browser and go to *http://\<app-service-name>.azurewebsites.net*.
 
@@ -98,9 +98,9 @@ az webapp deployment github-actions add \
   --login-with-github
 ```
 
-The `--login-with-github` uses an interactive method to retrieve a personal access token. Follow the prompts to complete the authentication.
+The `--login-with-github` parameter uses an interactive method to retrieve a personal access token. Follow the prompts to complete the authentication.
 
-If there's an existing workflow file that conflicts with the name App Service uses, add the `--force` option to overwrite that file. If you don't use the `--force` option, you'll be asked to choose whether to overwrite.
+If there's an existing workflow file that conflicts with the name App Service uses, you'll be asked to choose whether to overwrite. Use the `--force` parameter to overwrite without asking.
 
 What the add command does:
 
@@ -116,26 +116,6 @@ az webapp deployment source show \
 ```
 
 In the output from the command, confirm the values for the `repoUrl` and `branch` properties. These values should match the values you specified in the previous step.
-
-**Step 3.** List the workflow file in your repo and confirm that the workflow file contains the correct deploy action.
-
-In Azure Cloud Shell and starting in the root of your project, get and list the workflow file with the following commands:
-
-```bash
-git pull
-more .github/workflows/<workflow-name>.yml
-```
-
-Confirm that the deploy action looks like the following:
-
-```yml
-- name: 'Deploy to Azure Web App'
-  uses: azure/webapps-deploy@v2
-  with: 
-    app-name: '<app-service-name>'
-    slot-name: 'production'
-    publish-profile: ${{ secrets.AzureAppService_PublishProfile_<some-guid> }}
-```
 
 ## GitHub workflow and actions explained
 
