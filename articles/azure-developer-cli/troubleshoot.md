@@ -63,6 +63,22 @@ The troubleshooting steps might differ, depending on the root cause.
 
 For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
+## `azd init` requires `sudo`
+
+Before `azd version = azure-dev-cli_0.2.0-beta.1`, `azd` would create an `.azd` folder with `drw-r--r--` access.
+
+This will cause an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc) already provides an `.azd` folder with read-only mode.
+
+### Solution
+
+1. Manually delete the already provided `.azd` folder:
+
+   ```bash
+   rm -r ~/.azd
+   ```
+
+1. Run `azd init` for `azd` to create the folder again with the right access levels.
+
 ## `azd monitor` for development container
 
 `azd monitor` is currently not supported if you use a development container as your development environment.
