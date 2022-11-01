@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Containerized Python web apps on Azure: build and test locally'
-description: Build and test a containerized Python web app locally.
+title: Build and run a containerized Python web app locally with MongoDB
+description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB in preparation for deployment to Azure App Service.
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 ---
 
-# Build and test a containerized Python web app locally
+# Build and run a containerized Python web app locally with MongoDB
 
 This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. ***This step is optional and isn't required to deploy the sample app to Azure.***
 
