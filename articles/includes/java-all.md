@@ -586,7 +586,7 @@
 | Maps Render | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-maps-render/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/maps-render-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.1/sdk/maps/azure-maps-render/) |
 | Maps Route | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-maps-route/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/maps-route-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-route_1.0.0-beta.1/sdk/maps/azure-maps-route/) |
 | Maps Search | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-maps-search/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/maps-search-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-search_1.0.0-beta.1/sdk/maps/azure-maps-search/) |
-| MASL4J | Maven [1.13.2](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.13.2/jar/) |  |  |
+| MASL4J | Maven [1.13.3](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.13.3/jar/) |  |  |
 | MASL4J Persistence Extension | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j-persistence-extension/1.1.0/jar/) |  |  |
 | Maven - Plugin | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0/jar/) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
