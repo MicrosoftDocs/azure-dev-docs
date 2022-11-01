@@ -72,9 +72,9 @@ Available since `azure-dev-cli_0.4.0-beta.1`.
 
 ### Synopsis
 
-The easiest way to configure `azd` for the first time is to run `azd init`. To configure `azd` anytime afterwards, you'll use `azd config`. 
+The easiest way to configure `azd` for the first time is to run [`azd init`](#azd-init). The subscription and location you select will be stored in the `config.json` file located in the config directory. To configure `azd` anytime afterwards, you'll use [`azd config set`](#azd-config-set).
 
-The subscription and location you select will be stored in the config.json file located in the config directory and created upon `azd init` or `azd up`. The default value of the config directory is:
+The default value of the config directory is:
 - `$HOME/.azd` on Linux and macOS
 - `%USERPROFILE%\.azd` on Windows
 
