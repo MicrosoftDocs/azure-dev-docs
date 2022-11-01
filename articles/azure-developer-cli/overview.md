@@ -37,7 +37,7 @@ The Azure Developer CLI works alongside [idiomatic application templates](./azd-
 
 - Application code
 - Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
-- An [`azure.yaml` file](./azd-schema.md) that describes your application.
+- An `azure.yaml` file that describes your application.
 
 [Learn more about the `azd` templates we provide and which template you should select.](./azd-templates.md#choose-a-template)
 
