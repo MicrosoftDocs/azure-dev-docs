@@ -1,6 +1,6 @@
 ---
 title: Deploy a containerized Python web app on Azure with MongoDB
-description: An overview of how to create and deploy a containerized Python web app (Django or Flask) on Azure App Service using MongoDB.
+description: An overview of how to create and deploy a containerized Python web app (Django or Flask) on Azure App Service with MongoDB.
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
