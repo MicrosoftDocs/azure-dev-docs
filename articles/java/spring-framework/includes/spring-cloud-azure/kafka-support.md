@@ -252,6 +252,10 @@ You can use connection string authentication directly or use the Azure Resource 
 
 > [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
+>
+> Since version of 4.4.1, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the *`<kafka-binder-name>`* placeholder has a value of `kafka` by default.
+>
+> `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 
 ##### Dependency setup
 
