@@ -67,7 +67,7 @@ For other resources, see [Troubleshoot common Azure deployment errors - Azure Re
 
 Before `azd version = azure-dev-cli_0.2.0-beta.1`, `azd` would create an `.azd` folder with `drw-r--r--` access.
 
-This will cause an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc) already provides an `.azd` folder with read-only mode.
+This will cause an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc.) already provides an `.azd` folder with read-only mode.
 
 ### Solution
 
