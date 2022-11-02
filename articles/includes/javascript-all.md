@@ -40,6 +40,7 @@
 | Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
+| Core - Paging | npm [1.3.0](https://www.npmjs.com/package/@azure/core-paging/v/1.3.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.3.0/sdk/core/core-paging/) |
 | Cosmos DB | npm [3.17.1](https://www.npmjs.com/package/@azure/cosmos/v/3.17.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.1/sdk/cosmosdb/cosmos/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
@@ -56,7 +57,7 @@
 | IoT Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest) |
 | Keys | npm [4.6.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.6.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.6.0/sdk/keyvault/keyvault-keys/) |
 | Language Text | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0/sdk/cognitivelanguage/ai-language-text/) |
-| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/@azure-rest/load-testing/) |
+| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/load-testing-rest) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Maps Common | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/maps-common/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/maps-common-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-common_1.0.0-beta.1/sdk/maps/maps-common/) |
 | Maps Search | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/maps-search/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/maps-search-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/maps/maps-search/) |
@@ -272,7 +273,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221030.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221030.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221101.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221101.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -321,12 +322,12 @@
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.22.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.17.0) |  |  |
-| @azure-tools/cadl-python | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.3) |  |  |
+| @azure-tools/cadl-python | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.4) |  |  |
 | @azure-tools/cadl-ranch | npm [0.2.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.8) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.11) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.4.2) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.4.3) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -341,7 +342,7 @@
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
 | @azure-tools/rlc-common | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-tools/rlc-common/v/1.0.0-beta.2) |  |  |
-| @azure-tools/sdk-generation-lib | npm [1.0.4](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.4) |  |  |
+| @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.0) |  |  |
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
@@ -372,7 +373,7 @@
 | cadl-vscode | npm [0.16.1](https://www.npmjs.com/package/cadl-vscode/v/0.16.1) |  |  |
 | Communication Alpha Ids | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-tools/communication-alpha-ids/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-tools/communication-alpha-ids_1.0.0-beta.1/sdk/communication/communication-alpha-ids) |
 | tmlanguage-generator | npm [0.3.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.1) |  |  |
-| @azure/communication-react | npm [1.3.1](https://www.npmjs.com/package/@azure/communication-react/v/1.3.1) |  |  |
+| @azure/communication-react | npm [1.4.0](https://www.npmjs.com/package/@azure/communication-react/v/1.4.0) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.3.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.3.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.3.0/sdk/keyvault/keyvault-admin/) |
 | Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
@@ -393,8 +394,8 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.44](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.44) |  |  |
 | AutoRest - Modeler Four | npm [4.24.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.24.3) |  | GitHub [4.24.3](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.497](https://www.npmjs.com/package/@autorest/powershell/v/3.0.497)<br>npm [4.0.0-dev.4](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.4) |  | GitHub [3.0.497](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.2.2](https://www.npmjs.com/package/@autorest/python/v/6.2.2) |  | GitHub [6.2.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - PowerShell | npm [3.0.497](https://www.npmjs.com/package/@autorest/powershell/v/3.0.497)<br>npm [4.0.0-dev.5](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.5) |  | GitHub [3.0.497](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Python | npm [6.2.3](https://www.npmjs.com/package/@autorest/python/v/6.2.3) |  | GitHub [6.2.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -440,10 +441,10 @@
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
 | Core - Client - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
 | Core - Client - LRO | npm [2.4.0](https://www.npmjs.com/package/@azure/core-lro/v/2.4.0) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.4.0/sdk/core/core-lro/) |
-| Core - Client - Paging | npm [1.3.0](https://www.npmjs.com/package/@azure/core-paging/v/1.3.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.3.0/sdk/core/core-paging/) |
 | Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
+| Core - Paging | npm [1.3.0](https://www.npmjs.com/package/@azure/core-paging/v/1.3.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.3.0/sdk/core/core-paging/) |
 | Cosmos DB | npm [3.17.1](https://www.npmjs.com/package/@azure/cosmos/v/3.17.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.1/sdk/cosmosdb/cosmos/) |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customimagesearch) |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customsearch) |
@@ -491,7 +492,7 @@
 | Key Vault | npm [3.0.5](https://www.npmjs.com/package/azure-keyvault/v/3.0.5) |  |  |
 | Keys | npm [4.6.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.6.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.6.0/sdk/keyvault/keyvault-keys/) |
 | Language Text | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0/sdk/cognitivelanguage/ai-language-text/) |
-| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/@azure-rest/load-testing/) |
+| Load Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/load-testing-rest) |
 | Local Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-localsearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-localsearch) |
 | Log Analytics | npm [0.3.0](https://www.npmjs.com/package/@azure/loganalytics/v/0.3.0) |  | GitHub [0.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/loganalytics) |
 | Logger JS | npm [1.3.2](https://www.npmjs.com/package/@azure/logger-js/v/1.3.2) |  | GitHub [1.3.2](https://github.com/Azure/logger-js) |

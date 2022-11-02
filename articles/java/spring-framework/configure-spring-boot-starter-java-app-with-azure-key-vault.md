@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Read a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -344,7 +344,7 @@ To manually add the same configuration that Spring Initializr generates, add the
 
    ```xml
    <properties>
-        <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+        <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    <dependencies>
         <dependency>

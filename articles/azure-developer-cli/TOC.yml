@@ -28,4 +28,8 @@
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
   - name: Reference
-    href: reference.md
+    items: 
+    - name: azure.yaml
+      href: azd-schema.md
+    - name: Reference
+      href: reference.md

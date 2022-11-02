@@ -3,7 +3,7 @@ title: Azure Developer CLI templates (preview)
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/19/2022
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -26,6 +26,7 @@ As part of Azure Developer CLI preview, we’ve authored an initial set of templ
 - Python
 - JavaScript/TypeScript
 - C#
+- Java
 
 Each template was written for hosts such as:
 
@@ -50,6 +51,23 @@ azd template list
 
 Refer to the README in any of the following Azure Developer CLI enabled templates for more instructions and information.
 
+### [C#](#tab/csharp)
+
+| Template      | App host | Tech stack |
+| ----------- | ----------| ----------- |
+| [ToDo application with C# API and Azure Cosmos DB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for NoSQL](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep |
+| [ToDo application with C# API and Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
+| [ToDo C# Azure SQL + SWA + Functions](https://github.com/Azure-Samples/todo-csharp-sql-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
+
+
+### [Java](#tab/java)
+
+| Template      | App host | Tech stack	 | 
+| ----------- | ----------| ----------- | 
+| [ToDo Java Mongo](https://github.com/Azure-Samples/todo-java-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
+| [ToDo Java Mongo ACA](https://github.com/Azure-Samples/todo-java-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
+
+
 ### [Node.js](#tab/nodejs)
 
 | Template      | App host | Tech stack |
@@ -67,13 +85,6 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | [ToDo Python MongoDB (Terraform)](https://github.com/Azure-Samples/todo-python-mongo-terraform) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Terraform  |  
 | [ToDo Python MongoDB ACA](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |  
 | [ToDo Python MongoDB SWA + Functions](https://github.com/azure-samples/todo-python-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep|
-
-### [C#](#tab/csharp)
-
-| Template      | App host | Tech stack |
-| ----------- | ----------| ----------- |
-| [ToDo application with C# API and Azure Cosmos DB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for NoSQL](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep |
-| [ToDo application with C# API and Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
 
 ---
 

@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.service: storage
 ms.topic: article
 ms.workload: storage
@@ -138,7 +138,7 @@ The following procedure configures the Spring boot application to use Azure stor
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-      <version>4.4.0</version>
+      <version>4.4.1</version>
     </dependency>
    ```
 
