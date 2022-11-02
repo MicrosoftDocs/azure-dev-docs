@@ -447,7 +447,7 @@ Select your preferred environment to continue:
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java (version 8)](https://www.java.com/en/download/)
+- [OpenJDK 17](https://learn.microsoft.com/java/openjdk/download#openjdk-17)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
 
 ### Run `up` command
