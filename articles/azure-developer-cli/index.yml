@@ -56,16 +56,18 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: ToDo NodeJs MongoDB
-            url: https://github.com/azure-samples/todo-nodejs-mongo
-          - text: ToDo Python MongoDB
-            url: https://github.com/azure-samples/todo-python-mongo
           - text: ToDo C# Azure Cosmos DB
             url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
           - text: ToDo C# Azure SQL Database
             url: https://github.com/azure-samples/todo-csharp-sql
+          - text: ToDo Java Mongo 
+            url: https://github.com/azure-samples/todo-java-mongo
+          - text: ToDo NodeJs MongoDB
+            url: https://github.com/azure-samples/todo-nodejs-mongo
           - text: ToDo NodeJs MongoDB (Terraform)
             url: https://github.com/azure-samples/todo-nodejs-mongo-terraform
+          - text: ToDo Python MongoDB
+            url: https://github.com/azure-samples/todo-python-mongo
           - text: ToDo Python MongoDB (Terraform)
             url: https://github.com/Azure-Samples/todo-python-mongo-terraform
 
@@ -73,6 +75,8 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
+          - text: ToDo Java Mongo ACA
+            url: https://github.com/azure-samples/todo-java-mongo-aca
           - text: ToDo NodeJs MongoDB ACA
             url: https://github.com/azure-samples/todo-nodejs-mongo-aca
           - text: ToDo Python MongoDB ACA
@@ -81,6 +85,8 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
+          - text: ToDo C# Azure SQL + SWA + Functions
+            url: https://github.com/Azure-Samples/todo-csharp-sql-swa-func
           - text: ToDo NodeJs MongoDB SWA + Function
             url: https://github.com/azure-samples/todo-nodejs-mongo-swa-func
           - text: ToDo Python MongoDB SWA + Function
