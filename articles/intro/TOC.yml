@@ -42,6 +42,20 @@ items:
             href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: PostgreSQL
             href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: .NET
+        items:
+          - name: Configure
+            items:
+              - name: Storage
+                href: /azure/storage/common/multiple-identity-scenarios
+          - name: Quickstarts
+            items:
+              - name: Blob Storage
+                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus queues
+                href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus topics
+                href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Java
         items:
           - name: Configure
@@ -88,20 +102,18 @@ items:
                 href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
                 href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: .NET
+      - name: JavaScript
         items:
-          - name: Configure
-            items:
-              - name: Storage
-                href: /azure/storage/common/multiple-identity-scenarios
-          - name: Quickstarts
-            items:
-              - name: Blob Storage
-                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus queues
-                href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus topics
-                href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+        - name: Quickstarts
+          items:
+          - name: Blob Storage
+            href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: Python
+        items:
+        - name: Quickstarts
+          items:
+          - name: Blob Storage
+            href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
   - name: Azure developer centers
     items:
       - name: Azure developer home
