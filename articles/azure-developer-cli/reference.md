@@ -748,7 +748,7 @@ Manage GitHub Actions or Azure Pipelines.
 
 Manage GitHub Actions or Azure Pipelines.
 
-The Azure Developer CLI template includes a GitHub Actions and a Azure pipeline configuration file in the `.github/workflows` directory and `.azdo/pipelines` respectively. The configuration file deploys your app whenever code is pushed to the main branch.
+The Azure Developer CLI template includes a GitHub Actions and an Azure pipeline configuration file in the `.github/workflows` directory and `.azdo/pipelines` respectively. The configuration file deploys your app whenever code is pushed to the main branch.
 
 For more information, see [Configure a pipeline and push updates using GitHub Actions](./configure-devops-pipeline.md).
 
