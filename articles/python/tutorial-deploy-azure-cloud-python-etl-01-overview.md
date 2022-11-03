@@ -70,12 +70,12 @@ A sample Python solution using all Azure services used in each article in this s
 
 When deployed, the sample solution flow for this recommendation model is as followed:
 
-1. *Get Data*: Use an Azure Function to
+1. *Get Data*: Use an Azure HTTPTrigger Function to
     * Call the [Microsoft Bing News Search API](/bing/apis/bing-news-search-api)
     * [Gather information about recent news](tutorial-deploy-azure-cloud-python-etl-02-get-data.md) that's limited to the specified search term
 1. *Store Data*: Store the search results:
     * [Store results as a JSON file](tutorial-deploy-azure-cloud-python-etl-03-store-data.md) in Azure Blob Storage container.
-1. *Process Data*: Use a second additional [Azure Function](/products/functions/) to
+1. *Process Data*: Use an Azure BlobTrigger Function which activates when the JSON file is uploaded to Blob Storage:
     * Retrieve JSON file
     * Request each news article from Bing
     * [Process the article contents](tutorial-deploy-azure-cloud-python-etl-04-process-data.md)
