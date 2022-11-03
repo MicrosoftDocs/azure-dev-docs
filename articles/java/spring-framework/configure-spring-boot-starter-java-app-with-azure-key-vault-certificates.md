@@ -29,6 +29,9 @@ In this tutorial, you learn how to:
 > * Run a Spring Boot application where the TLS/SSL certificate for inbound connections comes from Azure Key Vault
 > * Run a Spring Boot application where the TLS/SSL certificate for outbound connections comes from Azure Key Vault
 
+> [!IMPORTANT]
+> Currently, Spring Cloud Azure Certificate starter 4.x versions don't support TLS/mTLS, they only auto-configure the Key Vault certificate client. Therefore, if you want to use TLS/mTLS, you cannot migrate to version 4.x.
+
 ## Prerequisites
 
 - [!INCLUDE [free subscription](../../includes/quickstarts-free-trial-note.md)]
