@@ -44,7 +44,7 @@
     - name: IoT Device Provisioning Service
       items:
         - name: Create a DPS instance
-          href: /azure/iot-dps/quick-setup-auto-provision-terraform.md
+          href: /azure/iot-dps/quick-setup-auto-provision-terraform
     - name: Virtual machines
       items:
       - name: Create a Linux VM
