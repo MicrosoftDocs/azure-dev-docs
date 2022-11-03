@@ -70,10 +70,18 @@ A sample Python solution using all Azure services used in each article in this s
 
 When deployed, the sample solution flow for this recommendation model is as followed:
 
-1. *Get Data*: Use an [Azure Function](/products/functions/) to call the [Microsoft Bing News Search API](/bing/apis/bing-news-search-api) and [gather information about recent news](tutorial-deploy-azure-cloud-python-etl-02-get-data.md) that's limited to the specified search term.
-1. *Store Data*: Store the search results as a JSON file [stores the results as a JSON file](tutorial-deploy-azure-cloud-python-etl-03-store-data.md) in and [Azure Blob Storage](/products/storage/blobs/) container.
-1. *Process Data*: Use an additional [Azure Function](/products/functions/) to retrieve the JSON files, create a web request for each news article and [process the article content](tutorial-deploy-azure-cloud-python-etl-04-process-data.md).
-1. *Serve Data*: Load the processed content as a JSON file to [an Azure Data Lake Store](/products/storage/data-lake-storage/) to [serve](tutorial-deploy-azure-cloud-python-etl-05-serve-data.md) and be consumed further down the data pipeline to an application down the pipeline.
+1. *Get Data*: Use an Azure Function to
+    * Call the [Microsoft Bing News Search API](/bing/apis/bing-news-search-api)
+    * [Gather information about recent news](tutorial-deploy-azure-cloud-python-etl-02-get-data.md) that's limited to the specified search term
+1. *Store Data*: Store the search results:
+    * [Store results as a JSON file](tutorial-deploy-azure-cloud-python-etl-03-store-data.md) in Azure Blob Storage container.
+1. *Process Data*: Use a second additional [Azure Function](/products/functions/) to
+    * Retrieve JSON file
+    * Request each news article from Bing
+    * [Process the article contents](tutorial-deploy-azure-cloud-python-etl-04-process-data.md)
+1. *Serve Data*: Load data in Azure Data LaKe Store:
+    * Load the processed content as a JSON file to an Azure Data Lake Store
+    * [Serve](tutorial-deploy-azure-cloud-python-etl-05-serve-data.md) the data, such as to an application down the pipeline.
 
 ## Next step
 
