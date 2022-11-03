@@ -17,7 +17,7 @@ Follow this tutorial to walk through building a Docker image, deploying that ima
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Download the sample app

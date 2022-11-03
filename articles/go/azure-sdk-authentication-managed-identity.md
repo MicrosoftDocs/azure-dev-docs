@@ -17,7 +17,7 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
 ## 1. Configure your environment
 

@@ -122,7 +122,7 @@ az ad sp create-for-rbac --role Contributor \
     --sdk-auth > azure.auth
 ```
 
-Set the `AZURE_AUTH_LOCATION` environment variable to where the authorization file is located. This environment variable is read by the application, and the credentials within it are parsed. If you need to select the authorization file at runtime, manipulate the program's environment using the [os.Setenv](https://golang.org/pkg/os/#Setenv) function.
+Set the `AZURE_AUTH_LOCATION` environment variable to where the authorization file is located. This environment variable is read by the application, and the credentials within it are parsed. If you need to select the authorization file at runtime, manipulate the program's environment using the [os.Setenv](https://go.dev/pkg/os/#Setenv) function.
 
 To load the authentication information, call the [NewAuthorizerFromFile](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#NewAuthorizerFromFile) function. Unlike environment-based authorization, file-based authorization requires a resource endpoint.
 
