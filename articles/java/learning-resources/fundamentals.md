@@ -76,7 +76,7 @@ The following sections provide links to videos that can help you learn Java adva
 
 ## Java on Azure fundamentals
 
-The following sections provide links to resources that can help you understand hosting options and Azure services. You can use this information to help you migrate your Java applications to Azure.
+The following sections provide links to resources that can help you understand hosting options and Azure services. You can use this information to help you migrate your Java applications to Azure. Please ensure that you fully understand the guidance in each section prior to implamenting in a production enviornment.
 
 ### Azure SDK
 
