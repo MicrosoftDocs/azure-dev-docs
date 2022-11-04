@@ -12,8 +12,3 @@
     - name: Python
       tocHref: /azure/azure-functions
       topicHref: /azure/developer/python/index
-      items:
-      - name: Functions
-        tocHref: /azure/azure-functions/create-first-function-vs-code-python
-        topicHref: /azure/azure-functions/index
-    
