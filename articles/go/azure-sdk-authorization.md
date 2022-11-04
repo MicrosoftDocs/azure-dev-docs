@@ -27,7 +27,7 @@ The Azure SDK for Go offers several different types of authentication, using dif
 
 ### Key points
 * If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
-* Unless you have special requirements, avoid username/password authentication. In situations where user-based sign in is appropriate, device token authentication can usually be used instead.
+* Unless you have special requirements, avoid username/password authentication. In situations where user-based sign-in is appropriate, device token authentication can usually be used instead.
 
 [Get started with certificate-based authentication in Azure Active Directory]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
 [Create a service principal with Azure CLI]: /cli/azure/create-an-azure-service-principal-azure-cli
