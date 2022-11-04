@@ -234,7 +234,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
 :::row:::
     :::column:::
         **Step 5.** In the **Create a secret** dialogue, enter the following information:
-        1. **Name**: Enter **bing-search-sub-key1**.
+        1. **Name**: Enter **bing-search-resource-key**.
         1. **Secret value**: Enter the Bing Search API subscription key that you noted/copied to your clipboard previously in this article.
         1. Select **Create** to add this new secret to the **Azure Key Vault**.
     :::column-end:::
@@ -268,7 +268,7 @@ az keyvault create  \
 # Create Secret for Bing Search subscription key
 az keyvault secret set \
     --vault-name 'msdocs-python-etl-kv' \
-    --name 'bing-search-sub-key1' \
+    --name 'bing-search-resource-key1' \
     --value '<YOUR BING SEARCH SUBSCRIPTION KEY>'
 ```
 
@@ -281,7 +281,7 @@ az keyvault secret set \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 4. Call the Bing News Search REST API
+## 4. Get Bing News Search key from Key vault
 
 **Step 1.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 
@@ -330,7 +330,9 @@ def get_key_vault_secret(key_vault_name, secret_name, azure_credential):
 
 <br/>
 
-**Step 4.** In the same local Azure Function, create a new function definition to call the Bing News Search API for specified search term with specified search results limit count.
+## 5. Call the Bing News Search REST API
+
+**Step 1.** In the same local Azure Function, create a new function definition to call the Bing News Search API for specified search term with specified search results limit count.
 
 ```python
 import requests
@@ -358,7 +360,9 @@ def call_bing_search_api(search_url, search_term, api_subscription_key):
 
 <br/>
 
-**Step 5.** Modify **main** function definition of the local HTTPTrigger Azure Function to call each new function defined in this tutorial.
+## 6. Call the Bing News Search REST API
+
+**Step 1.** Modify **main** function definition of the local HTTPTrigger Azure Function to call each new function defined in this tutorial.
 
 ```python
 ## Receives a func.request object and returns a value of type func.HttpRequest.
@@ -412,11 +416,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-**Step 6.** Create App Settings for the Azure resources.
+## 7. Create function app settings
 
 1. Navigate to the **Explorer** icon in the **Activity bar**.
 1. Open the **local.settings.json** in the **editor** pane.
-1. Add a key-value pair to store the Bing Search subscription key secret name by entering `, "BING_SEARCH_SUB_KEY_SECRET": "bing-search-sub-key1"`.
+1. Add a key-value pair to store the Bing Search subscription key secret name by entering `, "BING_SEARCH_RESOURCE_KEY": "bing-search-resource-key"`.
 1. Add another key-value pair to store the key vault name by entering `, "KEY_VAULT_NAME": "msdocs-python-etl-kv"`.
 
 ## Next step

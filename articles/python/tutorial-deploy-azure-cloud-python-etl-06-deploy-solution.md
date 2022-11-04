@@ -96,7 +96,7 @@ The following steps publish your local Python Azure Function project to the new 
         1. **Name**: Enter **ABS_ACCOUNT_NAME**, **Value**: Enter **msdocspythoncloudetlabs**.
         1. **Name**: Enter **ABS_SRC_CONTAINER**, **Value**: Enter **msdocs-python-cloud-etl-news-source**.
         1. **Name**: Enter **KEY_VAULT_NAME**, **Value**: Enter **msdocs-python-etl-kv**.
-        1. **Name**: Enter **BING_SEARCH_SUB_KEY_SECRET**, **Value**: Enter **bing-search-sub-key1**.
+        1. **Name**: Enter **BING_SEARCH_RESOURCE_KEY**, **Value**: Enter **bing-search-resource-key**.
         1. **Name**: Enter **ADLS_ACCOUNT**, **Value**: Enter **msdocspythoncloudetladls**.
         1. **Name**: Enter **ADLS_CONTAINER**, **Value**: Enter **news-data**.
         1. **Name**: Enter **ADLS_DIR**, **Value**: Enter **msdocs-python-cloud-etl-processed**.
