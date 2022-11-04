@@ -247,7 +247,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 ### Install Go on the Azure VM
 
-1. Get the public Ip address of the Azure virtual machine.
+1. Get the public IP address of the Azure virtual machine.
 
     # [Azure CLI](#tab/azure-cli)
 
