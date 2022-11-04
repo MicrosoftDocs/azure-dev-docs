@@ -227,7 +227,7 @@
 | azure-purview-nspkg | PyPI [2.0.0](https://pypi.org/project/azure-purview-nspkg/2.0.0) |  |  |
 | azure-security-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-security-nspkg/1.0.0) |  |  |
 | iotedgedev | PyPI [3.3.6](https://pypi.org/project/iotedgedev/3.3.6) |  |  |
-| iotedgehubdev | PyPI [0.14.16](https://pypi.org/project/iotedgehubdev/0.14.16) |  |  |
+| iotedgehubdev | PyPI [0.14.17](https://pypi.org/project/iotedgehubdev/0.14.17) |  |  |
 | text-analytics | PyPI [1.0.2](https://pypi.org/project/text-analytics/1.0.2) |  |  |
 | Administration | PyPI [4.2.0](https://pypi.org/project/azure-keyvault-administration/4.2.0) | [docs](/python/api/overview/azure/keyvault-administration-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.2.0/sdk/keyvault/azure-keyvault-administration/) |
 | Anomaly Detector | PyPI [3.0.0b5](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b5) | [docs](/python/api/overview/azure/ai-anomalydetector-readme) | GitHub [3.0.0b5](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-anomalydetector_3.0.0b5/sdk/anomalydetector/azure-ai-anomalydetector/) |

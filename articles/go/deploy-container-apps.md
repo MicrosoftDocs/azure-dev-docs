@@ -17,7 +17,7 @@ Follow this tutorial to walk through building a Docker image, deploying that ima
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Download the sample app
@@ -148,7 +148,7 @@ curl "$APP_FQDN"
 
 ## Clean-up resources
 
-When you're finished with the sample app, you can remove all of the resources for the app from Azure. This avoids on-going charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. This avoids on-going charges and keeps your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ```bash
 az group delete \
