@@ -118,7 +118,7 @@ Values are declared which give the names of created resources. The location is a
 
 The `clientInfo` type holds the information loaded from the authentication file to set up clients in the SDK and set the VM password.
 
-The `templateFile` and `parametersFile` constants point to the files needed for deployment. The `authorizer` will be configured by the Go SDK for authentication, and the `ctx` variable is a [Go context](https://blog.golang.org/context) for the network operations.
+The `templateFile` and `parametersFile` constants point to the files needed for deployment. The `authorizer` will be configured by the Go SDK for authentication, and the `ctx` variable is a [Go context](https://blog.go.dev/context) for the network operations.
 
 ### Authentication and initialization
 
@@ -264,7 +264,7 @@ The biggest difference comes in the return value of the `deploymentsClient.Creat
 }
 ```
 
-For this example, the best thing to do is to wait for the operation to complete. Waiting on a future requires both a [context object](https://blog.golang.org/context) and the client that created
+For this example, the best thing to do is to wait for the operation to complete. Waiting on a future requires both a [context object](https://blog.go.dev/context) and the client that created
 the `Future`. There are two possible error sources here: An error caused on the client side when trying to invoke the method, and an error response from the server. The latter is returned as
 part of the `deploymentFuture.Result` call.
 

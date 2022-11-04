@@ -25,7 +25,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
 
 1. Create a directory in which to test and run the sample Go code and make it the current directory.
 
-1. Run [go mod init](https://golang.org/ref/mod#go-mod-init) to create a module in the current directory.
+1. Run [go mod init](https://go.dev/ref/mod#go-mod-init) to create a module in the current directory.
 
     ```cmd
     go mod init <module_path>
@@ -36,7 +36,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
     - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
     - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist.
 
-1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
+1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```cmd
     go get github.com/Azure/azure-sdk-for-go/sdk/azcore
@@ -106,7 +106,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
     - The `subscriptionId` value is retrieved from the `AZURE_SUBSCRIPTION_ID` environment variable.
     - The `location` and `resourceGroupName` strings have been given test values. If necessary, change those values to something appropriate for your environment.
 
-1. Run [go mod tidy](https://golang.org/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.
+1. Run [go mod tidy](https://go.dev/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.
 
     ```cmd
     go mod tidy
