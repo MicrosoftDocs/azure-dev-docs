@@ -27,11 +27,11 @@
 | Container Registry | npm [1.0.0](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0/sdk/containerregistry/container-registry/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0-beta.1/sdk/containerregistry/container-registry/) |
 | Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Core - Client - Abort Controller | npm [1.1.0](https://www.npmjs.com/package/@azure/abort-controller/v/1.1.0) | [docs](/javascript/api/overview/azure/abort-controller-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.1.0/sdk/core/abort-controller/) |
-| Core - Client - AMQP | npm [3.1.1](https://www.npmjs.com/package/@azure/core-amqp/v/3.1.1) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.1.1/sdk/core/core-amqp/) |
+| Core - Client - AMQP | npm [3.2.0](https://www.npmjs.com/package/@azure/core-amqp/v/3.2.0) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.2.0/sdk/core/core-amqp/) |
 | Core - Client - Auth | npm [1.4.0](https://www.npmjs.com/package/@azure/core-auth/v/1.4.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.4.0/sdk/core/core-auth/) |
 | Core - Client - Client | npm [1.6.1](https://www.npmjs.com/package/@azure/core-client/v/1.6.1) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.6.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.6.1/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - Client - Core Rest Pipeline | npm [1.9.2](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.9.2) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.2/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Rest Pipeline | npm [1.10.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.10.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.10.0/sdk/core/core-rest-pipeline/) |
 | Core - Client - Core Utils | npm [1.1.1](https://www.npmjs.com/package/@azure/core-util/v/1.1.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.7](https://www.npmjs.com/package/@azure/core-http/v/2.2.7) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.7/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [1.3.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.3.0) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/) |
@@ -290,10 +290,11 @@
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
+| @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
-| @azure/notification-hubs | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/notification-hubs/v/1.0.0-beta.6) |  |  |
+| @azure/notification-hubs | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure/notification-hubs/v/1.0.0-beta.7) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
 | @azure/static-web-apps-cli | npm [1.0.3](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.3) |  |  |
@@ -316,7 +317,7 @@
 | @azure-tools/cadl-autorest | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.21.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.8.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.11.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.6-dev.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.6-dev.3) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.6](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.6) |  |  |
 | @azure-tools/cadl-dpg | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.2.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.0-dev.10](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.0-dev.10) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
@@ -394,8 +395,8 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.44](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.44) |  |  |
 | AutoRest - Modeler Four | npm [4.25.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.25.0) |  | GitHub [4.25.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.497](https://www.npmjs.com/package/@autorest/powershell/v/3.0.497)<br>npm [4.0.0-dev.5](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.5) |  | GitHub [3.0.497](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.2.3](https://www.npmjs.com/package/@autorest/python/v/6.2.3) |  | GitHub [6.2.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - PowerShell | npm [3.0.497](https://www.npmjs.com/package/@autorest/powershell/v/3.0.497)<br>npm [4.0.0-dev.6](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.6) |  | GitHub [3.0.497](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Python | npm [6.2.4](https://www.npmjs.com/package/@autorest/python/v/6.2.4) |  | GitHub [6.2.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -428,13 +429,13 @@
 | Content Moderator | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-contentmoderator) |
 | Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Core - Client - Abort Controller | npm [1.1.0](https://www.npmjs.com/package/@azure/abort-controller/v/1.1.0) | [docs](/javascript/api/overview/azure/abort-controller-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.1.0/sdk/core/abort-controller/) |
-| Core - Client - AMQP | npm [3.1.1](https://www.npmjs.com/package/@azure/core-amqp/v/3.1.1) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.1.1/sdk/core/core-amqp/) |
+| Core - Client - AMQP | npm [3.2.0](https://www.npmjs.com/package/@azure/core-amqp/v/3.2.0) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.2.0/sdk/core/core-amqp/) |
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Core - Client - Asynciterator Polyfill | npm [1.0.2](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.2/sdk/core/core-asynciterator-polyfill/) |
 | Core - Client - Auth | npm [1.4.0](https://www.npmjs.com/package/@azure/core-auth/v/1.4.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.4.0/sdk/core/core-auth/) |
 | Core - Client - Client | npm [1.6.1](https://www.npmjs.com/package/@azure/core-client/v/1.6.1) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.6.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.6.1/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - Client - Core Rest Pipeline | npm [1.9.2](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.9.2) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.2/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Rest Pipeline | npm [1.10.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.10.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.10.0/sdk/core/core-rest-pipeline/) |
 | Core - Client - Core Utils | npm [1.1.1](https://www.npmjs.com/package/@azure/core-util/v/1.1.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.7](https://www.npmjs.com/package/@azure/core-http/v/2.2.7) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.7/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [1.3.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.3.0) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/) |

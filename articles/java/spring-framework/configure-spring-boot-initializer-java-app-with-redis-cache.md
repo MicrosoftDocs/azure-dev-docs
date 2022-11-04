@@ -1,6 +1,6 @@
 ---
-title: Create a Spring Boot Initializer app - Azure Redis Cache
-description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Redis Cache.
+title: Configure a Spring Boot app to use Redis in the cloud with Azure Cache for Redis
+description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
 services: redis-cache
 documentationcenter: java
 ms.date: 10/13/2020
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.custom: devx-track-java
 ---
 
-# Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache
+# Configure a Spring Boot app to use Redis in the cloud with Azure Cache for Redis
 
-This article walks you through creating a Redis cache in the cloud using the Azure portal, then using the **[Spring Initializr]** to create a custom application, and then creating a Java web application that stores and retrieves data using your Redis cache.
+This article walks you through creating a Redis cache in the cloud using the Azure portal, then using the [Spring Initializr] to create a custom application, and then creating a Java web application that stores and retrieves data using your Redis cache.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    > [!NOTE]
    >
-   > You can use SSL with Redis caches, but you would need to use a different Redis client like Jedis. For more information, see [How to use Azure Redis Cache with Java][Redis Cache with Java].
+   > You can use SSL with Redis caches, but you would need to use a different Redis client like Jedis. For more information, see [Quickstart: Use Azure Cache for Redis in Java][Redis Cache with Java].
    >
 
    When you have specified these options, select **Advanced** tab.
@@ -112,7 +112,7 @@ The following prerequisites are required in order to complete the steps in this 
    > spring.redis.port=6380
    > ```
    > 
-   > For more information, see [How to use Azure Redis Cache with Java][Redis Cache with Java]. 
+   > For more information, see [Quickstart: Use Azure Cache for Redis in Java][Redis Cache with Java]. 
    > 
 
 1. Save and close the *application.properties* file.

@@ -114,7 +114,7 @@ output "azurerm_virtual_desktop_workspace" {
 
 output "location" {
   description = "The Azure region"
-  value       = azurerm_resource_group.rg.location
+  value       = azurerm_resource_group.sh.location
 }
 
 output "AVD_user_groupname" {
