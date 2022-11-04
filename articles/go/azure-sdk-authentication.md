@@ -19,7 +19,7 @@ The `DefaultAzureCredential` type simplifies authentication by combining commonl
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
 ## 1. Install the Azure Identity module for Go
 
@@ -168,13 +168,13 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
 1. Create a directory to test and run the sample Go code, then change into that directory.
 
-1. Run [go mod init](https://golang.org/ref/mod#go-mod-init) to create a module.
+1. Run [go mod init](https://go.dev/ref/mod#go-mod-init) to create a module.
 
     ```bash
     go mod init azure-auth
     ```
 
-1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
+1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```bash
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
