@@ -8,4 +8,9 @@
     items:
     - name: Python
       tocHref: /azure/aks
-      topicHref: /azure/developer/python/index
+      topicHref: /azure/developer/python/
+      items:
+      - name: AKS
+        tocHref: /azure/aks/
+        topicHref: /azure/aks/intro-kubernetes
+    
