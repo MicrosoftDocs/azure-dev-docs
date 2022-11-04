@@ -8,7 +8,7 @@
     items:
     - name: Python
       tocHref: /azure/aks
-      topicHref: /azure/developer/python/
+      topicHref: /azure/developer/python/index
       items:
       - name: AKS
         tocHref: /azure/aks/
