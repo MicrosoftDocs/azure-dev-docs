@@ -156,7 +156,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 #### Connect to Azure MySQL with Managed Identity in Azure Spring Apps
 
-1. To enable managed identity, see the [Create the managed identity using the Azure portal](../../migrate-mysql-to-passwordless-connection.md?branch=release-cred-free-java&tabs=sign-in-azure-cli%2cjava%2capp-service%2capp-service-identity#create-the-managed-identity-using-the-azure-portal) section.
+1. To enable managed identity, see the [Assign the managed identity using the Azure portal](../../migrate-mysql-to-passwordless-connection.md?branch=release-cred-free-java&tabs=sign-in-azure-cli%2cjava%2capp-service%2capp-service-identity#assign-the-managed-identity-using-the-azure-portal) section.
 
 1. To grant permissions, see the [Assign roles to the managed identity](../../migrate-mysql-to-passwordless-connection.md?branch=release-cred-free-java&tabs=sign-in-azure-cli%2cjava%2capp-service%2capp-service-identity#assign-roles-to-the-managed-identity) section.
 
