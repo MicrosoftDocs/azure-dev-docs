@@ -45,7 +45,7 @@ To ensure that connections are passwordless, you must take into consideration bo
 
 In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -251,11 +251,11 @@ After making these code changes, run your application locally. The new configura
 
 ### 4) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage.
+After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
 
 In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
-- Create the managed identity for your Azure hosting environment.
+- Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
@@ -264,13 +264,13 @@ In this section, you'll execute two steps to enable your application to run in a
 > [!IMPORTANT]
 > Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
-#### Create the managed identity using the Azure portal
+#### Assign the managed identity using the Azure portal
 
-The following steps show you how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
 ### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to create the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to create the identity.
+When using Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
 
 ### [Azure App Service](#tab/app-service)
 
@@ -306,7 +306,7 @@ When using Service Connector, it can help to create the system-assigned managed 
 
 ---
 
-You can also enable managed identity on an Azure hosting environment by using the Azure CLI.
+You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
 ### [Service Connector](#tab/service-connector-identity)
 
@@ -316,7 +316,7 @@ You can use Service Connector to create a connection between an Azure compute ho
 - Azure Spring Apps
 - Azure Container Apps
 
-Before starting, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Before starting, use the following command to assign a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 AZ_IDENTITY_RESOURCE_ID=$(az identity create \
@@ -432,7 +432,7 @@ AZ_MI_OBJECT_ID=$(az aks update \
 
 #### Assign roles to the managed identity
 
-Next, grant permissions to the managed identity you created to access your MySQL instance.
+Next, grant permissions to the managed identity you assigned to access your MySQL instance.
 
 These steps will create an Azure AD user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 

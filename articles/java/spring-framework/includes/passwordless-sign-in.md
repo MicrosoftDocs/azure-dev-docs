@@ -12,6 +12,14 @@ Sign in to Azure through the Azure CLI by using the following command:
 az login
 ```
 
+### [PowerShell](#tab/sign-in-powershell)
+
+Sign in to Azure using PowerShell by using the following command:
+
+```azurepowershell
+Connect-AzAccount
+```
+
 ### [Visual Studio](#tab/sign-in-visual-studio)
 
 Select the **Sign in** button in the top right corner of Visual Studio.
@@ -31,13 +39,5 @@ Make sure you have the [Azure Account](https://marketplace.visualstudio.com/item
 Use the **CTRL + Shift + P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to authenticate. Make sure to use the Azure AD account you assigned a role to previously from your Blob Storage account.
 
 :::image type="content" source="../media/passwordless-connections/azure-command.png" alt-text="Screenshot showing the Azure sign-in command.":::
-
-### [PowerShell](#tab/sign-in-powershell)
-
-Sign in to Azure using PowerShell by using the following command:
-
-```azurepowershell
-Connect-AzAccount
-```
 
 ---
