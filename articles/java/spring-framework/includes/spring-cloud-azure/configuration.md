@@ -80,18 +80,17 @@ spring.cloud.azure:
   keyvault:
     secret:
       credential:
-        client-id: <your client id>
-        client-secret: <your client secret>
+        client-id: <your client ID>
+        client-secret: <your client key>
       profile:
-        tenant-id: <your tenant id>
+        tenant-id: <your tenant ID>
       property-source-enabled: true
       property-sources:
-        - name: key-vault-property-source-1
-          endpoint: <your Azure Key Vault endpoint>
-        retry:
-          mode: exponential
-          exponential:
-          max-retries: 4
-          base-delay: PT0.0801S
-          max-delay: PT9S
+        - endpoint: <your Azure Key Vault endpoint>
+          retry:
+            mode: exponential
+            exponential:
+              max-retries: 4
+              base-delay: PT0.0801S
+              max-delay: PT9S
 ----
