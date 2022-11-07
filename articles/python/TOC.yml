@@ -68,13 +68,13 @@
           - name: Using Visual Studio Code
             href: /azure/azure-functions/create-first-function-vs-code-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - name: Using the Azure CLI
-            href: /azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
+            href: /azure/azure-functions/create-first-function-cli-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
       - name: Connect to Azure Storage
         items:
           - name: Using Visual Studio Code
-            href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+            href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - name: Using the Azure CLI
-            href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+            href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
 - name: Data
   items:
