@@ -40,7 +40,7 @@ Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it sho
 
 ## Introducing passwordless connections
 
-With a passwordless connection, you can connect to Azure services without storing any credentials in the application code, its configuration files, or in environment variables. Many Azure services support passwordless connections, such as via Azure Managed Identity. These techniques provide robust security features that you can implement using `[DefaultAzureCredential](/java/api/overview/azure/Identity-readme?view=azure-java-stable#defaultazurecredential)` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
+With a passwordless connection, you can connect to Azure services without storing any credentials in the application code, its configuration files, or in environment variables. Many Azure services support passwordless connections, for example via Azure Managed Identity. These techniques provide robust security features that you can implement using [DefaultAzureCredential](/java/api/overview/azure/Identity-readme#defaultazurecredential) from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
 
 `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
@@ -330,7 +330,7 @@ Next, use the following steps to update your Spring Kafka application to use pas
 > [!NOTE]
 > If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` property to `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`. By default `<kafka-binder-name>` is `kafka` in a single kafka binder application. This property setting enables the whole OAuth authentication workflow. This setting is also used to specify the additional configuration `KafkaBinderConfigurationPropertiesBeanPostProcessor`, which specifies the OAuth security parameters for the particular binder to enable Azure Identity.
 >
-> For version since `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+> For versions starting with `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
 ---
 
