@@ -45,7 +45,7 @@ To ensure that connections are passwordless, you must take into consideration bo
 
 In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
 > [!NOTE]
 > Since the JDBC driver for Azure SQL Database doesn't support passwordless connections from local environments yet, this article will focus only on applications deployed to Azure hosting environments and how to migrate them to use passwordless connections.
@@ -151,11 +151,11 @@ Next, use the following steps to update your code to use passwordless connection
 
 ### 3) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage.
+After your application is configured to use passwordless connections, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
 
 In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
-- Create the managed identity for your Azure hosting environment.
+- Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
@@ -164,13 +164,13 @@ In this section, you'll execute two steps to enable your application to run in a
 > [!IMPORTANT]
 > Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
-#### Create the managed identity using the Azure portal
+#### Assign the managed identity using the Azure portal
 
-The following steps show you how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services using the app configurations you set up previously.
 
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to create the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to create the identity.
+When using Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
 
 ##### [Azure App Service](#tab/app-service)
 
@@ -206,7 +206,7 @@ When using Service Connector, it can help to create the system-assigned managed 
 
 ---
 
-You can also enable managed identity on an Azure hosting environment using the Azure CLI.
+You can also assign managed identity on an Azure hosting environment using the Azure CLI.
 
 ##### [Service Connector](#tab/service-connector-identity)
 
