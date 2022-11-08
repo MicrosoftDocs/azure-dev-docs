@@ -70,7 +70,7 @@ landingContent:
         links:
           - text: Create an ML experiment
             url: /azure/machine-learning/quickstart-create-resources
-          - text: Train a ML model for prediction
+          - text: Train a prediction model
             url: /azure/machine-learning/tutorial-azure-ml-in-a-day
           - text: Create ML pipelines
             url: /azure/machine-learning/tutorial-pipeline-python-sdk
