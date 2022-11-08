@@ -54,7 +54,6 @@ landingContent:
             url: ./tutorial-deploy-python-web-app-azure-container-apps-01.md
           - text: Deploy a Kubernetes cluster
             url: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-        linkListType: 
   - title: Data and storage
     linkLists:
       - linkListType: deploy
