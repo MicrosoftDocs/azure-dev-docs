@@ -51,9 +51,9 @@ To view your traces as a list, the easiest method is to use the Azure portal.
 1. Select the **Monitoring** section's **Logs** item. If a pop-up displays queries you can select from, select **X** in the corner to dismiss the pop-up.
 1. Select the **Application Insights** item named **traces** by double-clicking on it. That adds the name to the query window. 
 1. Run the query by selecting the **Run** button.
-1. The Azure Monitor application insights custom traces, from the web app, appear in a list.
+1. The Azure Monitor Application Insights custom traces, from the web app, appear in a list.
 
-    :::image type="content" source="../../media/tutorial-vm/azure-portal-application-insights-custom-trace.png" alt-text="The Azure Monitor application insights custom traces, from the web app, appear in a list.":::
+    :::image type="content" source="../../media/tutorial-vm/azure-portal-application-insights-custom-trace.png" alt-text="The Azure Monitor Application Insights custom traces, from the web app, appear in a list.":::
 
 ## Next step
 

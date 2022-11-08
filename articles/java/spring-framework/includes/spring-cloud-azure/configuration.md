@@ -6,6 +6,8 @@ ms.author: v-yonghuiye
 
 ## Spring Cloud Azure configuration
 
+### SDK service configuration
+
 Most of Azure Service SDKs can be divided into two categories by transport type: HTTP-based or AMQP-based. There are properties that are common to all SDKs, such as authentication principals and Azure environment settings, or common to HTTP-based clients, such as logging level to log HTTP requests and responses. In Spring Cloud Azure 4.0, we added five common categories of configuration properties that you can specify for each Azure service.
 
 The following table lists properties common to multiple services:
@@ -35,6 +37,8 @@ The following table lists global properties:
 > [!NOTE]
 > Properties configured under each Azure service will override the global configurations.
 
+### Global SDK service configuration
+
 The configuration properties' prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
 
 | Azure service               | Configuration property prefix             | Configuration Properties Link                                                                                |
@@ -48,3 +52,43 @@ The configuration properties' prefixes have been unified to the `spring.cloud.az
 | Azure Storage Blob          | *spring.cloud.azure*.storage.blob         | [Storage Blob Properties](../../spring-cloud-azure-appendix.md#azure-storage-blob-properties)                     |
 | Azure Storage File Share    | *spring.cloud.azure*.storage.fileshare    | [Storage File Share Properties](../../spring-cloud-azure-appendix.md#azure-storage-file-share-properties)         |
 | Azure Storage Queue         | *spring.cloud.azure*.storage.queue        | [Storage Queue Properties](../../spring-cloud-azure-appendix.md#azure-storage-queue-properties)                   |
+
+### Configuration examples
+
+#### Retry configuration for global Azure SDK service
+
+The following example shows you how to configure the retry behavior for any HTTP or AMQP protocol based Azure SDK client:
+
+```yaml
+spring.cloud.azure:
+  retry:
+    mode: exponential
+    exponential:
+      max-retries: 4
+      base-delay: PT0.0801S
+      max-delay: PT9S
+```
+
+#### Retry configuration for Key Vault Secret client
+
+The following configuration example shows you how to configure the retry behavior for the Azure KeyVault Secret client:
+
+```yaml
+spring.cloud.azure:
+  keyvault:
+    secret:
+      credential:
+        client-id: <your-client-ID>
+        client-secret: <your client key>
+      profile:
+        tenant-id: <your-tenant-ID>
+      property-source-enabled: true
+      property-sources:
+        - endpoint: <your-Azure-Key-Vault-endpoint>
+          retry:
+            mode: exponential
+            exponential:
+              max-retries: 4
+              base-delay: PT0.0801S
+              max-delay: PT9S
+```
