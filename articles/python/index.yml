@@ -30,7 +30,7 @@ landingContent:
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - title: Web apps
     linkLists:
-      - linkListType: deploy
+      - linkListType: tutorial
         links:
           - text: Django / Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
@@ -44,7 +44,7 @@ landingContent:
             url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Containers
     linkLists:
-      - linkListType: deploy
+      - linkListType: tutorial
         links:
           - text: Python containers overview
             url: ./containers-in-azure-overview-python.md
@@ -56,7 +56,7 @@ landingContent:
             url: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - title: Data and storage
     linkLists:
-      - linkListType: deploy
+      - linkListType: quickstart
         links: 
           - text: SQL databases
             url: quickstarts-data-solutions.md#sql-databases
