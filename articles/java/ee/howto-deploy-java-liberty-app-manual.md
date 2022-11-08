@@ -35,7 +35,7 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 ## Create a resource group
 
@@ -205,7 +205,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Build project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are used to also populate `JavaEECafeDB` properties in *server.xml* and in yaml files located in *src/main/aks*.
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are also used to populate `JavaEECafeDB` properties in *server.xml* and in yaml files located in *src/main/aks*.
 
 ```bash
 cd <path-to-your-repo>/java-app
@@ -227,7 +227,7 @@ mvn clean install
 
 Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure.
 
-1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined in the above step.
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined previously.
 
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
