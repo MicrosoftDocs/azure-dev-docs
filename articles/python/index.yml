@@ -45,7 +45,7 @@ landingContent:
   - title: Containers
     linkLists:
       - linkListType: deploy
-      - links:
+        links:
           - text: Python containers overview
             url: ./containers-in-azure-overview-python.md
           - text: Deploy to App Service
