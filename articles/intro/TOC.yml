@@ -48,14 +48,26 @@ items:
             items:
               - name: Storage
                 href: /azure/storage/common/multiple-identity-scenarios
+              - name: Virtual Machines
+                href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
           - name: Quickstarts
             items:
               - name: Blob Storage
                 href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus queues
-                href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus topics
-                href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Tutorials
+            items:
+              - name: Key Vault
+                href: /azure/key-vault/general/tutorial-net-create-vault-azure-web-app
+              - name: Azure Functions
+                href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
+          - name: How-To
+            items:
+              - name: App Service
+                href: /azure/app-service/overview-managed-identity
+              - name: Container Apps
+                href: /azure/container-apps/managed-identity
+              - name: Cosmos DB NoSQL
+                href: /azure/cosmos-db/how-to-setup-rbac
       - name: Java
         items:
           - name: Configure
