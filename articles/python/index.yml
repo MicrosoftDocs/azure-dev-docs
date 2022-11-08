@@ -21,13 +21,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy using Visual Studio Code
-            url: /azure/azure-functions/create-first-function-vs-code-python
+            url: /azure/azure-functions/create-first-function-vs-code-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Deploy using the command line
-            url: /azure/azure-functions/create-first-function-cli-python
+            url: /azure/azure-functions/create-first-function-cli-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Connect to storage using Visual Studio Code
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Connect to storage using the command line
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - title: Web apps
     linkLists:
       - linkListType: deploy
@@ -37,7 +37,7 @@ landingContent:
           - text: Django / Flask Web App + PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Django / Flask Web App + Managed Identity
-            url: /azure/app-service/tutorial-python-managed-identity-01?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ./tutorial-python-managed-identity-01.md
           - text: GitHub Actions
             url: ./python-web-app-github-actions-app-service.md
           - text: CI/CD pipeline
