@@ -282,4 +282,4 @@ tools:
       url: /cli/azure
     - title: Jenkins on Azure
       imageSrc: /media/logos/logo_jenkins.svg
-      url: /cli/jenkins
+      url: ../../jenkins/index.yml
