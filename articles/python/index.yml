@@ -6,8 +6,8 @@ summary: |
   
 metadata:
   title: Azure for Python developers
-  description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Machine Learning, Azure Storage, and the Azure SDK for Python.
-  ms.date: 08/26/2021
+  description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Container Apps, Azure Machine Learning, Azure Storage, Azure Database for PostgreSQL, and the Azure SDK for Python.
+  ms.date: 11/08/2022
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -32,16 +32,29 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Flask using Visual Studio Code
-            url: ./configure-python-web-app-local-environment.md
-          - text: Flask using CLI
+          - text: Django / Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Python (Django or Flask) + PostgreSQL
+          - text: Django / Flask Web App + PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Containers using Visual Studio Code
-            url: containers-in-azure-overview-python.md
+          - text: Django / Flask Web App + Managed Identity
+            url: /azure/app-service/tutorial-python-managed-identity-01?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: GitHub Actions
+            url: ./python-web-app-github-actions-app-service.md
           - text: CI/CD pipeline
-            url: /azure/devops/pipelines/ecosystems/python-webapp          
+            url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Containers
+    linkLists:
+      - linkListType: deploy
+      - links:
+          - text: Python containers overview
+            url: ./containers-in-azure-overview-python.md
+          - text: Deploy to App Service
+            url: ./tutorial-containerize-deploy-python-web-app-azure-01.md
+          - text: Deploy to Container Apps
+            url: ./tutorial-deploy-python-web-app-azure-container-apps-01.md
+          - text: Deploy a Kubernetes cluster
+            url: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+        linkListType: 
   - title: Data and storage
     linkLists:
       - linkListType: deploy
@@ -57,15 +70,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an ML experiment
-            url: /azure/machine-learning/tutorial-1st-experiment-sdk-setup
-          - text: Train an ML model
-            url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
-          - text: Train image classification
-            url: /azure/machine-learning/tutorial-train-models-with-aml
-          - text: Use prebuilt AI services (face, speech, text, image, etc.)
+            url: /azure/machine-learning/quickstart-create-resources
+          - text: Train a ML model for prediction
+            url: /azure/machine-learning/tutorial-azure-ml-in-a-day
+          - text: Create ML pipelines
+            url: /azure/machine-learning/tutorial-pipeline-python-sdk
+          - text: Use ready-made AI services (face, speech, text, image, etc.)
             url: quickstarts-cognitive-services.md
-          - text: More...
-            url: quickstarts-machine-learning.md
+          - text: Serverless, Cloud ETL
+            url: ./tutorial-deploy-serverless-cloud-etl-01.md
   - title: Azure libraries (SDK)
     linkLists:
       - linkListType: get-started
