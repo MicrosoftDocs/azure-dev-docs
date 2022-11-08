@@ -59,8 +59,7 @@ The configuration properties' prefixes have been unified to the `spring.cloud.az
 
 The following example shows you how to configure the retry behavior for any HTTP or AMQP protocol based Azure SDK client:
 
-[source,yaml]
-----
+```yaml
 spring.cloud.azure:
   retry:
     mode: exponential
@@ -68,14 +67,13 @@ spring.cloud.azure:
       max-retries: 4
       base-delay: PT0.0801S
       max-delay: PT9S
-----
+```
 
 #### Retry configuration for Key Vault Secret client
 
 The following configuration example shows you how to configure the retry behavior for the Azure KeyVault Secret client:
 
-[source,yaml]
-----
+```yaml
 spring.cloud.azure:
   keyvault:
     secret:
@@ -93,4 +91,4 @@ spring.cloud.azure:
               max-retries: 4
               base-delay: PT0.0801S
               max-delay: PT9S
-----
+```
