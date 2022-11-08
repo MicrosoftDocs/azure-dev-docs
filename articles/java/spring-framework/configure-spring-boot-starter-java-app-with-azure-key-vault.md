@@ -389,6 +389,9 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
    | spring.cloud.azure.keyvault.secret.property-sources[0].endpoint                 | The value output from the `az keyvault create` command above.                                                                                |
    | spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id        | The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                                           |
 
+> [!TIP]
+> For examples of Spring Cloud Azure property configuration, see the [Configuration examples](spring-cloud-azure.md#configuration-examples) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
+
 1. Save the file and close it.
 
 1. Open *src/main/java/com/contoso/keyvault/KeyvaultApplication.java* in an editor.
