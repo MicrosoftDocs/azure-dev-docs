@@ -35,6 +35,7 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 ## Create a resource group
 
