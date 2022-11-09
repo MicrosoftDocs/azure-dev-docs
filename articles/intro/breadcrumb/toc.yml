@@ -43,7 +43,7 @@
           tocHref: /azure/azure-functions
           topicHref: /azure/developer/intro/index
         - name: Introduction
-          tocHref: /azure/key-vault/general
+          tocHref: /azure/active-directory/managed-identities-azure-resources
           topicHref: /azure/developer/intro/index
         - name: Introduction
           tocHref: /azure/key-vault/general
