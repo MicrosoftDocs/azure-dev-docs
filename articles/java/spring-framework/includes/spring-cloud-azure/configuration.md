@@ -6,7 +6,7 @@ ms.author: v-yonghuiye
 
 ## Spring Cloud Azure configuration
 
-### SDK service configuration
+### Configuration for each Azure Service SDK
 
 Most of Azure Service SDKs can be divided into two categories by transport type: HTTP-based or AMQP-based. There are properties that are common to all SDKs, such as authentication principals and Azure environment settings, or common to HTTP-based clients, such as logging level to log HTTP requests and responses. In Spring Cloud Azure 4.0, we added five common categories of configuration properties that you can specify for each Azure service.
 
@@ -37,7 +37,7 @@ The following table lists global properties:
 > [!NOTE]
 > Properties configured under each Azure service will override the global configurations.
 
-### Global SDK service configuration
+### Global configuration for Azure Service SDKs
 
 The configuration properties' prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
 
@@ -55,7 +55,7 @@ The configuration properties' prefixes have been unified to the `spring.cloud.az
 
 ### Configuration examples
 
-#### Retry configuration for global Azure SDK service
+#### Global retry configuration for Azure Service SDKs
 
 The following example shows you how to configure the retry behavior for any HTTP or AMQP protocol based Azure SDK client:
 
@@ -69,19 +69,14 @@ spring.cloud.azure:
       max-delay: PT9S
 ```
 
-#### Retry configuration for Key Vault Secret client
+#### Retry configuration for Key Vault property source
 
-The following configuration example shows you how to configure the retry behavior for the Azure KeyVault Secret client:
+The following configuration example shows you how to configure the retry behavior for the Azure Key Vault Secret client:
 
 ```yaml
 spring.cloud.azure:
   keyvault:
     secret:
-      credential:
-        client-id: <your-client-ID>
-        client-secret: <your client key>
-      profile:
-        tenant-id: <your-tenant-ID>
       property-source-enabled: true
       property-sources:
         - endpoint: <your-Azure-Key-Vault-endpoint>
