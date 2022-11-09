@@ -6,6 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 09/26/2022
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for MySQL

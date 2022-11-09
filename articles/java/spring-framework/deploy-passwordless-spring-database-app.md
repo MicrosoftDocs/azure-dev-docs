@@ -5,6 +5,7 @@ ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 09/27/2022
+ms.custom: passwordless-java
 ---
 
 # Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
