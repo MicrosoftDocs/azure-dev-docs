@@ -27,5 +27,3 @@
     ```azurecli
     az group delete --name "YOUR-RESOURCE-GROUP-NAME" -y
     ```
-
-1. When asked to confirm the operation, enter `y`.
