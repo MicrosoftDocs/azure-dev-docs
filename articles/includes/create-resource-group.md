@@ -8,7 +8,7 @@
     |Property|Value|
     |--|--|
     |Subscription|Select your subscription.|
-    |Resource group|Enter your resource group name. This resource group name is used as part of a resources URI when you access the resource manager (management plane). The name isn't used for control (such as creating a database) or data plane (inserting data into a table).|
+    |Resource group|Enter your resource group name. This resource group name is used as part of a resources URI when you access the Resource Manager (management plane). The name isn't used for control (such as creating a database) or data plane (inserting data into a table).|
     |Region|Select a geographical region for the resource group.|
 
 1. Select **Review + create** to begin validation.
@@ -23,7 +23,7 @@
     |Prompt|Value|
     |--|--|
     |Select subscription|Sign in to Azure if prompted. Select an existing subscription or create an Azure account if you don't have one.|
-    |Enter the name of the new resource group.|Enter your resource group name. This resource group name is used as part of a resources URI when you access the resource manager (management plane). The name isn't used for control (such as creating a database) or data plane (inserting data into a table).|
+    |Enter the name of the new resource group.|Enter your resource group name. This resource group name is used as part of a resources URI when you access the Resource Manager (management plane). The name isn't used for control (such as creating a database) or data plane (inserting data into a table).|
     |Select a location for new resources.|Select a geographical region for the resource group.|
 
 
@@ -37,7 +37,7 @@
 
     Complete the authentication in a browser.
 
-1. List your subscription names and ids. Copy the **SubscriptionId** value to use the next command.
+1. List your subscription names and IDs. Copy the **SubscriptionId** value to use the next command.
 
     ```azurecli
     az account subscription list --output table 
