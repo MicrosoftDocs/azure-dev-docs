@@ -85,11 +85,11 @@ A sample Python solution using all Azure services used in each article in this s
 > [!NOTE]
 > If you are following this tutorial with your own solution, look at the [requirements.txt](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) to see what packages you'll need.
 
-## Create Azure resource group
+## Create a resource group for your project
 
-Resource groups are containers for other resources, which you can then manage as a group. For this reason, a resource group typically relates to a specific project. Whenever you provision a resource, you must specify the group to which it belongs. 
+Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you.
 
-
+[!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
 
 ## Next step
 

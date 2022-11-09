@@ -231,7 +231,7 @@ In this tutorial, all the Azure resources were created in the same resource grou
 Run [az group delete](/cli/azure/group) to delete the Azure Resource Group.
 
 ```azurecli
-az group delete --name 'rg-cloudetl-demo'
+az group delete --name `msdocs-python-cloud-etl-rg'
 ```
 
 ---
