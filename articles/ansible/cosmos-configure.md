@@ -77,7 +77,7 @@ The following code creates a virtual network and subnet for the Azure Cosmos DB 
 
 ## Create an Azure Cosmos DB account
 
-The following code creates the Cosmos DB account:
+The following code creates the Azure Cosmos DB account:
 
 ```yml
   - name: Create instance of Cosmos DB Account

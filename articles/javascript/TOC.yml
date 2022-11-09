@@ -106,7 +106,7 @@
                   href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
                 - name: 3. Local TypeScript development
                   href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-                - name: 4. Create a Cosmos DB resource
+                - name: 4. Create an Azure Cosmos DB resource
                   href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
                 - name: 5. Deploy to Azure Static Web Apps
                   href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
@@ -213,20 +213,20 @@
             href: how-to/with-database/getting-started.md
           - name: Cache for Redis
             href: how-to/with-database/use-azure-cache-for-redis-db.md
-          - name: Cassandra on Cosmos DB
+          - name: Cassandra on Azure Cosmos DB
             href: how-to/with-database/use-cassandra-as-cosmos-db.md
-          - name: MongoDB on Cosmos DB
+          - name: MongoDB on Azure Cosmos DB
             href: how-to/with-database/use-mongodb-as-cosmosdb.md
           - name: MySQL and MariaDB
             href: how-to/with-database/use-mysql-mariadb.md
           - name: PostgreSQL
             href: how-to/with-database/use-postgresql-db.md
-          - name: SQL API on Cosmos DB
+          - name: Azure Cosmos DB for NoSQL
             href: how-to/with-database/use-sql-api-as-cosmos-db.md
       - name: Authentication and identity
         items: 
           - name: Getting started
-            href: how-to/with-authentication/getting-started.md          
+            href: how-to/with-authentication/getting-started.md
           - name: Static web apps
             items: 
               - name: Vanilla JS
@@ -284,7 +284,7 @@
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: CRUD with Functions
         href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
-      - name: Trivia game with SWA + Cosmos DB
+      - name: Trivia game with SWA + Azure Cosmos DB
         items: 
           - name: 1. Introduction
             href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
@@ -292,7 +292,7 @@
             href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
           - name: 3. Local TypeScript development
             href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-          - name: 4. Create a Cosmos DB resource
+          - name: 4. Create an Azure Cosmos DB resource
             href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
           - name: 5. Deploy to Azure Static Web Apps
             href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          

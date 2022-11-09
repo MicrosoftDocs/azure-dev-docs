@@ -40,7 +40,7 @@ For Python development using Visual Studio Code, install:
 
 * [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python). This extension includes IntelliSense (Pylance), Linting, Debugging (multi-threaded, remote), Jupyter Notebooks, code formatting, refactoring, unit tests, and more.
 
-* [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The extension pack contains extensions for working with Azure App Service, Azure Functions, Azure Storage, Cosmos DB, and Azure Virtual Machines in one convenient package. The Azure extensions make it easy to discover and interact with the Azure.
+* [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The extension pack contains extensions for working with Azure App Service, Azure Functions, Azure Storage, Azure Cosmos DB, and Azure Virtual Machines in one convenient package. The Azure extensions make it easy to discover and interact with the Azure.
 
 To install extensions from Visual Studio Code:
 

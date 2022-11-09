@@ -36,3 +36,21 @@
         - name: Introduction
           tocHref: /azure/service-connector
           topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/service-bus-messaging
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/azure-functions
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/active-directory/managed-identities-azure-resources
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/general
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/cosmos-db
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/container-instances
+          topicHref: /azure/developer/intro/index

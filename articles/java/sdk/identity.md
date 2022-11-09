@@ -1,7 +1,7 @@
 ---
 title: Azure authentication with Java and Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
-ms.date: 02/02/2021
+ms.date: 10/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-java
 author: KarlErickson
@@ -33,13 +33,13 @@ Follow the links above to learn more about the specifics of each of these authen
 
 ## Add the Maven dependencies
 
-To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.2.1* version number with the latest released version number shown on the [Microsoft Azure Client Library For Identity page](https://mvnrepository.com/artifact/com.azure/azure-identity).
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace `{version_number}` with the latest stable release's version number, as shown on the [Azure Identity library page](https://search.maven.org/artifact/com.azure/azure-identity).
 
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-    <version>1.2.1</version>
+    <version>{version_number}</version>
 </dependency>
 ```
 

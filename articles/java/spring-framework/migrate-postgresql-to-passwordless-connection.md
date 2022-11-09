@@ -6,6 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: v-muyaofeng
 ms.date: 09/26/2022
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for PostgreSQL
@@ -41,11 +42,11 @@ Although it's possible to connect to Azure Database for PostgreSQL with password
 
 With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables.
 
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application is not passwordless.
+To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application isn't passwordless.
 
-In your local development environment, you can authenticate with Azure CLI, Azure Powershell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
+In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -155,7 +156,7 @@ Next, create a non-admin Azure AD user and grant all permissions on the `$AZ_DAT
 Create a SQL script called *create_ad_user_local.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-cat << EOF > create_ad_user.sql
+cat << EOF > create_ad_user_local.sql
 SET aad_validate_oids_in_tenant = off;
 CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
 GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
@@ -237,26 +238,26 @@ After making these code changes, run your application locally. The new configura
 
 ### 4) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage.
+After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
 
 In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
-- Create the managed identity for your Azure hosting environment.
+- Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with PostgreSQL. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
-#### Create the managed identity using the Azure portal
+#### Assign the managed identity using the Azure portal
 
-The following steps show you how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to create the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to create the identity.
+When using Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
 
 ##### [Azure App Service](#tab/app-service)
 
@@ -292,15 +293,15 @@ When using Service Connector, it can help to create the system-assigned managed 
 
 ---
 
-You can also enable managed identity on an Azure hosting environment by using the Azure CLI.
+You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
 ##### [Service Connector](#tab/service-connector-identity)
 
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
 
 - Azure App Service
-- Azure Spring Cloud
-- Azure Container Apps (preview)
+- Azure Spring Apps
+- Azure Container Apps
 
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
 
@@ -405,7 +406,7 @@ AZ_MI_OBJECT_ID=$(az aks update \
 
 #### Assign roles to the managed identity
 
-Next, grant permissions to the managed identity you created to access your PostgreSQL instance.
+Next, grant permissions to the managed identity you assigned to access your PostgreSQL instance.
 
 ##### [Service Connector](#tab/assign-role-service-connector)
 

@@ -13,16 +13,16 @@ ms.custom: devx-track-java
 
 # How to use Spring Data MongoDB API with Azure Cosmos DB
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB MongoDB API](/azure/cosmos-db/mongodb-introduction).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
 ## Create an Azure Cosmos DB account
 
-### Create a Cosmos DB account using the Azure portal
+### Create an Azure Cosmos DB account using the Azure portal
 
 > [!NOTE]
-> You can read more detailed information about creating Azure Cosmos DB accounts in [Azure Cosmos DB Documentation](/azure/cosmos-db/).
+> You can read more detailed information about creating accounts in the [Azure Cosmos DB documentation](/azure/cosmos-db/).
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -30,15 +30,15 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
    ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
 
-1. On the **Select API option** screen, select **Azure Cosmos DB API for MongoDB**.
+1. On the **Select API option** screen, select **Azure Cosmos DB for MongoDB**.
 
-   ![Azure portal, create a resource, select API option, Azure Cosmos DB API for MongoDB selected.][COSMOSDB02]
+   ![Azure portal, create a resource, select API option, Azure Cosmos DB for MongoDB selected.][COSMOSDB02]
 
 1. Specify the following information:
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoysmongodb.documents.azure.com*.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoysmongodb.documents.azure.com*.
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
@@ -46,7 +46,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
 1. If everything looks correct on the review page, click **Create**.
 
-   ![Review your Cosmos DB account settings.][COSMOSDB03]
+   ![Review your Azure Cosmos DB account settings.][COSMOSDB03]
 
 ### Retrieve the connection string for your Azure Cosmos DB account
 
@@ -56,7 +56,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
 1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you will use that value to configure your application later.
 
-   ![Retrieve your Cosmos DB connection string.][COSMOSDB06]
+   ![Retrieve your Azure Cosmos DB connection string.][COSMOSDB06]
 
 ## Configure the sample application
 
@@ -79,7 +79,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
    | Parameter | Description |
    |---|---|
-   | `spring.data.mongodb.database` | Specifies the name of your Cosmos DB account from earlier in this article. |
+   | `spring.data.mongodb.database` | Specifies the name of your Azure Cosmos DB account from earlier in this article. |
    | `spring.data.mongodb.uri` | Specifies the **Primary Connection String** from earlier in this article. |
 
 1. Save and close the *application.properties* file.
@@ -120,7 +120,7 @@ To build the application, browse to the directory */gs-accessing-data-mongodb/co
 
 ## Summary
 
-In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information using the Azure Cosmos DB MongoDB API.
+In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information using Azure Cosmos DB for MongoDB.
 
 ## Clean up resources
 

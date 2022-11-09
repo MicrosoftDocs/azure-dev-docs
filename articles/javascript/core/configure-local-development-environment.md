@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 08/09/2022
+ms.date: 11/09/2022
 ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -49,6 +49,11 @@ The following common local workstation installations are recommended to help wit
 ## One-time configuration for authentication
 
 To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
+
+## Create a resource group for your project
+
+[!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
+
 
 ## Working with Azure and the Azure SDK client libraries
 

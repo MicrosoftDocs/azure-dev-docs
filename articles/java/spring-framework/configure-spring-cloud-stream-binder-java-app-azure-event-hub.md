@@ -3,7 +3,7 @@ title: How to create a Spring Cloud Stream Binder application with Azure Event H
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -98,7 +98,7 @@ The following procedure creates a Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version to **2.7.3**.
+   * Specify a **Spring Boot** version to **2.7.4**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **8** or **11** for the Java version.
    * Add the *Web* dependency.
@@ -130,7 +130,7 @@ The following procedure creates a Spring boot application.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-stream-binder-eventhubs</artifactId>
-     <version>4.4.0</version>
+     <version>4.4.1</version>
    </dependency>
    ```
 

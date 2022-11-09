@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Read a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -243,7 +243,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.7.3**
+   * **Spring Boot**: **2.7.4**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -344,7 +344,7 @@ To manually add the same configuration that Spring Initializr generates, add the
 
    ```xml
    <properties>
-        <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+        <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    <dependencies>
         <dependency>
@@ -388,6 +388,9 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
    | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret | The `password` from the return JSON from `az ad sp create-for-rbac`.                                                                         |
    | spring.cloud.azure.keyvault.secret.property-sources[0].endpoint                 | The value output from the `az keyvault create` command above.                                                                                |
    | spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id        | The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                                           |
+
+> [!TIP]
+> For examples of Spring Cloud Azure property configuration, see the [Configuration examples](spring-cloud-azure.md#configuration-examples) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
 
 1. Save the file and close it.
 

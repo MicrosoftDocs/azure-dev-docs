@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 09/14/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Build and deploy a Python web app with Azure Container Apps and PostgreSQL
@@ -767,7 +765,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         **Step 4.** Get the sign-in credentials for the Azure Container Registry.
 
         ```bash
-        az acr credentials show -n <registry-name>
+        az acr credential show -n <registry-name>
         ```
 
         Use the username and one of the passwords returned from the output of the above command.

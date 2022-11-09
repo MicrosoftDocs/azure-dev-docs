@@ -110,6 +110,21 @@
       - name: Managed ID Tutorial
         tocHref: /azure/developer/python/tutorial-python-managed-identity-07
         topicHref: /azure/developer/python/tutorial-python-managed-identity-01
+      - name: App Service Container Tutorial
+        tocHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
+        topicHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
+      - name: App Service Container Tutorial
+        tocHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-02
+        topicHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
+      - name: App Service Container Tutorial
+        tocHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-03
+        topicHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
+      - name: App Service Container Tutorial
+        tocHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-04
+        topicHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
+      - name: App Service Container Tutorial
+        tocHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-05
+        topicHref: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01
       - name: Container Apps Tutorial
         tocHref: /azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01
         topicHref: /azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01
@@ -133,6 +148,12 @@
       topicHref: /azure/developer/python/index
     - name: Python
       tocHref: /azure/azure-monitor
+      topicHref: /azure/developer/python/index
+    - name: Python
+      tocHref: /azure/storage/blobs
+      topicHref: /azure/developer/python/index
+    - name: Python
+      tocHref: /azure/static-web-apps/getting-started
       topicHref: /azure/developer/python/index
     - name: Mobile Apps
       tocHref: /azure/developer/mobile-apps

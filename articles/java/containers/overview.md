@@ -65,6 +65,17 @@ On OpenJDK 11 and later, you can set the JVM heap size in the following ways:
 | Fixed value   | `-Xmx`                 | `-Xmx4g`                  |
 | Dynamic value | `-XX:MaxRAMPercentage` | `-XX:MaxRAMPercentage=75` |
 
+#### Minimum/initial heap size
+
+Where the environment is guaranteed to have a certain amount of memory reserved to a JVM instance, such as in a container, you should set the minimum heap size - or initial heap size - to the same size as the maximum heap size. This setting indicates to the JVM that it shouldn't perform the task of freeing memory to the OS.
+
+To set a minimum heap size, use `-Xms` for absolute amounts or `-XX:InitialRAMPercentage` for percentage amounts.
+
+> [!IMPORTANT]
+> The flag `-XX:MinRAMPercentage`, despite what the name suggests, is used for setting the default *maximum* RAM percentage for systems with up to 256 MB of RAM available in the system.
+
+:::image type="content" source="media/default-heap-chart-openjdk17.png" alt-text="Chart showing the default heap size on OpenJDK 17.":::
+
 ### Determine which GC to use
 
 Previously, you determined the amount of JVM heap memory to start with. The next step is to choose your GC. The amount of maximum JVM heap memory you have is often a factor in choosing your GC. The following table describes the characteristics of each GC.
@@ -73,7 +84,7 @@ Previously, you determined the amount of JVM heap memory to start with. The next
 |---------------------|-----------|------------|-----------|-------------|--------------|
 | Number of cores     | 1         | 2          | 2         | 2           | 2            |
 | Multi-threaded      | No        | Yes        | Yes       | Yes         | Yes          |
-| Java Heap size      | <4 GBytes | <4 GBytes  | >4 GBytes | >28 GBytes  | >4 GBytes    |
+| Java heap size      | <4 GBytes | <4 GBytes  | >4 GBytes | >4 GBytes   | >4 GBytes    |
 | Pause               | Yes       | Yes        | Yes       | Yes (<1 ms) | Yes (<10 ms) |
 | Overhead            | Minimal   | Minimal    | Moderate  | Moderate    | Moderate     |
 | Tail-latency Effect | High      | High       | High      | Low         | Moderate     |
@@ -85,7 +96,7 @@ Previously, you determined the amount of JVM heap memory to start with. The next
 
 ### Determine how many CPU cores are needed
 
-For any GC other than SerialGC, we recommend two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core on containerized environments.
+For any GC other than SerialGC, we recommend two or more vCPU cores - or at least `2000m` *cpu_limit* on Kubernetes. We don't recommend selecting anything less than 1 vCPU core on containerized environments.
 
 > [!TIP]
 > If you don't know how many cores to start with, a good choice is 2 vCPU cores.

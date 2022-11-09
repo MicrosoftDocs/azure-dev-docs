@@ -1,8 +1,6 @@
 ---
 title: Configure and run a Python app locally with PostgreSQL
 description: How to run a Python (Django or Flask) web app locally with local PostgreSQL and a local storage emulator, as a first step before deploying to Azure.
-author: jessmjohnson
-ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022

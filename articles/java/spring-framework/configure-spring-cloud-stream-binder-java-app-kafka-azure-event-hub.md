@@ -5,14 +5,14 @@ services: event-hubs
 ms.date: 09/27/2022
 ms.service: event-hubs
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, passwordless-java
 ---
 
 # Use Spring Kafka with Azure Event Hubs
 
-This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Azure Event Hubs for Kafka](https://learn.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) sending and receiving messages with Azure Event Hubs.
+This article shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and Shared Access Signatures (SAS) authentication. The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+In this article, we'll include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/event-hubs/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/event-hubs/authenticate-shared-access-signature). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
@@ -159,7 +159,7 @@ export AZ_EVENTHUBS_CONNECTION_STRING=$(az eventhubs namespace authorization-rul
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,kafka,cloud-stream,azure-support -d baseDir=azure-eventhubs-workshop -d bootVersion=2.7.3 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,kafka,cloud-stream,azure-support -d baseDir=azure-eventhubs-workshop -d bootVersion=2.7.4 -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Event Hubs for Kafka
@@ -182,7 +182,7 @@ spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
 > The added configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`. These parameters are used in `KafkaOAuth2AuthenticateCallbackHandler` to take the Spring Cloud Azure token credentials. The configuration is used in the following scenarios:
 >
 > - When you run the application locally for development purposes, it will read the credential from local environments like IntelliJ, Visual Studio Code, or Azure CLI.
-> - When the application is deployed to Azure AD enabled hosting environments, like Azure Spring Apps, it will load the Azure AD credentialS from the environment.
+> - When the application is deployed to Azure AD enabled hosting environments, like Azure Spring Apps, it will load the Azure AD credentials from the environment.
 >
 > For version since `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 

@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop Session Hosts using Terraform
 description: Learn how to use Terraform to configure session hosts and add them to a host pool.
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 11/01/2022
 ms.custom: devx-track-terraform
 ---
 

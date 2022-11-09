@@ -80,7 +80,7 @@ ENHANCEMENTS:
 
 BUG FIXES:
 
-* `azurerm_cosmosdb_mongo_collection` - can now set the `autoscale_settings` property without setting a `shard_key` when creating a cosmos DB mongo collection ([#15529](https://github.com/hashicorp/terraform-provider-azurerm/issues/15529))
+* `azurerm_cosmosdb_mongo_collection` - can now set the `autoscale_settings` property without setting a `shard_key` when creating an Azure Cosmos DB MongoDB collection ([#15529](https://github.com/hashicorp/terraform-provider-azurerm/issues/15529))
 * `azurerm_firewall_policy` - will not wait for resource to finish provisioning after creation ([#15561](https://github.com/hashicorp/terraform-provider-azurerm/issues/15561))
 
 ### 2.97.0 (February 18, 2022)
@@ -298,7 +298,7 @@ BUG FIXES:
 
 * `azurerm_aadb2c_directory` - fix importing existing resources ([#14879](https://github.com/hashicorp/terraform-provider-azurerm/issues/14879))
 * `azurerm_consumption_budget_subscription` - fix issue in migration logic ([#14898](https://github.com/hashicorp/terraform-provider-azurerm/issues/14898))
-* `azurerm_cosmosdb_account` - only force ForceMongo when kind is set to mongo ([#14924](https://github.com/hashicorp/terraform-provider-azurerm/issues/14924))
+* `azurerm_cosmosdb_account` - only force ForceMongo when kind is set to MongoDB ([#14924](https://github.com/hashicorp/terraform-provider-azurerm/issues/14924))
 * `azurerm_cosmosdb_mongo_collection` - now validates that "_id" is included as an index key ([#14857](https://github.com/hashicorp/terraform-provider-azurerm/issues/14857))
 * `azurem_hdinsight` - hdinsight resources using oozie metastore can now be created without error ([#14880](https://github.com/hashicorp/terraform-provider-azurerm/issues/14880))
 * `azurerm_log_analytics_datasource_windows_performance_counter` - state migration for case conversion of ID element ([#14916](https://github.com/hashicorp/terraform-provider-azurerm/issues/14916))
@@ -1333,7 +1333,7 @@ BUG FIXES:
 * `azurerm_api_management` - no longer forces a new resource when changing the `subnet_id` property ([#12611](https://github.com/hashicorp/terraform-provider-azurerm/issues/12611))
 * `azurerm_function_app` - set a default value for `os_type` and allow a blank string to be specified as per documentation ([#12482](https://github.com/hashicorp/terraform-provider-azurerm/issues/12482))
 * `azurerm_key_vault_access_policy` - prevent a possible panic on delete ([#12616](https://github.com/hashicorp/terraform-provider-azurerm/issues/12616))
-* `azurerm_postgresql_flexible_server` - add new computed property `private_dns_zone_id` to work around a upcomming breaking change in the API ([#12288](https://github.com/hashicorp/terraform-provider-azurerm/issues/12288))
+* `azurerm_postgresql_flexible_server` - add new computed property `private_dns_zone_id` to work around an upcomming breaking change in the API ([#12288](https://github.com/hashicorp/terraform-provider-azurerm/issues/12288))
 * `machine_learning_compute_cluster` - make the `subnet_resource_id` property actually optional ([#12558](https://github.com/hashicorp/terraform-provider-azurerm/issues/12558))
 * `azurerm_mssql_database` - don't allow license_type to be set for serverless SQL databases ([#12555](https://github.com/hashicorp/terraform-provider-azurerm/issues/12555))
 * `azurerm_subnet_network_security_group_association` - prevent potential deadlocks when using multiple association resources ([#12267](https://github.com/hashicorp/terraform-provider-azurerm/issues/12267))
@@ -1670,10 +1670,10 @@ ENHANCEMENTS:
 UPGRADE NOTES
 
 * `azurerm_api_management_authorization_server` - due to a bug in the `2020-12-01` version of the API Management API, changes to `resource_owner_username` and `resource_owner_password` in Azure will not be noticed by Terraform ([#11146](https://github.com/hashicorp/terraform-provider-azurerm/issues/11146))
-* `azurerm_cosmosdb_account` - the `2021-02-01` version of the cosmos API defaults new MongoDB accounts to `v3.6` rather then `v3.2` ([#10926](https://github.com/hashicorp/terraform-provider-azurerm/issues/10926))
+* `azurerm_cosmosdb_account` - the `2021-02-01` version of Azure Cosmos DB for MongoDB defaults new MongoDB accounts to `v3.6` rather then `v3.2` ([#10926](https://github.com/hashicorp/terraform-provider-azurerm/issues/10926))
 * `azurerm_cosmosdb_mongo_collection` - the `_id` index is now required by the new API/MongoDB version ([#10926](https://github.com/hashicorp/terraform-provider-azurerm/issues/10926))
 * `azurerm_cosmosdb_gremlin_graph` and `azurerm_cosmosdb_sql_container` - the `patition_key_path` property is now required ([#10926](https://github.com/hashicorp/terraform-provider-azurerm/issues/10926))
- 
+
 FEATURES:
 
 * **Data Source:** `azurerm_container_registry_scope_map`  ([#11350](https://github.com/hashicorp/terraform-provider-azurerm/issues/11350))
@@ -1989,7 +1989,7 @@ BUG FIXES:
 * `azurerm_api_management` - the field `tenant_access` can only be configured when not using a Consumption SKU ([#10766](https://github.com/hashicorp/terraform-provider-azurerm/issues/10766))
 * `azurerum_frontdoor` - removed the MaxItems validation from the Backend Pools ([#10828](https://github.com/hashicorp/terraform-provider-azurerm/issues/10828))
 * `azurerm_kubernetes_cluster_resource` - allow windows passwords as short as `8` charaters long ([#10816](https://github.com/hashicorp/terraform-provider-azurerm/issues/10816))
-* `azurerm_cosmosdb_mongo_collection` - ignore throughput if Cosmos DB provisioned in 'serverless' capacity mode ([#10389](https://github.com/hashicorp/terraform-provider-azurerm/issues/10389))
+* `azurerm_cosmosdb_mongo_collection` - ignore throughput if Azure Cosmos DB provisioned in 'serverless' capacity mode ([#10389](https://github.com/hashicorp/terraform-provider-azurerm/issues/10389))
 * `azurerm_linux_virtual_machine` - parsing the User Assigned Identity ID case-insensitively to work around an Azure API issue ([#10722](https://github.com/hashicorp/terraform-provider-azurerm/issues/10722))
 * `azurerm_linux_virtual_machine_scale_set` - parsing the User Assigned Identity ID case-insensitively to work around an Azure API issue ([#10722](https://github.com/hashicorp/terraform-provider-azurerm/issues/10722))
 * `azurerm_netapp_volume` - fixing a crash when setting `data_protection_replication` ([#10795](https://github.com/hashicorp/terraform-provider-azurerm/issues/10795))
@@ -2357,7 +2357,7 @@ IMPROVEMENTS:
 * `azurerm_batch_pool` support for the `public_address_provisioning_type` property ([#10036](https://github.com/hashicorp/terraform-provider-azurerm/issues/10036))
 * `azurerm_api_management` - support `Consumption_0` for the `sku_name` property ([#6868](https://github.com/hashicorp/terraform-provider-azurerm/issues/6868))
 * `azurerm_cdn_endpoint` - only send `content_types_to_compress` and `geo_filter` to the API when actually set ([#9902](https://github.com/hashicorp/terraform-provider-azurerm/issues/9902))
-* `azurerm_cosmosdb_mongo_collection` - correctly read back the `_id` index when mongo 3.6 ([#8690](https://github.com/hashicorp/terraform-provider-azurerm/issues/8690))
+* `azurerm_cosmosdb_mongo_collection` - correctly read back the `_id` index when MongoDB 3.6 ([#8690](https://github.com/hashicorp/terraform-provider-azurerm/issues/8690))
 * `azurerm_container_group` - support for the `volume.empty_dir` property ([#9836](https://github.com/hashicorp/terraform-provider-azurerm/issues/9836))
 * `azurerm_data_factory_linked_service_azure_file_storage` - support for the `file_share` property ([#9934](https://github.com/hashicorp/terraform-provider-azurerm/issues/9934))
 * `azurerm_dedicated_host` - support for addtional `sku_name` values ([#9951](https://github.com/hashicorp/terraform-provider-azurerm/issues/9951))
@@ -2370,7 +2370,7 @@ IMPROVEMENTS:
 * `azurerm_kubernetes_cluster` - add support for network_mode ([#8828](https://github.com/hashicorp/terraform-provider-azurerm/issues/8828))
 * `azurerm_log_analytics_linked_service` - add validation for resource ID type ([#9932](https://github.com/hashicorp/terraform-provider-azurerm/issues/9932))
 * `azurerm_log_analytics_linked_service` - update validation to use generated validate functions ([#9950](https://github.com/hashicorp/terraform-provider-azurerm/issues/9950))
-* `azurerm_monitor_diagnostic_setting` - validation that `eventhub_authorization_rule_id` is a EventHub Namespace Authorization Rule ID ([#9914](https://github.com/hashicorp/terraform-provider-azurerm/issues/9914))
+* `azurerm_monitor_diagnostic_setting` - validation that `eventhub_authorization_rule_id` is an EventHub Namespace Authorization Rule ID ([#9914](https://github.com/hashicorp/terraform-provider-azurerm/issues/9914))
 * `azurerm_monitor_diagnostic_setting` - validation that `log_analytics_workspace_id` is a Log Analytics Workspace ID ([#9914](https://github.com/hashicorp/terraform-provider-azurerm/issues/9914))
 * `azurerm_monitor_diagnostic_setting` - validation that `storage_account_id` is a Storage Account ID ([#9914](https://github.com/hashicorp/terraform-provider-azurerm/issues/9914))
 * `azurerm_network_security_rule` - increase allowed the number of `application_security_group` blocks allowed ([#9884](https://github.com/hashicorp/terraform-provider-azurerm/issues/9884))
@@ -2617,7 +2617,7 @@ BUG FIXES:
 
 * Data Source: `azurerm_key_vault_certificate` - fixing a crash when serializing the certificate policy block ([#9355](https://github.com/hashicorp/terraform-provider-azurerm/issues/9355))
 * `azurerm_api_management` - the field `xml_content` within the `policy` block now supports C#/.net interpolations ([#9296](https://github.com/hashicorp/terraform-provider-azurerm/issues/9296))
-* `azurerm_cosmosdb_sql_container` - no longer attempts to get throughput settings when cosmos account is serverless ([#9311](https://github.com/hashicorp/terraform-provider-azurerm/issues/9311))
+* `azurerm_cosmosdb_sql_container` - no longer attempts to get throughput settings when Azure Cosmos DB account is serverless ([#9311](https://github.com/hashicorp/terraform-provider-azurerm/issues/9311))
 * `azurerm_firewall_policy` - deprecate the `dns.network_rule_fqdn_enabled` property as the API no longer allows it to be set ([#9332](https://github.com/hashicorp/terraform-provider-azurerm/issues/9332))
 * `azurerm_key_vault_certificate` - fixing a crash when serializing the certificate policy block ([#9355](https://github.com/hashicorp/terraform-provider-azurerm/issues/9355))
 * `azurerm_mssql_virtual_machine` - fixing a crash when serializing `auto_patching` ([#9388](https://github.com/hashicorp/terraform-provider-azurerm/issues/9388))
@@ -2673,7 +2673,7 @@ IMPROVEMENTS:
 
 BUG FIXES:
 
-* `azurerm_cosmosdb_sql_database`  no longer attempts to get throughput settings when cosmos account is serverless ([#9187](https://github.com/hashicorp/terraform-provider-azurerm/issues/9187))
+* `azurerm_cosmosdb_sql_database`  no longer attempts to get throughput settings when Azure Cosmos DB account is serverless ([#9187](https://github.com/hashicorp/terraform-provider-azurerm/issues/9187))
 * `azurerm_kubernetes_cluster` - changing the field `availability_zones` within the `default_node_pool` block now requires recreating the resource to match the behaviour of the Azure API ([#8814](https://github.com/hashicorp/terraform-provider-azurerm/issues/8814))
 * `azurerm_kubernetes_cluster_node_pool` - changing the field `availability_zones` now requires recreating the resource to match the behaviour of the Azure API ([#8814](https://github.com/hashicorp/terraform-provider-azurerm/issues/8814))
 * `azurerm_log_analytics_workspace` - fix the `Free` tier from setting the `daily_quota_gb` property ([#9228](https://github.com/hashicorp/terraform-provider-azurerm/issues/9228))
@@ -2708,7 +2708,7 @@ IMPROVEMENTS:
 BUG FIXES:
 
 * Fixed regression that prevented Synapse client registering in all Azure environments ([#9100](https://github.com/hashicorp/terraform-provider-azurerm/issues/9100))
-* `azurerm_cosmosdb_mongo_database` no longer attempts to get throughput settings when cosmos account is serverless ([#8673](https://github.com/hashicorp/terraform-provider-azurerm/issues/8673))
+* `azurerm_cosmosdb_mongo_database` no longer attempts to get throughput settings when Azure Cosmos DB account is serverless ([#8673](https://github.com/hashicorp/terraform-provider-azurerm/issues/8673))
 * `azurerm_key_vault_access_policy` - check access policy consistency before committing to state ([#9125](https://github.com/hashicorp/terraform-provider-azurerm/issues/9125))
 * `azurerm_kubernetes_cluster` - the field `enable_pod_security_policy` can no longer be set, due to this functionality being removed from AKS as of `2020-10-15` ([#8982](https://github.com/hashicorp/terraform-provider-azurerm/issues/8982))
 * `azurerm_kubernetes_cluster` - the field `node_taints` can no longer be set on the `default_node_pool` block, to match the behaviour of AKS ([#8982](https://github.com/hashicorp/terraform-provider-azurerm/issues/8982))

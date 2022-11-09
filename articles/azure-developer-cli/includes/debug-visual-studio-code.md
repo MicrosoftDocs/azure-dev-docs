@@ -2,11 +2,11 @@
 author: hhunter-ms
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 08/10/2022
+ms.date: 10/31/2022
 ms.author: hannahhunter
 ---
 
-Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
+Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
@@ -52,6 +52,9 @@ Explore the following files included in the `.vscode` directory:
 | ---- | ----------- |
 | `launch.json` | Defines the debug configurations such as **Debug Web** and **Debug API**. to see the debug configuration options, select **Run** from the **View** menu. The available debug configurations are listed at the top of the pane. To learn more about debugging in Visual Studio Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging). |
 | `tasks.json` | Defines the configurations to start the web or API server. To see these configuration options, open the Command Palette and run **Task: run task**. To learn more about Visual Studio Code Tasks, see [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks). |
+
+> [!NOTE]
+> If you're using the [C# SWA-func MS SQL template]( https://github.com/Azure-Samples/todo-csharp-sql-swa-func), you'll need to manually start the **Start API** task and then **Debug API (F5)**. When asked to pick from a list of running .NET processes, search for the name of your application and select it.
 
 ## Provision the Azure resources
 
@@ -121,11 +124,12 @@ To test this pattern, do the following steps:
 
 1. Running the web app will cause your default browser to open the following URL: `http://localhost:3000`. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**.
 
-   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample NodeJS Mongo app.":::
+   :::image type="content" source="../media/debug/sample-app.png" alt-text="Screenshot of the sample Node JS Mongo DB app.":::
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks, such as:
+
    - Inspect variables
    - Look at the call stack
-   - Set other breakpoints. 
+   - Set other breakpoints
 
 1. Press `<F5>` to continue running the app and the selected item will be deleted.

@@ -1,6 +1,4 @@
 ---
-author: jessmjohnson
-ms.author: jejohn
 ms.topic: include
 ms.date: 06/23/2022
 ---

@@ -1,5 +1,5 @@
 ---
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -67,7 +67,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is 4.4.0.
+The version for spring-cloud-azure-dependencies is 4.4.1.
 
 ### Artifact changes: renamed / added / deleted
 
@@ -83,7 +83,7 @@ The following table shows the mappings between legacy artifact ID and modern art
 > | azure-spring-boot-starter                         | spring-cloud-azure-starter                                                                 | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-starter` artifact.                                                                                                                                                                                          |
 > | azure-spring-boot-starter-active-directory        | spring-cloud-azure-starter-active-directory                                                | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
 > | azure-spring-boot-starter-active-directory-b2c    | spring-cloud-azure-starter-active-directory-b2c                                            | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-cosmos                  | spring-cloud-azure-starter-data-cosmos                                                     | Renamed the artifact to add `data`, indicating using Spring Data Cosmos DB.                                                                                                                                                                                                                                  |
+> | azure-spring-boot-starter-cosmos                  | spring-cloud-azure-starter-data-cosmos                                                     | Renamed the artifact to add `data`, indicating using Spring Data Azure Cosmos DB.                                                                                                                                                                                                                                  |
 > | azure-spring-boot-starter-keyvault-certificates   | not applicable                                                                             | Not included in this release, but will be supported in later version.                                                                                                                                                                                                                                        |
 > | azure-spring-boot-starter-keyvault-secrets        | spring-cloud-azure-starter-keyvault-secrets                                                | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
 > | azure-spring-boot-starter-servicebus-jms          | spring-cloud-azure-starter-servicebus-jms                                                  | Renamed the artifact.                                                                                                                                                                                                                                                                                        |

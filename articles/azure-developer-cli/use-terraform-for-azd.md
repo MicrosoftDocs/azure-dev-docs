@@ -21,7 +21,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 ## Configure Terraform as the IaC provider
 
 1. If you haven't already, [install and configure Terraform](../terraform/quickstart-configure.md).
-1. Open the `azure.yaml` file found in the root of your project and make sure you have the following lines to override the default, which is Bicep:
+1. Open the [`azure.yaml` file](./azd-schema.md#terraform-as-iac-provider-sample) found in the root of your project and make sure you have the following lines to override the default, which is Bicep:
 
     ```yaml
     infra:

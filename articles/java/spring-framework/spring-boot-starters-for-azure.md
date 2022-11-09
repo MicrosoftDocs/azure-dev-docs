@@ -2,7 +2,7 @@
 title: Spring Boot Starters for Azure
 description: This article describes the various Spring Boot Starters that are available for Azure.
 documentationcenter: java
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -37,7 +37,7 @@ The following Spring Boot Starters are currently available for Azure:
 <a name="azure-support"></a>
 ## Azure Support
 
-This Spring Boot Starter provides auto-configuration support for Azure Services; for example: Service Bus, Storage, Active Directory, Cosmos DB, Key Vault, etc.
+This Spring Boot Starter provides auto-configuration support for Azure Services; for example: Service Bus, Storage, Active Directory, Azure Cosmos DB, Key Vault, etc.
 
 For examples of how to use the various Azure features that are provided by this starter, see the following:
 
@@ -51,7 +51,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+      <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    ```
 
@@ -89,7 +89,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* The [spring-cloud-azure-starter-active-directory samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/aad/spring-cloud-azure-starter-active-directory) repo on GitHub.
+* The [spring-cloud-azure-starter-active-directory samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/aad/spring-cloud-azure-starter-active-directory) repo on GitHub.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -99,7 +99,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+      <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    ```
 
@@ -136,7 +136,7 @@ This Spring Boot Starter provides Spring value annotation support for integratio
 
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
-* [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/keyvault/spring-cloud-azure-starter-keyvault-secrets).
+* [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/keyvault/spring-cloud-azure-starter-keyvault-secrets).
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -146,7 +146,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+      <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    ```
 
@@ -185,7 +185,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-* [spring-cloud-azure-starter-integration-storage-queue samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/storage/spring-cloud-azure-starter-integration-storage-queue)
+* [spring-cloud-azure-starter-integration-storage-queue samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/storage/spring-cloud-azure-starter-integration-storage-queue)
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -195,7 +195,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <version.spring.cloud.azure>4.4.0</version.spring.cloud.azure>
+      <version.spring.cloud.azure>4.4.1</version.spring.cloud.azure>
    </properties>
    ```
 

@@ -6,6 +6,7 @@ ms.author: yiliu6
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.service: event-hubs
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
@@ -14,7 +15,7 @@ This article explains how to migrate from traditional authentication methods to 
 
 Application requests to Azure Event Hubs for Kafka must be authenticated. Azure Event Hubs for Kafka provides different ways for apps to connect securely. One of the ways is to use a connection string. However, you should prioritize passwordless connections in your applications when possible.
 
-The passwordless connections is supported since Spring Cloud Azure 4.3.0. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
+Passwordless connections are supported since Spring Cloud Azure 4.3.0. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
 
 ## Compare authentication options
 
@@ -40,7 +41,7 @@ Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it sho
 
 ## Introducing passwordless connections
 
-With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Many Azure services support passwordless connections, such as Azure Managed Identity and Role Based Access Control (RBAC). These techniques provide robust security features that you can implement using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
+With a passwordless connection, you can connect to Azure services without storing any credentials in the application code, its configuration files, or in environment variables. Many Azure services support passwordless connections, for example via Azure Managed Identity. These techniques provide robust security features that you can implement using [DefaultAzureCredential](/java/api/overview/azure/Identity-readme#defaultazurecredential) from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
 
 `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
@@ -53,7 +54,7 @@ To ensure that connections are passwordless, you must take into consideration bo
 
 In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
 ## Migrate an existing application to use passwordless connections
 
@@ -330,7 +331,7 @@ Next, use the following steps to update your Spring Kafka application to use pas
 > [!NOTE]
 > If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` property to `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`. By default `<kafka-binder-name>` is `kafka` in a single kafka binder application. This property setting enables the whole OAuth authentication workflow. This setting is also used to specify the additional configuration `KafkaBinderConfigurationPropertiesBeanPostProcessor`, which specifies the OAuth security parameters for the particular binder to enable Azure Identity.
 >
-> For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+> For versions starting with `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
 ---
 
@@ -340,32 +341,32 @@ After making these code changes, run your application locally. The new configura
 
 ### 3) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure Spring Apps instance that has a managed identity enabled can connect to Azure Event Hubs for Kafka.
+After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure Spring Apps instance that has a managed identity assigned can connect to Azure Event Hubs for Kafka.
 
 In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
-- Create the managed identity for your Azure hosting environment.
+- Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
-#### Create the managed identity for your Azure hosting environment
+#### Assign the managed identity for your Azure hosting environment
 
-The following steps show you how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to create the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
+When using Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
 
 The following compute services are currently supported:
 
 - Azure App Service
-- Azure Spring Cloud
-- Azure Container Apps (preview)
+- Azure Spring Apps
+- Azure Container Apps
 
 For this migration guide, you'll use App Service, but the steps are similar for Azure Spring Apps and Azure Container Apps.
 
@@ -390,7 +391,7 @@ For this migration guide, you'll use App Service, but the steps are similar for 
 1. Leave the default values selected, and then select **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* for the Event Hubs instance you selected.
+The Service Connector will automatically assign a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* for the Event Hubs instance you selected.
 
 ##### [Azure App Service](#tab/app-service)
 
@@ -426,11 +427,11 @@ The Service Connector will automatically create a system-assigned managed identi
 
 ---
 
-You can also enable managed identity on an Azure hosting environment by using the Azure CLI.
+You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
 ##### [Service Connector](#tab/service-connector-identity)
 
-You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Create the managed identity for your Azure hosting environment](#create-the-managed-identity-for-your-azure-hosting-environment) section.
+You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
 If you're using an Azure App Service, use the `az webapp connection` command, as shown in the following example:
 

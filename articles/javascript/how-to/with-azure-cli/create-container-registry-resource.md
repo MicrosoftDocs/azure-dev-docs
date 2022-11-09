@@ -106,4 +106,4 @@ az webapp config container set \
 
 ## Next steps
 
-* [Create mongodb Cosmos DB resource](../with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb)
+* [Create an Azure Cosmos DB for MongoDB resource](../with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb)

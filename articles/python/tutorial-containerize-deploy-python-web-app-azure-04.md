@@ -1,8 +1,6 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: deploy the container image to App Service'
-description: How to deploy a containerized Python web app (Django or Flask) to App Service.
-author: jessmjohnson
-ms.author: jejohn
+title: Deploy a Python web app container to Azure App Service
+description: How to deploy a Python web app container (Django or Flask) to App Service using managed identity authentication with Azure Container Registry.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/17/2022
@@ -87,9 +85,9 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
 In this step, you specify environment variables needed to connect to MongoDB.
 
-If you need to create an Azure Cosmos DB API for MongoDB, do the following:
+If you need to create an Azure Cosmos DB for MongoDB, do the following:
 
-* Create a MongoDB in Cosmos DB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
+* Create a MongoDB in Azure Cosmos DB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
 
 * Create a database named "restaurants_reviews" and a collection named "restaurants_reviews". You can do this using the [Azure Cloud Shell](/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use the VS Code [Azure Database](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to create databases and collections.
 

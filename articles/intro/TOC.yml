@@ -42,6 +42,40 @@ items:
             href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: PostgreSQL
             href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: .NET
+        items:
+          - name: Configure
+            items:
+              - name: Storage
+                href: /azure/storage/common/multiple-identity-scenarios?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Virtual Machines
+                href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Quickstarts
+            items:
+              - name: Blob Storage
+                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus queues
+                href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus topics
+                href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Tutorials
+            items:
+              - name: Azure Functions
+                href: /azure/azure-functions/functions-identity-based-connections-tutorial-2?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault
+                href: /azure/key-vault/general/tutorial-net-create-vault-azure-web-app?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: How-To
+            items:
+              - name: App Service
+                href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Blob Storage
+                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Container Apps
+                href: /azure/container-apps/managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Cosmos DB NoSQL
+                href: /azure/cosmos-db/how-to-setup-rbac?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Container Instances
+                href: /azure/container-instances/container-instances-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Java
         items:
           - name: Configure
@@ -66,6 +100,8 @@ items:
                 href: ../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
+              - name: Blob Storage
+                href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with MySQL
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with PostgreSQL
@@ -86,16 +122,18 @@ items:
                 href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
                 href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: .NET
+      - name: JavaScript
         items:
-          - name: Configure
-            items:
-              - name: Storage
-                href: /azure/storage/common/multiple-identity-scenarios
-          - name: Quickstarts
-            items:
-              - name: Blob Storage
-                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+        - name: Quickstarts
+          items:
+          - name: Blob Storage
+            href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: Python
+        items:
+        - name: Quickstarts
+          items:
+          - name: Blob Storage
+            href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
   - name: Azure developer centers
     items:
       - name: Azure developer home

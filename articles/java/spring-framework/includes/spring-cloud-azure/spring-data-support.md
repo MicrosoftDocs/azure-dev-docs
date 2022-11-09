@@ -1,12 +1,12 @@
 ---
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
 
 ## Spring Data support
 
-### Spring Data Cosmos DB support
+### Spring Data Azure Cosmos DB support
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Azure Table storage.
 
@@ -29,10 +29,10 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                                           | Description                                                                                                     |
 > |--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure.cosmos*.enabled                                | A value that indicates whether Azure Cosmos Service is enabled. The default value is *true*.                    |
-> | *spring.cloud.azure.cosmos*.database                               | The Cosmos DB database ID.                                                                                      |
-> | *spring.cloud.azure.cosmos*.endpoint                               | The URI to connect Cosmos DB.                                                                                   |
-> | *spring.cloud.azure.cosmos*.key                                    | The PrivateKey to connect Cosmos DB.                                                                            |
+> | *spring.cloud.azure.cosmos*.enabled                                | A value that indicates whether Azure Cosmos DB Service is enabled. The default value is *true*.                    |
+> | *spring.cloud.azure.cosmos*.database                               | The Azure Cosmos DB database ID.                                                                                      |
+> | *spring.cloud.azure.cosmos*.endpoint                               | The URI to connect Azure Cosmos DB.                                                                                   |
+> | *spring.cloud.azure.cosmos*.key                                    | The PrivateKey to connect Azure Cosmos DB.                                                                            |
 > | *spring.cloud.azure.cosmos*.credential.client-certificate-password | The password of the certificate file.                                                                           |
 > | *spring.cloud.azure.cosmos*.credential.client-certificate-path     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
 > | *spring.cloud.azure.cosmos*.credential.client-id                   | The client ID to use when performing service principal authentication with Azure.                               |
@@ -58,8 +58,8 @@ The following list shows the key concepts of the Spring Data support:
 
 * The Spring Data [@Id](https://github.com/spring-projects/spring-data-commons/blob/db62390de90c93a78743c97cc2cc9ccd964994a5/src/main/java/org/springframework/data/annotation/Id.java) annotation. There are two ways to map a field in a domain class to the `id` of an Azure Cosmos DB document:
 
-    * Annotate a field in domain class with `@Id`. This field will be mapped to document `id` in Cosmos DB.
-    * Set the name of this field to `id`. This field will be mapped to document `id` in Cosmos DB.
+    * Annotate a field in domain class with `@Id`. This field will be mapped to document `id` in Azure Cosmos DB.
+    * Set the name of this field to `id`. This field will be mapped to document `id` in Azure Cosmos DB.
 
   > [!NOTE]
   > If both ways are applied, the `@Id` annotation has higher priority.
@@ -76,9 +76,9 @@ The following list shows the key concepts of the Spring Data support:
 
 #### Basic usage
 
-##### Use a private key to access Cosmos DB
+##### Use a private key to access Azure Cosmos DB
 
-The simplest way to connect Cosmos DB with `spring-cloud-azure-starter-data-cosmos` is with a primary key. Add the following properties:
+The simplest way to connect Azure Cosmos DB with `spring-cloud-azure-starter-data-cosmos` is with a primary key. Add the following properties:
 
 ```yaml
 spring:
@@ -92,7 +92,7 @@ spring:
 
 ##### Define an entity
 
-Define an entity as a Document in Cosmos DB, as shown in the following example:
+Define an entity as a Document in Azure Cosmos DB, as shown in the following example:
 
 ```java
 @Container(containerName = "mycollection")
@@ -236,6 +236,6 @@ This example includes an autowired `UserRepository` interface to support save, d
 
 #### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/cosmos) on GitHub.
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/cosmos) on GitHub.
 
-Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.4.0/sdk/cosmos/azure-spring-data-cosmos).
+Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.4.1/sdk/cosmos/azure-spring-data-cosmos).
