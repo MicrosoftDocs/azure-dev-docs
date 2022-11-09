@@ -225,7 +225,7 @@ To use the service principal to authorize access from the hosting platform to Ke
 
 ## Clean up resources - remove resource group
 
-[!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
+[!INCLUDE [delete resource group 3-tab](../../includes/delete-resource-group.md)]
 
 This command may take a few minutes. 
 
