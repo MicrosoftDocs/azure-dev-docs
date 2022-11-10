@@ -150,6 +150,10 @@ az storage account create \
     --assign-identity
 ```
 
+### [Visual Studio Code](#tab/vscode)
+
+Complete the steps using either the Azure portal or the Azure CLI.
+
 ---
 
 ## 3. Configure resource's access role to Azure Data Lake 
@@ -213,6 +217,12 @@ az role assignment create \
 
 >[!NOTE]
 >*managed-identity-id* is the managed identity ID of the Azure Function App. If needed, return to the Function App **Identity** page to get this ID.
+
+
+### [Visual Studio Code](#tab/vscode)
+
+Complete the steps using either the Azure portal or the Azure CLI.
+
 
 ---
 
@@ -287,6 +297,11 @@ az storage fs directory create \
     --account-name msdocspythonetladls 
 ```
 
+### [Visual Studio Code](#tab/vscode)
+
+Complete the steps using either the Azure portal or the Azure CLI.
+
+
 ---
 
 >[!NOTE]
@@ -320,19 +335,19 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 ## 6. Create code for data transformation with Python
 
-**Step 1.** Create a file named `transformation.py` in the **shared** folder.
+**Step 1.** Create a file named `transform.py` in the **shared** folder.
 
 **Step 2.** Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transformation.py"  :::
+:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
 ## 7. Create code for BlobTrigger function with Python
 
-**Step 1.** Create a file named `transformation.py` in the **shared** folder.
+**Step 1.** Create a file named `transform.py` in the **shared** folder.
 
 **Step 2.** Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transformation.py"  :::
+:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
 ## 8. Test the Azure blob storage trigger Function
 
@@ -375,5 +390,5 @@ If you've reached this point and your processed file isn't in the Data Lake cont
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy the Solution >>](tutorial-deploy-azure-cloud-python-etl-06-deploy-solution.md)
+> [Deploy the Solution >>](tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md)
 
