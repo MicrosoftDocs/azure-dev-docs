@@ -120,7 +120,7 @@ cd MSDocsCloudPythonETLProj
 **Step 2.** Add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
 
 ```bash
-func new --name msdocs-python-etl-httptrigger --template "HTTP trigger" --authlevel "function"
+func new --name api_search --template "HTTP trigger" --authlevel "function"
 ```
 
 **Step 3.** Run the function locally by running the `func start` command.

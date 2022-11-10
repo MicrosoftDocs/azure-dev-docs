@@ -87,14 +87,10 @@
             href: tutorial-deploy-azure-cloud-python-etl-01-overview.md
           - name: 2. Get data and store 
             href: tutorial-deploy-azure-cloud-python-etl-02-get-data.md
-          - name: 3. Store raw data
-            href: tutorial-deploy-azure-cloud-python-etl-03-store-data.md
-          - name: 4. Transform data
-            href: tutorial-deploy-azure-cloud-python-etl-04-process-data.md
-          - name: 5. Serve data
-            href: tutorial-deploy-azure-cloud-python-etl-05-serve-data.md
-          - name: 6. Deploy solution to Azure
-            href: tutorial-deploy-azure-cloud-python-etl-06-deploy-solution.md
+          - name: 3. Transform and store
+            href: tutorial-deploy-azure-cloud-python-etl-03-process-data.md
+          - name: 4. Deploy solution to Azure
+            href: tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md
       - name: More data and storage solutions
         href: quickstarts-data-solutions.md
 
