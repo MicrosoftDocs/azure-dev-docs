@@ -232,7 +232,7 @@ Before removing resources, back up the entire resource group to a Azure Resource
 
 Delete the resource group named `msdocs-python-cloud-etl-rg`.
 
-[!INCLUDE [delete resource group 3-tab](../../includes/delete-resource-group.md)]
+[!INCLUDE [delete resource group 3-tab](../includes/delete-resource-group.md)]
 
 ## Next step
 

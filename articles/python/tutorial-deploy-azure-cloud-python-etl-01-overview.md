@@ -89,7 +89,7 @@ A sample Python solution using all Azure services used in each article in this s
 
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you.
 
-[!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
+[!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
 
 ## Next step
 
