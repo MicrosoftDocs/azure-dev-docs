@@ -208,6 +208,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 ## 4. Create code for Bing Search News with Python SDK
 
 **Step 1.** Create a file named `bing_search.py` in the **shared** folder.
+
 **Step 2.** Copy the following Python code into it.
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
@@ -317,15 +318,19 @@ az keyvault secret set \
 ## 6. Create code for Key vault with Python SDK
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+
 ***Step 2.** Edit the file to update the following:
 
-    |Property|Setting|
-    |--|--|
-    |KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "YOUR-RESOURCE_NAME".|
+|Property|Setting|
+|--|--|
+|KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "YOUR-RESOURCE_NAME".|
 
 **Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
+
 ***Step 4.** Create a folder named `shared` which will contain all the integration code files.
+
 ***Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
+
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
 ## 7. Create resource for Azure Blob Storage
@@ -545,20 +550,23 @@ az storage container create \
 ## 10. Create code for Azure Blob Storage SDK
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+
 ***Step 2.** Edit the file to update the following:
 
-    |Property|Setting|
-    |--|--|
-    |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "YOUR-RESOURCE_NAME".|
-    |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
+|Property|Setting|
+|--|--|
+|BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "YOUR-RESOURCE_NAME".|
+|BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
 
 **Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
-**Step 2.** Copy the following Python code into it.
+
+**Step 4.** Copy the following Python code into it.
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
 ## 11. Create code for API endpoint with Python
 
-**Step 1.** Open the **__init__.py** file in the **api_search** folder. 
+**Step 1.** Open the **__init__.py** file in the **api_search** folder.
+ 
 **Step 2.** Copy the following Python code into it.
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py"  :::
 
