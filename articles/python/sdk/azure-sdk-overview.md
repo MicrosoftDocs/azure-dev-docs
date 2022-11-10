@@ -14,7 +14,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The Azure libraries are how you communicate with Azure services *from* Python code that you run either locally or in the cloud. (Whether you can run Python code within the scope of a particular service depends on whether that service itself currently supports Python.)
 
-- The libraries support Python 3.6 or later, and it's also tested with PyPy 5.4+.
+- The libraries support [Python](https://www.python.org/) 3.7 or later. For more information about supported versions of Python, see [Azure SDKs Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy). If you are using [PyPy](https://www.pypy.org/), make sure the version you use at least supports the Python version mentioned previously.
 
 - The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the "SDK".
 
@@ -56,7 +56,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 ## Create and manage Azure resources with management libraries
 
-The SDK's *management* (or "management plane") libraries, the names of which all begin with `azure-mgmt-`, help you create, configure, and otherwise manage Azure resources from Python scripts. All Azure services have corresponding management libraries.
+The SDK's *management* (or "management plane") libraries, the names of which all begin with `azure-mgmt-`, help you create, configure, and otherwise manage Azure resources from Python scripts. All Azure services have corresponding management libraries. For more information, see [Azure control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane).
 
 With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
 
@@ -76,7 +76,7 @@ For details on working with each management library, see the *README.md* or *REA
 If you're migrating code from older versions of the management libraries, see the following details:
 
 - If you use the `ServicePrincipalCredentials` class, see [Authenticate with token credentials](./authentication-azure-hosted-apps.md).
-- The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). Simply said, the names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
+- The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). The names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
 
 ## Connect to and use Azure resources with client libraries
 
