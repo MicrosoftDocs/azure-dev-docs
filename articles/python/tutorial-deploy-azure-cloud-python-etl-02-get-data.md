@@ -423,6 +423,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 1. Add a key-value pair to store the Bing Search subscription key secret name by entering `, "BING_SEARCH_RESOURCE_KEY": "bing-search-resource-key"`.
 1. Add another key-value pair to store the key vault name by entering `, "KEY_VAULT_NAME": "msdocs-python-etl-kv"`.
 
+## 8. Test the function
+
+/bing/search-apis/bing-web-search/search-responses#news-answer
+
 ## Next step
 
 > [!div class="nextstepaction"]

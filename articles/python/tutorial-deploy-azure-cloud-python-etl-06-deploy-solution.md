@@ -208,30 +208,35 @@ az storage account management-policy create \
 
 ---
 
-## 3. Run solution in Azure
+## 3. Find the Azure Function API endpoint
 
-## 4. Clean up resources
+To call the solution, you need to use an HTTP tool for your deployed Azure Function's HTTP trigger URL. 
 
-**Step 1.** Archive solution resources
-Save ARM template
+## 4. Call the Azure Function API endpoint
 
-1. go to resource group
-1. Under Automation select Export template
-1. Download button to save locally or Add to Library.
-1. Resource visualizer then Export PNG to keep diagram for reference
+## 5. Back up your resources to an ARM template
 
-**Step 2.** Remove resources from subscription
+Before removing resources, back up the entire resource group to a Azure Resource Manager (ARM) template. In the future, if you want to rebuild this application, the arm template provides all the Azure resource creation and configuration steps in one file. 
 
-In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+**Step: Save ARM template**
 
-### [Azure portal](#tab/azure-portal)
+1. Open the [Azure portal](https://portal.azure.com) in a web browser. 
+1. In the search bar, enter **resource groups** and select it.
+1. Find and select your resource group.
+1. In the **Automation** section, select **Export template**.
+1. In the **Export template** page, accept the default of exporting everything. If there are services that won't be included, make note of that for your own future needs.
+1. Select **Download**. 
+1. Save the **zip** file to a secure location. Consider renaming the file to indicate the application. 
 
-### [Azure CLI](#tab/azure-cli)
+## 5. Delete the resource group for your project
 
-Run [az group delete](/cli/azure/group) to delete the Azure Resource Group.
+Delete the resource group named `msdocs-python-cloud-etl-rg`.
 
-```azurecli
-az group delete --name `msdocs-python-cloud-etl-rg'
-```
+[!INCLUDE [delete resource group 3-tab](../../includes/delete-resource-group.md)]
 
----
+## Next step
+
+* Azure Functions: [Machine learning with TensorFlow](/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash) 
+* Azure Storage and Data Lake: [Use with Databricks and Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
+* Azure Key Vault: [Secrets rotation](/azure/key-vault/secrets/tutorial-rotation)
+* Bing Search: [News search result answer](/bing/search-apis/bing-web-search/search-responses#news-answer)
