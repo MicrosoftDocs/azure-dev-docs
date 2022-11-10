@@ -135,6 +135,15 @@ func start
 
 ---
 
+## Change Azure Function API route in function.json
+
+The route is determined from the folder name, in the format of `/api/FOLDER-NAME`. Using the folder name provided, your route is currently set to `/api/api_search`. Change this to be more RESTful.
+
+1. Open the **function.json** file in the `api_search` folder. 
+1. Add the `route` property as shown in the following json so your API route is `/api/search`.
+
+:::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json"  :::
+
 ## 2. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
@@ -210,6 +219,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 **Step 1.** Create a file named `bing_search.py` in the **shared** folder.
 
 **Step 2.** Copy the following Python code into it.
+
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
 ## 5. Create resource for Azure Key Vault
@@ -561,6 +571,7 @@ az storage container create \
 **Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
 
 **Step 4.** Copy the following Python code into it.
+
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
 ## 11. Create code for API endpoint with Python
@@ -568,7 +579,8 @@ az storage container create \
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  
 **Step 2.** Copy the following Python code into it.
-:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py"  :::
+
+:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="29-31,41,49-51"  :::
 
 ## 12. Test the API endpoint for your python function
 
