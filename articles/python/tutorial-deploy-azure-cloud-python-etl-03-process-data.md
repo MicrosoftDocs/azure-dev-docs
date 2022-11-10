@@ -17,7 +17,7 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
-## 1. Create a local BlobTrigger Azure Function
+## 1. Create a local BlobTrigger for Python Functions App
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
         1. **Select a language**: Choose `Python`.
         1. **Select a Python interpreter to create a virtual environment**: Choose your *preferred Python interpreter*. If an option isn't shown, type in the full path to your Python binary.
         1. **Select a template for your project's first function**: Choose `Azure blob storage trigger`.
-        1. **Provide a function name**: Enter `msdocs-cloud-python-etl-blobtrigger`.
+        1. **Provide a function name**: Enter `api_blob_trigger`.
         1. **Authorization level**: Choose `Function`.  For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
         1. **Select how you would like to open your project**: Choose `Add to workspace`.
     :::column-end:::
@@ -55,141 +55,21 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
 
 ### [Azure CLI](#tab/azure-cli)
 
-**Step 1.** Run the `func init` command to create a functions project in a folder named **MSDocsCloudPythonETLProj** with the specified runtime and navigate to the directory.
+**Step 1.** Run the `func init` command to create a functions project in a folder named **msdocs-python-etl-serverless** with the specified runtime and navigate to the directory.
 
 **Step 2.** Navigate to the local Azure Function project and add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
 
 ```bash
-cd MSDocsCloudPythonETLProj
+cd msdocs-python-etl-serverless
 
-func new --name msdocs-cloud-python-etl-blobtrigger --template "azure blob storage trigger"
+func new --name api_blob_trigger --template "azure blob storage trigger"
 ```
 
 ---
 
-## 2. Define data cleansing python functions
 
-In the local BlobTrigger Azure Function, create a new function definition to cleanse the news search results data and filters data features from the JSON blob file.
 
-```python
-import html
-import re
-from bs4 import BeautifulSoup
-
-# Strip HTML tags from a string.
-def remove_html_tags(html_text):
-    logging.info(f"Remove HTML tags from Bing News Search result.")
-    return html.escape(re.compile(r'<[^>]+>').sub('', str(html_text)))
-
-# Get all text of a news article, with the assumption that most of the 
-# article text will use the <p> (paragraph) HTML tag.
-def get_html_text(page_html):
-    soup = BeautifulSoup(page_html, 'html.parser')
-    text = soup.find_all('p', text=True)
-    text = remove_html_tags(str(text))
-    return text
-```
-
-## 3. Add data normalization function
-
-The text data in the Bing News result set can be used to analyze and solve business problems. However, it's important to pre-process the data prior to using the data for analysis or prediction.
-
-In the same local BlobTrigger Azure Function, create a new function definition to normalize the article content text news search results data from the Blob.
-
-```python
-import json
-
-def normalize_text(text_string):
-    # Case conversion: Convert all letters of the string in the column to one case(lowercase).
-    lower_string = text_string.lower()
-    
-    # remove numbers: If numbers are essential to convert to words else remove all numbers
-    no_number_string = re.sub(r'\d+','',lower_string)
-    
-    # remove all punctuation except words and space
-    no_punc_string = re.sub(r"(@\[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?", "",no_number_string)
-    
-    # remove white spaces: Returns a copy of the string with both leading and trailing characters removed
-    no_wspace_string = no_punc_string.strip()
-
-    # decode unicode to properly handle special characters
-    json_bytes = no_wspace_string.encode()
-    json_str_decoded = json.dumps(json_bytes.decode('utf-8', errors='ignore'))
-
-    return json_str_decoded
-```
-
-## 4. Modify the Main function
-
-Modify the main function definition in the same local Azure Function to call each new function.
-
-```python
-import requests
-import azure.functions as func
-from azure.identity import DefaultAzureCredential
-
-def main(myblob: func.InputStream):
-
-    logging.info(f"Python blob trigger function processed blob \n"
-                 f"Name: {myblob.name}\n"
-                 f"Blob Size: {myblob.length} bytes")
-
-    default_credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
-
-    logging.info(f"Start processing Bing News Search results for '{myblob.name}'.")
-
-    search_results_blob_str = myblob.read()
-    blob_json = search_results_blob_str.decode("utf-8").replace("'", '"')
-    data = json.loads(blob_json)
-
-    json_str = ''
-
-    for item in data:
-        article_url = item['url']
-        article_title = remove_html_tags(item['name'])
-        article_descr = remove_html_tags(item['description'])
-        article_text = get_html_text(requests.get(article_url).content)
-        article_text = remove_html_tags(article_text)
-        article_text_norm = normalize_text(article_text)
-        json_str += '{"url": "' + article_url + '","title":"' + article_title + '","description":"' + article_descr + '","text":"'+ article_text + '","normalized_text":"' + article_text_norm + '"},'
-
-    json_str = json_str.rstrip(json_str[-1])
-    json_str = '{"values":[' + json_str + ']}'
-
-    logging.info(f"Successfully processed Bing News Search results for '{myblob.name}'.")
-```
-
-## 5. Test the Azure blob storage trigger Function
-
-To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function will execute automatically.
-
-**Step 1.**  Test running the Azure Storage Blob Trigger function locally by pressing `F5` or the play icon while in the editor window of the **__init__.py** file.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png" alt-text="A screenshot showing how to build and run the functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png":::
-
-**Step 2.** Execute the function locally.
-
-1. Choose the **Azure icon** in the **Activity bar**.
-1. In the **Workspace area**, expand **Local Project** then **Functions**.
-1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
-1. Choose **Execute Function Now**.
-1. At the prompt, enter the request message body value `{ "search_term": "Azure"}` and press Enter.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif" alt-text="Animated screenshot of testing the BlobTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif":::
-
-**Step 3.** Review the logging output in the **Terminal** window. You'll see the Blob Trigger function execute after the JSON file was uploaded from the HTTP Trigger.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png" alt-text="A screenshot showing the logging output of both local functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png":::
-
-# Tutorial: Use an Azure Function to load an Azure Data Lake Store using Python on Azure
-
-This tutorial, loads the processed data into Azure Data Lake Storage (ADLS) Gen 2 using an Azure Blob Trigger Function with Python.
-
-The data is then archived into an Azure Blob Storage Container using Azure Storage lifecycle management policies.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
-
-## 1. Create Azure Data Lake Storage
+## 1. Create resource for Azure Data Lake Gen 2
 
 Azure Data Lake Storage (ADLS) is built upon the Azure Blob File System (ABFS) over TLS/SSL for encryption and uses an optimized driver for big data workloads. Other features such as storage tier options and high-availability & disaster recovery options of blob storage, make ADLS the ideal storage solution for big data analytics.
 
@@ -267,7 +147,7 @@ az storage account create \
 
 ---
 
-## 2. Assign data lake Access Controls
+## 2. Configure resources's access to Azure Data Lake 
 
 In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, we'll use the service principal created by the managed identity for the hosting service.
 
@@ -334,7 +214,7 @@ az role assignment create \
 >[!IMPORTANT]
 >Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
 
-## 3. Create processed data storage structure
+## 3. Create directory for Azure Data Lake
 
 A container act as a file system directory to organize data files in an Azure Data Lake Store. Containers can store an unlimited amount of blobs, and a storage account can have an unlimited number of containers.
 
@@ -409,9 +289,19 @@ az storage fs directory create \
 >
 > [Azure Purview](/azure/purview/) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
 
-## 4. Load processed data into Azure Data Lake Store
+## 4. Create code for Data Lake with Python SDK
 
 Once the data is transformed into a format ideal for analysis, load the data into an analytical data store. The data store can be a database system, data warehouse, data lake, or Hadoop. Each destination has different approaches for loading data reliability and optimized performance. The data can now be used for analysis and business intelligence. This article loads the transformed data into Azure Data Lake Storage (ADLS) as various compute and analytic Azure services can easily connect to Azure Data Lake Storage.
+
+**Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+
+***Step 2.** Edit the file to update the following:
+
+|Property|Setting|
+|--|--|
+|DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example "YOUR-RESOURCE_NAME".|
+|DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example "processed-news".|
+|DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example "news-data".|
 
 **Step 1.** Create App Settings for the Azure resources.
 
@@ -422,6 +312,43 @@ Once the data is transformed into a format ideal for analysis, load the data int
 1. Add another key-value pair to store the key vault name by entering `, "ADLS_DIR": "news-data"`.
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png" alt-text="A screenshot showing how to add App Settings for Azure Storage information to the local.settings.json file in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png":::
+
+## 2. Create code for data transformation
+
+**Step 1.** Create a file named `transformation.py` in the **shared** folder.
+
+**Step 2.** Copy the following Python code into it.
+
+:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transformation.py"  :::
+
+## 4. Create code for BlobTrigger endpoint with Python
+**Step 1.** Create a file named `transformation.py` in the **shared** folder.
+
+**Step 2.** Copy the following Python code into it.
+
+:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transformation.py"  :::
+
+## 5. Test the Azure blob storage trigger Function
+
+To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function will execute automatically.
+
+**Step 1.**  Test running the Azure Storage Blob Trigger function locally by pressing `F5` or the play icon while in the editor window of the **__init__.py** file.
+
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png" alt-text="A screenshot showing how to build and run the functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png":::
+
+**Step 2.** Execute the function locally.
+
+1. Choose the **Azure icon** in the **Activity bar**.
+1. In the **Workspace area**, expand **Local Project** then **Functions**.
+1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+1. Choose **Execute Function Now**.
+1. At the prompt, enter the request message body value `{ "search_term": "Azure"}` and press Enter.
+
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif" alt-text="Animated screenshot of testing the BlobTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif":::
+
+**Step 3.** Review the logging output in the **Terminal** window. You'll see the Blob Trigger function execute after the JSON file was uploaded from the HTTP Trigger.
+
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png" alt-text="A screenshot showing the logging output of both local functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png":::
 
 <br/>
 

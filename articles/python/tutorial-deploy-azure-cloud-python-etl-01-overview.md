@@ -25,14 +25,13 @@ When deployed, the sample solution flow for this recommendation model is as foll
     * Call the [Microsoft Bing News Search API](/bing/apis/bing-news-search-api)
     * [Gather information about recent news](tutorial-deploy-azure-cloud-python-etl-02-get-data.md) that's limited to the specified search term
 1. *Store Data*: Store the search results:
-    * [Store results as a JSON file](tutorial-deploy-azure-cloud-python-etl-03-store-data.md) in Azure Blob Storage container.
+    * Store results as a JSON file in Azure Blob Storage container.
 1. *Process Data*: Use an Azure BlobTrigger Function which activates when the JSON file is uploaded to Blob Storage:
     * Retrieve JSON file
     * Request each news article from Bing
-    * [Process the article contents](tutorial-deploy-azure-cloud-python-etl-04-process-data.md)
-1. *Serve Data*: Load data in Azure Data Lake Store:
+    * [Process the article contents](tutorial-deploy-azure-cloud-python-etl-03-process-data.md)
+1. *Store Data*: Store processed data in Azure Data Lake Store:
     * Load the processed content as a JSON file to an Azure Data Lake Store
-    * [Serve](tutorial-deploy-azure-cloud-python-etl-05-serve-data.md) the data, such as to an application down the pipeline.
 
 ## Prerequisites for the tutorial
 

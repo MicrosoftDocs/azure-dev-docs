@@ -109,12 +109,12 @@ For this tutorial series, create a local Functions app then deploy the app to Az
 
 ### [Azure CLI](#tab/azure-cli)
 
-**Step 1.** Run the `func init` command to create a functions project in a folder named **MSDocsCloudPythonETLProj** with the specified runtime and navigate to the directory.
+**Step 1.** Run the `func init` command to create a functions project in a folder named **msdocs-python-etl-serverless** with the specified runtime and navigate to the directory.
 
 ```bash
-func init MSDocsCloudPythonETLProj --python
+func init msdocs-python-etl-serverless --python
 
-cd MSDocsCloudPythonETLProj
+cd msdocs-python-etl-serverless
 ```
 
 **Step 2.** Add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
@@ -325,11 +325,11 @@ az keyvault secret set \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 6. Create code for Key vault with Python SDK
+## 6. Create code for Key Vault with Python SDK
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
 
-***Step 2.** Edit the file to update the following:
+**Step 2.** Edit the file to update the following:
 
 |Property|Setting|
 |--|--|
@@ -337,9 +337,9 @@ az keyvault secret set \
 
 **Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 
-***Step 4.** Create a folder named `shared` which will contain all the integration code files.
+**Step 4.** Create a folder named `shared` which will contain all the integration code files.
 
-***Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
+**Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
@@ -561,7 +561,7 @@ az storage container create \
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
 
-***Step 2.** Edit the file to update the following:
+**Step 2.** Edit the file to update the following:
 
 |Property|Setting|
 |--|--|
@@ -580,7 +580,7 @@ az storage container create \
  
 **Step 2.** Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="29-31,41,49-51"  :::
+:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
 ## 12. Test the API endpoint for your python function
 
@@ -604,4 +604,4 @@ az storage container create \
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Process/Prep the Data >>](tutorial-deploy-azure-cloud-python-etl-04-process-data.md)
+> [Process/Prep the Data >>](tutorial-deploy-azure-cloud-python-etl-03-process-data.md)
