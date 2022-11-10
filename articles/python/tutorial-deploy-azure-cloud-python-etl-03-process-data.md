@@ -17,6 +17,11 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
+* [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
+
+> [!CAUTION]
+> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
+
 ## 1. Create a local BlobTrigger for Python Functions App
 
 ### [Azure portal](#tab/azure-portal)

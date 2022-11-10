@@ -17,6 +17,11 @@ This tutorial series will guide you through creating and deploying a serverless,
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
+* [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
+
+> [!CAUTION]
+> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
+
 ## What the sample solution does
 
 When deployed, the sample solution flow for this recommendation model is as followed:
@@ -47,7 +52,7 @@ This tutorial provides three tooling options, the Azure portal, Visual Studio Co
 
 ## Get the sample solution
 
-A sample Python solution using all Azure services used in each article in this series is available to help you follow along with this tutorial. Download or clone the sample codebase to your local workstation.
+A sample Python solution is available to help you follow along with this tutorial. Download or clone the sample codebase to your local workstation. 
 
 1. Clone the sample solution:
 

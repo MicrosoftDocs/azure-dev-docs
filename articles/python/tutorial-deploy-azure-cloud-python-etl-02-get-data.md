@@ -21,6 +21,11 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
+* [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
+
+> [!CAUTION]
+> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
+
 ## Prerequisites
 
 ### [Azure portal](#tab/azure-portal)
@@ -135,7 +140,7 @@ func start
 
 ---
 
-## Change Azure Function API route in function.json
+## 2. Change Azure Function API route in function.json
 
 The route is determined from the folder name, in the format of `/api/FOLDER-NAME`. Using the folder name provided, your route is currently set to `/api/api_search`. Change this to be more RESTful.
 
@@ -144,14 +149,14 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 
     :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json" highlight="13" :::
 
-## 2. Set application settings in local.settings.json for Python Functions App
+## 3. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you are instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
 
     :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
 
-## 3. Get Azure credential with Python
+## 4. Get Azure credential with Python
 
 The code in this tutorial relies on the secure authentication to Azure with the [Azure Identity](https://pypi.org/project/azure-identity/) package, using:
 * Passwordless authentication - the most secure connection to Azure
@@ -167,7 +172,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
 
-## 3. Create resource for Bing Search
+## 5. Create resource for Bing Search
 
 :::row:::
     :::column:::
@@ -214,7 +219,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     :::column-end:::
 :::row-end:::
 
-## 4. Create code for Bing Search News with Python SDK
+## 6. Create code for Bing Search News with Python SDK
 
 **Step 1.** Create a file named `bing_search.py` in the **shared** folder.
 
@@ -222,7 +227,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
-## 5. Create resource for Azure Key Vault
+## 7. Create resource for Azure Key Vault
 
 In Azure, developers can choose to manually store information needed to run the app in the app configuration settings. However, for sensitive information, the more secure approach is to use an Azure Key Vault.
 
@@ -325,7 +330,7 @@ az keyvault secret set \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 6. Create code for Key Vault with Python SDK
+## 8. Create code for Key Vault with Python SDK
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
 
@@ -343,7 +348,7 @@ az keyvault secret set \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
-## 7. Create resource for Azure Blob Storage
+## 9. Create resource for Azure Blob Storage
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
@@ -430,7 +435,7 @@ az storage account create \
 >[!IMPORTANT]
 >Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Storage account names must also be unique across Azure.
 
-## 8. Configure resource's access role to Azure Blob Storage
+## 10. Configure resource's access role to Azure Blob Storage
 
 In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, you'll use the service principal created by the managed identity for the hosting service.
 
@@ -494,7 +499,7 @@ az role assignment create \
 
 ---
 
-## 9. Create container for Azure Blob Storage
+## 11. Create container for Azure Blob Storage
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
@@ -557,7 +562,7 @@ az storage container create \
 
 ---
 
-## 10. Create code for Azure Blob Storage SDK
+## 12. Create code for Azure Blob Storage SDK
 
 **Step 1.** Open the **local.settings.json** file which holds the local environment settings.
 
@@ -574,7 +579,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 11. Create code for API endpoint with Python
+## 13. Create code for API endpoint with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  
@@ -582,7 +587,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
-## 12. Test the API endpoint for your python function
+## 14. Test the API endpoint for your python function
 
 **Step 1.**  Run the function locally by pressing `F5` or the play icon.
 
