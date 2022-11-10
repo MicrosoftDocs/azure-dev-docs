@@ -142,14 +142,14 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **function.json** file in the `api_search` folder. 
 1. Add the `route` property as shown in the following json so your API route is `/api/search`.
 
-:::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json"  :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json" highlight="13" :::
 
 ## 2. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you are instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
 
-:::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
 
 ## 3. Get Azure credential with Python
 
