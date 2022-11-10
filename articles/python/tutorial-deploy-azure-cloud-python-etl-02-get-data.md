@@ -153,6 +153,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
 **Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
+
 **Step 2.** Copy the following Python code into it. 
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
