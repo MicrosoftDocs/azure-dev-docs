@@ -44,11 +44,13 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The source repo for the library API reference documentation resides on [https://github.com/MicrosoftDocs/azure-docs-sdk-python/](https://github.com/MicrosoftDocs/azure-docs-sdk-python/).
 
-- Azure libraries for Python libraries were updated starting in 2019 to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The updated libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
+- Some Azure Python libraries were updated starting in 2019 to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The updated libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
-  - On 31 March 2023, we will be retiring support for Azure SDK libraries which do not conform to our current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they will no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
+  - On 31 March 2023, we'll be retiring support for Azure SDK libraries that don't conform to our current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they'll no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
 
-  - To avoid missing out on security and performance updates to the Azure SDKs, upgrade to the [new Azure SDK libraries](https://azure.github.io/azure-sdk/) by 31 March 2023.
+  - To avoid missing security and performance updates to the Azure SDKs, upgrade to the [latest Azure SDK libraries](https://azure.github.io/azure-sdk/) by 31 March 2023.
+
+  - To check which Python libraries are impacted, see [Azure SDK Deprecated Releases for Python](https://azure.github.io/azure-sdk/releases/deprecated/index.html#python).
 
 - For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_design.html#introduction).
 
