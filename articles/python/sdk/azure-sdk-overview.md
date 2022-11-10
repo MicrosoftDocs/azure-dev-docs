@@ -44,13 +44,11 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The source repo for the library API reference documentation resides on [https://github.com/MicrosoftDocs/azure-docs-sdk-python/](https://github.com/MicrosoftDocs/azure-docs-sdk-python/).
 
-- We're currently updating the Azure libraries for Python libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
+- Azure libraries for Python libraries were updated starting in 2019 to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The updated libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
-  - This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) library.
+  - On 31 March 2023, we will be retiring support for Azure SDK libraries which do not conform to our current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they will no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
 
-  - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](azure-sdk-library-package-index.md#libraries-using-azurecore). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
-
-  - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
+  - To avoid missing out on security and performance updates to the Azure SDKs, upgrade to the [new Azure SDK libraries](https://azure.github.io/azure-sdk/) by 31 March 2023.
 
 - For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_design.html#introduction).
 
