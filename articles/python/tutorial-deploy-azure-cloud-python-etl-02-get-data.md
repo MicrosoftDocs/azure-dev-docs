@@ -140,7 +140,7 @@ func start
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you are instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
 
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
 
 ## 3. Get Azure credential with Python
 
@@ -155,7 +155,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 **Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
 **Step 2.** Copy the following Python code into it. 
 
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
 
 ## 3. Create resource for Bing Search
 
@@ -208,7 +208,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 **Step 1.** Create a file named `bing_search.py` in the **shared** folder.
 **Step 2.** Copy the following Python code into it.
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
 ## 5. Create resource for Azure Key Vault
 
@@ -325,7 +325,7 @@ az keyvault secret set \
 **Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 ***Step 4.** Create a folder named `shared` which will contain all the integration code files.
 ***Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
 ## 7. Create resource for Azure Blob Storage
 
@@ -553,13 +553,13 @@ az storage container create \
 
 **Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
 **Step 2.** Copy the following Python code into it.
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
 ## 11. Create code for API endpoint with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder. 
 **Step 2.** Copy the following Python code into it.
-    :::code language="Python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py"  :::
 
 ## 12. Test the API endpoint for your python function
 
