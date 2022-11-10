@@ -146,10 +146,10 @@ func start
 
 The code in this tutorial relies on the secure authentication to Azure with the [Azure Identity](https://pypi.org/project/azure-identity/) package, using:
 * Passwordless authentication - the most secure connection to Azure
-    * SDK object: [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python), provided in the . Setting up that local and Azure credential is explained later in this tutorial series.
+    * SDK object: [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), provided in the . Setting up that local and Azure credential is explained later in this tutorial series.
     * Python implementation: **get_azure_default_credential**: Using the credential provided by the runtime environment such as needed by Azure Storage
 * Password authentication - such as keys and connection strings
-    * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential?view=azure-python)
+    * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
 **Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
