@@ -85,7 +85,7 @@
         items:
           - name: 1. Overview
             href: tutorial-deploy-azure-cloud-python-etl-01-overview.md
-          - name: 2. Get data from Bing news
+          - name: 2. Get data and store 
             href: tutorial-deploy-azure-cloud-python-etl-02-get-data.md
           - name: 3. Store raw data
             href: tutorial-deploy-azure-cloud-python-etl-03-store-data.md

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Get Bing News Search API results data with Python on Azure"
-description: In this tutorial, you'll create a local Python Azure Functions project to call the Bing News Search REST API and store the search results in Azure Blob Storage.
+title: "Tutorial: Get Bing News with Python"
+description: In this tutorial, you'll create a local Python Azure Functions project to call the Bing News Search SDK and store the search results in Azure Blob Storage.
 services: python, azure-functions, azure-storage-accounts, bing-search-services
 ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
@@ -11,9 +11,13 @@ author: jessmjohnson
 ms.author: jejohn
 ---
 
-# Tutorial: Get data with Bing News Search API using a Python Azure Function
+# Tutorial: Get Bing News using a Python Azure Function
 
-In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to HTTP requests. The Azure Function uses the [Bing News Search REST API](/bing/apis/bing-news-search-api) to get news articles for a specified search-term and stores the data as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
+In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to HTTP requests. The Azure Function:
+
+* Gets the Bing Search key from Key Vault
+* Calls the [Bing News Search service](/bing/apis/bing-news-search-api) with your search term
+* Stores the data as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
@@ -40,11 +44,11 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 ---
 
-## 1. Create a local HTTPTrigger Azure Function
+## 1. Create a local Azure Function and an HTTPTrigger endpoint
 
 ### [Azure portal](#tab/azure-portal)
 
-For Python functions, you can create an Azure Function App in the Azure portal or locally and then deploy to Azure. For this tutorial series, we'll start with creating local functions then deploy the functions to Azure.
+For this tutorial series, create a local Functions app then deploy the app to Azure.
 
 ### [Visual Studio Code](#tab/vscode)
 
@@ -66,7 +70,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         1. **Select a language**: Choose **Python**.
         1. **Select a Python interpreter to create a virtual environment**: Choose your **preferred Python interpreter**. (*If an option isn't shown, type in the full path to your Python binary.*)
         1. **Select a template for your project's first function**: Choose **HTTP trigger**.
-        1. **Provide a function name**: Enter `msdocs-cloud-python-etl-httptrigger`.
+        1. **Provide a function name**: Enter `api_search`.
         1. **Authorization level**: Choose **Function**.  (*For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).*)
         1. **Select how you would like to open your project**: Choose **Add to workspace**.
     :::column-end:::
@@ -131,7 +135,29 @@ func start
 
 ---
 
-## 2. Create a Bing Search Azure resource
+## 2. Set application settings in local.settings.json for Python Functions App
+
+1. Open the **./local.settings.json** file.
+1. Replace the file contents with the following JSON. As you progress through the tutorial series, you are instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
+
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
+
+## 3. Get Azure credential with Python
+
+The code in this tutorial relies on the secure authentication to Azure with the [Azure Identity](https://pypi.org/project/azure-identity/) package, using:
+* Passwordless authentication - the most secure connection to Azure
+    * SDK object: [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python), provided in the . Setting up that local and Azure credential is explained later in this tutorial series.
+    * Python implementation: **get_azure_default_credential**: Using the credential provided by the runtime environment such as needed by Azure Storage
+* Password authentication - such as keys and connection strings
+    * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential?view=azure-python)
+    * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
+
+**Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
+**Step 2.** Copy the following Python code into it. 
+
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
+
+## 3. Create resource for Bing Search
 
 :::row:::
     :::column:::
@@ -178,11 +204,17 @@ func start
     :::column-end:::
 :::row-end:::
 
-## 3. Create and set up an Azure Key Vault
+## 4. Create code for Bing Search News with Python SDK
 
-In Azure, developers can choose to manually store information needed to run the app in the app configuration settings. However, for sensitive information, a better approach is to use an Azure Key Vault.
+**Step 1.** Create a file named `bing_search.py` in the **shared** folder.
+**Step 2.** Copy the following Python code into it.
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
-Azure Key Vault is a centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys. Using Azure Key Vault also provides better access monitoring and logs to see who accesses secret, when, and how.
+## 5. Create resource for Azure Key Vault
+
+In Azure, developers can choose to manually store information needed to run the app in the app configuration settings. However, for sensitive information, the more secure approach is to use an Azure Key Vault.
+
+Azure Key Vault is a centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys. Using Azure Key Vault also provides access monitoring and logs to see who accesses secret, when, and how.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -234,7 +266,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
 :::row:::
     :::column:::
         **Step 5.** In the **Create a secret** dialogue, enter the following information:
-        1. **Name**: Enter **bing-search-resource-key**.
+        1. **Name**: Enter `bing-search-resource-key1`.
         1. **Secret value**: Enter the Bing Search API subscription key that you noted/copied to your clipboard previously in this article.
         1. Select **Create** to add this new secret to the **Azure Key Vault**.
     :::column-end:::
@@ -281,153 +313,274 @@ az keyvault secret set \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 4. Get Bing News Search key from Key vault
+## 6. Create code for Key vault with Python SDK
 
-**Step 1.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
+**Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+***Step 2.** Edit the file to update the following:
 
-**Step 2.** Open the `__init__.py` file under the function folder **msdocs-python-etl-httptrigger**.
+    |Property|Setting|
+    |--|--|
+    |KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "YOUR-RESOURCE_NAME".|
 
-**Step 3.** In the local Azure Function, create a new function definition to retrieve an Azure Key Vault secret value for the Bing Search subscription key.
+**Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
+***Step 4.** Create a folder named `shared` which will contain all the integration code files.
+***Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
-```python
-import logging
-import os
+## 7. Create resource for Azure Blob Storage
 
-import azure.functions as func
+Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
-from azure.core.exceptions import ClientAuthenticationError, AzureError
+### [Azure portal](#tab/azure-portal)
 
-def get_key_vault_secret(key_vault_name, secret_name, azure_credential):
+:::row:::
+    :::column:::
+        **Step 1.** Navigate to create an Azure Storage Account resource in the Azure portal.
+        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
+        1. Enter **storage** in the search box.
+        1. Navigate to **Storage accounts** under **Services** in the search results.
+        1. Select the **+ Create** button in the **Storage accounts** dialogue.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** On the **Basics tab**, provide the following information for your storage account.
+        1. **Subscription**: Select <**YOUR-SUBSCRIPTION**>.
+        1. **Resource group**: Select **msdocs-python-cloud-etl-rg**.
+        1. **Name**: Enter **msdocspythoncloudetlabs**.
+        1. **Location**: Select **East US**.
+        1. **Performance**: Select **Standard**.
+        1. **Replication**: Select **Locally-redundant storage (LRS)**.
+        1. Select **Review** to proceed to validate the configuration values before creating the resource.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-configure.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** Select **Create** to accept the default options, then proceed to validate and create the account.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png":::
+    :::column-end:::
+:::row-end:::
 
-    retrieved_akv_secret = None
+### [Visual Studio Code](#tab/vscode)
 
-    try:
-        logging.info(f'Connecting to Azure Key Vault ( {key_vault_name}. )')
+:::row:::
+    :::column:::
+        **Step 1.** Create a new Azure Storage Account.
+        1. Open Azure Tools Extension by selecting the **Azure icon** in the **Activity bar**.
+        1. Right-click (Windows) or Ctrl + Select (macOS) the **Storage accounts** item.
+        1. Select **Create Storage Account...(Advanced)**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-storage.png" alt-text="A screenshot showing how to use the Visual Studio Code Azure Tools extension to create a new Azure Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-storage.png" :::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** Enter following information in the prompts:
+        1. **Name**: Enter `msdocspythoncloudetlabs`.
+        1. **Select a resource group for new resources**: Enter `msdocs-python-cloud-etl-rg`.
+        1. **Would you like to enable static website hosting?**: Select `No`.
+        1. **Select a location for new resources**: Select `East US`.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-blob-storage.gif" alt-text="An animated screenshot showing how to configure a new Azure Storage Account using the Visual Studio Code Azure Tools extension." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-blob-storage.gif" :::
+    :::column-end:::
+:::row-end:::
 
-        # Create an Azure Key Vault secret client and retrieve secret by name.
-        KVUri = f"https://{key_vault_name}.vault.azure.net"
-        client = SecretClient(vault_url=KVUri, credential=azure_credential)
-        retrieved_akv_secret = client.get_secret(secret_name)
-        
-        logging.info(f'Successfully retrieved the Bing Search API subscription key secret from {key_vault_name}.')
-        
-        return retrieved_akv_secret
+### [Azure CLI](#tab/azure-cli)
 
-    except ClientAuthenticationError:
-        # Can occur if either tenant_id, client_id or client_secret is incorrect
-        logging.critical('Azure SDK was not able to connect to Key Vault.', e.exc_msg)
-        raise
-    except AzureError as e:
-        # Catch every error that is from the Azure SDK
-        logging.critical('Azure SDK was not able to complete Key Vault request.', e.exc_msg)
-        raise
-    except Exception as e:
-        logging.critical(e.exc_msg)
-        raise
+Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create an Azure Storage Accounts.
+
+```azurecli
+# Use the same resource group you create the web app in.
+az storage account create \
+    --name 'msdocspythoncloudetlabs' \
+    --resource-group 'msdocs-python-cloud-etl-rg' \
+    --location 'eastus' \ 
+    --sku Standard_LRS \
+    --assign-identity
 ```
 
-<br/>
+---
 
-## 5. Call the Bing News Search REST API
+>[!IMPORTANT]
+>Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Storage account names must also be unique across Azure.
 
-**Step 1.** In the same local Azure Function, create a new function definition to call the Bing News Search API for specified search term with specified search results limit count.
+## 8. Configure resource's access role to Azure Blob Storage
 
-```python
-import requests
-import json
+In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, you'll use the service principal created by the managed identity for the hosting service.
 
-def call_bing_search_api(search_url, search_term, api_subscription_key):
-    logging.info(f"Retrieving Bing News Search results for '{search_term}'.")
- 
-    try:
-        # Submit GET request to Bing News Search endpoint with defined parameters and header with parameters.
-        headers = {"Ocp-Apim-Subscription-Key" : api_subscription_key.value}
-        params  = {"q": search_term, "count": 10, "textDecorations": True, "textFormat": "HTML"}
-        response = requests.get(search_url, headers=headers, params=params)
-        response.raise_for_status()
-        
-        logging.info(f"Successfully retrieved the Bing News Search results for '{search_term}'.")
+### [Azure portal](#tab/azure-portal)
 
-        # Returns response JSON for GET request.
-        return response.json()
+:::row:::
+    :::column:::
+        **Step 1.** In the Azure Storage Account and, add role assignment.
+        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** Choose the members to grant Storage Blob Data Contributor role.
+        1. **Select role**: Select **User, group, or service principal**.
+        1. **Members**: Select **+ Select members**.
+        1. Search for your user account name in the dialogue.
+        1. Select the **Select** button to add your user account as a member of this role.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png" alt-text="A screenshot showing how your user account name to assign the role to." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 4.** Review the selected values and select **Review + Assign**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png" alt-text="A screenshot of reviewing and creating the Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png":::
+    :::column-end:::
+:::row-end:::
 
-    except Exception as e:
-        logging.critical(e.exc_msg)
-        raise
+### [Visual Studio Code](#tab/vscode)
+
+To assign access control roles for an Azure resource, you **must** use the Azure portal or the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli)
+
+```bash
+# Assign the 'Storage Blob Data Contributor' role to your user
+az role assignment create \
+    --role "Storage Blob Data Contributor" \
+    --assignee <YOUR USER PRINCIPAL NAME> \
+    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetlabs"
 ```
 
-<br/>
+>[!NOTE]
+>Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
 
-## 6. Call the Bing News Search REST API
+---
 
-**Step 1.** Modify **main** function definition of the local HTTPTrigger Azure Function to call each new function defined in this tutorial.
+## 9. Create container for Azure Blob Storage
 
-```python
-## Receives a func.request object and returns a value of type func.HttpRequest.
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-    # Looks for 'search_term' parameter in the URL. 
-    search_term = req.params.get('search_term')
+### [Azure portal](#tab/azure-portal)
 
-    # If 'search_term' parameter doest not exit in the URL.
-    if not search_term:
-        try:
-            # Check if the request body contains JSON.
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            # Checks if the JSON contains the 'search_term' value.
-            search_term = req_body.get('search_term')
+:::row:::
+    :::column:::
+        **Step 1.** In the navigation pane for the storage account, scroll to the Data storage section and select **Containers**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container.png" alt-text="Screenshot navigating to the Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** Within the **Containers** pane, select the **+ Container** button to open the New container pane.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-create.png" alt-text="Screenshot navigating to create a new Container." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-create.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** Within the **New Container** pane, provide the following information:
+        1. **Name**: Enter `msdocs-python-cloud-etl-news-source`.
+        1. **Public access level**: Select **Private (no anonymous access)**. (*The Default Value*)
+        1. Select **Create** to create the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-configure-new.png" alt-text="Screenshot configuring the New Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-configure-new.png":::
+    :::column-end:::
+:::row-end:::
 
-    # If 'search_term' is found, then move forward with getting Bing News Search results.
-    if search_term:
-        # Bing News Search endpoint URL
-        bing_news_search_URL = 'https://api.bing.microsoft.com/v7.0/news/search'
+### [Visual Studio Code](#tab/vscode)
 
-        #The DefaultAzureCredential gets the authentication token based on the environment the application is running
-        credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
+:::row:::
+    :::column:::
+        Create a container for news search results data.
+        1. Expand **Storage accounts** under the **Resources** section of the Azure Tools extension.
+        1. Right-Click on **Blob Containers**.
+        1. Select **Create Blob Container...**.
+        1. **Name**: Enter `msdocs-python-cloud-etl-news-source` in the prompt.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-container.gif" alt-text="An animated screenshot showing how to create a new Blob Container in Azure Storage using the Visual Studio Code Azure Tools extension." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-container.gif" :::
+    :::column-end:::
+:::row-end:::
 
-        # Get App Settings
-        akv_name = os.environ["KEY_VAULT_NAME"]
-        akv_secret_name = os.environ["BING_SEARCH_SUB_KEY_SECRET"]
+### [Azure CLI](#tab/azure-cli)
 
-        # Get Bing API Subscription Key stored in an Azure Key Vault secret.
-        bing_api_subscription_key = get_key_vault_secret(key_vault_name=akv_name, secret_name=akv_secret_name, azure_credential=credential)
+Create a container for *news-source* data in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
-        # Call Bing Search API to retrieve results for specified search_term
-        news_search_results = call_bing_search_api(   
-                                search_url=bing_news_search_URL,
-                                search_term=search_term,
-                                api_subscription_key=bing_api_subscription_key
-        )
-
-        return func.HttpResponse(
-            f'Successfully executed Azure Function and retrieved the Bing News search results for {search_term}.',
-            status_code=200
-        )
-    else:
-        return func.HttpResponse(
-            "!!! HTTP triggered ERROR: you must pass a 'search_term' in the query string or in the request body for successful function execution.",
-            status_code=500
-        )
+```azurecli
+az storage container create \
+    --name 'msdocs-python-cloud-etl-news-source' \
+    --public-access blob \
+    --account-name 'msdocspythoncloudetlabs' \
+    --auth-mode login
 ```
 
-## 7. Create function app settings
+---
 
-1. Navigate to the **Explorer** icon in the **Activity bar**.
-1. Open the **local.settings.json** in the **editor** pane.
-1. Add a key-value pair to store the Bing Search subscription key secret name by entering `, "BING_SEARCH_RESOURCE_KEY": "bing-search-resource-key"`.
-1. Add another key-value pair to store the key vault name by entering `, "KEY_VAULT_NAME": "msdocs-python-etl-kv"`.
+## 10. Create code for Azure Blob Storage SDK
 
-## 8. Test the function
+**Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+***Step 2.** Edit the file to update the following:
 
-/bing/search-apis/bing-web-search/search-responses#news-answer
+    |Property|Setting|
+    |--|--|
+    |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "YOUR-RESOURCE_NAME".|
+    |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
+
+**Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
+**Step 2.** Copy the following Python code into it.
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
+
+## 11. Create code for API endpoint with Python
+
+**Step 1.** Open the **__init__.py** file in the **api_search** folder. 
+**Step 2.** Copy the following Python code into it.
+    :::code language="Python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py"  :::
+
+## 12. Test the API endpoint for your python function
+
+**Step 1.**  Run the function locally by pressing `F5` or the play icon.
+
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png":::
+
+**Step 2.** Execute the function locally.
+
+1. Choose the **Azure icon** in the **Activity bar**. 
+1. In the **Workspace area**, expand **Local Project > Functions**. 
+1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+1. Choose **Execute Function Now**.
+
+    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
+    
+**Step 3.** Test the new functionality by entering the request message body value `{ "search_term": "Azure"}` and press Enter.
+
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif" alt-text="Animated screenshot of testing the HTTPTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif":::
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Store the Data >>](tutorial-deploy-azure-cloud-python-etl-03-store-data.md)
+> [Process/Prep the Data >>](tutorial-deploy-azure-cloud-python-etl-04-process-data.md)

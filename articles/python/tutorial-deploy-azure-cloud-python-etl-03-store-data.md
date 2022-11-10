@@ -17,7 +17,7 @@ In this tutorial, you'll use a local Azure Function to store the news articles f
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
-## 1. Create an Azure Blob Storage datastore
+## 8. Create an Azure Blob Storage datastore
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for  '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
