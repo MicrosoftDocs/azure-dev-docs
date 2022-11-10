@@ -6,6 +6,7 @@ ms.date: 09/26/2022
 ms.author: asirveda
 author: KarlErickson
 ms.service: azure
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Passwordless connections for Azure services
