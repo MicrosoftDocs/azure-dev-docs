@@ -31,7 +31,7 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 ### [Azure portal](#tab/azure-portal)
 
 1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-1. When prompted, enter your login credentials.
+1. When prompted, enter your sign in credentials.
 
 ### [Visual Studio Code](#tab/vscode)
 
@@ -152,7 +152,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 ## 3. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
-1. Replace the file contents with the following JSON. As you progress through the tutorial series, you are instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
+1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
 
     :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
 
@@ -160,7 +160,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 
 The code in this tutorial relies on the secure authentication to Azure with the [Azure Identity](https://pypi.org/project/azure-identity/) package, using:
 * Passwordless authentication - the most secure connection to Azure
-    * SDK object: [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), provided in the . Setting up that local and Azure credential is explained later in this tutorial series.
+    * SDK object: [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential)
     * Python implementation: **get_azure_default_credential**: Using the credential provided by the runtime environment such as needed by Azure Storage
 * Password authentication - such as keys and connection strings
     * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
@@ -332,7 +332,7 @@ az keyvault secret set \
 
 ## 8. Create code for Key Vault with Python SDK
 
-**Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+**Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
 **Step 2.** Edit the file to update the following:
 
@@ -564,7 +564,7 @@ az storage container create \
 
 ## 12. Create code for Azure Blob Storage SDK
 
-**Step 1.** Open the **local.settings.json** file which holds the local environment settings.
+**Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
 **Step 2.** Edit the file to update the following:
 
@@ -579,7 +579,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 13. Create code for API endpoint with Python
+## 13. Create code for HTTPTrigger function with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  

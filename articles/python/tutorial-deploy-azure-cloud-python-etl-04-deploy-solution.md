@@ -216,7 +216,7 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
 
 ## 5. Back up your resources to an ARM template
 
-Before removing resources, back up the entire resource group to a Azure Resource Manager (ARM) template. In the future, if you want to rebuild this application, the arm template provides all the Azure resource creation and configuration steps in one file. 
+Before removing resources, back up the entire resource group to an Azure Resource Manager (ARM) template. In the future, if you want to rebuild this application, the ARM template provides all the Azure resource creation and configuration steps in one file. 
 
 **Step: Save ARM template**
 
