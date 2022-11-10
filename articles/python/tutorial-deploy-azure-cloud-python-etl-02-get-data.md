@@ -19,7 +19,7 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 * Calls the [Bing News Search service](/bing/apis/bing-news-search-api) with your search term
 * Stores the data as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-load-bing-search.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-load-bing-search" border="false":::
 
 * [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
 

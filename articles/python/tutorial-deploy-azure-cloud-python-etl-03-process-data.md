@@ -15,7 +15,7 @@ ms.author: jejohn
 
 In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to an Azure Blob Storage Trigger. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" border="false":::
 
 * [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
 
