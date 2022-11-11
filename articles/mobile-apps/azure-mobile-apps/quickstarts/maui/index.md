@@ -45,18 +45,18 @@ A mac is required to compile the iOS version.
 
 ::: zone pivot="vs2022-mac"
 
-* [Visual Studio 2022 for Mac](https://visualstudio.microsoft.com/vs/mac/preview/)
-  * Version 17.3 does not support .NET MAUI.  Please use the latest Preview (17.4) version of Visual Studio 2022 for Mac.
-  * Ensure that all workloads are installed and updated.
-    * Use `dotnet workload list` to show the installed workloads.  Ensure all MAUI workloads are installed.
-    * Use `dotnet workload install maui` to install the MAUI workloads.
-    * Use `dotnet workload update` to update the MAUI workloads.
+* [Visual Studio 2022 for Mac](https://visualstudio.microsoft.com/vs/mac/preview/) version 17.4 or later.
+  * Ensure that the MAUI workloads are installed and updated.
+    * Use `sudo dotnet workload list` to show the installed workloads.
+    * Use `sudo dotnet workload install maui` to install the MAUI workloads.
+    * Use `sudo dotnet workload update` to update the MAUI workloads.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-  * Sign in with `az login` and select an appropriate subscription before starting.
+  * Sign in with `az login` and select an appropriate subscription.
 * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) v14.0 or later.
-  * Open Xcode after installing so that it can add any extra required components.
-  * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
+  * Open Xcode after installing so that it can download and install any extra required components.
+  * Run `xcode-select --install` to install the command line tools.
+  * If you have an Apple Developer account, go to **Settings** > **Accounts** and add the account to XCode.
 
 ::: zone-end
 
