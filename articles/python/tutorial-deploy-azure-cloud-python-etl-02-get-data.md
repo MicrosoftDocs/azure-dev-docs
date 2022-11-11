@@ -23,10 +23,12 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 ## Prerequisites
 
+You must have completed all steps from the [Overview](tutorial-deploy-azure-cloud-python-etl-01-overview.md) for this series.
+
 ### [Azure portal](#tab/azure-portal)
 
 1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-1. When prompted, enter your sign in credentials.
+1. When prompted, enter your sign-in credentials.
 
 ### [Visual Studio Code](#tab/vscode)
 
@@ -149,7 +151,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 
     :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,11" :::
 
-    The highlighted lines indicates settings made in this article. 
+    The highlighted lines indicate settings made in this article. 
 
 ## 4. Get Azure credential with Python
 
@@ -161,7 +163,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
-**Step 2.** Create a folder named `shared` which will contain all the integration code files.
+**Step 2.** Create a folder named `shared`, which will contain all the integration code files.
 
 **Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
 
@@ -443,7 +445,7 @@ In development, the account used to log into Azure requires the *Storage Blob Da
 
 :::row:::
     :::column:::
-        **Step 1.** In the Azure Storage Account add role assignment.
+        **Step 1.** In the Azure Storage Account, add role assignment.
         1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
     :::column-end:::
@@ -589,16 +591,49 @@ az storage container create \
 
 ## 14. Test the API endpoint for your python function
 
-**Step 1.**  Run the function locally by pressing `F5` or the play icon.
+**Step 1.**  Run the function locally.
 
-**Step 2.** Execute the function locally.
+### [Azure portal](#tab/azure-portal)
+
+Complete the steps using either the Visual Studio Code or the Azure CLI.
+
+### [Visual Studio Code](#tab/vscode)
+
+In Visual Studio Code, begin the Azure Function app locally with <kbd>F5</kbd>.
+
+### [Azure CLI](#tab/azure-cli)
+
+```bash
+func start
+```    
+
+---
+
+**Step 2.** Test the function locally.
+
+### [Azure portal](#tab/azure-portal)
+
+Complete the steps using either the Visual Studio Code or the Azure CLI.
+
+### [Visual Studio Code](#tab/vscode)
 
 1. Choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
+1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
-**Step 3.** Test the new functionality by entering the request message body value `{ "search_term": "Azure"}` and press Enter.
+### [Azure CLI](#tab/azure-cli)
+
+```bash
+curl --location --request GET 'http://localhost:7071/api/search?search_term=dogs&count=5'
+```
+
+---
+
+**Step 3.** 
+
+Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## Additional information
 

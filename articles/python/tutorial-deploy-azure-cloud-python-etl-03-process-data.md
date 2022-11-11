@@ -385,6 +385,7 @@ If you've reached this point and your processed file isn't in the Data Lake cont
 1. **Authentication or authorization errors indicates**:
     1. One of the Azure resources doesn't have the correct IAM role assignment or access policy.
     1. The local Azure function run time isn't using the correct identity. Make sure you sign in to Azure with the Azure CLI and verify your identity with `az account show`.
+    1. If you decided to use a service principal to authenticate from the Azure Function to the Key Vault, you need to [set an access policy in the Key Vault](/azure/key-vault/general/assign-access-policy?tabs=azure-portal) for that service principal that includes the minimum permissions.
 1. Any errors that result from **environment variable usage** indicates the value is either missing or incorrect in the `local.settings.json` file. You may have also used one directory, container, or secret name when configuring a resource but added a slightly different name to the `local.settings.json` file. 
 
 ## Next step
