@@ -274,7 +274,8 @@ The following hierarchy shows the complete directory structure of an `azd` templ
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
-│   └── resources.bicep        [ Resources file ]
+│   ├── app                    [ Recommended resources directory organized by functionality ]
+│   └── core                   [ Reference library that contains all of the Bicep modules used by the azd templates ]
 ├── src                        [ Contains directories for the app code ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
