@@ -35,12 +35,12 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
     * [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
     * [Visual Studio Code Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
     * [Visual Studio Code Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-1. To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (or select on the Sign-in to Azure... node in the Explorer).
+1. You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview#sign-in-to-azure-for-local-developer-authentication)
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Azure CLI; the CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or you can install [Azure CLI](/cli/azure/install-azure-cli) locally
-1. To sign in to your Azure Account, run the [`az login`](/cli/azure/authenticate-azure-cli) command.
+You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview#sign-in-to-azure-for-local-developer-authentication)
+
 
 ---
 
@@ -145,9 +145,11 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 ## 3. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
-1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally.
+1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally. 
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename"  :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,11" :::
+
+    The highlighted lines indicates settings made in this article. 
 
 ## 4. Get Azure credential with Python
 
