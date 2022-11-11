@@ -13,20 +13,21 @@ ms.author: jejohn
 
 # Tutorial: Deploy Python ETL Solution to Azure
 
-This tutorial,
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg":::
+In this last article of the series, you deploy the Azure Functions application to Azure.
 
 ## 1. Deploy local Function project to Azure
 
 The following steps publish your local Python Azure Function project to the new Azure Function App created with advanced create options:
 
+### [Azure portal](#tab/azure-portal)
+
+
+
+### [Visual Studio Code](#tab/vscode)
+
 :::row:::
     :::column:::
         **Step 1.** In the command pallet, enter **Azure Functions: Create function app in Azure...(Advanced)**.
-    :::column-end:::
-    :::column:::
-        {content}
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -41,9 +42,6 @@ The following steps publish your local Python Azure Function project to the new 
         1. **Storage account**: Select **msdocspythoncloudetlabs**.
         1. **Application Insights**: Select **Skip for now**.
     :::column-end:::
-    :::column:::
-        {content}
-    :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
@@ -51,9 +49,6 @@ The following steps publish your local Python Azure Function project to the new 
         1. In the **Activity Log** panel, the status of individual resources as they're being created in Azure.
         1. Once completed and all resources are created, a **notification** is displayed in Visual Studio Code, and the **deployment package** is applied.
         1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
-    :::column-end:::
-    :::column:::
-        {content}
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -65,12 +60,23 @@ The following steps publish your local Python Azure Function project to the new 
         1. Select **Deploy to Function App**.
         1. Navigate to the **Output** panel to view the deployment results.
     :::column-end:::
-    :::column:::
-        {content}
-    :::column-end:::
 :::row-end:::
 
+### [Azure CLI](#tab/azure-cli)
+
+
+
+---
+
+
+
 ## 2. Configure App Settings in Azure
+
+### [Azure portal](#tab/azure-portal)
+
+
+
+### [Visual Studio Code](#tab/vscode)
 
 :::row:::
     :::column:::
@@ -107,6 +113,12 @@ The following steps publish your local Python Azure Function project to the new 
     :::column-end:::
 :::row-end:::
 
+### [Azure CLI](#tab/azure-cli)
+
+
+
+---
+
 ## 3. Configure Azure resources to use passwordless credentials
 
 1. Enable System Assigned Identity for func app and save
@@ -114,6 +126,14 @@ The following steps publish your local Python Azure Function project to the new 
     1. Key Contributor - msdocs-python-etl-kv
     1. Storage Blob Data Contributor - msdocspythoncloudetlabs
     1. Storage Blob Data Contributor - msdocspythoncloudetladls
+
+### [Azure portal](#tab/azure-portal)
+
+### [Visual Studio Code](#tab/vscode)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
 
 ## 5. Configure auto-archive rule for source data
 
