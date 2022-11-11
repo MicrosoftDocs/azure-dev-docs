@@ -613,7 +613,18 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 14. Create code for HTTPTrigger function with Python
+## 14. Create code for random string generation with Python
+
+Create a random string to add to the end of each file created in blob storage. This random string is used in both the original file and the processed file.
+
+**Step 1.** Create a **hash.py** file in the **shared** folder.
+ 
+**Step 2.** Copy the following Python code into it.
+
+:::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
+
+
+## 15. Create code for HTTPTrigger function with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  
@@ -621,7 +632,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
-## 15. Test the API endpoint for your python function
+## 16. Test the API endpoint for your python function
 
 **Step 1.**  Run the function locally.
 
@@ -658,7 +669,7 @@ Complete the steps using either the Visual Studio Code or the Azure CLI.
 ### [Azure CLI](#tab/azure-cli)
 
 ```bash
-curl --location --request GET 'http://localhost:7071/api/search?search_term=dogs&count=5'
+curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
 ```
 
 ---

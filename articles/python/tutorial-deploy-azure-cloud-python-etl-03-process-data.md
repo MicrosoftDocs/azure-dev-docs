@@ -13,14 +13,9 @@ ms.author: jejohn
 
 # Tutorial: Use an Azure Function to process data with Python on Azure
 
-In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to an Azure Blob Storage Trigger. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
+In this tutorial, you'll continue developing a local Azure Function in Python by adding a BlobTrigger function that triggers when files are uploaded to your Blob Storage container. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" border="false":::
-
-* [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
-
-> [!CAUTION]
-> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
 
 ## 1. Create a local BlobTrigger for Python Functions App
 
@@ -54,15 +49,14 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
         1. **Select how you would like to open your project**: Choose `Add to workspace`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif":::
     :::column-end:::
 :::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
-**Step 1.** Run the `func init` command to create a functions project in a folder named **msdocs-python-etl-serverless** with the specified runtime and navigate to the directory.
+**Step 1.** Navigate to the local Azure Function project root.
 
-**Step 2.** Navigate to the local Azure Function project and add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
+**Step 2.** Add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
 
 ```bash
 cd msdocs-python-etl-serverless
@@ -71,7 +65,6 @@ func new --name api_blob_trigger --template "azure blob storage trigger"
 ```
 
 ---
-
 
 
 ## 2. Create a resource for Azure Data Lake Gen 2
@@ -129,6 +122,16 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png":::
     :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 5.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
+    :::column-end:::
+:::row-end:::
+
 :::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
@@ -239,15 +242,7 @@ Considerations must be made to ease security, efficient processing, and partitio
 
 :::row:::
     :::column:::
-        **Step 1.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
+        **Step 1.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
@@ -255,7 +250,7 @@ Considerations must be made to ease security, efficient processing, and partitio
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.** Configure the new container.
+        **Step 2.** Configure the new container.
         1. **Name**: Enter **msdocs-python-cloud-etl-processed**.
         1. **Public access level**: Select **Private (no anonymous access)**.
         1. Select the **Create** button.
@@ -266,13 +261,14 @@ Considerations must be made to ease security, efficient processing, and partitio
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Create new directory.
+        **Step 3.** Create new directory.
+        1. Select the **msdocs-python-cloud-etl-processed** container.
         1. Select **+ Add Directory**.
         1. Enter **news-data**.
         1. Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif" alt-text="Animated screenshot showing how to create a directory in the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif":::
+        
     :::column-end:::
 :::row-end:::
 
@@ -315,23 +311,13 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
-***Step 2.** Edit the file to update the following:
+**Step 2.** Edit the file to update the following:
 
 |Property|Setting|
 |--|--|
 |DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example "YOUR-RESOURCE_NAME".|
-|DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example "processed-news".|
-|DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example "news-data".|
-
-**Step 1.** Create App Settings for the Azure resources.
-
-1. Navigate to the **Explorer** icon in the **Activity bar**.
-1. Open the **local.settings.json** in the **editor** pane.
-1. Add a key-value pair to store the **Azure Storage Account** name by entering `, "ADLS_ACCOUNT_NAME": "msdocspythoncloudetladls"`.
-1. Add another key-value pair to store the container name by entering `, "AdLS_CONTAINER": "msdocs-python-cloud-etl-processed"`.
-1. Add another key-value pair to store the key vault name by entering `, "ADLS_DIR": "news-data"`.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png" alt-text="A screenshot showing how to add App Settings for Azure Storage information to the local.settings.json file in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png":::
+|DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example **msdocs-python-cloud-etl-processed**.|
+|DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example **news-data**.|
 
 ## 6. Create code for data transformation with Python
 
@@ -343,32 +329,60 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 ## 7. Create code for BlobTrigger function with Python
 
-**Step 1.** Create a file named `transform.py` in the **shared** folder.
+**Step 1.** Open the **__init__.py** file in the **api_blob_trigger** folder.
 
 **Step 2.** Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
+:::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
 
 ## 8. Test the Azure blob storage trigger Function
 
 To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function executes automatically.
 
-**Step 1.**  Start the function locally by pressing `F5` or the play icon.
+**Step 1.**  Run the function locally.
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png" alt-text="A screenshot showing how to build and run the functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png":::
+### [Azure portal](#tab/azure-portal)
 
-**Step 2.** Execute the function locally.
+Complete the steps using either the Visual Studio Code or the Azure CLI.
 
-1. Choose the **Azure icon** in the **Activity bar**.
-1. In the **Workspace area**, expand **Local Project** then **Functions**.
-1. Right-click (Windows) or Ctrl + Select (macOS) the **api_search** function.
+### [Visual Studio Code](#tab/vscode)
+
+In Visual Studio Code, begin the Azure Function app locally with <kbd>F5</kbd>.
+
+### [Azure CLI](#tab/azure-cli)
+
+```bash
+func start
+```    
+
+---
+
+**Step 2.** Test the function locally.
+
+### [Azure portal](#tab/azure-portal)
+
+Complete the steps using either the Visual Studio Code or the Azure CLI.
+
+### [Visual Studio Code](#tab/vscode)
+
+1. Choose the **Azure icon** in the **Activity bar**. 
+1. In the **Workspace area**, expand **Local Project > Functions**. 
+1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
-1. At the prompt, enter the request message body value `{ "search_term": "Azure" }` and press Enter.
+1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
-**Step 3.** Verify the functions ran successfully.
+### [Azure CLI](#tab/azure-cli)
 
-1. Verify the Blob Storage **** container has a file named _like_ ``.
-1. Verify the Data Lake **** container and **** directory has a file named _like_ ``.
+```bash
+curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
+```
+
+---
+
+**Step 3.** 
+
+1. Verify the Blob Storage **** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
+1. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## 9. Troubleshooting the Azure functions
 
