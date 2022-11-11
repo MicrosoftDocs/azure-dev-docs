@@ -26,7 +26,7 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 ### [Azure portal](#tab/azure-portal)
 
-Python functions can be created in an Azure Function App in the Azure portal or created locally, then publish to Azure. For this tutorial series, we'll start with creating an Azure Function within a local function project using Visual Studio Code or Azure CLI. Later in this series we'll deploy the functions to Azure.
+Complete the steps using either the Visual Studio Code or the Azure CLI.
 
 ### [Visual Studio Code](#tab/vscode)
 

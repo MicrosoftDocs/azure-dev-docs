@@ -40,6 +40,8 @@ To complete this tutorial, you'll need:
 * An Azure account with an active subscription, if you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/)
 * [Python 3.9 or later](https://www.python.org/downloads/) is installed locally
 * Node.js LTS and [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
+* [Azure CLI](/cli/azure/install-azure-cli)
+
 
 ## Get the sample solution
 
@@ -90,6 +92,17 @@ A sample Python solution is available to help you follow along with this tutoria
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you.
 
 [!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
+
+## Sign in to Azure for local developer authentication
+
+To authenticate your local development environment to Azure, sign in with Azure CLI. 
+
+1. Open a terminal or command line.
+1. Use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
+
+    ```azurecli
+    az login
+    ```
 
 ## Next step
 
