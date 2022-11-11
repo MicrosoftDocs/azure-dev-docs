@@ -39,7 +39,8 @@ To complete this tutorial, you'll need:
 
 * An Azure account with an active subscription, if you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/)
 * [Python 3.9 or later](https://www.python.org/downloads/) is installed locally
-* Node.js LTS and [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
+* Node.js LTS and the following npm packages
+    * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
 * [Azure CLI](/cli/azure/install-azure-cli)
 
 

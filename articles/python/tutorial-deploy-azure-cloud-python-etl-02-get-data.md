@@ -37,11 +37,11 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
     * [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
     * [Visual Studio Code Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
     * [Visual Studio Code Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-1. You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview#sign-in-to-azure-for-local-developer-authentication)
+1. You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview.md#sign-in-to-azure-for-local-developer-authentication)
 
 ### [Azure CLI](#tab/azure-cli)
 
-You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview#sign-in-to-azure-for-local-developer-authentication)
+You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview.md#sign-in-to-azure-for-local-developer-authentication)
 
 
 ---
@@ -501,7 +501,38 @@ az role assignment create \
 
 ---
 
-## 11. Create container for Azure Blob Storage
+## 11. Get Blob Storage connection string
+
+The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
+
+### [Azure portal](#tab/azure-portal)
+
+1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
+2. Select the **Show** button for **key1**.
+3. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. 
+4. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
+
+### [Visual Studio Code](#tab/vscode)
+
+1. Choose the **Azure icon** in the **Activity bar**. 
+2. In the **Resources** area, expand your subscription and **Storage accounts**.
+3. Right-click the storage account resource name.
+4. Choose **Copy Connection String**.
+5. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
+
+### [Azure CLI](#tab/azure-cli)
+
+1. In the following [**az storage account show-connection-string**]() command, edit the command to use your own resource group name and storage resource name. 
+
+    ```bash
+    az storage account show-connection-string --resource-group <resource-group> --name <storage-account> --output table
+    ```
+
+2. Copy the connection string.
+3. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
+---
+
+## 12. Create container for Azure Blob Storage
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
@@ -564,7 +595,7 @@ az storage container create \
 
 ---
 
-## 12. Create code for Azure Blob Storage SDK
+## 13. Create code for Azure Blob Storage SDK
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -574,6 +605,7 @@ az storage container create \
 |--|--|
 |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
 |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
+|AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes.|
 
 **Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
 
@@ -581,7 +613,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 13. Create code for HTTPTrigger function with Python
+## 14. Create code for HTTPTrigger function with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  
@@ -589,7 +621,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
-## 14. Test the API endpoint for your python function
+## 15. Test the API endpoint for your python function
 
 **Step 1.**  Run the function locally.
 
