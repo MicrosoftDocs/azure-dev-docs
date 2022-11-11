@@ -16,15 +16,10 @@ ms.author: jejohn
 In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to HTTP requests. The Azure Function:
 
 * Gets the Bing Search key from Key Vault
-* Calls the [Bing News Search service](/bing/apis/bing-news-search-api) with your search term
-* Stores the data as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
+* **Ingest**: Calls the [Bing News Search API service](/bing/apis/bing-news-search-api) with your search term
+* **Store**: Stores the search results as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-load-bing-search.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-load-bing-search.png" border="false":::
-
-* [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
-
-> [!CAUTION]
-> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
 
 ## Prerequisites
 
@@ -53,7 +48,7 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 ### [Azure portal](#tab/azure-portal)
 
-For this tutorial series, create a local Functions app then deploy the app to Azure.
+Complete the steps using either the Visual Studio Code or the Azure CLI.
 
 ### [Visual Studio Code](#tab/vscode)
 
@@ -80,7 +75,7 @@ For this tutorial series, create a local Functions app then deploy the app to Az
         1. **Select how you would like to open your project**: Choose **Add to workspace**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif":::
+        
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -136,13 +131,11 @@ func start
 
 **Step 4.** Test the local function by copying the URL from the `func start` output and paste it into your browser, appending `?name=<YOUR_NAME>` to the URL. The browser should display a response message that echoes back your query string value (YOUR_NAME).
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" alt-text="Test that the Local Function runs successfully and displays properly in your browser." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" :::
-
 ---
 
 ## 2. Change Azure Function API route in function.json
 
-The route is determined from the folder name, in the format of `/api/FOLDER-NAME`. Using the folder name provided, your route is currently set to `/api/api_search`. Change this to be more RESTful.
+The route is determined from the folder name, in the format of `/api/FOLDER-NAME`. Using the folder name provided, your route is currently set to `/api/api_search`. Change this to be more RESTful. Change this value in the **function.json** file.
 
 1. Open the **function.json** file in the `api_search` folder. 
 1. Add the `route` property as shown in the following json so your API route is `/api/search`.
@@ -166,9 +159,11 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
+**Step 2.** Create a folder named `shared` which will contain all the integration code files.
+
 **Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
 
-**Step 2.** Copy the following Python code into it. 
+**Step 2.** Copy the following python code into it. 
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
 
@@ -179,7 +174,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         **Step 1.** Navigate to create a Bing Search API resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter `Bing` in the search box.
-        1. Select **Bing Search** under **Marketplace** in the search results.
+        1. Select **Bing Search v7** under **Marketplace** in the search results.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png" alt-text="Screenshot showing how to search in the Azure portal and find Bing Search in the Marketplace." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png":::
@@ -209,13 +204,13 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Take note of the subscription key to use in API calls from the Azure Function.
+        **Step 4.** Take note of the resource key to use in API calls from the Azure Function.
         1. Select **Keys and Endpoint** in the left pane
         1. Select the **Show Keys** button.
-        1. Select the **Copy icon** to the *right* of **Key 1** to copy the subscription key to your clipboard.
+        1. Select the **Copy icon** to the *right* of **Key 1** to copy the resource key to your clipboard. This key will be stored in Azure Key Vault as a secret in a later step.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search subscription key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search resource key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png":::
     :::column-end:::
 :::row-end:::
 
@@ -229,9 +224,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 ## 7. Create resource for Azure Key Vault
 
-In Azure, developers can choose to manually store information needed to run the app in the app configuration settings. However, for sensitive information, the more secure approach is to use an Azure Key Vault.
-
-Azure Key Vault is a centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys. Using Azure Key Vault also provides access monitoring and logs to see who accesses secret, when, and how.
+When you need to store secrets, a _best practice_ is to store the secret in a secure location such as Azure Key Vault. Azure Key Vault is a centralized cloud solution for storing and managing secrets and certificates. The service also provides access monitoring and logs to see who accesses secrets, when, and how.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -271,8 +264,13 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Create a new secret in Azure Key Vault.
-        1. Navigate to the Azure Key Vault resource by selecting **Go to resource** after the deployment is complete.
+        **Step 4.** When the deployment process completes, select Go to resource.
+    :::column-end:::
+    :::column:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 5.** Create a new secret in Azure Key Vault.
         1. Under the **Objects** section in the left panel, select **Secrets**.
         1. Select the **+ Generate/Import** button in the main panel.
     :::column-end:::
@@ -282,9 +280,9 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 5.** In the **Create a secret** dialogue, enter the following information:
+        **Step 6.** In the **Create a secret** dialogue, enter the following information:
         1. **Name**: Enter `bing-search-resource-key1`.
-        1. **Secret value**: Enter the Bing Search API subscription key that you noted/copied to your clipboard previously in this article.
+        1. **Secret value**: Enter the Bing Search API resource key that you noted/copied to your clipboard previously in this article.
         1. Select **Create** to add this new secret to the **Azure Key Vault**.
     :::column-end:::
     :::column:::
@@ -311,14 +309,14 @@ az keyvault create  \
 
 <br/>
 
-**Step 2:** Set a 'secret' in Azure Key Vault to store the Bing Search resource subscription key. Run [`az keyvault secret set`](/cli/azure/keyvault/secret) to create and set a secret in Azure Key Vault.
+**Step 2:** Set a 'secret' in Azure Key Vault to store the Bing Search resource key. Run [`az keyvault secret set`](/cli/azure/keyvault/secret) to create and set a secret in Azure Key Vault.
 
 ```azurecli
-# Create Secret for Bing Search subscription key
+# Create Secret for Bing Search resource key
 az keyvault secret set \
     --vault-name 'msdocs-python-etl-kv' \
     --name 'bing-search-resource-key1' \
-    --value '<YOUR BING SEARCH SUBSCRIPTION KEY>'
+    --value '<YOUR BING SEARCH RESOURCE KEY>'
 ```
 
 ---
@@ -338,13 +336,11 @@ az keyvault secret set \
 
 |Property|Setting|
 |--|--|
-|KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "YOUR-RESOURCE_NAME".|
+|KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "msdocs-python-etl-kv".|
 
 **Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 
-**Step 4.** Create a folder named `shared` which will contain all the integration code files.
-
-**Step 5.** Create a file named `key_vault_secret.py` and copy the following Python code into it.
+**Step 4.** Create a file named `key_vault_secret.py` and copy the following python code into it.
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
@@ -383,7 +379,9 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.** Select **Create** to accept the default options, then proceed to validate and create the account.
+        **Step 3.** 
+        1. Select **Create** to accept the default options, then proceed to validate and create the account.
+        1. When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png":::
@@ -443,7 +441,7 @@ In development, the account used to log into Azure requires the *Storage Blob Da
 
 :::row:::
     :::column:::
-        **Step 1.** In the Azure Storage Account and, add role assignment.
+        **Step 1.** In the Azure Storage Account add role assignment.
         1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
     :::column-end:::
@@ -453,7 +451,7 @@ In development, the account used to log into Azure requires the *Storage Blob Da
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor**.
+        **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
@@ -570,7 +568,7 @@ az storage container create \
 
 |Property|Setting|
 |--|--|
-|BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "YOUR-RESOURCE_NAME".|
+|BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
 |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
 
 **Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
@@ -591,8 +589,6 @@ az storage container create \
 
 **Step 1.**  Run the function locally by pressing `F5` or the play icon.
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png":::
-
 **Step 2.** Execute the function locally.
 
 1. Choose the **Azure icon** in the **Activity bar**. 
@@ -600,11 +596,12 @@ az storage container create \
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
 
-    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
-    
 **Step 3.** Test the new functionality by entering the request message body value `{ "search_term": "Azure"}` and press Enter.
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif" alt-text="Animated screenshot of testing the HTTPTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif":::
+## Additional information
+
+* Azure Functions `function.json` [schema](/azure/azure-functions/functions-reference?tabs=blob).
+
 
 ## Next step
 

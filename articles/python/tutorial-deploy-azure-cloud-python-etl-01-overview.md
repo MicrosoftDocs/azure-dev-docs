@@ -13,30 +13,23 @@ ms.author: jejohn
 
 # Overview: Deploy a serverless Python cloud ETL solution on Azure
 
-This tutorial series will guide you through creating and deploying a serverless, cloud *Extract, Transform, and Load* (ETL) Python solution to Azure.
-
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+This procedure guides you through creating and deploying a serverless, cloud *Extract, Transform, and Load* (ETL) Python solution to Azure.
 
 * [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
 
-> [!CAUTION]
-> If you download this complete sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the local.settings.json for local development and the Azure portal for the deployed application.
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
 ## What the sample solution does
 
-When deployed, the sample solution flow for this recommendation model is as followed:
+When deployed, the sample solution flow includes:
 
-1. *Get Data*: Use an Azure HTTPTrigger Function to
-    * Call the [Microsoft Bing News Search API](/bing/apis/bing-news-search-api)
-    * [Gather information about recent news](tutorial-deploy-azure-cloud-python-etl-02-get-data.md) that's limited to the specified search term
-1. *Store Data*: Store the search results:
-    * Store results as a JSON file in Azure Blob Storage container.
+1. *Get Data*: Use an Azure HTTPTrigger Function to search with [Bing News Search API](/bing/search-apis/bing-news-search/overview)
+1. *Store Data*: Store the search results as a JSON file in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) container.
 1. *Process Data*: Use an Azure BlobTrigger Function, which activates when the JSON file is uploaded to Blob Storage:
     * Retrieve JSON file
-    * Request each news article from Bing
-    * [Process the article contents](tutorial-deploy-azure-cloud-python-etl-03-process-data.md)
-1. *Store Data*: Store processed data in Azure Data Lake Store:
-    * Load the processed content as a JSON file to an Azure Data Lake Store
+    * Request each news article content
+    * Transform article content
+1. *Store Data*: Store processed data in [Azure Data Lake Storage Gen 2](/azure/storage/blobs/data-lake-storage-introduction):
 
 ## Prerequisites for the tutorial
 
@@ -48,11 +41,12 @@ To complete this tutorial, you'll need:
 * [Python 3.9 or later](https://www.python.org/downloads/) is installed locally
 * Node.js LTS and [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
 
-This tutorial provides three tooling options, the Azure portal, Visual Studio Code, and Azure CLI, for completing the steps to deploy local Python code to the Azure Cloud. You'll be prompted at the start of the instructions to download and install any other tools needed to complete the task. You can mix and match the tools, for example, completing one step in the portal and another step with the Azure CLI.
-
 ## Get the sample solution
 
 A sample Python solution is available to help you follow along with this tutorial. Download or clone the sample codebase to your local workstation. 
+
+> [!CAUTION]
+> If you download and open this sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the **local.settings.json** for local development.
 
 1. Clone the sample solution:
 
@@ -75,6 +69,8 @@ A sample Python solution is available to help you follow along with this tutoria
     ```Console
     pip install -r requirements.txt
     ```
+
+    The following Azure SDKs for Python are installed.
 
     |SDK docs   |Install | Python package index |
     |---------------------|--------|----------------------|
