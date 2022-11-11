@@ -184,6 +184,9 @@ There are several ways archive data using Python and Azure, however for this tut
     :::column-end:::
 :::row-end:::
 
+
+### [Visual Studio Code](#tab/vscode)
+
 ### [Azure CLI](#tab/azure-cli)
 
 **Step 1.** Write the lifecycle management policy to a JSON file names *policy.json*. The policy will move a block blob whose name begins with 'search_result' to the cool tier if it has been more than 30 days since the blob was modified.
@@ -234,19 +237,6 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
 
 ## 4. Call the Azure Function API endpoint
 
-## 5. Back up your resources to an ARM template
-
-Before removing resources, back up the entire resource group to an Azure Resource Manager (ARM) template. In the future, if you want to rebuild this application, the ARM template provides all the Azure resource creation and configuration steps in one file. 
-
-**Step: Save ARM template**
-
-1. Open the [Azure portal](https://portal.azure.com) in a web browser. 
-1. In the search bar, enter **resource groups** and select it.
-1. Find and select your resource group.
-1. In the **Automation** section, select **Export template**.
-1. In the **Export template** page, accept the default of exporting everything. If there are services that won't be included, make note of that for your own future needs.
-1. Select **Download**. 
-1. Save the **zip** file to a secure location. Consider renaming the file to indicate the application. 
 
 ## 5. Delete the resource group for your project
 
