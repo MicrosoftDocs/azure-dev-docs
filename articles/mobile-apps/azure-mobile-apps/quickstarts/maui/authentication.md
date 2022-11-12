@@ -4,8 +4,11 @@ description: Add authentication to your .NET MAUI app using Azure Mobile Apps wi
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 11/11/2021
 ms.author: adhal
+recommendations: false
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add authentication to your .NET MAUI app
@@ -19,7 +22,17 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
+::: zone pivot="vs2022-windows"
+
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-auth-backend.md)]
+
+::: zone-end
 
 ## Add authentication to the app
 
@@ -29,7 +42,17 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.MAUI` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.MAUI` project:
 
-[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
+::: zone pivot="vs2022-windows"
+
+[!INCLUDE [Configure the M S A L library on Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-authentication-library.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Configure the M S A L library on a Mac](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
+
+::: zone-end
 
 Open the `MainPage.xaml.cs` class in the `TodoApp.MAUI` project. Add the following `using` statements:
 
@@ -64,11 +87,27 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
 {
     if (IdentityClient == null)
     {
-                object parentWindow = null;
 #if ANDROID
-                parentWindow = Platform.CurrentActivity;
+        IdentityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .WithParentActivityOrWindow(() => Platform.CurrentActivity)
+            .Build();
+#elif IOS
+        IdentityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .Build();
+#else
+        IdentityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+            .Build();
 #endif
-                IdentityClient = PlatformService.GetIdentityClient(parentWindow);
     }
 
     var accounts = await IdentityClient.GetAccountsAsync();
@@ -96,8 +135,7 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
         {
             result = await IdentityClient
                 .AcquireTokenInteractive(Constants.Scopes)
-                .ExecuteAsync()
-                .ConfigureAwait(false);
+                .ExecuteAsync();
         }
         catch (Exception ex)
         {
@@ -116,39 +154,6 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
 ```
 
 The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired bad token is produced instead.
-
-Add the `PlatformService.cs` class with the following contents:
-
-``` csharp
-using Microsoft.Identity.Client;
-using TodoApp.Data;
-
-namespace TodoApp.MAUI
-{
-    internal class PlatformService
-    {
-        public static IPublicClientApplication GetIdentityClient(object parentWindow)
-        {
-            var clientBuilder = PublicClientApplicationBuilder
-                .Create(Constants.ApplicationId)
-                .WithAuthority(AzureCloudInstance.AzurePublic, "common");
-
-#if ANDROID
-            clientBuilder = clientBuilder
-                .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
-                .WithParentActivityOrWindow(() => parentWindow);
-#endif
-
-#if WINDOWS
-            clientBuilder = clientBuilder
-                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient");
-#endif
-
-            return clientBuilder.Build();
-        }
-    }
-}
-```
 
 We can add any platform-specific options using the `#if` areas with a platform-specifier.  For example, Android requires us to specify the parent activity, which is passed in from the calling page.
 
@@ -197,15 +202,49 @@ using Android.Runtime;
 using Microsoft.Identity.Client;
 ```
 
-When the Android requires authentication, it will obtain an identity client from `GetIdentityClient()`, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  That then calls the MSAL authentication helper, which completes the transaction.
+When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
 
 ## Test the Android app
 
 Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
+::: zone pivot="vs2022-windows"
+
 ## Test the Windows app
 
 Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+## Configure the iOS app for authentication
+
+Open `Platforms\iOS\AppDelegate.cs` and add the `OpenUrl` method to the end of the class.  The class should look like this:
+
+```csharp
+    [Register("AppDelegate")]
+    public class AppDelegate : MauiUIApplicationDelegate
+    {
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, NSDictionary options)
+        {
+            bool result = AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            return result || base.OpenUrl(application, url, options);
+        }
+    }
+```
+
+> In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more details on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements?view=net-maui-7.0).
+
+## Test the iOS app
+
+[!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/common/ios-provisioning-profile.md)]
+ 
+Set `TodoApp.MAUI` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+
+::: zone-end
 
 ## Next steps
 
