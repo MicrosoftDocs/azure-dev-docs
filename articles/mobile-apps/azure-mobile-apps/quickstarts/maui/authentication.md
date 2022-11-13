@@ -44,7 +44,7 @@ Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.MAUI` proj
 
 ::: zone pivot="vs2022-windows"
 
-[!INCLUDE [Configure the M S A L library on Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-authentication-library.md)]
+[!INCLUDE [Configure the M S A L library on Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
 ::: zone-end
 
