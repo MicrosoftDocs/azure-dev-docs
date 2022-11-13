@@ -240,7 +240,7 @@ Open `Platforms\iOS\AppDelegate.cs` and add the `OpenUrl` method to the end of t
 
 ## Test the iOS app
 
-[!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/common/ios-provisioning-profile.md)]
+[!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
  
 Set `TodoApp.MAUI` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
