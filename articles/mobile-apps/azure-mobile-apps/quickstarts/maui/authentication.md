@@ -236,7 +236,7 @@ Open `Platforms\iOS\AppDelegate.cs` and add the `OpenUrl` method to the end of t
     }
 ```
 
-> In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more details on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
+> In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
 
 ## Test the iOS app
 
