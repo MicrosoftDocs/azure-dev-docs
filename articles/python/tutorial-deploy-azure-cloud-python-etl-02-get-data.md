@@ -488,7 +488,7 @@ To assign access control roles for an Azure resource, you **must** use the Azure
 
 ### [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli
 # Assign the 'Storage Blob Data Contributor' role to your user
 az role assignment create \
     --role "Storage Blob Data Contributor" \
