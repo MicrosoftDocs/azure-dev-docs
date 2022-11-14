@@ -138,6 +138,3 @@ The Active Directory app, through MSAL, doesn't know about the new static web ap
 1. Select the app registration you created for this sample. 
 1. On the Overview page for the app, select **Delete**. 
 
-## Next steps
-
-* [Deploy Static web app to Azure](./deploy-static-web-app-to-azure.md)
