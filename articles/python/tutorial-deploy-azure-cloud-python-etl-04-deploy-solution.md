@@ -15,15 +15,44 @@ ms.author: jejohn
 
 In this last article of the series, you deploy the Azure Functions application to Azure.
 
-## 1. Deploy local Function project to Azure
-
-The following steps publish your local Python Azure Function project to the new Azure Function App created with advanced create options:
+## 1. Create Azure Function resource
 
 ### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
+        1. Enter `Function App` in the search box then select **Function App** under **Services** in the search results.
+        1. On the Function App page, select **+ Create**.
+        1. Enter the following information in the portal dialogue:
+        1. **Subscription**: Select **your active subscription**.
+        1. **Resource group**: Select **msdocs-python-cloud-etl-rg**, if this resource group doesn't exist, select **Create new** then select it.
+        1. **Function App Name**: For your function app, enter `msdocs-etl` (*Names may contain alphanumeric characters and dashes (-) only*).
+        1. **Publish**: Select **Code**.
+        1. **Version**: Select **3.9**.
+        1. **Region**: Select the default value.
+        1. **Operating system**: Select **Linux**.
+        1. **Plan type**: Choose **Consumption** for serverless, where you're only charged when your functions run.
+        1. Select **Review + create**. 
+        1. **Create** to start the creation process.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create.png" alt-text="Screenshot showing how to create Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** When the deployment process completes, select **Go to resource**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png" alt-text="Screenshot showing how to go to your new Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png":::
+    :::column-end:::
+:::row-end:::
 
 
 
 ### [Visual Studio Code](#tab/vscode)
+
 
 :::row:::
     :::column:::
@@ -33,13 +62,13 @@ The following steps publish your local Python Azure Function project to the new 
 :::row:::
     :::column:::
         **Step 2.** Provide the following information in the prompts.
-        1. **Unique name for the function app**: Enter **msdocs-cloud-python-etl-func-app**.
+        1. **Unique name for the function app**: Enter **msdocs-etl**.
         1. **Runtime stack**: Choose **Python**.
         1. **OS**: Choose **Linux**. (*Python apps must run on Linux.*)
-        1. **Resource group**: 
-        1. **Location**: Choose **East US**.
+        1. **Resource group**: Choose **msdocs-python-cloud-etl-rg**.
+        1. **Location**: Choose default value.
         1. **Hosting plan**: Choose **Consumption** for serverless, where you're only charged when your functions run.
-        1. **Storage account**: Select **msdocspythoncloudetlabs**.
+        1. **Storage account**: Select the default.
         1. **Application Insights**: Select **Skip for now**.
     :::column-end:::
 :::row-end:::
@@ -51,20 +80,131 @@ The following steps publish your local Python Azure Function project to the new 
         1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column:::
-        **Step 4.** Deploy project files.
-        1. Choose the **Azure** icon in the **Activity** bar.
-        1. In the **Resources** area, expand **Function App**.
-        1. Select and right-click **msdocs-cloud-python-etl-func-app**.
-        1. Select **Deploy to Function App**.
-        1. Navigate to the **Output** panel to view the deployment results.
-    :::column-end:::
-:::row-end:::
+
 
 ### [Azure CLI](#tab/azure-cli)
 
+Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
+1. Run [az storage account create](/cli/azure/storage/account#az-storage-account-create) to create the _required_ dependency storage account.
+
+    ```azurecli
+    # Create storage account used by Functions app
+    az storage account create \
+        --name msdocsfnstor123 \
+        --sku Standard_LRS
+    ```
+
+1. Run [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create the Azure Functions app.
+
+    ```azurecli
+    # Create Functions app
+    az functionapp create \
+        --storage-account msdocsfnstor123
+        --name msdocs-etl 
+        --consumption-plan-location westus 
+        --runtime python 
+        --runtime-version 3.9 
+        --functions-version 4 
+        --os-type linux 
+    ```
+---
+
+## Create host key for client access to function
+
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        **Step** Create new client key and copy it. The key is used by the client application to authenticate to the function. The key is sent in the querystring **code** parameter: `?code=123`.
+        1. Select **Functions** in the left pane.
+        1. Select **App Keys**.
+        1. Select the **New host key**.
+        1. Enter the name **ETL client** and leave the value empty for an auto-generated key. Select **Ok**
+        1. After the key is created, select the key to show its value.
+        1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
+
+            If you intend to continue on this application after this tutorial series, store this key in your Key Vault as a secret. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Visual Studio Code](#tab/vscode)
+
+Complete the step using either the Azure portal or the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Run [az functionapp keys set](/cli/azure/functionapp/keys?#az-functionapp-keys-set) to create a new host key for the Functions app.
+
+    ```azurecli
+    # Create new host key
+    az functionapp keys set \
+        --resource-group msdocs-python-cloud-etl-rg \
+        --name msdocs-etl \
+        --key-type functionKeys 
+        --key-name ClientAppKey
+    ```
+
+1. From the returned JSON, copy the **Properties** value to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
+
+---
+
+## 1. Deploy local Function project to Azure
+
+The following steps publish your local Python Azure Function project to the new Azure Function App:
+
+### [Azure portal](#tab/azure-portal)
+
+Complete the steps using either the Visual Studio Code or the Azure CLI.
+
+### [Visual Studio Code](#tab/vscode)
+
+Deploy project files.
+
+1. Choose the **Azure** icon in the **Activity** bar.
+1. In the **Resources** area, expand **Function App**.
+1. Select and right-click **msdocs-cloud-python-etl-func-app**.
+1. Select **Deploy to Function App**.
+1. Navigate to the **Output** panel to view the deployment results.
+
+### [Azure CLI](#tab/azure-cli)
+
+Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+1. Run [az storage account create](/cli/azure/storage/account#az-storage-account-create) to create the _required_ dependency storage account.
+
+    ```azurecli
+    # Create storage account used by Functions app
+    az storage account create \
+        --name msdocsfnstor123 \
+        --sku Standard_LRS
+    ```
+
+1. Run [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create the Azure Functions app.
+
+    ```azurecli
+    # Create Functions app
+    az functionapp create \
+        --storage-account msdocsfnstor123
+        --name msdocs-etl 
+        --consumption-plan-location westus 
+        --runtime python 
+        --runtime-version 3.9 
+        --functions-version 4 
+        --os-type linux 
+    ```
+
+1. Run []() to create a new host key for the Functions app.
+
+    ```azurecli
+    # Create new host key
+    az functionapp keys set --resource-group msdocs-python-cloud-etl-rg-diberry --name msdocs-etl --key-type functionKeys --key-name ClientApp 
+    ```
+
+1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
 
 ---
 
