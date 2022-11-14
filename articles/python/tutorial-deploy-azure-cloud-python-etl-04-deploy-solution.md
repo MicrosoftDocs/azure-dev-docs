@@ -110,7 +110,7 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
     ```
 ---
 
-## Create host key for client access to function
+## 2. Create host key for client access to function
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -152,9 +152,11 @@ Complete the step using either the Azure portal or the Azure CLI.
 
 ---
 
-## 1. Deploy local Function project to Azure
+## 3. Deploy local Function project to Azure
 
-The following steps publish your local Python Azure Function project to the new Azure Function App:
+The following steps publish your local Python Azure Function project to the new Azure Function App. 
+
+Both Visual Studio Code and Azure CLI use the zip deploy method. Visual Studio Code creates that zip file for you. Azure CLI doesn't create a zip file, must must zip the entire folder structure before using the Azure CLI commands. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -164,63 +166,96 @@ Complete the steps using either the Visual Studio Code or the Azure CLI.
 
 Deploy project files.
 
-1. Choose the **Azure** icon in the **Activity** bar.
-1. In the **Resources** area, expand **Function App**.
-1. Select and right-click **msdocs-cloud-python-etl-func-app**.
-1. Select **Deploy to Function App**.
-1. Navigate to the **Output** panel to view the deployment results.
+:::row:::
+    :::column:::
+        **Step 1.** 
+        1. Choose the **Azure** icon in the **Activity** bar.
+        1. In the **Resources** area, expand **Function App**.
+        1. Select and right-click **msdocs-etl**.
+        1. Select **Deploy to Function App**.
+        1. When asked **Are you sure you want to deploy...**, select **Deploy**.
+        1. Navigate to the **Output** panel to view the deployment results.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-deploy-function.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-deploy-function.png":::
+    :::column-end:::
+:::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
 Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-1. Run [az storage account create](/cli/azure/storage/account#az-storage-account-create) to create the _required_ dependency storage account.
+1. Create a zip file of your project named `msdocs-etl.zip`.
+
+1. Run [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) to deploy the zip file.
 
     ```azurecli
-    # Create storage account used by Functions app
-    az storage account create \
-        --name msdocsfnstor123 \
-        --sku Standard_LRS
+    # Deploy zip file
+    az functionapp deployment source config-zip \
+        --resource-group msdocs-python-cloud-etl-rg \
+        --name msdocs-etl \
+        --src <zip_file_path>
     ```
-
-1. Run [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create the Azure Functions app.
-
-    ```azurecli
-    # Create Functions app
-    az functionapp create \
-        --storage-account msdocsfnstor123
-        --name msdocs-etl 
-        --consumption-plan-location westus 
-        --runtime python 
-        --runtime-version 3.9 
-        --functions-version 4 
-        --os-type linux 
-    ```
-
-1. Run []() to create a new host key for the Functions app.
-
-    ```azurecli
-    # Create new host key
-    az functionapp keys set --resource-group msdocs-python-cloud-etl-rg-diberry --name msdocs-etl --key-type functionKeys --key-name ClientApp 
-    ```
-
-1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
-
 ---
 
+## 4. Configure App Settings in Azure
 
+Configure the following environment variables to allow your function app to connect to Azure Key Vault, Azure Blob Storage, and Azure Data Lake. 
 
-## 2. Configure App Settings in Azure
+|Environment variable|Value|
+|--|--|
+|BLOB_STORAGE_RESOURCE_NAME|`msdocspythoncloudetlabs`|
+|BLOB_STORAGE_CONTAINER_NAME|`msdocs-python-cloud-etl-news-source`|
+|KEY_VAULT_RESOURCE_NAME|`msdocs-python-etl-kv`|
+|KEY_VAULT_SECRET_NAME|`bing-search-resource-key1`|
+|DATALAKE_GEN_2_RESOURCE_NAME|`msdocspythoncloudetladls`|
+|DATALAKE_GEN_2_CONTAINER_NAME|`msdocs-python-cloud-etl-processed`|
+|DATALAKE_GEN_2_DIRECTORY_NAME|`news-data`|
+|BING_SEARCH_URL|`https://api.bing.microsoft.com/v7.0/`|
+
+The Bing Search key is not in this list because it is stored in Azure Key Vault. 
 
 ### [Azure portal](#tab/azure-portal)
 
-
+:::row:::
+    :::column:::
+        **Step 1.** Navigate to your Azure Function App.
+        1. Choose **Configuration** icon in the **Settings**.
+        1. In the **Application settings** area, select **+ New application setting**.
+        1. Select **msdocs-etl**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting.png" alt-text="Screenshot showing how to begin to create application setting for Azure function in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** Complete this section for each name/value pair.
+        1. Right-click **Application Settings**, select **New application setting**. 
+        1. Add the first name/value pair from the table at the beginning of this section and select **OK**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-create-button.png" alt-text="Screenshot showing how to create each application setting for Azure function in the portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-create-button.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** Save the new settings.
+        1. Select **Save** 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-save.png" alt-text="Screenshot showing how to save application setting for Azure function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-save.png":::
+    :::column-end:::
+:::row-end:::
 
 ### [Visual Studio Code](#tab/vscode)
 
 :::row:::
     :::column:::
         **Step 1.** Navigate to your Azure Function App.
+        1. Choose the **Azure** icon in the **Activity** bar.
+        1. In the **Resources** area, expand **Function App**.
+        1. Select **msdocs-etl**.
     :::column-end:::
     :::column:::
         {content}
@@ -229,34 +264,24 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
 :::row:::
     :::column:::
         **Step 2.** Create new Application settings for the Azure Function App.
-        1. Under **Settings** in the left pane, select **Configuration**.
-        1. In the **Application settings** section, select **New application setting**.
+        1. Right-click **Application Settings**, select **New application setting**.
+        1. Add all App Settings from the table at the beginning of this section.
     :::column-end:::
     :::column:::
-        {content}
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Add all App Settings Name-Value information:
-        1. **Name**: Enter **ABS_ACCOUNT_NAME**, **Value**: Enter **msdocspythoncloudetlabs**.
-        1. **Name**: Enter **ABS_SRC_CONTAINER**, **Value**: Enter **msdocs-python-cloud-etl-news-source**.
-        1. **Name**: Enter **KEY_VAULT_NAME**, **Value**: Enter **msdocs-python-etl-kv**.
-        1. **Name**: Enter **BING_SEARCH_RESOURCE_KEY**, **Value**: Enter **bing-search-resource-key**.
-        1. **Name**: Enter **ADLS_ACCOUNT**, **Value**: Enter **msdocspythoncloudetladls**.
-        1. **Name**: Enter **ADLS_CONTAINER**, **Value**: Enter **news-data**.
-        1. **Name**: Enter **ADLS_DIR**, **Value**: Enter **msdocs-python-cloud-etl-processed**.
-        1. Select the **Save** button.
-    :::column-end:::
-    :::column:::
-        {content}
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-function-create-application-setting.png" alt-text="Screenshot showing how to create application setting for Azure function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-function-create-application-setting.png":::
     :::column-end:::
 :::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
+Run this [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command for all App Settings from the table at the beginning of this section.
 
-
+```azurecli
+az functionapp config appsettings set \
+    --resource-group msdocs-python-cloud-etl-rg \
+    --name msdocs-etl \
+    --settings "BLOB_STORAGE_CONTAINER_NAME=msdocs-python-cloud-etl-news-source"
+```
 ---
 
 ## 3. Configure Azure resources to use passwordless credentials
