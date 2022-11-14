@@ -38,8 +38,6 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Set the offline database location
 
-<!-- TODO: Update for the RemoteTodoService Definition -->
-
 In the `TodoApp.Forms` project, edit the `App.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
