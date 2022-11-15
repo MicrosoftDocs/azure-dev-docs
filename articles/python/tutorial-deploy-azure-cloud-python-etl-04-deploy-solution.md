@@ -19,6 +19,7 @@ In this last article of the series, you deploy the Azure Functions application t
 
 :::row:::
     :::column:::
+        **Step 1.** Create the Azure Function.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter `Function App` in the search box then select **Function App** under **Services** in the search results.
         1. On the Function App page, select **+ Create**.
@@ -40,7 +41,7 @@ In this last article of the series, you deploy the Azure Functions application t
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.** When the deployment process completes, select **Go to resource**.
+        **Step 2.** When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png" alt-text="Screenshot showing how to go to your new Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png":::
@@ -54,7 +55,7 @@ In this last article of the series, you deploy the Azure Functions application t
 
 :::row:::
     :::column:::
-        **Step 1.** In the command pallet, enter **Azure Functions: Create function app in Azure...(Advanced)**.
+        In the command pallet, enter **Azure Functions: Create function app in Azure...(Advanced)**.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -605,6 +606,7 @@ curl --location --request GET 'http://localhost:7071/api/search?search_term=azur
 ### [Azure portal](#tab/azure-portal)
 
 Complete the steps using either the Visual Studio Code or the Azure CLI.
+
 ---
 
 
