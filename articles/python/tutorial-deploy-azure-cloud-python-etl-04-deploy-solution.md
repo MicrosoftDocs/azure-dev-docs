@@ -649,6 +649,10 @@ If the cloud-based Azure Functions app didn't place a process file in the Data L
     * On your local app, change the `host.json` file's value for `logging.logLevel.default` to `Information` and execute the request against the search endpoint again. 
     * In the Azure portal, on your Functions App, select the `api_search` function.
     * On the **Monitor** page, view the **Invocation Traces**. 
+    * The logs of a request may take a few minutes to be visible on the trace list. 
+* Functions app system-assigned identity was created with a name similar to your function resource. Make sure the identity was added with **Storage Blob Data Contributor** role to:
+    * Blob Storage where the initial search files are stored as well 
+    * Data Lake where the processed files are stored. 
 * Key Vault role-based access: 
     * Your own user identity should have the role of **Key Vault Secrets Officer** to create and manage secrets
     * Your function's system assigned identity should have the role of **Key Vault Secrets User** to read secrets.
