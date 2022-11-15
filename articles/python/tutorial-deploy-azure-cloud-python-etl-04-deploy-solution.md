@@ -415,9 +415,9 @@ You enabled System Assigned Identity for the function app in a preceding step. A
 
 :::row:::
     :::column:::
-        **Step 1.** Configure key vault secret access for system assigned identity.
+        **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Find your Key Vault resource, named `msdocs-python-etl-kv`.
+        1. Find your key vault resource and select it.
         1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
     :::column-end:::
     :::column:::
@@ -427,7 +427,7 @@ You enabled System Assigned Identity for the function app in a preceding step. A
 :::row:::
     :::column:::
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
-        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
+        1. In the **Add role assignment** dialogue, search for and select **Key Vaults Secrets User** then select **Next**.
         1. **Assigned access to**: Select **Managed identity**.
         1. **Members**: Select **+ Select members**.
         1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
