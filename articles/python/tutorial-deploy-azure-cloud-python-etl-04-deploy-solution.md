@@ -90,6 +90,7 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
     ```azurecli
     # Create storage account used by Functions app
     az storage account create \
+        --resource-group msdocs-python-cloud-etl-rg \
         --name msdocsfnstor123 \
         --sku Standard_LRS
     ```
@@ -101,6 +102,7 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
     ```azurecli
     # Create Functions app
     az functionapp create \
+        --resource-group msdocs-python-cloud-etl-rg \
         --storage-account msdocsfnstor123
         --name msdocs-etl 
         --consumption-plan-location westus 
@@ -121,7 +123,7 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
         1. Select **Functions** in the left pane.
         1. Select **App Keys**.
         1. Select the **New host key**.
-        1. Enter the name **ETL client** and leave the value empty for an auto-generated key. Select **Ok**
+        1. Enter the name **ClientAppKey** and leave the value empty for an auto-generated key. Select **Ok**
         1. After the key is created, select the key to show its value.
         1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
 
@@ -214,7 +216,7 @@ Configure the following environment variables to allow your function app to conn
 |DATALAKE_GEN_2_DIRECTORY_NAME|`news-data`|
 |BING_SEARCH_URL|`https://api.bing.microsoft.com/v7.0/`|
 
-The Bing Search key isn't in this list because it's stored in Azure Key Vault. 
+* If you used different values when you created or configured resources, use your own values instead of the values listed in the preceding table.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -253,18 +255,11 @@ The Bing Search key isn't in this list because it's stored in Azure Key Vault.
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to your Azure Function App.
+        Navigate to your Azure Function App.
         1. Choose the **Azure** icon in the **Activity** bar.
         1. In the **Resources** area, expand **Function App**.
         1. Select **msdocs-etl**.
-    :::column-end:::
-    :::column:::
-        {content}
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** Create new Application settings for the Azure Function App.
+        1. Create new Application settings for the Azure Function App.
         1. Right-click **Application Settings**, select **New application setting**.
         1. Add all App Settings from the table at the beginning of this section.
     :::column-end:::
@@ -287,7 +282,7 @@ az functionapp config appsettings set \
 
 ## 5. Configure Azure Function Apps resources to use passwordless credentials
 
-Enable System Assigned Identity for func app and save
+Enable System Assigned Identity for the function app.
 
 
 ### [Azure portal](#tab/azure-portal)
@@ -324,7 +319,7 @@ Complete the step using either the Azure portal or the Azure CLI.
 
 ---
 
-## 6. Configure Azure Blob Storage resource to use passwordless credentials
+## 6. Configure system assigned identity to access Azure Blob Storage resources with passwordless credentials
 
 You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your blob storage resource.
 
@@ -346,10 +341,11 @@ You enabled System Assigned Identity for the function app in a preceding step. A
         **Step 2.** 
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
-        1. **Select role**: Select **User, group, or service principal**.
+        1. **Assigned access to**: Select **Managed identity**.
         1. **Members**: Select **+ Select members**.
-        1. Search for your system assigned identity name in the dialogue.
-        1. Select the **Select** button to add your user account as a member of this role.
+        1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
         1. Review the selected values and select **Review + Assign**.
     :::column-end:::
     :::column:::
@@ -359,18 +355,11 @@ You enabled System Assigned Identity for the function app in a preceding step. A
 
 ### [Visual Studio Code](#tab/vscode)
 
-Complete the step using either the Azure portal or the Azure CLI.
+Complete the step using either the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-A managed identity is assigned a role in Azure with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The general form of the command is:
-
-```azurecli
-az role assignment create \
-    --role "Storage Blob Data Contributor" \
-    --assignee <YOUR-SYSTEM-ASSIGNED-IDENTITY-NAME> \
-    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetlabs"
-```
+Complete the step using either the Azure portal.
 
 ---
 
@@ -393,13 +382,13 @@ You enabled System Assigned Identity for the function app in a preceding step. A
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 2.** 
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
-        1. **Select role**: Select **User, group, or service principal**.
+        1. **Assigned access to**: Select **Managed identity**.
         1. **Members**: Select **+ Select members**.
-        1. Search for your system assigned identity name in the dialogue.
-        1. Select the **Select** button to add your user account as a member of this role.
+        1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
         1. Review the selected values and select **Review + Assign**.
     :::column-end:::
     :::column:::
@@ -413,20 +402,55 @@ Complete the step using either the Azure portal or the Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
-A managed identity is assigned a role in Azure with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The general form of the command is:
-
-```azurecli
-# Assign 'Storage Blob Data Contributor' role to system assigned identity
-az role assignment create \
-    --role "Storage Blob Data Contributor" \
-    --assignee <YOUR-SYSTEM-ASSIGNED-IDENTITY-NAME> \
-    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetladls"
-```
+Complete the step using either the Azure portal.
 
 ---
 
 
-## 8. Configure auto-archive rule for source data
+## 8. Configure Key Vault resource to use passwordless credentials
+
+You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your key vault resource.
+
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        **Step 1.** Configure key vault secret access for system assigned identity.
+        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
+        1. Find your Key Vault resource, named `msdocs-python-etl-kv`.
+        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
+        1. **Assigned access to**: Select **Managed identity**.
+        1. **Members**: Select **+ Select members**.
+        1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
+        1. Review the selected values and select **Review + Assign**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Visual Studio Code](#tab/vscode)
+
+Complete the step using either the Azure portal or the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli)
+
+Complete the step using either the Azure portal.
+
+---
+
+## 9. Configure auto-archive rule for source data
 
 Once the processed data is loaded into the data lake, the source file should be achieved to a separate Azure Blob Storage Container. Data archiving is when data is identified as no longer active, but requires retention.
 
@@ -439,11 +463,13 @@ There are several ways archive data using Python and Azure, however for this tut
         **Step 1.** Create the rule and specify the blob type.
         1. Navigate to your **blob storage account** in the portal named `msdocspythoncloudetlabs`. Don't select your data lake resource. 
         1. Under **Data management**, locate the **Lifecycle management settings**.
-        1. Select the **List View** tab.
+        1. On the **List View** tab, select **Enable access tracking**.
         1. Select the **Add a rule** button.
-        1. On the **Details tab**, specify a name for your rule.
-        1. Specify the rule scope: Apply rule to all blobs in your storage account
-        1. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
+        1. On the **Details tab**, specify a name for your rule `move-block-blobs-to-cool`.
+        1. Select the rule scope: **Limit blobs with filters**.
+        1. Select **Block blobs** as blob type.
+        1. Select **Base blobs** as blob subtype.
+        1. Select **Next**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png" alt-text="A screenshot navigating configuring storage lifecycle management details tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png":::
@@ -453,9 +479,9 @@ There are several ways archive data using Python and Azure, however for this tut
     :::column:::
         **Step 2.** Add rule conditions.
         1. On the **Base blobs tab**, set the conditions for your rule.
-        1. Select Base blobs were **Last accessed**.
-        1. **More than (days ago)**: Enter **30**.
-        1. **Then**: Select **Move to cool storage**.
+        1. For **Base blobs were**, select **Last accessed**.
+        1. For **More than (days ago)**: enter **30**.
+        1. For **Then**: select **Move to cool storage**.
         1. Select **Next**.
     :::column-end:::
     :::column:::
@@ -465,9 +491,7 @@ There are several ways archive data using Python and Azure, however for this tut
 :::row:::
     :::column:::
         **Step 3.** Apply rule filters on blobs whose name begins with *search_results* in a container called *msdocs-python-cloud-etl-news-source*.
-        1. If you selected Limit blobs with filters on the Details page, select Filter set to add an optional filter.
         1. **Blob prefix**: Enter **msdocs-python-cloud-etl-news-source/search_results**.
-        1. Leave the **Blob index match** section empty.
         1. Select the **Add** button to add the new policy.
     :::column-end:::
     :::column:::
@@ -489,7 +513,7 @@ Complete the step using either the Azure portal or the Azure CLI.
   "rules": [
     {
       "enabled": true,
-      "name": "move-to-cool",
+      "name": "move-block-blobs-to-cool",
       "type": "Lifecycle",
       "definition": {
         "actions": {
@@ -524,7 +548,8 @@ az storage account management-policy create \
 
 ---
 
-## 9. Find the Azure Function API endpoint
+
+## 10. Find the Azure Function API endpoint
 
 To call the solution, you need to use an HTTP tool for your deployed Azure Function's HTTP trigger URL. 
 
@@ -536,9 +561,9 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
         1. Navigate to your **function app account** in the portal named `msdoc-etl`. 
         1. On **Functions**, select the **api_search** function.
         1. Select **Get Function URL**.
-        1. In the selection box, choose the **ClientApp** key.
+        1. In the selection box, choose the **ClientAppKey** key.
         1. Select the copy icon to copy the URL with the key.
-        1. The URL format looks _like_ `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientApp`. 
+        1. The URL format looks _like_ `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientAppKey`. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png" alt-text="A screenshot showing how to get the function's URL with the host key in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png":::
@@ -575,23 +600,30 @@ az functionapp function show \
 
 ---
 
-## 10. Call the Azure Function API endpoint
+## 11. Call the Azure Function API endpoint
 
-The Function endpoint URL needs to be in the format of: `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientApp&search_term=azure&count=5`.
+The Function endpoint URL needs to be in the format of: `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientAppKey&search_term=azure&count=5`.
 
 The four querystring properties need to be in the URL.
 
 |Querystring property|Value|
 |--|--|
 |code|The host key value created to secure the function app.|
-|clientId|The name of the host key.|
-|search_term|The value used to search Bing News. |
+|clientId|The name of the host key, `ClientAppKey`.|
+|search_term|The value used to search Bing News, such as `azure`. |
 |count|Optional, default is 10. The number of news items to return from Bing News.|
 
 ### [Azure CLI](#tab/azure-cli)
 
+Replace the following values with your own before using this command:
+
+|Property|Value|
+|--|--|
+|`<YOUR-FUNCTION-APP-RESOURCE-NAME>`|Replace with your Azure Functions resource name, such as `msdocs-etl`.|
+|`<YOUR-CODE>`|Replace with the value of your host key.|
+
 ```bash
-curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
+curl --location --request GET 'http://<YOUR-FUNCTION-APP-RESOURCE-NAME>.azurewebsites.net/api/search?code=<YOUR-CODE>&clientId=ClientAppKey&search_term=azure&count=5'
 ```
 
 ### [Visual Studio Code](#tab/vscode)
@@ -609,9 +641,16 @@ Complete the steps using either the Visual Studio Code or the Azure CLI.
 
 ---
 
+## 12. Troubleshooting
 
+If the cloud-based Azure Functions app didn't place a process file in the Data Lake, use the following steps to troubleshoot the app.
 
-## 11. Delete the resource group for your project
+* Turn on Information logging and view logs
+    * On your local app, change the `host.json` file's value for `logging.logLevel.default` to `Information` and execute the request against the search endpoint again. 
+    * In the Azure portal, on your Functions App, select the `api_search` function.
+    * On the **Monitor** page, view the **Invocation Traces**. 
+
+## 13. Delete the resource group for your project
 
 Delete the resource group named `msdocs-python-cloud-etl-rg`.
 
