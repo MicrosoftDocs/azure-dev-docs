@@ -344,7 +344,7 @@
 | azure-cosmos-spark_3-0_2-12 | Maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-functions-java-core-library | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-core-library/1.2.0/jar/) |  |  |
-| azure-functions-java-library-sql | Maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql/0.1.0/jar/) |  |  |
+| azure-functions-java-library-sql | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql/0.1.1/jar/) |  |  |
 | azure-functions-java-spi | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0/jar/) |  |  |
 | azure-gradle-plugins-common | Maven [1.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.5.0/jar/) |  |  |
 | azure-identity-providers-core | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-identity-providers-core/1.0.0-beta.1/jar/) |  |  |
@@ -378,8 +378,8 @@
 | azure-schemaregistry-spark-avro | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-spark-avro/1.0.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
-| azure-sdk-template-three | Maven [1.0.0-beta.1950192](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1950192/jar/) |  |  |
-| azure-sdk-template-two | Maven [1.0.0-beta.1950192](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1950192/jar/) |  |  |
+| azure-sdk-template-three | Maven [1.0.0-beta.1987269](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1987269/jar/) |  |  |
+| azure-sdk-template-two | Maven [1.0.0-beta.1987269](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1987269/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.13.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.13.0/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
 | azure-toolkit-applicationinsights-lib | Maven [0.26.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.26.1/jar/) |  |  |
@@ -627,7 +627,7 @@
 | Schema Registry | Maven [1.3.0](https://search.maven.org/artifact/com.azure/azure-data-schemaregistry/1.3.0/jar/) | [docs](/java/api/overview/azure/data-schemaregistry-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.3.0/sdk/schemaregistry/azure-data-schemaregistry/) |
 | Schema Registry - Avro | Maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-data-schemaregistry-apacheavro/1.1.0/jar/) | [docs](/java/api/overview/azure/data-schemaregistry-apacheavro-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.0/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/) |
 | Schema Registry - Avro | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-data-schemaregistry-avro/1.0.0-beta.5/jar/) | [docs](/java/api/overview/azure/data-schemaregistry-avro-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-avro_1.0.0-beta.5/sdk/schemaregistry/azure-data-schemaregistry-avro/) |
-| Schema Registry - Kafka Avro | Maven [1.0.0-beta.7](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.0.0-beta.7/jar/) |  |  |
+| Schema Registry - Kafka Avro | Maven [1.0.0-beta.8](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.0.0-beta.8/jar/) |  |  |
 | SDK - Bill of Materials | Maven [1.2.7](https://search.maven.org/artifact/com.azure/azure-sdk-bom/1.2.7/jar/) |  | GitHub [1.2.7](https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.7/sdk/boms/azure-sdk-bom/) |
 | Search | Maven [11.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-search/11.0.0-beta.1/jar/) |  | GitHub [11.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-search_11.0.0-beta.1/sdk/search/azure-search/) |
 | Security Provider | Maven [1.5.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/security-provider/1.5.0/jar/)<br>Maven [2.0.0-preview-001](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/security-provider/2.0.0-preview-001/jar/) |  |  |
