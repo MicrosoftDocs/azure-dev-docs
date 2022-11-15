@@ -7,8 +7,6 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Tutorial: Get Bing News using a Python Azure Function

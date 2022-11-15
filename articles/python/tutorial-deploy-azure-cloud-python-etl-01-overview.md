@@ -7,8 +7,6 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 10/04/2022
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Overview: Deploy a serverless Python cloud ETL solution on Azure

@@ -7,8 +7,6 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Tutorial: Deploy Python ETL Solution to Azure
@@ -215,7 +213,7 @@ Configure the following environment variables to allow your function app to conn
 |DATALAKE_GEN_2_DIRECTORY_NAME|`news-data`|
 |BING_SEARCH_URL|`https://api.bing.microsoft.com/v7.0/`|
 
-The Bing Search key is not in this list because it is stored in Azure Key Vault. 
+The Bing Search key isn't in this list because it's stored in Azure Key Vault. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -329,6 +327,8 @@ Complete the step using either the Azure portal or the Azure CLI.
 
 You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your blob storage resource.
 
+### [Azure portal](#tab/azure-portal)
+
 :::row:::
     :::column:::
         **Step 1.** Configure Blob storage access for system assigned identity.
@@ -374,6 +374,8 @@ az role assignment create \
 ## 7. Configure Azure Data Lake resource to use passwordless credentials
 
 You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your data lake resource.
+
+### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
@@ -432,7 +434,7 @@ There are several ways archive data using Python and Azure, however for this tut
 :::row:::
     :::column:::
         **Step 1.** Create the rule and specify the blob type.
-        1. Navigate to your **blob storage account** in the portal named `msdocspythoncloudetlabs`. Do not select your data lake resource. 
+        1. Navigate to your **blob storage account** in the portal named `msdocspythoncloudetlabs`. Don't select your data lake resource. 
         1. Under **Data management**, locate the **Lifecycle management settings**.
         1. Select the **List View** tab.
         1. Select the **Add a rule** button.
@@ -523,7 +525,86 @@ az storage account management-policy create \
 
 To call the solution, you need to use an HTTP tool for your deployed Azure Function's HTTP trigger URL. 
 
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        **Step 1.** Get your API endpoint.
+        1. Navigate to your **function app account** in the portal named `msdoc-etl`. 
+        1. On **Functions**, select the **api_search** function.
+        1. Select **Get Function URL**.
+        1. In the selection box, choose the **ClientApp** key.
+        1. Select the copy icon to copy the URL with the key.
+        1. The URL format looks _like_ `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientApp`. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png" alt-text="A screenshot showing how to get the function's URL with the host key in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Visual Studio Code](#tab/vscode)
+
+
+:::row:::
+    :::column:::
+        **Step 1.** Navigate to your Azure Function App.
+        1. Choose the **Azure** icon in the **Activity** bar.
+        1. In the **Resources** area, expand **Function App**.
+        1. Select **msdocs-etl**.
+        1. Right-click on the **api_search** function and select **Copy Function Url**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-copy-function-url.png" alt-text="Screenshot showing how to get function URL in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-copy-function-url.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Azure CLI](#tab/azure-cli)
+
+Call the [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) command to create the policy.
+
+```azurecli
+az functionapp function show \
+    --resource-group msdocs-python-cloud-etl-rg 
+    --name msdocs-etl 
+    --function-name api_search 
+    --query "invokeUrlTemplate"
+```
+
+---
+
 ## 10. Call the Azure Function API endpoint
+
+The Function endpoint URL needs to be in the format of: `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientApp&search_term=azure&count=5`.
+
+The four querystring properties need to be in the URL.
+
+|Querystring property|Value|
+|--|--|
+|code|The host key value created to secure the function app.|
+|clientId|The name of the host key.|
+|search_term|The value used to search Bing News. |
+|count|Optional, default is 10. The number of news items to return from Bing News.|
+
+### [Azure CLI](#tab/azure-cli)
+
+```bash
+curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
+```
+
+### [Visual Studio Code](#tab/vscode)
+
+1. Choose the **Azure icon** in the **Activity bar**. 
+1. In the **Workspace area**, expand **Local Project > Functions**. 
+1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+1. Choose **Execute Function Now**.
+1. Enter the request message body value `{ "search_term": "Azure", "count": 5}` and press Enter.
+
+
+### [Azure portal](#tab/azure-portal)
+
+Complete the steps using either the Visual Studio Code or the Azure CLI.
+---
+
 
 
 ## 11. Delete the resource group for your project
