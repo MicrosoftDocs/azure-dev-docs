@@ -649,6 +649,9 @@ If the cloud-based Azure Functions app didn't place a process file in the Data L
     * On your local app, change the `host.json` file's value for `logging.logLevel.default` to `Information` and execute the request against the search endpoint again. 
     * In the Azure portal, on your Functions App, select the `api_search` function.
     * On the **Monitor** page, view the **Invocation Traces**. 
+* Key Vault role-based access: 
+    * Your own user identity should have the role of **Key Vault Secrets Officer** to create and manage secrets
+    * Your function's system assigned identity should have the role of **Key Vault Secrets User** to read secrets.
 
 ## 13. Delete the resource group for your project
 

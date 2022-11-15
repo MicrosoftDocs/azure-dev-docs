@@ -317,7 +317,7 @@ Configure your own account to have access to Key Vault Secrets. Do this immediat
 
 ### [Azure portal](#tab/azure-portal)
 
-You enabled role-based access control for your key vault resource in a preceding step. Add your identity to your key vault resource to access secrets while locally developing the application.
+You enabled role-based access control for your key vault resource in a preceding step. Add your identity to your key vault resource to _create_ and _read_ secrets while locally developing the application.
 
 :::row:::
     :::column:::
@@ -334,7 +334,7 @@ You enabled role-based access control for your key vault resource in a preceding
 :::row:::
     :::column:::
         **Step 2.** Navigate to create an Azure Key Vault resource in the Azure portal.
-        1. Search for **Key Vaults Secrets User** and select it.
+        1. Search for **Key Vault Secrets Officer** and select it.
         1. Select **Next**.
     :::column-end:::
     :::column:::
