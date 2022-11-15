@@ -364,10 +364,12 @@ Complete the step using either the Azure portal or the Azure CLI.
 
 A managed identity is assigned a role in Azure with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The general form of the command is:
 
+```azurecli
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <YOUR-SYSTEM-ASSIGNED-IDENTITY-NAME> \
     --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetlabs"
+```
 
 ---
 
