@@ -232,7 +232,7 @@ conceptualContent:
               text: Monitoring Azure Functions
         - title: Automation
           links:
-            - url: /azure/developer/jenkins/deploy-to-azure-spring-apps-using-azure-cli
+            - url: ../../jenkins/deploy-to-azure-spring-cloud-using-azure-cli.md
               itemType: tutorial
               text: Deploy apps to Azure Spring Apps using Jenkins and the Azure CLI
             - url: /azure/aks/node-upgrade-github-actions
@@ -243,10 +243,10 @@ conceptualContent:
               text: Provision Azure Spring Apps using Terraform
         - title: Migration
           links:
-            - url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps
+            - url: ../migration/migrate-spring-boot-to-azure-spring-cloud.md
               itemType: get-started
               text: Migrate Spring Boot applications to Azure Spring Apps
-            - url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps
+            - url: ../migration/migrate-spring-cloud-to-azure-spring-cloud.md
               itemType: get-started
               text: Migrate Spring Cloud applications to Azure Spring Apps
             - url: ../migration/migrate-spring-boot-to-azure-kubernetes-service.md
