@@ -38,20 +38,10 @@ You can create accounts in Azure SQL Database. If you choose to use passwords as
 
 Although it's possible to connect to Azure SQL Database with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, if a password is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
-## Introducing passwordless connections
-
-With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables.
-
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application isn't passwordless.
-
-In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
-
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+[!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
 > [!NOTE]
 > Since the JDBC driver for Azure SQL Database doesn't support passwordless connections from local environments yet, this article will focus only on applications deployed to Azure hosting environments and how to migrate them to use passwordless connections.
->
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## Migrate an existing application to use passwordless connections
 
