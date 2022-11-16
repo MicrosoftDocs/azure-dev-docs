@@ -86,7 +86,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Databases on Azure
-            url: /azure/developer/javascript/how-to/with-database/getting-started
+            url: ./how-to/with-database/getting-started.md
           - text: GraphQL on Azure
             url: ./how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
           - text: Full stack serverless with Mongoose
