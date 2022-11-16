@@ -377,6 +377,8 @@ az role assignment create \
 
 To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
 
+---
+
 ## 9. Create Key Vault secret
 
 ### [Azure portal](#tab/azure-portal)
