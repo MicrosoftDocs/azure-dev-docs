@@ -14,7 +14,7 @@ metadata:
   # ms.subservice: subservice # Optional; Remove if no subservice is used.
   ms.topic: hub-page # Required
   ms.collection: collection # Optional; Remove if no collection is used.
-  author: fangjian0423 #Required; your GitHub user alias, with correct capitalization.
+  author: KarlErickson #Required; your GitHub user alias, with correct capitalization.
   ms.author: fangjimmy #Required; microsoft alias of author; optional team alias.
   ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
 
