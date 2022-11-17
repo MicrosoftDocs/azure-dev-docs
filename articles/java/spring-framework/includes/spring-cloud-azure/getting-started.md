@@ -77,6 +77,7 @@ The following table lists starters for Spring Cloud Stream support:
 > |----------------------------------------------|-------------------------------------------------------------------------|
 > | spring-cloud-azure-starter-stream-eventhubs  | The starters for using Azure Event Hubs and Spring Cloud Stream Binder. |
 > | spring-cloud-azure-starter-stream-servicebus | The starter for using Azure Service Bus and Spring Cloud Stream Binder. |
+
 The following table lists starters for MySQL support:
 
 > [!div class="mx-tdBreakAll"]
