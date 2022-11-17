@@ -188,7 +188,11 @@ Deploy project files.
 
 Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-1. Create a zip file of your project named `msdocs-etl.zip`.
+1. Create a zip file of your project named `msdocs-etl.zip`. Use **tar** at the root of the project to create the zip file:
+
+    ```bash
+    tar -a -cf msdocs-etl.zip *.*
+    ```
 
 1. Run [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) to deploy the zip file.
 
