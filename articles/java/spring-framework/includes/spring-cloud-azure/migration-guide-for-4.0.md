@@ -229,7 +229,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -254,7 +254,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -394,7 +394,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -474,7 +474,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -503,7 +503,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -550,7 +550,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -567,7 +567,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -603,7 +603,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -639,7 +639,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -875,7 +875,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -1085,7 +1085,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -1153,7 +1153,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
@@ -1340,7 +1340,7 @@ For general information, use the following links:
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
 * To learn how to use one BOM for all Spring Cloud Azure libraries, see the [BOM](#bom) section.
-* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication](#authentication) section.
+* To learn how to handle authentication in Spring Cloud Azure 4.0, see the [Authentication changes](#authentication-changes) section.
 * To learn how to leverage `spring-boot-properties-migrator` during migration, see the [Configure each SDK](#configure-each-sdk) section.
 * To learn more about the global and common configuration changes, see the [Global configurations](#global-configurations) section.
 
