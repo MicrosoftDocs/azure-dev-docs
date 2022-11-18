@@ -294,7 +294,7 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
    :::image type="content" source="media/passwordless-connections/virtual-machine-identity.png" alt-text="Screenshot of Azure portal Identity page of Virtual machine resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/virtual-machine-identity.png":::
 
-####### [AKS](#tab/aks)
+##### [AKS](#tab/aks)
 
 An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
 
