@@ -40,4 +40,8 @@ Use the **CTRL + Shift + P** shortcut to open the command palette. Search for th
 
 :::image type="content" source="../media/passwordless-connections/azure-command.png" alt-text="Screenshot showing the Azure sign-in command.":::
 
+### [IntelliJ](#tab/sign-in-Intellij)
+
+For more information, see [Install the Azure Toolkit for IntelliJ](../../toolkit-for-intellij/install-toolkit.md) and [Sign-in instructions for the Azure Toolkit for IntelliJ](../../toolkit-for-intellij/sign-in-instructions.md).
+
 ---
