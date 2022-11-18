@@ -2,7 +2,7 @@
 title: Use Spring Kafka with Azure Event Hubs
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs. 
 services: event-hubs
-ms.date: 09/27/2022
+ms.date: 11/16/2022
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java, passwordless-java
@@ -94,7 +94,7 @@ az eventhubs eventhub create \
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
-Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
+Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
 
 If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
@@ -177,14 +177,9 @@ spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
 ```
 
 > [!NOTE]
-> If you're using version `spring-cloud-azure-dependencies:4.3.0`, then you should add the property `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` with the value `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`. This property setting is used for adding Spring Cloud Azure configuration for `KafkaBinderConfigurationPropertiesBeanPostProcessor` for each particular binder. The `kafka-binder-name` by default is `kafka` in a single kafka binder application.
+> If you're using version `spring-cloud-azure-dependencies:4.3.0`, then you should add the property `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` with the value `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`.
 >
-> The added configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`. These parameters are used in `KafkaOAuth2AuthenticateCallbackHandler` to take the Spring Cloud Azure token credentials. The configuration is used in the following scenarios:
->
-> - When you run the application locally for development purposes, it will read the credential from local environments like IntelliJ, Visual Studio Code, or Azure CLI.
-> - When the application is deployed to Azure AD enabled hosting environments, like Azure Spring Apps, it will load the Azure AD credentials from the environment.
->
-> For version since `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+> Since `4.4.0`, this property will be added automatically, so there's no need to add it manually.
 
 The following table describes the fields in the configuration:
 
