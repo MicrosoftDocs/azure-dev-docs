@@ -19,7 +19,7 @@ Passwordless connections are supported since Spring Cloud Azure 4.3.0. This arti
 
 ## Compare authentication options
 
-When authenticating with Azure Event Hubs for Kafka, the application provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Azure Active Directory (Azure AD) authentication and Shared Access Signature (SAS) authentication.
+When the application authenticates with Azure Event Hubs for Kafka, it provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Azure Active Directory (Azure AD) authentication and Shared Access Signature (SAS) authentication.
 
 ### Azure AD authentication
 
@@ -37,7 +37,7 @@ Using Azure AD for authentication provides the following benefits:
 
 Event Hubs also provides Shared Access Signatures (SAS) for delegated access to Event Hubs for Kafka resources.
 
-Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it should be used with caution. You must be diligent to never expose the connection strings in an unsecure location. Anyone who gains access to the connection strings is able to authenticate. For example, if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, authorizing access using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
+Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it should be used with caution. You must be diligent to never expose the connection strings in an unsecure location. Anyone who gains access to the connection strings is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, authorizing access using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
 
 [!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
@@ -368,7 +368,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
 
 The following compute services are currently supported:
 
@@ -449,7 +449,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
 
 You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
-If you're using an Azure App Service, use the `az webapp connection` command, as shown in the following example:
+If you're using an Azure App Service, use the [az webapp connection](/azure/webapp/connection) command, as shown in the following example:
 
 ```azurecli
 az webapp connection create eventhub \
@@ -460,7 +460,7 @@ az webapp connection create eventhub \
     --system-identity
 ```
 
-If you're using Azure Spring Apps, use `the az spring connection` command, as shown in the following example:
+If you're using Azure Spring Apps, use the `az spring connection` command, as shown in the following example:
 
 ```azurecli
 az spring connection create eventhub \
@@ -540,13 +540,13 @@ export AZURE_MANAGED_IDENTITY_ID=$(az aks update \
 
 #### Assign roles to the managed identity
 
-Next, grant permissions to the managed identity you created to access your Event Hubs namespace. You can do this by assigning a role to the managed identity, just like you did with your local development user.
+Next, grant permissions to the managed identity you created to access your Event Hubs namespace. You can grant permissions by assigning a role to the managed identity, just like you did with your local development user.
 
 ##### [Service Connector](#tab/assign-role-service-connector)
 
 If you connected your services using the Service Connector, you don't need to complete this step. The following necessary configurations were handled for you:
 
-- If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles on the Event Hubs.
+- If you selected a managed identity when you created the connection, a system-assigned managed identity was created for your app and assigned the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles on the Event Hubs.
 
 - If you chose to use a connection string, the connection string was added as an app environment variable.
 

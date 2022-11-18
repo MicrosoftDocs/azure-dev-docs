@@ -17,7 +17,7 @@ Application requests to Azure Database for PostgreSQL must be authenticated. Azu
 
 ## Compare authentication options
 
-When authenticating with Azure Database for PostgreSQL, the application provides a username and password pair to connect the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication.
+When the application authenticates with Azure Database for PostgreSQL, it provides a username and password pair to connect the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication.
 
 ### Azure AD authentication
 
@@ -36,7 +36,7 @@ Using Azure AD for authentication provides the following benefits:
 
 You can create accounts in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you'll need to manage the rotation of the passwords by yourself.
 
-Although it's possible to connect to Azure Database for PostgreSQL with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, if a password is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
+Although it's possible to connect to Azure Database for PostgreSQL with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, consider updating your application to use passwordless connections.
 
 [!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
@@ -246,7 +246,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
 
 ##### [Azure App Service](#tab/app-service)
 
