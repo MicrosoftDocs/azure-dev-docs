@@ -181,3 +181,9 @@ Use the rows below to find your Java EE application type running on a specific a
 [22]: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
 [23]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
 [24]: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
+
+## See also
+
+* [Reasons to move to Java 11 and beyond](/java/openjdk/reasons-to-move-to-java-11)
+* [Transition from Java 8 to Java 11](/java/openjdk/transition-from-java-8-to-java-11)
+* [Transition from Java 7 to Java 8](/java/openjdk/transition-from-java-7-to-java-8)
