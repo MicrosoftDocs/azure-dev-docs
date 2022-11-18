@@ -244,11 +244,7 @@ In this section, you'll execute two steps to enable your application to run in a
 
 The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
-##### [Service Connector](#tab/service-connector)
-
-When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
-
-##### [Azure App Service](#tab/app-service)
+##### [App Service](#tab/app-service)
 
 1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
 
@@ -256,7 +252,11 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
    :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
 
-##### [Azure Container Apps](#tab/container-apps)
+##### [Service Connector](#tab/service-connector)
+
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
+
+##### [Container Apps](#tab/container-apps)
 
 1. On the main overview page of your Azure Container Apps instance, select **Identity** from the navigation pane.
 
@@ -264,7 +264,7 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
    :::image type="content" source="media/passwordless-connections/container-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of Container App resource showing System assigned tab with Status field highlighted." lightbox="media/passwordless-connections/container-apps-identity.png":::
 
-##### [Azure Spring Apps](#tab/spring-apps)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 1. On the main overview page of your Azure Spring Apps instance, select **Identity** from the navigation pane.
 
@@ -272,7 +272,7 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
    :::image type="content" source="media/passwordless-connections/spring-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of App resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/spring-apps-identity.png":::
 
-##### [Azure virtual machines](#tab/virtual-machines)
+##### [Virtual Machines](#tab/virtual-machines)
 
 1. On the main overview page of your virtual machine, select **Identity** from the navigation pane.
 
@@ -280,11 +280,27 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
    :::image type="content" source="media/passwordless-connections/virtual-machine-identity.png" alt-text="Screenshot of Azure portal Identity page of Virtual machine resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/virtual-machine-identity.png":::
 
+##### [AKS](#tab/aks)
+
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+
 ---
 
 You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
-##### [Service Connector](#tab/service-connector-identity)
+##### [App Service](#tab/app-service)
+
+You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example:
+
+```azurecli
+AZ_MI_OBJECT_ID=$(az webapp identity assign \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name <service-instance-name> \
+    --query principalId \
+    --output tsv)
+```
+
+##### [Service Connector](#tab/service-connector)
 
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
 
@@ -329,19 +345,7 @@ az containerapp connection create postgres \
     --system-identity
 ```
 
-##### [Azure App Service](#tab/app-service-identity)
-
-You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example:
-
-```azurecli
-AZ_MI_OBJECT_ID=$(az webapp identity assign \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name <service-instance-name> \
-    --query principalId \
-    --output tsv)
-```
-
-##### [Azure Container Apps](#tab/container-apps-identity)
+##### [Container Apps](#tab/container-apps)
 
 You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command, as shown in the following example:
 
@@ -353,7 +357,7 @@ AZ_MI_OBJECT_ID=$(az containerapp identity assign \
     --output tsv)
 ```
 
-##### [Azure Spring Apps](#tab/spring-apps-identity)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
 
@@ -366,7 +370,7 @@ AZ_MI_OBJECT_ID=$(az spring app identity assign \
     --output tsv)
 ```
 
-##### [Azure virtual machines](#tab/virtual-machines-identity)
+##### [Virtual Machines](#tab/virtual-machines)
 
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command, as shown in the following example:
 
@@ -378,7 +382,7 @@ AZ_MI_OBJECT_ID=$(az vm identity assign \
     --output tsv)
 ```
 
-##### [Azure Kubernetes Service](#tab/aks-identity)
+##### [AKS](#tab/aks)
 
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command, as shown in the following example:
 
