@@ -2,9 +2,9 @@
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
 ms.topic: how-to
-ms.date: 08/08/2022
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.date: 09/06/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 4. Create your Node.js application image
@@ -59,29 +59,14 @@ To push the image to your registry, you must first tag it with the registry name
     },
     ```
 
-    If you build on **Linux**, configure the task for that operating system:
-
-    ```json
-    {
-        "type": "docker-build",
-        "label": "docker-build",
-        "platform": "node",
-        "dockerBuild": {
-            "dockerfile": "${workspaceFolder}/Dockerfile",
-            "context": "${workspaceFolder}",
-            "pull": true,
-            "tag": "YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver:latest"
-            // add this and run "docker buildx install" once to activate buildKit alias (buildx)
-            "customOptions": "--platform linux/amd64 --push"
-        }
-    },
-    ```
+    If you build on **Linux** or macOS, refer to this [build](https://github.com/Azure/azure-sdk-for-js/issues/21572) issue.
 
 1. As a final step, rebuild so you have the image tagged with your registry. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image. 
 
 ## Push the image to a registry
 
-1. The newly-tagged image appears now as a _new_ node in Docker explorer, under **Images** and includes the registry name. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
+1. The newly tagged image appears now as a _new_ node in Docker explorer, under **Images** and includes the registry name such as `YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver`.
+1. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
 
 1. The **Terminal** panel shows the `docker push` commands used for this operation. The target registry is determined by the registry specified in the image name. 
 

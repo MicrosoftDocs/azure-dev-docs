@@ -2,7 +2,8 @@
 title: How do I create and manage resources in Azure?
 description: An overview of techniques that developers use to provision resources in Azure.
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
-ms.prod: azure
+ms.service: azure-devops
+ms.subservice: azure-devops-reference
 ms.topic: overview
 ms.date: 08/04/2022
 ms.custom: overview
@@ -46,7 +47,7 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) can manage 
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-:::image type="content" source="./media/visual-studio-code-azure-tools-extension-800px.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed." lightbox="./media/visual-studio-code-azure-tools-extension.png":::
+:::image type="content" source="./media/visual-studio-code-azure-tools-extension.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed.":::
 
 ## Command line tools
 
@@ -60,7 +61,7 @@ The [Azure CLI](/cli/azure/what-is-azure-cli) is a cross-platform command line t
 * Outputs results as JSON (by default). Results can also be formatted as YAML, an ASCII table or tab-separated values with no keys.
 * Provides the ability to query and shape output through the use of [JMESPath queries](https://jmespath.org/).
 
-Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/learn/modules/bash-introduction/) giving you the ability to script common tasks.
+Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/training/modules/bash-introduction/) giving you the ability to script common tasks.
 
 ```azurecli
 LOCATION='eastus'                                        

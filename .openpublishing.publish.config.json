@@ -36,7 +36,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "terraform_samples",
-      "url": "https://github.com/Azure/terraform",
+      "url": "https://github.com/azure/terraform",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -175,18 +175,12 @@
     {
       "path_to_root": "python-sample-vscode-flask-tutorial",
       "url": "https://github.com/microsoft/python-sample-vscode-flask-tutorial",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
       "path_to_root": "python-integrated-authentication",
       "url": "https://github.com/Azure-Samples/python-integrated-authentication",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azure-docs",
-      "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -219,7 +213,13 @@
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
-    }    
+    },
+    {
+      "path_to_root": "articles/reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": [

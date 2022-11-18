@@ -1,19 +1,22 @@
 ---
 title: Use JavaScript on Azure Cosmos DB with MongoDB
-description: To create or move your mongoDB database to Azure, you need a Cosmos DB resource. 
+description: To create or move your mongoDB database to Azure, you need an Azure Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 08/08/2022
-ms.custom: devx-track-js, devx-track-azurecli
+ms.date: 09/01/2022
+ms.custom: devx-track-js, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
 # Develop a JavaScript application with MongoDB on Azure
 
-To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database.
-
+To create, move, or use a mongoDB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database.
 
 # [VS Code extension](#tab/vscode)
 
-[!INCLUDE [VSCode extension for Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
+To Use the VSCode extension for Azure Cosmos DB, install the following:
+
+* [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+
+[!INCLUDE [VSCode extension for Azure Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -36,7 +39,7 @@ Learn more about the Azure Cosmos DB emulator:
 
 ## Use native SDK packages to connect to MongoDB on Azure
 
-The mongoDB database on Cosmos DB uses npm packages already available, such as:
+The mongoDB database on Azure Cosmos DB uses npm packages already available, such as:
 
 * [mongodb](https://www.npmjs.com/package/mongodb)
 * [mongoose](https://www.npmjs.com/package/mongoose)
@@ -54,9 +57,9 @@ The mongoDB database on Cosmos DB uses npm packages already available, such as:
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
-* [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
-* [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
+* [Azure Cosmos DB for MongoDB documentation](/azure/cosmos-db/mongodb-introduction)
+* [Azure Cosmos DB for MongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
+* [Migration guide to move to Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-pre-migration)
 * 
 * [Tutorial: Build a Node.js and MongoDB app in Azure](/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-windows)
 * Learn about MongoDB versions:

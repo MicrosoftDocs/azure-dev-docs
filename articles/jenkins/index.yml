@@ -115,4 +115,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to Azure Spring Apps using the Azure CLI
-            url: deploy-to-azure-spring-cloud-using-azure-cli.md
+            url: deploy-to-azure-spring-apps-using-azure-cli.md

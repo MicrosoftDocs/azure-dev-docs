@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-yonghuiye
-ms.date: 06/29/2022
+ms.date: 11/02/2022
 ---
 
 ## Azure Service Bus JMS properties

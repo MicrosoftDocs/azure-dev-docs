@@ -4,8 +4,8 @@ description: An overview of the different JBoss EAP solutions on Azure, all join
 author: KarlErickson
 ms.author: jafreebe
 ms.topic: overview
-ms.date: 06/27/2022
-ms.custom: template-overview, devx-track-java
+ms.date: 09/15/2022
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-jbosseap-vm
 ---
 
 # Red Hat JBoss EAP on Azure
@@ -16,7 +16,7 @@ There are three hosting options for JBoss EAP on Azure: App Service, Azure Red H
 
 ## JBoss EAP on Azure App Service
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) is a fully managed platform for web and API applications, with built-in infrastructure maintenance, security patching, and scaling. App Service integrates with networking features such as virtual networks, Private Endpoints, and Hybrid Connections. This integration allows you to secure and isolate your infrastructure as necessary. You can deploy rapidly with GitHub Actions and Azure Pipelines integration, and monitor your applications with Azure Monitor application insights. For more information, see [App Service overview](/azure/app-service/overview).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) is a fully managed platform for web and API applications, with built-in infrastructure maintenance, security patching, and scaling. App Service integrates with networking features such as virtual networks, Private Endpoints, and Hybrid Connections. This integration allows you to secure and isolate your infrastructure as necessary. You can deploy rapidly with GitHub Actions and Azure Pipelines integration, and monitor your applications with Azure Monitor Application Insights. For more information, see [App Service overview](/azure/app-service/overview).
 
 JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App Service plans. For more information about these plans, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/). The Isolated plans host your application in a private, dedicated Azure environment. You can purchase Premium v3 and Isolated v2 plans on a Pay-As-You-Go basis, or on one to three-year reservations to reduce costs up to 50%. For more information, see [What are Azure Reservations?](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [How reservation discounts apply to Azure App Service](/azure/cost-management-billing/reservations/reservation-discount-app-service).
 
@@ -30,18 +30,23 @@ JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. Wh
 
 ## JBoss EAP on Azure Red Hat OpenShift (ARO)
 
-[Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/#overview) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using containers, using Kubernetes, or adopting microservices, then deploying JBoss EAP on ARO is a compelling option. Red Hat and Microsoft provide official guidance for running JBoss EAP on Azure Red Hat OpenShift (ARO). For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app). The guidance uses JBoss EAP Helm Charts. The Helm Charts let you easily and reliably deploy Java applications to OpenShift. The guidance also demonstrates the recommended use of Bootable JAR deployments, the WildFly JAR Maven plugin, Galleon layers, the Galleon data sources feature pack, clustered state on Kubernetes, OpenShift secrets, and liveness/readiness probes.
+[Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/#overview) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on ARO is a compelling option. Red Hat and Microsoft provide official guidance for running JBoss EAP on ARO. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app). The guidance uses JBoss EAP Helm Charts. The Helm Charts let you easily and reliably deploy Java applications to OpenShift. The guidance also demonstrates the recommended use of Bootable JAR deployments, the WildFly JAR Maven plugin, Galleon layers, the Galleon data sources feature pack, clustered state on Kubernetes, OpenShift secrets, and liveness/readiness probes.
 
 ## JBoss EAP on Azure Virtual Machines
 
-Several plans are available for running JBoss EAP on Azure Virtual Machines. Visit the offer [in the Azure portal](https://aka.ms/jboss-eap-on-vms) and select the option best suited for your needs.
+Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines.
 
-Virtual machine scale sets provide groups of load-balanced, highly scalable virtual machines for workloads of any size. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Azure solution templates help accelerate migrating JBoss EAP workloads. This solution automatically provisions several Azure resources to quickly create a JBoss EAP deployment on Azure Virtual Machines or virtual machine scale sets. The automatically provisioned resources include virtual network, storage, network security group, OpenJDK, Red Hat Enterprise Linux (RHEL), and JBoss EAP. The solution supports the latest versions of JBoss EAP 7, OpenJDK 8, and RHEL 8.
 
-If you prefer a traditional cluster of VMs using the JBoss EAP clustering mechanism, is suitable for a lift and shift from deployments that are already using this feature. For more information, see [the JBoss EAP documentation](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/configuring_a_red_hat_jboss_eap_7_cluster/index).
+You can create different types of JBoss EAP deployments:
 
-Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on virtual machine scale sets uses jointly developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer, all within a virtual network. These templates provide you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on virtual machine scale sets supports clustered deployments via Azure Ping, so your stateful applications can run well.
+- A single instance on a VM.
+- A JBoss EAP cluster on a fixed number of VMs (with or without domain mode enabled). This option is very similar to traditional on-premises JBoss EAP clusters.
+- A dynamic JBoss EAP cluster on virtual machine scale sets. Virtual machine scale sets provide groups of load-balanced virtual machines that can be scaled up or down in response to demand. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/). The JBoss EAP cluster is formed using Azure Ping and is suitable for stateful applications. This option doesn't support domain mode.
 
+You can launch the solution from [the Azure portal](https://aka.ms/jboss-eap-on-vms).
+
+The offer requires a JBoss EAP subscription and works on a Bring-Your-Own-Subscription (BYOS) basis. For the RHEL part of the offer, you have a choice to use either Pay-As-You-Go (PAYGO) or BYOS. In case of PAYGO, there's an extra hourly RHEL subscription charge for using the offer on top of the normal Azure compute, network and storage costs. To use RHEL BYOS, you must [contact Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to get your subscription enabled on Azure. Once you do so, the RHEL BYOS options will become visible as plans.
 
 ## Next steps
 
@@ -50,5 +55,5 @@ The following articles provide more information on getting started with these te
 - [Red Hat JBoss EAP on Azure best practices](/azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-best-practices)
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
-- [Getting Started with JBoss EAP for OpenShift](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_container_platform/index)
+- [Deploy a Java application with JBoss EAP on ARO](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)
 - [Deploy Red Hat JBoss EAP on Azure VMs and virtual machine scale sets using the Azure Marketplace offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image)

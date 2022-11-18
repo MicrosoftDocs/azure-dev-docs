@@ -20,10 +20,10 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 | Data         | MySQL                      | [MySQL JDBC driver]                                | [Quickstart: Use Java and JDBC with Azure Database for MySQL]                                      | Spring Data: <br> • [JDBC] <br> • [JPA] <br> • [R2DBC]                                                                       | Use Spring Data with Azure Database for MySQL: <br> • [JDBC][JDBC MySQL] <br> • [JPA][JPA MySQL] <br> • [R2DBC][R2DBC MySQL]                     |
 | Data         | PostgreSQL                 | [PostgreSQL JDBC driver]                           | [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]                 | Spring Data: <br> • [JDBC] <br> • [JPA] <br> • [R2DBC]                                                                       | Use Spring Data with Azure Database for PostgreSQL: <br> • [JDBC][JDBC PostgreSQL] <br> • [JPA][JPA PostgreSQL] <br> • [R2DBC][R2DBC PostgreSQL] |
 | Data         | MariaDB                    | [MariaDB driver]                                   | [MariaDB drivers and management tools compatible with Azure Database for MariaDB]                  | Spring Data: <br> • [JDBC] <br> • [JPA] <br> • [R2DBC]                                                                       | Use Spring Data with Azure Database for MySQL: <br> • [JDBC][JDBC MySQL] <br> • [JPA][JPA MySQL] <br> • [R2DBC][R2DBC MySQL]                     |
-| Data         | Cosmos DB - SQL            | [Maven Repository: com.azure » azure-cosmos]       | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data]                              | [Spring Data Cosmos DB]                                                                                                      | [How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]                                                                            |
-| Data         | Cosmos DB - MongoDB        | [MongoDB Java Drivers]                             | [Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB]                | [Spring Data MongoDB]                                                                                                        | [How to use Spring Data MongoDB API with Azure Cosmos DB]                                                                                        |
-| Data         | Cosmos DB - Cassandra      | [Datastax Java Driver for Apache Cassandra]        | [Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]            | [Spring Data for Apache Cassandra]                                                                                           | [How to use Spring Data Apache Cassandra API with Azure Cosmos DB]                                                                               |
-| Data         | Cosmos DB - Gremlin        | [Gremlin Java Driver]                              | [Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]         |                                                                                                                              | [Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]                                                       |
+| Data         | Azure Cosmos DB - SQL            | [Maven Repository: com.azure » azure-cosmos]       | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data]                              | [Spring Data Azure Cosmos DB]                                                                                                      | [How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL]                                                                            |
+| Data         | Azure Cosmos DB - MongoDB        | [MongoDB Java Drivers]                             | [Quickstart: Create a console app with Java and Azure Cosmos DB for MongoDB]                | [Spring Data MongoDB]                                                                                                        | [How to use Spring Data with Azure Cosmos DB for MongoDB]                                                                                        |
+| Data         | Azure Cosmos DB - Cassandra      | [Datastax Java Driver for Apache Cassandra]        | [Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]            | [Spring Data Apache Cassandra]                                                                                           | [How to use Spring Data with Azure Cosmos DB for Apache Cassandra]                                                                               |
+| Data         | Azure Cosmos DB for Apache Gremlin        | [Gremlin Java Driver]                              | [Quickstart: Build a graph database with the Java SDK and Azure Cosmos DB for Apache Gremlin]         |                                                                                                                              | [Quickstart: Build a graph database with the Java SDK and Azure Cosmos DB for Apache Gremlin]                                                       |
 | Cache        | Redis                      | [JEDIS client]                                     | [Quickstart: Use Azure Cache for Redis in Java]                                                    | • [Spring Data Redis] <br> • [Reference] <br> • [Spring Cloud Azure Redis support]                                           | [Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]                                                       |
 | Cache        | Redis                      | [LETTUCE client]                                   | [Best Practices for using Azure Cache for Redis with Lettuce]                                      | • [Spring Data Redis] <br> • [Reference] <br> • [Spring Cloud Azure Redis support]                                           | [Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]                                                       |
 | Storage      | Azure Storage              | [Maven Repository: com.azure » azure-storage-blob] | [Quickstart: Manage blobs with Java v12 SDK]                                                       | [Spring Cloud Azure resource handing]                                                                                        | [How to use the Spring Boot Starter for Azure Storage]                                                                                           |
@@ -38,7 +38,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 
 [SQL Database JDBC driver]: /java/api/overview/azure/sql
 [MySQL JDBC driver]: https://dev.mysql.com/downloads/connector/j/
-[PostgreSQL JDBC driver]: https://jdbc.postgresql.org/download.html
+[PostgreSQL JDBC driver]: https://jdbc.postgresql.org/download/
 [MariaDB driver]: https://downloads.mariadb.org/connector-java/
 [Maven Repository: com.azure » azure-cosmos]: https://mvnrepository.com/artifact/com.azure/azure-cosmos
 [MongoDB Java Drivers]: https://mongodb.github.io/mongo-java-driver/
@@ -58,10 +58,10 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Quickstart: Use Java and JDBC with Azure Database for MySQL]: /azure/mysql/connect-java
 [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]: /azure/postgresql/flexible-server/connect-java
 [MariaDB drivers and management tools compatible with Azure Database for MariaDB]: /azure/mariadb/concepts-compatibility
-[Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data]: /azure/cosmos-db/sql/create-sql-api-java
-[Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB]: /azure/cosmos-db/mongodb/create-mongodb-java
-[Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
-[Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]: /azure/cosmos-db/graph/create-graph-java
+[Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data]: /azure/cosmos-db/sql/create-sql-api-java
+[Quickstart: Create a console app with Java and Azure Cosmos DB for MongoDB]: /azure/cosmos-db/mongodb/create-mongodb-java
+[Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
+[Quickstart: Build a graph database with the Java SDK and Azure Cosmos DB for Apache Gremlin]: /azure/cosmos-db/graph/create-graph-java
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
 [Best Practices for using Azure Cache for Redis with Lettuce]: https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md
 [Quickstart: Manage blobs with Java v12 SDK]: /azure/storage/blobs/storage-quickstart-blobs-java
@@ -78,9 +78,9 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [JDBC]: https://spring.io/projects/spring-data-jdbc
 [JPA]: https://spring.io/projects/spring-data-jpa
 [R2DBC]: https://spring.io/projects/spring-data-r2dbc
-[Spring Data Cosmos DB]: ../spring-framework/how-to-guides-spring-data-cosmosdb.md
+[Spring Data Azure Cosmos DB]: ../spring-framework/how-to-guides-spring-data-cosmosdb.md
 [Spring Data MongoDB]: https://spring.io/projects/spring-data-mongodb
-[Spring Data for Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
+[Spring Data Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
 [Spring Data Redis]: https://spring.io/projects/spring-data-redis
 [Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
 [Spring Cloud Azure Redis support]: ../spring-framework/spring-cloud-azure.md#redis-support
@@ -102,10 +102,9 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [JDBC PostgreSQL]: ../spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md
 [JPA PostgreSQL]: ../spring-framework/configure-spring-data-jpa-with-azure-postgresql.md
 [R2DBC PostgreSQL]: ../spring-framework/configure-spring-data-r2dbc-with-azure-postgresql.md
-[How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]: ../spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-[How to use Spring Data MongoDB API with Azure Cosmos DB]: ../spring-framework/configure-spring-data-mongodb-with-cosmos-db.md
-[How to use Spring Data Apache Cassandra API with Azure Cosmos DB]: ../spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md
-[Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]: /azure/cosmos-db/graph/create-graph-java
+[How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL]: ../spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+[How to use Spring Data with Azure Cosmos DB for MongoDB]: ../spring-framework/configure-spring-data-mongodb-with-cosmos-db.md
+[How to use Spring Data with Azure Cosmos DB for Apache Cassandra]: ../spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md
 [Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]: ../spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md
 [How to use the Spring Boot Starter for Azure Storage]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md
 [How to use Spring Boot Starter for Azure Service Bus JMS]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md

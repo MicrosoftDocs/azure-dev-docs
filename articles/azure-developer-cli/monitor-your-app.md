@@ -1,35 +1,36 @@
 ---
-title: Monitor your app using Azure Developer CLI (azd) Preview
+title: Monitor your app using Azure Developer CLI (preview)
 description: Learn how to use Azure Developer CLI (azd) to monitor your app health.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 07/11/2022
+ms.date: 08/11/2022
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
-# Monitor your app using Azure Developer CLI (azd) Preview
+# Monitor your app using Azure Developer CLI (preview)
 
-In this article, you learn how to use Azure Developer CLI (azd) Preview to monitor your app health.
+In this article, you learn how to use Azure Developer CLI (`azd`) to monitor your app health.
 
-You can use any of the [Azure Developer CLI template](overview.md#azure-developer-cli-templates) for this tutorial. We'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo).
+While we use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template for this guide, you can use any of the [Azure Developer CLI templates](./azd-templates.md).
 
 ## Prerequisites
 
-- [Install azd](get-started.md).
+- [Install the Azure Developer CLI](./install-azd.md)
+- [Run `azd up` for the Node.js template](./get-started.md)
 
 ## Configure your environment
 
 Create monitoring activity in the app before running the `azd monitor` commands:
 
-1. Launch the ToDo app.
+1. Open the ToDo app in your preferred code editor.
 
 1. Create a new list and add a couple of items.
 
 ## Monitor the app
 
-To help with monitoring apps, azd provides a `monitor` command whose parameters launch various Application Insights dashboards.
+To help with monitoring apps, `azd` provides a `monitor` command whose parameters [launch various Application Insights dashboards](/azure/azure-monitor/app/overview-dashboard). Run any of the following commands in the project directory to monitor app health:
 
 | Application Insights dashboard | Command                  |
 |--------------------------------|--------------------------|
@@ -41,7 +42,7 @@ To help with monitoring apps, azd provides a `monitor` command whose parameters 
 
 When you no longer need the resources created in this article, do the following steps:
 
-``` bash
+```azdeveloper
 azd down
 ```
 

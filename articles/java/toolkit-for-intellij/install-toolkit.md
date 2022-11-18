@@ -4,7 +4,7 @@ description: Shows you how to install the Azure Toolkit as an IntelliJ IDEA plug
 ms.date: 07/01/2022
 author: KarlErickson
 ms.author: jialuogan
-ms.service: multiple
+ms.service: azure-java
 ms.topic: article
 ms.custom: devx-track-java
 ---

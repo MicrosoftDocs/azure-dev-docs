@@ -1,8 +1,6 @@
 ---
-title: 'Deploy a Python containerized web app to Azure with managed identity: clean up resources'
-description: How to clean up resources used in a tutorial showing how to containerize a Python (Django or Flask) web app and deploy it to App Service.
-author: jessmjohnson
-ms.author: jejohn
+title: Clean up Azure resources used in Python container tutorial
+description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/24/2022
@@ -44,7 +42,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ----
 
-## 2. Next steps 
+## 2. Next steps
 
 After completing this tutorial, here are some next steps you can take to build upon what you learned and move the tutorial code and deployment closer to production ready:
 
@@ -52,31 +50,30 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * [Review Security in Azure Cosmos DB](/azure/cosmos-db/database-security)
 
-
 * Map a custom DNS name to your app, see [Tutorial: Map custom DNS name to your app](/azure/app-service/app-service-web-tutorial-custom-domain).
 
 * Monitor App Service for availability, performance, and operation, see [Monitoring App Service](/azure/app-service/monitor-app-service) and [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 * Enable continuous deployment to Azure App Service, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment), [Use CI/CD to deploy a Python web app to Azure App Service on Linux](/azure/devops/pipelines/ecosystems/python-webapp), and [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp).
 
-* Create reusable infrastructure as code with [Azure Developer CLI (azd) Preview](/azure/developer/azure-developer-cli/overview). 
+* Create reusable infrastructure as code with [Azure Developer CLI (azd) Preview](../azure-developer-cli/overview.md). 
 
-## 3. Related Microsoft Learn modules
+## 3. Related Learn modules
 
-The following are some Microsoft Learn modules that explore the technologies and themes covered in this tutorial:
+The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 
-* [Introduction to Python](/learn/modules/intro-to-python/)
+* [Introduction to Python](/training/modules/intro-to-python/)
 
-* [Get started with Django](/learn/modules/django-get-started/)
+* [Get started with Django](/training/modules/django-get-started/)
 
-* [Create views and templates in Django](/learn/modules/django-views-templates/)
+* [Create views and templates in Django](/training/modules/django-views-templates/)
 
-* [Create data-driven websites by using the Python framework Django](/learn/paths/django-create-data-driven-websites/)
+* [Create data-driven websites by using the Python framework Django](/training/paths/django-create-data-driven-websites/)
 
-* [Deploy a Django application to Azure by using PostgreSQL](/learn/modules/django-deployment/)
+* [Deploy a Django application to Azure by using PostgreSQL](/training/modules/django-deployment/)
 
-* [Get Started with the MongoDB API in Azure Cosmos DB](/learn/modules/get-started-mongodb-api-azure-cosmos-db/)
+* [Get Started with the MongoDB API in Azure Cosmos DB](/training/modules/get-started-mongodb-api-azure-cosmos-db/)
 
-* [Migrate on-premises MongoDB databases to Cosmos DB](/learn/modules/migrate-on-premises-mongodb-databases-azure-database-mongodb/)
+* [Migrate on-premises MongoDB databases to Azure Cosmos DB](/training/modules/migrate-on-premises-mongodb-databases-azure-database-mongodb/)
 
-* [Build a containerized web application with Docker](/learn/modules/intro-to-containers/)
+* [Build a containerized web application with Docker](/training/modules/intro-to-containers/)

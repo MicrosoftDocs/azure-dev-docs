@@ -22,7 +22,7 @@
     - name: Azure Spring Apps
       items:
       - name: Deploy to Azure Spring Apps using the Azure CLI
-        href: deploy-to-azure-spring-cloud-using-azure-cli.md
+        href: deploy-to-azure-spring-apps-using-azure-cli.md
     - name: AKS
       items:
       - name: CI/CD to Kubernetes

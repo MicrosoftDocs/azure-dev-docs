@@ -25,6 +25,8 @@ landingContent:
           url: https://code.visualstudio.com/docs/java/java-webapp
         - text: Traditional WebSphere on Azure VMs
           url: ../ee/traditional-websphere-application-server-virtual-machines.md
+        - text: WebLogic Server on Azure Virtual Machine using the Azure portal
+          url: ../ee/weblogic-server-azure-virtual-machine.md
         - text: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal
           url: ../ee/weblogic-server-azure-kubernetes-service.md
   - title: Serverless functions
@@ -41,14 +43,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Launch using the Azure portal
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-portal
-        - text: Launch using the Azure CLI
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-cli
-        - text: Launch from source code
-          url: /azure/spring-apps/spring-cloud-launch-from-source
-        - text: Launch using Maven
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-maven
+        - text: Deploy your first app
+          url: /azure/spring-apps/quickstart
   - title: Storage
     linkLists:
       - linkListType: quickstart
@@ -65,19 +61,19 @@ landingContent:
           url: /azure/mysql/connect-java
         - text: PostgreSQL
           url: /azure/postgresql/connect-java
-  - title: Cosmos DB
+  - title: Azure Cosmos DB
     linkLists:
       - linkListType: quickstart
         links:
-        - text: SQL API
+        - text: Azure Cosmos DB for NoSQL
           url: /azure/cosmos-db/create-sql-api-java
-        - text: Table API
+        - text: Azure Cosmos DB for Table
           url: /azure/cosmos-db/create-table-java
-        - text: Graph API
+        - text: Azure Cosmos DB for Apache Gremlin
           url: /azure/cosmos-db/create-graph-java
-        - text: Cassandra API
+        - text: Azure Cosmos DB for Apache Cassandra
           url: /azure/cosmos-db/create-cassandra-java
-        - text: MongoDB API
+        - text: Azure Cosmos DB for MongoDB
           url: /azure/cosmos-db/create-mongodb-java
   - title: Eventing
     linkLists:

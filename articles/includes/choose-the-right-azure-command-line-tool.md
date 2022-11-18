@@ -1,9 +1,7 @@
 ---
- author: Duffney
  ms.service: azure
  ms.topic: include
  ms.date: 05/12/2021
- ms.author: jduffney
 ---
 
 # Choose the right Azure command-line tool
@@ -88,7 +86,7 @@ Azure CLI syntax is similar to that of Bash scripting. If you work primarily wit
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
 
-Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
+Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](/training/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
 
 With that said, being open-minded will only improve your abilities. Use a different tool when it makes sense.
 
@@ -104,7 +102,7 @@ Sign in, Subscription, and Location Commands:
 |---|---|---|
 |Sign in with Web Browser|az login|Connect-AzAccount|
 |Get available subscriptions|az account list|Get-AzSubscription|
-|Set Subscription|az account set –subscription \<SubscriptionId>|Set-AzContext -Subscription \<SubscriptionID>|
+|Set Subscription|az account set –-subscription \<SubscriptionId>|Set-AzContext -Subscription \<SubscriptionID>|
 |List Azure Locations|az account list-locations|Get-AzLocation|
 
 ---

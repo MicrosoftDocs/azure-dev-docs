@@ -8,9 +8,9 @@ ms.custom: devx-track-js
 
 # Deploy a GraphQL API for CRUD mutations as an Azure Function 
 
-In this article, learn how to deploy a GraphQL API for CRUD mutations to Azure in an Azure Function. 
+In this article, learn how to deploy an Apollo GraphQL API for CRUD mutations to Azure in an Azure Function. 
 
-* [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations.git)
+* [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations.git) - uses in-memory database
 
 ## Prepare your development environment
 
@@ -47,24 +47,30 @@ Make sure the following are installed on your local developer workstation:
     npm install
     ```
 
-1. Build the project: 
+1. Build the TypeScript project: 
 
     ```bash
-    npm build
+    npm run build
     ```
 
 1. Run the sample:
 
     ```bash
-    npm start
+    npm run start:local
     ```
+
+    If your computer pops up a window from a security app asking for permission to run, allow the app. 
 
 ## Query GraphQL API with GraphQL playground
 
 The npm package `apollo-server-azure-functions` includes a GraphQL playground that you can use to test your GraphQL API. Use this playground to test the GraphQL API locally.
 
-1. Open browser to `http://localhost:7071/api/graphql` to reach the local GraphQL playground.
-1. Enter query: 
+1. Open browser to `http://localhost:7071/api/graphql`.
+1. On the Apollo Studio page, select **Query your server**.
+
+    :::image type="content" source="../../../media/azure-function-graphql-hello/apollo-studio-query-your-server.png" alt-text="Browser screenshot displays information about Apollo Studio, including the button named Query your server.":::
+
+1. Enter query to add a message to the in-memory database: 
 
     ```json
     mutation{

@@ -1,6 +1,6 @@
 ---
-title: Migrate WebLogic apps to WildFly on Azure Kubernetes Service
-description: Learn what you should be aware of to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
+title: Migrate WebLogic Server apps to WildFly on Azure Kubernetes Service
+description: Learn what you should be aware of to migrate an existing WebLogic Server application to run on WildFly in an Azure Kubernetes Service container.
 author: KarlErickson
 ms.author: manriem
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.custom: devx-track-java, devx-track-azurecli, kr2b-contr-experiment, migratio
 recommendations: false
 ---
 
-# Migrate WebLogic applications to WildFly on Azure Kubernetes Service
+# Migrate WebLogic Server applications to WildFly on Azure Kubernetes Service
 
-This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
+This guide describes what you should be aware of when you want to migrate an existing WebLogic Server application to run on WildFly in an Azure Kubernetes Service container.
 
 ## Pre-migration
 
@@ -19,7 +19,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 If you can't meet the pre-migration requirements, see the companion migration guide:
 
-* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+* [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 

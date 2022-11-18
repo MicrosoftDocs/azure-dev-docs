@@ -11,13 +11,13 @@
       - name: Java JDK installation
         href: java-jdk-install.md
       - name: JDK Flight Recorder and Mission Control
-        href: /java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /java/openjdk/java-jdk-flight-recorder-and-mission-control
       - name: Reasons to move to Java 11
-        href: /java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /java/openjdk/reasons-to-move-to-java-11
       - name: Transition from Java 8 to Java 11
-        href: /java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /java/openjdk/transition-from-java-8-to-java-11
       - name: Transition from Java 7 to Java 8
-        href: /java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /java/openjdk/transition-from-java-7-to-java-8
     - name: Visual Studio Code
       href: https://code.visualstudio.com/docs/languages/java
     - name: IntelliJ IDEA

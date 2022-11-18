@@ -1,5 +1,5 @@
 ---
-ms.date: 06/30/2022
+ms.date: 11/01/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -75,7 +75,7 @@ Key Vault secret names support only characters in `[0-9a-zA-Z-]`. For more infor
 `.` isn't supported in secret names. If your application has a property name that contains `.`, such as `spring.datasource.url`, replace `.` with `-` when saving the secret in Azure Key Vault. For example, save `spring-datasource-url` in Azure Key Vault. In your application, you can still use `spring.datasource.url` to retrieve the property value.
 
 > [!NOTE]
-> This method cannot satisfy requirement like `spring.datasource-url`. When you save `spring-datasource-url` in Key Vault, only `spring.datasource.url` and `spring-datasource-url` is supported to retrieve the property value, but `spring.datasource-url` isn't supported. To handle this case, see the [Use property placeholders](#use-property-placeholders) section.
+> This method cannot satisfy a requirement like `spring.datasource-url`. When you save `spring-datasource-url` in Key Vault, only `spring.datasource.url` and `spring-datasource-url` is supported to retrieve the property value, but `spring.datasource-url` isn't supported. To handle this case, see the [Use property placeholders](#use-property-placeholders) section.
 
 ##### Use property placeholders
 
@@ -135,4 +135,4 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 
 ### Samples
 
-See the [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) on GitHub.
+See the [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) on GitHub.

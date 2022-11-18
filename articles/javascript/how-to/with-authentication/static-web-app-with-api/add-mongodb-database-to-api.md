@@ -11,16 +11,16 @@ ms.custom: devx-track-js
 
 In this article, learn to add a MongoDB database to the Static web app's API. Up to this point, the user information came from the Microsoft Identity platform using the MSAL.js libraries, or from Microsoft Graph. This article adds a common step of storing user information custom to the web app, that shouldn't be stored in the Identity account. 
 
-To store this web app data, specific to a user, create a CosmosDB for the MongoDB API resource, and use that database with the [mongoose.js](https://mongoosejs.com/) npm package. All the code required to complete this step is provided in this article. 
+To store this web app data, specific to a user, create an Azure Cosmos DB for the MongoDB API resource, and use that database with the [mongoose.js](https://mongoosejs.com/) npm package. All the code required to complete this step is provided in this article. 
 
-## Create the CosmosDB resource for the MongoDB API
+## Create the Azure Cosmos DB resource for the MongoDB API
 
-Use the VS Code extension, Azure Databases, to create the CosmosDB. 
+Use the VS Code extension, Azure Databases, to create the Azure Cosmos DB instance. 
 
 1. In VS Code, select the Azure icon to open the Azure explorer.
 1. From the Azure explorer, select **+** in the Azure Databases section.
 
-    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/vscode-create-azure-database.png" alt-text="A VS Code screenshot of the button to create a new CosmosDB.":::
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/vscode-create-azure-database.png" alt-text="A VS Code screenshot of the button to create a new Azure Cosmos DB.":::
 
 1. Follow the prompts using the following table to understand how to create your **Azure CosmosDB** resource.
 
@@ -40,7 +40,7 @@ Use the VS Code extension, Azure Databases, to create the CosmosDB.
 1. Select **Selected networks**, then select **+ Add my current IP**.
 1. Select **Accept connections from within public Azure datacenters**. This will allow the Static web app, when it is created, to access your database.
 
-    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/azure-portal-cosmosdb-firewall-settings.png" alt-text="A screenshot of the Azure portal for a Cosmos DB resource's firewall settings.":::
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/azure-portal-cosmosdb-firewall-settings.png" alt-text="A screenshot of the Azure portal for an Azure Cosmos DB resource's firewall settings.":::
 
 1. Select **Save**. Your database is now only accessible to your workstation. 
 
@@ -216,7 +216,7 @@ This method calls the Function API and passes user information specific to the w
 
 ## Function API: Adding mongoose files
 
-The sample uses the mongoose npm package and the required schema and utility methods to insert, update, and find information in the Cosmos DB database. 
+The sample uses the mongoose npm package and the required schema and utility methods to insert, update, and find information in the Azure Cosmos DB database. 
 
 1. In VS Code, right-click the `API` directory from the file explorer, then select **Open in integrated terminal**. 
 1. In the terminal, enter the following command to install the mongoose npm package. 
@@ -351,7 +351,7 @@ The sample uses the mongoose npm package and the required schema and utility met
     module.exports = User;
     ```
 
-1. Create a new file in the `API` directory named `user.service.js` and copy the following code into it. This file provides functionality for the Function API's `index.js` calls to connect to the Cosmos DB with the mongoose SDK.
+1. Create a new file in the `API` directory named `user.service.js` and copy the following code into it. This file provides functionality for the Function API's `index.js` calls to connect to the Azure Cosmos DB with the mongoose SDK.
 
     ```javascript
     const mongoose = require('mongoose');
@@ -628,7 +628,7 @@ validateAccessToken = async (accessToken) => {
     /**
      * Validates the token against issuer, audience, scope
      * and timestamp, though implementation and extent vary. For more information, visit:
-     * https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
+     * https://learn.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
      */
 
     const now = Math.round((new Date()).getTime() / 1000); // in UNIX format
@@ -666,7 +666,7 @@ getSigningKeys = async (header) => {
 
 ## Function API: Update local.settings.json with your MongoDB connection string
 
-1. In VS Code, select the Azure explorer, then right-click on your Cosmos DB resource and select **Copy Connection String**.
+1. In VS Code, select the Azure explorer, then right-click on your Azure Cosmos DB resource and select **Copy Connection String**.
 1. Open the file, `./api/local.settings.json`, and add a new property to the `Values` object and paste in your connection string. The following property is an example name/value pair:
 
     ```json
@@ -709,26 +709,26 @@ getSigningKeys = async (header) => {
     The page connects to the Function API, and adds the user's favoriteColor to the user's document.
 
 
-## View Cosmos DB data in Azure portal
+## View Azure Cosmos DB data in Azure portal
 
-1. In VS Code, select the Azure explorer, then right-click on the Cosmos DB resource, and select **Open in Portal**.
+1. In VS Code, select the Azure explorer, then right-click on the Azure Cosmos DB resource, and select **Open in Portal**.
 1. Go to the **Data Explorer** select the **test** catalog, then select the **users**. 
 1. Select the **id** to see the user document is shown in the list.
 
-    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/azure-portal-cosmosdb-data-explorer-document-values.png" alt-text="A screenshot of the Azure portal for a Cosmos DB resource's Data Explorer, showing the values of the user's document in the test catalog.":::
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/azure-portal-cosmosdb-data-explorer-document-values.png" alt-text="A screenshot of the Azure portal for an Azure Cosmos DB resource's Data Explorer, showing the values of the user's document in the test catalog.":::
 
 ## Design questions and issues
 
 |Question|Answer|
 |--|--|
 |Why didn't you create a virtual network to secure the database?|This was a design decision to secure the database with the least amount of effort for this short-lived article series. If you plan to keep these resources for a longer duration, moving to a [virtual network](/azure/virtual-network/virtual-networks-overview) is the suggested security choice.| 
-|Why is the catalog named **test**?|The Cosmos DB connection string didn't name a catalog so it used the default catalog name. If you would prefer to name a different catalog, add that to the connection string after the port number. For example, if you want the catalog name to be `msal-sample`, the connection string section might look like `mongodb://YOUR-RESOURCE-NAME:...:10255/msal-sample?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=YOUR-RESOURCE-NAME`|
+|Why is the catalog named **test**?|The Azure Cosmos DB connection string didn't name a catalog so it used the default catalog name. If you would prefer to name a different catalog, add that to the connection string after the port number. For example, if you want the catalog name to be `msal-sample`, the connection string section might look like `mongodb://YOUR-RESOURCE-NAME:...:10255/msal-sample?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=YOUR-RESOURCE-NAME`|
 
 ## Troubleshooting
 
 |Question|Answer|
 |--|--|
-|I can't connect to the Cosmos DB database through the JavaScript code running locally on my workstation.|Verify your [local IP has been added to the database firewall.](#secure-database-by-limiting-firewall-access)| 
+|I can't connect to the Azure Cosmos DB database through the JavaScript code running locally on my workstation.|Verify your [local IP has been added to the database firewall.](#secure-database-by-limiting-firewall-access)| 
 
 ## Next steps
 

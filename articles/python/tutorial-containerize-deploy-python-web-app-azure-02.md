@@ -1,15 +1,13 @@
 ---
-title: 'Tutorial: Containerized Python web apps on Azure: build and test locally'
-description: Build and test a containerized Python web app locally.
+title: Build and run a containerized Python web app locally with MongoDB
+description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB in preparation for deployment to Azure App Service.
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
-# Build and test a containerized Python web app locally
+# Build and run a containerized Python web app locally with MongoDB
 
 This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. ***This step is optional and isn't required to deploy the sample app to Azure.***
 
@@ -123,17 +121,17 @@ For the MongoDB shell, here are example commands to create the database and coll
 
 At this point, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
 
-### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
+### [Azure Cosmos DB for MongoDB](#tab/mongodb-azure)
 
 **Step 1:** If needed, create a MongoDB database.
 
-You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
+You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
 
 **Step 2:** Create or ensure that a database and collection exists in the database.
 
 Create a database named "restaurants_reviews" and a collection named "restaurants_reviews". You can do this using the [Azure Cloud Shell](/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use the VS Code [Azure Database](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to create databases and collections.
 
-At this point, you should have a Cosmos DB MongoDB connection string of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", a database named "restaurants_reviews", and a collection named "restaurants_reviews". 
+At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`. 
 
 If you are working in VS Code, you can right-click on the MongoDB server and get the connection string.
 

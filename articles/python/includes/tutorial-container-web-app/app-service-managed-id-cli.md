@@ -1,6 +1,4 @@
 ---
-author: jess-johnson-msft
-ms.author: jejohn
 ms.topic: include
 ms.date: 07/27/2022
 ---
@@ -53,7 +51,7 @@ $CREDENTIAL
 
 ---
 
-**Step 3.** Use the application scope credential to create a webhook with the [az acr webhook create](/azure/acr/webhook#az-acr-webhook-create) command.
+**Step 3.** Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -62,7 +60,7 @@ SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.
 $LOCATION='<location-of-registry>'
 
 az acr webhook create \
-  --name webhookwebapp \
+  --name webhookforwebapp \
   --location $LOCATION \
   --resource-group $RESOURCE_GROUP_NAME \
   --registry $REGISTRY_NAME \
@@ -78,7 +76,7 @@ $SERVICE_URI='https://$'+$APP_SERVICE_NAME+':'+$CREDENTIAL+'@'+$APP_SERVICE_NAME
 $LOCATION='<location-of-registry>'
 
 az acr webhook create `
-  --name webhookwebapp `
+  --name webhookforwebapp `
   --location $LOCATION `
   --resource-group $RESOURCE_GROUP_NAME `
   --registry $REGISTRY_NAME `

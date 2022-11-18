@@ -13,9 +13,9 @@ With Azure CLI, store secrets in Azure Key Vault, then use those secrets program
 
 ## Prepare your development environment
 
-Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
+Complete the [Express.js with Azure Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
 
-When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
+When you complete the previous tutorial, you should have an Express.js app using an Azure Cosmos DB database deployed to an Azure web app. 
 
 ## Sign in to Azure CLI
 
@@ -225,12 +225,7 @@ To use the service principal to authorize access from the hosting platform to Ke
 
 ## Clean up resources - remove resource group
 
-Once you've completed this tutorial, you need to remove the resource group with the [az group delete](/cli/azure/group#az-group-delete) command.
-
-```azurecli
-az group delete \
---name REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME  -y
-```
+[!INCLUDE [delete resource group 3-tab](../../../includes/delete-resource-group.md)]
 
 This command may take a few minutes. 
 

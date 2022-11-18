@@ -128,7 +128,7 @@ Key vault creation is fairly lightweight, typically completing in less than two 
 
 #### Create a TLS/SSL certificate
 
-This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
+This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic Server on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
 
 > [!NOTE]
 > This section shows how to base 64 encode the certificate before storing it as a secret in the Key Vault.  This is required by the underlying Azure deployment that creates the WebLogic Server and Application Gateway.
@@ -192,7 +192,7 @@ To store the password for the certificate, follow these steps:
 1. Under **Name**, enter `myCertSecretPassword`, or whatever name you like.
 1. Under **Value**, enter the password for the certificate.
 1. Leave the remaining values at their defaults and select **Create**.
-1. you'll be returned to the **Secrets** page.
+1. You'll be returned to the **Secrets** page.
 
 #### Identify the Key Vault
 
@@ -256,4 +256,4 @@ If you're not going to continue to use the WLS cluster, delete the Key Vault and
 
 Continue to explore options to run WLS on Azure.
 > [!div class="nextstepaction"]
-> [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+> [Learn more about Oracle WebLogic Server on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)

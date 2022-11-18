@@ -24,11 +24,11 @@ The application architecture includes:
   *  The call to an Azure service includes information you don't want exposed in the browser
   * Or the call(s) require long-running operations. 
 * An Azure service (Microsoft Graph) used to demonstrate how to call an Azure service on behalf of a user. 
-* An Azure database (Cosmos DB) used as the custom web app's database, storing information specific to the web app.
+* An Azure database (Azure Cosmos DB) used as the custom web app's database, storing information specific to the web app.
 
 The HTTP call to an Azure service requires an access token with higher permissions. This token shouldn't be cached in the browser storage.
 
-:::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-architecture.png" alt-text="Architectural diagram showing the user, through a browser, connecting to a Static web app. The Static web app then connects to Microsoft Identity to get an access token, then to Microsoft Graph to get user information, then to Cosmos DB to store custom information specific to this web app.":::
+:::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-architecture.png" alt-text="Architectural diagram showing the user, through a browser, connecting to a Static web app. The Static web app then connects to Microsoft Identity to get an access token, then to Microsoft Graph to get user information, then to Azure Cosmos DB to store custom information specific to this web app.":::
 
 ### Authentication architecture
 
@@ -51,7 +51,7 @@ The [sample](https://github.com/Azure-Samples/ms-identity-javascript-react-tutor
 |Area|Purpose|
 |--|--|
 |Client|React app (presentation layer). It calls the Microsoft Graph directly or uses the Azure Function app. |
-|Serverless API|Calls the Microsoft Graph API on behalf of user. Creates user document in Cosmos DB which includes user name, email, and favorite color. |
+|Serverless API|Calls the Microsoft Graph API on behalf of user. Creates user document in Azure Cosmos DB which includes user name, email, and favorite color. |
 
 ## Set up your development environment
 

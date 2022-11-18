@@ -69,7 +69,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
+[!INCLUDE [identify-external-caches-azure-spring-apps](includes/identify-external-caches-azure-spring-apps.md)]
 
 [!INCLUDE [inventory-configuration-sources-and-secrets-spring-boot](includes/inventory-configuration-sources-and-secrets-spring-boot.md)]
 
@@ -171,7 +171,7 @@ Push the image to your Azure container registry by using the following command:
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-For more in-depth information on building and storing container images in Azure, see [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images/).
 
 If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup. This addition will occur if you put the keystore file at */opt/spring-boot/mycert.crt*. You can do so by adding the file directly to the Dockerfile.
 

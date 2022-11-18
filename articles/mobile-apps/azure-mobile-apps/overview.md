@@ -10,9 +10,7 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
-[Azure App Service](/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
-
-The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
+Azure Mobile Apps (also known as the Microsoft Data sync Framework) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
 
 * Authentication
 * Data query
@@ -26,7 +24,7 @@ Azure Mobile Apps is designed to work with Azure App Service. Since it's based o
 
 With the Mobile Apps SDKs, you can:
 
-* **Build native and cross-platform apps**: Build cloud-enabled apps for Android, iOS, or Windows using native SDKs.
+* **Build native and cross-platform apps**: Build cloud-enabled apps for Android&trade;, iOS, or Windows using native SDKs.
 * **Connect to your enterprise systems**: Authenticate your users with Azure Active Directory, and connect to enterprise data stores.
 * **Build offline-ready apps with data sync**: Make your mobile workforce more productive by building apps that work offline. Use Azure Mobile Apps to sync data in the background.
 
@@ -34,13 +32,13 @@ With the Mobile Apps SDKs, you can:
 
 The following features are important to cloud-enabled mobile development:
 
-* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook, Google, Microsoft, Twitter, and OpenID Connect.  You can also use any other header-based authorization scheme.
+* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook&trade;, Google&reg;, Microsoft, Twitter&reg;, and OpenID Connect&reg;.  Azure Mobile Apps supports any authentication scheme that is supported by ASP.NET Core.
 
-* **Data access**: Mobile Apps provides a mobile-friendly OData v3 data source that's linked to Azure SQL Database or an on-premises SQL server.
+* **Data access**: Azure Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used including Azure SQL, Azure Cosmos DB, or an on-premises Microsoft SQL Server.
 
 * **Offline sync**: Build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with service, and handle conflicts with ease.
 
-* **Client SDKs**: There's a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)). Each client SDK is available with an MIT license and is open-source.
+* **Client SDKs**: There's a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)&trade;). Each client SDK is available with an MIT license and is open-source.
 
 ## Azure App Service features
 
@@ -60,9 +58,14 @@ The following platform features are useful for mobile production sites:
 
 To get started with Azure Mobile Apps, complete a Getting Started tutorial. The tutorial covers the basics of producing a mobile service and client of your choice. It also covers integrating authentication and offline sync. You can complete the tutorial multiple times, once for each client application.
 
-* [Apache Cordova](quickstarts/cordova/index.md)
-* [Windows (UWP)](quickstarts/uwp/index.md)
-* [Windows (WPF)](quickstarts/wpf/index.md)
-* [Xamarin (Android)](quickstarts/xamarin-android/index.md)
-* [Xamarin (iOS)](quickstarts/xamarin-ios/index.md)
-* [Xamarin (Forms)](quickstarts/xamarin-forms/index.md)
+* Windows App Development
+  * [Universal Windows Platform (UWP)](quickstarts/uwp/index.md)
+  * [Windows Presentation Frameworks (WPF)](quickstarts/wpf/index.md)
+  * [Windows App SDK (WinUI 3)](quickstarts/winui/index.md)
+* Native Mobile App Development
+  * [Xamarin (Android)](quickstarts/xamarin-android/index.md)
+  * [Xamarin (iOS)](quickstarts/xamarin-ios/index.md)
+* Cross-platform Mobile App Development
+  * [.NET MAUI](quickstarts/maui/index.md)
+  * [Avalonia](quickstarts/avalonia/index.md)
+  * [Xamarin (Forms)](quickstarts/xamarin-forms/index.md)

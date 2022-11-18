@@ -26,7 +26,7 @@ To develop functions using Java, you must have the following installed:
 - [Java Developer Kit](../fundamentals/java-support-on-azure.md), version 11
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
-- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 3.0.13901.0 or above
+- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v4) version 4
 
 > [!IMPORTANT]
 > You must set the JAVA_HOME environment variable to the install location of the JDK to complete this quickstart.
@@ -58,22 +58,23 @@ You'll need to customize a few properties for your application:
 Change those properties directly near the top of the *pom.xml* file, as shown in the following example:
 
 ```xml
-<properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <maven.compiler.source>11</maven.compiler.source>
-  <maven.compiler.target>11</maven.compiler.target>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
-  <azure.functions.java.library.version>1.4.2</azure.functions.java.library.version>
-  <azure.functions.maven.plugin.version>1.13.0</azure.functions.maven.plugin.version>
+        <azure.functions.maven.plugin.version>1.21.0</azure.functions.maven.plugin.version>
+        <azure.functions.java.library.version>2.0.1</azure.functions.java.library.version>
 
-  <!-- customize those two properties. The functionAppName should be unique across Azure -->
-  <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
-  <functionAppName>my-spring-function</functionAppName>
+        <!-- customize those two properties. The functionAppName should be unique across Azure -->
+        <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
+        <functionAppName>my-spring-function</functionAppName>
 
-  <functionAppRegion>westeurope</functionAppRegion>
-  <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
-  <start-class>com.example.DemoApplication</start-class>
-</properties>
+        <functionAppRegion>westeurope</functionAppRegion>
+        <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
+        <start-class>com.example.DemoApplication</start-class>
+    </properties>
+
 ```
 
 ## Create Azure configuration files
@@ -85,6 +86,10 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
 ```json
 {
   "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.*, 4.0.0)"
+  } 
   "functionTimeout": "00:10:00"
 }
 ```
@@ -97,6 +102,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "java",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
     "MAIN_CLASS":"com.example.DemoApplication",
     "AzureWebJobsDashboard": ""
   }
@@ -107,8 +113,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
 
 Azure Functions can receive and send objects in JSON format.
 We're now going to create our `User` and `Greeting` objects, which represent our domain model.
-You can create more complex objects, with more properties, if you want to customize this quickstart and make 
-it more interesting for you.
+You can create more complex objects, with more properties, if you want to customize this quickstart and make it more interesting for you.
 
 Create a *src/main/java/com/example/model* folder and add the following two files:
 

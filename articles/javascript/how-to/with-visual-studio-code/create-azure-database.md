@@ -2,7 +2,7 @@
 title: Create Azure database in Visual Studio Code
 description: Create an Azure database resource in Visual Studio Code. 
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 09/06/2022
 ms.custom: devx-track-js
 ---
 

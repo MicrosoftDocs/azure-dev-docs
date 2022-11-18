@@ -3,7 +3,7 @@ title: Authentication with the Azure SDK for Go using a managed identity
 description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with a managed identity.
 ms.date: 09/15/2021
 ms.topic: how-to
-ms.custom: devx-track-go, devx-track-azurecli 
+ms.custom: devx-track-go, devx-track-azurecli
 ---
 
 # Authentication with the Azure SDK for Go using a managed identity
@@ -17,7 +17,7 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
 ## 1. Configure your environment
 
@@ -247,7 +247,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 ### Install Go on the Azure VM
 
-1. Get the public Ip address of the Azure virtual machine.
+1. Get the public IP address of the Azure virtual machine.
 
     # [Azure CLI](#tab/azure-cli)
 

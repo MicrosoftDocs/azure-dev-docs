@@ -1,11 +1,9 @@
 ---
-author: jess-johnson-msft
-ms.author: jejohn
 ms.topic: include
 ms.date: 07/27/2022
 ---
 
-Create a webhook so that pushes to the Azure Container Registry trigger updates to the App Service.
+Create a webhook that triggers updates to App Service when new images are pushed to the Azure Container Registry.
 <br><br>
 First, get the application scope credential:
 
@@ -18,11 +16,11 @@ Then, create the webhook using the credential value and App Service name:
 * On the webhooks page, select **+ Add**.
 * Specify the parameters as follows:
 
-   * **Webhook name** &rarr; Enter "webhookwebapp".
+   * **Webhook name** &rarr; Enter "webhookforwebapp".
    * **Location** &rarr; Use the location of the registry.
    * **Service URI** &rarr; A string that is combination of App Service name and credential. See below.
    * **Actions** &rarr; Select **push**.
    * **Status** &rarr; Select **On**.
-   * **Scope** &rarr; Enter "msdocspythoncontainerwebapp:*"/
+   * **Scope** &rarr; Enter "msdocspythoncontainerwebapp:*".
 
 The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:credential@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".

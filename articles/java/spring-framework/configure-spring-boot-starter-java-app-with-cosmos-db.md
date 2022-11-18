@@ -1,11 +1,11 @@
 ---
-title: How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
-description: Learn how to configure an application created with the Spring Boot Initializer with the Azure Cosmos DB SQL API.
+title: How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL
+description: Learn how to configure an application created with the Spring Boot Initializer with Azure Cosmos DB for NoSQL.
 services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: bbenz
-ms.date: 07/22/2022
+ms.date: 11/01/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.custom: devx-track-java
 ---
 
-# How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
+# How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL
 
-This article demonstrates adding the [Spring Cloud Azure Starter for Spring Data Cosmos] to a custom application to store data in and retrieve data from your Azure Cosmos DB by using Spring Data and the Cosmos DB SQL API. The article starts by showing you how to create an Azure Cosmos DB using the Azure portal, then shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
+This article demonstrates adding the [Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB] to a custom application to store data in and retrieve data from your Azure Cosmos DB database by using Spring Data and Azure Cosmos DB for NoSQL. The article starts by showing you how to create an Azure Cosmos DB via the Azure portal, then shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
 
-Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
+Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB for NoSQL.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
@@ -53,14 +53,14 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.2**.
+   * Specify your **Spring Boot** version to **2.7.4**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.
@@ -91,7 +91,7 @@ Your simple Spring Boot application is now ready for editing.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-     <version>4.3.0</version>
+     <version>4.4.1</version>
    </dependency>
    ```
 
@@ -333,11 +333,11 @@ In this section you create two Java classes for storing user data, and then you 
    INFO 1365 --- [           main] c.e.w.WingtiptoysdataApplication         : findOne in User collection get result: testFirstName testLastName, test address line one
    ```
 
-   The above output messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
+   The above output messages indicate that the data was successfully saved to Azure Cosmos DB and then retrieved again.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, be sure to delete the resource group containing the Cosmos DB you created earlier. You can do this from the Azure portal.
+If you're not going to continue to use this application, be sure to delete the resource group containing the Azure Cosmos DB you created earlier. You can do this from the Azure portal.
 
 ## Next steps
 
@@ -354,11 +354,11 @@ For more information about using Azure Cosmos DB and Java, see the following art
 
 * [Azure Cosmos DB: Create a document database using Java and the Azure portal][Build a SQL API app with Java]
 
-* [Spring Data for Azure Cosmos DB SQL API]
+* [Spring Data for Azure Cosmos DB]
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Spring Cloud Azure Starter for Spring Data Cosmos]
+* [Spring Cloud Azure Starter for Spring Data Azure Cosmos DB]
 
 * [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
@@ -373,9 +373,9 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Azure Cosmos DB Documentation]: /azure/cosmos-db/
 [Azure for Java Developers]: ../index.yml
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java
-[Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
-[Spring Cloud Azure Starter for Spring Data Cosmos]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.3.0/sdk/spring/spring-cloud-azure-starter-cosmos
-[free Azure account]: https://azure.microsoft.com/pricing/free-trial/
+[Spring Data for Azure Cosmos DB]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
+[Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.4.1/sdk/spring/spring-cloud-azure-starter-cosmos
+[Free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: https://azure.microsoft.com/services/devops/java/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: https://spring.io/projects/spring-boot/

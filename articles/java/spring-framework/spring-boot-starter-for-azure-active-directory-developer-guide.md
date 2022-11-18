@@ -1,12 +1,12 @@
 ---
 title: Spring Boot Starter for Azure Active Directory developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
-ms.date: 07/22/2022
+ms.date: 11/01/2022
 ms.service: active-directory
 ms.topic: article
 author: KarlErickson
 ms.author: shaozliu
-ms.custom: devx-track-java
+ms.custom: devx-track-java, engagement-fy23
 ---
 
 # Spring Boot Starter for Azure Active Directory developer's guide
@@ -22,7 +22,6 @@ The following links provide access to the starter package, documentation, and sa
 - [The spring-cloud-azure-starter-active-directory package (Maven)](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory)
 - [Quick start](./configure-spring-boot-starter-java-app-with-azure-active-directory.md)
 - [Samples](https://github.com/Azure-Samples/azure-spring-boot-samples)
-
 
 ## Prerequisites
 
@@ -56,9 +55,9 @@ To use the Azure AD starter in this scenario, use the following steps:
 
 1. Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Set the redirect URI for a web application using the Azure portal, part 1.":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Screenshot of Azure portal showing Azure Active Directory App registrations page with `sample-webapp` highlighted.":::
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Set the redirect URI for a web application using the Azure portal, part 2.":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Screenshot of Azure portal showing web app authentication page with redirect URI highlighted.":::
 
 1. Add the following dependencies to your *pom.xml* file.
 
@@ -66,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -125,7 +124,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -169,7 +168,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Protect a resource server/API
 
@@ -183,7 +182,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -206,9 +205,9 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Get the app ID URI from the Azure portal, part 1.":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Screenshot of Azure portal showing Azure Active Directory App registrations page with `sample-resource-server` highlighted.":::
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Get the app ID URI from the Azure portal, part 2.":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 
 1. Use the default security configuration or provide your own configuration.
 
@@ -232,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -246,7 +245,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -288,13 +287,13 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 
 This scenario supports [Access a web application](#access-a-web-application) and [Protect a resource server/API](#protect-a-resource-serverapi) in one application.
 
-To use **aad-starter** in this scenario, follow these steps:
+To use `aad-starter` in this scenario, follow these steps:
 
 1. Add the following dependencies to your *pom.xml* file.
 
@@ -302,7 +301,7 @@ To use **aad-starter** in this scenario, follow these steps:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-        <version>4.3.0</version>
+        <version>4.4.1</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -387,22 +386,22 @@ The `spring.cloud.azure.active-directory.application-type` property is optional 
 
 The Spring Boot Starter for Azure AD provides the following properties:
 
-| Properties                                                              | Description                                                                                    |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| spring.cloud.azure.active-directory.app-id-uri                                                           | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
-| spring.cloud.azure.active-directory.authorization-clients                                                | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
-| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.scopes                   | The API permissions of a resource server that the application is going to acquire.                 |
-| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.on-demand                | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
+| Properties                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.cloud.azure.active-directory.app-id-uri                                                           | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.                                                                                                                                                      |
+| spring.cloud.azure.active-directory.authorization-clients                                                | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.                                                                                                                               |
+| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.scopes                   | The API permissions of a resource server that the application is going to acquire.                                                                                                                                                                                                                                                                                       |
+| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.on-demand                | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.                                                                                                      |
 | spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.authorization-grant-type | The type of authorization client. Supported types are [authorization_code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) (default type for webapp), [on_behalf_of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) (default type for resource-server), [client_credentials](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). |
-| spring.cloud.azure.active-directory.application-type                                                     | Refer to [Application type](#application-type).|
-| spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint                                                             | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
-| spring.cloud.azure.active-directory.credential.client-id                                                 | The registered application ID in Azure AD.                                                         |
-| spring.cloud.azure.active-directory.credential.client-secret                                             | The client secret of the registered application.                                                   |
-| spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set ture. Otherwise use `/v1.0/me/memberOf`. |
-| spring.cloud.azure.active-directory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                            |
-| spring.cloud.azure.active-directory.tenant-id                                                            | The Azure tenant ID.                                             |
-| spring.cloud.azure.active-directory.user-group.allowed-groups                                            | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
-| spring.cloud.azure.active-directory.user-name-attribute                                                  | Indicates which claim will be the principal's name. |
+| spring.cloud.azure.active-directory.application-type                                                     | Refer to [Application type](#application-type).                                                                                                                                                                                                                                                                                                                          |
+| spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint                        | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.                                                                                                                                                                                                                                                                    |
+| spring.cloud.azure.active-directory.credential.client-id                                                 | The registered application ID in Azure AD.                                                                                                                                                                                                                                                                                                                               |
+| spring.cloud.azure.active-directory.credential.client-secret                                             | The client secret of the registered application.                                                                                                                                                                                                                                                                                                                         |
+| spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set ture. Otherwise use `/v1.0/me/memberOf`.                                                                                                                                                                                                                                                                           |
+| spring.cloud.azure.active-directory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                                                                                                                                                                                                                                                                                                                               |
+| spring.cloud.azure.active-directory.profile.tenant-id                                                    | The Azure tenant ID.                                                                                                                                                                                                                                                                                                                                                     |
+| spring.cloud.azure.active-directory.user-group.allowed-group-names                                       | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call.                                                                                                                                                                                                                                                 |
+| spring.cloud.azure.active-directory.user-name-attribute                                                  | Indicates which claim will be the principal's name.                                                                                                                                                                                                                                                                                                                      |
 
 The following examples show you how to use these properties:
 
@@ -568,8 +567,9 @@ This example uses incremental consent. Therefore, the user won't need to consent
 The starter supports creating `GrantedAuthority` from an ID token's `roles` claim to allow using the ID token for authorization in a web application. You can use the `appRoles` feature of Azure AD to create a `roles` claim and implement access control.
 
 > [!NOTE]
-> - The `roles` claim generated from `appRoles` is decorated with prefix `APPROLE_`.
-> - When using `appRoles` as a `roles` claim, avoid configuring a group attribute as `roles` at the same time. Otherwise, the group attribute will override the claim to contain group information instead of `appRoles`. You should avoid the following configuration in your manifest:
+> The `roles` claim generated from `appRoles` is decorated with prefix `APPROLE_`.
+>
+> When using `appRoles` as a `roles` claim, avoid configuring a group attribute as `roles` at the same time. Otherwise, the group attribute will override the claim to contain group information instead of `appRoles`. You should avoid the following configuration in your manifest:
 >
 >    ```manifest
 >    "optionalClaims": {

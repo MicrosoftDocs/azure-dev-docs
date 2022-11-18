@@ -2,14 +2,6 @@
   href: overview.md
 - name: Get Started
   items:
-  - name: Apache Cordova
-    items:
-    - name: Introduction
-      href: quickstarts/cordova/index.md
-    - name: Add Offline Sync
-      href: quickstarts/cordova/offline.md
-    - name: Add Authentication
-      href: quickstarts/cordova/authentication.md
   - name: Avalonia
     items:
     - name: Introduction

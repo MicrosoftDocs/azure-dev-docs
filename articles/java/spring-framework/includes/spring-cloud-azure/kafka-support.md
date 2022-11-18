@@ -1,5 +1,5 @@
 ---
-ms.date: 08/03/2022
+ms.date: 11/01/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -23,7 +23,7 @@ The following authentication types are supported:
   - Managed identity authentication
   - Username/password authentication
   - Service principal authentication
-  - `DefautlAzureCredential` authentication
+  - `DefaultAzureCredential` authentication
 
 ### How it works
 
@@ -53,12 +53,18 @@ For the connection string authentication mode, you can use connection string aut
 
 Spring Cloud Azure for Kafka supports the following two levels of configuration options:
 
-1. The global authentication configuration options of `credential` and `profile` with prefixes of `spring.cloud.azure`.
-2. Kafka-specific level configurations. The Kafka-level configurations are also available for Spring Boot and Spring Cloud Stream binders for `common`, `consumer`, `producer`, or `admin` scopes, which have different prefixes.
+1. Spring Cloud Azure for Event Hubs Kafka properties.
+2. The global authentication configuration options of `credential` and `profile` with prefixes of `spring.cloud.azure`.
+3. Kafka-specific level configurations. The Kafka-level configurations are also available for Spring Boot and Spring Cloud Stream binders for `common`, `consumer`, `producer`, or `admin` scopes, which have different prefixes.
 
 The global properties are exposed via `com.azure.spring.cloud.autoconfigure.context.AzureGlobalProperties`. The Kafka-specific properties are exposed via `org.springframework.boot.autoconfigure.kafka.KafkaProperties` (Spring Boot) and `org.springframework.cloud.stream.binder.kafka.properties.KafkaBinderConfigurationProperties` (Spring Cloud Stream binder).
 
 The following list shows all supported configuration options.
+
+- Spring Cloud Azure for Event Hubs Kafka properties.
+
+  - Property: `spring.cloud.azure.eventhubs.kafka.enabled`
+  - Description: whether to enable credential free connection to Azure Event Hubs for Kafka, the default value is `true`.
 
 - The Spring Cloud Azure global authentication configuration options
 
@@ -224,15 +230,16 @@ This section describes the usage scenario for Spring Boot applications using the
 
 ###### Configuration
 
-To use the OAuth authentication, just specify the Event Hubs endpoint and `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`, as shown in the following example:
+To use the OAuth authentication, just specify the Event Hubs endpoint as shown in the following example:
 
 ```properties
 spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:9093
-spring.cloud.stream.binders.kafka.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration
 ```
 
 > [!NOTE]
-> Set `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` to enable the whole OAuth authentication workflow.
+> If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` property to enable the whole OAuth authentication workflow, where `kafka-binder-name` is `kafka` by default in a single Kafka binder application. The configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`, which is used in `KafkaOAuth2AuthenticateCallbackHandler` to enable Azure Identity.
+>
+> For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
 ###### Samples
 
@@ -245,6 +252,10 @@ You can use connection string authentication directly or use the Azure Resource 
 
 > [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
+>
+> Since version of 4.4.1, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the *`<kafka-binder-name>`* placeholder has a value of `kafka` by default.
+>
+> `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 
 ##### Dependency setup
 
@@ -299,6 +310,4 @@ spring:
 
 ### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0) repository on GitHub.
-
-[!INCLUDE [remove-credentials-from-spring-kafka-applications](./remove-credentials-from-spring-kafka-applications.md)]
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1) repository on GitHub.

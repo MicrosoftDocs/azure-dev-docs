@@ -1,6 +1,4 @@
 ---
-author: jessmjohnson
-ms.author: jejohn
 ms.topic: include
 ms.date: 08/07/2022
 ---
@@ -9,7 +7,7 @@ ms.date: 08/07/2022
 
 :::image type="content" source="../../media/tutorial-container-web-app/portal-cloud-shell-icon.png" alt-text="A screenshot of the Azure portal showing the Cloud Shell icon." :::
 
-**Step 2.** Use the following [az acr build](/cli/azure/acr?branch#az-acr-build) command to build.
+**Step 2.** Use the following [az acr build](/cli/azure/acr#az-acr-build) command to build.
 
 ```azurecli
 az acr build \

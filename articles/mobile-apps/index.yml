@@ -32,8 +32,8 @@ landingContent:
             url: mobile-cloud-development-stages.md
       - linkListType: learn
         links:
-          - text: Build mobile apps with Xamarin.Forms
-            url: /learn/paths/build-mobile-apps-with-xamarin-forms/
+          - text: Build mobile apps with .NET MAUI
+            url: /training/paths/build-apps-with-dotnet-maui/
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
@@ -59,7 +59,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Consume a RESTful Web Service with Xamarin
-            url: /learn/modules/consume-rest-services
+            url: /training/modules/consume-rest-services
 
   # Card (optional)
   - title: Save data
@@ -78,7 +78,7 @@ landingContent:
             url: /azure/cosmos-db/create-sql-api-xamarin-dotnet
           - text: Work with blob storage
             url: /azure/storage/blobs/storage-quickstart-blobs-xamarin
-          - text: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
+          - text: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB for MongoDB
             url: /azure/cosmos-db/create-mongodb-xamarin
 
   # Card

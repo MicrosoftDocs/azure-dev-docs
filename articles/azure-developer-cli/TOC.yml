@@ -4,18 +4,32 @@
   - name: What is Azure Developer CLI?
     href: overview.md
   - name: Get started
-    href: get-started.md
-  - name: Run and debug
-    href: debug.md
-  - name: Configure deployment pipeline
-    href: configure-devops-pipeline.md
-  - name: Monitor your project
-    href: monitor-your-app.md
-  - name: Make your project azd-compatible
-    href: make-azd-compatible.md
-  - name: Troubleshoot and Get help
+    items: 
+    - name: Install azd
+      href: install-azd.md
+    - name: Choose an azd template
+      href: azd-templates.md
+    - name: Deploy an azd template
+      href: get-started.md
+  - name: How-to guides
+    items:
+    - name: Switch to Terraform as IaC provider
+      href: use-terraform-for-azd.md
+    - name: Run and debug
+      href: debug.md
+    - name: Configure deployment pipeline
+      href: configure-devops-pipeline.md
+    - name: Monitor your project
+      href: monitor-your-app.md
+    - name: Make your project azd-compatible
+      href: make-azd-compatible.md
+  - name: Troubleshoot
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
   - name: Reference
-    href: reference.md
+    items: 
+    - name: azure.yaml
+      href: azd-schema.md
+    - name: Reference
+      href: reference.md

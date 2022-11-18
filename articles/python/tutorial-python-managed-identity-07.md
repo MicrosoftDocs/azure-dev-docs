@@ -1,8 +1,6 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: clean up resources'
-description: Clean up the resources of the Python (Django or Flask) web app deployed to Azure.
-author: jessmjohnson
-ms.author: jejohn
+title: Clean up resource from Python web app tutorial
+description: Clean up resources used and show next steps of the tutorial showing how to deploy a Python (Django or Flask) web app to Azure.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
@@ -10,7 +8,7 @@ ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Clean up and next steps
+# Clean up and next steps of managed identity tutorial
 
 This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work. 
 
@@ -62,22 +60,22 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Learn more about security for Blob storage, see [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations).
 
-## 3. Related Microsoft Learn modules
+## 3. Related Learn modules
 
-The following are some Microsoft Learn modules that explore the technologies and themes covered in this tutorial:
+The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 
-* [Introduction to Python](/learn/modules/intro-to-python/)
+* [Introduction to Python](/training/modules/intro-to-python/)
 
-* [Get started with Django](/learn/modules/django-get-started/)
+* [Get started with Django](/training/modules/django-get-started/)
 
-* [Create views and templates in Django](/learn/modules/django-views-templates/)
+* [Create views and templates in Django](/training/modules/django-views-templates/)
 
-* [Create data-driven websites by using the Python framework Django](/learn/paths/django-create-data-driven-websites/)
+* [Create data-driven websites by using the Python framework Django](/training/paths/django-create-data-driven-websites/)
 
-* [Deploy a Django application to Azure by using PostgreSQL](/learn/modules/django-deployment/)
+* [Deploy a Django application to Azure by using PostgreSQL](/training/modules/django-deployment/)
 
-* [Azure Database for PostgreSQL](/learn/paths/introduction-to-azure-postgres/)
+* [Azure Database for PostgreSQL](/training/paths/introduction-to-azure-postgres/)
 
-* [Create and connect to an Azure Database for PostgreSQL](/learn/modules/create-connect-to-postgres/)
+* [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres/)
 
-* [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage/)
+* [Explore Azure Blob storage](/training/modules/explore-azure-blob-storage/)

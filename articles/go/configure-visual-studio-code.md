@@ -4,7 +4,6 @@ description: This article helps you configure Visual Studio Code for Go developm
 ms.date: 11/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-go
-ms.author: jduffney
 ---
 
 # Configure Visual Studio Code for Go development
@@ -23,7 +22,7 @@ Visual Studio Code and the Go extension provide IntelliSense, code navigation, a
 
 Follow these steps to install Go:
 
-1. In a web browser, go to [golang.org/doc/install](https://golang.org/doc/install).
+1. In a web browser, go to [go.dev/doc/install](https://go.dev/doc/install).
 1. Download the version for your operating system.
 1. Once downloaded, run the installer.
 1. Open a command prompt, then run `go version` to confirm Go was installed.
