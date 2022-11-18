@@ -42,6 +42,6 @@ Use the **CTRL + Shift + P** shortcut to open the command palette. Search for th
 
 ### [IntelliJ](#tab/sign-in-Intellij)
 
-For more information, see [Install the Azure Toolkit for IntelliJ](../toolkit-for-intellij/install-toolkit.md) and [Sign-in instructions for the Azure Toolkit for IntelliJ](../toolkit-for-intellij/sign-in-instructions.md).
+For more information, see [Install the Azure Toolkit for IntelliJ](../../toolkit-for-intellij/install-toolkit.md) and [Sign-in instructions for the Azure Toolkit for IntelliJ](../../toolkit-for-intellij/sign-in-instructions.md).
 
 ---
