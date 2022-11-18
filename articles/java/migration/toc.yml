@@ -3,8 +3,6 @@
   items:
     - name: Overview
       href: migration-overview.md
-    - name: Upgrade to JDK 11+
-      href: /java/openjdk/reasons-to-move-to-java-11
     - name: Spring to Azure
       expanded: true
       items:
