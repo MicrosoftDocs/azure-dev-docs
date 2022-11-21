@@ -110,6 +110,12 @@
                   href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
                 - name: 5. Deploy to Azure Static Web Apps
                   href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
+          - name: Migrate to Serverless
+            items: 
+            - name: "Training: Migrate to Azure Functions"
+              href: /training/modules/shift-nodejs-express-apis-serverless
+            - name: "Docs: Migrate to Azure Functions"
+              href: /azure/azure-functions/shift-expressjs?tabs=javascript
           - name: Azure Functions
             items: 
             - name: Develop Azure Functions

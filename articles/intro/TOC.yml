@@ -128,6 +128,10 @@ items:
           items:
           - name: Blob Storage
             href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus queues
+            href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus topics
+            href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Python
         items:
         - name: Quickstarts
