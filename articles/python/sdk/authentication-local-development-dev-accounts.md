@@ -134,8 +134,6 @@ Connect-AzAccount
 
 ### [Interactive browser](#tab/sign-in-interactive-browser)
 
-If enabled, `DefaultAzureCredential` will interactively authenticate a user via the default browser.
-
 Interactive authentication is disabled in the `DefaultAzureCredential` by default and can be enabled with a keyword argument:
 
 ```Python
