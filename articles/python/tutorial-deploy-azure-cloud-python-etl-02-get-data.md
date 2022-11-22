@@ -112,14 +112,14 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
-**Step 1.** Create a folder named `shared`, which will contain all the integration code files.
+1. Create a folder named `shared`, which will contain all the integration code files.
 
-**Step 2.** Create a file named `azure_credential.py` in the **shared** folder.
+2. Create a file named `azure_credential.py` in the **shared** folder.
 
-**Step 3.** Copy the following python code into it. 
+3. Copy the following python code into it. 
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
-
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
+    
 ## 5. Create resource for Bing Search
 
 :::row:::
@@ -169,11 +169,11 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 ## 6. Create code to get search results from Bing Search News with Python SDK
 
-**Step 1.** Create a file named `bing_search.py` in the **shared** folder.
+1. Create a file named `bing_search.py` in the **shared** folder.
 
-**Step 2.** Copy the following Python code into it.
+2. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
 ## 7. Create resource for Azure Key Vault
 
@@ -228,7 +228,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         **Step 6.** Assign your user account as a **Key Vault Secrets Officer** so you can add, update, and delete secrets.
 
         1. Select **Access Control (IAM)** in the left panel in the **Key Vault** resource dialogue window.
-        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Key Vault Secrets Officer** then select **Next**.
         1. **Assigned access to**: Select **User, group or service principal**.
         1. **Members**: Select **+ Select members**.
@@ -275,20 +275,20 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 
 ## 9. Create code to read Key Vault secret with Python SDK
 
-**Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
+1. Open the **local.settings.json** file, which holds the local environment settings.
 
-**Step 2.** Edit the file to update the following:
+2. Edit the file to update the following:
 
-|Property|Setting|
-|--|--|
-|KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "msdocs-python-etl-kv".|
+    |Property|Setting|
+    |--|--|
+    |KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "msdocs-python-etl-kv".|
+    
+3. Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 
-**Step 3.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
+4. Create a file named `key_vault_secret.py` and copy the following python code into it.
 
-**Step 4.** Create a file named `key_vault_secret.py` and copy the following python code into it.
-
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
-
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
+    
 ## 10. Create resource for Azure Blob Storage
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
@@ -397,69 +397,61 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
 ## 13. Create code to upload file with Python
 
-**Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
+1. Open the **local.settings.json** file, which holds the local environment settings.
 
-**Step 2.** Edit the file to update the following:
+2. Edit the file to update the following:
 
-|Property|Setting|
-|--|--|
-|BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
-|BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
-|AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes.|
+    |Property|Setting|
+    |--|--|
+    |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
+    |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
+    |AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes.|
 
-**Step 3.** Create a file named `blob_storage.py` in the **shared** folder.
+3. Create a file named `blob_storage.py` in the **shared** folder.
 
-**Step 4.** Copy the following Python code into it.
+4. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
 ## 14. Create code for random string generation with Python
 
 Create a random string to add to the end of each file created in blob storage. This random string is used in both the original file and the processed file.
 
-**Step 1.** Create a **hash.py** file in the **shared** folder.
+1. Create a **hash.py** file in the **shared** folder.
  
-**Step 2.** Copy the following Python code into it.
+2. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
 
 ## 15. Create code for HTTPTrigger function with Python
 
-**Step 1.** Open the **__init__.py** file in the **api_search** folder.
+1. Open the **__init__.py** file in the **api_search** folder.
  
-**Step 2.** Copy the following Python code into it.
+2. Copy the following Python code into it.
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
 ## 16. Test the API endpoint for your python function
 
-**Step 1.**  Run the function locally.
+1. Run the function locally.
 
-```bash
-func start
-```    
+    ```bash
+    func start
+    ```    
+    
+2. Test the function locally. Use a web browser to test your **search** api:
 
-
-**Step 2.** Test the function locally.
-
-Use the terminal or command prompt your signed into Azure with `az login`.
-
-1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
-1. In the **Workspace area**, expand **Local Project > Functions**. 
-1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
-1. Expand the **Functions** node and right-click the **api_search** function.
-1. Choose **Execute Function Now**.
-1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
-
-**Step 3.** 
-
-Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
+    ```
+    http://localhost:7071/api/search?search_term=azure&count=5
+    ```
+    
+3. Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## Troubleshooting the function
 
 For local development and debugging with these Azure resources, make sure you've the following complete:
-1. **Turn local logging on**:
+* **Turn local logging on**:
     1. Stop the application.
     1. Open the `./host.json` file. 
     1. Set the **logging.logLevel.default** property to `"Information"`.

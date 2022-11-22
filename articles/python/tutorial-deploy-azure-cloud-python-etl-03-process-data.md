@@ -110,7 +110,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         **Step 6.** Assign your user account as a **Storage Blob Data Contributor** so you can add, update, and delete blobs.
 
         1. Select **Access Control (IAM)** in the left panel in the **Storage account** resource dialogue window.
-        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
         1. **Assigned access to**: Select **User, group or service principal**.
         1. **Members**: Select **+ Select members**.
@@ -169,56 +169,50 @@ Considerations must be made to ease security, efficient processing, and partitio
 
 Once the data is transformed into a format ideal for analysis, load the data into an analytical data store. The data store can be a database system, data warehouse, data lake, or Hadoop. Each destination has different approaches for loading data reliability and optimized performance. The data can now be used for analysis and business intelligence. This article loads the transformed data into Azure Data Lake Storage (ADLS) as various compute and analytic Azure services can easily connect to Azure Data Lake Storage.
 
-**Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
+1. Open the **local.settings.json** file, which holds the local environment settings.
 
-**Step 2.** Edit the file to update the following:
+2. Edit the file to update the following:
 
-|Property|Setting|
-|--|--|
-|DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example **msdocspythoncloudetladls**.|
-|DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example **msdocs-python-cloud-etl-processed**.|
-|DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example **news-data**.|
+    |Property|Setting|
+    |--|--|
+    |DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example **msdocspythoncloudetladls**.|
+    |DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example **msdocs-python-cloud-etl-processed**.|
+    |DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example **news-data**.|
 
 ## 5. Create code for data transformation with Python
 
-**Step 1.** Create a file named `transform.py` in the **shared** folder.
+1. Create a file named `transform.py` in the **shared** folder.
 
-**Step 2.** Copy the following Python code into it.
+2. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
 ## 6. Create code for BlobTrigger function with Python
 
-**Step 1.** Open the **__init__.py** file in the **api_blob_trigger** folder.
+1. Open the **__init__.py** file in the **api_blob_trigger** folder.
 
-**Step 2.** Copy the following Python code into it.
+2. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
 
 ## 7. Test the Azure blob storage trigger Function
 
 To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function executes automatically.
 
-**Step 1.**  Run the function locally.
+1.  Run the function locally.
 
-```bash
-func start
-```    
+    ```bash
+    func start
+    ```    
 
-**Step 2.** Test the function locally.
+2. Test the function locally. Use a web browser to test your **search** api:
 
-
-1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
-1. In the **Workspace area**, expand **Local Project > Functions**. 
-1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
-1. Choose **Execute Function Now**.
-1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
-
-
-**Step 3.** 
-
-1. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
-1. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
+    ```
+    http://localhost:7071/api/search?search_term=azure&count=5
+    ```
+    
+3. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
+4. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## What have you accomplished
 
@@ -234,7 +228,7 @@ The next step is to deploy your code to an Azure Function resource and correctly
 
 If you've reached this point and your processed file isn't in the Data Lake container and directory, use the following information to debug the application. 
 
-1. **Turn local logging on**:
+* **Turn local logging on**:
     1. Stop the application.
     1. Open the `./host.json` file. 
     1. Set the **logging.logLevel.default** property to `"Information"`.

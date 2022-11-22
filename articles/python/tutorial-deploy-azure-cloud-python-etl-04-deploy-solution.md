@@ -100,7 +100,8 @@ Enable System Assigned Identity for the function app and give it the **Contribut
 
 :::row:::
     :::column:::
-        **Step 1.** Turn on system assigned identity for your Azure Functions app.
+       Turn on system assigned identity for your Azure Functions app.
+
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Find your Azure Functions app.
         1. Select **Identity**.
@@ -213,16 +214,13 @@ Use the Azure portal to configure auto archival.
 :::row-end:::
 
 
-
-
-
 ## 6. Find the Azure Function API endpoint
 
 To call the solution, you need to use an HTTP tool for your deployed Azure Function's HTTP trigger URL. 
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to your Azure Function App.
+        Use Visual Studio Code, navigate to your Azure Function App.
         1. Choose the **Azure** icon in the **Activity** bar.
         1. In the **Resources** area, expand **Function App**.
         1. Select **msdocs-etl**.
@@ -236,16 +234,14 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
 
 ## 7. Call the Azure Function API endpoint
 
-The Function endpoint URL needs to be in the format of: `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientAppKey&search_term=azure&count=5`.
+1. Test the cloud-based function. Use a web browser to test your **search** api:
 
-The querystring properties for the URL are `{"search_term":"Azure","count":5}`.
-
-
-1. Choose the **Azure icon** in the **Activity bar**. 
-1. In the **Workspace area**, expand **Local Project > Functions**. 
-1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
-1. Choose **Execute Function Now**.
-1. Enter the request message body value `{ "search_term": "Azure", "count": 5}` and press Enter.
+    ```
+    https:///msdocs-etl.azurewebsites.net/api/search?search_term=azure&count=5
+    ```
+    
+2. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
+3. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
 
 ## 8. Delete the resource group for your project
