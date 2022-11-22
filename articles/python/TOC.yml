@@ -129,7 +129,7 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
-- name: Azure SDK for Python
+- name: Get started with Azure SDK for Python
   items:
     - name: Overview
       href: sdk/azure-sdk-overview.md
@@ -167,13 +167,9 @@
           href: walkthrough-tutorial-authentication-06.md
         - name: 7. Main app endpoint
           href: walkthrough-tutorial-authentication-07.md
-    - name: Install packages
+    - name: Install Azure packages
       href: sdk/azure-sdk-install.md
-    - name: Package index
-      href: sdk/azure-sdk-library-package-index.md
-    - name: Library API reference
-      href: sdk-library-api-reference.md
-    - name: Examples
+    - name: Use Azure packages 
       items:
       - name: "Create a resource group"
         href: sdk/examples/azure-sdk-example-resource-group.md
@@ -191,16 +187,16 @@
         href: sdk/examples/azure-sdk-example-virtual-machines.md
       - name: "Use Azure Managed Disks with a VM"
         href: sdk/examples/azure-sdk-samples-managed-disks.md
-    - name: Configure logging
-      href: sdk/azure-sdk-logging.md
-    - name: Configure proxies
-      href: sdk/azure-sdk-configure-proxy.md
-    - name: Use a sovereign domain
-      href: sdk/azure-sdk-sovereign-domain.md
-
-- name: Library API reference
+      - name: Configure logging
+        href: sdk/azure-sdk-logging.md
+      - name: Configure proxies
+        href: sdk/azure-sdk-configure-proxy.md
+      - name: Use a sovereign domain
+        href: sdk/azure-sdk-sovereign-domain.md
+- name: pypi packages
   href: sdk-library-api-reference.md
-
+- name: pypi reference documentation
+  href: /python/api/overview/azure/?view=azure-python
 - name: Explore services supporting Python
   items:
   - name: App hosting
