@@ -42,6 +42,7 @@ To complete this tutorial, you'll need:
 * [Visual Studio Code](https://code.visualstudio.com/download)
     * [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
     * [Azure Blob Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
+* Zip application such as [7zip](https://www.7-zip.org/)
 
 ## Get the sample solution
 

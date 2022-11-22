@@ -28,12 +28,6 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 
 ## 1. Create a local Azure Function and an HTTPTrigger endpoint
 
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
 :::row:::
     :::column:::
         **Step 1.** Create new local Azure Functions project in the Visual Studio Code workspace.
@@ -88,16 +82,6 @@ Complete the steps using either the Visual Studio Code or the Azure CLI.
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif":::
     :::column-end:::
 :::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-**Step 1.** Run the `func init` command to create a functions project in a folder named **msdocs-python-etl-serverless** with the specified runtime and navigate to the directory.
-
-```bash
-func init msdocs-python-etl-serverless --python
-
-cd msdocs-python-etl-serverless
-```
 
 **Step 2.** Add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
 
@@ -210,8 +194,6 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 When you need to store secrets, a _best practice_ is to store the secret in a secure location such as Azure Key Vault. Azure Key Vault is a centralized cloud solution for storing and managing secrets and certificates. The service also provides access monitoring and logs to see who accesses secrets, when, and how.
 
-### [Azure portal](#tab/azure-portal)
-
 :::row:::
     :::column:::
         **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
@@ -262,29 +244,22 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
     :::column-end:::
     :::column:::
 :::row-end:::
+:::row:::
+    :::column:::
+        **Step 6.** Assign your user account as a **Key Vault Secrets Officer** so you can add, update, and delete secrets.
 
-
-### [Visual Studio Code](#tab/vscode)
-
-To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-Create a new Azure Key Vault within your resource group.
-
-Run [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) to create an Azure Key Vault.
-
-```azurecli
-# Provision new Azure Key Vault in our resource group
-az keyvault create  \
-    --location 'eastus' \
-    --name 'msdocs-python-etl-kv' \
-    --resource-group 'msdocs-python-cloud-etl-rg'
-```
-
-<br/>
-
-
----
+        1. Select **Access Control (IAM)** in the left panel in the **Key Vault** resource dialogue window.
+        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. In the **Add role assignment** dialogue, search for and select **Key Vault Secrets Officer** then select **Next**.
+        1. **Assigned access to**: Select **User, group or service principal**.
+        1. **Members**: Select **+ Select members**.
+        1. From **Selected members**, search for and find your Azure account.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
+        1. Review the selected values and select **Review + Assign**.
+    :::column-end:::
+    :::column:::
+:::row-end:::
 
 >[!IMPORTANT]
 >If your secret value contains special characters, you will need to 'escape' the special character by wrapping it with double quotes and the entire string in single quotes. Otherwise, the secret value is not set correctly.
@@ -293,10 +268,7 @@ az keyvault create  \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-
 ## 8. Create Key Vault secret
-
-### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
@@ -322,22 +294,6 @@ az keyvault create  \
     :::column-end:::
 :::row-end:::
 
-### [Azure CLI](#tab/azure-cli)
-
-Create a secret in Azure Key Vault to store the Bing Search resource key. Run [`az keyvault secret set`](/cli/azure/keyvault/secret) to create and set a secret in Azure Key Vault.
-
-```azurecli
-# Create Secret for Bing Search resource key
-az keyvault secret set \
-    --vault-name 'msdocs-python-etl-kv' \
-    --name 'bing-search-resource-key1' \
-    --value '<YOUR BING SEARCH RESOURCE KEY>'
-```
-
-### [Visual Studio Code](#tab/vscode)
-
-To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
-
 
 ## 9. Create code for Key Vault with Python SDK
 
@@ -359,7 +315,6 @@ To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
-### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
@@ -399,46 +354,6 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
     :::column-end:::
 :::row-end:::
 
-### [Visual Studio Code](#tab/vscode)
-
-:::row:::
-    :::column:::
-        **Step 1.** Create a new Azure Storage Account.
-        1. Open Azure Tools Extension by selecting the **Azure icon** in the **Activity bar**.
-        1. Right-click (Windows) or Ctrl + Select (macOS) the **Storage accounts** item.
-        1. Select **Create Storage Account...(Advanced)**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-storage.png" alt-text="A screenshot showing how to use the Visual Studio Code Azure Tools extension to create a new Azure Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-storage.png" :::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** Enter following information in the prompts:
-        1. **Name**: Enter `msdocspythoncloudetlabs`.
-        1. **Select a resource group for new resources**: Enter `msdocs-python-cloud-etl-rg`.
-        1. **Would you like to enable static website hosting?**: Select `No`.
-        1. **Select a location for new resources**: Select `East US`.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-blob-storage.gif" alt-text="An animated screenshot showing how to configure a new Azure Storage Account using the Visual Studio Code Azure Tools extension." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-blob-storage.gif" :::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create an Azure Storage Accounts.
-
-```azurecli
-# Use the same resource group you create the web app in.
-az storage account create \
-    --name 'msdocspythoncloudetlabs' \
-    --resource-group 'msdocs-python-cloud-etl-rg' \
-    --location 'eastus' \ 
-    --sku Standard_LRS
-```
-
----
 
 >[!IMPORTANT]
 >Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Storage account names must also be unique across Azure.
@@ -448,38 +363,15 @@ az storage account create \
 
 The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
 
-### [Azure portal](#tab/azure-portal)
-
 1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
 2. Select the **Show** button for **key1**.
 3. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. 
 4. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
 
-### [Visual Studio Code](#tab/vscode)
-
-1. Choose the **Azure icon** in the **Activity bar**. 
-2. In the **Resources** area, expand your subscription and **Storage accounts**.
-3. Right-click the storage account resource name.
-4. Choose **Copy Connection String**.
-5. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
-
-### [Azure CLI](#tab/azure-cli)
-
-1. In the following [**az storage account show-connection-string**]() command, edit the command to use your own resource group name and storage resource name. 
-
-    ```bash
-    az storage account show-connection-string --resource-group <resource-group> --name <storage-account> --output table
-    ```
-
-2. Copy the connection string.
-3. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
----
 
 ## 12. Create container for Azure Blob Storage
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
-
-### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
@@ -509,34 +401,6 @@ A container organizes a set of blobs, similar to a directory in a file system. A
     :::column-end:::
 :::row-end:::
 
-### [Visual Studio Code](#tab/vscode)
-
-:::row:::
-    :::column:::
-        Create a container for news search results data.
-        1. Expand **Storage accounts** under the **Resources** section of the Azure Tools extension.
-        1. Right-Click on **Blob Containers**.
-        1. Select **Create Blob Container...**.
-        1. **Name**: Enter `msdocs-python-cloud-etl-news-source` in the prompt.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-container.gif" alt-text="An animated screenshot showing how to create a new Blob Container in Azure Storage using the Visual Studio Code Azure Tools extension." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blob-container.gif" :::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-Create a container for *news-source* data in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
-
-```azurecli
-az storage container create \
-    --name 'msdocs-python-cloud-etl-news-source' \
-    --public-access blob \
-    --account-name 'msdocspythoncloudetlabs' \
-    --auth-mode login
-```
-
----
 
 ## 13. Create code for Azure Blob Storage SDK
 
@@ -579,43 +443,18 @@ Create a random string to add to the end of each file created in blob storage. T
 
 **Step 1.**  Run the function locally.
 
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
-In Visual Studio Code, begin the Azure Function app locally with <kbd>F5</kbd>.
-
-### [Azure CLI](#tab/azure-cli)
-
 ```bash
 func start
 ```    
 
----
 
 **Step 2.** Test the function locally.
 
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
-1. Choose the **Azure icon** in the **Activity bar**. 
+1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
 1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
-
-### [Azure CLI](#tab/azure-cli)
-
-```bash
-curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
-```
-
----
 
 **Step 3.** 
 

@@ -113,53 +113,12 @@ Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.
     ```
 ---
 
-## 2. Create host key for client access to function
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step** Create new client key and copy it. The key is used by the client application to authenticate to the function. The key is sent in the querystring **code** parameter: `?code=123`.
-        1. Select **Functions** in the left pane.
-        1. Select **App Keys**.
-        1. Select the **New host key**.
-        1. Enter the name **ClientAppKey** and leave the value empty for an auto-generated key. Select **Ok**
-        1. After the key is created, select the key to show its value.
-        1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
-
-            If you intend to continue on this application after this tutorial series, store this key in your Key Vault as a secret. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Run [az functionapp keys set](/cli/azure/functionapp/keys?#az-functionapp-keys-set) to create a new host key for the Functions app.
-
-    ```azurecli
-    # Create new host key
-    az functionapp keys set \
-        --resource-group msdocs-python-cloud-etl-rg \
-        --name msdocs-etl \
-        --key-type functionKeys 
-        --key-name ClientAppKey
-    ```
-
-1. From the returned JSON, copy the **Properties** value to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
-
----
 
 ## 3. Deploy local Function project to Azure
 
 The following steps publish your local Python Azure Function project to the new Azure Function App. 
 
-Both Visual Studio Code and Azure CLI use the zip deploy method. Visual Studio Code creates that zip file for you. Azure CLI doesn't create a zip file, must must zip the entire folder structure before using the Azure CLI commands. 
+Both Visual Studio Code and Azure CLI use the zip deploy method. Visual Studio Code creates that zip file for you. Azure CLI doesn't create a zip file, you must zip the entire folder structure before using the Azure CLI commands. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -188,11 +147,8 @@ Deploy project files.
 
 Azure Function CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-1. Create a zip file of your project named `msdocs-etl.zip`. Use **tar** at the root of the project to create the zip file:
-
-    ```bash
-    tar -a -cf msdocs-etl.zip *.*
-    ```
+1. Create a zip file of your project named `msdocs-etl.zip` which doesn't include the root folder in the zip. 
+   
 
 1. Run [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) to deploy the zip file.
 
@@ -286,8 +242,7 @@ az functionapp config appsettings set \
 
 ## 5. Configure Azure Function Apps resources to use passwordless credentials
 
-Enable System Assigned Identity for the function app.
-
+Enable System Assigned Identity for the function app and give it the **Contributor** role for the resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -305,127 +260,41 @@ Enable System Assigned Identity for the function app.
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png":::
     :::column-end:::
 :::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-A system assigned identity is created in Azure with the [az functionapp identity assign](/cli/azure/functionapp/identity#az-functionapp-identity-assign) command. The general form of the command is:
-
-```azurecli
-az functionapp identity assign \
-    --resource-group msdocs-python-cloud-etl-rg \
-    --name msdocs-etl \
-    --identities '[system]'
-```
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal or the Azure CLI.
-
----
-
-## 6. Configure system assigned identity to access Azure Blob Storage resources with passwordless credentials
-
-You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your blob storage resource.
-
-### [Azure portal](#tab/azure-portal)
-
 :::row:::
     :::column:::
-        **Step 1.** Configure Blob storage access for system assigned identity.
+        **Step 1.** Turn on system assigned identity for your Azure Functions app.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Find your Blob Storage resource, named `msdocspythoncloudetlabs`.
-        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
+        1. Find your Azure Functions app.
+        1. Select **Identity**.
+        1. Select **Status** to turn on the System assigned identity.
+        1. Select **Save**.
+        1. A notification with the name of the system assigned identity displays. Make note of that system assigned identity. You need it later in this tutorial. If you forget it, it will be in the Azure portal **Notifications**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png":::
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** 
-        1. Select **Add role assignment** button in the **Grant access to this resource** section.
-        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
-        1. **Assigned access to**: Select **Managed identity**.
-        1. **Members**: Select **+ Select members**.
-        1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
-        1. Select the identity to add it as a selected member.
-        1. Use the **Select** button to add the identity.
-        1. Review the selected values and select **Review + Assign**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
 Complete the step using either the Azure portal.
 
----
-
-## 7. Configure Azure Data Lake resource to use passwordless credentials
-
-You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your data lake resource.
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** Configure data lake storage access for system assigned identity.
-        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Find your Data Lake resource, named `msdocspythonetladls`.
-        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        1. Select **Add role assignment** button in the **Grant access to this resource** section.
-        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
-        1. **Assigned access to**: Select **Managed identity**.
-        1. **Members**: Select **+ Select members**.
-        1. From **Selected managed identities**, select your subscription, choose **All system-assigned managed identitys**, and search for your system assigned identity name in the dialogue.
-        1. Select the identity to add it as a selected member.
-        1. Use the **Select** button to add the identity.
-        1. Review the selected values and select **Review + Assign**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
-    :::column-end:::
-:::row-end:::
-
 ### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
 
 Complete the step using either the Azure portal.
 
 ---
-
 
 ## 8. Configure Key Vault resource to use passwordless credentials
 
 You enabled System Assigned Identity for the function app in a preceding step. Add that system assigned identity to your key vault resource.
-
-### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
         **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Find your key vault resource and select it.
-        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
+        1. Select **Access Control (IAM)** in the left panel in the **Key Vault** resource dialogue window.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -443,16 +312,6 @@ You enabled System Assigned Identity for the function app in a preceding step. A
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
     :::column-end:::
 :::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-
-Complete the step using either the Azure portal.
-
----
 
 ## 9. Configure auto-archive rule for source data
 
@@ -549,6 +408,48 @@ az storage account management-policy create \
     --account-name msdocspythoncloudetlabs \
     --policy @policy.json 
 ```
+
+---
+
+## 2. Create host key for client access to function
+
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        **Step** Create new client key and copy it. The key is used by the client application to authenticate to the function. The key is sent in the querystring **code** parameter: `?code=123`.
+        1. Select **Functions** in the left pane.
+        1. Select **App Keys**.
+        1. Select the **New host key**.
+        1. Enter the name **ClientAppKey** and leave the value empty for an auto-generated key. Select **Ok**
+        1. After the key is created, select the key to show its value.
+        1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
+
+            If you intend to continue on this application after this tutorial series, store this key in your Key Vault as a secret. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Visual Studio Code](#tab/vscode)
+
+Complete the step using either the Azure portal or the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Run [az functionapp keys set](/cli/azure/functionapp/keys?#az-functionapp-keys-set) to create a new host key for the Functions app.
+
+    ```azurecli
+    # Create new host key
+    az functionapp keys set \
+        --resource-group msdocs-python-cloud-etl-rg \
+        --name msdocs-etl \
+        --key-type functionKeys 
+        --key-name ClientAppKey
+    ```
+
+1. From the returned JSON, copy the **Properties** value to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
 
 ---
 
