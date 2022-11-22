@@ -34,6 +34,9 @@ The Azure MySQL uses npm packages already available, such as:
 
 To connect and use your MySQL on Azure with JavaScript, use the following procedure.
 
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 1. Make sure Node.js and npm are installed.
 1. Create a Node.js project in a new folder:
 
