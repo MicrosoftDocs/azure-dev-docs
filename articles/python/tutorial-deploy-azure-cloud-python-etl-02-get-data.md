@@ -98,7 +98,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally. 
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,11" :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,10" :::
 
     The highlighted lines indicate settings made in this article. 
 
@@ -167,7 +167,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     :::column-end:::
 :::row-end:::
 
-## 6. Create code for Bing Search News with Python SDK
+## 6. Create code to get search results from Bing Search News with Python SDK
 
 **Step 1.** Create a file named `bing_search.py` in the **shared** folder.
 
@@ -273,7 +273,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 :::row-end:::
 
 
-## 9. Create code for Key Vault with Python SDK
+## 9. Create code to read Key Vault secret with Python SDK
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -395,7 +395,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 :::row-end:::
 
 
-## 13. Create code for Azure Blob Storage SDK
+## 13. Create code to upload file with Python
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
