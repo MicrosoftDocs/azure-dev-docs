@@ -91,7 +91,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **function.json** file in the `api_search` folder. 
 1. Add the `route` property as shown in the following json so your API route is `/api/search`.
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json" highlight="13" :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json":::
 
 ## 3. Set application settings in local.settings.json for Python Functions App
 
@@ -112,11 +112,11 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     * SDK object: [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential)
     * Python implementation: **get_azure_key_credential**: Using a key such as needed by Bing Search key
 
-**Step 2.** Create a folder named `shared`, which will contain all the integration code files.
+**Step 1.** Create a folder named `shared`, which will contain all the integration code files.
 
-**Step 1.** Create a file named `azure_credential.py` in the **shared** folder.
+**Step 2.** Create a file named `azure_credential.py` in the **shared** folder.
 
-**Step 2.** Copy the following python code into it. 
+**Step 3.** Copy the following python code into it. 
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/azure_credential.py"  :::
 
@@ -217,17 +217,11 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Select **Create** to accept the selected options and start the deployment process.
+        **Step 4.** Select **Create** to accept the selected options and start the deployment process. When the deployment process completes, select Go to resource.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png":::
     :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 5.** When the deployment process completes, select Go to resource.
-    :::column-end:::
-    :::column:::
 :::row-end:::
 :::row:::
     :::column:::
@@ -243,7 +237,6 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Use the **Select** button to add the identity.
         1. Review the selected values and select **Review + Assign**.
     :::column-end:::
-    :::column:::
 :::row-end:::
 
 >[!IMPORTANT]

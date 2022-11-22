@@ -118,12 +118,11 @@ az role assignment create \
 
 To authenticate your local development environment to Azure, sign in with Azure CLI. 
 
-1. Open a terminal or command line.
-1. Use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
+In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
 
 ## Next step
 
