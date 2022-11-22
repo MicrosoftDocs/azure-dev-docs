@@ -331,6 +331,21 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        **Step 4.** Assign your user account as a **Storage Blob Data Contributor** so you can add, update, and delete blobs.
+
+        1. Select **Access Control (IAM)** in the left panel in the **Storage account** resource dialogue window.
+        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
+        1. **Assigned access to**: Select **User, group or service principal**.
+        1. **Members**: Select **+ Select members**.
+        1. From **Selected members**, search for and find your Azure account.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
+        1. Review the selected values and select **Review + Assign**.
+    :::column-end:::
+:::row-end:::
 
 
 >[!IMPORTANT]
@@ -344,7 +359,7 @@ The Blob Trigger connects to Blob Storage with a connection string stored in the
 1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
 2. Select the **Show** button for **key1**.
 3. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. 
-4. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
+4. Open the `local.settings.json` file and paste the value for the **AzureWebJobsStorage** property. 
 
 
 ## 12. Create container for Azure Blob Storage
@@ -428,9 +443,12 @@ func start
 
 **Step 2.** Test the function locally.
 
+Use the terminal or command prompt your signed into Azure with `az login`.
+
 1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+1. Expand the **Functions** node and right-click the **api_search** funtion.
 1. Choose **Execute Function Now**.
 1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
