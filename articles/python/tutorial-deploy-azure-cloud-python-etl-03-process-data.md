@@ -17,14 +17,6 @@ In this tutorial, you'll continue developing a local Azure Function in Python by
 
 ## 1. Create a local BlobTrigger for Python Functions App
 
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
-To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (or select on the Sign-in to Azure... node in the Explorer).
-
 :::row:::
     :::column:::
         **Step 1.** Create new local Azure Function in the Visual Studio Code workspace.
@@ -50,28 +42,12 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
     :::column-end:::
 :::row-end:::
 
-### [Azure CLI](#tab/azure-cli)
-
-**Step 1.** Navigate to the local Azure Function project root.
-
-**Step 2.** Add a function to your project by running the `func new`. Enter a unique value for the `--name` parameter and set how the function will be triggered with the `--template` parameter.
-
-```bash
-cd msdocs-python-etl-serverless
-
-func new --name api_blob_trigger --template "azure blob storage trigger"
-```
-
----
-
 
 ## 2. Create a resource for Azure Data Lake Gen 2
 
 Azure Data Lake Storage (ADLS) is built upon the Azure Blob File System (ABFS) over TLS/SSL for encryption and uses an optimized driver for big data workloads. Other features such as storage tier options and high-availability & disaster recovery options of blob storage, make ADLS the ideal storage solution for big data analytics.
 
 A storage account is created the same for Azure Data Lake Gen as for Azure Blob Storage. The only difference is that the hierarchical namespace (HNS) property **must** be enabled. The hierarchical namespace is a fundamental part of Azure Data Lake Storage. This functionality enables the organization of objects/files into a hierarchy of directories for efficient data access.
-
-### [Azure portal](#tab/azure-portal)
 
 Follow these steps to create and configure the Azure Data Lake Storage resource.
 
@@ -129,41 +105,28 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        **Step 6.** Assign your user account as a **Storage Blob Data Contributor** so you can add, update, and delete blobs.
 
+        1. Select **Access Control (IAM)** in the left panel in the **Storage account** resource dialogue window.
+        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
+        1. **Assigned access to**: Select **User, group or service principal**.
+        1. **Members**: Select **+ Select members**.
+        1. From **Selected members**, search for and find your Azure account.
+        1. Select the identity to add it as a selected member.
+        1. Use the **Select** button to add the identity.
+        1. Review the selected values and select **Review + Assign**.
+    :::column-end:::
 :::row-end:::
 
-### [Azure CLI](#tab/azure-cli)
-
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
-
-Run [az storage account create](/cli/azure/storage/account) to create an Azure Data Lake Gen 2 Storage Account with Kind StorageV2, HNS enabled, and assign an Azure Identity.
-
-```azurecli
-# Use 'az account list-locations --output table' to list locations.
-# Use the same resource group you create previously.
-# Create a ADLS Gen2 account
-az storage account create \
-    --name msdocspythonetladls \
-    --resource-group msdocs-cloud-python-etl-rg \
-    --kind StorageV2 \
-    --hns \
-    --location eastus \
-    --assign-identity
-```
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the steps using either the Azure portal or the Azure CLI.
-
----
 
 ## 3. Create container and directory for Azure Data Lake
 
 A container act as a file system directory to organize data files in an Azure Data Lake Store. Containers can store an unlimited amount of blobs, and a storage account can have an unlimited number of containers.
 
 Considerations must be made to ease security, efficient processing, and partitioning efforts when loading data into a data lake. Azure Data Lake Storage Gen 2 uses directories instead of the virtual folders in blob storage. Directories  allow for more precise security, control access, and directory level filesystem operations.
-
-### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column:::
@@ -196,34 +159,6 @@ Considerations must be made to ease security, efficient processing, and partitio
         
     :::column-end:::
 :::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-**Step 1:** Run *[az storage fs create](/cli/azure/storage/fs#az-storage-fs-create)* to create a file system in ADLS Gen 2. A file system contains files and folders, similarly to how a container in Azure Blob Storage contains blobs.
-
-```azurecli
-# Create a file system in ADLS Gen2
-az storage fs create \
-    --name msdocs-python-cloud-etl-processed \
-    --account-name msdocspythonetladls
-```
-
- **Step 2.** Run *[az storage fs directory create](/cli/azure/storage/fs/directory)* to create the directory (folder) in the newly created file system to land our processed data.
-
-```azurecli
-# Create a directory in ADLS Gen2 file system
-az storage fs directory create \
-    --name news-data \
-    --file-system msdocs-python-cloud-etl-processed \
-    --account-name msdocspythonetladls 
-```
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the steps using either the Azure portal or the Azure CLI.
-
-
----
 
 >[!NOTE]
 > It is very easy to turn a data lake into a data swamp. So, it is important to govern the data that resides in your data lake.
