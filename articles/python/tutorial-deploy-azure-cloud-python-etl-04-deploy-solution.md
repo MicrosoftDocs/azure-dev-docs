@@ -274,7 +274,7 @@ Configure the following environment variables to allow your function app to conn
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run this [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command for all App Settings from the table at the beginning of this section.
+Run this [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command for all App Settings from the table at the beginning of this section. The following is an example which you need to change for each setting.
 
 ```azurecli
 az functionapp config appsettings set \

@@ -157,80 +157,7 @@ Complete the steps using either the Azure portal or the Azure CLI.
 
 ---
 
-## 3. Configure resource's access role to Azure Data Lake 
-
-In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, we'll use the service principal created by the managed identity for the hosting service.
-
-For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** In the Azure Storage Account, add role assignment.
-        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
-        1. Select **Add role assignment** button in the **Grant access to this resource** section.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Choose the members to grant Storage Blob Data Contributor role.
-        1. **Select role**: Select **User, group, or service principal**.
-        1. **Members**: Select **+ Select members**.
-        1. Search for your user account name in the dialogue.
-        1. Select the **Select** button to add your user account as a member of this role.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png" alt-text="A screenshot showing how your user account name to assign the role to." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 4.** Review the selected values and select **Review + Assign**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png" alt-text="A screenshot of reviewing and creating the Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-A managed identity is assigned a role in Azure with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The general form of the command is:
-
-```azurecli
-# Assign the 'Storage Blob Data Contributor' role to your user
-az role assignment create \
-    --role "Storage Blob Data Contributor" \
-    --assignee <YOUR USER PRINCIPAL NAME> \
-    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetladls"
-```
-
->[!NOTE]
->*managed-identity-id* is the managed identity ID of the Azure Function App. If needed, return to the Function App **Identity** page to get this ID.
-
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the steps using either the Azure portal or the Azure CLI.
-
-
----
-
->[!IMPORTANT]
->Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
-
-## 4. Create container and directory for Azure Data Lake
+## 3. Create container and directory for Azure Data Lake
 
 A container act as a file system directory to organize data files in an Azure Data Lake Store. Containers can store an unlimited amount of blobs, and a storage account can have an unlimited number of containers.
 
@@ -303,7 +230,7 @@ Complete the steps using either the Azure portal or the Azure CLI.
 >
 > [Azure Purview](/azure/purview/) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
 
-## 5. Create code for Data Lake with Python SDK
+## 4. Create code for Data Lake with Python SDK
 
 Once the data is transformed into a format ideal for analysis, load the data into an analytical data store. The data store can be a database system, data warehouse, data lake, or Hadoop. Each destination has different approaches for loading data reliability and optimized performance. The data can now be used for analysis and business intelligence. This article loads the transformed data into Azure Data Lake Storage (ADLS) as various compute and analytic Azure services can easily connect to Azure Data Lake Storage.
 
@@ -317,7 +244,7 @@ Once the data is transformed into a format ideal for analysis, load the data int
 |DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example **msdocs-python-cloud-etl-processed**.|
 |DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example **news-data**.|
 
-## 6. Create code for data transformation with Python
+## 5. Create code for data transformation with Python
 
 **Step 1.** Create a file named `transform.py` in the **shared** folder.
 
@@ -325,7 +252,7 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
-## 7. Create code for BlobTrigger function with Python
+## 6. Create code for BlobTrigger function with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_blob_trigger** folder.
 
@@ -333,7 +260,7 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
 
-## 8. Test the Azure blob storage trigger Function
+## 7. Test the Azure blob storage trigger Function
 
 To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function executes automatically.
 
@@ -382,7 +309,7 @@ curl --location --request GET 'http://localhost:7071/api/search?search_term=azur
 1. Verify the Blob Storage **** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
 1. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
-## 9. Troubleshooting the Azure functions
+## 8. Troubleshooting the Azure functions
 
 If you've reached this point and your processed file isn't in the Data Lake container and directory, use the following information to debug the application. 
 
@@ -397,7 +324,6 @@ If you've reached this point and your processed file isn't in the Data Lake cont
 1. **Authentication or authorization errors indicates**:
     1. One of the Azure resources doesn't have the correct IAM role assignment or access policy.
     1. The local Azure function run time isn't using the correct identity. Make sure you sign in to Azure with the Azure CLI and verify your identity with `az account show`.
-    1. If you decided to use a service principal to authenticate from the Azure Function to the Key Vault, you need to [set an access policy in the Key Vault](/azure/key-vault/general/assign-access-policy?tabs=azure-portal) for that service principal that includes the minimum permissions.
 1. Any errors that result from **environment variable usage** indicates the value is either missing or incorrect in the `local.settings.json` file. You may have also used one directory, container, or secret name when configuring a resource but added a slightly different name to the `local.settings.json` file. 
 
 ## Next step

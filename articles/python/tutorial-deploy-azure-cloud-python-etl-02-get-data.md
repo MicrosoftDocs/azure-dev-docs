@@ -23,26 +23,8 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 You must have completed all steps from the [Overview](tutorial-deploy-azure-cloud-python-etl-01-overview.md) for this series.
 
-### [Azure portal](#tab/azure-portal)
-
 1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
 1. When prompted, enter your sign-in credentials.
-
-### [Visual Studio Code](#tab/vscode)
-
-1. [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms) is installed
-1. Install the following extensions:
-    * [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
-    * [Visual Studio Code Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
-    * [Visual Studio Code Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-1. You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview.md#sign-in-to-azure-for-local-developer-authentication)
-
-### [Azure CLI](#tab/azure-cli)
-
-You must have [signed in with Azure CLI](tutorial-deploy-azure-cloud-python-etl-01-overview.md#sign-in-to-azure-for-local-developer-authentication)
-
-
----
 
 ## 1. Create a local Azure Function and an HTTPTrigger endpoint
 
@@ -311,75 +293,8 @@ az keyvault create  \
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 8. Configure role-based access to Key Vault for your identity
 
-Configure your own account to have access to Key Vault Secrets. Do this immediately after creating the Key Vault. In order to use role-based access to Key Vault, it must have been created with RBAC enabled. This step is shown in the preceding section. 
-
-### [Azure portal](#tab/azure-portal)
-
-You enabled role-based access control for your key vault resource in a preceding step. Add your identity to your key vault resource to _create_ and _read_ secrets while locally developing the application.
-
-:::row:::
-    :::column:::
-        **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
-        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Find your key vault resource and select it.
-        1. Select **Access Control (IAM)** in the left panel in the **Key Vault** resource dialogue window.
-        1. Select **Add role assignment** button in the **Grant access to this resource** section.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-role-assignment.png" alt-text="Screenshot showing how to select Add role assignment in IAM in Key Vault in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-role-assignment.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** Navigate to create an Azure Key Vault resource in the Azure portal.
-        1. Search for **Key Vault Secrets Officer** and select it.
-        1. Select **Next**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-rbac-role-key-vault-secrets-user.png" alt-text="Screenshot showing how to select Key Vaults Secrets User role in Key Vault in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-rbac-role-key-vault-secrets-user.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Add your user account.
-        1. Select **User, group, or service principal**.
-        1. Select **+ Select members**.
-        1. In the panel, search for and select your own user account with your email address, such as `jsmith@contoso.com`.
-        1. Select the **Select** button to close the side panel. 
-        1. Select **Next**.
-        1. Select **Review + assign**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-role-assignment-select-members.png" alt-text="Screenshot showing how to select Key Vaults Secrets User role in Key Vault in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-add-role-assignment-select-members.png":::
-    :::column-end:::
-:::row-end:::
-
-
-### [Azure CLI](#tab/azure-cli)
-
-Assign the role to your user account, such as `johns@contoso.com`.
-
-```azurecli
-# Assign the 'Key Vault Secrets User' role to your user
-az role assignment create \
-    --role "Key Vault Secrets User" \
-    --assignee <YOUR-USER-ACCOUNT> \
-    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.KeyVault/vaults/msdocs-python-etl-kv"
-```
-
->[!NOTE]
->Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
-
-
-### [Visual Studio Code](#tab/vscode)
-
-To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
-
----
-
-## 9. Create Key Vault secret
+## 8. Create Key Vault secret
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -423,106 +338,8 @@ az keyvault secret set \
 
 To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
 
-## 10. Configure resource's access role to Key Vault secret
 
-Enable Key Vault to be used with passwordless credentials.
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
-        1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Enter `Key Vault` in the search box.
-        1. Navigate to **Key Vault** under **Services** in the search results.
-        1. Select the **+ Create** button in the **Key Vault** dialogue.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png" alt-text="Screenshot showing how to search in the Azure portal to find and create an Azure Key Vault service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** On the Create key vault dialogue provide the following information:
-        1. **Subscription**: Select your active subscription.
-        1. **Resource group**: Select **msdocs-python-cloud-etl-rg**.
-        1. **Name**: Enter `msdocs-python-etl-kv`.
-        1. **Location**: Select **East US**.
-        1. Leave the other options to their defaults.
-        1. Select **Review + Create** to review  and validate the selected Azure Key Vault configuration.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png" alt-text="Screenshot showing how to configure Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Select **Create** to accept the selected options and start the deployment process.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 4.** When the deployment process completes, select Go to resource.
-    :::column-end:::
-    :::column:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 5.** Create a new secret in Azure Key Vault.
-        1. Under the **Objects** section in the left panel, select **Secrets**.
-        1. Select the **+ Generate/Import** button in the main panel.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png" alt-text="Screenshot to show how to create a secret in the new Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 6.** In the **Create a secret** dialogue, enter the following information:
-        1. **Name**: Enter `bing-search-resource-key1`.
-        1. **Secret value**: Enter the Bing Search API resource key that you noted/copied to your clipboard previously in this article.
-        1. Select **Create** to add this new secret to the **Azure Key Vault**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png" alt-text="Screenshot to show how to configure a secret in the Azure Key Vault using the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-To create an Azure Key Vault, you **must** use the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-Create a new Azure Key Vault within your resource group.
-
-**Step 1:** Run [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) to create an Azure Key Vault.
-
-```azurecli
-# Provision new Azure Key Vault in our resource group
-az keyvault create  \
-    --location 'eastus' \
-    --name 'msdocs-python-etl-kv' \
-    --resource-group 'msdocs-python-cloud-etl-rg'
-```
-
-<br/>
-
-**Step 2:** Set a 'secret' in Azure Key Vault to store the Bing Search resource key. Run [`az keyvault secret set`](/cli/azure/keyvault/secret) to create and set a secret in Azure Key Vault.
-
-```azurecli
-# Create Secret for Bing Search resource key
-az keyvault secret set \
-    --vault-name 'msdocs-python-etl-kv' \
-    --name 'bing-search-resource-key1' \
-    --value '<YOUR BING SEARCH RESOURCE KEY>'
-```
-
----
-
-## 11. Create code for Key Vault with Python SDK
+## 9. Create code for Key Vault with Python SDK
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -538,7 +355,7 @@ az keyvault secret set \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
 
-## 12. Create resource for Azure Blob Storage
+## 10. Create resource for Azure Blob Storage
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
@@ -618,8 +435,7 @@ az storage account create \
     --name 'msdocspythoncloudetlabs' \
     --resource-group 'msdocs-python-cloud-etl-rg' \
     --location 'eastus' \ 
-    --sku Standard_LRS \
-    --assign-identity
+    --sku Standard_LRS
 ```
 
 ---
@@ -627,73 +443,8 @@ az storage account create \
 >[!IMPORTANT]
 >Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Storage account names must also be unique across Azure.
 
-## 13. Configure resource's access role to Azure Blob Storage
 
-In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, you'll use the managed identity for the hosting service.
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** In the Azure Storage Account, add role assignment.
-        1. Select **Access Control (IAM)** in the left panel in the **Storage Account** resource dialogue window.
-        1. Select **Add role assignment** button in the **Grant access to this resource** section.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Choose the members to grant Storage Blob Data Contributor role.
-        1. **Select role**: Select **User, group, or service principal**.
-        1. **Members**: Select **+ Select members**.
-        1. Search for your user account name in the dialogue.
-        1. Select the **Select** button to add your user account as a member of this role.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png" alt-text="A screenshot showing how your user account name to assign the role to." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 4.** Review the selected values and select **Review + Assign**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png" alt-text="A screenshot of reviewing and creating the Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-To assign access control roles for an Azure resource, you **must** use the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-
-Enable your user account, such as `jsmith@contoso.com`, to have role-based access.
-
-```azurecli
-# Assign the 'Storage Blob Data Contributor' role to your user
-az role assignment create \
-    --role "Storage Blob Data Contributor" \
-    --assignee <YOUR-USER-ACCOUNT> \
-    --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetlabs"
-```
-
->[!NOTE]
->Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
-
----
-
-## 14. Get Blob Storage connection string
+## 11. Get Blob Storage connection string
 
 The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
 
@@ -724,7 +475,7 @@ The Blob Trigger connects to Blob Storage with a connection string stored in the
 3. Open the `local.settings.json` file and paste the value for the **Values.AzureWebJobsStorage** property. 
 ---
 
-## 15. Create container for Azure Blob Storage
+## 12. Create container for Azure Blob Storage
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
@@ -787,7 +538,7 @@ az storage container create \
 
 ---
 
-## 16. Create code for Azure Blob Storage SDK
+## 13. Create code for Azure Blob Storage SDK
 
 **Step 1.** Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -805,7 +556,7 @@ az storage container create \
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 17. Create code for random string generation with Python
+## 14. Create code for random string generation with Python
 
 Create a random string to add to the end of each file created in blob storage. This random string is used in both the original file and the processed file.
 
@@ -816,7 +567,7 @@ Create a random string to add to the end of each file created in blob storage. T
 :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
 
-## 18. Create code for HTTPTrigger function with Python
+## 15. Create code for HTTPTrigger function with Python
 
 **Step 1.** Open the **__init__.py** file in the **api_search** folder.
  
@@ -824,7 +575,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
 :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
-## 19. Test the API endpoint for your python function
+## 16. Test the API endpoint for your python function
 
 **Step 1.**  Run the function locally.
 

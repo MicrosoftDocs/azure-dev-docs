@@ -37,10 +37,11 @@ To complete this tutorial, you'll need:
 
 * An Azure account with an active subscription, if you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/)
 * [Python 3.9 or later](https://www.python.org/downloads/) is installed locally
-* Node.js LTS and the following npm packages
-    * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
 * [Azure CLI](/cli/azure/install-azure-cli)
-
+* [Visual Studio Code](https://code.visualstudio.com/download)
+    * [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+    * [Azure Blob Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
 
 ## Get the sample solution
 
@@ -91,6 +92,26 @@ A sample Python solution is available to help you follow along with this tutoria
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you.
 
 [!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
+
+## Give your account permission as Contributor to resources
+
+Use this Azure CLI command to give your account the **Contributor** role in role-based access control (RBAC).
+
+```azurecli
+# Assign user to the resource group as a contributor
+
+# Email you use to sign into Azure 
+user="youremail@domain.com"
+
+# Resource group created in previous step
+resourcegroup="msdocs-python-cloud-etl-rg"
+
+# Assign Contributor role
+az role assignment create \
+    --role Contributor \
+    --assignee $user \
+    --resource-group  $resourcegroupname
+```
 
 ## Sign in to Azure for local developer authentication
 
