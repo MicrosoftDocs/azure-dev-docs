@@ -175,7 +175,7 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
 |Property|Setting|
 |--|--|
-|DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example "YOUR-RESOURCE_NAME".|
+|DATALAKE_GEN_2_RESOURCE_NAME|Enter the Data Lake resource name in double quotes, for example **msdocspythoncloudetladls**.|
 |DATALAKE_GEN_2_CONTAINER_NAME|Enter the container name in double quotes, for example **msdocs-python-cloud-etl-processed**.|
 |DATALAKE_GEN_2_DIRECTORY_NAME|Enter the directory name in double quotes, for example **news-data**.|
 
@@ -201,43 +201,19 @@ To properly test the local Azure Storage Blob Trigger function, the Azure HTTP T
 
 **Step 1.**  Run the function locally.
 
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
-In Visual Studio Code, begin the Azure Function app locally with <kbd>F5</kbd>.
-
-### [Azure CLI](#tab/azure-cli)
-
 ```bash
 func start
 ```    
 
----
-
 **Step 2.** Test the function locally.
 
-### [Azure portal](#tab/azure-portal)
 
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
-### [Visual Studio Code](#tab/vscode)
-
-1. Choose the **Azure icon** in the **Activity bar**. 
+1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
 1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
-### [Azure CLI](#tab/azure-cli)
-
-```bash
-curl --location --request GET 'http://localhost:7071/api/search?search_term=azure&count=5'
-```
-
----
 
 **Step 3.** 
 

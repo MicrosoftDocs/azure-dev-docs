@@ -456,6 +456,20 @@ Use the terminal or command prompt your signed into Azure with `az login`.
 
 Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
 
+## 17. Troubleshooting the function
+
+For local development and debugging with these Azure resources, make sure you have the following complete:
+* Key Vault with secret.
+    * The secret name in Key Vault such as `bing-search-resource-key1` must match the `KEY_VAULT_SECRET_NAME` property in **local.settings.json**.
+    * Your user account for Key Vault needs the **Key Vault Secrets Officer** role to add and read the key. 
+* Bing Search
+    * The Bing Search key is stored in Key Vault.
+* Blob Storage
+    * Resource name must be set in **local.settings.json**.
+    * Container name such as `msdocs-python-cloud-etl-news-source` must match the `BLOB_STORAGE_CONTAINER_NAME` property in **local.settings.json**.
+    * Your user account for Blob Storage needs the **Storage Blob Data Contributor** role to add and read the blob. 
+
+
 ## Additional information
 
 * Azure Functions `function.json` [schema](/azure/azure-functions/functions-reference?tabs=blob).
