@@ -456,7 +456,7 @@ Use the terminal or command prompt your signed into Azure with `az login`.
 
 Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
 
-## 17. Troubleshooting the function
+## Troubleshooting the function
 
 For local development and debugging with these Azure resources, make sure you've the following complete:
 1. **Turn local logging on**:

@@ -220,7 +220,17 @@ func start
 1. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
 1. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
-## 8. Troubleshooting the Azure functions
+## What have you accomplished
+
+If your Azure function was successful, you know that the following are correctly configured and running:
+
+* Local APIs
+* Azure resources: Bing Search, Key Vault, Blob Storage
+* Authentication: your user credentials can access the resources
+
+The next step is to deploy your code to an Azure Function resource and correctly configure that resource.
+
+## Troubleshooting the Azure functions
 
 If you've reached this point and your processed file isn't in the Data Lake container and directory, use the following information to debug the application. 
 
