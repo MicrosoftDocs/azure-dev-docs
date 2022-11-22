@@ -115,19 +115,22 @@ Enable System Assigned Identity for the function app and give it the **Contribut
     :::column:::
         **Step 2.** Add roles for Azure Functions app to access other Azure resources.
         1. While still on the **Identity** page, select **Azure role assignments**.
-        1. To add a Key Vault role, select **Add role assignment**. 
+        
+        2. To add a Key Vault role, select **Add role assignment**. 
             * Select a scope of Key Vault.
             * Select your subscription.
             * Select your Key Vault resource, **msdocs-python-etl-kv**.
             * Select the role of **Key Vault Secrets User**.
             * Select **Save**.
-        1. To add a Blob Storage role, select **Add role assignment**. 
+
+        3. To add a Blob Storage role, select **Add role assignment**. 
             * Select a scope of Storage.
             * Select your subscription.
             * Select your Blob Storage resource, **msdocspythoncloudetlabs**.
             * Select the role of **Storage Blob Data Contributor**.
             * Select **Save**.
-        1. To add a Data Lake role, select **Add role assignment**. 
+
+        4. To add a Data Lake role, select **Add role assignment**. 
             * Select a scope of Storage.
             * Select your subscription.
             * Select your Blob Storage resource, **msdocspythoncloudetladls**.
@@ -164,12 +167,14 @@ Once the processed data is loaded into the data lake, the source file should be 
 
 There are several ways archive data using Python and Azure, however for this tutorial we'll use lifecycle management policies to archive blobs.
 
-### [Azure portal](#tab/azure-portal)
+Use the Azure portal to configure auto archival.
 
 :::row:::
     :::column:::
         **Step 1.** Create the rule and specify the blob type.
+
         1. Navigate to your **blob storage account** in the portal named `msdocspythoncloudetlabs`. Don't select your data lake resource. 
+
         1. Under **Data management**, locate the **Lifecycle management settings**.
         1. On the **List View** tab, select **Enable access tracking**.
         1. Select the **Add a rule** button.
@@ -208,120 +213,12 @@ There are several ways archive data using Python and Azure, however for this tut
 :::row-end:::
 
 
-### [Visual Studio Code](#tab/vscode)
 
-Complete the step using either the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-
-**Step 1.** Write the lifecycle management policy to a JSON file names *policy.json*. The policy will move a block blob whose name begins with 'search_result' to the cool tier if it has been more than 30 days since the blob was modified.
-
-```json
-{
-  "rules": [
-    {
-      "enabled": true,
-      "name": "move-block-blobs-to-cool",
-      "type": "Lifecycle",
-      "definition": {
-        "actions": {
-          "baseBlob": {
-            "tierToCool": {
-              "daysAfterModificationGreaterThan": 30
-            }
-          }
-        },
-        "filters": {
-          "blobTypes": [
-            "blockBlob"
-          ],
-          "prefixMatch": [
-            "msdocs-python-cloud-etl-news-source/search_results"
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-**Step 2.** Call the [`az storage account management-policy create`](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create the policy.
-
-```azurecli
-az storage account management-policy create \
-    --resource-group msdocs-python-cloud-etl-rg \
-    --account-name msdocspythoncloudetlabs \
-    --policy @policy.json 
-```
-
----
-
-## 5. Create host key for client access to function
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step** Create new client key and copy it. The key is used by the client application to authenticate to the function. The key is sent in the querystring **code** parameter: `?code=123`.
-        1. Select **Functions** in the left pane.
-        1. Select **App Keys**.
-        1. Select the **New host key**.
-        1. Enter the name **ClientAppKey** and leave the value empty for an auto-generated key. Select **Ok**
-        1. After the key is created, select the key to show its value.
-        1. Copy the key to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
-
-            If you intend to continue on this application after this tutorial series, store this key in your Key Vault as a secret. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-host-key.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
-Complete the step using either the Azure portal or the Azure CLI.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Run [az functionapp keys set](/cli/azure/functionapp/keys?#az-functionapp-keys-set) to create a new host key for the Functions app.
-
-    ```azurecli
-    # Create new host key
-    az functionapp keys set \
-        --resource-group msdocs-python-cloud-etl-rg \
-        --name msdocs-etl \
-        --key-type functionKeys 
-        --key-name ClientAppKey
-    ```
-
-1. From the returned JSON, copy the **Properties** value to your clipboard. This key will be used in a later step to use the HTTPTrigger function, `/api/search`. 
-
----
 
 
 ## 6. Find the Azure Function API endpoint
 
 To call the solution, you need to use an HTTP tool for your deployed Azure Function's HTTP trigger URL. 
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** Get your API endpoint.
-        1. Navigate to your **function app account** in the portal named `msdoc-etl`. 
-        1. On **Functions**, select the **api_search** function.
-        1. Select **Get Function URL**.
-        1. In the selection box, choose the **ClientAppKey** key.
-        1. Select the copy icon to copy the URL with the key.
-        1. The URL format looks _like_ `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientAppKey`. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png" alt-text="A screenshot showing how to get the function's URL with the host key in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-get_function_url.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Visual Studio Code](#tab/vscode)
-
 
 :::row:::
     :::column:::
@@ -336,47 +233,13 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
     :::column-end:::
 :::row-end:::
 
-### [Azure CLI](#tab/azure-cli)
-
-Call the [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) command to create the policy.
-
-```azurecli
-az functionapp function show \
-    --resource-group msdocs-python-cloud-etl-rg 
-    --name msdocs-etl 
-    --function-name api_search 
-    --query "invokeUrlTemplate"
-```
-
----
 
 ## 7. Call the Azure Function API endpoint
 
 The Function endpoint URL needs to be in the format of: `https://msdocs-etl.azurewebsites.net/api/search?code=1234&clientId=ClientAppKey&search_term=azure&count=5`.
 
-The four querystring properties need to be in the URL.
+The querystring properties for the URL are `{"search_term":"Azure","count":5}`.
 
-|Querystring property|Value|
-|--|--|
-|code|The host key value created to secure the function app.|
-|clientId|The name of the host key, `ClientAppKey`.|
-|search_term|The value used to search Bing News, such as `azure`. |
-|count|Optional, default is 10. The number of news items to return from Bing News.|
-
-### [Azure CLI](#tab/azure-cli)
-
-Replace the following values with your own before using this command:
-
-|Property|Value|
-|--|--|
-|`<YOUR-FUNCTION-APP-RESOURCE-NAME>`|Replace with your Azure Functions resource name, such as `msdocs-etl`.|
-|`<YOUR-CODE>`|Replace with the value of your host key.|
-
-```bash
-curl --location --request GET 'http://<YOUR-FUNCTION-APP-RESOURCE-NAME>.azurewebsites.net/api/search?code=<YOUR-CODE>&clientId=ClientAppKey&search_term=azure&count=5'
-```
-
-### [Visual Studio Code](#tab/vscode)
 
 1. Choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
@@ -384,12 +247,6 @@ curl --location --request GET 'http://<YOUR-FUNCTION-APP-RESOURCE-NAME>.azureweb
 1. Choose **Execute Function Now**.
 1. Enter the request message body value `{ "search_term": "Azure", "count": 5}` and press Enter.
 
-
-### [Azure portal](#tab/azure-portal)
-
-Complete the steps using either the Visual Studio Code or the Azure CLI.
-
----
 
 ## 8. Delete the resource group for your project
 
