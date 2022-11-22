@@ -217,25 +217,25 @@ func start
 
 **Step 3.** 
 
-1. Verify the Blob Storage **** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
+1. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
 1. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## 8. Troubleshooting the Azure functions
 
 If you've reached this point and your processed file isn't in the Data Lake container and directory, use the following information to debug the application. 
 
-1. **Turn logging on**:
+1. **Turn local logging on**:
     1. Stop the application.
     1. Open the `./host.json` file. 
     1. Set the **logging.logLevel.default** property to `"Information"`.
-    1. If you have any files in the Blob Storage, download the file and examine the contents. If it's a JSON array of news information, you know the HTTP trigger, `api_search` worked successfully. 
+    1. If you have any files in the Blob Storage, download the file and examine the contents. If it's a JSON array of news information, you know the HTTP trigger, `api_search`, worked successfully. 
     1. Delete the files in blob storage. 
     1. Start the application again, and search for news with the HTTP API endpoint. 
     1. Review the debug log. It includes any errors that occurred. 
-1. **Authentication or authorization errors indicates**:
-    1. One of the Azure resources doesn't have the correct IAM role assignment or access policy.
-    1. The local Azure function run time isn't using the correct identity. Make sure you sign in to Azure with the Azure CLI and verify your identity with `az account show`.
-1. Any errors that result from **environment variable usage** indicates the value is either missing or incorrect in the `local.settings.json` file. You may have also used one directory, container, or secret name when configuring a resource but added a slightly different name to the `local.settings.json` file. 
+* Data Lake Storage
+    * Resource name must be set in the `DATALAKE_GEN_2_RESOURCE_NAME` property in **local.settings.json**.
+    * Container name such as `msdocs-python-cloud-etl-news-source` must match the `BLOB_STORAGE_CONTAINER_NAME` property in **local.settings.json**.
+    * Your user account for Blob Storage needs the **Storage Blob Data Contributor** role to add and read the blob. 
 
 ## Next step
 

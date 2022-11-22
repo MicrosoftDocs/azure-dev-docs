@@ -448,7 +448,7 @@ Use the terminal or command prompt your signed into Azure with `az login`.
 1. In Visual Studio Code, choose the **Azure icon** in the **Activity bar**. 
 1. In the **Workspace area**, expand **Local Project > Functions**. 
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
-1. Expand the **Functions** node and right-click the **api_search** funtion.
+1. Expand the **Functions** node and right-click the **api_search** function.
 1. Choose **Execute Function Now**.
 1. Enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
@@ -458,17 +458,24 @@ Verify the result is a URL such as `search_results_azure_yar6q2P80Lm4FG7.json`.
 
 ## 17. Troubleshooting the function
 
-For local development and debugging with these Azure resources, make sure you have the following complete:
+For local development and debugging with these Azure resources, make sure you've the following complete:
+1. **Turn local logging on**:
+    1. Stop the application.
+    1. Open the `./host.json` file. 
+    1. Set the **logging.logLevel.default** property to `"Information"`.
+    1. If you have any files in the Blob Storage, download the file and examine the contents. If it's a JSON array of news information, you know the HTTP trigger, `api_search`, worked successfully. 
+    1. Delete the files in blob storage. 
+    1. Start the application again, and search for news with the HTTP API endpoint. 
+    1. Review the debug log. It includes any errors that occurred. 
 * Key Vault with secret.
     * The secret name in Key Vault such as `bing-search-resource-key1` must match the `KEY_VAULT_SECRET_NAME` property in **local.settings.json**.
     * Your user account for Key Vault needs the **Key Vault Secrets Officer** role to add and read the key. 
 * Bing Search
     * The Bing Search key is stored in Key Vault.
 * Blob Storage
-    * Resource name must be set in **local.settings.json**.
+    * Resource name must be set in the `BLOB_STORAGE_RESOURCE_NAME` property in **local.settings.json**.
     * Container name such as `msdocs-python-cloud-etl-news-source` must match the `BLOB_STORAGE_CONTAINER_NAME` property in **local.settings.json**.
     * Your user account for Blob Storage needs the **Storage Blob Data Contributor** role to add and read the blob. 
-
 
 ## Additional information
 
