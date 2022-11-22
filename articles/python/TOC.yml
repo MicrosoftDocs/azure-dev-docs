@@ -196,7 +196,7 @@
 - name: pypi packages
   href: sdk-library-api-reference.md
 - name: pypi reference documentation
-  href: /python/api/overview/azure/?view=azure-python
+  href: /python/api/overview/azure/
 - name: Explore services supporting Python
   items:
   - name: App hosting
