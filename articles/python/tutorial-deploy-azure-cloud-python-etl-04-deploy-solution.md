@@ -81,7 +81,7 @@ Configure the following environment variables to allow your function app to conn
         1. Add the first name/value pair from the table at the beginning of this section and select **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-create-button.png" alt-text="Screenshot showing how to create each application setting for Azure function in the portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-create-button.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-app-setting-create-button.png" alt-text="Screenshot showing how to create each application setting for Azure function in the portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-app-setting-create-button.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
