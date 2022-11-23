@@ -9,11 +9,17 @@ ms.date: 10/15/2022
 ms.prod: azure-python
 ---
 
-# Tutorial: Use an Azure Function to process data with Python on Azure
+# Tutorial: Process data using Python Azure Function
 
 In this tutorial, you'll continue developing a local Azure Function in Python by adding a BlobTrigger function that triggers when files are uploaded to your Blob Storage container. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/data-transform-data-lake.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/data-transform-data-lake.png" border="false":::
+
+## Prerequisites
+
+You must have completed all steps from:
+* [Overview](tutorial-deploy-azure-cloud-python-etl-01-overview.md)
+* [Get Bing News using a Python Azure Function](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)
 
 ## 1. Create a local BlobTrigger for Python Functions App
 
@@ -37,8 +43,6 @@ In this tutorial, you'll continue developing a local Azure Function in Python by
         1. **Provide a function name**: Enter `api_blob_trigger`.
         1. **Authorization level**: Choose `Function`.  For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
         1. **Select how you would like to open your project**: Choose `Add to workspace`.
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -154,9 +158,6 @@ Considerations must be made to ease security, efficient processing, and partitio
         1. Select **+ Add Directory**.
         1. Enter **news-data**.
         1. Select **Save**.
-    :::column-end:::
-    :::column:::
-        
     :::column-end:::
 :::row-end:::
 

@@ -13,6 +13,14 @@ ms.prod: azure-python
 
 In this last article of the series, you deploy the Azure Functions application to Azure.
 
+## Prerequisites
+
+You must have completed all steps from:
+* [Overview](tutorial-deploy-azure-cloud-python-etl-01-overview.md)
+* [Get Bing News using a Python Azure Function](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)
+* [Process data using Python Azure Function](tutorial-deploy-azure-cloud-python-etl-03-process-data.md)
+
+
 ## 1. Create Azure Function resource
 
 :::row:::

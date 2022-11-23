@@ -23,9 +23,6 @@ In this tutorial, you'll create a local [Azure Function](/products/functions/) i
 
 You must have completed all steps from the [Overview](tutorial-deploy-azure-cloud-python-etl-01-overview.md) for this series.
 
-1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-1. When prompted, enter your sign-in credentials.
-
 ## 1. Create a local Azure Function and an HTTPTrigger endpoint
 
 :::row:::

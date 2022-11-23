@@ -21,9 +21,9 @@ This procedure guides you through creating and deploying a serverless, cloud *Ex
 
 When deployed, the sample solution flow includes:
 
-1. *Get Data*: Use an Azure HTTPTrigger Function to search with [Bing News Search API](/bing/search-apis/bing-news-search/overview)
+1. *Get Data*: Use an [Azure HTTPTrigger Function](/azure/azure-functions/functions-bindings-http-webhook?tabs=in-process%2Cfunctionsv2&pivots=programming-language-python) to search with [Bing News Search API](/bing/search-apis/bing-news-search/overview)
 1. *Store Data*: Store the search results as a JSON file in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) container.
-1. *Process Data*: Use an Azure BlobTrigger Function, which activates when the JSON file is uploaded to Blob Storage:
+1. *Process Data*: Use an [Azure BlobTrigger Function](/azure/azure-functions/functions-bindings-storage-blob?tabs=in-process%2Cextensionv5%2Cextensionv3&pivots=programming-language-python), which activates when the JSON file is uploaded to Blob Storage:
     * Retrieve JSON file
     * Request each news article content
     * Transform article content
@@ -42,7 +42,6 @@ To complete this tutorial, you'll need:
 * [Visual Studio Code](https://code.visualstudio.com/download)
     * [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
     * [Azure Blob Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
-* Zip application such as [7zip](https://www.7-zip.org/)
 
 ## Get the sample solution
 
@@ -63,9 +62,7 @@ A sample Python solution is available to help you follow along with this tutoria
     cd msdocs-python-etl-serverless
     ```
 
-1. Create a virtual environment for the solution:
-
-    [!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
+[!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
 
 1. Install the dependencies:
 
@@ -90,13 +87,13 @@ A sample Python solution is available to help you follow along with this tutoria
 
 ## Create a resource group for your project
 
-Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you.
+Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you. A resource group allows you to control security and billing limited to the resource group. 
 
 [!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
 
 ## Give your account permission as Contributor to resources
 
-Use this Azure CLI command to give your account the **Contributor** role in role-based access control (RBAC).
+Use this Azure CLI command to give your Azure user account the **Contributor** role in role-based access control (RBAC). This expedites some of the security a developer needs for local development to Azure. Additional security is applied as needed throughout this tutorial series.
 
 ```azurecli
 # Assign user to the resource group as a contributor
