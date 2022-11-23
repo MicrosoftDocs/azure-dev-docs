@@ -25,7 +25,7 @@ In this tutorial, you'll continue developing a local Azure Function in Python by
         1. Choose **Create Function** in the dropdown.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::

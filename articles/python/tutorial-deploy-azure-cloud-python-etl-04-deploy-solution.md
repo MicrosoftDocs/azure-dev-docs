@@ -158,7 +158,7 @@ The following steps publish your local Python Azure Function project to the Azur
         1. Navigate to the **Output** panel to view the deployment results.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-deploy-function.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-deploy-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-deploy-function.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-deploy-function.png":::
     :::column-end:::
 :::row-end:::
 
@@ -227,7 +227,7 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
         1. Right-click on the **api_search** function and select **Copy Function Url**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-copy-function-url.png" alt-text="Screenshot showing how to get function URL in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-copy-function-url.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-copy-function-url.png" alt-text="Screenshot showing how to get function URL in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-copy-function-url.png":::
     :::column-end:::
 :::row-end:::
 
