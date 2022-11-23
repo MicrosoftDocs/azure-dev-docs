@@ -37,7 +37,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. When prompted, choose **Create new project**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -59,7 +59,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         **Step 3.** Run the function locally by pressing `F5` or the play icon.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-run-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -71,7 +71,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. Choose **Execute Function Now**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-execute-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-execute-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -79,7 +79,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         **Step 5.** Test the sample functionality by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-test-new-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif":::
     :::column-end:::
 :::row-end:::
 
@@ -130,7 +130,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         1. Select **Bing Search v7** under **Marketplace** in the search results.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png" alt-text="Screenshot showing how to search in the Azure portal and find Bing Search in the Marketplace." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search.png" alt-text="Screenshot showing how to search in the Azure portal and find Bing Search in the Marketplace." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -144,7 +144,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         1. Select **Create** to start the deployment process.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -152,7 +152,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         **Step 3.** When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png" alt-text="Screenshot showing how to configure Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-deploy.png" alt-text="Screenshot showing how to configure Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-deploy.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -163,7 +163,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         1. Select the **Copy icon** to the *right* of **Key 1** to copy the resource key to your clipboard. This key will be stored in Azure Key Vault as a secret in a later step.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search resource key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search resource key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png":::
     :::column-end:::
 :::row-end:::
 
@@ -188,7 +188,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Select the **+ Create** button in the **Key Vault** dialogue.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png" alt-text="Screenshot showing how to search in the Azure portal to find and create an Azure Key Vault service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create.png" alt-text="Screenshot showing how to search in the Azure portal to find and create an Azure Key Vault service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -202,7 +202,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Select **Next**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png" alt-text="Screenshot showing how to configure Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-configure.png" alt-text="Screenshot showing how to configure Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-configure.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -212,7 +212,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Select **Review + create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-configure-rbac.png" alt-text="Screenshot to configure RBAC for Azure Key Vault in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-configure-rbac.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create-configure-rbac.png" alt-text="Screenshot to configure RBAC for Azure Key Vault in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create-configure-rbac.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -220,7 +220,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         **Step 4.** Select **Create** to accept the selected options and start the deployment process. When the deployment process completes, select Go to resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-review.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -257,7 +257,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Select the **+ Generate/Import** button in the main panel.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png" alt-text="Screenshot to show how to create a secret in the new Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create-secret.png" alt-text="Screenshot to show how to create a secret in the new Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-create-secret.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -268,7 +268,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
         1. Select **Create** to add this new secret to the **Azure Key Vault**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png" alt-text="Screenshot to show how to configure a secret in the Azure Key Vault using the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-configure-secret.png" alt-text="Screenshot to show how to configure a secret in the Azure Key Vault using the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-key-vault-configure-secret.png":::
     :::column-end:::
 :::row-end:::
 
@@ -303,7 +303,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         1. Select the **+ Create** button in the **Storage accounts** dialogue.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -318,7 +318,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         1. Select **Review** to proceed to validate the configuration values before creating the resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-configure.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-configure.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -328,7 +328,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         1. When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-review.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-review.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -371,7 +371,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
         **Step 1.** In the navigation pane for the storage account, scroll to the Data storage section and select **Containers**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container.png" alt-text="Screenshot navigating to the Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container.png" alt-text="Screenshot navigating to the Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -379,7 +379,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
         **Step 2.** Within the **Containers** pane, select the **+ Container** button to open the New container pane.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-create.png" alt-text="Screenshot navigating to create a new Container." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container-create.png" alt-text="Screenshot navigating to create a new Container." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -390,7 +390,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
         1. Select **Create** to create the container.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-configure-new.png" alt-text="Screenshot configuring the New Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-container-configure-new.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container-configure-new.png" alt-text="Screenshot configuring the New Container pane for an Azure Blob Storage Account." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage-container-configure-new.png":::
     :::column-end:::
 :::row-end:::
 

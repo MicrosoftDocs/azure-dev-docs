@@ -25,7 +25,7 @@ In this tutorial, you'll continue developing a local Azure Function in Python by
         1. Choose **Create Function** in the dropdown.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-create-new-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -60,7 +60,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. Select the **+ Create** button in the **Storage accounts** dialogue.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-blob-storage.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -75,7 +75,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. Select **Advanced** to proceed to continue configuring values for the resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -86,7 +86,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
          1. Select **Review** to proceed to validate the configuration values before creating the resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure-2.png" alt-text="A screenshot of configuring the Azure Storage Account to enable Data Lake Storage Gen2 using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure-2.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure-2.png" alt-text="A screenshot of configuring the Azure Storage Account to enable Data Lake Storage Gen2 using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -94,7 +94,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         **Step 4.** Select **Create** to accept the configured values, then proceed to validate and create the account.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-review.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -102,7 +102,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         **Step 5.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-goto.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -133,7 +133,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         **Step 1.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-container.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -144,7 +144,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         1. Select the **Create** button.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-container-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::

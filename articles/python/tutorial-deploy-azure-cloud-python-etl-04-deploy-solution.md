@@ -34,7 +34,7 @@ In this last article of the series, you deploy the Azure Functions application t
         1. **Create** to start the creation process.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create.png" alt-text="Screenshot showing how to create Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create.png" alt-text="Screenshot showing how to create Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -42,7 +42,7 @@ In this last article of the series, you deploy the Azure Functions application t
         **Step 2.** When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png" alt-text="Screenshot showing how to go to your new Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-go-to-resource.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-go-to-resource.png" alt-text="Screenshot showing how to go to your new Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-go-to-resource.png":::
     :::column-end:::
 :::row-end:::
 
@@ -71,7 +71,7 @@ Configure the following environment variables to allow your function app to conn
         1. Select **msdocs-etl**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting.png" alt-text="Screenshot showing how to begin to create application setting for Azure function in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-application-setting.png" alt-text="Screenshot showing how to begin to create application setting for Azure function in Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-application-setting.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -81,7 +81,7 @@ Configure the following environment variables to allow your function app to conn
         1. Add the first name/value pair from the table at the beginning of this section and select **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-app-setting-create-button.png" alt-text="Screenshot showing how to create each application setting for Azure function in the portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-app-setting-create-button.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-app-setting-create-button.png" alt-text="Screenshot showing how to create each application setting for Azure function in the portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-app-setting-create-button.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -90,7 +90,7 @@ Configure the following environment variables to allow your function app to conn
         1. Select **Save** 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-save.png" alt-text="Screenshot showing how to save application setting for Azure function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-create-application-setting-save.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-application-setting-save.png" alt-text="Screenshot showing how to save application setting for Azure function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-create-application-setting-save.png":::
     :::column-end:::
 :::row-end:::
 
@@ -109,7 +109,7 @@ Enable System Assigned Identity for the function app and give it the **Contribut
         1. Select **Save** then answer **Yes** if you are asked to confirm.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -139,7 +139,7 @@ Enable System Assigned Identity for the function app and give it the **Contribut
             * Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-function-configure-system-assigned-identity.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png":::
     :::column-end:::
 :::row-end:::
 
@@ -158,7 +158,7 @@ The following steps publish your local Python Azure Function project to the Azur
         1. Navigate to the **Output** panel to view the deployment results.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-deploy-function.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-deploy-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-deploy-function.png" alt-text="Screenshot showing how to create host key for Azure function." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-deploy-function.png":::
     :::column-end:::
 :::row-end:::
 
@@ -186,7 +186,7 @@ Use the Azure portal to configure auto archival.
         1. Select **Next**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png" alt-text="A screenshot navigating configuring storage lifecycle management details tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-details.png" alt-text="A screenshot navigating configuring storage lifecycle management details tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-details.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -199,7 +199,7 @@ Use the Azure portal to configure auto archival.
         1. Select **Next**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png" alt-text="A screenshot navigating configuring storage lifecycle management Base blob tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-base-blobs.png" alt-text="A screenshot navigating configuring storage lifecycle management Base blob tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-base-blobs.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -209,7 +209,7 @@ Use the Azure portal to configure auto archival.
         1. Select the **Add** button to add the new policy.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png" alt-text="A screenshot navigating configuring storage lifecycle management Filter set tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-filter-set.png" alt-text="A screenshot navigating configuring storage lifecycle management Filter set tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-lifecycle-mgmt-filter-set.png":::
     :::column-end:::
 :::row-end:::
 
@@ -227,7 +227,7 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
         1. Right-click on the **api_search** function and select **Copy Function Url**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-copy-function-url.png" alt-text="Screenshot showing how to get function URL in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-visual-studio-code-copy-function-url.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-copy-function-url.png" alt-text="Screenshot showing how to get function URL in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-copy-function-url.png":::
     :::column-end:::
 :::row-end:::
 
