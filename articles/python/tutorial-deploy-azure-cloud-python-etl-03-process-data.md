@@ -13,7 +13,7 @@ ms.prod: azure-python
 
 In this tutorial, you'll continue developing a local Azure Function in Python by adding a BlobTrigger function that triggers when files are uploaded to your Blob Storage container. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
-:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-function-etl-data-transform-data-lake.png" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/data-transform-data-lake.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/data-transform-data-lake.png" border="false":::
 
 ## 1. Create a local BlobTrigger for Python Functions App
 

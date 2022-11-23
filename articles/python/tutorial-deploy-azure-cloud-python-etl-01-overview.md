@@ -15,7 +15,7 @@ This procedure guides you through creating and deploying a serverless, cloud *Ex
 
 * [GitHub: Sample application](https://github.com/Azure-Samples/msdocs-python-etl-serverless)
 
-:::image type="content" source="./media/tutorial-deploy-etl/deploy-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" border="false":::
 
 ## What the sample solution does
 
