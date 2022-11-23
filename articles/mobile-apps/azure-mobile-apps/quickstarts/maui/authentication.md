@@ -181,26 +181,37 @@ namespace TodoApp.MAUI
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
-Open `Platforms\Android\MainActivity.cs`.  Add the following code to the bottom of the class:
+Open `MauiProgram.cs`.  Include the following `using` statements at the top of the file:
 
 ``` csharp
-protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
-{
-    base.OnActivityResult(requestCode, resultCode, data);
-    // Return control to MSAL
-    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
-}
-```
-
-Include the following `using` statements at the top of the file:
-
-``` csharp
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Runtime;
 using Microsoft.Identity.Client;
 ```
+
+Update the builder to the following code:
+
+``` csharp
+    builder
+        .UseMauiApp<App>()
+        .ConfigureLifecycleEvents(events =>
+        {
+#if ANDROID
+            events.AddAndroid(platform =>
+            {
+                platform.OnActivityResult((activity, rc, result, data) =>
+                {
+                    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(rc, result, data);
+                });
+            });
+#endif
+        })
+        .ConfigureFonts(fonts =>
+        {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+        });
+```
+
+If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
 
 When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
 
@@ -220,21 +231,37 @@ Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the tar
 
 ## Configure the iOS app for authentication
 
-Open `Platforms\iOS\AppDelegate.cs` and add the `OpenUrl` method to the end of the class.  The class should look like this:
+Open `MauiProgram.cs`.  Include the following `using` statements at the top of the file:
 
-```csharp
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate
-    {
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-
-        public override bool OpenUrl(UIApplication application, NSUrl url, NSDictionary options)
-        {
-            bool result = AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
-            return result || base.OpenUrl(application, url, options);
-        }
-    }
+``` csharp
+using Microsoft.Identity.Client;
 ```
+
+Update the builder to the following code:
+
+``` csharp
+    builder
+        .UseMauiApp<App>()
+        .ConfigureLifecycleEvents(events =>
+        {
+#if IOS
+            events.AddiOS(platform =>
+            {
+                platform.OpenUrl((app, url, options) =>
+                {
+                    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+                });
+            });
+#endif
+        })
+        .ConfigureFonts(fonts =>
+        {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+        });
+```
+
+If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
 
 > In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
 
