@@ -127,7 +127,7 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 ---
 
 **Key points:**
-* For this example and for simplicity, public access is allowed to Azure storage account for storing Terraform state  In a production deployment, it is recommended to retrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
+* For this example and for simplicity, public access is allowed to this Azure storage account for storing Terraform state. In a production deployment, it is recommended to retrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
 ## 3. Configure terraform backend state
