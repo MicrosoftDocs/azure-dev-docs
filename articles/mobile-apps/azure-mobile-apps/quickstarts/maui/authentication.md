@@ -187,7 +187,7 @@ Open `MauiProgram.cs`.  Include the following `using` statements at the top of t
 using Microsoft.Identity.Client;
 ```
 
-Update the builder to the following:
+Update the builder to the following code:
 
 ``` csharp
     builder
@@ -211,7 +211,7 @@ Update the builder to the following:
         });
 ```
 
-If you are doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
+If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
 
 When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
 
@@ -237,7 +237,7 @@ Open `MauiProgram.cs`.  Include the following `using` statements at the top of t
 using Microsoft.Identity.Client;
 ```
 
-Update the builder to the following:
+Update the builder to the following code:
 
 ``` csharp
     builder
@@ -261,7 +261,7 @@ Update the builder to the following:
         });
 ```
 
-If you are doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
+If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
 
 > In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
 
