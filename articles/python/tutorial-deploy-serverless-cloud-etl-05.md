@@ -209,15 +209,15 @@ def process_relational_data(df, columns, groupby_columns):
     # Remove leading and trailing whitespace in df column names
     processed_df = df.rename(columns=lambda x: x.strip())
 
-    # Filter DataFrame (df) columns
-    processed_df = processed_df.loc[:, columns]
-
     # Clean column names for easy consumption
     processed_df.columns = processed_df.columns.str.strip()
     processed_df.columns = processed_df.columns.str.lower()
     processed_df.columns = processed_df.columns.str.replace(' ', '_')
     processed_df.columns = processed_df.columns.str.replace('(', '')
     processed_df.columns = processed_df.columns.str.replace(')', '')
+    
+    # Filter DataFrame (df) columns
+    processed_df = processed_df.loc[:, columns]
 
     # Filter out all empty rows, if they exist.
     processed_df.dropna(inplace=True)
