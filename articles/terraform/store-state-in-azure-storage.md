@@ -127,19 +127,28 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 ---
 
 **Key points:**
-* Public access is allowed to Azure storage account for storing Terraform state.
-* Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
-## 3. Configure terraform backend state
+- Public access is allowed to Azure storage account for storing Terraform state.
+- Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
+
+## 3. Configure Terraform backend state
+
+You can authenticate to the backend using [Storage Key](#storage-key), [Azure AD](#azure-active-directory) or [Managed Service Identity](#managed-service-identity). See [azurerm backend](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation.
 
 To configure the backend state, you need the following Azure storage information:
 
 - **storage_account_name**: The name of the Azure Storage account.
 - **container_name**: The name of the blob container.
 - **key**: The name of the state store file to be created.
-- **access_key**: The storage access key.
+- **access_key**: The storage access key - only required when using storage key for authentication. This value enables to usage of storage key for authentication.
+- **use_msi**: Toggles use of MSI for authentication.
+- **use_azuread_auth**: Toggles use of Azure ADfor authentication.
 
-Each of these values can be specified in the Terraform configuration file or on the command line. We recommend that you use an environment variable for the `access_key` value. Using an environment variable prevents the key from being written to disk.
+Each of these values can be specified in the Terraform configuration file or on the command line. We recommend that you use an environment variable for any secrets, such as the `access_key` value. Using an environment variable prevents the key from being written to disk.
+
+### Storage Key
+
+Storage key authentication connects directly to a Storage Account. You need to explictly configure the storage key in your configuration.
 
 Run the following commands to get the storage access key and store it as an environment variable:
 
@@ -150,7 +159,6 @@ export ARM_ACCESS_KEY=$ACCOUNT_KEY
 ```
 
 # [PowerShell](#tab/powershell)
-
 ```azurepowershell
 $ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP_NAME -Name $STORAGE_ACCOUNT_NAME)[0].value
 $env:ARM_ACCESS_KEY=$ACCOUNT_KEY
@@ -158,18 +166,61 @@ $env:ARM_ACCESS_KEY=$ACCOUNT_KEY
 
 # [Terraform](#tab/terraform)
 ```terraform
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "random_string" "resource_code" {
+  length  = 5
+  special = false
+  upper   = false
+}
+
+resource "azurerm_resource_group" "tfstate" {
+  name     = "tfstate"
+  location = "East US"
+}
+
+resource "azurerm_storage_account" "tfstate" {
+  name                     = "tfstate${random_string.resource_code.result}"
+  resource_group_name      = azurerm_resource_group.tfstate.name
+  location                 = azurerm_resource_group.tfstate.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  allow_blob_public_access = true
+
+  tags = {
+    environment = "staging"
+  }
+}
+
+resource "azurerm_storage_container" "tfstate" {
+  name                  = "tfstate"
+  storage_account_name  = azurerm_storage_account.tfstate.name
+  container_access_type = "blob"
+}
 ```
 
 Terraform prevents sensitive information from being displayed within the terminal. It's recommended to use Azure CLI or Azure PowerShell to retrieve the access key.
 
 ---
 
-**Key points:**
-* To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
-
-    ```bash
-    export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
-    ```
+> [!IMPORTANT]
+> To further protect any secrets, e.g. the Azure Storage account access key or client secrets, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
+>
+>    ```bash
+>    export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
+>    ```
+>
 
 Create a Terraform configuration with a `backend` configuration block.
 
@@ -202,19 +253,103 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 Replace `<storage_account_name>` with the name of your Azure storage account.
 
-Run the following command to initialize the configuration:
+### Managed Service Identity
+
+You can use a pre-configured identity to authenticate to your storage account. See [Managed Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/managed_service_identity) in the Terraform documentation for more information.
+
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+    backend "azurerm" {
+        resource_group_name  = "tfstate"
+        storage_account_name = "<storage_account_name>"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+        use_msi              = true
+        subscription_id      = "00000000-0000-0000-0000-000000000000"
+        tenant_id            = "00000000-0000-0000-0000-000000000000"
+    }
+
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "state-demo-secure" {
+  name     = "state-demo"
+  location = "eastus"
+}
+```
+
+### Azure Active Directory
+
+You can also use a service princpial to authenticate to your storage account. See [Authenticating with a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) or [Authenticating with a Client Certificate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_certificate) in the Terraform documentation for more information.
+
+> [!NOTE]
+> By default Terraform uses ADAL authentication. MSAL can be enabled using ```use_microsoft_graph = true``` . See [azurerm backends](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation
+
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+    backend "azurerm" {
+        resource_group_name  = "tfstate"
+        storage_account_name = "<storage_account_name>"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+        use_azuread_auth     = true
+        use_microsoft_graph  = true
+        subscription_id      = "00000000-0000-0000-0000-000000000000"
+        tenant_id            = "00000000-0000-0000-0000-000000000000"
+    }
+
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "state-demo-secure" {
+  name     = "state-demo"
+  location = "eastus"
+}
+```
+
+> [!NOTE]
+> When using Azure Active Directory authentication, you must have the Storage Blob Data Owner role assigned. See [azurerm backends](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation
+
+### Initialisation
+
+After configuring your backend you need to initalise the configuration to create the initital state file in your storage account. To do so, run the following commands:
 
 ```bash
 terraform init
 ```
-
-Run the following command to run the configuration:
 
 ```bash
 terraform apply
 ```
 
 You can now find the state file in the Azure Storage blob.
+
+### Use of Environment Variables
+
+Terraform also supports the use of environment variables for backend configuration. When using environment variables you do not need to declare the configuration within your .tf file.
+
+|Configuration    | Environment Variable  |
+|-----------------|-----------------------|
+|use_msi          | ARM_USE_MSI           |
+|use_azuread_auth | ARM_USE_AZUREAD       |
 
 ## 4. Understand state locking
 
