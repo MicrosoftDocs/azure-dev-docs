@@ -41,7 +41,7 @@
 
     Replace the placeholder values with your own notification hub name and connection string values. You made a note of them in the [create a notification hub](#create-a-notification-hub) section. Otherwise, you can look them up in [Azure](https://portal.azure.com).
 
-    **NotificationsHub:Name**:  
+    **NotificationHub:Name**:  
     See *Name* in the **Essentials** summary at the top of **Overview**.  
 
     **NotificationHub:ConnectionString**:  
@@ -563,7 +563,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > The **Controller** base class provides support support for views but this is not needed in this case and so **ControllerBase** can be used instead. If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), you can skip this step.
+    > The **Controller** base class provides support for views but this is not needed in this case and so **ControllerBase** can be used instead. If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), you can skip this step.
 
 1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, you should decorate the **NotificationsController** with the **Authorize** attribute as well.
 
