@@ -19,7 +19,7 @@ Use the following table to understand what information you can learn about your 
     :::column:::
       **Type**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
       **Example questions**
     :::column-end:::
 :::row-end:::
@@ -27,7 +27,7 @@ Use the following table to understand what information you can learn about your 
     :::column:::
       **Azure hosting**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
       Hosting services such as Azure App Service and Azure Function provide several forms of feedback to answer questions such as:
 
         * Did my application (or container) deploy successfully? 
@@ -39,7 +39,7 @@ Use the following table to understand what information you can learn about your 
     :::column:::
       **Azure service**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
       Azure offers metrics for services which allows you to get answers such as:
 
         * How busy is the service?
@@ -52,7 +52,7 @@ Use the following table to understand what information you can learn about your 
     :::column:::
       **Azure SDK**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
       The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:
         * What is the SDK itself doing? 
         * What is my code which uses the SDK doing?
@@ -62,7 +62,7 @@ Use the following table to understand what information you can learn about your 
     :::column:::
       **Your code or container**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
       To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). Application Insights allows you to ask questions such as:
 
         * What exceptions your code throws?
