@@ -45,9 +45,12 @@ The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/a
 
 You can also use the [Azure PowerShell](/powershell/) module in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
 
-In place of the local CLI or PowerShell, you can use the same commands in the Azure Cloud Shell, [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. The Cloud Shell also comes pre-configured with many different tools that would be inconvenient to install locally, especially if you need to run only one or two commands.
+In place of the local CLI or PowerShell, you can use the same commands in the Azure Cloud Shell, [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. The Cloud Shell also comes pre-configured with many [different tools](/azure/cloud-shell/features) that would be inconvenient to install locally, especially if you need to run only one or two commands.
 
 Because Cloud Shell isn't a local environment, it's more suitable for singular operations like you'd do through the portal rather than scripted automation. Nevertheless, you can clone source repositories (for example, GitHub repositories) in the Cloud Shell. As a result, you can develop automation scripts locally, store them in a repository, clone the repository in Cloud Shell, and then run them there.
+
+> [!NOTE]
+> The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account when done with Cloud Shell if you won't be using it again.
 
 ## Azure REST API and Azure libraries
 
