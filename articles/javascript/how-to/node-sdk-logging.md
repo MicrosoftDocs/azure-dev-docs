@@ -17,41 +17,59 @@ Use the following table to understand what information you can learn about your 
 
 :::row:::
     :::column:::
-      Type
-   :::column-end:::
+      **Type**
+    :::column-end:::
     :::column:::
-      Example questions
-   :::column-end:::
+      **Example questions**
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
       **Azure hosting**
-   :::column-end:::
+    :::column-end:::
     :::column:::
       Hosting services such as Azure App Service and Azure Function provide several forms of feedback to answer questions such as:
 
         * Did my application (or container) deploy successfully? 
         * Did my application (or container) start successfully?
         * Is my application (or container) running successfully?
-       :::column-end:::
+    :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+      **Azure service**
+    :::column-end:::
+    :::column:::
+      Azure offers metrics for services which allows you to get answers such as:
 
-|Type|Example questions|
-|--|--|
-|**Azure hosting**|
-| 
-|**Azure service**|Azure offers metrics for services which allows you to get answers such as:<br><br>
-    * How busy is the service?<br>
-    * What errors is the service is producing?<br>
-    * Is my service so busy it isn't able to keep up with demand?<br>
-    * Have I reached my pricing tier transaction quota?<br>
-|
-|**Azure SDK**|The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:<br><br>
-    * What is the SDK itself doing? <br>
-    * What is my code which uses the SDK doing? <br>
-|
-|**Your code or container**|To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview).
-|
+        * How busy is the service?
+        * What errors is the service is producing?
+        * Is my service so busy it isn't able to keep up with demand?
+        * Have I reached my pricing tier transaction quota?
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+      **Azure SDK**
+    :::column-end:::
+    :::column:::
+      The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:
+        * What is the SDK itself doing? 
+        * What is my code which uses the SDK doing?
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+      **Your code or container**
+    :::column-end:::
+    :::column:::
+      To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). Application Insights allows you to ask questions such as:
+
+        * What exceptions your code throws?
+        * What events is your code triggering?
+        * How is your code interacting with dependencies?
+    :::column-end:::
+:::row-end:::
 
 ## What is provided for logging, metrics, and telemetry?
 
