@@ -24,7 +24,7 @@ Resources are the building blocks of a cloud application. The cloud development 
 
 The process of creating the environment for your application involves identifying the relevant services and resource types involved, and then provisioning those resources. The provisioning process is essentially how you construct the computing system to which you deploy your application. Provisioning is also the point at which you begin renting those resources from Azure.
 
-There are hundreds of different types of Azure resources at your disposal. You might choose a basic "infrastructure" resource like a virtual machine when you need to retain full control and responsibility for the software you deploy. In other scenarios, you might choose a higher-level "platform" services that provide a more managed environment where you concern yourself with only data and application code.
+There are hundreds of different types of Azure resources at your disposal. You can choose a basic "infrastructure" resource like a virtual machine when you need to retain full control and responsibility for the software you deploy. In other scenarios, you can choose a higher-level "platform" services that provide a more managed environment where you concern yourself with only data and application code.
 
 While finding the right services for your application and balancing their relative costs can be challenging, it's also part of the creative fun of cloud development. To understand the many choices, review the [Azure developer's guide](/azure/guides/developer/azure-developer-guide). Here, let's next discuss how you actually work with all of these services and resources.
 
