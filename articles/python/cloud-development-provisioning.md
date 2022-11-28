@@ -1,7 +1,7 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
-ms.date: 09/20/2021
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -10,9 +10,9 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 [Previous article: overview](cloud-development-overview.md)
 
-As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with building what is essentially the target cloud computer to which you deploy that code and data. (To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).)
+As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with creating and configuring Azure resources to which you deploy that code and data. To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).
 
-How is this provisioning done, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
+How do you create resources, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
 
 ## Means of communicating with Azure
 
@@ -51,9 +51,9 @@ Because Cloud Shell isn't a local environment, it's more suitable for singular o
 
 ## Azure REST API and Azure libraries
 
-The [Azure REST API](/rest/api/?view=Azure&preserve-view=true) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
+The [Azure REST API](/rest/api/?view=Azure&preserve-view=true) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's datacenters are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
 
-For developers, the Azure libraries (sometimes referred to as the Azure SDKs) provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
+For developers, the Azure libraries (or Azure SDKs) provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
 
 **Pros**: Precise control over all operations, including a much more direct means of using output from one operation as input to another as compared to the Azure CLI. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate detailed management scenarios.
   
@@ -61,7 +61,7 @@ For developers, the Azure libraries (sometimes referred to as the Azure SDKs) pr
 
 ## Automatic on-demand provisioning
 
-Many Azure services allow you to configure scaling characteristics to meet variable demand, in which case Azure can automatically provision extra resources when needed and de-allocate them as appropriate. Such automatic scaling is one of the key advantages of a cloud platform that's backed by the resources of multiple data centers. Instead of designing your environment for peak demand, paying for capacity you wouldn't typically be utilizing, you can design the environment for baseline or average usage and pay for extra capability only when necessary.
+Many Azure services allow you to configure scaling characteristics to meet variable demand, in which case Azure can automatically provision extra resources when needed and de-allocate them as appropriate. Such automatic scaling is one of the key advantages of a cloud platform that's backed by the resources of multiple datacenters. Instead of designing your environment for peak demand, paying for capacity you wouldn't typically be utilizing, you can design the environment for baseline or average usage and pay for extra capability only when necessary.
 
 For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling) in the Azure Architecture Center.
 
@@ -79,7 +79,7 @@ As you work with Azure, you'll develop your own preferences for organizing your 
 
 ### Regions and geographies
 
-A key characteristic of a resource group is that it's always associated with a specific Azure *region*, which is the location of the specific data center. All the resources in the same group are co-located in that data center, and can thus interact much more efficiently than if they were in different regions. Developers often choose regions that are closest to their customers, thus optimizing an application's responsiveness. Azure also offers geo-replication features to synchronize copies of your application and databases across multiple regions so you can better serve a global customer base.
+A key characteristic of a resource group is that it's always associated with a specific Azure *region*, which is the location of the specific datacenter. All the resources in the same group are co-located in that datacenter, and can thus interact much more efficiently than if they were in different regions. Developers often choose regions that are closest to their customers, thus optimizing an application's responsiveness. Azure also offers geo-replication features to synchronize copies of your application and databases across multiple regions so you can better serve a global customer base.
 
 Due to local laws and regulations, which are determined by the *geography* in which you create a subscription, you might have access to only certain regions and those regions may not support all Azure services. For details, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 

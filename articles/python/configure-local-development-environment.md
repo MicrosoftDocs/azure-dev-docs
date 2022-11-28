@@ -146,7 +146,8 @@ For example, if your [requirements](https://pip.pypa.io/en/stable/reference/requ
 pip install -r requirements.txt
 ```
 
-## Next step
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Provisioning, accessing, and managing resources >>>](cloud-development-provisioning.md)
+* [Develop a Python web app](/azure/app-service/quickstart-python)
+* [Develop a container app](./containers-in-azure-overview-python.md)
+* [Learn to use the Azure libraries for Python](./sdk/azure-sdk-overview.md)

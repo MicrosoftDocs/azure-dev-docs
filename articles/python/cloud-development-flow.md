@@ -73,4 +73,4 @@ You're now familiar with the basic structure of Azure and the overall developmen
 The next step is to get familiar with the Azure libraries for Python, which you'll be using in many parts of the flow.
 
 > [!div class="nextstepaction"]
-> [Learn to use the Azure libraries for Python >>>](./sdk/azure-sdk-overview.md)
+> [Configure your local Python dev environment for Azure >>>](./configure-local-development-environment.md)
