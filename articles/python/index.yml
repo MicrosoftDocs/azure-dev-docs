@@ -77,7 +77,7 @@ landingContent:
           - text: Use ready-made AI services (face, speech, text, image, etc.)
             url: quickstarts-cognitive-services.md
           - text: Serverless, Cloud ETL
-            url: ./tutorial-deploy-serverless-cloud-etl-01.md
+            url: ./tutorial-deploy-azure-cloud-python-etl-01-overview.md
   - title: Azure libraries (SDK)
     linkLists:
       - linkListType: get-started
