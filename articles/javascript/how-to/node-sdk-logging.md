@@ -87,18 +87,6 @@ View metrics for your resource on a scheduled basis in the [Azure portal](https:
 :::image type="content" source="../media/logging-metrics/view-resource-metrics-in-azure-portal.png" alt-text="Configure alerts for your resource in the Azure portal, with URL of `https://portal.azure.com`, for each resource. ":::
 
 
-### Query your custom logs with Kusto query language
-
-When you use the `context.log` in a Function app or `console.log` in a Web app, and you have Application Insights enabled, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries, using the [Kusto query language](/azure/data-explorer/kusto/query/).
-
-```kusto
-traces
-| where message contains "JavaScript"
-```
-
-:::image type="content" source="../media/logging-metrics/azure-function-app-application-insights-custom-log-kusto-query.png" alt-text="If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries.":::
-
-
 ## View logging in Azure portal
 
 Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and also after the resource is created. The process creates a separate Application Insights resource for logging. 
@@ -146,6 +134,18 @@ You can add richer custom logging with Azure Monitor [Application Insights](/azu
 * Server - log from Node.js with [Application Insights](/azure/azure-monitor/app/app-insights-overview) - [npm package](https://www.npmjs.com/package/applicationinsights)
 * Client - log from your client code - [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web)
 * Containers and VMs - log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure Virtual machines](/azure/azure-monitor/insights/vminsights-overview)
+
+### Query your custom logs with Kusto query language
+
+When you use the `context.log` in a Function app or `console.log` in a Web app, and you have Application Insights enabled, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries, using the [Kusto query language](/azure/data-explorer/kusto/query/).
+
+```kusto
+traces
+| where message contains "JavaScript"
+```
+
+:::image type="content" source="../media/logging-metrics/azure-function-app-application-insights-custom-log-kusto-query.png" alt-text="If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries.":::
+
 
 ### Local development with Application Insights
 
