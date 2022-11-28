@@ -14,21 +14,44 @@ In order to understand how your Azure service is performing, you need to underst
 
 Use the following table to understand what information you can learn about your Azure resources.
 
+
+:::row:::
+    :::column:::
+      Type
+   :::column-end:::
+    :::column:::
+      Example questions
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+      **Azure hosting**
+   :::column-end:::
+    :::column:::
+      Hosting services such as Azure App Service and Azure Function provide several forms of feedback to answer questions such as:
+
+        * Did my application (or container) deploy successfully? 
+        * Did my application (or container) start successfully?
+        * Is my application (or container) running successfully?
+       :::column-end:::
+:::row-end:::
+
 |Type|Example questions|
 |--|--|
-|**Azure hosting**|Hosting services such as Azure App Service and Azure Function provide several forms of feedback to answer questions such as:<br><br>
-    * Did my application (or container) deploy successfully?<br> 
-    * Did my application (or container) start successfully?<br>
-    * Is my application (or container) running successfully?<br>| 
+|**Azure hosting**|
+| 
 |**Azure service**|Azure offers metrics for services which allows you to get answers such as:<br><br>
     * How busy is the service?<br>
     * What errors is the service is producing?<br>
     * Is my service so busy it isn't able to keep up with demand?<br>
-    * Have I reached my pricing tier transaction quota?<br>|
+    * Have I reached my pricing tier transaction quota?<br>
+|
 |**Azure SDK**|The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:<br><br>
     * What is the SDK itself doing? <br>
-    * What is my code which uses the SDK doing? <br>|
-|**Your code or container**|To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview).|
+    * What is my code which uses the SDK doing? <br>
+|
+|**Your code or container**|To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview).
+|
 
 ## What is provided for logging, metrics, and telemetry?
 
