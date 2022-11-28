@@ -1,23 +1,47 @@
 ---
-title: JavaScript Logging, metrics, telemetry in Azure
+title: JavaScript Logging, metrics, alerts in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.custom: devx-track-js
 ---
 
-# Logging, metrics, and telemetry in Azure
+# Logging, metrics, and alerts in Azure
 
-There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
+In order to understand how your Azure service is performing, you need to understand what logging, metrics, and alerts are available and how to use them.
 
-* Azure Resource metrics - when you use Azure services, Azure monitors your individual resources and collects metrics.  
-* [Custom logging](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
+## Why use logging, metrics and alerts?
 
-[Azure Monitor](/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+Use the following table to understand what information you can learn about your Azure resources.
+
+|Type|Example questions|
+|--|--|
+|**Azure hosting**|Hosting services such as Azure App Service and Azure Function provide several forms of feedback to answer questions such as:<br><br>
+    * Did my application (or container) deploy successfully?<br> 
+    * Did my application (or container) start successfully?<br>
+    * Is my application (or container) running successfully?<br>| 
+|**Azure service**|Azure offers metrics for services which allows you to get answers such as:<br><br>
+    * How busy is the service?<br>
+    * What errors is the service is producing?<br>
+    * Is my service so busy it isn't able to keep up with demand?<br>
+    * Have I reached my pricing tier transaction quota?<br>|
+|**Azure SDK**|The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:<br><br>
+    * What is the SDK itself doing? <br>
+    * What is my code which uses the SDK doing? <br>|
+|**Your code or container**|To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview).|
+
+## What is provided for logging, metrics, and telemetry?
+
+|Type|Availability|Description|
+|--|--|--|
+|Metrics|Provided without configuration| Every Azure service will have some metrics to allow you to see how it is performing.|
+|Logging|Configurable|Some services, such as hosting services, have logging to help you understand how your code or container is behaving. You may need to configure logging before you can see log files. |
+|Custom logging|Configurable|From your own code, you can log to Azure Monitor, using Application Insights SDK for [server](/azure/azure-monitor/app/nodejs) and [client](/azure/azure-monitor/app/javascript?tabs=snippet) application. The code doesn't have to be hosted on Azure to log to Azure Monitor.| 
+|Alerts|Configurable|Most services provide alerts so you can be notified when negative or quota-expiring behaviors happen. You will need to configure alerts.| 
 
 ## Turn on Azure resource monitoring in the Azure portal
 
-Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and after the resource is created. The process creates a separate Application Insights resource for logging.
+Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and also after the resource is created. The process creates a separate Application Insights resource for logging. 
 
 :::image type="content" source="../media/logging-metrics/create-azure-app-service-with-logging.png" alt-text="View your HTTP endpoint from the service's Overview page on the Azure portal.":::
 
