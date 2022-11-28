@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 You're a Python developer, and you're ready to develop cloud applications for Microsoft Azure. To help you prepare for a long and productive career, this series of three articles orients you to the basic landscape of cloud development on Azure.
 
-## What is Azure? Data centers, services, and resources
+## What is Azure? Datacenters, services, and resources
 
 Microsoft's CEO, Satya Nadella, often refers to Azure as "the world's computer." A computer, as you well know, is a collection of hardware components that are managed by an operating system. The operating system provides a platform upon which you can build software that helps people *apply* the system's computing power to any number of tasks. (That's why we use the word "application" to describe such software.)
 
