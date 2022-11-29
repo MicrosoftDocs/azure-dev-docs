@@ -38,7 +38,7 @@ You can use any editor or IDE to write Python code when developing for Azure. Ho
 
 **Pros**: Azure extensions make it easy to discover and interact with the cloud services, in particular when you are first starting out with Azure.
 
-**Cons**: An extension supporting an Azure service may not support all configuration options of that service. Automating extensions with scripting requires other tools or extensions.
+**Cons**: An extension for an Azure service may not support all configuration options of that service. Automating extensions with scripting requires other tools or extensions.
 
 ## Azure CLI
 

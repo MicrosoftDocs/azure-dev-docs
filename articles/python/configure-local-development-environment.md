@@ -8,6 +8,8 @@ ms.custom: devx-track-python, vscode-azure-extension-update-completed
 
 # Configure your local Python dev environment for Azure
 
+[Previous article: The Azure development flow](./cloud-development-flow.md)
+
 To develop Python applications using Azure, you first want to configure your local development environment.  Configuration includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
 Developing on Azure requires [Python](https://www.python.org/downloads/) 3.7 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
