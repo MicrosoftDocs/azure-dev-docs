@@ -63,7 +63,7 @@ Use the following table to understand what information you can learn about your 
       **Your code or container**
     :::column-end:::
     :::column span="2":::
-      To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). Application Insights allows you capture logs across services for a single application to ask questions such as:
+      To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). Application Insights allows you to capture logs across services for a single application to ask questions such as:
 
         * What exceptions your code throws?
         * What events is your code triggering?
