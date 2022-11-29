@@ -148,7 +148,7 @@ When you turn on application logs, the logs are stored in the **Logs** folder of
 Log file name formats include:
 
 * Deployment: {DATE-TIME}_{RANDOM-CHARS}_**docker**.log
-* Start up: {DATE-TIME}_{RANDOM-CHARS}_**default_docker**.log
+* Start up and runtime: {DATE-TIME}_{RANDOM-CHARS}_**default_docker**.log
 
 ## Stream logs for App Service
 
