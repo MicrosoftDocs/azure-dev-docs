@@ -37,6 +37,14 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 **Cons**: Working with the portal is a manual process and can't be easily automated. To remember what you did to change a configuration, for example, you generally record your steps in a separate document.
 
+## Visual Studio code
+
+You can use any editor or IDE to write Python code when developing for Azure. The [Visual Studio Code](https://code.visualstudio.com/) IDE provides extensions and customizations for Azure and Python, which make your development cycle and the deployment from a local environment to Azure easier.
+
+**Pros**: Azure extensions make it easy to discover and interact with the cloud services, in particular when you are first starting out with Azure.
+
+**Cons**: An extension supporting an Azure service may not support all configuration options of that service. Automating extensions with scripting requires other tools or extensions.
+
 ## Azure CLI
 
 The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the Azure CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
