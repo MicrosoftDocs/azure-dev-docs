@@ -20,14 +20,12 @@ As with most operating systems, you can communicate with Azure through three rou
 
 * A user interface, including accessing the [Azure portal](https://portal.azure.com) in a browser, or with Visual Studio Code using [Azure Tools pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
 * A command-line interface, including the [Azure CLI](/cli/azure/) and the [Azure PowerShell](/powershell/).
-* An API including the [Azure REST API](/rest/api/?view=Azure&preserve-view=true) or an Azure libraries (or Azure SDKs) such as the [Azure SDK for Python](./sdk/azure-sdk-overview.md).
+* An API including the [Azure REST API](/rest/api/?view=Azure&preserve-view=true) or an Azure SDK such as the [Azure SDK for Python](./sdk/azure-sdk-overview.md).
 
 You can use any or all of these complementary methods to create, configure, and manage whatever Azure resources you need. In fact, you typically use all three in the course of a development project, and it's worth your time to become familiar with each of them.
 
-Within this developer center, we primarily show how to provision resources using both the Azure CLI and Python code that uses the Azure libraries. Using the portal is well covered in the documentation for each individual service.
-
 > [!NOTE]
-> The Azure libraries for Python are sometimes referred to as the Azure SDK for Python. However, there are no SDK components other than the libraries, which you acquire through the Python package manager, pip.
+> The Azure libraries for Python are also referred to as the Azure SDK for Python. However, there are no SDK components other than the libraries, which you acquire through the Python package manager, pip.
 
 ## Azure portal
 
