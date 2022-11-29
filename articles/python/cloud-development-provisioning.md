@@ -1,6 +1,6 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
-description: An overview the methods used to work with Azure resources, including the Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure libraries (SDK).
+description: An overview the methods used to work with Azure resources, including the Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure SDKs.
 ms.date: 11/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
@@ -24,9 +24,6 @@ As with most operating systems, you can communicate with Azure through three rou
 
 You can use any or all of these complementary methods to create, configure, and manage whatever Azure resources you need. In fact, you typically use all three in the course of a development project, and it's worth your time to become familiar with each of them.
 
-> [!NOTE]
-> The Azure libraries for Python are also referred to as the Azure SDK for Python. However, there are no SDK components other than the libraries, which you acquire through the Python package manager, pip.
-
 ## Azure portal
 
 The [Azure portal](https://portal.azure.com) is Azure's fully customizable, browser-based user interface through which you can provision and manage resources with all Azure services. To access the portal, you must first sign in using a Microsoft Account, and then create a free Azure account with a subscription.
@@ -35,9 +32,9 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 **Cons**: Working with the portal is a manual process and can't be easily automated. To remember what you did to change a configuration, for example, you generally record your steps in a separate document.
 
-## Visual Studio code
+## Visual Studio Code
 
-You can use any editor or IDE to write Python code when developing for Azure. The [Visual Studio Code](https://code.visualstudio.com/) IDE provides extensions and customizations for Azure and Python, which make your development cycle and the deployment from a local environment to Azure easier.
+You can use any editor or IDE to write Python code when developing for Azure. However, [Visual Studio Code](https://code.visualstudio.com/) provides extensions and customizations for Azure and Python that make your development cycle and the deployment from a local environment to Azure easier.
 
 **Pros**: Azure extensions make it easy to discover and interact with the cloud services, in particular when you are first starting out with Azure.
 
@@ -60,11 +57,11 @@ Because Cloud Shell isn't a local environment, it's more suitable for singular o
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account when done with Cloud Shell if you won't be using it again.
 
-## Azure REST API and Azure libraries
+## Azure REST API and Azure SDKs
 
 The [Azure REST API](/rest/api/) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's datacenters are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
 
-For developers, the Azure libraries (or Azure SDKs) provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
+For developers, the Azure SDKs provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
 
 **Pros**: Precise control over all operations, including a much more direct means of using output from one operation as input to another as compared to the Azure CLI. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate detailed management scenarios.
   
