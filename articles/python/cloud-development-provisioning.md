@@ -14,7 +14,7 @@ As described in the previous article of this series, an essential part of develo
 
 How do you create resources, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
 
-## Means of communicating with Azure
+## How to communicate with Azure
 
 As with most operating systems, you can communicate with Azure through three routes:
 
@@ -36,7 +36,7 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 You can use any editor or IDE to write Python code when developing for Azure. However, [Visual Studio Code](https://code.visualstudio.com/) provides extensions and customizations for Azure and Python that make your development cycle and the deployment from a local environment to Azure easier.
 
-**Pros**: Azure extensions make it easy to discover and interact with the cloud services, in particular when you are first starting out with Azure.
+**Pros**: Azure extensions make it easy to discover and interact with the cloud services, in particular when you're first starting out with Azure.
 
 **Cons**: An extension for an Azure service may not support all configuration options of that service. Automating extensions with scripting requires other tools or extensions.
 
