@@ -1,6 +1,6 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
-description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
+description: An overview the methods used to work with Azure resources, including the Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure libraries (SDK).
 ms.date: 11/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
@@ -16,9 +16,11 @@ How do you create resources, exactly? How do you ask Azure to allocate resources
 
 ## Means of communicating with Azure
 
-As with most operating systems, you can communicate with Azure through three routes: a user interface, a command-line interface, and an API.
+As with most operating systems, you can communicate with Azure through three routes:
 
-![The different means of communicating with Azure to provision resources](media/cloud-development/communication-with-azure.png)
+* A user interface, including accessing the [Azure portal](https://portal.azure.com) in a browser, or with Visual Studio Code using [Azure Tools pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+* A command-line interface, including the [Azure CLI](/cli/azure/) and the [Azure PowerShell](/powershell/).
+* An API including the [Azure REST API](/rest/api/?view=Azure&preserve-view=true) or an Azure libraries (or Azure SDKs) such as the [Azure SDK for Python](./sdk/azure-sdk-overview.md).
 
 You can use any or all of these complementary methods to create, configure, and manage whatever Azure resources you need. In fact, you typically use all three in the course of a development project, and it's worth your time to become familiar with each of them.
 
@@ -54,7 +56,7 @@ Because Cloud Shell isn't a local environment, it's more suitable for singular o
 
 ## Azure REST API and Azure libraries
 
-The [Azure REST API](/rest/api/?view=Azure&preserve-view=true) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's datacenters are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
+The [Azure REST API](/rest/api/) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's datacenters are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
 
 For developers, the Azure libraries (or Azure SDKs) provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
 
