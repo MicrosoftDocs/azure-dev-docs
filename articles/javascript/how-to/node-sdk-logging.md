@@ -114,6 +114,8 @@ Custom logging is automatically provided by Azure Web apps and Azure functions, 
 * Web apps use `console.log('your message here')`
 * Function apps use `context.log('your message here')`
 
+## Custom logging to Azure
+
 You can add richer custom logging with Azure Monitor [Application Insights](/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
 
 * [Add Application Insights SDK](/azure/azure-monitor/app/nodejs) to your source code.
