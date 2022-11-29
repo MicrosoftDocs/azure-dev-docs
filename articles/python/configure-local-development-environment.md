@@ -148,6 +148,6 @@ pip install -r requirements.txt
 
 ## Next steps
 
-* [Develop a Python web app](/azure/app-service/quickstart-python)
+* [Develop a Python web app](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 * [Develop a container app](./containers-in-azure-overview-python.md)
 * [Learn to use the Azure libraries for Python](./sdk/azure-sdk-overview.md)
