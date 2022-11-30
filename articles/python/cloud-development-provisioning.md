@@ -1,6 +1,6 @@
 ---
-title: Provisioning, accessing, and managing resources on Azure
-description: An overview the methods used to work with Azure resources, including the Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure SDKs.
+title: Provisioning, accessing, and managing resources in Azure
+description: An overview of ways you can work with Azure resources, including Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure SDKs.
 ms.date: 11/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with creating and configuring Azure resources to which you deploy that code and data. To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).
 
-How do you create resources, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
+How do you provision resources, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
 
 ## How to communicate with Azure
 
