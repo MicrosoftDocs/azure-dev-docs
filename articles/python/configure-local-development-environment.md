@@ -95,7 +95,7 @@ az login
 
 The Azure CLI will open your default browser to complete the sign-in process.
 
-## Configure Python virtual environment
+## Configure a Python virtual environment
 
 When creating Python applications for Azure, it's recommended to create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for each application. A virtual environment is a self-contained directory for a particular version of Python plus the other packages needed for that application.
 
