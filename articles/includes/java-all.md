@@ -590,7 +590,7 @@
 | Key Vault - Secrets | Maven [4.5.2](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.5.2/jar/) | [docs](/java/api/overview/azure/security-keyvault-secrets-readme) | GitHub [4.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.5.2/sdk/keyvault/azure-security-keyvault-secrets/) |
 | Kusto Data | Maven [4.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/4.0.0/jar/) |  |  |
 | Kusto Ingest | Maven [4.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/4.0.0/jar/) |  |  |
-| Kusto Spark | Maven [3.1.4](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/3.1.4/jar/) |  |  |
+| Kusto Spark | Maven [3.1.5](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/3.1.5/jar/) |  |  |
 | Load Testing | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-developer-loadtesting/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/developer-loadtesting-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.0-beta.1/sdk/loadtestservice/azure-developer-loadtesting/) |
 | Log Analytics | Maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-loganalytics/1.0.0-Preview-1/jar/) |  | GitHub [1.0.0-Preview-1](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loganalytics/microsoft-azure-loganalytics) |
 | LUIS | Maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
