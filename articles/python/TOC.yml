@@ -5,12 +5,12 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md      
     - name: Create, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md
 
 - name: Web
   items:
