@@ -1,6 +1,6 @@
 ---
-title: Configure passwordless datasource connection using Java EE marketplace offers
-description: Configure passwordless datasource connection using Java EE marketplace offers.
+title: Configure passwordless datasource connection using marketplace offers
+description: Configure passwordless datasource connection using marketplace offers.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -9,7 +9,7 @@ keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, ku
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 ---
 
-# Configure passwordless datasource connection using Java EE marketplace offers
+# Configure passwordless datasource connection using marketplace offers
 
 [!INCLUDE [applies-to-weblogic-offers.md](includes/applies-to-weblogic-offers.md)]
 
@@ -34,7 +34,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 
 ---
 
-## Configure passwordless database connection in Java EE marketplace offers 
+## Configure passwordless database connection in marketplace offers 
 
 ## Verify database connection
 
