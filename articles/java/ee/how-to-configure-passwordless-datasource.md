@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 
 # Configure passwordless datasource connection using Java EE marketplace offers
 
-[!INCLUDE [applies-to-weblogic-offers.md](applies-to-weblogic-offers.md)]
+[!INCLUDE [applies-to-weblogic-offers.md](includes/applies-to-weblogic-offers.md)]
 
 ## Prerequisites
 
