@@ -14,17 +14,17 @@ Now that you understand Azure's model of services and resources, you can underst
 
 | Step | Primary tools | Activities |
 | --- | --- | --- |
-| Provision | Azure CLI, Azure portal, VS Code Azure Tools extensions, Cloud Shell, Python scripts using Azure SDK management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
+| Provision | Azure CLI, Azure portal, VS Code Azure Tools extensions, Cloud Shell, Python scripts using Azure SDK management libraries | Create resource groups and create resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
 | Code | Code editor (such as Visual Studio Code and PyCharm), Azure SDK client libraries, reference documentation | Write Python code using the Azure SDK client libraries to interact with provisioned resources. |
 | Test | Python runtime, debugger | Run Python code locally against active cloud resources (typically dev or test resources rather than production resources). The code itself isn't yet hosted on Azure, which helps you debug and iterate quickly. |
-| Deploy | Azure CLI, GitHub, DevOps | Once code has been tested locally, deploy it to an appropriate Azure hosting service where the code itself can run in the cloud. Deployed code typically runs against staging or production resources. |
-| Manage | Azure CLI, Azure portal, VS Code Azure Tools extensions, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
+| Deploy | VS Code, Azure CLI, GitHub Actions, Azure Pipelines | Once code has been tested locally, deploy it to an appropriate Azure hosting service where the code itself can run in the cloud. Deployed code typically runs against staging or production resources. |
+| Manage | Azure CLI, Azure portal, VS Code, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
 
 ## Step 1: Provision and configure resources
 
 As described in the [previous article of this series](cloud-development-provisioning.md), the first step in developing any application is to provision and configure the resources that make up the target environment for your application.
 
-Provisioning begins by creating a resource group in a suitable Azure region. You can create a resource group through the Azure portal, VS Code Azure Tools extensions, the Azure CLI, or with a custom script that uses the Azure SDK management libraries (or REST API).
+Provisioning begins by creating a resource group in a suitable Azure region. You can create a resource group through the Azure portal, VS Code with Azure Tools extensions, the Azure CLI, or with a custom script that uses the Azure SDK management libraries (or REST API).
 
 Within that resource group, you then provision and configure the individual resources you need, again using the portal, VS Code, the CLI, or the Azure SDK. (Again, review the [Azure developer's guide](/azure/guides/developer/azure-developer-guide) for an overview of available resource types.)
 
