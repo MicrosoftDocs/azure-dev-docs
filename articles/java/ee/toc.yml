@@ -38,6 +38,8 @@
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: Traditional WebSphere on Azure VMs
         href: traditional-websphere-application-server-virtual-machines.md
+      - name: Passwordless database connections
+        href: how-to-configure-passwordless-datasource.md
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
