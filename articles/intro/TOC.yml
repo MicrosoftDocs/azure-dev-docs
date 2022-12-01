@@ -56,6 +56,26 @@ items:
                 href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Service Bus topics
                 href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Event Hubs
+                href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Tutorials
+            items:
+              - name: Azure Functions
+                href: /azure/azure-functions/functions-identity-based-connections-tutorial-2?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault
+                href: /azure/key-vault/general/tutorial-net-create-vault-azure-web-app?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: How-To
+            items:
+              - name: App Service
+                href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Blob Storage
+                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Container Apps
+                href: /azure/container-apps/managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Cosmos DB NoSQL
+                href: /azure/cosmos-db/how-to-setup-rbac?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Container Instances
+                href: /azure/container-instances/container-instances-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Java
         items:
           - name: Configure
