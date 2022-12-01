@@ -930,6 +930,10 @@
         "redirect_url": "/python/api/overview/azure/"
       },
       {
+        "source_path": "articles/python/sdk-library-api-reference.md",
+        "redirect_url": "/python/api/overview/azure/"
+      },
+      {
         "source_path": "articles/python/how-to-assign-role-permissions.md",
         "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
       },
