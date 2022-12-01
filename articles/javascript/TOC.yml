@@ -15,7 +15,7 @@
       href: node-azure-tools.md
     - name: Development environment
       href: core/configure-local-development-environment.md
-  - name: Hosting web apps
+  - name: Host and build web apps
     items:
       - name: Select hosting service
         href: how-to/select-hosting-service.md
@@ -230,6 +230,8 @@
         href: /azure/active-directory/develop/sample-v2-code
   - name: Logging and metrics
     href: how-to/node-sdk-logging.md
+  - name: Testing
+    href: core/test-azure-sdk-integrated-code.md
   - name: Azure SDK for JavaScript
     items:
       - name: Getting started  
@@ -278,8 +280,6 @@
             href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
           - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
-      - name: Testing
-        href: core/test-azure-sdk-integrated-code.md
   - name: GraphQL
     items: 
       - name: Hello world with Functions
