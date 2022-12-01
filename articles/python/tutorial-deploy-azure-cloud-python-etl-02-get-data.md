@@ -2,7 +2,7 @@
 title: "Tutorial: Get Bing News with Python"
 description: In this tutorial, you'll create a local Python Azure Functions project to call the Bing News Search SDK and store the search results in Azure Blob Storage.
 services: python, azure-functions, azure-storage-accounts, bing-search-services
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022
@@ -305,13 +305,15 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 2.** On the **Basics tab**, provide the following information for your storage account.
+        **Step 2.** On the **Basics** tab, provide the following information for your storage account.
         1. **Subscription**: Select <**YOUR-SUBSCRIPTION**>.
         1. **Resource group**: Select **msdocs-python-cloud-etl-rg**.
         1. **Name**: Enter **msdocspythoncloudetlabs**.
         1. **Location**: Select **East US**.
         1. **Performance**: Select **Standard**.
         1. **Replication**: Select **Locally-redundant storage (LRS)**.
+        1. Select **Next: Advanced** to go to the **Advanced** tab.
+        1. Deselect **Allow enabling public access on containers** if it is checked.
         1. Select **Review** to proceed to validate the configuration values before creating the resource.
     :::column-end:::
     :::column:::
