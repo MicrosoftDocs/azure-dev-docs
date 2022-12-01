@@ -2,7 +2,7 @@
 title: "Configure your local environment for developing and deploying Python web apps to Azure using popular frameworks like Django, Flask, and FastAPI."
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 11/21/2022
 ms.custom: devx-track-python
 adobe-target: true
 ms.prod: azure-python
@@ -31,7 +31,7 @@ The [Visual Studio Code](https://code.visualstudio.com/) integrated development 
 
 In VS code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
  
-* The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension enables you to interact with Azure App Service from within Visual Studio Code. App Service provides fully managed hosting for web applications including websites and web APIs. 
+* The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension enables you to interact with Azure App Service from within Visual Studio Code. App Service provides fully managed hosting for web applications including websites and web APIs.
 
 * The [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension enables you to create Azure Static Web Apps directly from VS Code. Static Web Apps is serverless and a good choice for static content hosting.
 
@@ -117,8 +117,8 @@ blob_service_client = BlobServiceClient(
     credential=azure_credential)
 ```
 
-The `DefaultAzureCredential` will look in predefined locations for account information, for example, in environment variables, in the VS Code Account extension, or from the Azure CLI sign-in. For in-depth information on the `DefaultAzureCredential` logic, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](sdk/authentication-overview.md).
- 
+The `DefaultAzureCredential` will look in predefined locations for account information, for example, in environment variables or from the Azure CLI sign-in. For in-depth information on the `DefaultAzureCredential` logic, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](sdk/authentication-overview.md).
+
 ## Python-based web frameworks
 
 In Python web app development, you often work with Python-based web frameworks. These frameworks provide functionality such page templates, session management, database access, and easy access to HTTP request and response objects. Frameworks enable you to avoid the need for you to have to reinvent the wheel for common functionality.

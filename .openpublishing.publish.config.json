@@ -215,6 +215,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-python-etl-serverless",
+      "url": "https://github.com/Azure-Samples/msdocs-python-etl-serverless",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",

@@ -5,12 +5,12 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md      
     - name: Create, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md
 
 - name: Web
   items:
@@ -84,15 +84,13 @@
       - name: Serverless, Cloud ETL
         items:
           - name: 1. Overview
-            href: tutorial-deploy-serverless-cloud-etl-01.md
-          - name: 2. Create solution resources
-            href: tutorial-deploy-serverless-cloud-etl-02.md
-          - name: 3. Securely ingest relational data
-            href: tutorial-deploy-serverless-cloud-etl-03.md
-          - name: 4. Process relational data for analytics
-            href: tutorial-deploy-serverless-cloud-etl-04.md
-          - name: 5. Load processed data to Data Lake
-            href: tutorial-deploy-serverless-cloud-etl-05.md
+            href: tutorial-deploy-azure-cloud-python-etl-01-overview.md
+          - name: 2. Get data and store 
+            href: tutorial-deploy-azure-cloud-python-etl-02-get-data.md
+          - name: 3. Transform and store
+            href: tutorial-deploy-azure-cloud-python-etl-03-process-data.md
+          - name: 4. Deploy solution to Azure
+            href: tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md
       - name: More data and storage solutions
         href: quickstarts-data-solutions.md
 

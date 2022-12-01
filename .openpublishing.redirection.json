@@ -15,6 +15,13 @@
       { "source_path": "articles/lab/tool-tip-metrics.md",
         "redirect_url": "/azure/developer/python" 
       },
+      { 
+        "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
+        "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
+      },
+      { "source_path": "articles/javascript/core/nodejs-sdk-azure-authenticate.md",
+        "redirect_url": "/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal" 
+      },
       { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
       },
@@ -932,6 +939,26 @@
       {
         "source_path": "articles/python/sdk-library-api-reference.md",
         "redirect_url": "/python/api/overview/azure/"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
+        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-02.md",
+        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-03.md",
+        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-04.md",
+        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-05.md",
+        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
       },
       {
         "source_path": "articles/python/how-to-assign-role-permissions.md",

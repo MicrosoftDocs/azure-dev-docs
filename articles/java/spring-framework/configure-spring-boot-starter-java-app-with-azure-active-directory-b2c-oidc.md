@@ -7,11 +7,12 @@ manager: kevinzha
 author: KarlErickson
 ms.author: edburns
 ms.date: 11/01/2022
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
 ms.custom: devx-track-java
+ms.subservice: B2C
 ---
 
 # Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory B2C

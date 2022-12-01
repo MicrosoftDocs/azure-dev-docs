@@ -33,8 +33,6 @@ landingContent:
             url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
-          - text: Select a hosting service
-            url: how-to/deploy-web-app.md
           - text: Authenticate to Azure SDK
             url: core/nodejs-sdk-azure-authenticate.md
           - text: Authenticate your web app users
@@ -43,21 +41,25 @@ landingContent:
             url: how-to/with-database/getting-started.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
-          - text: Top tasks for JavaScript developers
-            url: how-to/common-javascript-tasks.md
   - title: Deploy and host apps
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Getting started
-            url: how-to/deploy-web-app.md
-          - text: Deploy Express.js server
-            url: /learn/modules/javascript-deploy-expressjs-app-service/
-          - text: JamStack upload image to Storage
+          - text: Select a hosting service
+            url: how-to/deploy-web-app.md            
+          - text: "Client: JamStack upload image to Storage"
             url: tutorial/browser-file-upload-azure-storage-blob.md
-          - text: App service with a container
+          - text: "Client: JamStack + auth"
+            url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
+          - text: "Migrate to serverless"
+            url: /azure/azure-functions/shift-expressjs?tabs=javascript
+          - text: "Serverless: Getting started"
+            url: how-to/develop-serverless-apps.md          
+          - text: "Server: Deploy Express.js"
+            url: /learn/modules/javascript-deploy-expressjs-app-service/
+          - text: "Server from container"
             url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-          - text: Azure Virtual Machine with NGINX/Express.js
+          - text: "Server from VM: Express.js with NGINX"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
   - title: Returning to Azure?
@@ -85,10 +87,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Storage on Azure
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Databases on Azure
-            url: ./how-to/with-database/getting-started.md
+            url: how-to/with-database/getting-started.md
           - text: GraphQL on Azure
-            url: ./how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
+            url: how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
           - text: Full stack serverless with Mongoose
             url: /azure/static-web-apps/add-mongoose
           - text: Serverless API + DB
@@ -139,6 +143,10 @@ landingContent:
             url: /cli/azure/install-azure-cli
           - text: Azure Developer CLI (preview)
             url: ../azure-developer-cli/overview.md
+          - text: Azure Static Web Apps CLI
+            url: https://github.com/Azure/static-web-apps-cli
+          - text: Azure Functions core tools CLI
+            url: https://github.com/Azure/azure-functions-core-tools
           - text: Windows Terminal
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
