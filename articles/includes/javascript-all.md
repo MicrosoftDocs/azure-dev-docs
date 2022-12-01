@@ -314,7 +314,7 @@
 | cadl-vs | npm [0.9.0](https://www.npmjs.com/package/cadl-vs/v/0.9.0) |  |  |
 | cadl-vscode | npm [0.17.0](https://www.npmjs.com/package/cadl-vscode/v/0.17.0) |  |  |
 | tmlanguage-generator | npm [0.3.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.1) |  |  |
-| @azure/communication-react | npm [1.4.0](https://www.npmjs.com/package/@azure/communication-react/v/1.4.0) |  |  |
+| @azure/communication-react | npm [1.4.1](https://www.npmjs.com/package/@azure/communication-react/v/1.4.1) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.3.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.3.0)<br>npm [4.4.0-beta.1](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.4.0-beta.1) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.3.0/sdk/keyvault/keyvault-admin/)<br>GitHub [4.4.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0-beta.1/sdk/keyvault/keyvault-admin/) |
 | Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
@@ -745,7 +745,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221129.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221129.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221201.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221201.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -765,7 +765,7 @@
 | @azure-tools/cadl-autorest | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.22.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.9.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.12.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.9) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.10) |  |  |
 | @azure-tools/cadl-dpg | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.3.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.1) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
