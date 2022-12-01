@@ -50,11 +50,11 @@ landingContent:
           - text: "Client: JamStack upload image to Storage"
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Client: JamStack + auth"
-            url: how-to/with-web-app/static-web-app-with-swa-cli/introduction            
+            url: ./how-to/with-web-app/static-web-app-with-swa-cli/introduction            
           - text: "Migrate to serverless"
             url: /azure/azure-functions/shift-expressjs?tabs=javascript
           - text: "Serverless: Getting started"
-            url: how-to/develop-serverless-apps          
+            url: ./how-to/develop-serverless-apps          
           - text: "Server: Deploy Express.js"
             url: /learn/modules/javascript-deploy-expressjs-app-service/
           - text: "Server from container"
