@@ -33,8 +33,6 @@ landingContent:
             url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
-          - text: Select a hosting service
-            url: how-to/deploy-web-app.md
           - text: Authenticate to Azure SDK
             url: core/nodejs-sdk-azure-authenticate.md
           - text: Authenticate your web app users
@@ -47,8 +45,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Getting started
-            url: how-to/deploy-web-app.md
+          - text: Select a hosting service
+            url: how-to/deploy-web-app.md            
           - text: "Client: JamStack upload image to Storage"
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Client: JamStack + auth"
