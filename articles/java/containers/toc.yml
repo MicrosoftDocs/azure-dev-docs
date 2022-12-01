@@ -7,3 +7,5 @@
       href: baseline.md
     - name: Containerize for Kubernetes
       href: kubernetes.md
+    - name: Container images for Java
+      href: /java/openjdk/containers

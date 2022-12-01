@@ -1,24 +1,24 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 03/31/2022
+ms.date: 11/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
 # Authenticate Python apps to Azure services during local development using developer accounts
 
-When creating cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
+When developers create cloud applications, they typically debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
 
-:::image type="content" source="media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how an app running in local developer will obtain the application service principal from a .env file and then use that identity to connect to Azure resources.":::
+:::image type="content" source="media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how an app running in local developer will obtain the application service principal from an .env file and then use that identity to connect to Azure resources.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the VS Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI or Azure PowerShell.  The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools, and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
-This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](./authentication-local-development-service-principal.md) which can be scoped to have only the access needed by the app.
+This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](./authentication-local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
 ## 1 - Create Azure AD group for local development
 
-Since there are almost always multiple developers who work on an application, it's recommended to first create an Azure AD group to encapsulate the roles (permissions) the app needs in local development.  This offers the following advantages.
+Since there are almost always multiple developers who work on an application, it's recommended to first create an Azure AD group to encapsulate the roles (permissions) the app needs in local development.  This approach offers the following advantages.
 
 - Every developer is assured to have the same roles assigned since roles are assigned at the group level.
 - If a new role is needed for the app, it only needs to be added to the Azure AD group for the app.
@@ -48,7 +48,7 @@ az ad group create \
     --description <group-description>
 ```
 
-To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter limits to columns to only those of interest.
+To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter limits the output to columns of interest.
 
 ```azurecli
 az ad user list \
@@ -114,18 +114,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 3 - Sign-in to Azure using VS Code, the Azure CLI, or Azure PowerShell
-
-### [VS Code Azure Tools extension](#tab/sign-in-vscode)
-
-For an app to use the developer credentials from VS Code, the [VS Code Azure Tools extension must be installed](../configure-local-development-environment.md#use-visual-studio-code) in VS Code.
-
-> [!div class="nextstepaction"]
-> [Install the Azure Tools extensions for VS Code](../configure-local-development-environment.md#use-visual-studio-code)
-
-On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
-
-:::image type="content" source="../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../media/configure-local-development-environment/vs-code-azure-login.png":::
+## 3 - Sign-in to Azure using the Azure CLI, Azure PowerShell, or in a browser
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -143,11 +132,19 @@ Open a terminal on your developer workstation and sign-in to Azure from [Azure P
 Connect-AzAccount
 ```
 
+### [Interactive browser](#tab/sign-in-interactive-browser)
+
+Interactive authentication is disabled in the `DefaultAzureCredential` by default and can be enabled with a keyword argument:
+
+```Python
+DefaultAzureCredential(exclude_interactive_browser_credential=False)
+```
+
 ---
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the VS Code Azure tools extension, the Azure CLI, or Azure PowerShell.  If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell.  If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure with.
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 
@@ -161,7 +158,7 @@ Next, for any Python code that creates an Azure SDK client object in your app, y
 1. Create a `DefaultAzureCredential` object.
 1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
 
-An example of this is shown in the following code segment.
+An example of these steps is shown in the following code segment.
 
 ```python
 from azure.identity import DefaultAzureCredential

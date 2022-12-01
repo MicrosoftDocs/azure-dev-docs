@@ -40,13 +40,13 @@ The steps in this section direct you to deploy JBoss EAP Server on Azure VMs.
 
 The following steps show you how to find the JBoss EAP Server on Azure VM offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the auto-suggested search results, in the **Marketplace** section, select **Red Hat JBoss Enterprise Application Platform (JBoss EAP)**.
+1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the auto-suggested search results, in the **Marketplace** section, select **JBoss EAP standalone on RHEL VM**.
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing JBoss EAP Server on Azure VM in search results." lightbox="media/jboss-eap-single-server-azure-vm/marketplace-search-results.png":::
 
-   In the drop-down menu, ensure **JBoss EAP 7 (BYOS) on RHEL 8 (PAYG)** is selected.
+   In the drop-down menu, ensure **PAYG** is selected.
 
-   Alternatively, you can also go directly to the [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://aka.ms/jboss-eap-on-vm-payg) offer. In this case, the correct plan is already selected for you.
+   Alternatively, you can also go directly to the [JBoss EAP standalone on RHEL VM](https://aka.ms/eap-vm-single-portal) offer. In this case, the correct plan is already selected for you.
 
    In either case, this offer deploys JBoss EAP by providing your Red Hat subscription at deployment time, and runs it on Red Hat Enterprise Linux using a pay-as-you-go payment configuration for the base VM.
 
@@ -54,28 +54,24 @@ The following steps show you how to find the JBoss EAP Server on Azure VM offer 
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0823jbosseapvm*.
 1. Under **Instance details**, select the region for the deployment.
-1. Fill in virtual machine name for the **Virtual Machine name**. For example, *jbosseapvm*.
-1. Fill in username for the **Username**. For example, *jbosseapvmuser*.
+1. Leave the default VM size for the **Virtual machine size**.
+1. Leave the default option **OpenJDK 17** for the **JDK version**.
+1. Leave the default value **jbossuser** for the **Username**.
 1. Leave the default option **Password** for the **Authentication type**.
 1. Fill in password for the **Password**. Use the same value for the **Confirm password**.
+1. Under **Optional Basic Configuration**, leave the default option **Yes** for the **Accept defaults for optional configuration**.
 1. Scroll to the bottom of the **Basics** pane and notice the helpful links for **Report issues, get help, and share feedback**.
-1. Select **Next: Virtual Machine Settings**.
-
-The following steps show you how to fill out **Virtual Machine Settings** pane.
-
-1. Leave the default VM size for the **Virtual machine size**.
-1. Under **Configure virtual networks**, leave the default virtual network for the **Virtual network** and the default subnet for the **Subnet**.
-1. Select option **off** for the **Boot diagnostics**.
-1. Select **Next: Satellite Server Settings**.
 1. Select **Next: JBoss EAP Settings**.
 
 The following steps show you how to fill out **JBoss EAP Settings** pane and start the deployment.
 
-1. Fill in JBoss EAP admin username for the **JBoss EAP Admin username**. For example, *jbosseapadmin*. Write down the value for later use.
+1. Leave the default value **jbossadmin** for the **JBoss EAP Admin username**.
 1. Fill in JBoss EAP password for the **JBoss EAP password**. Use the same value for the **Confirm password**. Write down the value for later use.
 1. Fill in your RHSM username for the **RHSM username**. The value is the same one that has been prepared in the prerequisites section.
 1. Fill in your RHSM password for the **RHSM password**. Use the same value for the **Confirm password**. The value is the same one that has been prepared in the prerequisites section.
 1. Fill in your RHSM pool ID for the **RHSM Pool ID with EAP entitlement**. The value is the same one that has been prepared in the prerequisites section.
+1. Select **Next: Networking**.
+1. Select **Next: Satellite Server Settings**.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
@@ -102,7 +98,7 @@ By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtu
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png" alt-text="Screenshot of JBoss EAP management console sign-in screen." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png":::
 
-1. Fill in the value of **JBoss EAP Admin username** you specified before for the **Username**. Fill in the value of **JBoss EAP password** you specified before for the **Password**. Select **Sign in**.
+1. Fill in the value of **JBoss EAP Admin username** which is **jbossadmin**. Fill in the value of **JBoss EAP password** you specified before for the **Password**. Select **Sign in**.
 1. You should see the familiar **Red Hat JBoss Enterprise Application Platform** management console welcome page as shown in the following screenshot.
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-welcome.png" alt-text="Screenshot of JBoss EAP management console welcome page." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-welcome.png":::

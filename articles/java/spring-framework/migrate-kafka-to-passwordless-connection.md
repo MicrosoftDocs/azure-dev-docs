@@ -4,8 +4,9 @@ description: Learn how to migrate existing applications using Azure Event Hubs f
 author: KarlErickson
 ms.author: yiliu6
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 11/16/2022
 ms.service: event-hubs
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
@@ -18,7 +19,7 @@ Passwordless connections are supported since Spring Cloud Azure 4.3.0. This arti
 
 ## Compare authentication options
 
-When authenticating with Azure Event Hubs for Kafka, the application provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Azure Active Directory (Azure AD) authentication and Shared Access Signature (SAS) authentication.
+When the application authenticates with Azure Event Hubs for Kafka, it provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Azure Active Directory (Azure AD) authentication and Shared Access Signature (SAS) authentication.
 
 ### Azure AD authentication
 
@@ -36,24 +37,9 @@ Using Azure AD for authentication provides the following benefits:
 
 Event Hubs also provides Shared Access Signatures (SAS) for delegated access to Event Hubs for Kafka resources.
 
-Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it should be used with caution. You must be diligent to never expose the connection strings in an unsecure location. Anyone who gains access to the connection strings is able to authenticate. For example, if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, authorizing access using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
+Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it should be used with caution. You must be diligent to never expose the connection strings in an unsecure location. Anyone who gains access to the connection strings is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, authorizing access using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
 
-## Introducing passwordless connections
-
-With a passwordless connection, you can connect to Azure services without storing any credentials in the application code, its configuration files, or in environment variables. Many Azure services support passwordless connections, for example via Azure Managed Identity. These techniques provide robust security features that you can implement using [DefaultAzureCredential](/java/api/overview/azure/Identity-readme#defaultazurecredential) from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
-
-`DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
-
-The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/Identity-readme#defaultazurecredential). For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition.
-
-> [!NOTE]
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
-
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a connection string is required in either place, then the application isn't passwordless.
-
-In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
-
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+[!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
 ## Migrate an existing application to use passwordless connections
 
@@ -160,16 +146,17 @@ Next, use the following steps to update your Spring Kafka application to use pas
 
 #### [Java](#tab/java-kafka)
 
-1. Inside your project, open your *pom.xml* file and add the following reference to the `com.azure:azure-identity` package.
+1. Inside your project, open the *pom.xml* file and add the following reference:
 
    ```xml
    <dependency>
-       <groupId>com.azure</groupId>
-       <artifactId>azure-identity</artifactId>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.6.0</version>
    </dependency>
    ```
 
-1. Implement [AuthenticateCallbackHandler](https://kafka.apache.org/30/javadoc/org/apache/kafka/common/security/auth/AuthenticateCallbackHandler.html) and [OAuthBearerToken](https://kafka.apache.org/30/javadoc/org/apache/kafka/common/security/oauthbearer/OAuthBearerToken.html) in your project for OAuth2 authentication, as shown in the following example.
+1. After migration, implement [AuthenticateCallbackHandler](https://kafka.apache.org/30/javadoc/org/apache/kafka/common/security/auth/AuthenticateCallbackHandler.html) and [OAuthBearerToken](https://kafka.apache.org/30/javadoc/org/apache/kafka/common/security/oauthbearer/OAuthBearerToken.html) in your project for OAuth2 authentication, as shown in the following example.
 
    ```Java
    public class KafkaOAuth2AuthenticateCallbackHandler implements AuthenticateCallbackHandler {
@@ -281,19 +268,35 @@ Next, use the following steps to update your Spring Kafka application to use pas
    }
    ```
 
-1. Add the following configuration when you create your Kafka producer or consumer to support the [SASL/OAUTHBEARER](https://kafka.apache.org/documentation/#security_sasl_oauthbearer) mechanism. Replace the `<eventhubs-namespace>` placeholder with the name of your Event Hubs namespace and replace `<path-to-your-KafkaOAuth2AuthenticateCallbackHandler>` with the full class name for your implemented `KafkaOAuth2AuthenticateCallbackHandler`.
+1. When you create your Kafka producer or consumer, add the configuration needed to support the [SASL/OAUTHBEARER](https://kafka.apache.org/documentation/#security_sasl_oauthbearer) mechanism. The following examples show what your code should look like before and after migration. In both examples, replace the `<eventhubs-namespace>` placeholder with the name of your Event Hubs namespace.
 
-   ```Java
-   Properties config = new Properties();
-   config.put("bootstrap.servers", "<eventhubs-namespace>.servicebus.windows.net:9093");
-   config.put("security.protocol", "SASL_SSL");
-   config.put("sasl.mechanism", "OAUTHBEARER");
-   config.put("sasl.jaas.config", "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;");
-   config.put("sasl.login.callback.handler.class", "<path-to-your-KafkaOAuth2AuthenticateCallbackHandler>");
-   new KafkaProducer<K, V>(config);
+   Before migration, your code should look like the following example:
+
+   ```java
+   Properties properties = new Properties();
+   properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "<eventhubs-namespace>.servicebus.windows.net:9093");
+   properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+   properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+   properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+   properties.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
+   properties.put(SaslConfigs.SASL_JAAS_CONFIG,
+           String.format("org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$ConnectionString\" password=\"%s\";", connectionString));
+   return new KafkaProducer<>(properties);
    ```
 
-#### [Spring Kafka](#tab/spring-kafka)
+   After migration, your code should look like the following example. In this example, replace the `<path-to-your-KafkaOAuth2AuthenticateCallbackHandler>` placeholder with the full class name for your implemented `KafkaOAuth2AuthenticateCallbackHandler`.
+
+   ```java
+   Properties properties = new Properties();
+   properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "<eventhubs-namespace>.servicebus.windows.net:9093");
+   properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+   properties.put(SaslConfigs.SASL_MECHANISM, "OAUTHBEARER");
+   properties.put(SaslConfigs.SASL_JAAS_CONFIG, "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required");
+   properties.put(SaslConfigs.SASL_LOGIN_CALLBACK_HANDLER_CLASS, "<path-to-your-KafkaOAuth2AuthenticateCallbackHandler>");
+   return new KafkaProducer<>(properties);
+   ```
+
+#### [Spring Kafka (Spring Boot application)](#tab/spring-kafka)
 
 1. Inside your project, add the following reference to the `com.azure.spring:spring-cloud-azure-starter` package. This library contains all of the entities necessary to implement passwordless connections.
 
@@ -327,10 +330,8 @@ Next, use the following steps to update your Spring Kafka application to use pas
    spring.cloud.stream.kafka.binder.brokers=$AZ_EVENTHUBS_NAMESPACE_NAME.servicebus.windows.net:9093
    ```
 
-> [!NOTE]
-> If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` property to `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`. By default `<kafka-binder-name>` is `kafka` in a single kafka binder application. This property setting enables the whole OAuth authentication workflow. This setting is also used to specify the additional configuration `KafkaBinderConfigurationPropertiesBeanPostProcessor`, which specifies the OAuth security parameters for the particular binder to enable Azure Identity.
->
-> For versions starting with `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+   > [!NOTE]
+   > Starting with version `4.4.0`, this property will be added automatically, so there's no need to add it manually.
 
 ---
 
@@ -357,9 +358,17 @@ In this section, you'll execute two steps to enable your application to run in a
 
 The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
+##### [App Service](#tab/app-service)
+
+1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
+
+1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+
+   :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
+
 ##### [Service Connector](#tab/service-connector)
 
-When using Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
 
 The following compute services are currently supported:
 
@@ -392,15 +401,7 @@ For this migration guide, you'll use App Service, but the steps are similar for 
 
 The Service Connector will automatically assign a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* for the Event Hubs instance you selected.
 
-##### [Azure App Service](#tab/app-service)
-
-1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
-
-1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
-
-   :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
-
-##### [Azure Container Apps](#tab/container-apps-mi-portal)
+##### [Container Apps](#tab/container-apps)
 
 1. On the main overview page of your Azure Container Apps instance, select **Identity** from the navigation pane.
 
@@ -408,7 +409,7 @@ The Service Connector will automatically assign a system-assigned managed identi
 
    :::image type="content" source="media/passwordless-connections/container-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of Container App resource showing System assigned tab with Status field highlighted." lightbox="media/passwordless-connections/container-apps-identity.png":::
 
-##### [Azure Spring Apps](#tab/spring-apps-mi-portal)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 1. On the main overview page of your Azure Spring Apps instance, select **Identity** from the navigation pane.
 
@@ -416,7 +417,7 @@ The Service Connector will automatically assign a system-assigned managed identi
 
    :::image type="content" source="media/passwordless-connections/spring-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of App resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/spring-apps-identity.png":::
 
-##### [Azure virtual machines](#tab/virtual-machines-mi-portal)
+##### [Virtual Machines](#tab/virtual-machines)
 
 1. On the main overview page of your virtual machine, select **Identity** from the navigation pane.
 
@@ -424,15 +425,31 @@ The Service Connector will automatically assign a system-assigned managed identi
 
    :::image type="content" source="media/passwordless-connections/virtual-machine-identity.png" alt-text="Screenshot of Azure portal Identity page of Virtual machine resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/virtual-machine-identity.png":::
 
+##### [AKS](#tab/aks)
+
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+
 ---
 
 You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
-##### [Service Connector](#tab/service-connector-identity)
+##### [App Service](#tab/app-service)
+
+You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example.
+
+```azurecli
+export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name <app-service-name> \
+    --query principalId \
+    --output tsv)
+```
+
+##### [Service Connector](#tab/service-connector)
 
 You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
-If you're using an Azure App Service, use the `az webapp connection` command, as shown in the following example:
+If you're using an Azure App Service, use the [az webapp connection](/azure/webapp/connection) command, as shown in the following example:
 
 ```azurecli
 az webapp connection create eventhub \
@@ -443,7 +460,7 @@ az webapp connection create eventhub \
     --system-identity
 ```
 
-If you're using Azure Spring Apps, use `the az spring connection` command, as shown in the following example:
+If you're using Azure Spring Apps, use the `az spring connection` command, as shown in the following example:
 
 ```azurecli
 az spring connection create eventhub \
@@ -467,19 +484,7 @@ az containerapp connection create eventhub \
     --system-identity
 ```
 
-##### [Azure App Service](#tab/app-service-identity)
-
-You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example.
-
-```azurecli
-export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name <app-service-name> \
-    --query principalId \
-    --output tsv)
-```
-
-##### [Azure Container Apps](#tab/container-apps-identity)
+##### [Container Apps](#tab/container-apps)
 
 You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command, as shown in the following example:
 
@@ -492,7 +497,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az containerapp identity assign \
     --output tsv)
 ```
 
-##### [Azure Spring Apps](#tab/spring-apps-identity)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
 
@@ -506,7 +511,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az spring app identity assign \
     --output tsv)
 ```
 
-##### [Azure virtual machines](#tab/virtual-machines-identity)
+##### [Virtual Machines](#tab/virtual-machines)
 
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command, as shown in the following example:
 
@@ -518,7 +523,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az vm identity assign \
     --output tsv)
 ```
 
-##### [Azure Kubernetes Service](#tab/aks-identity)
+##### [AKS](#tab/aks)
 
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command, as shown in the following example:
 
@@ -535,17 +540,24 @@ export AZURE_MANAGED_IDENTITY_ID=$(az aks update \
 
 #### Assign roles to the managed identity
 
-Next, grant permissions to the managed identity you created to access your Event Hubs namespace. You can do this by assigning a role to the managed identity, just like you did with your local development user.
+Next, grant permissions to the managed identity you created to access your Event Hubs namespace. You can grant permissions by assigning a role to the managed identity, just like you did with your local development user.
 
 ##### [Service Connector](#tab/assign-role-service-connector)
 
 If you connected your services using the Service Connector, you don't need to complete this step. The following necessary configurations were handled for you:
 
-- If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles on the Event Hubs.
+- If you selected a managed identity when you created the connection, a system-assigned managed identity was created for your app and assigned the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles on the Event Hubs.
 
 - If you chose to use a connection string, the connection string was added as an app environment variable.
 
 ##### [Azure portal](#tab/assign-role-azure-portal)
+
+> [!NOTE]
+> If you use Azure Spring Apps, use the following steps to assign roles in Azure Spring Apps.
+>
+> 1. In the Azure portal, navigate to **Azure Spring Apps**, then choose the app you use.
+> 2. Select **Identity** on the navigation menu, and on the **System assigned** tab, select **Azure role assignments**.
+> 3. Select **Add role assignments**, search for *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver*, select the matching result, and then select **Save**.
 
 1. In the Azure portal, locate your Event Hubs namespace using the main search bar or the navigation pane.
 

@@ -4,32 +4,39 @@ description: Add offline data sync to your .NET MAUI app using Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/03/2022
+ms.date: 11/11/2022
 ms.author: adhal
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add offline data sync to your .NET MAUI app
 
-This tutorial covers the offline sync feature of Azure Mobile Apps for .NET MAUI. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
+This tutorial covers the offline sync feature of Azure Mobile Apps for .NET MAUI. Offline sync allows end users to interact with a mobile app even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
 Prior to starting this tutorial, you should have completed the [.NET MAUI Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/data-sync.md).
 
-> [!NOTE]
-> Offline data for .NET MAUI was introduced in Azure Mobile Apps v5.0.3.
-
 ## Update the app to support offline sync
 
 In online operation, you read to and write from a `IRemoteTable<T>`.  When using offline sync, you read to and write from a `IOfflineTable<T>` instead.  The `IOfflineTable` is backed by an on-device SQLite database, and synchronized with the backend database.
 
-[!INCLUDE[Update NuGet Dependencies](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
+::: zone pivot="vs2022-windows"
 
-[!INCLUDE[Update RemoteService](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
+[!INCLUDE[Update NuGet Dependencies on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE[Update NuGet Dependencies on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-offline-nuget.md)]
+
+::: zone-end
+
+[!INCLUDE[Update Remote Service](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
 
 ### Set the offline database location
-
-<!-- TODO: Update for the RemoteTodoService Definition -->
 
 In the `TodoApp.MAUI` project, edit the `MainPage.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
 

@@ -225,12 +225,7 @@ To use the service principal to authorize access from the hosting platform to Ke
 
 ## Clean up resources - remove resource group
 
-Once you've completed this tutorial, you need to remove the resource group with the [az group delete](/cli/azure/group#az-group-delete) command.
-
-```azurecli
-az group delete \
---name REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME  -y
-```
+[!INCLUDE [delete resource group 3-tab](../../../includes/delete-resource-group.md)]
 
 This command may take a few minutes. 
 

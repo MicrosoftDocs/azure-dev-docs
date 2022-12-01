@@ -145,7 +145,7 @@ The following steps walk you through building a Spring Boot web application and 
             <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
         </from>
         <to>
-            <image>${docker.image.prefix}/${project.artifactId}</image>
+            <image>${docker.image.prefix}/gs-spring-boot-docker</image>
         </to>
      </configuration>
    </plugin>

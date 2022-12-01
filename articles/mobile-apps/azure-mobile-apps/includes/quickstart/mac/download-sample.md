@@ -18,16 +18,13 @@ The samples are located in the *samples* folder within the extracted files.  The
 
   ![Screenshot of the file explorer for the solution.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/deploy-sample-sln.png)
 
-When you open the sample for the first time, notice that certain projects aren't available:
-
-* Windows-specific projects (such as WPF and UWP) can't be compiled with Visual Studio 2022 for Mac.
-* The .NET MAUI project requires extra .NET workloads to be installed.
+When you open the sample for the first time, notice that certain projects aren't available.  For example, Windows-specific projects (such as WPF and UWP) can't be compiled with Visual Studio 2022 for Mac.
 
 You can unload any project you aren't working with.  Expand the `windows` folder in the solution explorer.
 
   ![Screenshot of the solution explorer with disabled projects.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/vsmac-disabled-projects.png)
 
-For each disabled project, right-click on the project, then select **Unload project**.  Repeat this process for the `TodoApp.MAUI` project.
+For each disabled project, right-click on the project, then select **Unload project**.
 
 <!-- Links -->
 [azure-mobile-apps repository]: https://github.com/azure/azure-mobile-apps/

@@ -47,7 +47,9 @@ items:
           - name: Configure
             items:
               - name: Storage
-                href: /azure/storage/common/multiple-identity-scenarios
+                href: /azure/storage/common/multiple-identity-scenarios?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Virtual Machines
+                href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
               - name: Blob Storage
@@ -56,8 +58,11 @@ items:
                 href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Service Bus topics
                 href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+<<<<<<< HEAD
               - name: Event Hubs
                 href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+=======
+>>>>>>> main
           - name: Tutorials
             items:
               - name: Azure Functions
@@ -128,6 +133,10 @@ items:
           items:
           - name: Blob Storage
             href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus queues
+            href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus topics
+            href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Python
         items:
         - name: Quickstarts

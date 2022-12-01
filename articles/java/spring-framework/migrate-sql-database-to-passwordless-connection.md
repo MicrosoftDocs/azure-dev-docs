@@ -6,6 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 09/26/2022
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure SQL Database
@@ -16,7 +17,7 @@ Application requests to Azure SQL Database must be authenticated. Azure SQL Data
 
 ## Compare authentication options
 
-When authenticating with Azure SQL Database, the application provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and Azure SQL Database authentication.
+When the application authenticates with Azure SQL Database, it provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and Azure SQL Database authentication.
 
 ### Azure AD authentication
 
@@ -35,22 +36,12 @@ Using Azure AD for authentication provides the following benefits:
 
 You can create accounts in Azure SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `sys.database_principals` table. Because these passwords are stored in Azure SQL Database, you'll need to manage the rotation of the passwords by yourself.
 
-Although it's possible to connect to Azure SQL Database with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, if a password is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
+Although it's possible to connect to Azure SQL Database with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, consider updating your application to use passwordless connections.
 
-## Introducing passwordless connections
-
-With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables.
-
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application isn't passwordless.
-
-In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
-
-When you deploy applications to an Azure hosting environment, such as a virtual machine, you can assign managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
+[!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
 > [!NOTE]
 > Since the JDBC driver for Azure SQL Database doesn't support passwordless connections from local environments yet, this article will focus only on applications deployed to Azure hosting environments and how to migrate them to use passwordless connections.
->
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## Migrate an existing application to use passwordless connections
 
@@ -168,11 +159,7 @@ In this section, you'll execute two steps to enable your application to run in a
 
 The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services using the app configurations you set up previously.
 
-##### [Service Connector](#tab/service-connector)
-
-When using Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
-
-##### [Azure App Service](#tab/app-service)
+##### [App Service](#tab/app-service)
 
 1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
 
@@ -180,7 +167,11 @@ When using Service Connector, it can help to assign the system-assigned managed 
 
    :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
 
-##### [Azure Container Apps](#tab/container-apps)
+##### [Service Connector](#tab/service-connector)
+
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you'll need to use Azure CLI to assign the identity.
+
+##### [Container Apps](#tab/container-apps)
 
 1. On the main overview page of your Azure Container App instance, select **Identity** from the navigation pane.
 
@@ -188,7 +179,7 @@ When using Service Connector, it can help to assign the system-assigned managed 
 
    :::image type="content" source="media/passwordless-connections/container-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of Container App resource showing System assigned tab with Status field highlighted." lightbox="media/passwordless-connections/container-apps-identity.png":::
 
-##### [Azure Spring Apps](#tab/spring-apps)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 1. On the main overview page of your Azure Spring Apps instance, select **Identity** from the navigation pane.
 
@@ -196,7 +187,7 @@ When using Service Connector, it can help to assign the system-assigned managed 
 
    :::image type="content" source="media/passwordless-connections/spring-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of App resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/spring-apps-identity.png":::
 
-##### [Azure virtual machines](#tab/virtual-machines)
+##### [Virtual Machines](#tab/virtual-machines)
 
 1. On the main overview page of your virtual machine, select **Identity** from the navigation pane.
 
@@ -204,11 +195,27 @@ When using Service Connector, it can help to assign the system-assigned managed 
 
    :::image type="content" source="media/passwordless-connections/virtual-machine-identity.png" alt-text="Screenshot of Azure portal Identity page of Virtual machine resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/virtual-machine-identity.png":::
 
+##### [AKS](#tab/aks)
+
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+
 ---
 
 You can also assign managed identity on an Azure hosting environment using the Azure CLI.
 
-##### [Service Connector](#tab/service-connector-identity)
+##### [App Service](#tab/app-service)
+
+You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example:
+
+```azurecli
+AZ_MI_OBJECT_ID=$(az webapp identity assign \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name <service-instance-name> \
+    --query principalId \
+    --output tsv)
+```
+
+##### [Service Connector](#tab/service-connector)
 
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service by using the Azure CLI. Service Connector currently supports the following compute services:
 
@@ -253,19 +260,7 @@ az containerapp connection create sql \
     --system-identity
 ```
 
-##### [Azure App Service](#tab/app-service-identity)
-
-You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example:
-
-```azurecli
-AZ_MI_OBJECT_ID=$(az webapp identity assign \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name <service-instance-name> \
-    --query principalId \
-    --output tsv)
-```
-
-##### [Azure Container Apps](#tab/container-apps-identity)
+##### [Container Apps](#tab/container-apps)
 
 You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command, as shown in the following example:
 
@@ -277,7 +272,7 @@ AZ_MI_OBJECT_ID=$(az containerapp identity assign \
     --output tsv)
 ```
 
-##### [Azure Spring Apps](#tab/spring-apps-identity)
+##### [Azure Spring Apps](#tab/azure-spring-apps)
 
 You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
 
@@ -290,7 +285,7 @@ AZ_MI_OBJECT_ID=$(az spring app identity assign \
     --output tsv)
 ```
 
-##### [Azure virtual machines](#tab/virtual-machines-identity)
+##### [Virtual Machines](#tab/virtual-machines)
 
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command, as shown in the following example:
 
@@ -302,7 +297,7 @@ AZ_MI_OBJECT_ID=$(az vm identity assign \
     --output tsv)
 ```
 
-##### [Azure Kubernetes Service](#tab/aks-identity)
+##### [AKS](#tab/aks)
 
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command, as shown in the following example:
 
