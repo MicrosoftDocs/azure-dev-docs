@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy a Python Cloud ETL Solution on Azure"
 description: This series will guide you through creating and deploying a serverless, cloud Extract, Transform, and Load (ETL) Python solution to Azure.
 services: python, azure-functions, azure-storage-accounts
-ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 10/04/2022
-ms.prod: azure-python, py-fresh-zinc
+ms.prod: azure-python
 ---
 
 # Overview: Deploy a serverless Python cloud ETL solution on Azure
