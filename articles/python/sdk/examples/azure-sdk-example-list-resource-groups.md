@@ -3,7 +3,7 @@ title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
 ms.date: 06/24/2021
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Use the Azure libraries to list resource groups and resources

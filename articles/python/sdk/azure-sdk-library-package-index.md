@@ -3,7 +3,7 @@ title: Package index for Azure SDK libraries for Python
 description: Listing of the package names, pypi links, docs links, and source code links for all libraries in the Azure SDK for Python.
 ms.date: 05/24/2021
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Azure libraries package index

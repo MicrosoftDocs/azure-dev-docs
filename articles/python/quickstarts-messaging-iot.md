@@ -3,7 +3,7 @@ title: Getting starting with messaging and IoT for Python apps on Azure
 description: Index of getting started material in the Azure documentation for messaging and IoT for Python apps.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Messaging and IoT for Python apps on Azure

@@ -2,7 +2,7 @@
 title: "Tutorial: Process JSON Data for a Python ETL Solution on Azure"
 description: In this article, you'll process JSON data for a Python ETL Solution on Azure
 services: python, azure-functions, azure-storage-accounts
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022
@@ -85,6 +85,8 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
 :::row:::
     :::column:::
         **Step 3.** Configure the Azure Storage Account for enable Data Lake functionality.
+
+         1. Deselect **Allow enabling public access on containers** if it is checked.  
          1. Select **Enable hierarchical namespace**.
          1. For this tutorial, leave the rest of settings in the **Advanced** pane the default values.
          1. Select **Review** to proceed to validate the configuration values before creating the resource.

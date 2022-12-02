@@ -1,7 +1,7 @@
 ---
 title: "Local dev: Auth JS apps to Azure services with service principal"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using dedicated application service principals.
-ms.date: 05/19/2022
+ms.date: 12/01/2022
 ms.topic: how-to
 ms.custom: dexx-track-js
 ---
@@ -208,17 +208,56 @@ Next, for any JavaScript code that creates an Azure SDK client object in your ap
 An example of this is shown in the following code segment.
 
 ```JavaScript
-const { BlobServiceClient } = require('@azure/storage-blob');
+// Azure authentication dependency
 const { DefaultAzureCredential } = require('@azure/identity');
 
-// Acquire a credential object
-// from environment variables
+// Azure resource management dependency
+const { SubscriptionClient } = require("@azure/arm-subscriptions");
+
+// Acquire credential
 const tokenCredential = DefaultAzureCredential();
 
-const blobServiceClient = BlobServiceClient(
-        `https://${accountName}.blob.core.windows.net`,
-        tokenCredential
-);
+async function listSubscriptions() {
+  try {
+
+    // use credential to authenticate with Azure SDKs
+    const client = new SubscriptionClient(credentials);
+
+    // get details of each subscription
+    for await (const item of client.subscriptions.list()) {
+      const subscriptionDetails = await client.subscriptions.get(
+        item.subscriptionId
+      );
+      /* 
+        Each item looks like:
+      
+        {
+          id: '/subscriptions/123456',
+          subscriptionId: '123456',
+          displayName: 'YOUR-SUBSCRIPTION-NAME',
+          state: 'Enabled',
+          subscriptionPolicies: {
+            locationPlacementId: 'Internal_2014-09-01',
+            quotaId: 'Internal_2014-09-01',
+            spendingLimit: 'Off'
+          },
+          authorizationSource: 'RoleBased'
+        },
+    */
+      console.log(subscriptionDetails);
+    }
+  } catch (err) {
+    console.error(JSON.stringify(err));
+  }
+}
+
+listSubscriptions()
+  .then(() => {
+    console.log("done");
+  })
+  .catch((ex) => {
+    console.log(ex);
+  });
 ```
 
 `DefaultAzureCredential` will automatically detect the authentication mechanism configured for the app and obtain the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, the same credential object can be used with each SDK client object.
