@@ -13,7 +13,7 @@ metadata:
   ms.technology: azure
   ms.product: azure-python
   ms.devlang: python
-  ms.custom: devx-track-python
+  ms.custom: devx-track-python, py-fresh-zinc
 
 landingContent:
   - title: Serverless functions

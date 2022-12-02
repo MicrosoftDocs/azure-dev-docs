@@ -3,7 +3,7 @@ title: Provision Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to provision a blob container in an Azure Storage account and then upload a file to that container.
 ms.date: 06/24/2021
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Example: Provision Azure Storage using the Azure libraries for Python

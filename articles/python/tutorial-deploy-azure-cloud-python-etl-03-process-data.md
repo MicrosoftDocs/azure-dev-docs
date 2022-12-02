@@ -2,7 +2,7 @@
 title: "Tutorial: Process JSON Data for a Python ETL Solution on Azure"
 description: In this article, you'll process JSON data for a Python ETL Solution on Azure
 services: python, azure-functions, azure-storage-accounts
-ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022

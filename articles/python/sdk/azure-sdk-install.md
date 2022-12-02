@@ -3,7 +3,7 @@ title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip and conda. Includes details on installing specific versions and preview packages.
 ms.date: 05/24/2021
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 adobe-target: true
 ---
 
