@@ -933,6 +933,10 @@
         "redirect_url": "/azure/developer/java/toolkit-for-intellij"
       },
       {
+        "source_path": "articles/python/sdk-library-api-reference.md",
+        "redirect_url": "/python/api/overview/azure/"
+      },
+      {
         "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
         "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
       },
