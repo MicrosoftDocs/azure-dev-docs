@@ -256,7 +256,7 @@ Now that the basic project folder structure and files are in place, add local st
 1. Still in the Azure explorer, expand your Azure Function app, then expand the **Application Settings** node and right-click **AzureWebJobsStorage** to select **Edit Setting**.
 1. Paste in the Azure Storage connection string and press enter to complete the change. 
 
-    When **moving to production**, this connection string setting and its environment variable in the source code should be replaced [**DefaultAzureCredential**](/javascript/api/overview/azure/identity-readme#defaultazurecredential) in order to use credential-less authentication.
+    When **moving to production**, this connection string setting and its environment variable in the source code should be replaced [**DefaultAzureCredential**](/javascript/api/overview/azure/identity-readme#defaultazurecredential) in order to use passwordless authentication.
 
 ## <a name="#verify-functions-app-is-available-with-browser"></a>12. Use cloud-based function
 
@@ -341,7 +341,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 * Azure Storage
     * Learn how to [write code](/azure/storage/blobs/storage-blob-javascript-get-started) with Azure Blob Storage SDK
 
-* Credential-less code
+* Passwordless code
     
     * [How to use managed identity in Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp)
     * [Use DefaultAzureCredential with SDK](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
