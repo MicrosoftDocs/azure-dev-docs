@@ -3,7 +3,7 @@ title: Use Azure Managed Disks through the Azure Libraries for Python
 description: Use the Azure SDK to create, resize, and update managed disks.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Use Azure Managed Disks with the Azure libraries (SDK) for Python

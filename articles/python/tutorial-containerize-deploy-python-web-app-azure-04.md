@@ -5,7 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/17/2022
 ms.prod: azure-python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Deploy a containerized Python app to App Service

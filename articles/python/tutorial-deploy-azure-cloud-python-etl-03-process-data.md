@@ -6,7 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/15/2022
-ms.prod: azure-python
+ms.prod: azure-python, py-fresh-zinc
 ---
 
 # Tutorial: Process data using Python Azure Function

@@ -4,7 +4,7 @@ description: How to get started with Python container apps in Azure using VS Cod
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
+ms.prod: azure-python, py-fresh-zinc
 ---
 
 # Overview of Python Container Apps in Azure

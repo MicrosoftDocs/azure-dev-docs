@@ -3,7 +3,7 @@ title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
 ms.date: 06/24/2021
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Example: Use the Azure libraries to provision and deploy a web app
