@@ -960,46 +960,6 @@
           }
         ]
       }
-    },
-    {
-      "taskType": "trigger",
-      "capabilityId": "IssueResponder",
-      "subCapability": "IssuesOnlyResponder",
-      "version": "1.0",
-      "id": "_R4lPWimU",
-      "config": {
-        "conditions": {
-          "operator": "and",
-          "operands": [
-            {
-              "name": "titleContains",
-              "parameters": {
-                "titlePattern": "demo"
-              }
-            }
-          ]
-        },
-        "eventType": "issue",
-        "eventNames": [
-          "issues",
-          "project_card"
-        ],
-        "taskName": "Demo for OpenSource meetup",
-        "actions": [
-          {
-            "name": "assignToUser",
-            "parameters": {
-              "user": "diberry"
-            }
-          },
-          {
-            "name": "addReply",
-            "parameters": {
-              "comment": "Thank you for participating in this demo. "
-            }
-          }
-        ]
-      }
     }
   ],
   "userGroups": [
@@ -1025,18 +985,6 @@
       "modifiedBy": {
         "upn": "diberry@microsoft.com",
         "timestamp": "2020-11-02T18:07:11.714Z"
-      }
-    },
-    {
-      "_id": "5fa04b332bac762e440dcf46",
-      "groupType": "GitHub",
-      "name": "DevExPython",
-      "githubUserNames": [
-        "kraigb"
-      ],
-      "modifiedBy": {
-        "upn": "diberry@microsoft.com",
-        "timestamp": "2020-11-02T18:08:51.005Z"
       }
     }
   ]
