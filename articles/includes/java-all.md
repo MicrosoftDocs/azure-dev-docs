@@ -349,6 +349,7 @@
 | azure-functions-java-library-sql | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql/0.1.1/jar/) |  |  |
 | azure-functions-java-spi | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0/jar/) |  |  |
 | azure-gradle-plugins-common | Maven [1.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.5.0/jar/) |  |  |
+| azure-identity-extensions | Maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-identity-extensions/1.0.0/jar/) |  |  |
 | azure-identity-providers-core | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-identity-providers-core/1.0.0-beta.1/jar/) |  |  |
 | azure-identity-providers-jdbc-mysql | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-identity-providers-jdbc-mysql/1.0.0-beta.1/jar/) |  |  |
 | azure-identity-providers-jdbc-postgresql | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-identity-providers-jdbc-postgresql/1.0.0-beta.1/jar/) |  |  |
@@ -565,7 +566,7 @@
 | Functions - DurableTask | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft/durabletask-azure-functions/1.0.0/jar/) |  | GitHub [1.0.0](https://github.com/microsoft/durabletask-java) |
 | Functions - DurableTask | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft/durabletask-client/1.0.0/jar/) |  | GitHub [1.0.0](https://github.com/microsoft/durabletask-java) |
 | Functions - Java Core | Maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
-| Functions - Java Library | Maven [2.2.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/2.2.0/jar/) |  |  |
+| Functions - Java Library | Maven [3.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/3.0.0/jar/) |  |  |
 | Functions - Java Library Cosmos DB Cassandra | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-cosmosdbcassandra/1.0.0/jar/) |  |  |
 | Functions - Java Library SignalR | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
 | Functions - Kotlin Archetype | Maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
