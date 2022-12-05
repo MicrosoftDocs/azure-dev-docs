@@ -3,7 +3,7 @@ title: Make your project compatible with Azure Developer CLI (preview)
 description: How to convert an app to an Azure developer enabled template.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/11/2022
+ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -304,7 +304,7 @@ The following hierarchy shows the complete directory structure of an `azd` templ
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   ├── app                    [ Recommended resources directory organized by functionality ]
-│   └── core                   [ Reference library that contains all of the Bicep modules used by the azd templates ]
+│   └── core                   [ Contains all of the Bicep modules used by the azd templates ]
 ├── src                        [ Contains directories for the app code ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
