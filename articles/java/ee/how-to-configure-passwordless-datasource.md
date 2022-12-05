@@ -221,7 +221,7 @@ Take Oracle WebLogic Server Cluster on VMs offer as an example, after the deploy
 - Login the WebLogic Administration Console with your username and password. 
 - Under the **Domain Structure**, select **Services**, **Data Sources**, **testpasswordless**, **Monitoring**, you will find the state of data source is **Running**, as as shown in the following screenshot.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
 
 ## Clean up resources
 
