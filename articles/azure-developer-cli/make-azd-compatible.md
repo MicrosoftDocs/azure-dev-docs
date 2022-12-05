@@ -3,7 +3,7 @@ title: Make your project compatible with Azure Developer CLI (preview)
 description: How to convert an app to an Azure developer enabled template.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/11/2022
+ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -28,9 +28,11 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
-│   └── resources.bicep        [ Resources file ]
+│   ├── app                    [ Recommended resources directory organized by functionality ]
+│   └── core                   [ Reference library that contains all of the Bicep modules used by the azd templates ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
+
 Learn more about:
 - [The complete directory structure](#azd-conventions).
 - [Azure Developer CLI's azure.yaml schema](./azd-schema.md).
@@ -133,127 +135,76 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
     ```bicep
     targetScope = 'subscription'
-
+    
     @minLength(1)
-    @maxLength(50)
+    @maxLength(64)
     @description('Name of the the environment which is used to generate a short unique hash used in all resources.')
-    param name string
-
+    param environmentName string
+    
     @minLength(1)
     @description('Primary location for all resources')
     param location string
-
-    @description('Id of the user or app to assign app roles')
+    
+    // Optional parameters to override the default azd resource naming conventions. Update the main.parameters.json file to provide values. e.g.,:
+    // "resourceGroupName": {
+    //      "value": "myGroupName"
+    // }
+    param appServicePlanName string = ''
+    param resourceGroupName string = ''
+    param webServiceName string = ''
+    // serviceName is used as value for the tag (azd-service-name) azd uses to identify
+    param serviceName string = 'web'
+    
+    @description('Id of the user or app to assign application roles')
     param principalId string = ''
-
-    resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-        name: 'rg-${name}'
+    
+    var abbrs = loadJsonContent('./abbreviations.json')
+    var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
+    var tags = { 'azd-env-name': environmentName }
+    
+    // Organize resources in a resource group
+    resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+      name: !empty(resourceGroupName) ? resourceGroupName : '${abbrs.resourcesResourceGroups}${environmentName}'
+      location: location
+      tags: tags
+    }
+    
+    // The application frontend
+    module web './core/host/appservice.bicep' = {
+      name: serviceName
+      scope: rg
+      params: {
+        name: !empty(webServiceName) ? webServiceName : '${abbrs.webSitesAppService}web-${resourceToken}'
+        location: location
+        tags: union(tags, { 'azd-service-name': serviceName })
+        appServicePlanId: appServicePlan.outputs.id
+        runtimeName: 'python'
+        runtimeVersion: '3.8'
+        scmDoBuildDuringDeployment: true
+      }
+    }
+    
+    // Create an App Service Plan to group applications under the same payment plan and SKU
+    module appServicePlan './core/host/appserviceplan.bicep' = {
+      name: 'appserviceplan'
+      scope: rg
+      params: {
+        name: !empty(appServicePlanName) ? appServicePlanName : '${abbrs.webServerFarms}${resourceToken}'
         location: location
         tags: tags
-    }
-
-    var resourceToken = toLower(uniqueString(subscription().id, name))
-    var tags = {
-        'azd-env-name': name
-    }
-
-    module resources './resources.bicep' = {
-        name: 'resources-${resourceToken}'
-        scope: resourceGroup
-        params: {
-            location: location
-            principalId: principalId
-            resourceToken: resourceToken
-            tags: tags
+        sku: {
+          name: 'B1'
         }
+      }
     }
-
-    output APP_WEB_BASE_URL string = resources.outputs.WEB_URI
-    output AZURE_LOCATION string = location
     
+    // App outputs
+    output AZURE_LOCATION string = location
+    output AZURE_TENANT_ID string = tenant().tenantId
+    output REACT_APP_WEB_BASE_URL string = web.outputs.uri
     ```
   
     In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
-
-1. Create a file named `resources.bicep`.
-
-1. Declare the following parameters:
-    
-    ```bicep
-    param location string
-    param principalId string = ''
-    param resourceToken string
-    param tags object
-    param sku string = 'S1' 
-    param linuxFxVersion string = 'PYTHON|3.8'
-    ```
-    
-1. Add the following code, to add a tag named azd-service-name with the value of web to your Azure resource. `azd` uses this tag to determine what resource to deploy your application to. The value should match the name of your service as defined in [azure.yaml](#update-azureyaml).
-
-    ```bicep
-    tags: union(tags, {
-      'azd-service-name': 'web'
-      })
-    ```
-
-1. Add the following code for zip deployment.
-
-    ```bicep
-    resource appSettings 'config' = {
-      name: 'appsettings'
-      properties: {
-        'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
-        }
-      }
-    ```
-
-1. The following code represents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
-
-    ```bicep
-    param location string
-    param principalId string = ''
-    param resourceToken string
-    param tags object
-    param sku string = 'S1' 
-    param linuxFxVersion string = 'PYTHON|3.8'
-    
-    resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
-      name: 'plan-${resourceToken}'
-      location: location
-      tags: tags
-      sku: {
-        name: sku
-      }
-      kind: 'linux'
-      properties: {
-      reserved: true
-      }
-    }
-    
-    resource web 'Microsoft.Web/sites@2020-06-01' = {
-      name: 'app-web-${resourceToken}'
-      location: location
-      tags: union(tags, {
-        'azd-service-name': 'web'
-        })
-      kind: 'app'
-      properties: {
-        serverFarmId: appServicePlan.id
-        siteConfig: {
-        linuxFxVersion: linuxFxVersion
-        }
-      }
-    
-      resource appSettings 'config' = {
-        name: 'appsettings'
-        properties: {
-          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
-          }
-        }
-      }
-    
-      output WEB_URI string = 'https://${web.properties.defaultHostName}'
-    ```
 
 1. Run the following command to provision the Azure resources.
 
@@ -352,7 +303,8 @@ The following hierarchy shows the complete directory structure of an `azd` templ
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
-│   └── resources.bicep        [ Resources file ]
+│   ├── app                    [ Recommended resources directory organized by functionality ]
+│   └── core                   [ Contains all of the Bicep modules used by the azd templates ]
 ├── src                        [ Contains directories for the app code ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
