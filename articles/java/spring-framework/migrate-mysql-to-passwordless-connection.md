@@ -195,14 +195,14 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-       <version>1.0.0-beta.1</version>
+       <version>1.0.0</version>
    </dependency>
    ```
 
 1. Enable the Azure MySQL authentication plugin in the JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for MySQL. Update `url` and `user` in your *application.properties* file to match the following values:
 
    ```properties
-   url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+   url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
    user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME
    ```
 

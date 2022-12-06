@@ -183,14 +183,14 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
-       <version>1.0.0-beta.1</version>
+       <version>1.0.0</version>
    </dependency>
    ```
 
 1. Enable the Azure PostgreSQL authentication plugin in JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for PostgreSQL. Update `url` and `user` in your *application.properties* file to match the following values:
 
    ```properties
-   url=jdbc:postgresql://$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require&   authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin
+   url=jdbc:postgresql://$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
    user=$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME
    ```
 
