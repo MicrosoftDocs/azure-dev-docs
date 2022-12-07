@@ -206,6 +206,14 @@ Next, use the following steps to update your code to use passwordless connection
    user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME
    ```
 
+   > [!NOTE]
+   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin` from the url.
+
+   ```properties
+   url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
+   user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME
+   ```
+
 1. Replace the one `$AZ_DATABASE_SERVER_NAME` variable, one `$AZ_DATABASE_NAME` variable and one `$AZ_MYSQL_AD_NON_ADMIN_USERNAME` variable with the values that you configured at the beginning of this article.
 
 1. Remove the `password` from the JDBC URL.
