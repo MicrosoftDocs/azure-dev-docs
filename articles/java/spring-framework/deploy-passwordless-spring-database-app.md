@@ -119,23 +119,22 @@ Use the following steps to provision an Azure Database instance.
 1. Create an Azure Database for PostgreSQL server by using the following command:
 
    ```azurecli
-   az postgres server create \
+   az postgres flexible-server db create \
        --resource-group $AZ_RESOURCE_GROUP \
        --name $AZ_DATABASE_SERVER_NAME \
        --location $AZ_LOCATION \
-       --sku-name B_Gen5_1 \
-       --storage-size 5120 \
        --admin-user $AZ_DB_ADMIN_USERNAME \
-       --admin-password $AZ_DB_ADMIN_PASSWORD
+       --admin-password $AZ_DB_ADMIN_PASSWORD \
+       --yes
    ```
 
 1. The PostgreSQL server is empty, so create a new database by using the following command:
 
    ```azurecli
-   az postgres db create \
+   az postgres flexible-server db create \
        --resource-group $AZ_RESOURCE_GROUP \
-       --server-name $AZ_DATABASE_SERVER_NAME \
-       --name $AZ_DATABASE_NAME
+       --database-name $AZ_DATABASE_NAME \
+       --server-name $AZ_DATABASE_SERVER_NAME 
    ```
 
 ### [Azure SQL Database](#tab/sqlserver)
@@ -218,8 +217,11 @@ This Service Connector command will do the following tasks in the background:
 
 Use the following command to create a passwordless connection to the database.
 
+> [!NOTE]
+> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
+
 ```azurecli
-az spring connection create postgres \
+az spring connection create postgres-flexible \
     --resource-group $AZ_RESOURCE_GROUP \
     --service $AZ_SPRING_APPS_SERVICE_NAME \
     --app $AZ_SPRING_APPS_APP_NAME \

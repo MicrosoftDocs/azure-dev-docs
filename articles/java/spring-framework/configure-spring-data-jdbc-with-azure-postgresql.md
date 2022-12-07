@@ -5,7 +5,7 @@ documentationcenter: java
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
-ms.date: 09/27/2022
+ms.date: 12/05/2022
 ms.author: bbenz
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java
@@ -54,7 +54,7 @@ Open the *src/main/resources/application.properties* file, and add the following
 logging.level.org.springframework.jdbc.core=DEBUG
 
 spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
 spring.datasource.azure.passwordless-enabled=true
 
 spring.sql.init.mode=always
@@ -66,7 +66,7 @@ spring.sql.init.mode=always
 logging.level.org.springframework.jdbc.core=DEBUG
 
 spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}
 spring.datasource.password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
 
 spring.sql.init.mode=always

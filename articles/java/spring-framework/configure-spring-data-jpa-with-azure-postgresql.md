@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
-ms.date: 09/27/2022
+ms.date: 12/05/2022
 ms.author: bbenz
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
@@ -54,7 +54,7 @@ Open the *src/main/resources/application.properties* file, and add the following
 logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
 spring.datasource.azure.passwordless-enabled=true
 
 spring.jpa.show-sql=true
@@ -68,7 +68,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}
 spring.datasource.password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
 
 spring.jpa.show-sql=true

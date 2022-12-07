@@ -53,10 +53,8 @@ export AZ_RESOURCE_GROUP=<YOUR_RESOURCE_GROUP>
 export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
 export AZ_DATABASE_NAME=demo
 export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>
-export AZ_POSTGRESQL_AD_MI_USERNAME=<YOUR_AZURE_AD_MI_DISPLAY_NAME>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName --output tsv)
-export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv)
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -64,7 +62,6 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
 - `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Azure AD non-admin user. Make sure the name is a valid user in your Azure AD tenant.
-- `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Azure AD user for your managed identity. Make sure the name is a valid user in your Azure AD tenant.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com).
 
 ### 1) Configure Azure Database for PostgreSQL
@@ -73,26 +70,10 @@ Replace the placeholders with the following values, which are used throughout th
 
 To use Azure Active Directory access with Azure Database for PostgreSQL, you should set the Azure AD admin user first. Only an Azure AD Admin user can create/enable users for Azure AD-based authentication.
 
-If you're using Azure CLI, run the following command to make sure it has sufficient permission:
-
-```bash
-az login --scope https://graph.microsoft.com/.default
-```
-
-Then, run following commands to set the Azure AD admin:
-
-```azurecli
-az postgres server ad-admin create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_SERVER_NAME \
-    --display-name $CURRENT_USERNAME \
-    --object-id $CURRENT_USER_OBJECTID
-```
-
-This command will set the Azure AD admin to the current signed-in user.
+To set up an Azure AD administrator after creating the server, follow the steps in [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
 > [!NOTE]
-> You can only create one Azure AD admin per PostgreSQL server. Selection of another one will overwrite the existing Azure AD admin configured for the server.
+> PostgreSQL Flexible Server can create multiple Azure AD administrators.
 
 ### 2) Configure Azure Database for PostgreSQL for local development
 
@@ -103,10 +84,10 @@ Azure Database for PostgreSQL instances are secured by default. They have a fire
 Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
 ```azurecli
-az postgres server firewall-rule create \
+az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     --output tsv
@@ -129,10 +110,10 @@ AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 Then, use the following command to open the server's firewall to your WSL-based app:
 
 ```azurecli
-az postgres server firewall-rule create \
+az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
     --output tsv
@@ -146,16 +127,14 @@ Create a SQL script called *create_ad_user_local.sql* for creating a non-admin u
 
 ```bash
 cat << EOF > create_ad_user_local.sql
-SET aad_validate_oids_in_tenant = off;
-CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
-GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
+select * from pgaadauth_create_principal('$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME', false, false);
 EOF
 ```
 
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_local.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_local.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -191,7 +170,7 @@ Next, use the following steps to update your code to use passwordless connection
 
    ```properties
    url=jdbc:postgresql://$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
-   user=$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME
+   user=$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME
    ```
 
 1. Replace the `$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME` and the two `$AZ_DATABASE_SERVER_NAME` variables with the value that you configured at the beginning of this article.
@@ -204,7 +183,7 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-       <version>4.5.0-beta.1</version>
+       <version>4.5.0</version>
    </dependency>
    ```
 
@@ -214,7 +193,7 @@ Next, use the following steps to update your code to use passwordless connection
    spring:
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
        azure:
          passwordless-enabled: true
    ```
@@ -311,7 +290,7 @@ You can use Service Connector to create a connection between an Azure compute ho
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
 
 ```azurecli
-az webapp connection create postgres \
+az webapp connection create postgres-flexible \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <app-service-name>
     --target-resource-group $AZ_RESOURCE_GROUP \
@@ -323,7 +302,7 @@ az webapp connection create postgres \
 If you're using Azure Spring Apps, use `the az spring connection` command, as shown in the following example:
 
 ```azurecli
-az spring connection create postgres \
+az spring connection create postgres-flexible \
     --resource-group $AZ_RESOURCE_GROUP \
     --service <service-name> \
     --app <service-instance-name> \
@@ -336,7 +315,7 @@ az spring connection create postgres \
 If you're using Azure Container Apps, use the `az containerapp connection` command, as shown in the following example:
 
 ```azurecli
-az containerapp connection create postgres \
+az containerapp connection create postgres-flexible \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <app-service-name>
     --target-resource-group $AZ_RESOURCE_GROUP \
@@ -412,19 +391,17 @@ The following steps will create an Azure AD user for the managed identity and gr
 First, create a SQL script called *create_ad_user_mi.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-AZ_POSTGRESQL_AD_MI_USERID=$(az ad sp show --id $AZ_MI_OBJECT_ID --query appId --output tsv)
+AZ_POSTGRESQL_AD_MI_USERNAME=$(az ad sp show --id $AZ_MI_OBJECT_ID --query displayName --output tsv)
 
 cat << EOF > create_ad_user_mi.sql
-SET aad_validate_oids_in_tenant = off;
-CREATE ROLE "$AZ_POSTGRESQL_AD_MI_USERNAME" WITH LOGIN PASSWORD '$AZ_POSTGRESQL_AD_MI_USERID' IN ROLE azure_ad_user;
-GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_MI_USERNAME";
+select * from pgaadauth_create_principal_with_oid('$AZ_POSTGRESQL_AD_MI_USERNAME', '$AZ_MI_OBJECT_ID', 'service', false, false);
 EOF
 ```
 
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_mi.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_mi.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -447,7 +424,7 @@ Update your code to use the user created for the managed identity:
 > If you used the Service Connector command, skip this step.
 
 ```java
-properties.put("user", "$AZ_POSTGRESQL_AD_MI_USERNAME@$AZ_DATABASE_SERVER_NAME");
+properties.put("user", "$AZ_POSTGRESQL_AD_MI_USERNAME");
 ```
 
 ### [Spring](#tab/spring)
@@ -458,7 +435,7 @@ Update the *application.yaml* or *application.properties* file. Change the `spri
 spring:
   datasource:
     url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require
-    username: ${AZ_POSTGRESQL_AD_MI_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+    username: ${AZ_POSTGRESQL_AD_MI_USERNAME}
     azure:
       passwordless-enabled: true
 ```
