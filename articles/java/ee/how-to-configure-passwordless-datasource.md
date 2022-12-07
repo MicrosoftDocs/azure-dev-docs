@@ -9,14 +9,28 @@ keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, ku
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 ---
 
-# Configure passwordless datasource connection using marketplace offers
+# Configure passwordless database connection using Azure Oracle WebLogic marketplace offers
 
 [!INCLUDE [applies-to-weblogic-offers.md](includes/applies-to-weblogic-offers.md)]
+
+This article shows you how to configure passwordless database connection in Azure Oracle WebLogic offers using the Azure portal. 
+
+There are passwordless connections support for the following database:
+
+- MySQL
+
+In this guide, you will:
+
+- Provision database resources using Azure CLI.
+- Enable Azure AD administrator in database.
+- Provision a user assigned managed identity and create a database user for it.
+- Configure passwordless database connection in Oracle WebLogic offers using the Azure portal.
+- Validate the database connection.
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.37.0 or above.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.37.0, or above.
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -24,7 +38,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offers, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+- Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Create a resource group
 
@@ -163,7 +177,7 @@ az mysql flexible-server execute \
     --file-path "createuser.sql"
 ```
 
-If the sql file is completed successfully, you'll find output similar to the following:
+If the sql file is completed successfully, you'll find output similar to the following content:
 
 ```text
 Running sql file 'createuser.sql'...
