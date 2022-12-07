@@ -765,7 +765,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221205.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221205.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221206.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221206.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -785,7 +785,7 @@
 | @azure-tools/cadl-autorest | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.22.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.9.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.12.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.10-beta.20221205.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.10-beta.20221205.3) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.10-beta.20221206.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.10-beta.20221206.3) |  |  |
 | @azure-tools/cadl-dpg | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.3.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.1) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
