@@ -1,5 +1,5 @@
 ---
-ms.date: 09/26/2022
+ms.date: 12/05/2022
 author: KarlErickson
 ms.author: v-muyaofeng
 ---
@@ -8,11 +8,11 @@ ms.author: v-muyaofeng
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
-From version `4.5.0-beta.1`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for PostgreSQL single server.
+From version `4.5.0-beta.1`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for PostgreSQL Flexible server.
 
 ### Supported PostgreSQL version
 
-The current version of the starter should use Azure Database for PostgreSQL Single Server version `10` or `11`.
+For supported versions, see [Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-supported-versions).
 
 ### Core Features
 
@@ -94,7 +94,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    spring:
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+       username: ${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
        azure:
          passwordless-enabled: true
    ```
@@ -109,19 +109,15 @@ The following sections show the classic Spring Boot application usage scenarios.
       > Make sure `<service-principal-name>` already exists in your Azure AD tenant, or you won't be able to create the non-admin user.
 
       ```bash
-      export AZ_POSTGRESQL_AD_SP_USERNAME=<service-principal-name>
-
       cat << EOF > create_ad_user_sp.sql
-      SET aad_validate_oids_in_tenant = off;
-      CREATE ROLE "$AZ_POSTGRESQL_AD_SP_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
-      GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_SP_USERNAME";
+      select * from pgaadauth_create_principal('<service-principal-name>', false, false);
       EOF
       ```
 
    1. Use the following command to run the SQL script to create the Azure AD non-admin user:
 
       ```bash
-      psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user_sp.sql
+      psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=postgres port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user_sp.sql
       ```
 
    1. Now use the following command to remove the temporary SQL script file:
@@ -143,7 +139,7 @@ The following sections show the classic Spring Boot application usage scenarios.
            tenant-id: ${AZURE_TENANT_ID}
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_SP_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+       username: ${AZ_POSTGRESQL_AD_SP_USERNAME}
        azure:
          passwordless-enabled: true
    ```
@@ -165,7 +161,7 @@ The following sections show the classic Spring Boot application usage scenarios.
            client-id: ${AZURE_CLIENT_ID}
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-       username: ${AZ_POSTGRESQL_AD_MI_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+       username: ${AZ_POSTGRESQL_AD_MI_USERNAME}
        azure:
          passwordless-enabled: true
    ```

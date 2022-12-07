@@ -1,7 +1,7 @@
 ---
 ms.date: 05/18/2020
 author: KarlErickson
-ms.date: 07/15/2022
+ms.date: 12/05/2022
 ms.author: bbenz
 ---
 
@@ -19,7 +19,6 @@ export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
-export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -86,41 +85,29 @@ az login --scope https://graph.microsoft.com/.default
 Then, run following commands to create the server:
 
 ```azurecli
-az postgres server create \
+az postgres flexible-server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
-    --sku-name B_Gen5_1 \
-    --storage-size 5120 \
+    --yes \
     --output tsv
 ```
 
-Next, run the following command to set the Azure AD admin user:
-
-```azurecli
-az postgres server ad-admin create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_SERVER_NAME \
-    --display-name $CURRENT_USERNAME \
-    --object-id $CURRENT_USER_OBJECTID
-```
+Next, to set up an Azure AD administrator after creating the server, follow the steps in [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
 > [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. Only one Azure AD admin can be created per PostgreSQL server. Selection of another one will overwrite the existing Azure AD admin configured for the server.
-
-This command creates a small PostgreSQL server and sets the Active Directory admin to the signed-in user.
+> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. You can create multiple Azure AD administrators per PostgreSQL Flexible Server.
 
 #### [Password](#tab/password)
 
 ```azurecli
-az postgres server create \
+az postgres flexible-server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
-    --sku-name B_Gen5_1 \
-    --storage-size 5120 \
     --admin-user $AZ_POSTGRESQL_ADMIN_USERNAME \
     --admin-password $AZ_POSTGRESQL_ADMIN_PASSWORD \
+    --yes \
     --output tsv
 ```
 
@@ -133,9 +120,9 @@ This command creates a small PostgreSQL server.
 The PostgreSQL server that you created earlier is empty. Use the following command to create a new database.
 
 ```azurecli
-az postgres db create \
+az postgres flexible-server db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
+    --database-name $AZ_DATABASE_NAME \
     --server-name $AZ_DATABASE_SERVER_NAME \
     --output tsv
 ```
@@ -147,10 +134,10 @@ Azure Database for PostgreSQL instances are secured by default. They have a fire
 Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
 ```azurecli
-az postgres server firewall-rule create \
+az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     --output tsv
@@ -173,10 +160,10 @@ AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 Then, use the following command to open the server's firewall to your WSL-based app:
 
 ```azurecli
-az postgres server firewall-rule create \
+az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
     --output tsv
@@ -187,7 +174,7 @@ az postgres server firewall-rule create \
 Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
-> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/single-server/how-to-create-users).
+> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/flexible-server/how-to-create-users).
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -195,16 +182,14 @@ Create a SQL script called *create_ad_user.sql* for creating a non-admin user. A
 
 ```bash
 cat << EOF > create_ad_user.sql
-SET aad_validate_oids_in_tenant = off;
-CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
-GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
+select * from pgaadauth_create_principal('$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME', false, false);
 EOF
 ```
 
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -227,7 +212,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=$AZ_POSTGRESQL_ADMIN_PASSWORD sslmode=require" < create_user.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_ADMIN_USERNAME dbname=$AZ_DATABASE_NAME port=5432 password=$AZ_POSTGRESQL_ADMIN_PASSWORD sslmode=require" < create_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
