@@ -13,19 +13,21 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 
 [!INCLUDE [applies-to-weblogic-offers.md](includes/applies-to-weblogic-offers.md)]
 
-This article shows you how to configure passwordless database connection in Azure Oracle WebLogic offers using the Azure portal. 
-
-There are passwordless connections support for the following database:
-
-- MySQL
+This article shows you how to configure passwordless database connection in Azure Oracle WebLogic offers with the Azure portal.
 
 In this guide, you will:
 
-- Provision database resources using Azure CLI.
-- Enable Azure AD administrator in database.
-- Provision a user assigned managed identity and create a database user for it.
-- Configure passwordless database connection in Oracle WebLogic offers using the Azure portal.
-- Validate the database connection.
+> [!div class="checklist"]
+> - Provision database resources using Azure CLI.
+> - Enable Azure AD administrator in database.
+> - Provision a user assigned managed identity and create a database user for it.
+> - Configure passwordless database connection in Oracle WebLogic offers with the Azure portal.
+> - Validate the database connection.
+
+The offers support passwordless connections for the following database:
+
+> [!div class="checklist"]
+> - MySQL
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ In this guide, you will:
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-- If you prefer, [install the Azure CLI 2.37.0 or above](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- If you prefer, [install the Azure CLI 2.37.0, or above](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -136,7 +138,7 @@ CLIENT_ID=$(az identity show --resource-group ${RESOURCE_GROUP_NAME} --name myMa
 
 Now, connect as the Azure AD administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
-First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address. If you are working on WSL with VPN enabled, the following command may return a incorrect IPv4 address. You can get your IP address by browsing `https://whatismyipaddress.com/` from a browser.
+First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address. If you're working on WSL with VPN enabled, the following command may return an incorrect IPv4 address. You can get your IP address by browsing `https://whatismyipaddress.com/` from a browser.
 
 ```bash
 MY_IP=$(curl http://whatismyip.akamai.com)
@@ -179,7 +181,7 @@ az mysql flexible-server execute \
     --file-path "createuser.sql"
 ```
 
-You may get a prompt message for installing the extension rdbms-connect, press `y`. If you are not working with `root` user, you need to input user password.
+You may get a prompt message for installing the extension rdbms-connect, press `y` to continue. If you're not working with `root` user, you need to input the user password.
 
 ```shell
 The command requires the extension rdbms-connect. Do you want to install it now? The command will continue to run after the extension is installed. (Y/n): y
@@ -196,9 +198,9 @@ Successfully executed the file.
 Closed the connection to mysql20221201
 ```
 
-The managed identity `myManagedIdentity` now has access when authenticating with the username `identity-contoso`.
+The managed identity `myManagedIdentity` now has access to the database when authenticating with the username `identity-contoso`.
 
-If you don't want to access the database anymore, you can remove firewall rule with the following command.
+If you don't want to access the server anymore, you can remove firewall rule with the following command.
 
 ```azurecli-interactive
 az mysql flexible-server firewall-rule delete \
