@@ -24,7 +24,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Java EE marketplace offers, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+- Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offers, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Create a resource group
 
@@ -60,7 +60,7 @@ az mysql flexible-server create \
 
 To create a database user for a managed identity, you need an Azure Database for MySQL database server that has [Azure AD authentication](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication) configured.
 
-This example configures the current azure cli user as Azure AD administrator account. To enable Azure Authentication it is necessary assign an identity to MySQL Flexible server.
+This example configures the current Azure CLI user as Azure AD administrator account. To enable Azure Authentication, it's necessary assign an identity to MySQL Flexible server.
 
 First, create the managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
 
@@ -105,7 +105,7 @@ az mysql flexible-server db create \
 
 ## Create a user-assigned managed identity
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You will use this managed identity to connect to your database.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You'll use this managed identity to connect to your database.
 
 ```azurecli-interactive
 az identity create --resource-group ${RESOURCE_GROUP_NAME} --name myManagedIdentity
@@ -125,7 +125,7 @@ CLIENT_ID=$(az identity show --resource-group ${RESOURCE_GROUP_NAME} --name myMa
 
 Now, connect as the Azure AD administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
-First, you are required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address and create a temporary firewall rule.
+First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address and create a temporary firewall rule.
 
 ```azurecli-interactive
 MY_IP=$(curl http://whatismyip.akamai.com)
@@ -137,7 +137,7 @@ az mysql flexible-server firewall-rule create \
     --end-ip-address ${MY_IP}
 ```
 
-Then, prepare a sql file to create a database user for the managed identity. This example adds a user named `contoso` and grant the use to access database `contoso`.
+Then, prepare an sql file to create a database user for the managed identity. This example adds a user named `contoso` and grants the use to access database `contoso`.
 
 ```bash
 IDENTITY_LOGIN_NAME="identity-contoso"
@@ -163,7 +163,7 @@ az mysql flexible-server execute \
     --file-path "createuser.sql"
 ```
 
-If the sql file is completed successfully, you will find output similar to the following:
+If the sql file is completed successfully, you'll find output similar to the following:
 
 ```text
 Running sql file 'createuser.sql'...
@@ -173,7 +173,7 @@ Closed the connection to mysql20221201
 
 The managed identity `myManagedIdentity` now has access when authenticating with the username `identity-contoso` (replace with a name of your choice).
 
-If you don't want to access the database any more, you can remove firewall rule with the following command.
+If you don't want to access the database anymore, you can remove firewall rule with the following command.
 
 ```azurecli-interactive
 az mysql server firewall-rule delete \
@@ -182,7 +182,7 @@ az mysql server firewall-rule delete \
         --name AllowCurrentMachineToConnect
 ```
 
-Get connection string that you will use in the next section.
+Get connection string that you'll use in the next section.
 
 ```azurecli-interactive
 CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
@@ -197,29 +197,29 @@ First, begin the process of deploying an offer, you can run one of them:
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
 
-Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach **Database**, fill in the passwordless configuration as as shown in the following screenshot, take Oracle WebLogic Server Cluster on VMs offer as an example.
+Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach **Database**, fill in the passwordless configuration as shown in the following screenshot, take Oracle WebLogic Server Cluster on VMs offer as an example.
 
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
 
 1. For **Connect to database?**, select **Yes**.
-1. Under **Connection settins**, for **Choose database type**, open the dropdown menu, then select **MySQL (With support for passwordless connection)**.
-1. Check **Use passwordless datasource conenction**.
+1. Under **Connection settings**, for **Choose database type**, open the dropdown menu, then select **MySQL (With support for passwordless connection)**.
+1. Check **Use passwordless datasource connection**.
 1. For **JNDI Name**, input `testpasswordless` or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. For **Database username**, input database user name of your managed identity (value of `${IDENTITY_LOGIN_NAME}`), in this example, the value is `identity-contoso`.
-1. For **User assigned managed identity**, select the managed identity you created in previouse step, in this example, its name is `myManagedIdentity`.
+1. For **User assigned managed identity**, select the managed identity you created in previous step, in this example, its name is `myManagedIdentity`.
 
-You've now finished configuring the passwordless MySQL connection, you can continure to fill in the following blades or click **Review + create** to deploy the offer.
+You've now finished configuring the passwordless MySQL connection, you can continue to fill in the following blades or click **Review + create** to deploy the offer.
 
 ## Verify database connection
 
-The databas connection is configured successfully if the offer deployment is completed without error.
+The database connection is configured successfully if the offer deployment is completed without error.
 
 Take Oracle WebLogic Server Cluster on VMs offer as an example, after the deployment completes, select **Outputs**. You'll find the URL of the WebLogic Administration Console.
 
 - To view the WebLogic Administration Console, first copy the value of the output variable `adminConsole`. Next, paste the value into your browser address bar and press **Enter** to open the sign-in page of the WebLogic Administration Console.
-- Login the WebLogic Administration Console with your username and password. 
-- Under the **Domain Structure**, select **Services**, **Data Sources**, **testpasswordless**, **Monitoring**, you will find the state of data source is **Running**, as as shown in the following screenshot.
+- Log in the WebLogic Administration Console with your username and password. 
+- Under the **Domain Structure**, select **Services**, **Data Sources**, **testpasswordless**, **Monitoring**, you'll find the state of data source is **Running**, as shown in the following screenshot.
 
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
 
