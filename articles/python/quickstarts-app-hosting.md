@@ -8,9 +8,9 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Hosting Python apps on Azure
 
-Azure provides a variety of different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options. 
+Azure provides various different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options. 
 
-Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of that option. In this continuum, we recommend starting with Azure App Service (least administrative responsibility) and then consider other options in the continuum moving toward taking more control of the hosting environment. At the other end of the continuum is Azure Virtual Machine, where you have the most control over how your application is hosted.
+Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of that option. In this continuum, we recommend starting with Azure App Service (least administrative responsibility) and then consider other options in the continuum moving toward taking more control of the hosting environment. At the other end of the continuum is Azure Virtual Machine, where you have the most control (and more administrative responsibility) over how your application is hosted.
 
 The sections below are arranged approximately from more managed options (less management overhead for you) to less managed options (more control for you).
 
