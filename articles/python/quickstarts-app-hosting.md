@@ -1,26 +1,36 @@
 ---
 title: Getting started with hosting Python apps on Azure
 description: Index of getting started material in the Azure documentation for hosting Python app code.
-ms.date: 05/28/2020
+ms.date: 12/09/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Hosting Python apps on Azure
 
-The following articles help you get started with various app hosting options on Azure:
+Azure provides a variety of different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options. The summary here gives you a quick overview of the different options and links to the relevant articles.
 
-- **Serverless hosting**:
-  - [Create a function in Azure using the Azure CLI that responds to HTTP requests](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python)
-  - [Connect Azure Functions to Azure Storage using command line tools](/azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python)
-  - [Create an Azure Functions project using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python)
-  - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
-  
+Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management. In this continuum, we recommend starting with Azure App Service (least administrative responsibility) and then consider other options in the continuum moving toward taking more control of the hosting environment. At the other end of the continuum is Azure Virtual Machine, where you have the most control over how your code is hosted.
+
+The sections below are arranged roughly from more managed options (less management overhead for you) to less managed options (more control for you).
+
 - **Web app hosting and monitoring**:
-  - [Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)
-  - [Configure a Linux Python app for Azure App Service](/azure/app-service/configure-language-python)
+  - [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+  - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+  - [Overview: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01)
+  - [Configure a Python app for Azure App Service](/azure/app-service/configure-language-python)
   - [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python)
 
+- **Static web apps**
+  - [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+  - [Quickstart: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+
+- **Serverless hosting with Azure Functions**:
+  - [Quickstart: Create a Python function in Azure from the command line](/azure/azure-functions/create-first-function-cli-python)
+  - [Quickstart: Create a function in Azure with Python using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python)
+  - [Connect Azure Functions to Azure Storage using command line tools](/azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python)
+  - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
+  
 - **Container hosting**:
   - [Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/kubernetes-walkthrough)
   - [Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart)
