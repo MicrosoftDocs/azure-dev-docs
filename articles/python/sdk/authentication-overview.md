@@ -98,3 +98,6 @@ The order in which `DefaultAzureCredential` looks for credentials is shown in th
 | Azure CLI                     | If you've authenticated to Azure by using the `az login` command in the Azure CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account. |
 | Azure PowerShell              | If you've authenticated to Azure by using the `Connect-AzAccount` cmdlet from Azure PowerShell, `DefaultAzureCredential` authenticates the app to Azure by using that same account.            |
 | Interactive                   | If enabled, `DefaultAzureCredential` interactively authenticates you via the current system's default browser. By default, this option is disabled. |
+
+> [!NOTE]
+> Due to a [known issue](https://github.com/Azure/azure-sdk-for-python/issues/23249), `VisualStudioCodeCredential` has been removed from the `DefaultAzureCredential` token chain. When the issue is resolved in a future release, this change will be reverted. For more information, see [Azure Identity client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity).
