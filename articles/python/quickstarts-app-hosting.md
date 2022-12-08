@@ -17,7 +17,7 @@ The sections below are arranged approximately from more managed options (less ma
 - **Web app hosting and monitoring**:
   - [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
   - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
-  - [Overview: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01)
+  - [Overview: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
   - [Configure a Python app for Azure App Service](/azure/app-service/configure-language-python)
   - [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python)
 
