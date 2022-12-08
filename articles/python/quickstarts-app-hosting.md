@@ -32,7 +32,10 @@ The sections below are arranged approximately from more managed options (less ma
   - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
   
 - **Container hosting**:
-  - [Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/kubernetes-walkthrough)
+  - [Overview of Python Container Apps in Azure](./containers-in-azure-overview-python.md)
+  - [Deploy a container to App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md)
+  - [Deploy a container to Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
+  - [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json)
   - [Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart)
   - [Create your first Service Fabric container application on Linux](/azure/service-fabric/service-fabric-get-started-containers-linux)
 
