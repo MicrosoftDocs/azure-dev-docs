@@ -1340,6 +1340,10 @@
       {
         "source_path": "articles/python/how-to-create-static-sites.md",
         "redirect_url": "/azure/developer/python/index"
+      },
+      {
+        "source_path":"articles/python/how-to-manage-service-principals.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
       }
     ]
   }
