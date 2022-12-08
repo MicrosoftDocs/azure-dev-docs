@@ -1,5 +1,5 @@
 ---
-ms.date: 11/01/2022
+ms.date: 12/07/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -236,6 +236,6 @@ This example includes an autowired `UserRepository` interface to support save, d
 
 #### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/cosmos) on GitHub.
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/cosmos) on GitHub.
 
-Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.4.1/sdk/cosmos/azure-spring-data-cosmos).
+Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.5.0/sdk/cosmos/azure-spring-data-cosmos).
