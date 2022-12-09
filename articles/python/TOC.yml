@@ -192,7 +192,7 @@
       - name: Use a sovereign domain
         href: sdk/azure-sdk-sovereign-domain.md
 - name: PyPi package  index
-  href: azure-sdk-library-package-index.md
+  href: sdk/azure-sdk-library-package-index.md
 - name: SDK service reference
   href: /python/api/overview/azure/
 - name: Explore services supporting Python
