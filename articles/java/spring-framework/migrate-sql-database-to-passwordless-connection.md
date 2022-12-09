@@ -126,7 +126,7 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter</artifactId>
-       <version>4.5.0-beta.1</version>
+       <version>4.5.0</version>
    </dependency>
    ```
 

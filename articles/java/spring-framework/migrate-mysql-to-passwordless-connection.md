@@ -226,7 +226,7 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
-       <version>4.5.0-beta.1</version>
+       <version>4.5.0</version>
    </dependency>
    ```
 
@@ -238,7 +238,7 @@ Next, use the following steps to update your code to use passwordless connection
        url: jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?serverTimezone=UTC
        username: ${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
        azure:
-         passwordless-enabled: true​
+         passwordless-enabled: true
    ```
 
 ---

@@ -8,7 +8,7 @@ ms.author: v-yonghuiye
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
-From version `4.5.0-beta.1`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for MySQL Flexible server.
+From version `4.5.0`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for MySQL Flexible server.
 
 ### Supported MySQL version
 
@@ -73,7 +73,7 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> If you want to use passwordless connections, you must add dependency version `4.5.0-beta.1`.
+> If you want to use passwordless connections, you must add dependency version `4.5.0`.
 >
 > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](#getting-started) section.
 
