@@ -127,7 +127,7 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
-- name: Get started with Azure SDK for Python
+- name: Azure SDK for Python
   items:
     - name: Overview
       href: sdk/azure-sdk-overview.md
