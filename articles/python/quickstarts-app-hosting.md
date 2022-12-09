@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure provides various different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options.
 
-Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of the resource(s). In this continuum, we recommend starting with Azure App Service, with the least administrative responsibility on your part. Then, consider other options in the continuum moving toward taking more administrative responsibility of your Azure resources. At the other end of the continuum from App Service is Azure Virtual Machines, where you have the most control and more administrative responsibility for maintaining the Azure resource.
+Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of the resource(s). In this continuum, we recommend starting with Azure App Service, with the least administrative responsibility on your part. Then, consider other options in the continuum moving toward taking more administrative responsibility of your Azure resources. At the other end of the continuum from App Service is Azure Virtual Machines, where you have the most control and more administrative responsibility for maintaining your resources.
 
 The sections in this article are arranged approximately from more managed options (less management overhead for you) to less managed options (more control for you).
 
@@ -30,12 +30,12 @@ The sections in this article are arranged approximately from more managed option
   - [Connect Azure Functions to Azure Storage using command line tools](/azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python)
   - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
   
-- **Container hosting with Azure App Service, Container Apps, and Kubernetes**:
+- **Container hosting with Azure**:
   - [Overview of Python Container Apps in Azure](./containers-in-azure-overview-python.md)
   - [Deploy a container to App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md)
   - [Deploy a container to Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
   - [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json)
-  - [Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart)
+  - [Deploy a container in Azure Container Instances using the Azure CLI](/azure/container-instances/container-instances-quickstart)
   - [Create your first Service Fabric container application on Linux](/azure/service-fabric/service-fabric-get-started-containers-linux)
 
 - **Compute intensive and long running operations with Azure Batch**:
