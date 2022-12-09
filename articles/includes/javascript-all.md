@@ -134,7 +134,7 @@
 | Resource Management - Changes | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-changes/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-changes-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changes_1.1.0/sdk/changes/arm-changes/) |
 | Resource Management - Chaos | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-chaos/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-chaos-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-chaos_1.0.0-beta.2/sdk/chaos/arm-chaos/) |
 | Resource Management - Cognitive Services | npm [7.3.1](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/7.3.1) | [docs](/javascript/api/overview/azure/arm-cognitiveservices-readme) | GitHub [7.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices) |
-| Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
+| Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commitmentplans-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-communication/v/3.0.1)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-communication/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_3.0.1/sdk/communication/arm-communication/)<br>GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.0.0-beta.2/sdk/communication/arm-communication/) |
 | Resource Management - Compute | npm [19.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/19.2.0) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [19.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
@@ -293,13 +293,14 @@
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.6](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.6) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
+| @azure-rest/ai-anomaly-detector | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-anomaly-detector/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-appservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-appservice/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-compute | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-compute/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-containerservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-network | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-network/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-servicefabric | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-servicefabric/v/1.0.0-beta.1) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @cadl-lang/migrate | npm [0.38.0](https://www.npmjs.com/package/@cadl-lang/migrate/v/0.38.0) |  |  |
+| @cadl-lang/migrate | npm [0.38.1](https://www.npmjs.com/package/@cadl-lang/migrate/v/0.38.1) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | Application Insight Query | npm [1.0.0-preview](https://www.npmjs.com/package/azure-applicationinsights-query/v/1.0.0-preview) |  |  |
 | azure-arm-scheduler | npm [1.2.0-preview](https://www.npmjs.com/package/azure-arm-scheduler/v/1.2.0-preview) |  |  |
@@ -559,7 +560,7 @@
 | Resource Management - Chaos | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-chaos/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-chaos-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-chaos_1.0.0-beta.2/sdk/chaos/arm-chaos/) |
 | Resource Management - Cognitive Services | npm [7.3.1](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/7.3.1) | [docs](/javascript/api/overview/azure/arm-cognitiveservices-readme) | GitHub [7.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices) |
 | Resource Management - Cognitive Services | npm [3.0.0](https://www.npmjs.com/package/azure-arm-cognitiveservices/v/3.0.0) |  |  |
-| Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
+| Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
 | Resource Management - Commerce | npm [2.1.0](https://www.npmjs.com/package/azure-arm-commerce/v/2.1.0) |  |  |
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commitmentplans-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-communication/v/3.0.1)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-communication/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_3.0.1/sdk/communication/arm-communication/)<br>GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.0.0-beta.2/sdk/communication/arm-communication/) |
@@ -763,7 +764,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221207.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221207.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221208.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221208.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -783,13 +784,13 @@
 | @azure-tools/cadl-autorest | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.24.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.24.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.24.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.10-beta.20221207.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.10-beta.20221207.1) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.10-beta.20221208.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.10-beta.20221208.3) |  |  |
 | @azure-tools/cadl-dpg | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.24.0) |  |  |
 | @azure-tools/cadl-java | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.1.1) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.24.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.24.0) |  |  |
-| @azure-tools/cadl-python | npm [0.4.12](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.12) |  |  |
+| @azure-tools/cadl-python | npm [0.4.13](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.13) |  |  |
 | @azure-tools/cadl-ranch | npm [0.2.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.10) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.10) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.3) |  |  |
@@ -814,7 +815,7 @@
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
-| @cadl-lang/compiler | npm [0.38.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.38.0) |  |  |
+| @cadl-lang/compiler | npm [0.38.1](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.38.1) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.38.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.38.0) |  |  |
 | @cadl-lang/html-program-viewer | npm [0.38.0](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.38.0) |  |  |
