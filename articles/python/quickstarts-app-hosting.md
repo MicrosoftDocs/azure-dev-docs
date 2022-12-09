@@ -8,20 +8,19 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Hosting Python apps on Azure
 
-Azure provides various different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options. 
+Azure provides various different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options.
 
-Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of that option. In this continuum, we recommend starting with Azure App Service, with the least administrative responsibility on your part. Then, consider other options in the continuum moving toward taking more administrative responsibility of the hosting environment. At the other end of the continuum from App Service is Azure Virtual Machine, where you have the most control and more administrative responsibility.
+Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of the resource(s).  At the other end of the continuum from App Service is Azure Virtual Machines, where you have the most control and more administrative responsibility for maintaining the Azure resource. In this continuum, we recommend starting with Azure App Service, with the least administrative responsibility on your part. Then, consider other options in the continuum moving toward taking more administrative responsibility of your Azure resources.
 
-The sections below are arranged approximately from more managed options (less management overhead for you) to less managed options (more control for you).
+The sections in this article are arranged approximately from more managed options (less management overhead for you) to less managed options (more control for you).
 
-- **Web app hosting and monitoring**:
+- **Web app hosting with Azure App Service**:
   - [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
   - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
   - [Overview: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
   - [Configure a Python app for Azure App Service](/azure/app-service/configure-language-python)
-  - [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python)
 
-- **Static web apps**
+- **Content delivery network with Azure Static web apps**
   - [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
   - [Quickstart: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
@@ -31,7 +30,7 @@ The sections below are arranged approximately from more managed options (less ma
   - [Connect Azure Functions to Azure Storage using command line tools](/azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python)
   - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
   
-- **Container hosting**:
+- **Container hosting with Azure App Service, Container Apps, and Kubernetes**:
   - [Overview of Python Container Apps in Azure](./containers-in-azure-overview-python.md)
   - [Deploy a container to App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md)
   - [Deploy a container to Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
@@ -39,10 +38,11 @@ The sections below are arranged approximately from more managed options (less ma
   - [Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart)
   - [Create your first Service Fabric container application on Linux](/azure/service-fabric/service-fabric-get-started-containers-linux)
 
-- **Batch jobs**:
+- **Compute intensive and long running operations with Azure Batch**:
   - [Use Python API to run an Azure Batch job](/azure/batch/quick-run-python)
   - [Tutorial: Run a parallel workload with Azure Batch using the Python API](/azure/batch/tutorial-parallel-python)
   - [Tutorial: Run Python scripts through Azure Data Factory using Azure Batch](/azure/batch/tutorial-run-python-batch-azure-data-factory)
 
-- **Virtual machines**:
-  - [Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli)
+- **On-demand, scalable computing resources with Azure Virtual Machines**:
+  - [Quickstart: Use the Azure CLI to deploy a Linux virtual machine (VM) in Azure](/azure/virtual-machines/linux/quick-create-cli)
+  - [Azure Virtual Machines Management Samples - Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
