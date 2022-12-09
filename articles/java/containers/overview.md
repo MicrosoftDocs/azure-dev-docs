@@ -35,12 +35,15 @@ The following table shows the default GC used for the resources available:
 | Any number of processors <br/> Up to 1791 MB of memory | SerialGC   |
 | 2+ processors <br/> 1792 MB or more of memory          | G1GC       |
 
-The following table shows the default initial heap size for the type of environment:
+The following table shows the default maximum heap size depending on how much memory is available in the environment where the JVM is running:
 
-| Type of environment | Default initial heap size |
+| Memory available    | Default maximum heap size |
 |---------------------|---------------------------|
-| Containers          | 1/4 of available memory   |
-| Non-container       | 1/64 of available memory  |
+| Up to 256 MB        | 50% of available memory   |
+| 256 MB to 512 MB    | ~127MB                    |
+| More than 512 MB    | 25% of available memory   |
+
+The default _initial heap size_ is 1/64 of available memory.
 
 These values are valid for OpenJDK 11 and later, and for most distributions, including Microsoft Build of OpenJDK, Azul Zulu, Eclipse Temurin, Oracle OpenJDK, and others.
 
