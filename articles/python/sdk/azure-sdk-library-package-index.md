@@ -10,11 +10,11 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure Python SDK packages are published to [PyPi](https://pypi.org/), including beta releases. For more information, see [Azure SDK Releases: Python](https://azure.github.io/azure-sdk/policies_releases.html#python).
 
-If you are looking for information on how to use a specific package, try the following:
+If you're looking for information on how to use a specific package:
 
 * Go to the GitHub link in the table for a package. This link takes you to the source code of the package. Each package repo has an *README.md* file to get you started.
-* Go to the docs link in the table a package. This link takes you to the API documentation. The API doc page gives an overview of the package and is useful when you are looking for an overview of all the classes of a package and an overview of all the methods of a class.
-* Go to the [Azure for Python developers](index.yml) documentation. In these docs, you find more examples of using package as well as quickstarts and tutorials.
+* Go to the docs link in the table a package. This link takes you to the API documentation. The API doc page gives an overview of the package and is useful when you're looking for an overview of all the classes of a package and an overview of all the methods of a class.
+* Go to the [Azure for Python developers](index.yml) documentation. In these docs, you find more examples of using package and quickstarts and tutorials.
 
 > [!NOTE]
 > For Conda libraries, see the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
