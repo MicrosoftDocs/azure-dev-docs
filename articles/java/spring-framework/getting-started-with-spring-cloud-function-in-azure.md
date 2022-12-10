@@ -1,5 +1,5 @@
 ---
-title: Getting started with Spring Cloud Function in Azure
+title: Get started with Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
 documentationcenter: java
 manager: brborges
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, team=cloud_advocates
 ms.contributors: judubois-03042021
 ---
 
-# Getting started with Spring Cloud Function in Azure
+# Get started with Spring Cloud Function in Azure
 
 This article guides you through using [Spring Cloud Functions](https://spring.io/projects/spring-cloud-function) to develop a Java function and publish it to Azure Functions. When you're done, your function code runs on the [Consumption Plan](/azure/azure-functions/functions-scale#consumption-plan) in Azure and can be triggered using an HTTP request.
 

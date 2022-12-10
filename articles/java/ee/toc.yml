@@ -4,7 +4,7 @@
   - name: Quickstart
     expanded: true
     items:
-      - name: WebLogic Server on Azure VM
+      - name: Oracle WebLogic Server on Azure VM
         href: weblogic-server-azure-virtual-machine.md
       - name: Oracle WebLogic Server on AKS
         href: weblogic-server-azure-kubernetes-service.md 
@@ -43,6 +43,10 @@
     items:
       - name: WebLogic to Azure Virtual Machines
         href: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: WebLogic to Azure VMs manual guidance
+        href: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: WebLogic to AKS within custom VNET
+        href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with Azure AD via LDAP
         href: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with App Gateway
