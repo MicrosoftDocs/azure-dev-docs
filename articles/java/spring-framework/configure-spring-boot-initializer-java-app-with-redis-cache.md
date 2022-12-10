@@ -1,5 +1,5 @@
 ---
-title: Configure a Spring Boot app to use Redis in the cloud with Azure Cache for Redis
+title: use Azure Redis Cache in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
 services: redis-cache
 documentationcenter: java
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.custom: devx-track-java
 ---
 
-# Configure a Spring Boot app to use Redis in the cloud with Azure Cache for Redis
+# Use Azure Redis Cache in Spring
 
 This article walks you through creating a Redis cache in the cloud using the Azure portal, then using the [Spring Initializr] to create a custom application, and then creating a Java web application that stores and retrieves data using your Redis cache.
 

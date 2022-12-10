@@ -1,16 +1,15 @@
 ---
-title: How to create and configure a managed identity on Azure hosting services
-description: How to create and configure a managed identity on Azure hosting services
+title: Create and configure a managed identity on Azure hosting services
+description: Shows you how to create and configure a managed identity on Azure hosting services.
 author: KarlErickson
-ms.author: v-yonghuiye
-ms.service: azure-java
-ms.topic: include
-ms.date: 07/26/2022
+ms.author: rujche
+ms.date: 12/09/2022
+ms.topic: article
 ---
 
-## Create and configure a managed identity on Azure hosting services
+# Create and configure a managed identity on Azure hosting services
 
-There are two types of managed identities: system-assigned and user-assigned.
+This article shows you how to create and configure a managed identity on Azure hosting services. There are two types of managed identities: system-assigned and user-assigned.
 
 For more information about Azure managed identities, see [Azure AD-managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
 

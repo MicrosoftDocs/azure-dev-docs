@@ -191,6 +191,12 @@ conceptualContent:
             - url: ../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md
               itemType: quickstart
               text: Deploy Spring Boot applications to AKS
+            - url: ../spring-framework/deploy-spring-boot-java-app-on-linux.md
+              itemType: quickstart
+              text: Deploy to Azure App Service
+            - url: ../spring-framework/spring-app-service-e2e.md
+              itemType: quickstart
+              text: End-to-end App Service with MySQL
         - title: Training
           links:
             - url: /training/paths/deploy-run-java-applications-azure-spring-apps

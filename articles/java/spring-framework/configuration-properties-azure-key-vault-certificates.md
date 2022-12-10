@@ -1,10 +1,13 @@
 ---
+title: Azure Key Vault Certificates configuration properties
+description: This reference doc contains all Azure Key Vault Certificates configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
-ms.date: 11/02/2022
+ms.author: rujche
+ms.date: 12/09/2022
+ms.topic: reference
 ---
 
-## Azure Key Vault Certificates properties
+# Azure Key Vault Certificates configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                              | Description                                                                                                                                                                                        |

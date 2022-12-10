@@ -1,10 +1,13 @@
 ---
+title: Azure Cosmos DB configuration properties
+description: This reference doc contains all Azure Cosmos DB configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
-ms.date: 11/02/2022
+ms.author: rujche
+ms.date: 12/09/2022
+ms.topic: reference
 ---
 
-## Azure Cosmos DB properties
+# Azure Cosmos DB configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

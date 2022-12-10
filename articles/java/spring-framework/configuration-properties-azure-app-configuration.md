@@ -1,10 +1,13 @@
 ---
+title: Azure App Configuration configuration properties
+description: This reference doc contains all Azure App Configuration configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
-ms.date: 11/02/2022
+ms.author: rujche
+ms.date: 12/09/2022
+ms.topic: reference
 ---
 
-## Azure App Configuration properties
+# Azure App Configuration configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                          | Description                                                                                                                                                                                        |
