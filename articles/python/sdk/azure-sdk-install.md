@@ -113,7 +113,7 @@ To verify a package installation:
 pip show <package>
 ```
 
-If the pakcage is installed, `pip show` displays version and other summary information, otherwise the command displays nothing.
+If the package is installed, `pip show` displays version and other summary information, otherwise the command displays nothing.
 
 You can also use `pip freeze` or `pip list` to see all the packages that are installed in your current Python environment.
 
