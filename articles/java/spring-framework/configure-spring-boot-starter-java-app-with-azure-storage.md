@@ -93,6 +93,9 @@ You can also use Azure CLI to create an Azure storage account and container usin
       --auth-mode login
    ```
 
+> [!IMPORTANT]
+> After creating the Azure Storage account and container, see this [article](/azure/role-based-access-control/role-assignments-portal), in your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure account you are currently using.
+
 ## Create a simple Spring Boot application with the Spring Initializr
 
 The following procedure creates the Spring boot application.
@@ -165,17 +168,15 @@ spring:
       storage:
         blob:
           account-name: [storage-account-name]
-          account-key: [storage-account-access-key]
           endpoint: [storage-blob-service-endpoint]
 ```
 
    Where:
 
-   | Name                        | Description                                         | Required                                       |
-   |-----------------------------|-----------------------------------------------------|------------------------------------------------|
+   | Name                                           | Description                                         | Required                                       |
+   |------------------------------------------------|-----------------------------------------------------|------------------------------------------------|
    | spring.cloud.azure.storage.blob.account-name   | The name of the Azure Storage account.              | Yes                                            |
-   | spring.cloud.azure.storage.blob.account-key    | The access key of the Azure Storage account.        | Yes                                            |
-   | spring.cloud.azure.storage.blob.endpoint       | The blob endpoint URL of the Azure Storage account. | Yes|
+   | spring.cloud.azure.storage.blob.endpoint       | The blob endpoint URL of the Azure Storage account. | Yes                                            |
 
 1. Save and close the *application.yml* file.
 

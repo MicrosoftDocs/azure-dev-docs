@@ -45,11 +45,14 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png" alt-text="Azure portal screenshot showing the 'Create Azure Cosmos D B Account - Core S Q L' page." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png":::
 
-1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select your database for any of those locations to open the properties page for your cache.
+1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. See this [section](/azure/cosmos-db/nosql/quickstart-portal#create-container-database) to create a database and a container for a newly created Azure Cosmos DB. You can select your database for any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png" alt-text="Azure portal screenshot of an Azure Cosmos D B account with the Keys page showing." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png":::
+
+> [!IMPORTANT]
+> After creating the Azure Cosmos DB, database, and container from the Azure portal, see this [article](/azure/role-based-access-control/role-assignments-portal), in your newly created Azure Cosmos DB, assign the `Owner` role to the Azure account you are currently using.
 
 ## Create a Spring Boot application with the Spring Initializr
 
@@ -112,9 +115,6 @@ Your simple Spring Boot application is now ready for editing.
    ```properties
    # Specify the DNS URI of your Azure Cosmos DB.
    spring.cloud.azure.cosmos.endpoint=https://contosoaccounttest.documents.azure.com:443/
-
-   # Specify the access key for your database.
-   spring.cloud.azure.cosmos.key=replace-your-access-key-here
 
    # Specify the name of your database.
    spring.cloud.azure.cosmos.database=contosoaccounttest

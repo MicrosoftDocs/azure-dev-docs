@@ -95,30 +95,6 @@ First, use the following steps to authenticate using the Azure CLI.
    az account set -s ssssssss-ssss-ssss-ssss-ssssssssssss
    ```
 
-### Create a service principal
-
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service. "Service" is any application, service, or platform that needs to access Azure resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
-
-To create a service principal, use the following command.
-
-```azurecli
-az ad sp create-for-rbac --name contososp --role Contributor --scopes /subscriptions/mySubscriptionID
-```
-
-> [!NOTE]
-> The value of the `--name` option must be unique within the Azure subscription. If you see an error log similar to `Found an existing instance of "...", We will patch it. Insufficient privileges to complete operation`, that means the `name` value already exists in your subscription. Try another name.
-
-Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
-
-```output
-{
-  "appId": "sample-app-id",
-  "displayName": "contososp",
-  "password": "sample-password",
-  "tenant": "sample-tenant"
-}
-```
-
 ### Create the Key Vault instance
 
 To create and initialize the Azure Key Vault, use the following steps:
@@ -177,7 +153,7 @@ To create and initialize the Azure Key Vault, use the following steps:
 1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value for the `sample-app-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
-   az keyvault set-policy --name contosokv --spn <the-app-ID-of-your-service-principal> --secret-permissions get list
+   az keyvault set-policy --name <your-key-vault-name> --upn <your-user-principal-name> --secret-permissions delete get list set purge
    ```
 
    The output will be a JSON object full of information about the Key Vault. It will have a `type` entry with value `Microsoft.KeyVault/vaults`.
@@ -187,7 +163,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    | Parameter | Description |
    |---|---|
    | name | The name of the Key Vault. |
-   | spn | The `appId` from the output of `az ad sp create-for-rbac` command above. |
+   | upn | Name of a user principal that will receive permissions |
    | secret-permissions | The list of operations to allow from the named principal. |
 
    > [!NOTE]
@@ -218,7 +194,7 @@ To create and initialize the Azure Key Vault, use the following steps:
        "enabled": true,
        "expires": null,
        "notBefore": null,
-       "recoveryLevel": "Purgeable",
+       "recoveryLevel": "Recoverable+Purgeable",
        "updated": "2020-08-24T21:48:09+00:00"
      },
      "contentType": null,
@@ -373,21 +349,15 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 
 1. Edit the *src/main/resources/application.properties* file so that it has the following contents, adjusting the values for your Azure subscription.
 
-   ```txt
-   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<your client ID>
-   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret=<your client key>
+   ```properties
    spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
-   spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id=<your tenant ID>
    ```
 
    This table explains the properties shown above.
 
    | Parameter                                                                       | Description                                                                                                                                  |
    |---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-   | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id     | The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                                            |
-   | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret | The `password` from the return JSON from `az ad sp create-for-rbac`.                                                                         |
    | spring.cloud.azure.keyvault.secret.property-sources[0].endpoint                 | The value output from the `az keyvault create` command above.                                                                                |
-   | spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id        | The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                                           |
 
 > [!TIP]
 > For examples of Spring Cloud Azure property configuration, see the [Configuration examples](spring-cloud-azure.md#configuration-examples) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).

@@ -85,13 +85,13 @@ You can configure your app based on either the connection string or service prin
       cloud:
         azure:
           servicebus:
-            connection-string: <ServiceBusNamespaceConnectionString>
+            namespace: ${AZURE_SERVICEBUS_NAMESPACE}
         stream:
           bindings:
             consume-in-0:
-              destination: examplequeue
+              destination: ${AZURE_SERVICEBUS_QUEUE_NAME}
             supply-out-0:
-              destination: examplequeue
+              destination: ${AZURE_SERVICEBUS_QUEUE_NAME}
           servicebus:
             bindings:
               consume-in-0:
@@ -114,14 +114,14 @@ You can configure your app based on either the connection string or service prin
       cloud:
         azure:
           servicebus:
-            connection-string: <ServiceBusNamespaceConnectionString>
+            namespace: ${AZURE_SERVICEBUS_NAMESPACE}
         stream:
           bindings:
             consume-in-0:
-              destination: exampletopic
-              group: examplesubscription
+              destination: ${AZURE_SERVICEBUS_TOPIC_NAME}
+              group: ${AZURE_SERVICEBUS_TOPIC_SUBSCRIPTION_NAME}
             supply-out-0:
-              destination: exampletopic
+              destination: ${AZURE_SERVICEBUS_TOPIC_NAME}
           servicebus:
             bindings:
               consume-in-0:
@@ -141,7 +141,7 @@ You can configure your app based on either the connection string or service prin
 
     | Field                                                                       | Description                                                                                                                                                   | 
     |---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-    | `spring.cloud.azure.servicebus.connection-string`                           | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                                               |
+    | `spring.cloud.azure.servicebus.namespace`                                   | Specify the namespace you obtained in your Service Bus from the Azure portal.                                                               |
     | `spring.cloud.stream.function.definition`                                   | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                 |
     | `spring.cloud.stream.poller.fixed-delay`                                    | Specify fixed delay for default poller in milliseconds, default 1000L.                                                                                        |
     | `spring.cloud.stream.poller.initial-delay`                                  | Specify initial delay for periodic triggers, default 0.                                                                                                       |
