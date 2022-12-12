@@ -1,7 +1,7 @@
 ---
 title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip and conda. Includes details on installing specific versions and preview packages.
-ms.date: 12/10/2022
+ms.date: 12/12/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 adobe-target: true
@@ -15,7 +15,7 @@ Libraries for standard Python environments are listed in the [package index](azu
 
 Packages for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
-With these Azure libraries you can provision and manage resources on Azure services (using the management libraries, whose names begin with `azure-mgmt`) and connect with those resources from app code (using the client libraries, whose names begin with just `azure-`).
+With these Azure libraries, you can create and manage resources on Azure services (using the management libraries, whose package names begin with `azure-mgmt`) and connect with those resources from app code (using the client libraries, whose package names begin with just `azure-`).
 
 ## Install the latest version of a library
 
@@ -29,17 +29,17 @@ pip install <library>
 
 On Linux systems, you must install a library for each user separately. Installing libraries for all users with `sudo pip install` isn't supported.
 
-You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
+You can use any package name listed in the [package index](azure-sdk-library-package-index.md). Look in the **Name** column for the library you want, and then find the correct PyPI link in the **Package** column.
 
 # [conda](#tab/conda)
 
-Be sure you've added the Microsoft channel to your Conda configuration (you need to do this only once):
+Be sure you've added the Microsoft channel to your Conda configuration (you need to run this command only once):
 
 ```cmd
 conda config --add channels "Microsoft"
 ```
 
-Then install the desired package:
+Then, install the desired package:
 
 ```cmd
 conda install <package>
@@ -57,29 +57,29 @@ Packages for Conda are grouped by services. For example, `azure-storage` include
 
 # [pip](#tab/pip)
 
-Be sure you've added the Microsoft channel to your Conda configuration (you need to do this only once):
-
-```cmd
-conda config --add channels "Microsoft"
-```
+Specify the desired version on the command line with `pip install`.
 
 ```cmd
 pip install <library>==<version>
 ```
 
-Specify the desired version on the command line with `pip install`.
-
-You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
+You can find the version number in the [package index](azure-sdk-library-package-index.md). Look in the **Name** column for the library you want, and select PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` library you can use the: `pip install azure-storage-blob==12.14.1`.
 
 # [conda](#tab/conda)
+
+Be sure you've added the Microsoft channel to your Conda configuration (you need to run this command only once):
+
+```cmd
+conda config --add channels "Microsoft"
+```
+
+Then, install the desired package and version:
 
 ```cmd
 conda install <package>==<version>
 ```
 
-Specify the desired version on the command line with `conda install --revision`.
-
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
+To find a version number, go to the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`. Find the library you want, drill into it, and look for the version number in the "Files" tab. For example, to install a version of `azure-storage` you can use the: `conda install azure-storage=2022.09.01`. Or, you can specify the desired version on the command line with `conda install --revision`.
 
 ---
 
@@ -87,25 +87,27 @@ You can use any package name listed in the [Microsoft channel on anaconda.org](h
 
 # [pip](#tab/pip)
 
+To install the latest preview of a library, include the `--pre` flag on the command line.
+
 ```cmd
 pip install --pre <library>
 ```
 
-To install the latest preview of a library, include the `--pre` flag on the command line.
-
-Microsoft periodically releases preview library packages that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
+Microsoft periodically releases preview library packages that support upcoming features. Preview libraries come with the caveat that the library is subject to change and must not be used in production projects.
 
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
 
 # [conda](#tab/conda)
 
-Preview packages for Conda are not available at this time.
+Preview packages for Conda aren't available at this time.
 
 ---
 
 ## Verify a library installation
 
 # [pip](#tab/pip)
+
+To verify a library installation:
 
 ```cmd
 pip show <library>
@@ -118,6 +120,8 @@ You can also use `pip freeze` or `pip list` to see all the libraries that are in
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
 
 # [conda](#tab/conda)
+
+To verify a library installation:
 
 ```cmd
 conda list <package>
@@ -135,21 +139,21 @@ You can use any package name listed in the [Microsoft channel on anaconda.org](h
 
 # [pip](#tab/pip)
 
+To uninstall a library:
+
 ```cmd
 pip uninstall library.
 ```
-
-To uninstall a library, use `pip uninstall`.
 
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
 
 # [conda](#tab/conda)
 
+To uninstall a package:
+
 ```cmd
 conda remove <package>
 ```
-
-To uninstall a package, use `conda remove <package>`.
 
 You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
