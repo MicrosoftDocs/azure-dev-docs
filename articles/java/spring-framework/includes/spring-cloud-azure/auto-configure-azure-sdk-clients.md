@@ -59,7 +59,7 @@ The second way is to avoid adding Azure SDK dependencies and instead include the
 Configuration properties for each Azure service are under prefix `spring.cloud.azure.<azure-service>`.
 
 > [!TIP]
-> For the list of all Spring Cloud Azure configuration properties, see [List of configuration properties](../../spring-cloud-azure-appendix.md#list-of-configuration-properties).
+> For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](../../configuration-properties-all.md).
 
 ### Basic usage
 

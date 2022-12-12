@@ -9,7 +9,7 @@ ms.author: v-yonghuiye
 This documentation covers changes made in 4.0 since 3.10. This major release brings better security, leaner dependencies, support for production readiness, and more.
 
 > [!TIP]
-> For more information on migrating to 4.0, see [Migration guide for 4.0](../../spring-cloud-azure-appendix.md#migration-guide-for-40).
+> For more information on migrating to 4.0, see [Migration guide for 4.0](../../migration-guide-for-4.0.md).
 
 The following list summarizes some of the changes that Spring Cloud Azure 4.0 provides:
 

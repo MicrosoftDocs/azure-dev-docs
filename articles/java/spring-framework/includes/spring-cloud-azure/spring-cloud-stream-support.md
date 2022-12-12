@@ -32,7 +32,7 @@ Event Hubs provides similar support of consumer group as Apache Kafka, but with 
 
 Event Hubs provides a similar concept of physical partition as Kafka. But unlike Kafka's auto re-balancing between consumers and partitions, Event Hubs provides a kind of preemptive mode. The storage account acts as a lease to determine which partition is owned by which consumer. When a new consumer starts, it will try to steal some partitions from most heavy-loaded consumers to achieve the workload balancing.
 
-To specify the load balancing strategy, properties of `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.load-balancing.*` are provided. See [the consumer properties](#consumer-properties) for more details.
+To specify the load balancing strategy, properties of `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.load-balancing.*` are provided. See [Consumer properties](#consumer-properties) section for more details.
 
 ##### Batch consumer support
 
@@ -43,11 +43,10 @@ To work with the batch-consumer mode, the property of `spring.cloud.stream.bindi
 > [!NOTE]
 > The checkpoint header only exists when **MANUAL** checkpoint mode is used.
 
-
 Checkpointing of batch consumer supports two modes: `BATCH` and `MANUAL`. `BATCH` mode is an auto checkpointing mode to checkpoint the entire batch of events together once they are received by the binder. `MANUAL` mode is to checkpoint the events by users. When used, the
 **Checkpointer** will be passed into the message header, and users could use it to do checkpointing.
 
-The batch size can be specified by properties of `max-size` and `max-wait-time` with prefix as `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.batch.`, where `max-size` is a necessary property while `max-wait-time` is optional. See [the consumer properties](#consumer-properties) for more details.
+The batch size can be specified by properties of `max-size` and `max-wait-time` with prefix as `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.batch.`, where `max-size` is a necessary property while `max-wait-time` is optional. See [Consumer properties](#consumer-properties) section for more details.
 
 #### Dependency setup
 

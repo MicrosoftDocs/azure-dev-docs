@@ -12,18 +12,9 @@ ms.custom: devx-track-java
 adobe-target: true
 ---
 
-# Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory
+# Secure REST API using Spring Security 5 and Azure Active Directory
 
-This article demonstrates creating a Java app with the **[Spring Initializr]** that uses the Spring Boot Starter for Azure Active Directory (Azure AD).
-
-In this tutorial, you learn how to:
-
-* Create a Java application using the Spring Initializr
-* Configure Azure Active Directory
-* Secure the application with Spring Boot classes and annotations
-* Build and test your Java application
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article shows you how to secure REST API using Spring Security 5 and  Azure Active Directory.
 
 ## Prerequisites
 
@@ -31,6 +22,7 @@ The following prerequisites are required to complete the steps in this article:
 
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
