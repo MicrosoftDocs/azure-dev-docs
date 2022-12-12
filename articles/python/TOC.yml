@@ -127,7 +127,7 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
-- name: Get started with Azure SDK for Python
+- name: Azure SDK for Python
   items:
     - name: Overview
       href: sdk/azure-sdk-overview.md
@@ -191,9 +191,9 @@
         href: sdk/azure-sdk-configure-proxy.md
       - name: Use a sovereign domain
         href: sdk/azure-sdk-sovereign-domain.md
-- name: pypi packages
-  href: sdk-library-api-reference.md
-- name: pypi reference documentation
+- name: SDK PyPi package index
+  href: sdk/azure-sdk-library-package-index.md
+- name: SDK reference documentation
   href: /python/api/overview/azure/
 - name: Explore services supporting Python
   items:
