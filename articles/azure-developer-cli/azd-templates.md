@@ -19,9 +19,6 @@ Azure Developer CLI templates are sample repositories created using the Azure De
 
 These templates are extensible and customizable to your specific use case.
 
-> [!NOTE]
-> <a id="legalnote">Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use.  Microsoft is not responsible for any non-Microsoft templates and does not screen these templates for security, privacy, compatibility, or performance issues. The templates you use with Azure Developer CLI, including those provided from Microsoft, are not supported by any Microsoft support program or service. Any Microsoft-provided templates are provided AS IS without warranty of any kind.</a>
-
 ## Templates in preview
 
 As part of Azure Developer CLI preview, we’ve authored an initial set of template applications written in:
@@ -92,6 +89,12 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 ---
 
 For more community contributed templates, [browse GitHub using `azd-templates` as the topic]( https://github.com/topics/azd-templates).
+
+### Guidelines for using `azd` templates
+
+Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use. 
+
+Microsoft is not responsible for any non-Microsoft templates and does not screen these templates for security, privacy, compatibility, or performance issues. The templates you use with Azure Developer CLI, including those provided from Microsoft, are not supported by any Microsoft support program or service. Any Microsoft-provided templates are provided AS IS without warranty of any kind.
 
 ## Authoring templates
 
