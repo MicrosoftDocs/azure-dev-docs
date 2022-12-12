@@ -9,7 +9,7 @@ adobe-target: true
 
 # How to install Azure library packages for Python
 
-The Azure SDK for Python is composed solely of many individual libraries that can be installed in standard Python or conda environments.
+The Azure SDK for Python is composed of many individual libraries that can be installed in standard [Python](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html) environments.
 
 Libraries for standard Python environments are listed in the [package index](azure-sdk-library-package-index.md).
 
@@ -17,19 +17,19 @@ Packages for conda environments are listed in the [Microsoft channel on anaconda
 
 With these Azure libraries, you can create and manage resources on Azure services (using the management libraries, whose package names begin with `azure-mgmt`) and connect with those resources from app code (using the client libraries, whose package names begin with just `azure-`).
 
-## Install the latest version of a library
+## Install the latest version of a package
 
 # [pip](#tab/pip)
 
 ```cmd
-pip install <library>
+pip install <package>
 ```
 
-`pip install` retrieves the latest version of a library in your current Python environment.
+`pip install` retrieves the latest version of a package in your current Python environment.
 
-On Linux systems, you must install a library for each user separately. Installing libraries for all users with `sudo pip install` isn't supported.
+On Linux systems, you must install a package for each user separately. Installing packages for all users with `sudo pip install` isn't supported.
 
-You can use any package name listed in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the library you want, and then find and select the PyPI link in the **Package** column.
+You can use any package name listed in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the functionality you need, and then find and select the PyPI link in the **Package** column.
 
 # [conda](#tab/conda)
 
@@ -53,17 +53,17 @@ Packages for conda are grouped by services. For example, `azure-storage` include
 
 ---
 
-## Install specific library versions
+## Install specific package versions
 
 # [pip](#tab/pip)
 
 Specify the desired version on the command line with `pip install`.
 
 ```cmd
-pip install <library>==<version>
+pip install <package>==<version>
 ```
 
-You can find the version number in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the library you want, and then find and select the PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` library you can use the: `pip install azure-storage-blob==12.14.1`.
+You can find version numbers in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the functionality you need, and then find and select the PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` package you can use: `pip install azure-storage-blob==12.14.1`.
 
 # [conda](#tab/conda)
 
@@ -79,7 +79,7 @@ Then, install the desired package and version:
 conda install <package>==<version>
 ```
 
-To find a version number, go to the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`. Find the library you want, drill into it, and look for the version number in the "Files" tab. For example, to install a version of `azure-storage` you can use the: `conda install azure-storage=2022.09.01`. Or, you can specify the desired version on the command line with `conda install --revision`.
+You can find version numbers on the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`. Find the library/package you want, drill into it, and look for the version number in the "Files" tab. For example, to install a version of `azure-storage` you can use: `conda install azure-storage=2022.09.01`. Or, you can specify the desired version on the command line with `conda install --revision`.
 
 ---
 
@@ -87,13 +87,13 @@ To find a version number, go to the [Microsoft channel on anaconda.org](https://
 
 # [pip](#tab/pip)
 
-To install the latest preview of a library, include the `--pre` flag on the command line.
+To install the latest preview of a package, include the `--pre` flag on the command line.
 
 ```cmd
-pip install --pre <library>
+pip install --pre <package>
 ```
 
-Microsoft periodically releases preview library packages that support upcoming features. Preview libraries come with the caveat that the library is subject to change and must not be used in production projects.
+Microsoft periodically releases preview packages that support upcoming features. Preview packages come with the caveat that the package is subject to change and must not be used in production projects.
 
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
 
@@ -103,25 +103,25 @@ Preview packages for conda aren't available at this time.
 
 ---
 
-## Verify a library installation
+## Verify a package installation
 
 # [pip](#tab/pip)
 
-To verify a library installation:
+To verify a package installation:
 
 ```cmd
-pip show <library>
+pip show <package>
 ```
 
-If the library is installed, `pip show` displays version and other summary information, otherwise the command displays nothing.
+If the pakcage is installed, `pip show` displays version and other summary information, otherwise the command displays nothing.
 
-You can also use `pip freeze` or `pip list` to see all the libraries that are installed in your current Python environment.
+You can also use `pip freeze` or `pip list` to see all the packages that are installed in your current Python environment.
 
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
 
 # [conda](#tab/conda)
 
-To verify a library installation:
+To verify a package installation:
 
 ```cmd
 conda list <package>
@@ -135,14 +135,14 @@ You can use any package name listed in the [Microsoft channel on anaconda.org](h
 
 ---
 
-## Uninstall a library
+## Uninstall a package
 
 # [pip](#tab/pip)
 
-To uninstall a library:
+To uninstall a package:
 
 ```cmd
-pip uninstall library.
+pip uninstall <package>
 ```
 
 You can use any package name listed in the [package index](azure-sdk-library-package-index.md).
