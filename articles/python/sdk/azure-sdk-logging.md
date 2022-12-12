@@ -53,7 +53,7 @@ Logging levels are the same as the [standard logging library levels](https://doc
 
 The exact logging behavior at each level depends on the library in question. Some libraries, such as azure.eventhub, perform extensive logging whereas other libraries do little.
 
-The best way to examine the exact logging for a library is to search for the logging levels in the Azure SDK for Python source code:
+The best way to examine the exact logging for a library is to search for the logging levels in the [Azure SDK for Python source code](https://github.com/Azure/azure-sdk-for-python):
 
 1. In the repository folder, navigate into the *sdk* folder, then navigate into the folder for the specific service of interest.
 
