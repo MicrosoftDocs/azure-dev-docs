@@ -12,7 +12,7 @@ Azure Python SDK packages are published to [PyPi](https://pypi.org/), including 
 
 If you're looking for information on how to use a specific package:
 
-* Find the package in the table and select the GitHub link under the **Source** column. This link takes you to the source code of the package. Each package repo has an *README.md* file to get you started.
+* Find the package in the table and select the GitHub link under the **Source** column. This link takes you to the source code of the package. Each package repo has an *README.md* file with some code samples to get you started.
 * Find the package in the table and select the docs link under the **Docs** column. This link takes you to the API documentation. The API doc page gives an overview of the package and is useful when you're looking for an overview of all the classes of a package and an overview of all the methods of a class.
 * Go to the [Azure for Python developers](index.yml) documentation. In these docs, you can find more examples of using packages, and quickstarts and tutorials. To learn about installing packages, see [How to install Azure library packages for Python](./azure-sdk-install.md).
 
