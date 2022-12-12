@@ -9,11 +9,11 @@ adobe-target: true
 
 # How to install Azure library packages for Python
 
-The Azure SDK for Python is composed solely of many individual libraries that can be installed in standard Python or Conda environments.
+The Azure SDK for Python is composed solely of many individual libraries that can be installed in standard Python or conda environments.
 
 Libraries for standard Python environments are listed in the [package index](azure-sdk-library-package-index.md).
 
-Packages for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
+Packages for conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
 With these Azure libraries, you can create and manage resources on Azure services (using the management libraries, whose package names begin with `azure-mgmt`) and connect with those resources from app code (using the client libraries, whose package names begin with just `azure-`).
 
@@ -29,11 +29,11 @@ pip install <library>
 
 On Linux systems, you must install a library for each user separately. Installing libraries for all users with `sudo pip install` isn't supported.
 
-You can use any package name listed in the [package index](azure-sdk-library-package-index.md). Look in the **Name** column for the library you want, and then find the correct PyPI link in the **Package** column.
+You can use any package name listed in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the library you want, and then find and select the PyPI link in the **Package** column.
 
 # [conda](#tab/conda)
 
-Be sure you've added the Microsoft channel to your Conda configuration (you need to run this command only once):
+Be sure you've added the Microsoft channel to your conda configuration (you need to run this command only once):
 
 ```cmd
 conda config --add channels "Microsoft"
@@ -49,7 +49,7 @@ conda install <package>
 
 You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
-Packages for Conda are grouped by services. For example, `azure-storage` includes libraries for working with blobs, file shares, queues, and any other Azure Storage service. The single `azure-mgmt` package contains the management libraries for all services.
+Packages for conda are grouped by services. For example, `azure-storage` includes libraries for working with blobs, file shares, queues, and any other Azure Storage service. The single `azure-mgmt` package contains the management libraries for all services.
 
 ---
 
@@ -63,11 +63,11 @@ Specify the desired version on the command line with `pip install`.
 pip install <library>==<version>
 ```
 
-You can find the version number in the [package index](azure-sdk-library-package-index.md). Look in the **Name** column for the library you want, and select PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` library you can use the: `pip install azure-storage-blob==12.14.1`.
+You can find the version number in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the library you want, and then find and select the PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` library you can use the: `pip install azure-storage-blob==12.14.1`.
 
 # [conda](#tab/conda)
 
-Be sure you've added the Microsoft channel to your Conda configuration (you need to run this command only once):
+Be sure you've added the Microsoft channel to your conda configuration (you need to run this command only once):
 
 ```cmd
 conda config --add channels "Microsoft"
@@ -99,7 +99,7 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 
 # [conda](#tab/conda)
 
-Preview packages for Conda aren't available at this time.
+Preview packages for conda aren't available at this time.
 
 ---
 
