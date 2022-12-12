@@ -40,7 +40,9 @@
           href: migrate-weblogic-with-aad-ldap.md
         - name: WebLogic Server to WildFly on AKS
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
-        - name: "Tutorial: WebLogic on AKS to custom VNET"
+        - name: "Tutorial: WebLogic to Azure VMs manual guidance"
+          href: migrate-weblogic-to-azure-vm-manually.md
+        - name: "Tutorial: WebLogic to AKS within custom VNET"
           href: migrate-weblogic-to-aks-within-an-existing-vnet.md
         - name: "Tutorial: WebLogic Server with App Gateway"
           href: migrate-weblogic-with-app-gateway.md

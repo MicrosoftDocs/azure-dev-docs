@@ -61,7 +61,9 @@ landingContent:
             url: migrate-weblogic-to-virtual-machines.md
           - text: WebLogic Server with Azure AD via LDAP
             url: migrate-weblogic-with-aad-ldap.md
-          - text: "Tutorial: WebLogic on AKS to custom VNET"
+          - text: "Tutorial: WebLogic to Azure VMs manual guidance"
+            url: migrate-weblogic-to-azure-vm-manually.md
+          - text: "Tutorial: WebLogic to AKS within custom VNET"
             url: migrate-weblogic-to-aks-within-an-existing-vnet.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md

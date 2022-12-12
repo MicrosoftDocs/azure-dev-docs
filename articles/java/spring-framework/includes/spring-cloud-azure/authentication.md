@@ -78,7 +78,7 @@ The following table lists authentication properties:
 | managed-identity-enabled    | Whether to enable managed identity.                                                                |
 
 > [!TIP]
-> For the list of all Spring Cloud Azure configuration properties, see [List of configuration properties](../../spring-cloud-azure-appendix.md#list-of-configuration-properties).
+> For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](../../configuration-properties-all.md).
 
 The application will look in several places to find an available credential, and will use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
 

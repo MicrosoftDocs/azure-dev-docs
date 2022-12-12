@@ -723,4 +723,4 @@ az group delete --name <your-resource-group-name>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to use the Spring Boot Starter for Azure Service Bus JMS](configure-spring-boot-starter-java-app-with-azure-service-bus.md)
+> [Using JMS in Spring to access Azure Service Bus](configure-spring-boot-starter-java-app-with-azure-service-bus.md)
