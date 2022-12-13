@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Use the Azure libraries to create a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article. If you prefer to use the Azure portal, see [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-command) is given later in this article. If you prefer to use the Azure portal, see [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -77,9 +77,9 @@ Run the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete
 
 You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
 
-### For reference: equivalent Azure CLI commands
+### For reference: equivalent Azure CLI command
 
-The following Azure CLI commands complete the same creation steps as the Python script:
+The following Azure CLI [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) creates a resource group with tags just like the Python script:
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/resource_group/provision.cmd":::
 
