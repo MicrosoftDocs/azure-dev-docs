@@ -1,7 +1,7 @@
 ---
 title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
-ms.date: 05/20/2021
+ms.date: 12/12/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -33,7 +33,7 @@ You can also use more general namespaces. For example,
 
 :::code language="python" source="~/../python-sdk-docs-examples/logging/set_levels.py" range="1-2,11-17":::
 
-Note that the `azure` logger is used by some libraries instead of a specific logger. For example, the azure-storage-blob library uses the `azure` logger.
+The `azure` logger is used by some libraries instead of a specific logger. For example, the azure-storage-blob library uses the `azure` logger.
 
 You can use the `logger.isEnabledFor` method to check whether any given logging level is enabled:
 
@@ -51,9 +51,9 @@ Logging levels are the same as the [standard logging library levels](https://doc
 
 ### Library-specific logging level behavior
 
-The exact logging behavior at each level depends on the library in question. Some libraries, such as azure.eventhub, perform extensive logging whereas other libraries do very little.
+The exact logging behavior at each level depends on the library in question. Some libraries, such as azure.eventhub, perform extensive logging whereas other libraries do little.
 
-The best way to examine the exact logging for a library is to search for the logging levels in the Azure SDK for Python source code:
+The best way to examine the exact logging for a library is to search for the logging levels in the [Azure SDK for Python source code](https://github.com/Azure/azure-sdk-for-python):
 
 1. In the repository folder, navigate into the *sdk* folder, then navigate into the folder for the specific service of interest.
 
@@ -74,9 +74,10 @@ This example registers a handler that directs log output to stdout. You can use 
 
 ## Enable HTTP logging for a client object or operation
 
-By default, logging within the Azure libraries does not include any HTTP information. To include HTTP information in log output (as DEBUG level), you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
+By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output (as DEBUG level), you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
-**CAUTION**: HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
+> [!CAUTION]
+> HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
 ### Enable HTTP logging for a client object (DEBUG level)
 
@@ -98,37 +99,38 @@ Enabling HTTP logging for a credential object enables logging for all operations
 
 The following code is that shown in [Example: Use a storage account](./examples/azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-9,15-32":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-16,24-49":::
 
 The logging output is as follows:
 
 <pre>
-Request URL: 'https://pythonsdkstorage12345.blob.core.windows.net/blob-container-01/sample-blob.txt'
+Request URL: 'https://msdocswebapp123.blob.core.windows.net/blob-container-01/sample-blob-37c8e.txt'
 Request method: 'PUT'
 Request headers:
-    'Content-Type': 'application/octet-stream'
-    'Content-Length': '79'
-    'x-ms-version': '2019-07-07'
+    'Content-Length': '77'
     'x-ms-blob-type': 'BlockBlob'
     'If-None-Match': '*'
-    'x-ms-date': 'Mon, 01 Jun 2020 22:54:14 GMT'
-    'x-ms-client-request-id': 'd081f88e-a45a-11ea-b9eb-0c5415dfd03a'
-    'User-Agent': 'azsdk-python-storage-blob/12.3.1 Python/3.8.3 (Windows-10-10.0.18362-SP0)'
+    'x-ms-version': '2021-08-06'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.14.1 Python/3.9.5 (Windows-10-10.0.22621-SP0)'
+    'x-ms-date': 'Mon, 12 Dec 2022 18:05:08 GMT'
+    'x-ms-client-request-id': '83378428-7a47-11ed-9b02-f077c3084edf'
     'Authorization': '*****'
 Request body:
-b"Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.\r\n"
+b"Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob."
 Response status: 201
 Response headers:
     'Content-Length': '0'
-    'Content-MD5': 'kvMIzjEi6O8EqTVnZJNakQ=='
-    'Last-Modified': 'Mon, 01 Jun 2020 22:54:14 GMT'
-    'ETag': '"0x8D8067EB52FF7BC"'
+    'Content-MD5': 'SUytm0872jZh+KYqtgjbTA=='
+    'Last-Modified': 'Mon, 12 Dec 2022 18:05:08 GMT'
+    'ETag': '"0x8DADC6B67626784"'
     'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
-    'x-ms-request-id': '5df479b1-f01e-00d0-5b67-382916000000'
-    'x-ms-client-request-id': 'd081f88e-a45a-11ea-b9eb-0c5415dfd03a'
-    'x-ms-version': '2019-07-07'
-    'x-ms-content-crc64': 'QmecNePSHnY='
+    'x-ms-request-id': '82904be4-e01e-0051-7e54-0e7d72000000'
+    'x-ms-client-request-id': '83378428-7a47-11ed-9b02-f077c3084edf'
+    'x-ms-version': '2021-08-06'
+    'x-ms-content-crc64': 'rtHLUlztgxc='
     'x-ms-request-server-encrypted': 'true'
-    'Date': 'Mon, 01 Jun 2020 22:54:14 GMT'
+    'Date': 'Mon, 12 Dec 2022 18:05:07 GMT'
 Response content:
-</pre>
+b''</pre>
