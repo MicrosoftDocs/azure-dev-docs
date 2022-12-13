@@ -449,7 +449,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
 
 You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
-If you're using an Azure App Service, use the [az webapp connection](/azure/webapp/connection) command, as shown in the following example:
+If you're using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection) command, as shown in the following example:
 
 ```azurecli
 az webapp connection create eventhub \
