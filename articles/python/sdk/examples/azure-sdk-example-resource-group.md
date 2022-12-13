@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-* [Configure a Python virtual environment](../../configure-local-development-environment.md#configure-python-virtual-environment). You can even create the virtual environment in [Azure Cloud Shell](https://shell.azure.com/) and run the code there. Be sure to create and activate a virtual environment for this project.
+* [Configure a Python virtual environment](../../configure-local-development-environment.md#configure-python-virtual-environment). You can even create the virtual environment in [Azure Cloud Shell](https://shell.azure.com/) and run the code there. Be sure to activate the virtual environment to start using it.
 
 * Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
@@ -46,8 +46,8 @@ Create a Python file named *provision_rg.py* with the following code. The commen
 
 ### Reference links for classes used in the code
 
-- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
+* [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
+* [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 
 ## 4: Run the script
 
@@ -59,9 +59,9 @@ python provision_rg.py
 
 You can verify that the group exists through the Azure portal or the Azure CLI.
 
-- Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If you've already had the portal open, use the **Refresh** command to update the list.
+* Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If you've already had the portal open, use the **Refresh** command to update the list.
 
-- Azure CLI: run the following command:
+* Azure CLI: run the following command:
 
     ```azurecli
     az group show -n PythonAzureExample-rg
@@ -85,11 +85,11 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 ## See also
 
-- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
-- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Example: Provision and query a database](azure-sdk-example-database.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
-- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
-- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
+* [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
+* [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+* [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
+* [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+* [Example: Provision and query a database](azure-sdk-example-database.md)
+* [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+* [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+* [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
