@@ -79,7 +79,7 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 ### For reference: equivalent Azure CLI command
 
-The following Azure CLI [az group create](/cli/azure/group#az-group-create) creates a resource group with tags just like the Python script:
+The following Azure CLI [az group create](/cli/azure/group#az-group-create) command creates a resource group with tags just like the Python script:
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/resource_group/provision.cmd":::
 
