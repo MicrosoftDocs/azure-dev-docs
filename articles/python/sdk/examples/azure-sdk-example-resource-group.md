@@ -61,7 +61,7 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 
 * Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If you've already had the portal open, use the **Refresh** command to update the list.
 
-* Azure CLI: run the following command:
+* Azure CLI: use the [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) command:
 
     ```azurecli
     az group show -n PythonAzureExample-rg
@@ -73,7 +73,7 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 az group delete -n PythonAzureExample-rg  --no-wait
 ```
 
-Run this command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Run the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
 
