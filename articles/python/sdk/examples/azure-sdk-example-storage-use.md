@@ -1,22 +1,22 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
-description: Use the Azure SDK for Python libraries to access a pre-provisioned blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 06/24/2021
+description: Use the Azure SDK for Python libraries to access an existing blob container in an Azure Storage account and then upload a file to that container.
+ms.date: 12/14/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Example: Access Azure Storage using the Azure libraries for Python
 
-This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you have provisioned the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you've created the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create a service principal for local development, set environment variables for the service principal (see below), and create and activate a virtual environment for this project.
+[!INCLUDE [create-environment-options](../../includes/create-environment-options.md)]
 
 ## 2: Install library packages
 
@@ -32,21 +32,21 @@ Be sure to create a service principal for local development, set environment var
 
 ## 3: Create a file to upload
 
-Create a source file named *sample-source.txt* (as the code expects), with contents like the following:
+Create a source file named *sample-source.txt* (as the code expects), with contents like the following text:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/storage/sample-source.txt":::
 
 ## 4: Use blob storage from app code
 
-The following sections (numbered 4a and 4b) demonstrate two means to access the blob container provisioned through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+The following sections (numbered 4a and 4b) demonstrate two means to access the blob container created through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
 - A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
 
-- A connection string contains an access key in plain text and therefore presents potential vulnerabilities if it's improperly constructed or improperly secured. If such a connection string is exposed it can be used to access a wide range of resources within the Storage account.
+- A connection string contains an access key in plain text and therefore presents potential vulnerabilities if it's improperly constructed or improperly secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
 For these reasons, we recommend using the authentication method in production code.
 
@@ -86,7 +86,7 @@ For these reasons, we recommend using the authentication method in production co
     python use_blob_auth.py
     ```
 
-1. Observe the error "This request is not authorized to perform this operation using this permission." The error is expected because the local service principal that you're using does not yet have permission to access the blob container.
+1. Observe the error "This request is not authorized to perform this operation using this permission." The error is expected because the local service principal that you're using doesn't yet have permission to access the blob container.
 
 1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) (it's a long one!):
 
@@ -112,7 +112,7 @@ For these reasons, we recommend using the authentication method in production co
 
     Replace `pythonazurestorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
-    If needed, also replace `PythonAzureExample-Storage-rg` with the name of the resource group that contains your storage account. The resource group shown here is what's used in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+    If needed, also replace `PythonAzureExample-Storage-rg` with the name of the resource group that contains your storage account. The resource group shown here is used in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
     The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
@@ -134,7 +134,7 @@ For more information on role assignments, see [How to assign role permissions us
     python use_blob_conn_string.py
     ```
 
-Again, although this method is simple, a connection string authorizes all operations in a storage account. With production code it's better to use specific permissions as described in the previous section.
+Again, although this method is simple, a connection string authorizes all operations in a storage account. With production code, it's better to use specific permissions as described in the previous section.
 
 ## 5. Verify blob creation
 
