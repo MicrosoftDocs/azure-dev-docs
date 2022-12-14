@@ -20,29 +20,29 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 ## 2: Install library packages
 
-1. In your *requirements.txt* file, add line for the needed client library package and save the file:
+In your *requirements.txt* file, add lines for the client library package you'll use and save the file.
 
-    :::code language="txt" source="~/../python-sdk-docs-examples/storage/requirements_use.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/storage/requirements_use.txt":::
 
-1. In your terminal or command prompt, reinstall requirements:
+Then, in your terminal or command prompt, install the requirements.
 
-    ```cmd
-    pip install -r requirements.txt
-    ```
+```cmd
+pip install -r requirements.txt
+```
 
 ## 3: Create a file to upload
 
-Create a source file named *sample-source.txt* (as the code expects), with contents like the following text:
+Create a source file named *sample-source.txt*. This is the file name the code expects.
 
 :::code language="txt" source="~/../python-sdk-docs-examples/storage/sample-source.txt":::
 
 ## 4: Use blob storage from app code
 
-The following sections (numbered 4a and 4b) demonstrate two means to access the blob container created through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+The following two sections demonstrate two ways to access the blob container created through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (with authentication)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
-The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
+The [second method (with connection string)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
 - A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
 
