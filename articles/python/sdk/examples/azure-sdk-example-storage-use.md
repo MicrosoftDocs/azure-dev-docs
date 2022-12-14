@@ -93,28 +93,28 @@ For these reasons, we recommend using the authentication method in production co
     # [cmd](#tab/cmd)
 
     ```azurecli
-    az role assignment create --assignee %AZURE_CLIENT_ID% ^
+    az role assignment create --assignee <AZURE_CLIENT_ID> ^
         --role "Storage Blob Data Contributor" ^
-        --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
+        --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     # [bash](#tab/bash)
 
     ```azurecli
-    az role assignment create --assignee $AZURE_CLIENT_ID \
+    az role assignment create --assignee <AZURE_CLIENT_ID> \
         --role "Storage Blob Data Contributor" \
-        --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
+        --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     ---
 
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
 
-    Replace `pythonazurestorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
+    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
-    If needed, also replace `PythonAzureExample-Storage-rg` with the name of the resource group that contains your storage account. The resource group shown here is used in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+    The `--scope` argument in this command also uses the \<AZURE_CLIENT_ID> and \<AZURE_SUBSCRIPTION_ID> variables. You can specify them in the command directly or with environment variables. If you use environmental variables, you may see a warning later about incomplete environment configuration when you run the code again.
 
-    The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+    > [TIP] If the command returns an error "No connection adapters wer found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
 
 1. **Wait a minute or two for the permissions to propagate**, then run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
@@ -138,9 +138,15 @@ Again, although this method is simple, a connection string authorizes all operat
 
 ## 5. Verify blob creation
 
-After running the code of either method, go to the [Azure portal](https://portal.azure.com), navigate into the blob container to verify that a new blob exists named *sample-blob.txt* with the same contents as the *sample-source.txt* file:
+After running the code of either method, go to the [Azure portal](https://portal.azure.com), navigate into the blob container to verify that a new blob exists named *sample-blob-{random}.txt* with the same contents as the *sample-source.txt* file:
 
 ![Azure portal page for the blob container, showing the uploaded file](../../media/azure-sdk-example-storage/portal-blob-container-file.png)
+
+If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, you can also use the Azure CLI to verify that the blob exists using the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command:
+
+```azurecli
+az storage blob list --container-name blob-container-01
+```
 
 ## 6: Clean up resources
 
@@ -148,7 +154,7 @@ After running the code of either method, go to the [Azure portal](https://portal
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
-Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
