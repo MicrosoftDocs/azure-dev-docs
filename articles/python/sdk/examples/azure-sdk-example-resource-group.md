@@ -82,10 +82,10 @@ The following Azure CLI [az group create](/cli/azure/group#az-group-create) comm
 ## See also
 
 * [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-* [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+* [Example: Create Azure Storage](azure-sdk-example-storage.md)
 * [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-* [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-* [Example: Provision and query a database](azure-sdk-example-database.md)
-* [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+* [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
+* [Example: Create and query a database](azure-sdk-example-database.md)
+* [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
 * [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 * [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
