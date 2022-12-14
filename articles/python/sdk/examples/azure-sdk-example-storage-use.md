@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-[!INCLUDE [create-environment-options](../../includes/create-environment-options.md)]
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install library packages
 
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ## 3: Create a file to upload
 
-Create a source file named *sample-source.txt*. This is the file name the code expects.
+Create a source file named *sample-source.txt*. This file name is what the code expects.
 
 :::code language="txt" source="~/../python-sdk-docs-examples/storage/sample-source.txt":::
 
@@ -110,7 +110,7 @@ For these reasons, we recommend using the authentication method in production co
 
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
 
-    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
+    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
     The `--scope` argument in this command also uses the \<AZURE_CLIENT_ID> and \<AZURE_SUBSCRIPTION_ID> variables. You can specify them in the command directly or with environment variables. If you use environmental variables, you may see a warning later about incomplete environment configuration when you run the code again.
 

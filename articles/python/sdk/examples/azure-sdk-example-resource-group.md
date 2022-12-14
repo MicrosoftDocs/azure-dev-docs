@@ -16,6 +16,8 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+
 * [Configure a Python virtual environment](../../configure-local-development-environment.md#configure-python-virtual-environment). You can even create the virtual environment in [Azure Cloud Shell](https://shell.azure.com/) and run the code there. Be sure to activate the virtual environment to start using it.
 
 * Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
