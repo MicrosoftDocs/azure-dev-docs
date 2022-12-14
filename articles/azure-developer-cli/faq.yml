@@ -126,7 +126,14 @@ sections:
 
       - question: What is OpenID Connect (OIDC), and is it supported?  
         answer: |
-          With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure. We're currently planning OIDC support and will include it in a future release. 
+          With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure. 
+          
+          While OIDC is supported as the default for GitHub Actions and Azure Pipeline (set as **federated**), it is not supported for Azure DevOps or Terraform. 
+          
+          * For Azure DevOps, explicitly calling out `--auth-type` as `federated` will result in an error.
+          * For Terraform:
+            * If `--auth-type` isn't defined, it will fall back to `ClientCredentials` and will result in a warning.
+            * If `--auth-type` is explicitly set to `federated`, it will result in an error.
 
       - question: How do I reset the Azure service principal that's stored in GitHub Actions?
         answer: |

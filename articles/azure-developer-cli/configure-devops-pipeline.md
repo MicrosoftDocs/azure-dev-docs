@@ -42,6 +42,9 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
    This command also creates a private GitHub repository and pushes code to the new repo.
 
+   > [!NOTE]
+   > By default, `azd pipeline config` uses [OpenID Connect (OIDC)](../github/connect-from-azure.md#use-the-azure-login-action-with-openid-connect), called **federated** credentials in `azd`. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`. 
+
 1. Supply the requested GitHub information.
 1. When prompted about committing and pushing your local changes to start a new GitHub Actions run, specify `y`.
 
