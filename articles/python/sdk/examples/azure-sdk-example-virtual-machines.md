@@ -1,25 +1,27 @@
 ---
-title: Provision a virtual machine using the Azure SDK libraries for Python
-description: How to provision an Azure virtual machine using Python and the Azure SDK management libraries.
-ms.date: 06/24/2021
+title: Create a virtual machine using the Azure SDK libraries for Python
+description: How to create an Azure virtual machine using Python and the Azure SDK management libraries.
+ms.date: 12/14/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
-# Example: Use the Azure libraries to provision a virtual machine
+# Example: Use the Azure libraries to create a virtual machine
 
 This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at the later in this article. If you prefer to use the Azure portal, see [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) and [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal).)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 > [!NOTE]
-> Provisioning a virtual machine through code is a multi-step process that involves provisioning a number of other resources that the virtual machine requires. If you're simply running such code from the command line, it's much easier to use the [`az vm create`](/cli/azure/vm#az_vm_create) command, which automatically provisions these secondary resources with defaults for any setting you choose to omit. The only required arguments are a resource group, VM name, image name, and login credentials. For more information, see [Quick Create a virtual machine with the Azure CLI](/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create).
+> Creating a virtual machine through code is a multi-step process that involves provisioning a number of other resources that the virtual machine requires. If you're simply running such code from the command line, it's much easier to use the [`az vm create`](/cli/azure/vm#az_vm_create) command, which automatically provisions these secondary resources with defaults for any setting you choose to omit. The only required arguments are a resource group, VM name, image name, and login credentials. For more information, see [Quick Create a virtual machine with the Azure CLI](/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create).
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+
+Be sure yo have a service principal for local development that you can use to authenticate with Azure.
 
 ## 2: Install the needed Azure library packages
 
@@ -86,12 +88,12 @@ Run this command if you don't need to keep the resources created in this example
 
 ## See also
 
-- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Create Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Example: Provision and query a database](azure-sdk-example-database.md)
+- [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Create and query a database](azure-sdk-example-database.md)
 - [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
 
