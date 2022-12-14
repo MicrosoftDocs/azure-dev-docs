@@ -16,11 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-* [Configure a Python virtual environment](../../configure-local-development-environment.md#configure-python-virtual-environment). You can even create the virtual environment in [Azure Cloud Shell](https://shell.azure.com/) and run the code there. Be sure to activate the virtual environment to start using it.
-
-* Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
-
-* Use a [Dev Container](https://containers.dev/) in [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://docs.github.com/en/codespaces/overview).
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install the Azure library packages
 
@@ -75,7 +71,7 @@ az group delete -n PythonAzureExample-rg  --no-wait
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
+You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
 
 ### For reference: equivalent Azure CLI command
 
@@ -86,10 +82,10 @@ The following Azure CLI [az group create](/cli/azure/group#az-group-create) comm
 ## See also
 
 * [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-* [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+* [Example: Create Azure Storage](azure-sdk-example-storage.md)
 * [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-* [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-* [Example: Provision and query a database](azure-sdk-example-database.md)
-* [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+* [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
+* [Example: Create and query a database](azure-sdk-example-database.md)
+* [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
 * [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 * [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
