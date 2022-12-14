@@ -8,7 +8,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 # Example: Access Azure Storage using the Azure libraries for Python
 
-This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you've created the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you've created the resources shown in [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -38,7 +38,7 @@ Create a source file named *sample-source.txt*. This file name is what the code 
 
 ## 4: Use blob storage from app code
 
-The following two sections demonstrate two ways to access the blob container created through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
+The following two sections demonstrate two ways to access the blob container created through [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
 The [first method (with authentication)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
@@ -46,7 +46,7 @@ The [second method (with connection string)](#4b-use-blob-storage-with-a-connect
 
 - A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
 
-- A connection string contains an access key in plain text and therefore presents potential vulnerabilities if it's improperly constructed or improperly secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
+- A connection string contains an access info in plain text and therefore presents potential vulnerabilities if it's improperly constructed or improperly secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
 For these reasons, we recommend using the authentication method in production code.
 
