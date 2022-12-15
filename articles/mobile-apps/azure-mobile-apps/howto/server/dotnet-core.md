@@ -408,7 +408,11 @@ You can use any other repository capability (such as the access control provider
 
 ## OpenAPI Support
 
-You can publish the API defined by data sync controllers using [Swashbuckle](/aspnet/core/tutorials/getting-started-with-swashbuckle).  Follow the basic instructions for Swashbuckle integration, then modify as follows:
+You can publish the API defined by data sync controllers using [Swashbuckle](/aspnet/core/tutorials/getting-started-with-swashbuckle). 
+
+### Swashbuckle
+
+Follow the basic instructions for Swashbuckle integration, then modify as follows:
 
 1. Add packages to your project to support Swashbuckle.  The following packages are required:
 
