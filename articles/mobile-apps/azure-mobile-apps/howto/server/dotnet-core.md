@@ -426,6 +426,9 @@ You can publish the API defined by data sync controllers using [Swashbuckle](/as
     builder.Services.AddSwaggerGenNewtonsoftSupport();
     ```
 
+    !!! note
+        The `AddDatasyncControllers()` method takes an optional `Assembly` that corresponds to the assembly that contains your table controllers.  This is only required if your table controllers are in a different project to the service.
+
 3. Enable the middleware for serving the generated JSON document and the Swagger UI, also in `Program.cs`:
 
     ```csharp
