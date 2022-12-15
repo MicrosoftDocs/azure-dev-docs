@@ -35,7 +35,7 @@ Then, in your terminal or command prompt with the virtual environment activated,
 pip install -r requirements.txt
 ```
 
-## 3: Write code to provision a virtual machine
+## 3: Write code to create a virtual machine
 
 Create a Python file named *provision_vm.py* with the following code. The comments explain the details:
 
@@ -108,4 +108,4 @@ Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't
 The following resources contain more comprehensive examples using Python to create a virtual machine:
 
 - [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python). You can use this example to create Linux VMs by changing the `storage_profile` parameter.
-- [Azure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates additional management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.
+- [Azure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates more management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.
