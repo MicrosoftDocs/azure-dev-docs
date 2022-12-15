@@ -404,7 +404,10 @@ public void InitializeDatabase(DbContext context)
     }
     ```
 
-You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDb is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
+You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDB is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
+
+> ![WARN]
+> LiteDB versions prior to v5.0.12 have a known security issue.  Ensure you are using the latest version of LiteDB in your applications.
 
 ## OpenAPI Support
 
