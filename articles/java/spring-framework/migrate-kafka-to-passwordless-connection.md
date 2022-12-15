@@ -575,6 +575,9 @@ If you connected your services using the Service Connector, you don't need to co
 
 1. In the flyout, search for the subscription where hosting service is located. Then, select *All system-assigned managed identities*, and select the managed identity of your hosting service. Select the system assigned identity, and then select **Select** to close the flyout menu.
 
+   > [!NOTE]
+   > If you use Azure Kubernetes Service, select **User-assigned managed identities** and then select the managed identity of the Kubernetes cluster, which has a name with the following structure: `<your-kubernetes-cluster-name>-agentpool`.
+
 1. Select **Next** a couple of times until you're able to select **Review + assign** to finish the role assignment.
 
 ##### [Azure CLI](#tab/assign-role-azure-cli)
