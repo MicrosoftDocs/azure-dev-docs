@@ -71,7 +71,7 @@ The following list shows all supported configuration options.
   - Prefix: `spring.cloud.azure`
   - Supported options: `spring.cloud.azure.credential.*`, `spring.cloud.azure.profile.*`
 
-  For the full list of global configuration options, see the [Global properties](../../spring-cloud-azure-appendix.md#global-properties) section.
+  For the full list of global configuration options, see [Global configuration properties](../../configuration-properties-global.md).
 
 - Spring Boot Kafka common configuration
 

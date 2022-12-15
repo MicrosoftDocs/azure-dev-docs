@@ -884,8 +884,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory-b2c:
 > | **spring.cloud.azure.active-directory.b2c**.user-flows                         | User flows.                                                                                  |
 > | **spring.cloud.azure.active-directory.b2c**.user-name-attribute-name           | User name attribute name.                                                                    |
 
-
-For full configurations, check [the Appendix page](../../spring-cloud-azure-appendix.md).
+For full configurations, check [Spring Cloud Azure configuration properties](../../configuration-properties-all.md).
 
 #### Basic usage
 

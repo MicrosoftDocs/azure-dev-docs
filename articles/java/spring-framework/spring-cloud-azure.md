@@ -1,16 +1,16 @@
 ---
-title: Spring Cloud Azure reference documentation
-description: Spring Cloud Azure reference documentation
-ms.date: 12/07/2022
+title: Spring Cloud Azure developer guide
+description: Spring Cloud Azure developer guide
+ms.date: 12/09/2022
 ms.topic: article
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.custom: devx-track-java
 ---
 
-# Spring Cloud Azure reference documentation
+# Spring Cloud Azure developer guide
 
-This article provides reference documentation for Spring Cloud Azure 4.5.0.
+This article provides developer guidance for Spring Cloud Azure 4.5.0.
 
 [!INCLUDE [version-information.md](includes/spring-cloud-azure/version-information.md)]
 

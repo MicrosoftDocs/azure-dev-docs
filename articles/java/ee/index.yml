@@ -75,6 +75,10 @@ landingContent:
         links:
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs manual guidance
+            url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to AKS within custom VNET
+            url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Azure AD via LDAP
             url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
