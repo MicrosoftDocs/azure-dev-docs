@@ -1,20 +1,20 @@
 ---
 title: Configuring proxies when using Azure libraries
 description: Use HTTP[S]_PROXY environment variables to define a proxy for an entire script or app, or use optional named arguments for client constructors or operation methods.
-ms.date: 08/24/2021
+ms.date: 12/15/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # How to configure proxies for the Azure libraries
 
-A proxy server URL has of the form `http[s]://[username:password@]<ip_address_or_domain>:<port>/` where the username:password combination is optional.
+If your organization requires the use of a proxy server to access internet resources, you'll need to set an environment variable with the proxy server information to use the Azure SDK for Python. A proxy server URL has of the form `http[s]://[username:password@]<ip_address_or_domain>:<port>/` where the username and password combination is optional.
 
 You can then configure a proxy globally by using environment variables, or you can specify a proxy by passing an argument named `proxies` to an individual client constructor or operation method.
 
 ## Global configuration
 
-To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the server URL. These variables work any version of the Azure libraries.
+To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the server URL. These variables work with any version of the Azure libraries.
 
 These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 
