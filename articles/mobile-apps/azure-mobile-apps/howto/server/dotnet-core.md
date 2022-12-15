@@ -179,7 +179,7 @@ By default, a user can do anything they want to entities within a table - create
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
 * `PreCommitHookAsync()` adjusts any entity immediately before being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure a HttpContextAccessor][4].
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure an HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -427,7 +427,7 @@ You can publish the API defined by data sync controllers using [Swashbuckle](/as
     ```
 
     !!! note
-        The `AddDatasyncControllers()` method takes an optional `Assembly` that corresponds to the assembly that contains your table controllers.  This is only required if your table controllers are in a different project to the service.
+        The `AddDatasyncControllers()` method takes an optional `Assembly` that corresponds to the assembly that contains your table controllers.  The `Assembly` parameter is only required if your table controllers are in a different project to the service.
 
 3. Enable the middleware for serving the generated JSON document and the Swagger UI, also in `Program.cs`:
 
@@ -443,7 +443,7 @@ You can publish the API defined by data sync controllers using [Swashbuckle](/as
     }
     ```
 
-With this configuration, browsing to the root of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  This is a minimal setup.  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
+With this configuration, browsing to the root of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
 
 ## Limitations
 
