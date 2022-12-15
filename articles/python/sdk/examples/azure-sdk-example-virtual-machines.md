@@ -70,7 +70,7 @@ You can also use the Azure CLI to verify that the VM exists with the [az vm list
 az vm list --resource-group PythonAzureExample-VM-rg
 ```
 
-### For reference: equivalent Azure CLI commands
+### Equivalent Azure CLI commands
 
 # [cmd](#tab/cmd)
 
