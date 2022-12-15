@@ -89,7 +89,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.*, 4.0.0)"
-  } 
+  },
   "functionTimeout": "00:10:00"
 }
 ```

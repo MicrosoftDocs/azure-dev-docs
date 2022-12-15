@@ -44,7 +44,7 @@ Use [project management tools](https://github.com/features/issues) to coordinate
 - Set milestones to organize and track progress.
 - Write notes to capture useful ideas that don't belong to a particular issue or pull request.
 
-[Manage users](https://docs.github.com/enterprise-server@3.2/admin/user-management) and help teams grow by using:
+[Manage users](https://docs.github.com/enterprise-server@latest/admin/user-management) and help teams grow by using:
 
 - User roles to help organize team roles and access permissions.
 - Discussion thread tools to keep conversations on track and team-focused.
