@@ -25,15 +25,15 @@ Be sure yo have a service principal for local development that you can use to au
 
 ## 2: Install the needed Azure library packages
 
-1. Create a *requirements.txt* file that lists the management libraries used in this example:
+Create a *requirements.txt* file that lists the management libraries used in this example:
 
-    :::code language="txt" source="~/../python-sdk-docs-examples/vm/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/vm/requirements.txt":::
 
-1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
+Then, in your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
 
-    ```cmd
-    pip install -r requirements.txt
-    ```
+```cmd
+pip install -r requirements.txt
+```
 
 ## 3: Write code to provision a virtual machine
 
@@ -60,9 +60,15 @@ The provisioning process takes a few minutes to complete.
 
 ## 5. Verify the resources
 
-Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureExample-VM-rg" resource group, and note the virtual machine, virtual disk, network security group, public IP address, network interface, and virtual network:
+Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureExample-VM-rg" resource group, and note the virtual machine, virtual disk, network security group, public IP address, network interface, and virtual network.
 
 ![Azure portal page for the new resource group showing the virtual machine and related resources](../../media/azure-sdk-example-virtual-machines/portal-vm-resources.png)
+
+You can also use the Azure CLI to verify that the blob exists with the [az vm list](/cli/azure/vm#az-vm-list) command:
+
+```azurecli
+az vm list --resource-group PythonAzureExample-VM-rg
+```
 
 ### For reference: equivalent Azure CLI commands
 
@@ -76,13 +82,15 @@ Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureE
 
 ---
 
+If you get an error about capacity restrictions, you can try a different size or region. For more information, see [Resolve errors for SKU not available](/azure/azure-resource-manager/troubleshooting/error-sku-not-available).
+
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-VM-rg  --no-wait
+az group delete -n PythonAzureExample-VM-rg --no-wait
 ```
 
-Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
