@@ -64,7 +64,7 @@ Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureE
 
 ![Azure portal page for the new resource group showing the virtual machine and related resources](../../media/azure-sdk-example-virtual-machines/portal-vm-resources.png)
 
-You can also use the Azure CLI to verify that the blob exists with the [az vm list](/cli/azure/vm#az-vm-list) command:
+You can also use the Azure CLI to verify that the VM exists with the [az vm list](/cli/azure/vm#az-vm-list) command:
 
 ```azurecli
 az vm list --resource-group PythonAzureExample-VM-rg
