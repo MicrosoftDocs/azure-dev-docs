@@ -11,11 +11,11 @@ ms.prod: azure-python
 
 # Tutorial: Get Bing News using a Python Azure Function
 
-In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to HTTP requests. The Azure Function:
+In this tutorial, you'll create a local [Azure Function](https://azure.microsoft.com/products/functions/) in Python that responds to HTTP requests. The Azure Function:
 
 * Gets the Bing Search key from Key Vault
-* **Ingest**: Calls the [Bing News Search API service](/bing/apis/bing-news-search-api) with your search term
-* **Store**: Stores the search results as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
+* **Ingest**: Calls the [Bing News Search API service](/bing/search-apis/bing-news-search) with your search term
+* **Store**: Stores the search results as a JSON file in [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/).
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/data-load-bing-search.png" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/data-load-bing-search.png" border="false":::
 
