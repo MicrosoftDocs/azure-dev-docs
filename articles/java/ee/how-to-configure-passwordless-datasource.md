@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 
 [!INCLUDE [applies-to-weblogic-offers.md](includes/applies-to-weblogic-offers.md)]
 
-This article shows you how to configure passwordless database connection in Azure Oracle WebLogic offers with the Azure portal.
+This article shows you how to configure passwordless database connection in Azure Oracle WebLogic Server offers with the Azure portal.
 
 In this guide, you will:
 
@@ -54,7 +54,7 @@ az group create \
 ```
 ## Create a MySQL Flexible Server and a database
 
-Create a flexible server with the az [mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. This example creates a flexible server named `mysql20221201` with admin user `azureuser`, and admin password `Secret123456`, replace the password with yours. For more information, see [Create an Azure Database for MySQL Flexible Server using Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
+Create a flexible server with the az [mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. This example creates a flexible server named `mysql20221201` with admin user `azureuser`, and admin password `Secret123456`. Replace the password with yours. For more information, see [Create an Azure Database for MySQL Flexible Server using Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
 ```azurecli-interactive
 MYSQL_NAME="mysql20221201"
@@ -86,9 +86,9 @@ az mysql flexible-server db create \
 
 ## Configure an Azure AD administrator to your database
 
-To create a database user for a managed identity, you need an Azure Database for MySQL database server that has [Azure AD authentication](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication) configured.
+Now that you've created the database, let's make it ready to support passwordless connection. Passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) For details on how the database interacts with managed identities, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
-This example configures the current Azure CLI user as Azure AD administrator account. To enable Azure Authentication, it's necessary to assign an identity to MySQL Flexible server.
+This example configures the current Azure CLI user as an Azure AD administrator account. To enable Azure Authentication, it's necessary to assign an identity to MySQL Flexible server.
 
 First, create a managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
 
@@ -138,11 +138,13 @@ CLIENT_ID=$(az identity show --resource-group ${RESOURCE_GROUP_NAME} --name myMa
 
 Now, connect as the Azure AD administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
-First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address. If you're working on WSL with VPN enabled, the following command may return an incorrect IPv4 address. You can get your IP address by browsing `https://whatismyipaddress.com/` from a browser.
+First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address.
 
 ```bash
 MY_IP=$(curl http://whatismyip.akamai.com)
 ```
+
+If you're working on WSL with VPN enabled, the following command may return an incorrect IPv4 address. One way to get your IPv4 address is by visiting `https://whatismyipaddress.com/`. In any case, set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database.
 
 Create a temporary firewall rule with [az mysql flexible-server firewall-rule create](/cli/azure/mysql/flexible-server/firewall-rule#az-mysql-flexible-server-firewall-rule-create).
 
@@ -169,7 +171,7 @@ FLUSH privileges;
 EOF
 ```
 
-Execute the sql file with the command [az mysql flexible-server execute](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-execute). You can get your access token with [az account get-access-token](/cli/azure/account#az-account-get-access-token).
+Execute the sql file with the command [az mysql flexible-server execute](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-execute). You can get your access token with the command [az account get-access-token](/cli/azure/account#az-account-get-access-token).
 
 ```azurecli-interactive
 RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
@@ -210,7 +212,7 @@ az mysql flexible-server firewall-rule delete \
         --yes
 ```
 
-Get connection string that you'll use in the next section.
+Finally, get connection string that you'll use in the next section.
 
 ```azurecli-interactive
 CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
@@ -220,12 +222,14 @@ echo ${CONNECTION_STRING}
 
 This section shows you how to configure the passwordless data source connection in the Azure Marketplace offer. 
 
-First, begin the process of deploying an offer, you can run one of them:
+First, begin the process of deploying an offer. The following offers support passwordless database connection:
 
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
+  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
+  - [Quickstart](azure/developer/java/ee/weblogic-server-azure-kubernetes-service)
 
-Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach **Database**, fill in the passwordless configuration as shown in the following screenshot, take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
+Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach the **Database** blade, fill in the passwordless configuration as shown in the following screenshot, take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
 
