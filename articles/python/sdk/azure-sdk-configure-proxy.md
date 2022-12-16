@@ -41,7 +41,7 @@ custom configuration necessary.
 
 ## Custom configuration
 
-## Set in Python code per-client or per-method configuration
+## Set in Python code per-client or per-method
 
 For custom configuration, you can specify a proxy for a specific client object or operation method. Specify a proxy server with an argument named `proxies`.
 
