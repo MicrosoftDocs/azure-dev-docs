@@ -20,25 +20,30 @@ To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HT
 
 These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 
-### From Python code
+### Proxy for the Azure CLI
 
-:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="1-7":::
-
-### From the CLI
-
-# [cmd](#tab/cmd)
+#### [cmd](#tab/cmd)
 
 :::code language="cmd" source="~/../python-sdk-docs-examples/proxy/set_proxy.cmd":::
 
-# [bash](#tab/bash)
+##### [bash](#tab/bash)
 
 :::code language="bash" source="~/../python-sdk-docs-examples/proxy/set_proxy.sh":::
 
 ---
 
-## Per-client or per-method configuration
+### For Python code using environment variables
 
-To configure a proxy for a specific client object or operation method, specify a proxy server with an argument named `proxies`.
+You can set proxy settings using environment variables, with no
+custom configuration necessary.
+
+:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="1-7":::
+
+## Custom configuration
+
+## For Python code per-client or per-method configuration
+
+For custom configuration, you can specify a proxy for a specific client object or operation method. Specify a proxy server with an argument named `proxies`.
 
 For example, the following code from the article [Example: use Azure storage](./examples/azure-sdk-example-storage.md) specifies an HTTPS proxy with user credentials with the `BlobClient` constructor. In this case, the object comes from the azure.storage.blob library, which is based on azure.core.
 
