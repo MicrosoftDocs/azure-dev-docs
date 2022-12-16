@@ -20,7 +20,7 @@ To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HT
 
 These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 
-### Proxy for the Azure CLI
+### Set from the Azure CLI
 
 #### [cmd](#tab/cmd)
 
@@ -32,7 +32,7 @@ These environment variables are ignored if you pass the parameter `use_env_setti
 
 ---
 
-### For Python code using environment variables
+### Set in Python code
 
 You can set proxy settings using environment variables, with no
 custom configuration necessary.
@@ -41,7 +41,7 @@ custom configuration necessary.
 
 ## Custom configuration
 
-## For Python code per-client or per-method configuration
+## Python code per-client or per-method configuration
 
 For custom configuration, you can specify a proxy for a specific client object or operation method. Specify a proxy server with an argument named `proxies`.
 
