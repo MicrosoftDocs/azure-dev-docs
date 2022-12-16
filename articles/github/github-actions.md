@@ -91,4 +91,4 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 > [Learning path, Automate your workflow with GitHub Actions](/training/modules/github-actions-automate-tasks/)
 
 > [!div class="nextstepaction"]
-> [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
+> [Learning Lab, Continuous Delivery with Azure](https://github.com/skills/continuous-delivery-azure)
