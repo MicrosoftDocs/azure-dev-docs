@@ -1,11 +1,11 @@
 ---
-title: #Required; page title displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: overview #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: Spring Cloud Azure Overview
+description: Spring Cloud Azure is a project that helps developers easier to use Azure services in Spring Boot application by providing a group of Java libraries.
+author: KarlErickson
+ms.author: rujche
+ms.service: azure-java
+ms.topic: overview
+ms.date: 12/07/2022
 ---
 
 <!--
@@ -25,7 +25,7 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 <!---
 --->
 
-# What is <product/service>?
+# What is <product/service>? 
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
