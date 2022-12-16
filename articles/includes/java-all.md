@@ -406,8 +406,6 @@
 | azure-xml | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-xml/1.0.0-beta.1/jar/) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.8](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.8/jar/) |  |  |
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
-| notification-hubs-android-sdk | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk/1.1.6/jar/) |  |  |
-| notification-hubs-android-sdk-fcm | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk-fcm/1.1.6/jar/) |  |  |
 | onnx-protobuf_2.12 | Maven [0.9.1](https://search.maven.org/artifact/com.microsoft.azure/onnx-protobuf_2.12/0.9.1/jar/) |  |  |
 | spark-mssql-connector_2.11_2.4 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.11_2.4/1.0.2/jar/) |  |  |
 | spark-mssql-connector_2.12 | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.12/1.2.0/jar/) |  |  |
@@ -539,8 +537,8 @@
 | Key Vault - Certificates | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-certificates/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-certificates_4.0.0-preview.4/sdk/keyvault/azure-keyvault-certificates/) |
 | Key Vault - Keys | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-keys/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-keys_4.0.0-preview.4/sdk/keyvault/azure-keyvault-keys/) |
 | Key Vault - Secrets | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-secrets/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-secrets_4.0.0-preview.4/sdk/keyvault/azure-keyvault-secrets/) |
-| Kusto Data | Maven [4.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/4.0.0/jar/) |  |  |
-| Kusto Ingest | Maven [4.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/4.0.0/jar/) |  |  |
+| Kusto Data | Maven [4.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/4.0.1/jar/) |  |  |
+| Kusto Ingest | Maven [4.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/4.0.1/jar/) |  |  |
 | Kusto Spark | Maven [3.1.7](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/3.1.7/jar/) |  |  |
 | Log Analytics | Maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-loganalytics/1.0.0-Preview-1/jar/) |  | GitHub [1.0.0-Preview-1](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loganalytics/microsoft-azure-loganalytics) |
 | LUIS | Maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
