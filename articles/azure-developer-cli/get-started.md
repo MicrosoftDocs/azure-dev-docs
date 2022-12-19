@@ -97,7 +97,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
 
-   :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+:::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
 ### Provide parameters
 
@@ -295,7 +295,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
 
-   :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+:::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
 ### Provide parameters
 
@@ -488,7 +488,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
 
-   :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+:::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
 ### Provide parameters
 
@@ -663,6 +663,62 @@ Upon successful completion of the `azd up` command:
 
 > [!NOTE]
 > You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+
+## [Codespaces](#tab/codespaces)
+
+### Using GitHub Codespaces
+
+1. In your browser, navigate to the [Java/Mongo `azd` template](https://github.com/Azure-Samples/todo-java-mongo) (or [select one from our templates library](./azd-templates.md)).
+2. Above the file list, click **Use this template** > **Open in a codespace**.
+
+   :::image type="content" source="media/get-started/codespaces-template-dropdown.png" alt-text="Screenshot demonstrating selecting the option to open a template in a codespace via the GitHub repo UI.":::
+
+With Codespaces, all pre-requisites are installed for you, including the [`azd` Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev). 
+
+:::image type="content" source="media/get-started/codespaces-initial-set-up.png" alt-text="Screenshot showing what your new codespace will look like once initiated.":::
+
+### Run `up` command
+
+Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
+
+:::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+
+### Provide parameters
+
+When you run the `azd up` command, you'll be prompted to provide the following information and to sign in using a web browser and an authentication code:
+
+:::image type="content" source="media/get-started/codespaces-parameters.png" alt-text="Screenshot showing the parameter prompts and the prompt to sign in using your browser.":::
+
+| Parameter | Description |
+| --------- | ----------- |
+| `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
+| `Azure Location`   | The Azure location where your resources will be deployed. |
+| `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+
+This process may take some time to complete, as the `azd up` command:
+
+- Creates and configures all necessary Azure resources (`azd provision`), including:
+  - Access policies and roles for your account
+  - Service-to-service communication with Managed Identities
+- Deploys the code (`azd deploy`)
+
+Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
+
+- ToDo API app
+- ToDo web app frontend
+
+:::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
+
+### What happened?
+
+Upon successful completion of the `azd up` command:
+
+- The [Azure resources referenced in the template's `README.md` file](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
+- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+
+> [!NOTE]
+> - You can call `azd up` as many times as you like to both provision and deploy your solution.
+> - Run and debug that requires launching a web browser is currently not supported because of [known limitation with GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations). For a better experience, we recommend using Codespaces in Desktop.
 
 ## [DevContainer](#tab/devcontainer)
 
