@@ -5,67 +5,60 @@ author: KarlErickson
 ms.author: rujche
 ms.service: azure-java
 ms.topic: overview
-ms.date: 12/07/2022
+ms.date: 12/19/2022
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the
-main branch.
+# What is Spring Cloud Azure? 
 
-This template provides the basic structure of a Overview article pattern. See the [instructions - Overview](../level4/article-overview.md) in the pattern library.
+Spring Cloud Azure is an open-source project that helps developers easier to use [Azure services](https://azure.microsoft.com/en-us/products/) in [Spring](https://spring.io/) application.
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+As an open-source project. All its content are public. Here are links to its content:
+ - Source code: [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
+ - Samples: [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples).
+ - Document: [Spring Cloud Azure](.) (Current page).
 
- 1. H1 -----------------------------------------------------------------------------
+## What is Spring Cloud Azure used for?
 
-Required: For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
--->
+Spring Cloud Azure can help developer easier to develop these features in Spring application:
+ - Managing configuration properties by [Azure App Configuration](https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview).
+ - Sending and receiving messages by [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) / [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction).
+ - Managing secrets / certificates by [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview).
+ - Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
+ - Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview).
+ - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview).
+ - Storing structured data by [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction).
+ - Storing unstructured data (like text or binary data) by [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview).
+ - Storing files by [Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction).
 
-<!---
---->
+## Demonstrate Benefits Of Using Spring Cloud Azure
 
-# What is <product/service>? 
-TODO: Add your heading
+This section will demonstrate the benefits of using Spring Cloud Azure. Take retrieve secrets stored in Azure Key Vault as an example, comparing the difference of developing a Spring Boot application with and without Spring Cloud Azure.
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+### Without Spring Cloud Azure
 
-Required: The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
--->
+TODO(rujche): Implement following contents.
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+1. Add dependencies in pom.xml
+2. Need to manage client-id client-secret by writing java code.
+3. Add necessary properties in application.yml
+4. Need to construct `SecretClient` by himself.
+5. If `SecretClient` need to be used in multiple places, should define a `SecretClient` bean.
+6. Autowired `SecretClient` in related place.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+### With Spring Cloud Azure
 
-<!-- 3. Article body ------------------------------------------------------------
-Required: After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
--->
+TODO(rujche): Implement following contents.
+1. Add `spring-cloud-azure-starter-keyvault-secrets`.
+2. Add necessary properties in application.yml
+3. Autowired `SecretClient` in related place.
 
-[Article body]
-TODO: Add your article body
-
-<!-- Top tasks ------------------------------------------------------------------------------
-
-Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks you identified during the [planning process](../contribute/content-dev-plan.md) and describe how the product/service helps customers with that task.
-
-Create a new H2 for each task you list.
---->
-
-## \<Top task\>
-
-<!-- 5. Next steps ------------------------------------------------------------------------
-
-Required: In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+Furthermore, he can use these features:
+1. Use `@Value` to get the secret value.
+2. Use Health indicator oto check the health of Key Vault.
+3. No need to worry about the problem of version compatibility between Spring Boot and Azure SDK. 
 
 ## Next steps
-TODO: Add your next step link(s)
+
++ [Load a secret from Azure Key Vault](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
++ [Secure REST API using Spring Security 5 and Azure Active Directory](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
++ [Access data with Azure Cosmos DB NoSQL API](configure-spring-boot-starter-java-app-with-cosmos-db.md)
