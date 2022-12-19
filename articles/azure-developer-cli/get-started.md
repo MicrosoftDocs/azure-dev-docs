@@ -82,7 +82,7 @@ Upon successful completion of the `azd up` command:
 
 ## [Codespaces](#tab/codespaces)
 
-### Using GitHub Codespaces
+### Set up your codespace
 
 1. In your browser, navigate to the [Node.js/Mongo `azd` template](https://github.com/azure-samples/todo-nodejs-mongo) (or [select one from our templates library](./azd-templates.md)).
 2. Above the file list, click **Use this template** > **Open in a codespace**.
@@ -280,7 +280,7 @@ Upon successful completion of the `azd up` command:
 
 ## [Codespaces](#tab/codespaces)
 
-### Using GitHub Codespaces
+### Set up your codespace
 
 1. In your browser, navigate to the [Python/Mongo `azd` template](https://github.com/Azure-Samples/todo-python-mongo) (or [select one from our templates library](./azd-templates.md)).
 2. Above the file list, click **Use this template** > **Open in a codespace**.
@@ -473,7 +473,7 @@ Upon successful completion of the `azd up` command:
 
 ## [Codespaces](#tab/codespaces)
 
-### Using GitHub Codespaces
+### Set up your codespace
 
 1. In your browser, navigate to the [C#/Cosmos `azd` template](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) (or [select one from our templates library](./azd-templates.md)).
 2. Above the file list, click **Use this template** > **Open in a codespace**.
@@ -666,7 +666,7 @@ Upon successful completion of the `azd up` command:
 
 ## [Codespaces](#tab/codespaces)
 
-### Using GitHub Codespaces
+### Set up your codespace
 
 1. In your browser, navigate to the [Java/Mongo `azd` template](https://github.com/Azure-Samples/todo-java-mongo) (or [select one from our templates library](./azd-templates.md)).
 2. Above the file list, click **Use this template** > **Open in a codespace**.
