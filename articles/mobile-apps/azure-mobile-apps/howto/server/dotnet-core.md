@@ -179,7 +179,7 @@ By default, a user can do anything they want to entities within a table - create
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
 * `PreCommitHookAsync()` adjusts any entity immediately before being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure a HttpContextAccessor][4].
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure an HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -368,9 +368,9 @@ public void InitializeDatabase(DbContext context)
 }
 ```
 
-### LiteDb
+### LiteDB
 
-[LiteDb](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
+[LiteDB](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
 1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
@@ -404,7 +404,50 @@ public void InitializeDatabase(DbContext context)
     }
     ```
 
-You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDb is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
+You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDB is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
+
+## OpenAPI Support
+
+You can publish the API defined by data sync controllers using [Swashbuckle](/aspnet/core/tutorials/getting-started-with-swashbuckle).
+
+### Swashbuckle
+
+Follow the basic instructions for Swashbuckle integration, then modify as follows:
+
+1. Add packages to your project to support Swashbuckle.  The following packages are required:
+
+    * [Swashbuckle.AspNetCore](https://www.nuget.org/packages/Swashbuckle.AspNetCore).
+    * [Swashbuckle.AspNetCore.Newtonsoft](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Newtonsoft).
+    * [Microsoft.AspNetCore.Datasync.Swashbuckle](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.Swashbuckle).
+
+2. Add a service to generate an OpenAPI definition to your `Program.cs` file:
+
+    ```csharp
+    builder.Services.AddSwaggerGen(options => 
+    {
+        options.AddDatasyncControllers();
+    });
+    builder.Services.AddSwaggerGenNewtonsoftSupport();
+    ```
+
+    > [!NOTE]
+    > The `AddDatasyncControllers()` method takes an optional `Assembly` that corresponds to the assembly that contains your table controllers.  The `Assembly` parameter is only required if your table controllers are in a different project to the service.
+
+3. Enable the middleware for serving the generated JSON document and the Swagger UI, also in `Program.cs`:
+
+    ```csharp
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI(options => 
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+            options.RoutePrefix = string.Empty;
+        });
+    }
+    ```
+
+With this configuration, browsing to the root of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
 
 ## Limitations
 
