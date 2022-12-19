@@ -132,7 +132,7 @@ sections:
           
           * For Azure DevOps, explicitly calling out `--auth-type` as `federated` will result in an error.
           * For Terraform:
-            * If `--auth-type` isn't defined, it will fall back to `ClientCredentials` and will result in a warning.
+            * If `--auth-type` isn't defined, it will fall back to `clientcredentials` and will result in a warning.
             * If `--auth-type` is explicitly set to `federated`, it will result in an error.
 
       - question: How do I reset the Azure service principal that's stored in GitHub Actions?
