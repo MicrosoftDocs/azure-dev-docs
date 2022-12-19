@@ -1,8 +1,12 @@
 - name: Spring Cloud Azure
   href: index.yml
   items:
-  - name: Get started
+  - name: Overview
     expanded: true
+    items:
+    - name: What is Spring Cloud Azure?
+      href: spring-cloud-azure-overview.md
+  - name: Get started
     items:
     - name: Overview
       href: spring-boot-starters-for-azure.md
