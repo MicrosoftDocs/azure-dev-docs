@@ -227,7 +227,7 @@ First, begin the process of deploying an offer. The following offers support pas
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
   - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
-  - [Quickstart](azure/developer/java/ee/weblogic-server-azure-kubernetes-service)
+  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-kubernetes-service)
 
 Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach the **Database** blade, fill in the passwordless configuration as shown in the following screenshot, take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
