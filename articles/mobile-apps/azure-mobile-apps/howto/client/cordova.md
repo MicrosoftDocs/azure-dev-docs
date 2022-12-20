@@ -4,7 +4,7 @@ description: How to use the Apache Cordova plugin for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 12/19/2022
 ms.author: adhal
 ---
 
@@ -18,6 +18,9 @@ This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows d
 
 * Android API 19+.
 * iOS versions 8.0 and later.
+
+> [!WARNING]
+> This article covers information for the v4.2.0 library version, which is retired. No further updates will be made to this library, including updates for security issues. Consider moving to a .NET client such as [.NET MAUI](/dotnet/maui/what-is-maui) for continued support.
 
 ## Setup and prerequisites
 
