@@ -11,16 +11,24 @@ ms.custom: devx-track-azdevcli
 
 # Use Terraform as an infrastructure as code tool for Azure Developer CLI (preview)
 
-Azure Developer CLI (azd) Preview supports multiple infrastructures as code (IaC) providers, including:  
+Azure Developer CLI (azd) supports multiple infrastructures as code (IaC) providers, including:  
 
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - [Terraform](../terraform/overview.md)
 
 By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](../terraform/comparing-terraform-and-bicep.md?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
 
+## Pre-requisites
+
+- [Install and configure Terraform](../terraform/quickstart-configure.md)
+- [Install and log into Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli)
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js or Python Terraform template](./azd-templates.md#choose-a-template).
+
+> [!NOTE]
+> While `azd` doesn't rely on an Azure CLI login, Terraform requires Azure CLI. Read more about this requirement from [Terraform's official documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli). 
+
 ## Configure Terraform as the IaC provider
 
-1. If you haven't already, [install and configure Terraform](../terraform/quickstart-configure.md).
 1. Open the [`azure.yaml` file](./azd-schema.md#terraform-as-iac-provider-sample) found in the root of your project and make sure you have the following lines to override the default, which is Bicep:
 
     ```yaml
