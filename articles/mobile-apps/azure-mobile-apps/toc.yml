@@ -71,18 +71,16 @@
   - name: Offline Data Sync
     href: howto/data-sync.md
   - name: Client SDK
-    items:
-    - name: Apache Cordova
-      href: howto/client/cordova.md
-    - name: .NET
-      href: howto/client/dotnet.md
+    href: howto/client/dotnet.md
   - name: Server SDK
-    items:
-    - name: ASP.NET Core
-      href: howto/server/dotnet-core.md
-- name: .NET v4.2.0 Client
+    href: howto/server/dotnet-core.md
+- name: v4.2.0 Documentation (Retired)
   items: 
-  - name: How to use the client
+  - name: Apache Cordova
+    href: howto/client/cordova.md
+  - name: .NET Client
     href: howto/client/dotnet-v4.md
+  - name: .NET Service
+    href: howto/server/dotnet-framework.md
   - name: Authentication
     href: howto/authentication.md
