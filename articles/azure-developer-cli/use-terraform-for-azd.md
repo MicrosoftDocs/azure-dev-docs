@@ -3,7 +3,7 @@ title: Use Terraform as an infrastructure as code tool for Azure Developer CLI (
 description: How to use Terraform as an infrastructure as code tool for Azure Developer CLI (azd) Preview.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 09/28/2022
+ms.date: 12/19/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -97,6 +97,7 @@ For example:
 
 ## See also
 
+- Learn more about Terraform's dependency on [Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli). 
 - For more on remote state, see [store Terraform state in Azure Storage](../terraform/store-state-in-azure-storage.md).
 - Template: [Todo Application with Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform)
 - Template: [Todo Application with Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform)
