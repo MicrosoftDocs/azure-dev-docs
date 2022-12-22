@@ -189,12 +189,12 @@ Next, use the following steps to update your code to use passwordless connection
 
 ### [Java](#tab/java)
 
-1. Inside your project, add the following reference to the `azure-identity-providers-jdbc-mysql` package. This library contains all of the entities necessary to implement passwordless connections.
+1. Inside your project, add the following reference to the `azure-identity-extensions` package. This library contains all of the entities necessary to implement passwordless connections.
 
    ```xml
    <dependency>
        <groupId>com.azure</groupId>
-       <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
+       <artifactId>azure-identity-extensions</artifactId>
        <version>1.0.0</version>
    </dependency>
    ```
