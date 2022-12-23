@@ -27,6 +27,7 @@ In this guide, you will:
 The offers support passwordless connections for the following database:
 
 > [!div class="checklist"]
+> - PostgreSQL
 > - MySQL
 
 ## Prerequisites
@@ -52,7 +53,9 @@ az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
 ```
-## Create a MySQL Flexible Server and a database
+## Create a database
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
 Create a flexible server with the az [mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. This example creates a flexible server named `mysql20221201` with admin user `azureuser`, and admin password `Secret123456`. Replace the password with yours. For more information, see [Create an Azure Database for MySQL Flexible Server using Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
@@ -84,7 +87,13 @@ az mysql flexible-server db create \
     -d $DATABASE_NAME
 ```
 
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+---
+
 ## Configure an Azure AD administrator to your database
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
 Now that you've created the database, let's make it ready to support passwordless connection. Passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) For details on how the database interacts with managed identities, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
@@ -119,6 +128,10 @@ az mysql flexible-server ad-admin create \
     --identity $MYSQL_UMI_NAME
 ```
 
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+---
+
 ## Create a user-assigned managed identity
 
 Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You'll use this managed identity to connect to your database.
@@ -134,7 +147,9 @@ To configure the identity in the following steps, use the [az identity show](/cl
 CLIENT_ID=$(az identity show --resource-group ${RESOURCE_GROUP_NAME} --name myManagedIdentity --query clientId --output tsv)
 ```
 
-## Create a MySQL user for your managed identity
+## Create a database user for your managed identity
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
 Now, connect as the Azure AD administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
@@ -218,6 +233,11 @@ Finally, get connection string that you'll use in the next section.
 CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
 echo ${CONNECTION_STRING}
 ```
+
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+---
+
 ## Configure passwordless database connection in the marketplace offer
 
 This section shows you how to configure the passwordless data source connection in the Azure Marketplace offer. 
@@ -231,6 +251,8 @@ First, begin the process of deploying an offer. The following offers support pas
 
 Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach the **Database** blade, fill in the passwordless configuration as shown in the following screenshot, take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
 
 1. For **Connect to database?**, select **Yes**.
@@ -240,6 +262,10 @@ Fill in required information in **Basics** blade and other blades if you want to
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. For **Database username**, input database user name of your managed identity (value of `${IDENTITY_LOGIN_NAME}`), in this example, the value is `identity-contoso`.
 1. For **User assigned managed identity**, select the managed identity you created in previous step, in this example, its name is `myManagedIdentity`.
+
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+---
 
 You've now finished configuring the passwordless MySQL connection, you can continue to fill in the following blades or click **Review + create** to deploy the offer.
 
