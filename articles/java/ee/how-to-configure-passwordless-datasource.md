@@ -300,23 +300,68 @@ echo ${CONNECTION_STRING}
 
 Now, connect as the Azure AD administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
 
-This example use Azure Cloud Shell to connect to the database and create a database user. 
+This example uses Azure Cloud Shell to connect to the database. Follow the steps to create a database user. 
 
-- Open and login Azure Portal from your browser, search 'postgresql20221223' and open the database server.
-- Select **Overview**, you will find a **Connect** button. Hit **Connect**, and select database `contoso` to connect to.
+- Open and login Azure Portal from your browser, search `postgresql20221223` and open the database server.
+- Select **Overview**, you will find a **Connect** button. Hit **Connect**, and select database `postgres` (make sure you are using the right database) to connect to.
 - You will find the Azure Cloud Shell shows, it has connected to the database.
-- Input command `select * from pgaadauth_create_principal('myManagedIdentity', false, false);` to create a user for your managed identity `myManagedIdentity`.
+- Input the following command to create a user for your managed identity `myManagedIdentity`.
+    ```bash
+    select * from pgaadauth_create_principal('myManagedIdentity', false, false);
+    ```
 - You will find a message saying **Created role for "myManagedIdentity"** which means the user is created successfully.
-- List all the Azure AD user with command `select * from pgaadauth_list_principals(false);`, as the following output shows.
+- List all the Azure AD user with the following command .
+    ```bash
+    select * from pgaadauth_list_principals(false);
+    ```
+- Grant `myManagedIdentity` to access your database `contoso`.
 
-```text
+    ```bash
+    GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
+    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
+    ```
 
+- The output should be content that is similiar to the following output.
 
+    ```text
+    psql 'host=postgresql20221223.postgres.database.azure.com port=5432 dbname=postgres user=test@contoso.com password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require'
+    psql (14.5)
+    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+    Type "help" for help.
+
+    postgres=> select * from pgaadauth_create_principal('myManagedIdentity', false, false);
+        pgaadauth_create_principal      
+    --------------------------------------
+    Created role for "myManagedIdentity"
+    (1 row)
+
+    postgres=> select * from pgaadauth_list_principals(false);
+                            rolname                         | principaltype |               objectid               |               tenantid               | ismfa | isa
+    dmin 
+    ---------------------------------------------------------+---------------+--------------------------------------+--------------------------------------+-------+----
+    -----
+    test@contoso.com | user          | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |    
+    1
+    myManagedIdentity | service       | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |    
+    0
+    (2 rows)
+    postgres=> GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
+    WARNING:  no privileges were granted for "contoso"
+    GRANT
+    postgres=> GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
+    GRANT
+    postgres=> GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
+    GRANT
+    postgres=>
+    ```
+
+Finally, get connection string that you'll use in the next section.
+
+```azurecli-interactive
+CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
+echo ${CONNECTION_STRING}
 ```
-
-
-
-
 
 ---
 
@@ -327,9 +372,13 @@ This section shows you how to configure the passwordless data source connection 
 First, begin the process of deploying an offer. The following offers support passwordless database connection:
 
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
-  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
-- [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
   - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-kubernetes-service)
+- [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
+  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
+- [Oracle WebLogic Server with Admin Server on VMs](https://aka.ms/wls-vm-admin)
+  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
+- [Oracle WebLogic Server Dynamic Cluster on VMs](https://aka.ms/wls-vm-dynamic-cluster)
+  - [Quickstart](/azure/developer/java/ee/weblogic-server-azure-virtual-machine)
 
 Fill in required information in **Basics** blade and other blades if you want to enable the features. When you reach the **Database** blade, fill in the passwordless configuration as shown in the following screenshot, take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
@@ -338,7 +387,7 @@ Fill in required information in **Basics** blade and other blades if you want to
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
 
 1. For **Connect to database?**, select **Yes**.
-1. Under **Connection settings**, for **Choose database type**, open the dropdown menu, then select **MySQL (With support for passwordless connection)**.
+1. Under **Connection settings**, for **Choose database type**, open the dropdown menu, then select **MySQL (with support for passwordless connection)**.
 1. Check **Use passwordless datasource connection**.
 1. For **JNDI Name**, input `testpasswordless` or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
@@ -347,9 +396,19 @@ Fill in required information in **Basics** blade and other blades if you want to
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
+:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png" alt-text="Screenshot of Azure portal showing the Configure PostgreSQL database." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png":::
+
+1. For **Connect to database?**, select **Yes**.
+1. Under **Connection settings**, for **Choose database type**, open the dropdown menu, then select **Azure Database for PostgreSQL (with support for passwordless connection)**.
+1. Check **Use passwordless datasource connection**.
+1. For **JNDI Name**, input `testpostresql` or your expected value.
+1. For **DataSource Connection String**, input the connection string you obtained in last section.
+1. For **Database username**, input your managed identity name, in this example, the value is `myManagedIdentity`.
+1. For **User assigned managed identity**, select the managed identity you created in previous step, in this example, its name is `myManagedIdentity`.
+
 ---
 
-You've now finished configuring the passwordless MySQL connection, you can continue to fill in the following blades or click **Review + create** to deploy the offer.
+You've now finished configuring the passwordless connection, you can continue to fill in the following blades or click **Review + create** to deploy the offer.
 
 ## Verify database connection
 
