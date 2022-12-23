@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 
 This article shows you how to configure passwordless database connection in Azure Oracle WebLogic Server offers with the Azure portal.
 
-In this guide, you will:
+In this guide, you'll:
 
 > [!div class="checklist"]
 > - Provision database resources using Azure CLI.
@@ -33,11 +33,11 @@ The offers support passwordless connections for the following database:
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.37.0, or above.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0, or above.
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-- If you prefer, [install the Azure CLI 2.37.0, or above](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- If you prefer, [install the Azure CLI 2.43.0, or above](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -165,13 +165,13 @@ az mysql flexible-server ad-admin create \
 
 For details on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 
-First, get your tenant id with the following command:
+First, get your tenant ID with the following command:
 
 ```azurecli-interactive
 az account show --query tenantId
 ```
 
-Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks using PowerShell, input your tenant id that was printed from last command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
+Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks. The operation is completed with PowerShell commands. Input your tenant ID that was obtained from last command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
 
 ```powershell
 Connect-AzureAD -TenantId <your tenant id>
@@ -183,12 +183,12 @@ In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID f
 
 This example configures the Azure AD administrator account from Azure portal.
 
-- Open and login Azure Portal from your browser, search 'postgresql20221223' and open the database server.
+- Open and login Azure portal from your browser, search 'postgresql20221223' and open the database server.
 - Select **Authentication**, select **PostgreSQL and Azure Active Directory authentication**.
-- Select **Save**, it'll take several minutes to finish the deployment. Please wait for the deployment completes before you continue.
+- Select **Save**, it will take several minutes to finish the deployment. Wait for the deployment completes before you continue.
 - Go back to resource 'postgresql20221223' and select **Authentication**.
-- You will find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, search current account that has logged in Azure Portal, select the account.
-- Select **Save**, it'll take several seconds to create the Azure AD Admin, as the following screenshot shows.
+- You'll find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, search current account that has logged in Azure portal, select the account.
+- Select **Save**, it will take several seconds to create the Azure AD Admin, as the following screenshot shows.
 
 :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of Azure portal showing the Configure authentication on PostgreSQL Flexible Server." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
 
@@ -302,15 +302,15 @@ Now, connect as the Azure AD administrator user to your PostgreSQL database, and
 
 This example uses Azure Cloud Shell to connect to the database. Follow the steps to create a database user. 
 
-- Open and login Azure Portal from your browser, search `postgresql20221223` and open the database server.
-- Select **Overview**, you will find a **Connect** button. Hit **Connect**, and select database `postgres` (make sure you are using the right database) to connect to.
-- You will find the Azure Cloud Shell shows, it has connected to the database.
+- Open and login Azure portal from your browser, search `postgresql20221223` and open the database server.
+- Select **Overview**, you'll find a **Connect** button. Hit **Connect**, and select database `postgres` (make sure you're using the right database) to connect to.
+- You'll find the Azure Cloud Shell shows, it has connected to the database.
 - Input the following command to create a user for your managed identity `myManagedIdentity`.
     ```bash
     select * from pgaadauth_create_principal('myManagedIdentity', false, false);
     ```
-- You will find a message saying **Created role for "myManagedIdentity"** which means the user is created successfully.
-- List all the Azure AD user with the following command .
+- You'll find a message saying **Created role for "myManagedIdentity"** which means the user is created successfully.
+- List all the Azure AD user with the following command.
     ```bash
     select * from pgaadauth_list_principals(false);
     ```
@@ -322,7 +322,7 @@ This example uses Azure Cloud Shell to connect to the database. Follow the steps
     GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
     ```
 
-- The output should be content that is similiar to the following output.
+- The output is similar to the following content.
 
     ```text
     psql 'host=postgresql20221223.postgres.database.azure.com port=5432 dbname=postgres user=test@contoso.com password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require'
