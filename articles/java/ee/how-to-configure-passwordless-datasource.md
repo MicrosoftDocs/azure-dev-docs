@@ -337,14 +337,10 @@ This example uses Azure Cloud Shell to connect to the database. Follow the steps
     (1 row)
 
     postgres=> select * from pgaadauth_list_principals(false);
-                            rolname                         | principaltype |               objectid               |               tenantid               | ismfa | isa
-    dmin 
-    ---------------------------------------------------------+---------------+--------------------------------------+--------------------------------------+-------+----
-    -----
-    test@contoso.com | user          | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |    
-    1
-    myManagedIdentity | service       | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |    
-    0
+        rolname       | principaltype |               objectid               |               tenantid               | ismfa | isadmin 
+    ------------------+---------------+--------------------------------------+--------------------------------------+-------+---------
+    test@contoso.com  | user          | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |       1
+    myManagedIdentity | service       | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |       0
     (2 rows)
     postgres=> GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
     WARNING:  no privileges were granted for "contoso"
