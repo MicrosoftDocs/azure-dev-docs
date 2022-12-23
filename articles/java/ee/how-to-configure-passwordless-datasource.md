@@ -53,7 +53,7 @@ az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
 ```
-## Create database server and a database
+## Create a database server and a database
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
