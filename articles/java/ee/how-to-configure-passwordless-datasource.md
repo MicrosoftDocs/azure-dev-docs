@@ -89,13 +89,46 @@ az mysql flexible-server db create \
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
+Create a flexible server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. This example creates a flexible server named `postgresql20221223` with admin user `azureuser`, and admin password `Secret123456`. Replace the password with yours. For more information, see [Create an Azure Database for PostgreSQL Flexible Server using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
+
+```azurecli-interactive
+POSTGRESQL_NAME="postgresql20221223"
+POSTGRESQL_ADMIN_USER="azureuser"
+POSTGRESQL_ADMIN_PASSWORD="Secret123456"
+
+az postgres flexible-server create \
+    --name $POSTGRESQL_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location eastus \
+    --admin-user $POSTGRESQL_ADMIN_USER \
+    --admin-password $POSTGRESQL_ADMIN_PASSWORD \
+    --version 14 \
+    --public-access 0.0.0.0 \
+    --tier Burstable \
+    --sku-name Standard_B1ms
+```
+
+Create a database with [az postgres flexible-server db create](/cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create).
+
+```azurecli-interactive
+DATABASE_NAME="contoso"
+
+# create mysql database
+az postgres flexible-server db create \
+    -g $RESOURCE_GROUP_NAME \
+    -s $POSTGRESQL_NAME \
+    -d $DATABASE_NAME
+```
+
 ---
 
 ## Configure an Azure AD administrator to your database
 
+Now that you've created the database, let's make it ready to support passwordless connection. Passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
-Now that you've created the database, let's make it ready to support passwordless connection. Passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) For details on how the database interacts with managed identities, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+For details on how MySQL Flexible server interacts with managed identities, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
 This example configures the current Azure CLI user as an Azure AD administrator account. To enable Azure Authentication, it's necessary to assign an identity to MySQL Flexible server.
 
@@ -129,6 +162,29 @@ az mysql flexible-server ad-admin create \
 ```
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+For details on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+
+First, get your tenant id with the following command:
+
+```azurecli-interactive
+az account show --query tenantId
+```
+
+Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks using PowerShell, input your tenant id that was printed from last command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
+
+```powershell
+Connect-AzureAD -TenantId <your tenant id>
+
+New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
+```
+
+In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
+
+
+This example configures the Azure AD administrator account from Azure portal.
+
+- Open and login Azure Portal from your browser, search 'postgresql20221223' and open the database server.
 
 ---
 
@@ -236,6 +292,26 @@ echo ${CONNECTION_STRING}
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
+Now, connect as the Azure AD administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
+
+This example use Azure Cloud Shell to connect to the database and create a database user. 
+
+- Open and login Azure Portal from your browser, search 'postgresql20221223' and open the database server.
+- Select **Overview**, you will find a **Connect** button. Hit **Connect**, and select database `contoso` to connect to.
+- You will find the Azure Cloud Shell shows, it has connected to the database.
+- Input command `select * from pgaadauth_create_principal('myManagedIdentity', false, false);` to create a user for your managed identity `myManagedIdentity`.
+- You will find a message saying **Created role for "myManagedIdentity"** which means the user is created successfully.
+- List all the Azure AD user with command `select * from pgaadauth_list_principals(false);`, as the following output shows.
+
+```text
+
+
+```
+
+
+
+
+
 ---
 
 ## Configure passwordless database connection in the marketplace offer
@@ -279,7 +355,13 @@ Take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as a
 - Log in the WebLogic Administration Console with your username and password. 
 - Under the **Domain Structure**, select **Services**, **Data Sources**, **testpasswordless**, **Monitoring**, you'll find the state of data source is **Running**, as shown in the following screenshot.
 
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
+
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+---
 
 ## Clean up resources
 
