@@ -181,10 +181,16 @@ New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 
 In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
 
-
 This example configures the Azure AD administrator account from Azure portal.
 
 - Open and login Azure Portal from your browser, search 'postgresql20221223' and open the database server.
+- Select **Authentication**, select **PostgreSQL and Azure Active Directory authentication**.
+- Select **Save**, it'll take several minutes to finish the deployment. Please wait for the deployment completes before you continue.
+- Go back to resource 'postgresql20221223' and select **Authentication**.
+- You will find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, search current account that has logged in Azure Portal, select the account.
+- Select **Save**, it'll take several seconds to create the Azure AD Admin, as the following screenshot shows.
+
+:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of Azure portal showing the Configure authentication on PostgreSQL Flexible Server." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
 
 ---
 
