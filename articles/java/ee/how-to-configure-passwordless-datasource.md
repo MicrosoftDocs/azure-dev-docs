@@ -401,7 +401,7 @@ Fill in required information in **Basics** blade and other blades if you want to
 1. For **Connect to database?**, select **Yes**.
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu, then select **Azure Database for PostgreSQL (with support for passwordless connection)**.
 1. Check **Use passwordless datasource connection**.
-1. For **JNDI Name**, input `testpostresql` or your expected value.
+1. For **JNDI Name**, input `testpasswordless` or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. For **Database username**, input your managed identity name, in this example, the value is `myManagedIdentity`.
 1. For **User assigned managed identity**, select the managed identity you created in previous step, in this example, its name is `myManagedIdentity`.
@@ -425,6 +425,8 @@ Take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as a
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png" alt-text="Screenshot of WebLogic Console portal showing the PostgreSQL state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png":::
 
 ---
 
