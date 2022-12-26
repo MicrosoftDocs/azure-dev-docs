@@ -12,6 +12,8 @@
         href: traditional-websphere-application-server-virtual-machines.md
       - name: Red Hat JBoss EAP Server on Azure VM
         href: jboss-eap-single-server-azure-vm.md
+      - name: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+        href: liberty-on-aro.md
   - name: Java application servers on Azure
     expanded: true
     items:
