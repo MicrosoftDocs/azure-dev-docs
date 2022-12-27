@@ -95,11 +95,11 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 The following steps show you how to fill out **Configure cluster** pane.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Configure cluster blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png":::
+:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Configure cluster blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png":::
 
 1. Under **Create a new cluster**, select **Yes**.
 
-1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, input the Red Hat pull secret that you obtained in [Get a Red Hat pull secret](#get-a-red-hat-pull-secret). Use the same value for **Confirm secret**.
+1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in [Get a Red Hat pull secret](#get-a-red-hat-pull-secret). Use the same value for **Confirm secret**.
 
 1. Fill in **Service principal client ID** with your service principal Application (client) ID that you obtained in [Create an Azure AD Service Principal from Azure Portal](#create-a-azure-ad-service-principal-from-azure-portal).
 
@@ -107,7 +107,7 @@ The following steps show you how to fill out **Configure cluster** pane.
 
 The following steps show you how to fill out **Operator and application** pane and start the deployment.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
+:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
 
 1. Under **IBM supported?**, select **Yes**.
 
@@ -128,8 +128,11 @@ The steps in this section show you how to verify the deployment has successfully
 If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the steps after the image below.
 
 1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
+
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
+
 1. In the left navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
+
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown here.
 
     :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
