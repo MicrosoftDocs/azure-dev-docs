@@ -16,6 +16,10 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or above.
+
+   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 - ARO requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.
@@ -119,7 +123,7 @@ The following steps show you how to fill out **Operator and application** pane a
 
 1. Track the progress of the deployment in the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 30 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment may take up to 40 minutes to complete.
 
 ## Verify the functionality of the deployment
 
@@ -135,10 +139,28 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown here.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
+    :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift deployments." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 
+1. Open Azure Cloud Shell, paste the value of **cmdToGetKubeadminCredentials**, you will get the kube admin account and credential to log in OpenShit cluster console portal. The following content is an example of a kube admin account.
+
+    ```bash
+    user@Azure:~$ az aro list-credentials -g libertyrg20221227 -n clusterf9e8b9
+    {
+      "kubeadminPassword": "xxxxx-xxxxx-xxxxx-xxxxx",
+      "kubeadminUsername": "kubeadmin"
+    }
+    ```
+
+1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the kube admin user name and password, you will find the installed IBM WebSphere Liberty operator, as the following sreenshot shows.
+
+    :::image type="content" source="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png" alt-text="Screenshot of Azure portal showing Azure Red Hat OpenShift cluster console portal." lightbox="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png":::
+
+You are able to use the output commands to create an application or manage the cluster.
+
+> [!NOTE]
+> This quick start uses IBM supported Liberty, you are deploying WebSphere Liberty under the Trial license terms. You can also select **No** to deploy Open Liberty.
 
 ## Clean up resources
 
