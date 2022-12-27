@@ -28,17 +28,15 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. For more information, see [Get a Red Hat pull secret ](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional).
 
-[Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in. 
+[Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in. If you don't have a Red Hat account, you need to create a new Red Hat account with your business email and accept the terms and conditions.
 
-If you don't have a Red Hat account, you need to create a new Red Hat account with your business email and accept the terms and conditions.
-
-After you log in, select **OpenShit**, **Downloads**. Scroll down to the button of the page, you'll find **Tokens**. Under the **Pull secret**, select **copy** or **Download** to get the value, as the following screenshot shows. 
+After you log in, select **OpenShit**, **Downloads**. Scroll down to the button of the page, you'll find **Tokens**. Under the **Pull secret**, select **Copy** or **Download** to get the value, as the following screenshot shows. 
 
 :::image type="content" source="media/liberty-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/liberty-on-aro/redhat-console-portal-pull-secret.png":::
 
 You can also log in https://cloud.redhat.com/openshift/install/pull-secret to navigate to the pull secret quickly.
 
-The following content is an example that was copied from Red Hat console portal, the auth code are replaced with `xxxx...xxx`.
+The following content is an example that was copied from Red Hat console portal, the auth codes are replaced with `xxxx...xxx`.
 
 ```json
 {"auths":{"cloud.openshift.com":{"auth":"xxxx...xxx","email":"contoso@test.com"},"quay.io":{"auth":"xxx...xxx","email":"contoso@test.com"},"registry.connect.redhat.com":{"auth":"xxxx...xxx","email":"contoso@test.com"},"registry.redhat.io":{"auth":"xxxx...xxx","email":"contoso@test.com"}}}
@@ -95,7 +93,7 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *libertyrg20221227*.
 
-1. Under **Instance details**, select the region for the deployment. For a list of Azure regions how and where OpenShift operate, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
+1. Under **Instance details**, select the region for the deployment. For a list of Azure regions how and where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
 
 The following steps show you how to fill out **Configure cluster** pane.
 
