@@ -32,7 +32,7 @@ The Azure Marketplace offer you're going to use in this article requires a Red H
 
 If you don't have a Red Hat account, you need to create a new Red Hat account with your business email and accept the terms and conditions.
 
-After you log in, select **OpenShit**, **Downloads**. Scoll down to the button of the page, you will find **Tokens**. Under the **Pull secret**, select **copy** or **Download** to get the value, as the following screenshot shows. 
+After you log in, select **OpenShit**, **Downloads**. Scroll down to the button of the page, you'll find **Tokens**. Under the **Pull secret**, select **copy** or **Download** to get the value, as the following screenshot shows. 
 
 :::image type="content" source="media/liberty-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/liberty-on-aro/redhat-console-portal-pull-secret.png":::
 
@@ -44,9 +44,9 @@ The following content is an example that was copied from Red Hat console portal,
 {"auths":{"cloud.openshift.com":{"auth":"xxxx...xxx","email":"contoso@test.com"},"quay.io":{"auth":"xxx...xxx","email":"contoso@test.com"},"registry.connect.redhat.com":{"auth":"xxxx...xxx","email":"contoso@test.com"},"registry.redhat.io":{"auth":"xxxx...xxx","email":"contoso@test.com"}}}
 ```
 
-Save the secret to a file, you will use it in the later section.
+Save the secret to a file, you'll use it in the later section.
 
-## Create an Azure AD Service Principal from Azure Portal
+## Create an Azure AD Service Principal from Azure portal
 
 The Azure Marketplace offer you're going to use in this article requires a service principal to deploy your Azure Red Hat OpenShift clusters. The offer assigns the service principal with proper privilege during deployment time, no role assignment needed. If you have a service principal ready to use, skip this section and move on to deploy the offer.
 
@@ -65,7 +65,7 @@ If you run into a problem, check the [required permissions](/azure/active-direct
 
     :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing creating service principal." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
 
-- Obtain the Application (client) ID from the overview page, as the screenshot shows. Save the Application ID to a file, you will use it later.
+- Obtain the Application (client) ID from the overview page, as the screenshot shows. Save the Application ID to a file, you'll use it later.
 
     :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
 
@@ -73,7 +73,7 @@ If you run into a problem, check the [required permissions](/azure/active-direct
   - Select **Certificates & secrets**.
   - Select **Client secrets** -> **New client secret**.
   - Provide a description of the secret, and a duration. When done, select **Add**.
-  - After saving the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. 
+  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. 
 
 You've created your Azure AD application, service principal and client secret.
 
@@ -105,9 +105,9 @@ The following steps show you how to fill out **Configure cluster** pane.
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in [Get a Red Hat pull secret](#get-a-red-hat-pull-secret). Use the same value for **Confirm secret**.
 
-1. Fill in **Service principal client ID** with your service principal Application (client) ID that you obtained in [Create an Azure AD Service Principal from Azure Portal](#create-a-azure-ad-service-principal-from-azure-portal).
+1. Fill in **Service principal client ID** with your service principal Application (client) ID that you obtained in [Create an Azure AD Service Principal from Azure portal](#create-an-azure-ad-service-principal-from-azure-portal).
 
-1. Fill in **Service principal client secret** with your service principal Application secret that you obtained in [Create an Azure AD Service Principal from Azure Portal](#create-a-azure-ad-service-principal-from-azure-portal). Use the same value for **Confirm secret**.
+1. Fill in **Service principal client secret** with your service principal Application secret that you obtained in [Create an Azure AD Service Principal from Azure portal](#create-an-azure-ad-service-principal-from-azure-portal). Use the same value for **Confirm secret**.
 
 The following steps show you how to fill out **Operator and application** pane and start the deployment.
 
@@ -129,7 +129,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 The steps in this section show you how to verify the deployment has successfully completed.
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the steps after the image below.
+If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip the steps and go to following image.
 
 1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
 
@@ -143,7 +143,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 
-1. Open Azure Cloud Shell, paste the value of **cmdToGetKubeadminCredentials**, you will get the kube admin account and credential to log in OpenShit cluster console portal. The following content is an example of a kube admin account.
+1. Open Azure Cloud Shell, paste the value of **cmdToGetKubeadminCredentials**, you'll get the admin account and credential to log in OpenShit cluster console portal. The following content is an example of an admin account.
 
     ```bash
     user@Azure:~$ az aro list-credentials -g libertyrg20221227 -n clusterf9e8b9
@@ -153,14 +153,14 @@ If you navigated away from the **Deployment is in progress** page, the following
     }
     ```
 
-1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the kube admin user name and password, you will find the installed IBM WebSphere Liberty operator, as the following sreenshot shows.
+1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the admin user name and password, you'll find the installed IBM WebSphere Liberty operator, as the following screenshot shows.
 
     :::image type="content" source="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png" alt-text="Screenshot of Azure portal showing Azure Red Hat OpenShift cluster console portal." lightbox="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png":::
 
-You are able to use the output commands to create an application or manage the cluster.
+You're able to use the output commands to create an application or manage the cluster.
 
 > [!NOTE]
-> This quick start uses IBM supported Liberty, you are deploying WebSphere Liberty under the Trial license terms. You can also select **No** to deploy Open Liberty.
+> This quick start uses IBM supported Liberty, you're deploying WebSphere Liberty under the Trial license terms. You can also select **No** to deploy Open Liberty.
 
 ## Clean up resources
 
