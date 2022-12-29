@@ -179,23 +179,57 @@ az mysql flexible-server ad-admin create \
 
 For details on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). The next few commands use PowerShell. If you don't already have the **Az** and **Azure AD** modules installed, install them now.
 
-* To install the **Az** module, follow the steps at [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- To install the **Az** module, follow the steps at [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- To install the *AzureAD** module, follow the steps at [AzureAD](/powershell/module/azuread).
 
-First, get your tenant ID with the following command:
+Sign in to Azure and get your tenant ID with the following command:
 
 ```powershell
-az account show --query tenantId
+Connect-AzAccount
+```
+
+If you want to sign in to a specific tenant, use this command instead.
+
+```powershell
+Connect-AzAccount -Tenant <your tenant name>.onmicrosoft.com
+```
+
+In either case, you will be directed to a browser to complete sign in. Your **TenantId** should be output, as shown here, with redacted data.
+
+```text
+Account                       SubscriptionName       TenantId                             Environment
+-------                       ----------------       --------                             -----------
+passwordless-user@contoso.com Contoso subscription   456e5515-431d-4a70-874d-bdae2ba97c1d Your Cloud
 ```
 
 Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks. This operation uses PowerShell commands. Input your tenant ID that was obtained from the previous command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
 
 ```powershell
 Connect-AzureAD -TenantId <your tenant id>
+```
 
+A successful output will look similar to the following.
+
+```text
+Account                       Environment TenantId                             TenantDomain                       AccountType
+-------                       ----------- --------                             ------------                       -----------
+passwordless-user@contoso.com AzureCloud  456e5515-431d-4a70-874d-bdae2ba97c1d <your tenant name>.onmicrosoft.com User
+```
+
+Create a new service principal for the Azure Database for PostgreSQL. In the following command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
+
+```powershell
 New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 ```
 
-In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
+PENDING 
+
+ Get-AzureADServicePrincipal -ObjectId 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98
+
+ObjectId                             AppId                                DisplayName
+--------                             -----                                -----------
+0049e2e2-fcea-4bc4-af90-bdb29a9bbe98 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9 Azure OSSRDBMS PostgreSQL Flexible Server ...
+
 
 This example configures the Azure AD administrator account from Azure portal.
 
