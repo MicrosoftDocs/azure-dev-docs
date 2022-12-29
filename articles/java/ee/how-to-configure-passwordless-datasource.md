@@ -177,11 +177,13 @@ az mysql flexible-server ad-admin create \
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
-For details on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+For details on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). The next few commands use PowerShell. If you don't already have the **Az** and **Azure AD** modules installed, install them now.
+
+* To install the **Az** module, follow the steps at [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
 First, get your tenant ID with the following command:
 
-```azurecli-interactive
+```powershell
 az account show --query tenantId
 ```
 
