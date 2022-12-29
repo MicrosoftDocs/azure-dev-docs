@@ -233,6 +233,25 @@ Besides the autoconfigured `SecretClient`, Spring Cloud Azure still provided som
    }
    ```
 
+## Components of Spring Cloud Azure
+
+### Azure Support
+
+Provides autoconfiguration support for Azure Services. e.g. Service Bus, Storage, Active Directory, etc.
+
+### Azure Active Directory
+
+Provides integration support for Spring Security with Azure Active Directory for authentication. Please refer to [Developer Guide / Spring Security support](./spring-cloud-azure?tabs=maven#spring-security-support) to get more information.
+
+### Azure Key Vault
+
+Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. Please refer to [Developer Guide / Secret management](./spring-cloud-azure?tabs=maven#secret-management) to get more information.
+
+### Azure Storage
+
+Provides Spring Boot support for Azure Storage services. Please refer to [Developer Guide / Resource handling](./spring-cloud-azure?tabs=maven#resource-handing) to get more information.
+
+
 ## Next steps
 
 + [Load a secret from Azure Key Vault](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
