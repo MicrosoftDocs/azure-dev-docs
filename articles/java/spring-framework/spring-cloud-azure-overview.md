@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: rujche
 ms.service: azure-java
 ms.topic: overview
-ms.date: 12/19/2022
+ms.date: 12/29/2022
 ---
 
 # What is Spring Cloud Azure? 
@@ -30,7 +30,9 @@ Spring Cloud Azure can help developer easier to develop these features in Spring
  - Storing unstructured data (like text or binary data) by [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview).
  - Storing files by [Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction).
 
-## Demonstrate Benefits Of Using Spring Cloud Azure
+:::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Spring Cloud Azure Overview.":::
+
+## Benefits Of Using Spring Cloud Azure
 
 This section will demonstrate the benefits of using Spring Cloud Azure. Take retrieve secrets stored in Azure Key Vault as an example, comparing the difference of developing a Spring Boot application with and without Spring Cloud Azure.
 
