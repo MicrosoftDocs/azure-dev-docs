@@ -252,6 +252,14 @@ Provides Spring `@Value` annotation support for integration with Azure Key Vault
 Provides Spring Boot support for Azure Storage services. Please refer to [Developer Guide / Resource handling](./spring-cloud-azure?tabs=maven#resource-handing) to get more information.
 
 
+# Get Support
+
+If you need get support about Spring Cloud Azure, you can ask for help by these ways:
+
+- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/en-ca/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/en-ca/support/create-ticket/). We recommend this option if your problem requires immediate attention.
+- GitHub issues in [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub Issues to track bugs, questions, and feature requests. GitHub Issues are free, but response time is not guaranteed. See [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/) for more details.
+
+
 ## Next steps
 
 + [Load a secret from Azure Key Vault](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
