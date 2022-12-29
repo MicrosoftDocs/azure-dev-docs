@@ -22,7 +22,7 @@ In this guide, you'll:
 > - Configure passwordless database connection in Oracle WebLogic offers with the Azure portal.
 > - Validate the database connection.
 
-The offers support passwordless connections for the following database:
+The offers support passwordless connections for the following databases:
 
 > [!div class="checklist"]
 > - PostgreSQL
@@ -43,14 +43,15 @@ The offers support passwordless connections for the following database:
 
 ## Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named `mydbrg20221201` in the `eastus` location:
+Create a resource group with [az group create](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*. This example creates a resource group named `abc1228rg` in the `eastus` location:
 
 ```azurecli-interactive
-RESOURCE_GROUP_NAME="mydbrg20221201"
+RESOURCE_GROUP_NAME="abc1228rg"
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
 ```
+
 ## Create a database server and a database
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
@@ -83,6 +84,21 @@ az mysql flexible-server db create \
     -g $RESOURCE_GROUP_NAME \
     -s $MYSQL_NAME \
     -d $DATABASE_NAME
+```
+
+When the commands completes, you should see output similar to the following.
+
+```bash
+Creating database with utf8 charset and utf8_general_ci collation
+{
+  "charset": "utf8",
+  "collation": "utf8_general_ci",
+  "id": "/subscriptions/contoso-hashcode/resourceGroups/abc1228rg/providers/Microsoft.DBforMySQL/flexibleServers/mysql20221201/databases/contoso",
+  "name": "contoso",
+  "resourceGroup": "abc1228rg",
+  "systemData": null,
+  "type": "Microsoft.DBforMySQL/flexibleServers/databases"
+}
 ```
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
@@ -130,12 +146,12 @@ For details on how MySQL Flexible server interacts with managed identities, see 
 
 This example configures the current Azure CLI user as an Azure AD administrator account. To enable Azure Authentication, it's necessary to assign an identity to MySQL Flexible server.
 
-First, create a managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
+First, create a managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign the identity to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
 
 ```azurecli-interactive
 MYSQL_UMI_NAME="id-mysql-aad-20221205"
 
-# create User Managed Identity for MySQL to be used for AAD authentication
+# create a User Assigned Managed Identity for MySQL to be used for AAD authentication
 az identity create -g $RESOURCE_GROUP_NAME -n $MYSQL_UMI_NAME
 
 ## assign the identity to the MySQL server
@@ -145,7 +161,7 @@ az mysql flexible-server identity assign \
     --identity $MYSQL_UMI_NAME
 ```
 
-Then, create current Azure CLI user as the Azure AD administrator account with [az mysql flexible-server ad-admin create](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create). 
+Then, set the current Azure CLI user as the Azure AD administrator account with [az mysql flexible-server ad-admin create](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
 
 ```azurecli-interactive
 CURRENT_USER=$(az account show --query user.name -o tsv)
@@ -169,7 +185,7 @@ First, get your tenant ID with the following command:
 az account show --query tenantId
 ```
 
-Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks. The operation is completed with PowerShell commands. Input your tenant ID that was obtained from last command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
+Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to your tenant, to request Graph API tokens for Azure AD validation tasks. This operation uses PowerShell commands. Input your tenant ID that was obtained from the previous command. For details, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
 
 ```powershell
 Connect-AzureAD -TenantId <your tenant id>
@@ -181,9 +197,9 @@ In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID f
 
 This example configures the Azure AD administrator account from Azure portal.
 
-- Open and login Azure portal from your browser, search `postgresql20221223` and open the database server.
-- Select **Authentication**, select **PostgreSQL and Azure Active Directory authentication**.
-- Select **Save**, it will take several minutes to finish the deployment. Wait for the deployment completes before you continue.
+- Sign in to the Azure portal from your browser. Search `postgresql20221223` and open the database server.
+- Select **Authentication**, then select **PostgreSQL and Azure Active Directory authentication**.
+- Select **Save**. It will take several minutes to finish the deployment. Wait for the deployment to complete before continuing.
 - Go back to resource `postgresql20221223` and select **Authentication**.
 - You'll find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, search current account that has logged in Azure portal, select the account.
 - Select **Save**, it will take several seconds to create the Azure AD Admin, as the following screenshot shows.
@@ -200,7 +216,7 @@ Create an identity in your subscription using the [az identity create](/cli/azur
 az identity create --resource-group ${RESOURCE_GROUP_NAME} --name myManagedIdentity
 ```
 
-To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's client ID in variables.
+To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's client ID in a shell variable.
 
 ```azurecli-interactive
 # Get client ID of the user-assigned identity
@@ -258,7 +274,7 @@ az mysql flexible-server execute \
     --file-path "createuser.sql"
 ```
 
-You may get a prompt message for installing the extension rdbms-connect, press `y` to continue. If you're not working with `root` user, you need to input the user password.
+You may be prompted to install the **rdbms-connect** extension. Press `y` to continue. If you're not working with `root` user, you need to input the user password.
 
 ```shell
 The command requires the extension rdbms-connect. Do you want to install it now? The command will continue to run after the extension is installed. (Y/n): y
@@ -267,7 +283,7 @@ This extension depends on gcc, libpq-dev, python3-dev and they will be installed
 [sudo] password for user:
 ```
 
-If the sql file is completed successfully, you'll find output that is similar to the following content:
+If the sql file executes successfully, you'll find output that is similar to the following content:
 
 ```text
 Running sql file 'createuser.sql'...
@@ -277,7 +293,7 @@ Closed the connection to mysql20221201
 
 The managed identity `myManagedIdentity` now has access to the database when authenticating with the username `identity-contoso`.
 
-If you don't want to access the server anymore, you can remove firewall rule with the following command.
+If you don't want to access the server anymore from this IP address, you can remove firewall rule with the following command.
 
 ```azurecli-interactive
 az mysql flexible-server firewall-rule delete \
@@ -287,7 +303,7 @@ az mysql flexible-server firewall-rule delete \
         --yes
 ```
 
-Finally, get connection string that you'll use in the next section.
+Finally, get the connection string that you'll use in the next section.
 
 ```azurecli-interactive
 CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
@@ -300,8 +316,8 @@ Now, connect as the Azure AD administrator user to your PostgreSQL database, and
 
 This example uses Azure Cloud Shell to connect to the database. Follow the steps to create a database user. 
 
-- Open and login Azure portal from your browser, search `postgresql20221223` and open the database server.
-- Select **Overview**, you'll find a **Connect** button. Hit **Connect**, and select database `postgres` (make sure you're using the right database) to connect to.
+- Sign in to the Azure portal from your browser. Search `postgresql20221223` and open the database server.
+- Select **Overview**. Locate the **Connect** button. Select **Connect**, and select database `postgres` (make sure you're using the right database).
 - You'll find the Azure Cloud Shell shows, it has connected to the database.
 - Input the following command to create a user for your managed identity `myManagedIdentity`.
     ```bash
@@ -359,9 +375,9 @@ echo ${CONNECTION_STRING}
 
 ---
 
-## Configure passwordless database connection in the marketplace offer
+## Configure passwordless database connection for Oracle WebLogic Server on Azure VMs
 
-This section shows you how to configure the passwordless data source connection in the Azure Marketplace offer. 
+This section shows you how to configure the passwordless data source connection using the Azure Marketplace offers for Oracle WebLogic Server.
 
 First, begin the process of deploying an offer. The following offers support passwordless database connection:
 
@@ -402,17 +418,18 @@ Fill in required information in **Basics** blade and other blades if you want to
 
 ---
 
-You've now finished configuring the passwordless connection, you can continue to fill in the following blades or click **Review + create** to deploy the offer.
+You've now finished configuring the passwordless connection. You can continue to fill in the following blades or Select **Review + create**, then **Create** to deploy the offer.
 
 ## Verify database connection
 
-The database connection is configured successfully if the offer deployment is completed without error.
+The database connection is configured successfully if the offer deployment completes without error.
 
-Take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example, after the deployment completes, select **Outputs**. You'll find the URL of the WebLogic Administration Console.
+Continuing to take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example, after the deployment completes, select **Outputs**. You'll find the URL of the WebLogic Administration Console as the value of the **adminConsoleUrl** output.
 
-- To view the WebLogic Administration Console, first copy the value of the output variable `adminConsole`. Next, paste the value into your browser address bar and press **Enter** to open the sign-in page of the WebLogic Administration Console.
-- Log in the WebLogic Administration Console with your username and password. 
-- Under the **Domain Structure**, select **Services**, **Data Sources**, **testpasswordless**, **Monitoring**, you'll find the state of data source is **Running**, as shown in the following screenshot.
+- To view the WebLogic Administration Console, first copy the value of the output variable `adminConsoleUrl`. Next, paste the value into your browser address bar and press **Enter** to open the sign-in page of the WebLogic Administration Console.
+- Sign in to the WebLogic Administration Console with the username and password you provided on the **Basics** blade.
+- Under the **Domain Structure**, select **Services**, **Data Sources**, then **testpasswordless**.
+- Select the **Monitoring** tab. You'll find the state of data source is **Running**, as shown in the following screenshot.
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
@@ -423,6 +440,11 @@ Take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as a
 :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png" alt-text="Screenshot of WebLogic Console portal showing the PostgreSQL state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png":::
 
 ---
+
+- Select the **Testing** tab, then select the radio button next to the desired server.
+- Select **Test Data Source**. You should see a message indicating a successfull test, as shown next.
+
+:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png" alt-text="Screenshot of WebLogic Console portal showing a successful test of the datasource." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png":::
 
 ## Clean up resources
 
