@@ -10,7 +10,7 @@ ms.date: 12/29/2022
 
 # What is Spring Cloud Azure? 
 
-Spring Cloud Azure is an open-source project that helps developers easier to use [Azure services](https://azure.microsoft.com/en-us/products/) in [Spring](https://spring.io/) application.
+Spring Cloud Azure is an open-source project that helps developers easier to use [Azure services](https://azure.microsoft.com/products/) in [Spring](https://spring.io/) application.
 
 As an open-source project. All its content are public. Here are links to its content:
  - Source code: [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
@@ -20,15 +20,15 @@ As an open-source project. All its content are public. Here are links to its con
 ## What is Spring Cloud Azure used for?
 
 Spring Cloud Azure can help developer easier to develop these features in Spring application:
- - Managing configuration properties by [Azure App Configuration](https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview).
- - Sending and receiving messages by [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) / [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction).
- - Managing secrets / certificates by [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview).
- - Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
- - Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview).
- - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview).
- - Storing structured data by [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction).
- - Storing unstructured data (like text or binary data) by [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview).
- - Storing files by [Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction).
+ - Managing configuration properties by [Azure App Configuration](https://learn.microsoft.com/azure/azure-app-configuration/overview).
+ - Sending and receiving messages by [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about) / [Azure Service Bus](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](https://learn.microsoft.com/azure/storage/queues/storage-queues-introduction).
+ - Managing secrets / certificates by [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
+ - Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+ - Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview).
+ - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview).
+ - Storing structured data by [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction).
+ - Storing unstructured data (like text or binary data) by [Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+ - Storing files by [Azure Files](https://learn.microsoft.com/azure/storage/files/storage-files-introduction).
 
 :::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Spring Cloud Azure Overview.":::
 
@@ -188,7 +188,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
            secret:
              endpoint:
    ```
-   Login by [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
+   Login by [Azure CLI](https://learn.microsoft.com/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
    ```shell
    az login
    ```
