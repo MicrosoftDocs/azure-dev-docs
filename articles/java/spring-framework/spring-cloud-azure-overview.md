@@ -38,26 +38,200 @@ This section will demonstrate the benefits of using Spring Cloud Azure. Take ret
 
 ### Without Spring Cloud Azure
 
-TODO(rujche): Implement following contents.
+Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, you need to these steps:
 
 1. Add dependencies in pom.xml
-2. Need to manage client-id client-secret by writing java code.
-3. Add necessary properties in application.yml
-4. Need to construct `SecretClient` by himself.
-5. If `SecretClient` need to be used in multiple places, should define a `SecretClient` bean.
-6. Autowired `SecretClient` in related place.
+   ```xml
+   <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-security-keyvault-secrets</artifactId>
+      <version>4.5.2</version>
+   </dependency>
+   ```
+2. Construct `SecretClient`.
+   ```java
+   public class DemoClass {
+     public static void main(String... args) {
+     SecretClient client = new SecretClientBuilder()
+         .vaultUrl("vaultUrl")
+         .credential(new ClientSecretCredentialBuilder()
+             .tenantId("tenantId")
+             .clientId("clientId")
+             .clientSecret("clientSecret")
+             .build())
+         .buildClient();
+     }
+   }
+   ```
+3. Avoid hard code information like `client-id` and `client-secret`. Make these properties configurable:
+   ```java
+   @ConfigurationProperties("azure.keyvault")
+   public class KeyVaultProperties {
+     private String vaultUrl;
+     private String tenantId;
+     private String clientId;
+     private String clientSecret;
+   
+     public KeyVaultProperties(String vaultUrl, String tenantId, String clientId, String clientSecret) {
+         this.vaultUrl = vaultUrl;
+         this.tenantId = tenantId;
+         this.clientId = clientId;
+         this.clientSecret = clientSecret;
+     }
+   
+     public String getVaultUrl() {
+         return vaultUrl;
+     }
+   
+     public void setVaultUrl(String vaultUrl) {
+         this.vaultUrl = vaultUrl;
+     }
+   
+     public String getTenantId() {
+         return tenantId;
+     }
+   
+     public void setTenantId(String tenantId) {
+         this.tenantId = tenantId;
+     }
+   
+     public String getClientId() {
+         return clientId;
+     }
+   
+     public void setClientId(String clientId) {
+         this.clientId = clientId;
+     }
+   
+     public String getClientSecret() {
+         return clientSecret;
+     }
+   
+     public void setClientSecret(String clientSecret) {
+         this.clientSecret = clientSecret;
+     }
+   }
+   ```
+   Then update your application code like this:
+   ```java
+   @SpringBootApplication
+   @EnableConfigurationProperties(KeyVaultProperties.class)
+   public class SecretClientApplication implements CommandLineRunner {
+       private KeyVaultProperties properties;
+
+       public SecretClientApplication(KeyVaultProperties properties) {
+           this.properties = properties;
+       }
+
+       public static void main(String[] args) {
+           SpringApplication.run(SecretClientApplication.class, args);
+       }
+
+       @Override
+       public void run(String... args) {
+           SecretClient client = new SecretClientBuilder()
+                   .vaultUrl(properties.getVaultUrl())
+                   .credential(new ClientSecretCredentialBuilder()
+                           .tenantId(properties.getTenantId())
+                           .clientId(properties.getClientId())
+                           .clientSecret(properties.getClientSecret())
+                           .build())
+                   .buildClient();
+           System.out.println("sampleProperty: " + client.getSecret("sampleProperty").getValue());
+       }
+   }
+   ```
+4. Add necessary properties in application.yml
+   ```yaml
+   azure:
+     keyvault:
+       vault-url:
+       tenant-id:
+       client-id:
+       client-secret:
+   ```
+5. If `SecretClient` need to be used in multiple places, should define a `SecretClient` bean. Then auto-wire `SecretClient` in related place.
 
 ### With Spring Cloud Azure
 
-TODO(rujche): Implement following contents.
-1. Add `spring-cloud-azure-starter-keyvault-secrets`.
-2. Add necessary properties in application.yml
-3. Autowired `SecretClient` in related place.
+With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, things will be much easier. You just need to do these steps:
 
-Furthermore, he can use these features:
-1. Use `@Value` to get the secret value.
-2. Use Health indicator oto check the health of Key Vault.
-3. No need to worry about the problem of version compatibility between Spring Boot and Azure SDK. 
+1. Add dependencies in pom.xml
+   ```xml
+   <dependencies>
+     <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
+     </dependency>
+   </dependencies>
+   ```
+   Use bom to manage Spring Cloud Azure version:
+   ```xml
+   <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.5.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+   </dependencyManagement>
+   ```
+2. Add necessary properties in application.yml
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         keyvault:
+           secret:
+             endpoint:
+   ```
+   Login by [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
+   ```shell
+   az login
+   ```
+3. Auto-wire `SecretClient` in related place.
+   ```java
+   @SpringBootApplication
+   public class SecretClientApplication implements CommandLineRunner {
+
+     private final SecretClient secretClient;
+
+     public SecretClientApplication(SecretClient secretClient) {
+         this.secretClient = secretClient;
+     }
+
+     public static void main(String[] args) {
+         SpringApplication.run(SecretClientApplication.class, args);
+     }
+
+     @Override
+     public void run(String... args) {
+         System.out.println("sampleProperty: " + secretClient.getSecret("sampleProperty").getValue());
+     }
+   }
+   ```
+
+Besides the autoconfigured `SecretClient`, Spring Cloud Azure still provided some other features. For example: Use `@Value` to get the secret value. Here is example java code:
+   ```java
+   @SpringBootApplication
+   public class PropertySourceApplication implements CommandLineRunner {
+
+     @Value("${sampleProperty1}")
+     private String sampleProperty1;
+
+     public static void main(String[] args) {
+         SpringApplication.run(PropertySourceApplication.class, args);
+     }
+
+     public void run(String[] args) {
+         System.out.println("sampleProperty1: " + sampleProperty1);
+     }
+
+   }
+   ```
 
 ## Next steps
 
