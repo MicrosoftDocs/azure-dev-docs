@@ -256,7 +256,7 @@ Provides Spring Boot support for Azure Storage services. Please refer to [Develo
 
 If you need get support about Spring Cloud Azure, you can ask for help by these ways:
 
-- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/en-ca/support/create-ticket/). We recommend this option if your problem requires immediate attention.
+- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). We recommend this option if your problem requires immediate attention.
 - GitHub issues in [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub Issues to track bugs, questions, and feature requests. GitHub Issues are free, but response time is not guaranteed. See [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/) for more details.
 
 
