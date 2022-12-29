@@ -15,20 +15,20 @@ Spring Cloud Azure is an open-source project that helps developers easier to use
 As an open-source project. All its content are public. Here are links to its content:
  - Source code: [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
  - Samples: [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples).
- - Document: [Spring Cloud Azure](.) (Current page).
+ - Document: [Spring Cloud Azure](./index.yml).
 
 ## What is Spring Cloud Azure used for?
 
 Spring Cloud Azure can help developer easier to develop these features in Spring application:
- - Managing configuration properties by [Azure App Configuration](https://learn.microsoft.com/azure/azure-app-configuration/overview).
- - Sending and receiving messages by [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about) / [Azure Service Bus](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](https://learn.microsoft.com/azure/storage/queues/storage-queues-introduction).
- - Managing secrets / certificates by [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
- - Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
- - Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview).
- - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview).
- - Storing structured data by [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction).
- - Storing unstructured data (like text or binary data) by [Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-overview).
- - Storing files by [Azure Files](https://learn.microsoft.com/azure/storage/files/storage-files-introduction).
+ - Managing configuration properties by [Azure App Configuration](/azure/azure-app-configuration/overview).
+ - Sending and receiving messages by [Azure Event Hubs](/azure/event-hubs/event-hubs-about) / [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](/azure/storage/queues/storage-queues-introduction).
+ - Managing secrets / certificates by [Azure Key Vault](/azure/key-vault/general/overview).
+ - Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
+ - Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+ - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+ - Storing structured data by [Azure Cosmos DB](/azure/cosmos-db/introduction).
+ - Storing unstructured data (like text or binary data) by [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+ - Storing files by [Azure Files](/azure/storage/files/storage-files-introduction).
 
 :::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Spring Cloud Azure Overview.":::
 
@@ -188,7 +188,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
            secret:
              endpoint:
    ```
-   Login by [Azure CLI](https://learn.microsoft.com/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
+   Login by [Azure CLI](/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
    ```shell
    az login
    ```
@@ -241,22 +241,22 @@ Provides autoconfiguration support for Azure Services. e.g. Service Bus, Storage
 
 ### Azure Active Directory
 
-Provides integration support for Spring Security with Azure Active Directory for authentication. Please refer to [Developer Guide / Spring Security support](./spring-cloud-azure?tabs=maven#spring-security-support) to get more information.
+Provides integration support for Spring Security with Azure Active Directory for authentication. Please refer to [Developer Guide / Spring Security support](./spring-cloud-azure.md#spring-security-support) to get more information.
 
 ### Azure Key Vault
 
-Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. Please refer to [Developer Guide / Secret management](./spring-cloud-azure?tabs=maven#secret-management) to get more information.
+Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. Please refer to [Developer Guide / Secret management](./spring-cloud-azure.md#secret-management) to get more information.
 
 ### Azure Storage
 
-Provides Spring Boot support for Azure Storage services. Please refer to [Developer Guide / Resource handling](./spring-cloud-azure?tabs=maven#resource-handing) to get more information.
+Provides Spring Boot support for Azure Storage services. Please refer to [Developer Guide / Resource handling](./spring-cloud-azure.md#resource-handing) to get more information.
 
 
-# Get Support
+## Get Support
 
 If you need get support about Spring Cloud Azure, you can ask for help by these ways:
 
-- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/en-ca/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/en-ca/support/create-ticket/). We recommend this option if your problem requires immediate attention.
+- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/en-ca/support/create-ticket/). We recommend this option if your problem requires immediate attention.
 - GitHub issues in [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub Issues to track bugs, questions, and feature requests. GitHub Issues are free, but response time is not guaranteed. See [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/) for more details.
 
 
