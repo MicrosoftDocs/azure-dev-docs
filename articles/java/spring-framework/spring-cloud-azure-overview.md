@@ -214,7 +214,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    }
    ```
 
-Besides the autoconfigured `SecretClient`, Spring Cloud Azure still provided some other features. For example: Use `@Value` to get the secret value. Here is example java code:
+   Besides the autoconfigured `SecretClient`, Spring Cloud Azure still provided some other features. For example: Use `@Value` to get the secret value. Here is example java code:
    ```java
    @SpringBootApplication
    public class PropertySourceApplication implements CommandLineRunner {
