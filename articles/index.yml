@@ -39,8 +39,8 @@ highlightedContent:
       url: ./intro/azure-developer-billing.md
 
 productDirectory:
-#  title: Developer centers
-#  summary:
+  #  title: Developer centers
+  #  summary:
   items:
     # Card
     - title: Python
@@ -100,7 +100,7 @@ productDirectory:
         - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
           text: Build a serverless function
         - url: /dotnet/azure/sdk/azure-sdk-for-dotnet
-          text: Azure SDK for .NET          
+          text: Azure SDK for .NET
         - url: /dotnet/azure/
           text: See more in the .NET developer center
     - title: Go
@@ -202,7 +202,7 @@ additionalContent:
         # Card
         - title: Azure Toolkit for Eclipse
           summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
-          url: ./java/toolkit-for-eclipse/index.yml           
+          url: ./java/toolkit-for-eclipse/index.yml
         # Card
         - title: Maven
           summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
@@ -213,7 +213,7 @@ additionalContent:
         # Card
         - title: Azure and GitHub integration
           summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: ./github/index.yml      
+          url: ./github/index.yml
         # Card
         - title: Azure DevOps
           summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
@@ -234,6 +234,10 @@ additionalContent:
         - title: Terraform
           summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
           url: /azure/terraform/
+        # Card
+        - title: Pulumi
+          summary: Use Pulumi to provision and manage cloud infrastructure.
+          url: /azure/pulumi/
         # Card
         - title: Ansible
           summary: Use Ansible to automate cloud provisioning, configuration management, and application deployments.

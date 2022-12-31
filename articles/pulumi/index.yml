@@ -1,0 +1,42 @@
+### YamlMime:Landing
+
+title: Pulumi on Azure documentation
+summary: Learn how to use Pulumi to provision and manage infrastructure on Azure.
+
+metadata:
+  title: Pulumi on Azure documentation - Articles, samples, references, and resources
+  description: Learn how to use Pulumi to reliably provision virtual machines and other infrastructure on Azure.
+  ms.service: pulumi
+  author: jkodroff
+  ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 12/30/2022
+  ms.custom: devx-track-pulumi
+
+landingContent:
+  # Card
+  - title: About Pulumi on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Pulumi on Azure
+            url: overview.md
+
+  # Card
+  - title: Install and configure Pulumi
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install and configure Pulumi
+            url: quickstart-configure.md
+          - text: Authenticate Pulumi to Azure
+            url: authenticate-to-azure.md
+
+  # Card
+  - title: Manage AKS
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a Kubernetes cluster with AKS
+            url: create-k8s-cluster-with-tf-and-aks.md
+
