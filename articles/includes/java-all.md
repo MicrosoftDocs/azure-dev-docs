@@ -228,7 +228,7 @@
 | Resource Management - Service Bus | Maven [2.22.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicebus/2.22.0/jar/) | [docs](/java/api/overview/azure/resourcemanager-servicebus-readme) | GitHub [2.22.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicebus_2.22.0/sdk/resourcemanager/azure-resourcemanager-servicebus/) |
 | Resource Management - Service Fabric | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicefabric/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/resourcemanager-servicefabric-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicefabric_1.0.0-beta.2/sdk/servicefabric/azure-resourcemanager-servicefabric/) |
 | Resource Management - Service Linker | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicelinker/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/resourcemanager-servicelinker-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicelinker_1.0.0-beta.2/sdk/servicelinker/azure-resourcemanager-servicelinker/) |
-| Resource Management - Servicenetworking | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicenetworking/1.0.0-beta.1/jar/) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.0.0-beta.1/sdk/servicenetworking/azure-resourcemanager-servicenetworking/) |
+| Resource Management - Servicenetworking | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicenetworking/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/resourcemanager-servicenetworking-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.0.0-beta.1/sdk/servicenetworking/azure-resourcemanager-servicenetworking/) |
 | Resource Management - SignalR | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-signalr/1.0.0-beta.5/jar/) | [docs](/java/api/overview/azure/resourcemanager-signalr-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-signalr_1.0.0-beta.5/sdk/signalr/azure-resourcemanager-signalr/) |
 | Resource Management - Spring Cloud | Maven [2.22.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-appplatform/2.22.0/jar/) | [docs](/java/api/overview/azure/resourcemanager-appplatform-readme) | GitHub [2.22.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appplatform_2.22.0/sdk/resourcemanager/azure-resourcemanager-appplatform/) |
 | Resource Management - SQL | Maven [2.22.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-sql/2.22.0/jar/) | [docs](/java/api/overview/azure/resourcemanager-sql-readme) | GitHub [2.22.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.22.0/sdk/resourcemanager/azure-resourcemanager-sql/) |
@@ -387,23 +387,25 @@
 | azure-sdk-template-two | Maven [1.0.0-beta.2046419](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.2046419/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.13.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.13.0/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
-| azure-toolkit-applicationinsights-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-appservice-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-auth-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-common-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-compute-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-containerregistry-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-containerservice-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-cosmos-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-database-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-libs | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.27.0/jar/) |  |  |
-| azure-toolkit-mysql-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-postgre-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-redis-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.27.0/jar/) |  |  |
+| azure-toolkit-applicationinsights-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-appservice-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-auth-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-common-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-compute-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-containerapps-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerapps-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-containerregistry-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-containerservice-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-cosmos-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-database-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-libs | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.28.0/jar/) |  |  |
+| azure-toolkit-mysql-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-mysql-single-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-single-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-postgre-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-redis-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.28.0/jar/) |  |  |
 | azure-toolkit-resource-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-resource-lib/0.19.2/jar/) |  |  |
-| azure-toolkit-springcloud-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-sqlserver-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.27.0/jar/) |  |  |
-| azure-toolkit-storage-lib | Maven [0.27.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.27.0/jar/) |  |  |
+| azure-toolkit-springcloud-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-sqlserver-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.28.0/jar/) |  |  |
+| azure-toolkit-storage-lib | Maven [0.28.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.28.0/jar/) |  |  |
 | azure-xml | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-xml/1.0.0-beta.1/jar/) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.8](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.8/jar/) |  |  |
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
