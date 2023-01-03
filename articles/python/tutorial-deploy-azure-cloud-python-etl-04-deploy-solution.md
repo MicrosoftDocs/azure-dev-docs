@@ -258,6 +258,8 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
     https:///msdocs-etl.azurewebsites.net/api/search?code=YOUR-FUNCTION-CODE&search_term=azure&count=5
     ```
 
+    The `code` is the function-level authentication so that only API calls with the code will be executed. 
+
 2. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
 3. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 

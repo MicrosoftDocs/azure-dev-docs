@@ -100,7 +100,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally. 
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,10" :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" :::
 
     The highlighted lines indicate settings made in this article. 
 
