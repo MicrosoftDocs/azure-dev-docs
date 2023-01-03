@@ -28,8 +28,7 @@ You must have completed all steps from:
     :::column:::
         **Step 1.** Create new local Azure Function in the Visual Studio Code workspace.
         1. Choose the **Azure icon** in the **Activity bar**.
-        1. In the **Workspace (local) area**, select the **+ button**.
-        1. Choose **Create Function** in the dropdown.
+        1. In the **Workspace (local) area**, select the Azure Function icon (`+` + lightening) to add another API function.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
@@ -38,15 +37,17 @@ You must have completed all steps from:
 :::row:::
     :::column:::
         **Step 2.**  Enter the following information at the prompts:
-        1. **Select a language**: Choose `Python`.
-        1. **Select a Python interpreter to create a virtual environment**: Choose your *preferred Python interpreter*. If an option isn't shown, type in the full path to your Python binary.
-        1. **Select a template for your project's first function**: Choose `Azure blob storage trigger`.
+        1. **Select a template for your function**: Choose `Azure blob storage trigger`.
         1. **Provide a function name**: Enter `api_blob_trigger`.
-        1. **Authorization level**: Choose `Function`.  For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
-        1. **Select how you would like to open your project**: Choose `Add to workspace`.
+        1. **Select setting from "local.settings.json"**: Select `AzureWebJobsStorage`.
+        1. **Path within your storage account the trigger will monitor**: Enter `msdocs-python-cloud-etl-news-source/{name}`. This represents the `msdocs-python-cloud-etl-news-source` container, and any file that lands there.
     :::column-end:::
 :::row-end:::
-
+:::row:::
+    :::column:::
+        **Step 3.**  Test the trigger by executing the `api_search` API again. Refer to the [instructions](tutorial-deploy-azure-cloud-python-etl-02-get-data.md#16-test-the-api-endpoint-for-your-python-function) on the previous page. 
+    :::column-end:::
+:::row-end:::
 
 ## 2. Create a resource for Azure Data Lake Gen 2
 
