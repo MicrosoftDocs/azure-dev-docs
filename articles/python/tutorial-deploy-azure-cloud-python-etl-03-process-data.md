@@ -59,7 +59,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Storage Account resource in the Azure portal.
+        **Step 1.** Create an Azure Storage Account resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter **storage** in the search box.
         1. Navigate to **Storage accounts** under **Services** in the search results.
@@ -78,7 +78,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. **Location**: Select **East US**.
         1. **Performance**: Select **Standard**.
         1. **Replication**: Select **Locally-redundant storage (LRS)**.
-        1. Select **Advanced** to proceed to continue configuring values for the resource.
+        1. Select **Next: Advanced** to proceed to continue configuring values for the resource.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png":::
@@ -192,15 +192,23 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
-## 6. Create code for BlobTrigger function with Python
+## 5. Create code for data lake with Python
 
-1. Open the **__init__.py** file in the **api_blob_trigger** folder.
+1. Create a file named `data_lake.py` in the **shared** folder.
 
 2. Copy the following Python code into it.
 
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/data_lake.py"  :::
+
+## 7. Create code for BlobTrigger function with Python
+
+1. Open the **__init__.py** file in the **api_blob_trigger** folder.
+
+2. Replace the file's contents with the following Python code.
+
     :::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
 
-## 7. Test the Azure blob storage trigger Function
+## 8. Test the Azure blob storage trigger Function
 
 To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function executes automatically.
 

@@ -424,7 +424,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
 1. Create a **hash.py** file in the **shared** folder.
  
-2. Copy the following Python code. Replace all the file's contents with this code.
+2. Copy the following Python code. 
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
@@ -433,7 +433,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
 1. Open the **__init__.py** file in the **api_search** folder.
  
-2. Copy the following Python code into it.
+2. Replace the file's contents with the following Python code.
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
 
