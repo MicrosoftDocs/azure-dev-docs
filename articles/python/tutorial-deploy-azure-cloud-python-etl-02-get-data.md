@@ -282,7 +282,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
     
 3. Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
 
-4. Create a file named `key_vault_secret.py` and copy the following python code into it.
+4. Create a file named `key_vault_secret.py` in the **shared** folder and copy the following python code into it.
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
     
