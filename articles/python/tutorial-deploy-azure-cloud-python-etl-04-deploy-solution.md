@@ -5,7 +5,7 @@ services: python, azure-functions, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/15/2022
+ms.date: 01/03/2023
 ms.prod: azure-python
 ---
 
