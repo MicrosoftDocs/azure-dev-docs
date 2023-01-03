@@ -53,7 +53,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.** Run the function locally by pressing `F5` or the play icon.
+        **Step 3.** Start the function app locally in Visual Studio Code by pressing `F5` or the play icon.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png":::
@@ -61,7 +61,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Execute the function locally.
+        **Step 4.** Call the API from Visual Studio Code.
         1. Choose the **Azure icon** in the **Activity bar**.
         1. In the **Workspace area**, expand **Local Project** and then **Functions**.
         1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
@@ -73,7 +73,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 5.** Test the sample functionality by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
+        **Step 5.** Add the API body by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif":::
