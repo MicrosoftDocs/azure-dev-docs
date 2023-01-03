@@ -323,7 +323,7 @@
 | AutoRest | npm [3.6.2](https://www.npmjs.com/package/autorest/v/3.6.2) |  |  |
 | Autosuggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-autosuggest) |
 | Autosuggest | npm [1.0.0](https://www.npmjs.com/package/azure-cognitiveservices-autosuggest/v/1.0.0) |  |  |
-| Avocado | npm [0.8.11](https://www.npmjs.com/package/@azure/avocado/v/0.8.11) |  | GitHub [0.8.11](https://github.com/Azure/avocado) |
+| Avocado | npm [0.8.12](https://www.npmjs.com/package/@azure/avocado/v/0.8.12) |  | GitHub [0.8.12](https://github.com/Azure/avocado) |
 | Batch | npm [10.2.0](https://www.npmjs.com/package/@azure/batch/v/10.2.0) |  | GitHub [10.2.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.9.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1) |  |  |

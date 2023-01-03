@@ -542,7 +542,7 @@
 | Key Vault - Secrets | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-secrets/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-secrets_4.0.0-preview.4/sdk/keyvault/azure-keyvault-secrets/) |
 | Kusto Data | Maven [4.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/4.0.1/jar/) |  |  |
 | Kusto Ingest | Maven [4.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/4.0.1/jar/) |  |  |
-| Kusto Spark | Maven [3.1.8](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/3.1.8/jar/) |  |  |
+| Kusto Spark | Maven [3.1.9](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/3.1.9/jar/) |  |  |
 | Log Analytics | Maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-loganalytics/1.0.0-Preview-1/jar/) |  | GitHub [1.0.0-Preview-1](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loganalytics/microsoft-azure-loganalytics) |
 | LUIS | Maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
 | LUIS Authoring | Maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
