@@ -39,7 +39,7 @@ You must have completed all steps from:
         **Step 2.**  Enter the following information at the prompts:
         1. **Select a template for your function**: Choose `Azure blob storage trigger`.
         1. **Provide a function name**: Enter `api_blob_trigger`.
-        1. **Select setting from "local.settings.json"**: Select `AzureWebJobsStorage`.
+        1. **Select setting from "local.settings.json"**: Select `BLOB_STORAGE_CONNECTION_STRING`. While this value is the same as `AzureWebJobsStorage` when running locally, the two connection strings will point to different storage accounts when the function app is deployed.
         1. **Path within your storage account the trigger will monitor**: Enter `msdocs-python-cloud-etl-news-source/{name}`. This represents the `msdocs-python-cloud-etl-news-source` container, and any file that lands there.
     :::column-end:::
 :::row-end:::

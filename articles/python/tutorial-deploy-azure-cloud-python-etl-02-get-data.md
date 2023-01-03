@@ -408,9 +408,10 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
     |Property|Setting|
     |--|--|
+    |BLOB_STORAGE_CONNECTION_STRING|Enter the Blob Storage **connection string** in double quotes. This connection string will be used to trigger the Blob Storage trigger (in the next page) when a new file lands in blob storage.|
     |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
     |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
-    |AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes.|
+    |AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes. This connection string is used to manage storage used by the function app to manage triggers, queues, and other meta needs.|
 
 3. Create a file named `blob_storage.py` in the **shared** folder.
 

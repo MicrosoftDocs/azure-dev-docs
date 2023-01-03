@@ -58,16 +58,19 @@ You must have completed all steps from:
 
 Configure the following environment variables, from `local.settings.json` to your new Function app resource, to allow your function app to connect to Azure Key Vault, Azure Blob Storage, and Azure Data Lake. 
 
-|Environment variable|Value|
-|--|--|
-|BLOB_STORAGE_RESOURCE_NAME|`msdocspythoncloudetlabs`|
-|BLOB_STORAGE_CONTAINER_NAME|`msdocs-python-cloud-etl-news-source`|
-|KEY_VAULT_RESOURCE_NAME|`msdocs-python-etl-kv`|
-|KEY_VAULT_SECRET_NAME|`bing-search-resource-key1`|
-|DATALAKE_GEN_2_RESOURCE_NAME|`msdocspythoncloudetladls`|
-|DATALAKE_GEN_2_CONTAINER_NAME|`msdocs-python-cloud-etl-processed`|
-|DATALAKE_GEN_2_DIRECTORY_NAME|`news-data`|
-|BING_SEARCH_URL|`https://api.bing.microsoft.com/v7.0/`|
+Use the values from `local.settings.json`.
+
+|Environment variable|
+|--|
+|BLOB_STORAGE_CONNECTION_STRING|
+|BLOB_STORAGE_RESOURCE_NAME|
+|BLOB_STORAGE_CONTAINER_NAME|
+|KEY_VAULT_RESOURCE_NAME|
+|KEY_VAULT_SECRET_NAME|
+|DATALAKE_GEN_2_RESOURCE_NAME|
+|DATALAKE_GEN_2_CONTAINER_NAME|
+|DATALAKE_GEN_2_DIRECTORY_NAME|
+|BING_SEARCH_URL|
 
 * If you used different values when you created or configured resources, use your own values instead of the values listed in the preceding table.
 
