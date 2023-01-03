@@ -66,6 +66,10 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
 
 [!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
 
+1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
+
+    :::code language="python" source="https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt" :::
+
 1. Install the dependencies:
 
     ```Console
@@ -83,9 +87,6 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
     | [Azure Key Vault Secrets](/python/api/overview/azure/keyvault-secrets-readme) | `pip install azure-keyvault-secrets` | [azure-keyvault-secrets](https://pypi.org/project/azure-keyvault-secrets/) |
     | [Azure Core](/python/api/overview/azure/core-readme) | `pip install azure-core` | [azure-core](https://pypi.org/project/azure-core/) |
     | [Azure Function](/python/api/azure-functions/azure.functions) | `pip install azure-functions` | [azure-functions](https://pypi.org/project/azure-functions/) |
-
-> [!NOTE]
-> If you are following this tutorial with your own solution, look at the [requirements.txt](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) to see what packages you'll need.
 
 ## Create a resource group for your project
 

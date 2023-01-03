@@ -126,9 +126,9 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create a Bing Search API resource in the Azure portal.
+        **Step 1.** Create a Bing Search API resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Enter `Bing` in the search box.
+        1. Enter `Bing Search v7` in the search box.
         1. Select **Bing Search v7** under **Marketplace** in the search results.
     :::column-end:::
     :::column:::
@@ -139,11 +139,11 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     :::column:::
         **Step 2.** Enter the following information in the portal dialogue:
         1. **Subscription**: Select **your active subscription**.
-        1. **Resource group**: Select **msdocs-python-cloud-etl-rg**, if this resource group doesn't exist, select **Create new**.
+        1. **Resource group**: Select the resource you created in the previous page of this article services, such as **msdocs-python-cloud-etl-rg**.
         1. **Name**: Enter `msdocs-bing-search` (*Names may contain alphanumeric characters and dashes (-) only*).
         1. **Pricing tier**: Select **Free F1** package, the free-tier for the purposes of this tutorial. The other packages are for the pay model. To view package options and pricing for the pay model, select **View full pricing details**.
         1. Select the **check the box** to indicate that you have read and understood the notice.
-        1. Select **Create** to start the deployment process.
+        1. Select **Review and create** then select **Create** to start the deployment process.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png":::
@@ -183,7 +183,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
+        **Step 1.** Create an Azure Key Vault resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter `Key Vault` in the search box.
         1. Navigate to **Key Vault** under **Services** in the search results.
@@ -296,7 +296,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Storage Account resource in the Azure portal.
+        **Step 1.** Create an Azure Storage Account resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter **storage** in the search box.
         1. Navigate to **Storage accounts** under **Services** in the search results.
@@ -338,7 +338,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         **Step 4.** Assign your user account as a **Storage Blob Data Contributor** so you can add, update, and delete blobs.
 
         1. Select **Access Control (IAM)** in the left panel in the **Storage account** resource dialogue window.
-        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
         1. **Assigned access to**: Select **User, group or service principal**.
         1. **Members**: Select **+ Select members**.
@@ -359,9 +359,12 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
 
 1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
-2. Select the **Show** button for **key1**.
-3. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. 
-4. Open the `local.settings.json` file and paste the value for the **AzureWebJobsStorage** property. 
+1. Select the **Show** button for **key1**.
+
+    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png" alt-text="A screenshot of showing the connection string of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png":::
+
+1. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. You'll set this value in your `local.settings.json` file in a following step.
+
 
 
 ## 12. Create container for Azure Blob Storage
@@ -421,7 +424,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
 1. Create a **hash.py** file in the **shared** folder.
  
-2. Copy the following Python code into it.
+2. Copy the following Python code. Replace all the file's contents with this code.
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
@@ -432,7 +435,9 @@ Create a random string to add to the end of each file created in blob storage. T
  
 2. Copy the following Python code into it.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
+
+    The highlighted sections are the significant secret and SDK integration steps. 
 
 ## 16. Test the API endpoint for your python function
 
