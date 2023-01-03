@@ -68,7 +68,7 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
 
 1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
 
-    :::code language="python" source="https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt" :::
+    :::code language="python" source="~/../requirements.txt" :::
 
 1. Install the dependencies:
 
