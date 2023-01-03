@@ -46,7 +46,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. View the `api_search` trigger.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger" alt-text="A screenshot of Visual Studio Code showing how the new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png" alt-text="A screenshot of Visual Studio Code showing how the new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
