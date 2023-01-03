@@ -45,7 +45,9 @@ To complete this tutorial, you'll need:
 
 ## Get the sample solution
 
-A sample Python solution is available to help you follow along with this tutorial. Download or clone the sample codebase to your local workstation. 
+A sample Python solution is optionally available to help you follow along with this tutorial so you don't have to create the app or paste in the code. Download or clone the sample codebase to your local workstation. 
+
+In subsequent steps that ask you to create the app or apply code to the app, that work is already completed in the sample app. 
 
 > [!CAUTION]
 > If you download and open this sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the **local.settings.json** for local development.
@@ -74,7 +76,7 @@ A sample Python solution is available to help you follow along with this tutoria
 
     |SDK docs   |Install | Python package index |
     |---------------------|--------|----------------------|
-    |[Azure Storage Blobs](/python/api/overview/azure/storage-blob-readme) | `pip install azure-storage-blob`| [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) |
+    | [Azure Storage Blobs](/python/api/overview/azure/storage-blob-readme) | `pip install azure-storage-blob`| [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) |
     | [Azure Storage File Data Lake](/python/api/overview/azure/storage-file-datalake-readme) | `pip install azure-storage-file-datalake` | [azure-storage-file-datalake](https://pypi.org/project/azure-storage-file-datalake/) |
     | [Bing News Search API](/bing/search-apis/bing-news-search/reference/endpoints) | `pip install microsoft-bing-newssearch`| [microsoft-bing-newssearch](https://pypi.org/project/microsoft-bing-newssearch/) |
     | [Azure Identity](/python/api/overview/azure/identity-readme) | `pip install azure-identity` | [azure-identity](https://pypi.org/project/azure-identity/) |
@@ -115,7 +117,7 @@ az role assignment create \
 
 To authenticate your local development environment to Azure, sign in with Azure CLI. 
 
-In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
+If you didn't login in the terminal in the previous step, do that now. In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
 
 ```azurecli
 az login
@@ -124,4 +126,4 @@ az login
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get Started >>](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)
+> [Get data and store >>](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)

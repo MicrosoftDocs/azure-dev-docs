@@ -29,9 +29,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
     :::column:::
         **Step 1.** Create new local Azure Functions project in the Visual Studio Code workspace.
         1. Choose the **Azure icon** in the **Activity bar**.
-        1. In the **Workspace (local) area**, select the **+ button**.
-        1. Choose **Create Function** in the dropdown.
-        1. When prompted, choose **Create new project**.
+        1. In the **Workspace (local) area**, select the **Create function** button.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
@@ -45,10 +43,10 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. **Select a template for your project's first function**: Choose **HTTP trigger**.
         1. **Provide a function name**: Enter `api_search`.
         1. **Authorization level**: Choose **Function**.  (*For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).*)
-        1. **Select how you would like to open your project**: Choose **Add to workspace**.
+        1. View the `api_search` trigger.
     :::column-end:::
     :::column:::
-        
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger" alt-text="A screenshot of Visual Studio Code showing how the new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -64,7 +62,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         **Step 4.** Call the API from Visual Studio Code.
         1. Choose the **Azure icon** in the **Activity bar**.
         1. In the **Workspace area**, expand **Local Project** and then **Functions**.
-        1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+        1. Right-click (Windows) or Ctrl + Select (macOS) the **api_search** function.
         1. Choose **Execute Function Now**.
     :::column-end:::
     :::column:::
@@ -73,13 +71,20 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 5.** Add the API body by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
+        **Step 5.** Add the API body by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter. Stop the function, <kbd>Shift</kbd> + <kbd>F5</kbd>.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.png" alt-text="A screenshot showing the edit box for the API body function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.png":::
     :::column-end:::
 :::row-end:::
-
+:::row:::
+    :::column:::
+        **Step 6.** View the API response.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger-result.png" alt-text="A screenshot of the new local function's result in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger-result.png":::
+    :::column-end:::
+:::row-end:::
 
 ## 2. Change Azure Function API route in function.json
 
@@ -88,7 +93,7 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **function.json** file in the `api_search` folder. 
 1. Add the `route` property as shown in the following json so your API route is `/api/search`.
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json":::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json" highlight="13":::
 
 ## 3. Set application settings in local.settings.json for Python Functions App
 
