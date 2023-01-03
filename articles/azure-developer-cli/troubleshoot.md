@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 10/31/2022
+ms.date: 01/03/2023
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -134,12 +134,12 @@ You may also be receiving this error due to being logged in using the device cod
    ```
 
    > [!NOTE]
-   > If running CodeSpaces in the browser, you may receive a 404 error after logging in. If so:
+   > If running CodeSpaces in the browser, you may receive an error with message `localhost refused to connect` after logging in. If so:
    > 
    > 1. Copy the URL.
-   > 1. Run `curl <pasted url>` in the Visual Studio Code terminal shell.
+   > 1. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
    > 
-   > The login should now succeed.
+   > In the original terminal, the login should now succeed.
 
 1. After logging in, rerun `azd pipeline config`.
 
