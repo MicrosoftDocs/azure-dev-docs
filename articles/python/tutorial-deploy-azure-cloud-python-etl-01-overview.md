@@ -66,7 +66,20 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
 
 1. Create the virtual environment:
 
-[!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
+    ### [Windows](#tab/cmd)
+
+    ```bash
+    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    py -3 -m venv .venv
+    ```
+
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    python3 -m venv .venv
+    ```
+
+    ---
 
 1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
 
