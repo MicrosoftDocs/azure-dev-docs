@@ -5,7 +5,7 @@ services: python, azure-functions, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/15/2022
+ms.date: 01/03/2023
 ms.prod: azure-python
 ---
 
@@ -56,18 +56,21 @@ You must have completed all steps from:
 
 ## 2. Configure Azure Functions app settings in Azure portal
 
-Configure the following environment variables to allow your function app to connect to Azure Key Vault, Azure Blob Storage, and Azure Data Lake. 
+Configure the following environment variables, from `local.settings.json` to your new Function app resource, to allow your function app to connect to Azure Key Vault, Azure Blob Storage, and Azure Data Lake. 
 
-|Environment variable|Value|
-|--|--|
-|BLOB_STORAGE_RESOURCE_NAME|`msdocspythoncloudetlabs`|
-|BLOB_STORAGE_CONTAINER_NAME|`msdocs-python-cloud-etl-news-source`|
-|KEY_VAULT_RESOURCE_NAME|`msdocs-python-etl-kv`|
-|KEY_VAULT_SECRET_NAME|`bing-search-resource-key1`|
-|DATALAKE_GEN_2_RESOURCE_NAME|`msdocspythoncloudetladls`|
-|DATALAKE_GEN_2_CONTAINER_NAME|`msdocs-python-cloud-etl-processed`|
-|DATALAKE_GEN_2_DIRECTORY_NAME|`news-data`|
-|BING_SEARCH_URL|`https://api.bing.microsoft.com/v7.0/`|
+Use the values from `local.settings.json`.
+
+|Environment variable|
+|--|
+|BLOB_STORAGE_CONNECTION_STRING|
+|BLOB_STORAGE_RESOURCE_NAME|
+|BLOB_STORAGE_CONTAINER_NAME|
+|KEY_VAULT_RESOURCE_NAME|
+|KEY_VAULT_SECRET_NAME|
+|DATALAKE_GEN_2_RESOURCE_NAME|
+|DATALAKE_GEN_2_CONTAINER_NAME|
+|DATALAKE_GEN_2_DIRECTORY_NAME|
+|BING_SEARCH_URL|
 
 * If you used different values when you created or configured resources, use your own values instead of the values listed in the preceding table.
 
@@ -84,7 +87,7 @@ Configure the following environment variables to allow your function app to conn
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 2.** Complete this section for each name/value pair.
+        **Step 2.** Complete this section for each name/value pair. The values should match the values show in your local project's `local.settings.json`.
         1. Right-click **Application Settings**, select **New application setting**. 
         1. Add the first name/value pair from the table at the beginning of this section and select **OK**.
     :::column-end:::
@@ -122,8 +125,15 @@ Enable System Assigned Identity for the function app and give it the **Contribut
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 2.** Add roles for Azure Functions app to access other Azure resources.
-        1. While still on the **Identity** page, select **Azure role assignments**.
+        **Step 2.** Add roles for Azure Functions app to access other Azure resources. When running locally, you used your own personal account. For deployed resources, use the Function app's identity to connect to the other Azure resources. 
+
+        1. While still on the **Identity** page, select **Azure role assignments**. Complete the following steps to add the 3 required role assignments.
+
+            |Service|Role|
+            |--|--|
+            |Key vault|Key Vault Secrets User|
+            |Blob storage|Storage Blob Data Contributor|
+            |Blob storage (data lake)|Storage Blob Data Contributor|
         
         2. To add a Key Vault role, select **Add role assignment**. 
             * Select a scope of Key Vault.
@@ -147,7 +157,7 @@ Enable System Assigned Identity for the function app and give it the **Contribut
             * Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png" alt-text="Screenshot showing how to turn on System assigned identity in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-system-assigned-identity.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-azure-role-assignments.png" alt-text="Screenshot showing how to add Azure role assignement permissions in Azure Function in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-function-configure-azure-role-assignments.png":::
     :::column-end:::
 :::row-end:::
 
@@ -242,12 +252,14 @@ To call the solution, you need to use an HTTP tool for your deployed Azure Funct
 
 ## 7. Call the Azure Function API endpoint
 
-1. Test the cloud-based function. Use a web browser to test your **search** api:
+1. Test the cloud-based function. Use a web browser to test your **search** api. The function URL you copied in a previous section had the code in the query string but didn't have the rest of the query string needed. Make sure to add the `search_term` and `count`.
 
     ```
-    https:///msdocs-etl.azurewebsites.net/api/search?search_term=azure&count=5
+    https:///msdocs-etl.azurewebsites.net/api/search?code=YOUR-FUNCTION-CODE&search_term=azure&count=5
     ```
-    
+
+    The `code` is the function-level authentication so that only API calls with the code will be executed. 
+
 2. Verify the Blob Storage **msdocs-python-cloud-etl-news-source** container has a file named _like_ `search_results_azure_yar6q2P80Lm4FG7.json`.
 3. Verify the Data Lake **msdocs-python-cloud-etl-processed** container and **news-data** directory has a file named _like_ `processed_search_results_azure_yar6q2P80Lm4FG7.json`.
 

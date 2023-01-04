@@ -82,7 +82,7 @@
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [6.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/) |
 | Token Cache Persistence Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | VS Code Authentication Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
-| Web PubSub | npm [1.1.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.0/sdk/web-pubsub/web-pubsub/) |
+| Web PubSub | npm [1.1.1](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.1) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.1/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.3](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.3) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.3/sdk/web-pubsub/web-pubsub-express/) |
 | OpenTelemetry Instrumentation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/opentelemetry-instrumentation-azure-sdk/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/opentelemetry-instrumentation-azure-sdk-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.2/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/) |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-appservice-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appservice-profile-2020-09-01-hybrid_2.1.0/sdk/appservice/arm-appservice-profile-2020-09-01-hybrid/) |
@@ -492,7 +492,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20221229.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221229.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230104.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230104.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -508,11 +508,11 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-apiview | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/cadl-apiview/v/0.3.1) |  |  |
+| @azure-tools/cadl-apiview | npm [0.3.3](https://www.npmjs.com/package/@azure-tools/cadl-apiview/v/0.3.3) |  |  |
 | @azure-tools/cadl-autorest | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.24.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.24.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.24.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.11-beta.20221229.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20221229.1) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230104.2](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230104.2) |  |  |
 | @azure-tools/cadl-dpg | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.24.0) |  |  |
 | @azure-tools/cadl-java | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.2.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
