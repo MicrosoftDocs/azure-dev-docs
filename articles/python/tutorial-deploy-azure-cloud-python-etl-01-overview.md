@@ -66,7 +66,7 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
 
 1. Create the virtual environment:
 
-    [!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
+[!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
 
 1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
 
