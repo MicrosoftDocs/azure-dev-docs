@@ -3,7 +3,6 @@ ms.custom: devx-track-python
 ms.topic: include
 ms.date: 06/23/2022
 ---
-1. Create the virtual environment:
 
     ### [Windows](#tab/cmd)
 

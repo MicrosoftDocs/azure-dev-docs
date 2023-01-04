@@ -46,7 +46,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. View the `api_search` trigger.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png" alt-text="A screenshot of Visual Studio Code showing how the new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png" alt-text="A screenshot of Visual Studio Code showing the new local function HTTP trigger code in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -361,7 +361,7 @@ The Blob Trigger connects to Blob Storage with a connection string stored in the
 1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
 1. Select the **Show** button for **key1**.
 
-    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png" alt-text="A screenshot of showing the connection string of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png":::
+    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png" alt-text="A screenshot showing the connection string of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png":::
 
 1. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. You'll set this value in your `local.settings.json` file in a following step.
 

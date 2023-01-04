@@ -64,7 +64,9 @@ In subsequent steps that ask you to create the app or apply code to the app, tha
     cd msdocs-python-etl-serverless
     ```
 
-[!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
+1. Create the virtual environment:
+
+    [!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
 
 1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
 
@@ -118,7 +120,7 @@ az role assignment create \
 
 To authenticate your local development environment to Azure, sign in with Azure CLI. 
 
-If you didn't login in the terminal in the previous step, do that now. In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
+If you didn't log in in the terminal in the previous step, do that now. In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
 
 ```azurecli
 az login
