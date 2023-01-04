@@ -5,7 +5,7 @@ services: python, azure-functions, azure-storage-accounts, bing-search-services
 ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/15/2022
+ms.date: 01/03/2023
 ms.prod: azure-python
 ---
 
@@ -29,9 +29,7 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
     :::column:::
         **Step 1.** Create new local Azure Functions project in the Visual Studio Code workspace.
         1. Choose the **Azure icon** in the **Activity bar**.
-        1. In the **Workspace (local) area**, select the **+ button**.
-        1. Choose **Create Function** in the dropdown.
-        1. When prompted, choose **Create new project**.
+        1. In the **Workspace (local) area**, select the **Create function** button.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
@@ -45,15 +43,15 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
         1. **Select a template for your project's first function**: Choose **HTTP trigger**.
         1. **Provide a function name**: Enter `api_search`.
         1. **Authorization level**: Choose **Function**.  (*For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).*)
-        1. **Select how you would like to open your project**: Choose **Add to workspace**.
+        1. View the `api_search` trigger.
     :::column-end:::
     :::column:::
-        
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png" alt-text="A screenshot of Visual Studio Code showing the new local function HTTP trigger code in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.** Run the function locally by pressing `F5` or the play icon.
+        **Step 3.** Start the function app locally in Visual Studio Code by pressing `F5` or the play icon.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-run-function.png":::
@@ -61,10 +59,10 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 4.** Execute the function locally.
+        **Step 4.** Call the API from Visual Studio Code.
         1. Choose the **Azure icon** in the **Activity bar**.
         1. In the **Workspace area**, expand **Local Project** and then **Functions**.
-        1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
+        1. Right-click (Windows) or Ctrl + Select (macOS) the **api_search** function.
         1. Choose **Execute Function Now**.
     :::column-end:::
     :::column:::
@@ -73,13 +71,20 @@ You must have completed all steps from the [Overview](tutorial-deploy-azure-clou
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 5.** Test the sample functionality by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
+        **Step 5.** Add the API body by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter. Stop the function, <kbd>Shift</kbd> + <kbd>F5</kbd>.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.png" alt-text="A screenshot showing the edit box for the API body function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-test-new-function.png":::
     :::column-end:::
 :::row-end:::
-
+:::row:::
+    :::column:::
+        **Step 6.** View the API response.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger-result.png" alt-text="A screenshot of the new local function's result in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-initial-http-trigger-result.png":::
+    :::column-end:::
+:::row-end:::
 
 ## 2. Change Azure Function API route in function.json
 
@@ -88,14 +93,14 @@ The route is determined from the folder name, in the format of `/api/FOLDER-NAME
 1. Open the **function.json** file in the `api_search` folder. 
 1. Add the `route` property as shown in the following json so your API route is `/api/search`.
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json":::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/api_search/function.json" highlight="13":::
 
 ## 3. Set application settings in local.settings.json for Python Functions App
 
 1. Open the **./local.settings.json** file.
 1. Replace the file contents with the following JSON. As you progress through the tutorial series, you're instructed to add values to this file. This file allows you to connect to Azure while you develop your python app locally. 
 
-    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" highlight="7,10" :::
+    :::code language="json" source="~/../msdocs-python-etl-serverless/local.settings.json.rename" :::
 
     The highlighted lines indicate settings made in this article. 
 
@@ -121,9 +126,9 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create a Bing Search API resource in the Azure portal.
+        **Step 1.** Create a Bing Search API resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
-        1. Enter `Bing` in the search box.
+        1. Enter `Bing Search v7` in the search box.
         1. Select **Bing Search v7** under **Marketplace** in the search results.
     :::column-end:::
     :::column:::
@@ -134,11 +139,11 @@ The code in this tutorial relies on the secure authentication to Azure with the 
     :::column:::
         **Step 2.** Enter the following information in the portal dialogue:
         1. **Subscription**: Select **your active subscription**.
-        1. **Resource group**: Select **msdocs-python-cloud-etl-rg**, if this resource group doesn't exist, select **Create new**.
+        1. **Resource group**: Select the resource you created in the previous page of this article services, such as **msdocs-python-cloud-etl-rg**.
         1. **Name**: Enter `msdocs-bing-search` (*Names may contain alphanumeric characters and dashes (-) only*).
         1. **Pricing tier**: Select **Free F1** package, the free-tier for the purposes of this tutorial. The other packages are for the pay model. To view package options and pricing for the pay model, select **View full pricing details**.
         1. Select the **check the box** to indicate that you have read and understood the notice.
-        1. Select **Create** to start the deployment process.
+        1. Select **Review and create** then select **Create** to start the deployment process.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-config.png":::
@@ -178,7 +183,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Key Vault resource in the Azure portal.
+        **Step 1.** Create an Azure Key Vault resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter `Key Vault` in the search box.
         1. Navigate to **Key Vault** under **Services** in the search results.
@@ -280,9 +285,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
     |--|--|
     |KEY_VAULT_RESOURCE_NAME|Enter the Key vault name in double quotes, for example "msdocs-python-etl-kv".|
     
-3. Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
-
-4. Create a file named `key_vault_secret.py` and copy the following python code into it.
+3. Create a file named `key_vault_secret.py` in the **shared** folder and copy the following python code into it.
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
     
@@ -293,7 +296,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Storage Account resource in the Azure portal.
+        **Step 1.** Create an Azure Storage Account resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter **storage** in the search box.
         1. Navigate to **Storage accounts** under **Services** in the search results.
@@ -335,7 +338,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
         **Step 4.** Assign your user account as a **Storage Blob Data Contributor** so you can add, update, and delete blobs.
 
         1. Select **Access Control (IAM)** in the left panel in the **Storage account** resource dialogue window.
-        1. 1. Select **Add role assignment** button in the **Grant access to this resource** section.
+        1. Select **Add role assignment** button in the **Grant access to this resource** section.
         1. In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor** then select **Next**.
         1. **Assigned access to**: Select **User, group or service principal**.
         1. **Members**: Select **+ Select members**.
@@ -356,9 +359,12 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
 
 1. In the navigation pane for the storage account, scroll to the **Security and networking** section and select **Access keys**.
-2. Select the **Show** button for **key1**.
-3. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. 
-4. Open the `local.settings.json` file and paste the value for the **AzureWebJobsStorage** property. 
+1. Select the **Show** button for **key1**.
+
+    :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png" alt-text="A screenshot showing the connection string of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-storage-connection-string-show.png":::
+
+1. Select the **Copy** icon to the right of the **Connection string** to copy the value to your clipboard. You'll set this value in your `local.settings.json` file in a following step.
+
 
 
 ## 12. Create container for Azure Blob Storage
@@ -402,9 +408,10 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
     |Property|Setting|
     |--|--|
+    |BLOB_STORAGE_CONNECTION_STRING|Enter the Blob Storage **connection string** in double quotes. This connection string will be used to trigger the Blob Storage trigger (in the next page) when a new file lands in blob storage.|
     |BLOB_STORAGE_RESOURCE_NAME|Enter the Blob Storage **resource name** in double quotes, for example "msdocspythoncloudetlabs".|
     |BLOB_STORAGE_CONTAINER_NAME|Enter the Blob Storage **container name** in double quotes, for example "msdocs-python-cloud-etl-news-source".|
-    |AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes.|
+    |AzureWebJobsStorage|Enter the Blob Storage **connection string** in double quotes. This connection string is used to manage storage used by the function app to manage triggers, queues, and other meta needs.|
 
 3. Create a file named `blob_storage.py` in the **shared** folder.
 
@@ -418,7 +425,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
 1. Create a **hash.py** file in the **shared** folder.
  
-2. Copy the following Python code into it.
+2. Copy the following Python code. 
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
@@ -427,9 +434,11 @@ Create a random string to add to the end of each file created in blob storage. T
 
 1. Open the **__init__.py** file in the **api_search** folder.
  
-2. Copy the following Python code into it.
+2. Replace the file's contents with the following Python code.
 
-:::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
+    :::code language="python" source="~/../msdocs-python-etl-serverless/api_search/__init__.py" highlight="28-32,43,52,60-66"  :::
+
+    The highlighted sections are the significant secret and SDK integration steps. 
 
 ## 16. Test the API endpoint for your python function
 

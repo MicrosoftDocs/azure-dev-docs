@@ -5,7 +5,7 @@ services: python, azure-functions, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/15/2022
+ms.date: 01/03/2023
 ms.prod: azure-python
 ---
 
@@ -28,8 +28,7 @@ You must have completed all steps from:
     :::column:::
         **Step 1.** Create new local Azure Function in the Visual Studio Code workspace.
         1. Choose the **Azure icon** in the **Activity bar**.
-        1. In the **Workspace (local) area**, select the **+ button**.
-        1. Choose **Create Function** in the dropdown.
+        1. In the **Workspace (local) area**, select the Azure Function icon (`+` + lightening) to add another API function.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/visual-studio-code-create-new-function.png":::
@@ -38,15 +37,17 @@ You must have completed all steps from:
 :::row:::
     :::column:::
         **Step 2.**  Enter the following information at the prompts:
-        1. **Select a language**: Choose `Python`.
-        1. **Select a Python interpreter to create a virtual environment**: Choose your *preferred Python interpreter*. If an option isn't shown, type in the full path to your Python binary.
-        1. **Select a template for your project's first function**: Choose `Azure blob storage trigger`.
+        1. **Select a template for your function**: Choose `Azure blob storage trigger`.
         1. **Provide a function name**: Enter `api_blob_trigger`.
-        1. **Authorization level**: Choose `Function`.  For more information about the authorization level, see [Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
-        1. **Select how you would like to open your project**: Choose `Add to workspace`.
+        1. **Select setting from "local.settings.json"**: Select `BLOB_STORAGE_CONNECTION_STRING`. While this value is the same as `AzureWebJobsStorage` when running locally, the two connection strings will point to different storage accounts when the function app is deployed.
+        1. **Path within your storage account the trigger will monitor**: Enter `msdocs-python-cloud-etl-news-source/{name}`. This represents the `msdocs-python-cloud-etl-news-source` container, and any file that lands there.
     :::column-end:::
 :::row-end:::
-
+:::row:::
+    :::column:::
+        **Step 3.**  Test the trigger by executing the `api_search` API again. Refer to the [instructions](tutorial-deploy-azure-cloud-python-etl-02-get-data.md#16-test-the-api-endpoint-for-your-python-function) on the previous page. 
+    :::column-end:::
+:::row-end:::
 
 ## 2. Create a resource for Azure Data Lake Gen 2
 
@@ -58,7 +59,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
 
 :::row:::
     :::column:::
-        **Step 1.** Navigate to create an Azure Storage Account resource in the Azure portal.
+        **Step 1.** Create an Azure Storage Account resource in the Azure portal.
         1. Open a browser window and navigate to the **[Azure portal](https://portal.azure.com)**.
         1. Enter **storage** in the search box.
         1. Navigate to **Storage accounts** under **Services** in the search results.
@@ -77,7 +78,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. **Location**: Select **East US**.
         1. **Performance**: Select **Standard**.
         1. **Replication**: Select **Locally-redundant storage (LRS)**.
-        1. Select **Advanced** to proceed to continue configuring values for the resource.
+        1. Select **Next: Advanced** to proceed to continue configuring values for the resource.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-adls-configure.png":::
@@ -191,15 +192,23 @@ Once the data is transformed into a format ideal for analysis, load the data int
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/transform.py"  :::
 
-## 6. Create code for BlobTrigger function with Python
+## 5. Create code for data lake with Python
 
-1. Open the **__init__.py** file in the **api_blob_trigger** folder.
+1. Create a file named `data_lake.py` in the **shared** folder.
 
 2. Copy the following Python code into it.
 
+    :::code language="python" source="~/../msdocs-python-etl-serverless/shared/data_lake.py"  :::
+
+## 7. Create code for BlobTrigger function with Python
+
+1. Open the **__init__.py** file in the **api_blob_trigger** folder.
+
+2. Replace the file's contents with the following Python code.
+
     :::code language="python" source="~/../msdocs-python-etl-serverless/api_blob_trigger/__init__.py" highlight="18,35,46-49"  :::
 
-## 7. Test the Azure blob storage trigger Function
+## 8. Test the Azure blob storage trigger Function
 
 To properly test the local Azure Storage Blob Trigger function, the Azure HTTP Trigger function must be executed first. Since the Azure HTTP Trigger function creates and uploads the results file to Azure Blob Storage, the Blob Trigger function executes automatically.
 
