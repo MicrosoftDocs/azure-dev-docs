@@ -22,7 +22,7 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-- Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 - ARO requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.
 
@@ -44,7 +44,7 @@ The following content is an example that was copied from Red Hat console portal,
 {"auths":{"cloud.openshift.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"quay.io":{"auth":"xxx...xxx","email":"contoso-user@test.com"},"registry.connect.redhat.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"registry.redhat.io":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"}}}
 ```
 
-Save the secret to a file, you'll use it later section.
+Save the secret to a file, you'll use it later.
 
 ## Create an Azure AD Service Principal from Azure portal
 
@@ -69,13 +69,13 @@ If you run into a problem, check the [required permissions](/azure/active-direct
 
     :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
 
-- Create a new application secret. 
+- Create a new client secret. 
   - Select **Certificates & secrets**.
   - Select **Client secrets**, then **New client secret**.
   - Provide a description of the secret, and a duration. When done, select **Add**.
-  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. 
+  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later. 
 
-You've created your Azure AD application, service principal and client secret.
+Now you've created your Azure AD application, service principal and client secret.
 
 ## Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift
 
@@ -125,6 +125,9 @@ The following steps show you how to fill out **Operator and application** blade 
 
 Depending on network conditions and other activity in your selected region, the deployment may take up to 40 minutes to complete.
 
+> [!NOTE]
+> This quick start deploys IBM supported WebSphere Liberty Operator, you can also select **No** to deploy Open Liberty Operator. The quick start hasn't deployed an application either, you can select **Yes** for **Deploy an application?** to deploy an application.
+
 ## Verify the functionality of the deployment
 
 The steps in this section show you how to verify the deployment has successfully completed.
@@ -159,12 +162,9 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 You're able to use the output commands to create an application or manage the cluster.
 
-> [!NOTE]
-> This quick start uses IBM supported Liberty, you're deploying WebSphere Liberty under the Trial license terms. You can also select **No** to deploy Open Liberty.
-
 ## Clean up resources
 
-If you're not going to continue to use the OpenShift cluster and Liberty server, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+If you're not going to continue to use the OpenShift cluster, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
 
 ## Next steps
 
