@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: v-muyaofeng
 ms.date: 09/26/2022
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for PostgreSQL

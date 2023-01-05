@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: rujche
 ms.date: 12/09/2022
 ms.topic: reference
+ms.custom: spring-cloud-azure
 ---
 
 # Azure Key Vault configuration properties

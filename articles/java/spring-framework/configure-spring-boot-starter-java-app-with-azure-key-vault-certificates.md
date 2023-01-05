@@ -4,7 +4,7 @@ description: In this tutorial, you secure your Spring Boot (including Azure Spri
 ms.date: 07/22/2022
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 author: KarlErickson
 ms.author: edburns
 ---

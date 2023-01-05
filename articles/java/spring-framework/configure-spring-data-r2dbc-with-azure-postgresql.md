@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
 ms.contributors: judubois-09162021
 ---
 

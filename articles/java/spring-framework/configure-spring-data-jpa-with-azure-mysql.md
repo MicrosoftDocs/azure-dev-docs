@@ -7,7 +7,7 @@ author: KarlErickson
 ms.date: 09/27/2022
 ms.author: bbenz
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021
 ---
 
