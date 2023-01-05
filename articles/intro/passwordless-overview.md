@@ -2,11 +2,11 @@
 title: Passwordless connections for Azure services
 description: Describes the security challenges with passwords and introduces passwordless connections for Azure services.
 ms.topic: overview
-ms.date: 09/26/2022
+ms.date: 01/04/2023
 ms.author: asirveda
 author: KarlErickson
 ms.service: azure
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+ms.custom: devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python
 ---
 
 # Passwordless connections for Azure services
@@ -78,6 +78,7 @@ For hands-on demonstrations, see the following quickstarts and tutorials:
 - Java:
   - [Java JDBC with MySQL](/azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Java JDBC with PostgreSQL](/azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [Oracle WebLogic Server with MySQL and PostgreSQL](../java/ee/how-to-configure-passwordless-datasource)
   - [Azure Spring Apps](../java/spring-framework/deploy-passwordless-spring-database-app.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
     - [SQL](/azure/spring-apps/connect-managed-identity-to-azure-sql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
     - [MySQL](/azure/spring-apps/how-to-bind-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
