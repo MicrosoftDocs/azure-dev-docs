@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: data-services
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL

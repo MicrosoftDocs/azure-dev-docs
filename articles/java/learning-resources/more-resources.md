@@ -4,10 +4,8 @@ description: Learn about information and technologies useful for Java in Azure d
 author: KarlErickson
 ms.author: sreea
 ms.topic: overview
-ms.date: 05/20/2022
-ms.custom:
-- devx-track-java
-- kr2b-contr-experiment
+ms.date: 01/05/2023
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, devx-track-javaee-wls, devx-track-javaee-wls-liberty, kr2b-contr-experiment
 ---
 
 # More resources for Azure developers using Java

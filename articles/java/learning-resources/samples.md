@@ -4,8 +4,8 @@ description: Java readiness - Azure samples for Java developers.
 author: KarlErickson
 ms.author: sreea
 ms.topic: article
-ms.date: 03/19/2021
-ms.custom: devx-track-java
+ms.date: 01/05/2023
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
 ---
 
 # Java on Azure Samples
@@ -17,11 +17,12 @@ This topic provides links to samples that demonstrate key scenarios for Java app
 The following samples demonstrate end-to-end Java on Azure experiences.
 
 - [App Service Linux](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux/tree/master/)
+- [Azure Spring Apps](https://github.com/Azure-Samples/azure-spring-cloud)
+- [Deploy web app using GitHub actions](https://github.com/Azure-Samples/Java-application-petstore-ee7)
+- [Jakarta EE on ARO](https://github.com/Azure-Samples/jboss-on-aro-jakartaee)
+- [Java on AKS](https://github.com/Azure-Samples/java-on-aks)
 - [Java scenarios on App Service](https://github.com/Azure-Samples/java-on-app-service)
 - [Scale stateful Java web app on Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure)
-- [Deploy web app using GitHub actions](https://github.com/Azure-Samples/Java-application-petstore-ee7)
-- [Java on AKS](https://github.com/Azure-Samples/java-on-aks)
-- [Azure Spring Apps ](https://github.com/Azure-Samples/azure-spring-cloud)
 
 ## Identity management
 
@@ -56,12 +57,14 @@ The following samples demonstrate Azure Spring Apps scenarios.
 - [Spring Microservices and Cloud Gateway](https://github.com/Azure-Samples/spring-cloud-gateway)
 - [More Azure Spring Apps samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 
-## Azure App Service JBoss EAP
+## Jakarta EE
 
-The following samples show Java EE apps hosted in Azure App Service JBoss EAP.
+The following samples show Jakarta EE apps hosted in a variety of Azure compute platforms.
 
 - [Hosting with App Service JBoss EAP](https://github.com/Azure-Samples/jboss-on-app-service)
 - [JMS with JBoss EAP on App Service](https://github.com/Azure-Samples/jboss-on-app-service-jms)
+- [Running Open Liberty on AKS](https://github.com/Azure-Samples/open-liberty-on-aks)
+- [Running Open Liberty on ARO](https://github.com/Azure-Samples/open-liberty-on-aro)
 
 ## More samples
 
