@@ -84,4 +84,10 @@ containers:
 
 ## Next steps
 
-* [Java containerization strategies](index.yml)
+- [Java containerization strategies](index.yml)
+- Jakarta EE on Azure container runtimes
+  - Oracle WebLogic Server
+    - [Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+  - IBM WebSphere Liberty, Open Liberty, and traditional WebSphere
+    - [Azure Kubernetes Service, Azure Red Hat OpenShift](../ee/websphere-family.md)
+

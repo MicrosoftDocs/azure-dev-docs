@@ -4,8 +4,8 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: jafreebe
 ms.topic: conceptual
-ms.date: 02/10/2022
-ms.custom: devx-track-java, migration-java
+ms.date: 01/04/2023
+ms.custom: devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-was, migration-java
 ---
 
 # Migrate WebSphere applications to JBoss EAP on Azure App Service
