@@ -37,8 +37,10 @@ landingContent:
             url: core/nodejs-sdk-azure-authenticate.md
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
-          - text: Select a database
+          - text: Databases for developers
             url: how-to/with-database/getting-started.md
+          - text: Storage for developers
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
   - title: Deploy and host apps
@@ -131,6 +133,8 @@ landingContent:
             url: /javascript/api/overview/azure/
           - text: Azure SDK for JS
             url: https://github.com/Azure/azure-sdk-for-js
+          - text: Azure Storage Dev Guide
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Samples browser
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Developer tools
