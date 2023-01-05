@@ -211,9 +211,6 @@ The code in this tutorial relies on the secure authentication to Azure with the 
             ```
 
     :::column-end:::
-    :::column:::
-        
-    :::column-end:::
 :::row-end:::
 
 ## 6. Create code to get search results from Bing Search News with Python SDK
