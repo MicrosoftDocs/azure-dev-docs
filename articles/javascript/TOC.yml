@@ -272,8 +272,8 @@
           href: how-to/with-database/use-postgresql-db.md
         - name: Azure Cosmos DB for NoSQL
           href: how-to/with-database/use-sql-api-as-cosmos-db.md
-        - name: Storage developer guide
-          href: /azure/storage/blobs/storage-blob-javascript-get-started
+      - name: Storage developer guide
+        href: /azure/storage/blobs/storage-blob-javascript-get-started
       - name: Resource management
         items: 
           - name: "List subscriptions"
