@@ -168,6 +168,53 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search resource key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        **Step 5.** Verify your bing key.
+        1. Use the following cURL command in a bash terminal or other prompt enabled with cURL to verify your Bing Search v7 key is correctly created in the global region. 
+        
+            ```bash
+            curl -H "Ocp-Apim-Subscription-Key: YOUR-SEARCH-KEY" https://api.bing.microsoft.com/v7.0/news/search?q=Microsoft&count=1 
+            ```
+
+        2. Verify the response includes data in the shape of the following:
+
+            ```json
+            {
+            "_type": "News",
+            "readLink": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft",
+            "queryContext": { "originalQuery": "Microsoft", "adultIntent": false },
+            "totalEstimatedMatches": 49,
+            "sort": [{
+                  "name": "Best match",
+                  "id": "relevance",
+                  "isSelected": true,
+                  "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft"
+                },
+                {
+                  "name": "Most recent",
+                  "id": "date",
+                  "isSelected": false,
+                  "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft&sortby=date"
+                }],
+            "value": [{
+                "name": "Microsoft reportedly to add ...",
+                "url": "https://",
+                "image": {},
+                "description":"",
+                "about":"",
+                "provider":"",
+                "dataPublished":"",
+                "category":""
+                }]
+            }
+            ```
+
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 ## 6. Create code to get search results from Bing Search News with Python SDK
 
