@@ -26,7 +26,7 @@ The following Spring Boot Starters are currently available for Azure:
 
    Provides integration support for Spring Security with Azure Active Directory for authentication.
 
-* **[Azure Key Vault](#azure-key-vault)**
+* **[Azure Key Vault Secrets](#azure-key-vault-secrets)**
 
    Provides Spring value annotation support for integration with Azure Key Vault Secrets.
 
@@ -130,13 +130,12 @@ When you add this starter to a Spring Boot project, the following changes are ma
    </dependencyManagement>
    ```
 
-## Azure Key Vault
+## Azure Key Vault Secrets
 
-This Spring Boot Starter provides Spring value annotation support for integration with Azure Key Vault Secrets.
+To manage secrets stored in [Azure Key Vault Secrets](/azure/developer/key-vault/secrets/) a in Spring Boot application, Spring Cloud Azure provides the following features:
 
-For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
-
-* [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/keyvault/spring-cloud-azure-starter-keyvault-secrets).
+* An [Azure Key Vault Secrets client](/azure/key-vault/secrets/quick-create-java) as a [bean](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-definition) in a [Spring IOC container](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans). For more information, see the [secret-client](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/spring-cloud-azure-starter-keyvault-secrets/secret-client) sample project.
+* The ability to retrieve secrets from Azure Key Vault Secrets and store these secrets in [Spring PropertySource](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-property-source-abstraction). You can retrieve the secrets by using the [@Value](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-value-annotations) annotation. For more information, see the [property-source](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) sample project.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -243,7 +242,7 @@ For more information about using [Spring Boot] applications on Azure, see [Sprin
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
-For help with getting started with your own Spring Boot applications, see the **Spring Initializr** at https://start.spring.io/.
+For help with getting started with your own Spring Boot applications, see [Spring Initializr](https://start.spring.io/).
 
 <!-- URL List -->
 
