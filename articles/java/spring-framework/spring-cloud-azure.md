@@ -5,7 +5,7 @@ ms.date: 12/09/2022
 ms.topic: article
 author: KarlErickson
 ms.author: v-yonghuiye
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Spring Cloud Azure developer guide
