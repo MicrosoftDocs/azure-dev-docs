@@ -7,7 +7,7 @@ ms.date: 10/13/2020
 ms.service: cache
 ms.tgt_pltfrm: cache-redis
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Use Azure Redis Cache in Spring

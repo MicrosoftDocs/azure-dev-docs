@@ -7,7 +7,7 @@ ms.date: 12/07/2022
 ms.service: storage
 ms.topic: article
 ms.workload: storage
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 ---
 
 # How to use the Spring Boot Starter for Azure Storage

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.topic: conceptual
 ms.date: 12/07/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Azure Spring Data Azure Cosmos DB client library for Java
