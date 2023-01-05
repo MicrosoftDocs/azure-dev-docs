@@ -168,52 +168,49 @@ The code in this tutorial relies on the secure authentication to Azure with the 
         :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search resource key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/portal-bing-search-keys.png":::
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column:::
-        **Step 5.** Verify your bing key.
-        1. Use the following cURL command in a bash terminal or other prompt enabled with cURL to verify your Bing Search v7 key is correctly created in the _global_ region. 
-        
-            ```bash
-            curl -H "Ocp-Apim-Subscription-Key: YOUR-SEARCH-KEY" https://api.bing.microsoft.com/v7.0/news/search?q=Microsoft&count=1 
-            ```
 
-        2. Verify the response includes data in the shape of the following:
+## 6. Verify your Bing Search key works
 
-            ```json
-            {
-            "_type": "News",
-            "readLink": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft",
-            "queryContext": { "originalQuery": "Microsoft", "adultIntent": false },
-            "totalEstimatedMatches": 49,
-            "sort": [{
-                  "name": "Best match",
-                  "id": "relevance",
-                  "isSelected": true,
-                  "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft"
-                },
-                {
-                  "name": "Most recent",
-                  "id": "date",
-                  "isSelected": false,
-                  "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft&sortby=date"
-                }],
-            "value": [{
-                "name": "Microsoft reportedly to add ...",
-                "url": "https://",
-                "image": {},
-                "description":"",
-                "about":"",
-                "provider":"",
-                "dataPublished":"",
-                "category":""
-                }]
-            }
-            ```
+1. Use the following cURL command in a bash terminal or other prompt enabled with cURL to verify your Bing Search v7 key is correctly created in the _global_ region. 
 
-    :::column-end:::
-:::row-end:::
+    ```bash
+    curl -H "Ocp-Apim-Subscription-Key: YOUR-SEARCH-KEY" https://api.bing.microsoft.com/v7.0/news/search?q=Microsoft&count=1 
+    ```
 
-## 6. Create code to get search results from Bing Search News with Python SDK
+2. Verify the response includes data in the shape of the following:
+
+    ```json
+    {
+    "_type": "News",
+    "readLink": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft",
+    "queryContext": { "originalQuery": "Microsoft", "adultIntent": false },
+    "totalEstimatedMatches": 49,
+    "sort": [{
+            "name": "Best match",
+            "id": "relevance",
+            "isSelected": true,
+            "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft"
+        },
+        {
+            "name": "Most recent",
+            "id": "date",
+            "isSelected": false,
+            "url": "https://api.bing.microsoft.com/api/v7/news/search?q=Microsoft&sortby=date"
+        }],
+    "value": [{
+        "name": "Microsoft reportedly to add ...",
+        "url": "https://",
+        "image": {},
+        "description":"",
+        "about":"",
+        "provider":"",
+        "dataPublished":"",
+        "category":""
+        }]
+    }
+    ```
+
+## 7. Create code to get search results from Bing Search News with Python SDK
 
 1. Create a file named `bing_search.py` in the **shared** folder.
 
@@ -221,7 +218,7 @@ The code in this tutorial relies on the secure authentication to Azure with the 
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/bing_search.py"  :::
 
-## 7. Create resource for Azure Key Vault
+## 8. Create resource for Azure Key Vault
 
 When you need to store secrets, a _best practice_ is to store the secret in a secure location such as Azure Key Vault. Azure Key Vault is a centralized cloud solution for storing and managing secrets and certificates. The service also provides access monitoring and logs to see who accesses secrets, when, and how.
 
@@ -292,7 +289,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 >* Will **not** work: "This is my secret value '&' it has a special character."
 >* **Will work: 'this is my secret value "&" it has a special character'**
 
-## 8. Create Key Vault secret
+## 9. Create Key Vault secret
 
 :::row:::
     :::column:::
@@ -319,7 +316,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 :::row-end:::
 
 
-## 9. Create code to read Key Vault secret with Python SDK
+## 10. Create code to read Key Vault secret with Python SDK
 
 1. Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -333,7 +330,7 @@ When you need to store secrets, a _best practice_ is to store the secret in a se
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/key_vault_secret.py"  :::
     
-## 10. Create resource for Azure Blob Storage
+## 11. Create resource for Azure Blob Storage
 
 Azure Blob Storage is a general-purpose, object storage solution. In this series, blob storage acts as a landing zone for '*source*' data and is a common data engineering scenario. Follow these steps to create the Azure Blob Storage resource and configure a Blob Container.
 
@@ -398,7 +395,7 @@ Azure Blob Storage is a general-purpose, object storage solution. In this series
 >Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Storage account names must also be unique across Azure.
 
 
-## 11. Get Blob Storage connection string
+## 12. Get Blob Storage connection string
 
 The Blob Trigger connects to Blob Storage with a connection string stored in the **AzureWebJobsStorage** environment variable. Get and copy the connection string. It will be set in the `local.settings.json` file.
 
@@ -411,7 +408,7 @@ The Blob Trigger connects to Blob Storage with a connection string stored in the
 
 
 
-## 12. Create container for Azure Blob Storage
+## 13. Create container for Azure Blob Storage
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
@@ -444,7 +441,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 :::row-end:::
 
 
-## 13. Create code to upload file with Python
+## 14. Create code to upload file with Python
 
 1. Open the **local.settings.json** file, which holds the local environment settings.
 
@@ -463,7 +460,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/blob_storage.py"  :::
 
-## 14. Create code for random string generation with Python
+## 15. Create code for random string generation with Python
 
 Create a random string to add to the end of each file created in blob storage. This random string is used in both the original file and the processed file.
 
@@ -474,7 +471,7 @@ Create a random string to add to the end of each file created in blob storage. T
     :::code language="python" source="~/../msdocs-python-etl-serverless/shared/hash.py"  :::
 
 
-## 15. Create code for HTTPTrigger function with Python
+## 16. Create code for HTTPTrigger function with Python
 
 1. Open the **__init__.py** file in the **api_search** folder.
  
@@ -484,7 +481,7 @@ Create a random string to add to the end of each file created in blob storage. T
 
     The highlighted sections are the significant secret and SDK integration steps. 
 
-## 16. Test the API endpoint for your python function
+## 17. Test the API endpoint for your python function
 
 1. Run the function locally.
 
