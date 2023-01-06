@@ -91,7 +91,6 @@ In this section, you see how to configure your app to use either a Service Bus q
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-    spring.jms.servicebus.idle-timeout=<IdleTimeout>
     spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier> 
     ```
 
@@ -100,7 +99,6 @@ In this section, you see how to configure your app to use either a Service Bus q
     | Field                                     | Description                               |
     |-------------------------------------------|-------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
-    | `spring.jms.servicebus.idle-timeout`      | Specify the duration for idle.       |
     | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
 1. Save and close the *application.properties* file.
@@ -122,7 +120,6 @@ In this section, you see how to configure your app to use either a Service Bus q
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
     spring.jms.servicebus.topic-client-id=<ServiceBusSubscriptionID>
-    spring.jms.servicebus.idle-timeout=<IdleTimeout>
     spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier> 
     ```
 
@@ -132,7 +129,6 @@ In this section, you see how to configure your app to use either a Service Bus q
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
     | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.                | 
-    | `spring.jms.servicebus.idle-timeout`      | Specify the duration for idle.     |
     | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
 1. Save and close the *application.properties* file.
@@ -369,35 +365,6 @@ public class CustomMessageConverter extends MappingJackson2MessageConverter {
 ```
 
 For more information about `MessageConverter`, see the official [Spring JMS guide](https://spring.io/guides/gs/messaging-jms/).
-
-### Set session-id in JmsTemplate
-
-Entities that have session support enabled, such as a session-enabled Service Bus queue, can only receive messages that have the `SessionId` set to a valid value. To send messages to such entities, use the `JmsTemplate.convertAndSend` method to set the string property "JMSXGroupID", which is mapped to the `SessionId` property, as shown in the following example:
-
-```java
-@RestController
-public class QueueSendController {
-
-    private static final String QUEUE_NAME = "<DestinationName>";
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(QueueSendController.class);
-
-    @Autowired
-    private JmsTemplate jmsTemplate;
-
-    @PostMapping("/queue")
-    public String postMessage(@RequestParam String message) {
-
-        LOGGER.info("Sending message");
-
-        jmsTemplate.convertAndSend(QUEUE_NAME, new User(message), jmsMessage -> {
-            jmsMessage.setStringProperty("JMSXGroupID", "xxxeee");
-            return jmsMessage;
-        });
-        return message;
-    }
-}
-```
 
 ## Build and test your application
 
