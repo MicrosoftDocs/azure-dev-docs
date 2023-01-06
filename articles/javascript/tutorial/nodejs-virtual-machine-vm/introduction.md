@@ -35,8 +35,7 @@ This tutorial includes the following tasks:
 ## Prerequisites
 
 - SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
-[!INCLUDE [Azure CLI](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
+[!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Next step
 

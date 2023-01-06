@@ -45,7 +45,7 @@ You must have completed all steps from:
 :::row-end:::
 :::row:::
     :::column:::
-        **Step 3.**  Test the trigger by executing the `api_search` API again. Refer to the [instructions](tutorial-deploy-azure-cloud-python-etl-02-get-data.md#16-test-the-api-endpoint-for-your-python-function) on the previous page. 
+        **Step 3.**  Test the trigger by executing the `api_search` API again. Refer to the [instructions](tutorial-deploy-azure-cloud-python-etl-02-get-data.md#17-test-the-api-endpoint-for-your-python-function) on the previous page. 
     :::column-end:::
 :::row-end:::
 
