@@ -28,7 +28,7 @@ To get started, download the sample project, `https://github.com/Azure-Samples/j
 1. Enter [azure-samples/js-e2e-express-server](https://github.com/Azure-Samples/js-e2e-express-server) in the **Repository URL** field. 
 1. Select (or create) the local directory into which you want to clone the project.
 
-    :::image type="content" source="../../media/visual-studio-code-select-repo.png" alt-text="Screenshot of Visual Studio Code showing possible GitHub repos that match the text.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-select-repo.png" alt-text="Screenshot of Visual Studio Code showing possible GitHub repos that match the text.":::
 
 1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
 
@@ -63,7 +63,7 @@ If you don't have a GitHub repository yet, but would like to start your project 
 1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 1. Select **Initialize repository**. 
 
-    :::image type="content" source="../../media/visual-studio-code-initialize-repository.png" alt-text="Screenshot of Visual Studio showing the Initialize repository button.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-initialize-repository.png" alt-text="Screenshot of Visual Studio showing the Initialize repository button.":::
 
 # [From command palette](#tab/initialize-repo-command-palette)
 
