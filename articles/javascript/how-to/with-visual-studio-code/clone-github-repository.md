@@ -2,7 +2,7 @@
 title: Clone GitHub repository with VSCode
 description: Clone a public repository from GitHub to your local computer using Visual Studio Code.
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/06/2023
 ms.custom: devx-track-js
 ---
 
@@ -12,14 +12,14 @@ Learn the steps to clone a public repository from GitHub to your local computer 
 
 ## Clone repository
 
-To get started, download the sample project using the following steps:
+To get started, download the sample project, `https://github.com/Azure-Samples/js-e2e-express-server`, using the following steps:
 
 # [From command palette](#tab/create-repo-command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 
 
-1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, and press **Enter**.
+1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, then select **Clone from GitHub** and press **Enter**.
 
     ![gitcl command in the Visual Studio Code command palette prompt](../../media/how-to-clone-github-repo/visual-studio-code-git-clone.png)
 
@@ -27,6 +27,9 @@ To get started, download the sample project using the following steps:
 1. If you are asked to sign into GitHub, complete the sign-in process.
 1. Enter [azure-samples/js-e2e-express-server](https://github.com/Azure-Samples/js-e2e-express-server) in the **Repository URL** field. 
 1. Select (or create) the local directory into which you want to clone the project.
+
+    :::image type="content" source="../../media/visual-studio-code-select-repo.png" alt-text="Screenshot of Visual Studio Code showing possible GitHub repos that match the text.":::
+
 1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
 
 # [From integrated terminal](#tab/create-repo-integrated-terminal)
@@ -60,10 +63,13 @@ If you don't have a GitHub repository yet, but would like to start your project 
 1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 1. Select **Initialize repository**. 
 
+    :::image type="content" source="../../media/visual-studio-code-initialize-repository.png" alt-text="Screenshot of Visual Studio showing the Initialize repository button.":::
+
 # [From command palette](#tab/initialize-repo-command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Filter with `Git`, then select `Initialize repository`.
+1. Select the folder to select as the root of the repository.
 
 ---
 
@@ -78,7 +84,8 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::
 
-1. Enter a new branch name. The branch name is visible in the status bar. 
+1. Enter a new branch name, such as `test`. 
+1. The branch name is visible in the status bar. 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
@@ -118,7 +125,7 @@ Once you have made changes on your branch, commit the changes.
 1. In the command palette, filter with `Git` then select `Commit`.
 1. Enter your commit message, then press <kbd>Enter</kbd>.
 
-    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-add-yarn-lock.png)
+    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png)
 
 
 # [From status bar](#tab/commit-changes-status-bar)
@@ -127,7 +134,7 @@ Once you have made changes on your branch, commit the changes.
 1. In the command palette, filter with `Git` then select `Commit`.
 1. Enter your commit message, then press <kbd>Enter</kbd>.
 
-    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-add-yarn-lock.png)
+    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png)
 
 ---
 
