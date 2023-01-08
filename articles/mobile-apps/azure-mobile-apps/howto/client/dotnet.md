@@ -27,9 +27,9 @@ If you're new to Azure Mobile Apps, consider first completing one of the quickst
 The .NET client library supports .NET Standard 2.0, .NET 6, and the following platforms:
 
 * .NET MAUI for Android, iOS, and Windows platforms.
-* Android above API level 19 (Xamarin and iOS for .NET).
-* iOS version 8.0 and above (Xamarin and Android for .NET).
-* Universal Windows Platform builds 19041 and above.
+* Android API level 19 and later (Xamarin and Android for .NET).
+* iOS version 8.0 and later (Xamarin and iOS for .NET).
+* Universal Windows Platform builds 19041 and later.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
 * Xamarin.Forms
@@ -67,7 +67,7 @@ var options = new DatasyncClientOptions
 var client = new DatasyncClient("MOBILE_APP_URL", authProvider, options);
 ```
 
-More details on the authentication provider are given below.
+More details on the authentication provider are provided later in this document.
 
 ### Options
 
@@ -228,7 +228,7 @@ long count = await remoteTable.CountItemsAsync();
 long count = await remoteTable.Where(m => m.Rating == "R").LongCountAsync();
 ```
 
-This will cause a round-trip to the server.  You can also get a count while populating a list (for example) as this will avoid the extra round-trip:
+This method will cause a round-trip to the server.  You can also get a count while populating a list (for example), avoiding the extra round-trip:
 
 ```csharp
 var enumerable = remoteTable.ToAsyncEnumerable() as AsyncPageable<T>;
@@ -269,14 +269,16 @@ List<T> items = await remoteTable.ToListAsync();
 
 Behind the scenes, the remote table is handling paging of the result for you.  All items will be returned irrespective of how many server side requests are needed to fulfill the query.  These elements are also available on query results (for example, `remoteTable.Where(m => m.Rating == "R")`).
 
-The Data sync framework also provides `ConcurrentObservableCollection<T>` - a thread-safe observable collection.  This can be used in the context of UI applications that would normally use `ObservableCollection<T>` to manage a list (for example, Xamarin Forms or MAUI lists).  You can clear and load a `ConcurrentObservableCollection<T>` directly from a table or query:
+The Data sync framework also provides `ConcurrentObservableCollection<T>` - a thread-safe observable collection.  This class can be used in the context of UI applications that would normally use `ObservableCollection<T>` to manage a list (for example, Xamarin Forms or MAUI lists).  You can clear and load a `ConcurrentObservableCollection<T>` directly from a table or query:
 
 ```csharp
 var collection = new ConcurrentObservableCollection<T>();
 await remoteTable.ToObservableCollection(collection);
 ```
 
-This will trigger the `CollectionChanged` event once for the entire collection rather than for individual items, resulting in a faster redraw time.  The `ConcurrentObservableCollection<T>` also has predicate driven modifications:
+Using `.ToObservableCollection(collection)` will trigger the `CollectionChanged` event once for the entire collection rather than for individual items, resulting in a faster redraw time.  
+
+The `ConcurrentObservableCollection<T>` also has predicate-driven modifications:
 
 ```csharp
 // Add an item only if the identified item is missing.
@@ -288,6 +290,8 @@ bool modified = collection.DeleteIf(t => t.Id == item.Id);
 // Replace one or more item(s) based on a predicate
 bool modified = collection.ReplaceIf(t => t.Id == item.Id, item);
 ```
+
+Predicate-driven modifications can be used in event handlers when the index of the item is not known in advance.
 
 #### Filtering data
 
