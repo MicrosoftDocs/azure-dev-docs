@@ -883,3 +883,4 @@ The properties within `args` will be `null` or `-1` when the property isn't rele
 
 <!-- DOTNET API References -->
 [DelegatingHandler]: /dotnet/api/system.net.http.delegatinghandler
+[IAsyncEnumerable]: /dotnet/api/system.collections.generic.iasyncenumerable-1
