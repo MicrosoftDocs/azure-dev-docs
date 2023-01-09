@@ -27,16 +27,14 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 > [!IMPORTANT]
 > As of version 0.5.0-beta.1, the PowerShell install script for Azure Developer CLI (`install-azd.ps1`) uses the published MSI file instead of installing from the .zip file. For new installations and upgrades of `azd`, this process is transparent.
 >
-> The install script doesn't support installing versions of `azd` on Windows that **predate** the MSI. To manually update older versions of the Azure Developer CLI, download the appropriate .zip file from the [Azure Developer CLI GitHub releases](https://github.com/Azure/azure-dev/releases), extract, and place the binary in the appropriate location manually. 
+> You can control MSI behavior with properties provided to `msiexec.exe`.
 
-The MSI can be downloaded from the [Azure Developer CLI GitHub releases](https://github.com/Azure/azure-dev/releases). 
-
-You can control MSI behavior with properties provided to `msiexec.exe`.
-
-| Property | Value |
-| -------- | ----- |
-| `ALLUSERS` | `2`: Default. Install for current user (no privilege elevation required). <br/> `1`: Install for _all_ users (may require privilege elevation). |
-| `INSTALLDIR` | Installation path. <br/> `"%LOCALAPPDATA%\Programs\Azure Dev CLI"`: Default. <br/> `"%PROGRAMFILES%\Azure Dev CLI"`: Default all users. |
+> | Property | Value |
+> | -------- | ----- |
+> | `ALLUSERS` | `2`: Default. Install for current user (no privilege elevation required). <br/> `1`: Install for _all_ users (may require privilege elevation). |
+> | `INSTALLDIR` | Installation path. <br/> `"%LOCALAPPDATA%\Programs\Azure Dev CLI"`: Default. <br/> `"%PROGRAMFILES%\Azure Dev CLI"`: Default all users. |
+>
+> The install script doesn't support installing versions of `azd` on Windows that **predate** the MSI. To manually update older versions of the Azure Developer CLI without MSI, see the [upgrade section below](#upgrade-versions-predating-msi). 
 
 
 ### [Linux/MacOS](#tab/linuxmac)
@@ -53,11 +51,15 @@ To uninstall the `azd`:
 
 ### [Windows](#tab/windows)
 
-Once you've installed the MSI versions, you should **not** use the uninstall script to remove `azd`. This will leave some items behind on the machine.  
+Once you've installed the MSI versions, you should **not** use the uninstall script to remove `azd`. This will leave some items behind on the machine. Instead, **for version 0.5.0-beta.1 and later:** 
 
-Instead, **for version 0.5.0-beta.1 and later,** uninstall using the **Add or remove programs** dialog in Windows.
+1. Search for **Add or remove programs** in Windows.
 
-For versions before 0.5.0-beta.1, you can use the following uninstall script:
+1. Locate **Azure Dev CLI** and select the three dots to expand the options menu.
+
+1. Select **Uninstall**.
+
+**For versions before 0.5.0-beta.1**, use the following uninstall script:
 
 ```azdeveloper
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
@@ -70,3 +72,13 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
 
 ---
+
+## Upgrade versions predating MSI
+
+Since the install script doesn't support installing versions of `azd` on Windows that **predate** the MSI, you'll need to manually update older versions. 
+
+1. Download the appropriate .zip file from the [Azure Developer CLI GitHub releases](https://github.com/Azure/azure-dev/releases). 
+
+1. Extract the .zipe file.
+
+1. Place the binary in the appropriate location. 
