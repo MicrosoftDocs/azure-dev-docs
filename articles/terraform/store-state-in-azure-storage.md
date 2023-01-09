@@ -2,7 +2,7 @@
 title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 01/09/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -70,7 +70,7 @@ New-AzResourceGroup -Name $RESOURCE_GROUP_NAME -Location eastus
 $storageAccount = New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP_NAME -Name $STORAGE_ACCOUNT_NAME -SkuName Standard_LRS -Location eastus -AllowBlobPublicAccess $false
 
 # Create blob container
-New-AzStorageContainer -Name $CONTAINER_NAME -Context $storageAccount.context -Permission blob
+New-AzStorageContainer -Name $CONTAINER_NAME -Context $storageAccount.context
 ```
 
 # [Terraform](#tab/terraform)
@@ -116,7 +116,7 @@ resource "azurerm_storage_account" "tfstate" {
 resource "azurerm_storage_container" "tfstate" {
   name                  = "tfstate"
   storage_account_name  = azurerm_storage_account.tfstate.name
-  container_access_type = "blob"
+  container_access_type = "private"
 }
 ```
 
@@ -127,6 +127,10 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 ---
 
 **Key points:**
+* Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
+* Terraform state is stored in plain text and may contain secrets. If incorrectly secured, this could result in unauthorised access to systems and data loss.
+* In this example, Terraform authenticates to the Azure storage account using an Access Key. In a production deployment, it is recommended to evaluate the available [authentication options](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) supported by the azurerm backend and to use the most secure option for your use case.
+* In this example, public network access is allowed to this Azure storage account. In a production deployment, it is recommended to retrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
 ## 3. Configure terraform backend state
