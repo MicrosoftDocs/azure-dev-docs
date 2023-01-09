@@ -72,14 +72,7 @@ A complete Next.js solution is available so you can follow along without worryin
 
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you. A resource group allows you to control security and billing limited to the resource group. 
 
-[!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
-
-## Give your account permission as Contributor to resources
-
-Create a resource group named `msdocs-trivial-game-rg` in a region near you. A resource group allows you to control security and billing limited to the resource group. 
-
-[!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
-
+[!INCLUDE [create resource group 3-tab](../../../includes/create-resource-group.md)]
 
 ## Next step
 
