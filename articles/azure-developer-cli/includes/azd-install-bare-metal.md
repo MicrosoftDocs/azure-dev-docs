@@ -20,20 +20,22 @@ Before you get started using `azd`, ensure you have:
 
 ### [Windows](#tab/windows)
 
+As of version 0.5.0-beta.1, the PowerShell install script for Azure Developer CLI (`install-azd.ps1`) uses the published MSI file instead of installing from the .zip file. For new installations and upgrades of `azd`, this process is transparent.
+
+Run the following script:
+
 ```azdeveloper
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
 
-> [!IMPORTANT]
-> As of version 0.5.0-beta.1, the PowerShell install script for Azure Developer CLI (`install-azd.ps1`) uses the published MSI file instead of installing from the .zip file. For new installations and upgrades of `azd`, this process is transparent.
->
-> You can control MSI behavior with properties provided to `msiexec.exe`.
->
-> | Property | Value |
-> | -------- | ----- |
-> | `ALLUSERS` | `2`: Default. Install for current user (no privilege elevation required). <br/> `1`: Install for _all_ users (may require privilege elevation). |
-> | `INSTALLDIR` | Installation path. <br/> `"%LOCALAPPDATA%\Programs\Azure Dev CLI"`: Default. <br/> `"%PROGRAMFILES%\Azure Dev CLI"`: Default all users. |
->
+You can control MSI behavior with properties provided to `msiexec.exe`.
+
+| Property | Value |
+| -------- | ----- |
+| `ALLUSERS` | `2`: Default. Install for current user (no privilege elevation required). <br/> `1`: Install for _all_ users (may require privilege elevation). |
+| `INSTALLDIR` | Installation path. <br/> `"%LOCALAPPDATA%\Programs\Azure Dev CLI"`: Default. <br/> `"%PROGRAMFILES%\Azure Dev CLI"`: Default all users. |
+
+> [!NOTE]
 > The install script doesn't support installing versions of `azd` on Windows that **predate** the MSI. To manually update older versions of the Azure Developer CLI without MSI, see the [upgrade section](#upgrade-versions-predating-msi). 
 
 
