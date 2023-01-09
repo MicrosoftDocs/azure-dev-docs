@@ -4,7 +4,7 @@ description: In this tutorial, you create a Spring Boot app that reads a value f
 ms.date: 12/07/2022
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 author: KarlErickson
 ms.author: edburns
 ---
@@ -243,7 +243,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.7.6**
+   * **Spring Boot**: **2.7.7**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**

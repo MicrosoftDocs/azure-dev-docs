@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: brborges
 ms.topic: conceptual
 ms.date: 04/13/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-wls, devx-track-javaee-wls-aks
 recommendations: false
 ---
 
@@ -84,4 +84,10 @@ containers:
 
 ## Next steps
 
-* [Java containerization strategies](index.yml)
+- [Java containerization strategies](index.yml)
+- Jakarta EE on Azure container runtimes
+  - Oracle WebLogic Server
+    - [Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+  - IBM WebSphere Liberty, Open Liberty, and traditional WebSphere
+    - [Azure Kubernetes Service, Azure Red Hat OpenShift](../ee/websphere-family.md)
+

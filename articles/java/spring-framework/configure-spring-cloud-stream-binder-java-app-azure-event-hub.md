@@ -7,7 +7,7 @@ ms.date: 12/07/2022
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # How to create a Spring Cloud Stream Binder application with Azure Event Hubs
@@ -98,7 +98,7 @@ The following procedure creates a Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version to **2.7.6**.
+   * Specify a **Spring Boot** version to **2.7.7**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **8** or **11** for the Java version.
    * Add the *Web* dependency.

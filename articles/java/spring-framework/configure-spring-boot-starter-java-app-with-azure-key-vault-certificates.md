@@ -4,7 +4,7 @@ description: In this tutorial, you secure your Spring Boot (including Azure Spri
 ms.date: 07/22/2022
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 author: KarlErickson
 ms.author: edburns
 ---
@@ -177,7 +177,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
     * **Project**: **Maven Project**
     * **Language**: **Java**
-    * **Spring Boot**: **2.7.6**
+    * **Spring Boot**: **2.7.7**
     * **Group**: *com.contoso* (You can put any valid Java package name here.)
     * **Artifact**: *ssltest* (You can put any valid Java class name here.)
     * **Packaging**: **Jar**

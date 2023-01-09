@@ -8,7 +8,7 @@ author: KarlErickson
 ms.date: 07/22/2022
 ms.author: bbenz
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021
 ---
 
@@ -37,7 +37,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.6 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 > [!NOTE]

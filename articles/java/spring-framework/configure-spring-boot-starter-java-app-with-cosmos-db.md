@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: data-services
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL
@@ -60,7 +60,7 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.6**.
+   * Specify your **Spring Boot** version to **2.7.7**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.

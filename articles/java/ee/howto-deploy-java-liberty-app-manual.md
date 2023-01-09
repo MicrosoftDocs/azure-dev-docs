@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: edburns
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 12/22/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
@@ -19,7 +19,7 @@ This article demonstrates how to:
 * Build the application Docker image using Liberty container images.
 * Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
 
-The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps. 
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -27,7 +27,7 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
@@ -35,13 +35,13 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed.  
+An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME=java-liberty-project
@@ -171,12 +171,11 @@ The output should be a series of lines following the format `<object type> creat
 
 To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven and the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). 
-There are a few samples in the repository. We'll use *java-app*. Here's the file structure of the application.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. We'll use *java-app*. Here's the file structure of the application.
 
 ```
 java-app
@@ -186,9 +185,7 @@ java-app
 │  │  ├─ openlibertyapplication.yaml
 │  ├─ docker/
 │  │  ├─ Dockerfile
-│  │  ├─ Dockerfile-local
 │  │  ├─ Dockerfile-wlp
-│  │  ├─ Dockerfile-wlp-local
 │  ├─ liberty/config/
 │  │  ├─ server.xml
 │  ├─ java/
@@ -199,18 +196,18 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
 In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are also used to populate `JavaEECafeDB` properties in *server.xml* and in yaml files located in *src/main/aks*.
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
 ```bash
 cd <path-to-your-repo>/java-app
 
-# The following variables will be used for deployment file generation
+# The following variables will be used for deployment file generation into target/
 export LOGIN_SERVER=${LOGIN_SERVER}
 export REGISTRY_NAME=${REGISTRY_NAME}
 export USER_NAME=${USER_NAME}
@@ -225,27 +222,25 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure.
-
-1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined previously.
+You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
-1. Start the application in `liberty:run` mode
+1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
 
    ```bash
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
-   
+
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
 
-1. Press `Ctrl+C` to stop `liberty:run` mode.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Build image for AKS deployment
 
-After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image.
+You can now run the `docker build` command to build the image.
 
 ```bash
 cd <path-to-your-repo>/java-app/target
@@ -256,6 +251,25 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 # If you are running with WebSphere Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
+
+### (Optional) Test the Docker image locally
+
+You can now use the following steps to test the Docker image locally before deploying to Azure.
+
+1. Run the image using the following command. Note we're using the environment variables defined previously.
+
+   ```bash
+   docker run -it --rm -p 9080:9080 \
+       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
+       -e DB_NAME=${DB_NAME} \
+       -e DB_USER=${DB_USER} \
+       -e DB_PASSWORD=${DB_PASSWORD} \
+       javaee-cafe:v1
+   ```
+
+1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
+
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Upload image to ACR
 
@@ -285,31 +299,45 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
    az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
    ```
 
-1. Apply the DB secret and deployment file by running the following command:
+1. Apply the DB secret and deployment file by running the following commands:
 
    ```bash
    cd <path-to-your-repo>/java-app/target
-   
+
    # Apply DB secret
    kubectl apply -f db-secret.yaml
 
    # Apply deployment file
    kubectl apply -f openlibertyapplication.yaml
+   ```
 
-   # Check if OpenLibertyApplication instance is created
+1. Check if the OpenLibertyApplication instance is created by running the following command.
+
+   ```bash
    kubectl get openlibertyapplication javaee-cafe-cluster
+   ```
 
+   You should see output like the following.
+
+   ```output
    NAME                        IMAGE                                                   EXPOSED   RECONCILED   AGE
    javaee-cafe-cluster         youruniqueacrname.azurecr.io/javaee-cafe:1.0.25         True         59s
+   ```
 
-   # Check if deployment created by Operator is ready
+1. Check if the deployment created by the Operator is ready by running the following command.
+
+   ```bash
    kubectl get deployment javaee-cafe-cluster --watch
+   ```
 
+   You should see output like the following.
+
+   ```output
    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
    javaee-cafe-cluster         0/3     3            0           20s
    ```
 
-1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use `CTRL-C` to stop the `kubectl` watch process.
+1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 ### Test the application
 
@@ -319,12 +347,16 @@ To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/re
 
 ```azurecli-interactive
 kubectl get service javaee-cafe-cluster --watch
+```
 
+You should see output like the following.
+
+```output
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
 javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 If some time has passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the note above regarding database pause.
 

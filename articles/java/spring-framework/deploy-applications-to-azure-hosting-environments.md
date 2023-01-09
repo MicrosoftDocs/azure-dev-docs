@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: rujche
 ms.date: 12/09/2022
 ms.topic: article
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Deploy application to Azure hosting services

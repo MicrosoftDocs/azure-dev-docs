@@ -252,7 +252,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
 5. Add the following entry to the *src/main/resources/application.properties* file to create the Uber (FAT) jar.
 
    ```properties
-   quarkus.package.uber-jar=true
+   quarkus.package.type=uber-jar
    ```
 
 ## Deploy the app to Azure

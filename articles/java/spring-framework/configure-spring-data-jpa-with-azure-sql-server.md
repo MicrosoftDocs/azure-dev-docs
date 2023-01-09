@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
 ms.contributors: judubois-09162021
 ---
 
@@ -33,7 +33,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.6 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure SQL Database
