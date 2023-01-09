@@ -4,7 +4,7 @@ description: How to use the .NET SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/06/2022
+ms.date: 01/08/2023
 ms.author: adhal
 ---
 
@@ -27,9 +27,9 @@ If you're new to Azure Mobile Apps, consider first completing one of the quickst
 The .NET client library supports .NET Standard 2.0, .NET 6, and the following platforms:
 
 * .NET MAUI for Android, iOS, and Windows platforms.
-* Android above API level 19 (Xamarin and iOS for .NET).
-* iOS version 8.0 and above (Xamarin and Android for .NET).
-* Universal Windows Platform builds 19041 and above.
+* Android API level 19 and later (Xamarin and Android for .NET).
+* iOS version 8.0 and later (Xamarin and iOS for .NET).
+* Universal Windows Platform builds 19041 and later.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
 * Xamarin.Forms
@@ -67,7 +67,7 @@ var options = new DatasyncClientOptions
 var client = new DatasyncClient("MOBILE_APP_URL", authProvider, options);
 ```
 
-More details on the authentication provider are given below.
+More details on the authentication provider are provided later in this document.
 
 ### Options
 
@@ -146,6 +146,7 @@ The following section details how to search and retrieve records and modify the 
 
 * [Create a table reference](#create-a-remote-table-reference)
 * [Query data](#query-data-from-a-remote-server)
+* [Count items from a query](#count-items-from-a-query)
 * [Look up remote data by ID](#look-up-remote-data-by-id)
 * [Insert data on the remote server](#insert-data-on-the-remote-server)
 * [Update data on the remote server](#update-data-on-the-remote-server)
@@ -215,6 +216,33 @@ The remote table can be used with LINQ-like statements, including:
 * Selecting properties with `.Select()`.
 * Paging with `.Skip()` and `.Take()`.
 
+### Count items from a query
+
+If you need a count of the items that would be returned by a query, you can use `.CountItemsAsync()` on a table or `.LongCountAsync()` on a query:
+
+```csharp
+// Count items in a table.
+long count = await remoteTable.CountItemsAsync();
+
+// Count items in a query.
+long count = await remoteTable.Where(m => m.Rating == "R").LongCountAsync();
+```
+
+This method will cause a round-trip to the server.  You can also get a count while populating a list (for example), avoiding the extra round-trip:
+
+```csharp
+var enumerable = remoteTable.ToAsyncEnumerable() as AsyncPageable<T>;
+var list = new List<T>();
+long count = 0;
+await foreach (var item in enumerable)
+{
+    count = enumerable.Count;
+    list.Add(item);
+}
+```
+
+The count will be populated after the first request to retrieve the table contents.
+
 #### Returning all data
 
 Data is returned via an [IAsyncEnumerable]:
@@ -227,13 +255,43 @@ await foreach (var item in enumerable)
 }
 ```
 
-In addition, you can use any of the terminating clauses for IAsyncEnumerable from the [System.Linq.Async] package:
+Use any of the following terminating clauses to convert the `IAsyncEnumerable<T>` to a different collection:
 
-``` csharp
-var items = await remoteTable.ToAsyncEnumerable().ToListAsync();
+```csharp
+T[] items = await remoteTable.ToArrayAsync();
+
+Dictionary<string, T> items = await remoteTable.ToDictionaryAsync(t => t.Id);
+
+HashSet<T> items = await remoteTable.ToHashSetAsync();
+
+List<T> items = await remoteTable.ToListAsync();
 ```
 
-Behind the scenes, the remote table is handling paging of the result for you.  All items will be returned irrespective of how many server side requests are needed to fulfill the query.
+Behind the scenes, the remote table is handling paging of the result for you.  All items will be returned irrespective of how many server side requests are needed to fulfill the query.  These elements are also available on query results (for example, `remoteTable.Where(m => m.Rating == "R")`).
+
+The Data sync framework also provides `ConcurrentObservableCollection<T>` - a thread-safe observable collection.  This class can be used in the context of UI applications that would normally use `ObservableCollection<T>` to manage a list (for example, Xamarin Forms or MAUI lists).  You can clear and load a `ConcurrentObservableCollection<T>` directly from a table or query:
+
+```csharp
+var collection = new ConcurrentObservableCollection<T>();
+await remoteTable.ToObservableCollection(collection);
+```
+
+Using `.ToObservableCollection(collection)` will trigger the `CollectionChanged` event once for the entire collection rather than for individual items, resulting in a faster redraw time.  
+
+The `ConcurrentObservableCollection<T>` also has predicate-driven modifications:
+
+```csharp
+// Add an item only if the identified item is missing.
+bool modified = collection.AddIfMissing(t => t.Id == item.Id, item);
+
+// Delete one or more item(s) based on a predicate
+bool modified = collection.DeleteIf(t => t.Id == item.Id);
+
+// Replace one or more item(s) based on a predicate
+bool modified = collection.ReplaceIf(t => t.Id == item.Id, item);
+```
+
+Predicate-driven modifications can be used in event handlers when the index of the item is not known in advance.
 
 #### Filtering data
 
@@ -825,3 +883,4 @@ The properties within `args` will be `null` or `-1` when the property isn't rele
 
 <!-- DOTNET API References -->
 [DelegatingHandler]: /dotnet/api/system.net.http.delegatinghandler
+[IAsyncEnumerable]: /dotnet/api/system.collections.generic.iasyncenumerable-1
