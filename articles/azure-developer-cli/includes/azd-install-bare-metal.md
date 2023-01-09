@@ -28,7 +28,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 > As of version 0.5.0-beta.1, the PowerShell install script for Azure Developer CLI (`install-azd.ps1`) uses the published MSI file instead of installing from the .zip file. For new installations and upgrades of `azd`, this process is transparent.
 >
 > You can control MSI behavior with properties provided to `msiexec.exe`.
-
+>
 > | Property | Value |
 > | -------- | ----- |
 > | `ALLUSERS` | `2`: Default. Install for current user (no privilege elevation required). <br/> `1`: Install for _all_ users (may require privilege elevation). |
