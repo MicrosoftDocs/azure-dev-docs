@@ -16,7 +16,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|Azure Cosmos DB for NoSQL - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.co/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
+|Azure Cosmos DB for NoSQL - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
 |Azure Cosmos DB for NoSQL - Learn module|Visual Studio Code + Azure Cosmos DB - Updated [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/training/modules/build-node-cosmos-app-vscode). Updates include more code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/training/build-node-cosmos-app-vscode) using @azure/cosmos with queries using keywords such as LIKE, JOIN, WHERE.|
 |Blob Storage| Added [Connect with passwordless authentication to Azure](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-passwordless-authentication-to-azure)|
 |Blob Storage| Added [Get URL for container or blob](/azure/storage/blobs/storage-blob-get-url-javascript) - thanks to contribution from @Scottlexium. |
