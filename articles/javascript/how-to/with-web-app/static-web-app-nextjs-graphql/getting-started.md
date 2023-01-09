@@ -7,6 +7,8 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
+# Create a Next.js GraphQL app with server-side rendering
+
 Build and deploy a Next.js app to Static Web Apps as a Next.js hybrid application. A hybrid application provides for both the client application and the server-side rendering functionality of the app. 
 
 ## What the sample solution does
@@ -72,7 +74,7 @@ A complete Next.js solution is available so you can follow along without worryin
 
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you. A resource group allows you to control security and billing limited to the resource group. 
 
-[!INCLUDE [create resource group 3-tab](../../../includes/create-resource-group.md)]
+[!INCLUDE [create resource group 3-tab](../../../../includes/create-resource-group.md)]
 
 ## Next step
 
