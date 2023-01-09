@@ -1965,7 +1965,7 @@ This section shows you how to create a PostgreSQL instance on Azure and configur
 
 ### Create an Azure Database for PostgreSQL instance
 
-Use [az postgres server create](/cli/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
+Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
 
 ```azurecli
 DB_SERVER_NAME="wlsdb$(date +%s)"
