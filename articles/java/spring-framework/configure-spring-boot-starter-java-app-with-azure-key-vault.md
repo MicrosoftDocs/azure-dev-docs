@@ -150,7 +150,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    "https://contosokv.vault.azure.net/"
    ```
 
-1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value for the `sample-app-id` is the `appId` from the `az ad sp create-for-rbac` command above.
+1. Configure the Key Vault to allow `delete`, `get`, `list`, `set` and `purge` operations from your principal.
 
    ```azurecli
    az keyvault set-policy --name <your-key-vault-name> --upn <your-user-principal-name> --secret-permissions delete get list set purge
@@ -167,7 +167,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    | secret-permissions | The list of operations to allow from the named principal. |
 
    > [!NOTE]
-   > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at least `get` and `list`.
+   > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at least `delete`, `get`, `list`, `set` and `purge`.
 
 1. Store a secret in your new Key Vault. A common use case is to store a JDBC connection string. For example:
 
