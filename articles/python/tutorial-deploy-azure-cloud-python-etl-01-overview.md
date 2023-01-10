@@ -31,7 +31,7 @@ When deployed, the sample solution flow includes:
 
 ## Prerequisites for the tutorial
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
+If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](./configure-local-development-environment.md).
 
 To complete this tutorial, you'll need:
 
