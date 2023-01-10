@@ -1,5 +1,5 @@
 ---
-title: "Intro: Create Next.js GraphQL trivia game"
+title: "Trivia game: Create Next.js GraphQL trivia game"
 description: Create a Next.js GraphQL app with server-side rendering to generate a trivia game.
 ms.topic: how-to
 ms.date: 01/10/2023
@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
-# Create a Next.js GraphQL app with server-side rendering
+# Trivia game: Create a Next.js GraphQL app with server-side rendering
 
 Build and deploy a Next.js app to Static Web Apps as a Next.js hybrid application. A hybrid application provides for both the client application and the server-side rendering functionality of the app. 
 
