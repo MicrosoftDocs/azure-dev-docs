@@ -151,5 +151,5 @@ Visual Studio Code includes many built-in git features. For more information, se
 
 ## Next steps
 
-* [Create and use a service principal](../core/nodejs-sdk-azure-authenticate.md)
-* [Authenticate with the Azure modules for Node.js](nodejs-sdk-azure-authenticate.md)
+* [Create and use a service principal](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal)
+* [Authenticate with the Azure modules for Node.js](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal)

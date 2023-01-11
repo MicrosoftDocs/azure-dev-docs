@@ -207,7 +207,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Create and deploy an Azure Function API with VS Code](tutorial/azure-function-cosmos-db-mongo-api.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
 |Updated [hosting and deployment services](how-to/deploy-web-app.md)|Added Azure Web PubSub to list of services.|
 |Updated [Azure Functions](how-to/develop-serverless-apps.md#common-security-settings-you-need-to-configure-for-your-azure-function)|Added **Common security settings you need to configure for your Azure Function**| 
-|Updated [Top JS Tasks](how-to/common-javascript-tasks.md)|Added [Deployment](how-to/common-javascript-tasks.md#deployment-to-hosting-environment)| 
+|Updated [Top JS Tasks](/azure/developer/javascript/core/use-azure-sdk)|Added [Deployment](/azure/developer/javascript/core/use-azure-sdk#deployment-to-hosting-environment)| 
 
 ## 2021 July 
 
@@ -253,7 +253,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|
 |---------------------------------------|
-|[Set up development environment to use Azure SDK for JavaScript](./core/nodejs-sdk-azure-authenticate.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively log in or store and manage credentials.|
+|[Set up development environment to use Azure SDK for JavaScript](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively log in or store and manage credentials.|
 |[Recommended actions for Monitor Azure resources](./how-to/node-sdk-logging.md)<br><br>When you create an Azure resource, configure proper monitoring, alerting, and logging. |
 |[View deployed files in App or Functions services](./how-to/deploy-web-app.md#view-files-in-azure-hosted-environment)<br><br>Quick and simple methods to view your deployed files in the Azure portal or VSCode.|
 
@@ -299,7 +299,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |#|Name|
 |---------------------------------------|--|
-|1|[Application Insights API for custom events and metrics](how-to/common-javascript-tasks.md)|
+|1|[Application Insights API for custom events and metrics](/azure/developer/javascript/core/use-azure-sdk)|
 |2|[Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website)|
 |3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?tabs=code)|
 |4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
@@ -326,7 +326,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Notes|
 |---------------------------------------|--|
 |[**For beginners**](learn-azure-javascript.md)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
-|[Top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|[Top tasks for JavaScript developers](/azure/developer/javascript/core/use-azure-sdk)|Find an example of your current tasks.|
 |[Configure Visual Studio Code launch file](./how-to/configure-web-app-settings.md#configure-browser-for-cors-to-connect-with-server)|If you need to connect to your own server, and need to ignore CORS security while running and debugging with the client locally, the recommended solution is to configure this setting in the Visual Studio Code debug file, `launch.json`, to pass settings to the browser to disable the security.|
 
 ## 2020 December
@@ -339,7 +339,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[What is Azure for JavaScript developers?](core/what-is-azure-for-javascript-development.md)|Azure concepts JavaScript developers need to be successful.|
 |[Install Node.js](core/install-nodejs-develop-azure-sdk-project.md)|Install and manage Node.js for common Azure development scenarios|
 |[Configure web apps on Azure](how-to/configure-web-app-settings.md)|Learn how to set common configurations for your web app.|
-|[Common top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|[Common top tasks for JavaScript developers](/azure/developer/javascript/core/use-azure-sdk)|Find an example of your current tasks.|
 |[Automate tasks with Azure CLI](core/automate-tasks-with-azure-cli.md)|Automating Azure tasks is a common requirement for continuous deployment to hosting environments. Azure CLI is the recommended choice for JavaScript developers managing tasks and deploying from any location.|
 
 ### What's new in Learn
@@ -384,7 +384,7 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 |Name|Notes|
 |---------------------------------------|--|
 |[How-to: Serverless functions](how-to/develop-serverless-apps.md)|Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint.|
-|[Get started: Authenticate with the Azure management modules for JavaScript](core/nodejs-sdk-azure-authenticate.md)|There are multiple ways of authenticating and creating the required credentials.|
+|[Get started: Authenticate with the Azure management modules for JavaScript](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal)|There are multiple ways of authenticating and creating the required credentials.|
 
 ## Next steps
 
