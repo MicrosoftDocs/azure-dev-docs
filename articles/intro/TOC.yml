@@ -94,6 +94,8 @@ items:
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: PostgreSQL
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                  - name: Oracle WebLogic Server with MySQL and PostgreSQL
+                    href: ../java/ee/how-to-configure-passwordless-datasource.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JPA
                 items:
                   - name: SQL

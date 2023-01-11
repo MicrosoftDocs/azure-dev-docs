@@ -10,6 +10,9 @@
           tocHref: /azure/developer/java/spring-framework
           topicHref: /azure/developer/intro/index
         - name: Introduction
+          tocHref: /azure/developer/java/ee
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
           tocHref: /azure/storage/common
           topicHref: /azure/developer/intro/index
         - name: Introduction
