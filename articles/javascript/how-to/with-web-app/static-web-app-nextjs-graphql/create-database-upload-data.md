@@ -47,7 +47,7 @@ Upload the catalog of trivia questions from the `./trivia.json` to your new Cosm
 
 ## Play the trivia game
 
-Start and play the game in the default language, English. 
+Start and play the game in the default language, **English**. 
 
 1. Start the game. 
 
