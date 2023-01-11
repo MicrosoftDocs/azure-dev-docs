@@ -13,7 +13,7 @@ Build and deploy a Next.js app to Static Web Apps as a Next.js hybrid applicatio
 
 ## What the sample solution does
 
-The sample solution is a Trivia game. You're asked a series of 10 trivia questions. At the end of the game, your score is displayed and you can start the game again. Bonus for multi-lingual players, start and play the game in a different language.
+The sample solution is a Trivia game. You're asked a series of 5 trivia questions. At the end of the game, your score is displayed and you can start the game again. Bonus for multi-lingual players, start and play the game in a different language.
 
 When deployed, the sample solution flow includes:
 
