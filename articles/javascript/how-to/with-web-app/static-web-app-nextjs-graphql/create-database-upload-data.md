@@ -43,7 +43,7 @@ Upload the catalog of trivia questions from the `./trivia.json` to your new Cosm
 
 1. Use the Visual Studio extension for Cosmos DB to view the database, collection, and individual documents.
 
-    :::image type="content" source="../../../../media/static-web-app-nextjs-graphql/visual-studio-code-cosmos-db-nosql-trivia-data-upload.png" alt-text="Screenshot of Visual Studio Code using the Azure Databases extension to show the database, collection, and uploaded doc for the trivia game.":::
+    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/visual-studio-code-cosmos-db-nosql-trivia-data-upload.png" alt-text="Screenshot of Visual Studio Code using the Azure Databases extension to show the database, collection, and uploaded doc for the trivia game.":::
 
 ## Play the trivia game
 
@@ -64,3 +64,8 @@ Start and play the game in the default language, **English**.
 1. Play through the game.
 
     :::image type="content" source="../../../media/static-web-app-nextjs-graphql/web-browser-trivia-game-english.png" alt-text="Screenshot of web browser showing first question of trivia game.":::
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Set up translation >>](create-translator-resource.md)
