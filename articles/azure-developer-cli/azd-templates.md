@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI templates (preview)
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 12/09/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
