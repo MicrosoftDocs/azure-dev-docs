@@ -45,6 +45,18 @@ Upload the catalog of trivia questions from the `./trivia.json` to your new Cosm
 
     :::image type="content" source="../../../media/static-web-app-nextjs-graphql/visual-studio-code-cosmos-db-nosql-trivia-data-upload.png" alt-text="Screenshot of Visual Studio Code using the Azure Databases extension to show the database, collection, and uploaded doc for the trivia game.":::
 
+## Code to upload data
+
+Upload the `./trivia.json` file's data with the following code in the sample found at `./azure/azureCosmosdb.ts`.
+
+This code provides the following functionality:
+
+* Create new database and container
+* Read `./trivia.json` into JSON object
+* Upload data in batches of 10 trivia questions at a time
+
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/azure/uploadData.ts" ::: 
+
 ## Play the trivia game
 
 Start and play the game in the default language, **English**. 
