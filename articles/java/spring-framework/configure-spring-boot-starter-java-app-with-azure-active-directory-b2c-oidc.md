@@ -1,5 +1,5 @@
 ---
-title: Add Login with Azure AD B2C in Spring Web App
+title: Add sign-in with Azure AD B2C in a Spring web app
 description: Learn how to configure a Spring Boot Initializr app with the Azure Active Directory B2C starter.
 services: active-directory-b2c
 documentationcenter: java
@@ -15,9 +15,9 @@ ms.custom: devx-track-java, spring-cloud-azure
 ms.subservice: B2C
 ---
 
-# Add Login with Azure AD B2C in Spring Web App
+# Add sign-in with Azure AD B2C in a Spring web app
 
-This article demonstrates creating a Java app with the [Spring Initializr](https://start.spring.io/) that uses the Spring Boot Starter for Azure Active Directory (Azure AD).
+This article shows you how to create a Java app with sign-in capability by using [Spring Initializr](https://start.spring.io/) with the Spring Boot Starter for Azure Active Directory (Azure AD).
 
 In this tutorial, you learn how to:
 
