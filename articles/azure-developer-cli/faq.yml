@@ -2,8 +2,8 @@
 metadata:
   title: Azure Developer CLI FAQ (preview)
   description: Get answers to commonly asked questions about Azure Developer CLI.
-  author: puicchan
-  ms.author: puichan
+  author: alexwolfmsft
+  ms.author: alexwolf
   ms.date: 07/11/2022
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli
