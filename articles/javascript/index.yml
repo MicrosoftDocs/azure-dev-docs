@@ -34,7 +34,7 @@ landingContent:
           - text: Set up development environment
             url: core/configure-local-development-environment.md
           - text: Authenticate to Azure SDK
-            url: core/nodejs-sdk-azure-authenticate.md
+            url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
           - text: Databases for developers

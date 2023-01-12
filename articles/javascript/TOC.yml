@@ -277,7 +277,7 @@
       - name: Resource management
         items: 
           - name: "List subscriptions"
-            href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+            href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
           - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
   - name: GraphQL
