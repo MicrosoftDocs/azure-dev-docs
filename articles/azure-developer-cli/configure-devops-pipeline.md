@@ -1,8 +1,8 @@
 ---
 title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps (preview)
 description: Learn how to push updates using GitHub Actions or Azure DevOps.
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 08/10/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
@@ -41,6 +41,13 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
     ```
 
    This command also creates a private GitHub repository and pushes code to the new repo.
+
+   > [!NOTE]
+   > By default, `azd pipeline config` uses [OpenID Connect (OIDC)](../github/connect-from-azure.md#use-the-azure-login-action-with-openid-connect), called **federated** credentials. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`. 
+   > 
+   > OIDC/federated credentials are **not** supported for Terraform.
+   > 
+   > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
 
 1. Supply the requested GitHub information.
 1. When prompted about committing and pushing your local changes to start a new GitHub Actions run, specify `y`.
@@ -120,6 +127,12 @@ When creating your PAT, set the following scopes:
    ``` azdeveloper
    azd pipeline config
    ````
+
+> [!NOTE]
+> By default, `azd pipeline config` in Azure DevOps uses `clientcredentials`. OIDC/federated credentials are not supported for Azure DevOps. 
+> 
+> [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
+
 
 1. Provide your answers to the following prompts:
 

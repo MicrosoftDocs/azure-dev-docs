@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Developer CLI (preview)
 description: In this article, troubleshoot common problems that might occur when you're using Azure Developer CLI.
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 10/31/2022
+ms.date: 01/03/2023
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -110,6 +110,38 @@ This is a known issue. While we address this issue, try the following command:
 ```bash
 git update-index --chmod=+x src/api/mvnw && git commit -m "Fix executable bit permissions" && git push
 ```
+
+## `azd pipeline config` failure due to Conditional Access Policy
+
+When running `azd pipeline config`, you may receive an error like the following:
+
+```azdeveloper
+ERROR: failed to create or update service principal: failed retrieving application list, failed executing request: http call(https://login.microsoftonline.com/common/oauth2/v2.0/token)(POST) error: reply status code was 400:
+{"error":"invalid_grant","error_description":"AADSTS50005: User tried to log in to a device from a platform (Unknown) that's currently not supported through Conditional Access policy. Supported device platforms are: iOS, Android, Mac, and Windows flavors.\r\nTrace ID: be3438c1-42fc-4c37-96d8-0e723ac54f01\r\nCorrelation ID: f535565f-9f3c-4014-ad65-403f514bf892\r\nTimestamp: 2022-12-16 21:10:37Z","error_codes":[50005],"timestamp":"2022-12-16 21:10:37Z","trace_id":"be3438c1-42fc-4c37-96d8-0e723ac54f01","correlation_id":"f535565f-9f3c-4014-ad65-403f514bf892"}
+```
+
+This error is related to your Azure Active Directory's tenant enablement of Conditional Access Policies. The specific policy requires that you are signed in into a supported device platform. 
+
+You may also be receiving this error due to being logged in using the device code mechanism, which prevents Azure Active Directory from detecting your device platform correctly.
+
+### Solution
+
+1. Make sure you're running on a device listed as supported, per the error message.
+1. Rerun `azd login` with the flag `--use-device-code=false` appended:
+
+   ```azdeveloper
+   azd login --use-device-code=false
+   ```
+
+   > [!NOTE]
+   > If running CodeSpaces in the browser, you may receive an error with message `localhost refused to connect` after logging in. If so:
+   > 
+   > 1. Copy the URL.
+   > 1. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
+   > 
+   > In the original terminal, the login should now succeed.
+
+1. After logging in, rerun `azd pipeline config`.
 
 ## `azd pipeline config` support
 

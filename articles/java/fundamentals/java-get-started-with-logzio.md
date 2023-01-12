@@ -199,7 +199,7 @@ The selected data will now stream to the Event Hub.
 
 ### Visualize your data
 
-Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see data (with the type _eventhub_) filling up your dashboards. For more information on how to create dashboards, see [Creating the Perfect Kibana Dashboard](https://logz.io/blog/perfect-kibana-dashboard/).
+Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see data (with the type _eventhub_) filling up your dashboards. For more information on how to create dashboards, see [Kibana - Create Dashboard](https://www.tutorialspoint.com/kibana/kibana_create_dashboard.htm).
 
 From there, you can query for specific data in the **Discover** tab, or create Kibana objects to visualize your data in the **Visualize** tab.
 

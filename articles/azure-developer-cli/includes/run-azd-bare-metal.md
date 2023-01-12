@@ -1,9 +1,9 @@
 ---
-author: hhunter-ms
+author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 08/05/2022
-ms.author: hannahhunter
+ms.author: alexwolf
 ---
 
 ## Run `azd up`
