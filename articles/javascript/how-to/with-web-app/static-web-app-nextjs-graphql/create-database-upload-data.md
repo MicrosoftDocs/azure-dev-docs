@@ -32,6 +32,8 @@ Add the Cosmos DB secrets to a local secrets file.
 
 Upload the catalog of trivia questions from the [`./trivia.json`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/trivia.json) to your new Cosmos DB resource.
 
+This section's build and start scripts are specific to uploading the data and won't be needed after this initial upload.
+
 1. Build the project, including the upload script.
 
     ```bash
