@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 01/04/2023
-ms.custom: devx-track-azurecli, devx-track-java, devx-track-javaee-jbosseap, migration-java
+ms.custom: devx-track-azurecli, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java
 recommendations: false
 ---
 
