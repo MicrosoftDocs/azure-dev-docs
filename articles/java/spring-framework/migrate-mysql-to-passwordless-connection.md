@@ -207,7 +207,7 @@ Next, use the following steps to update your code to use passwordless connection
    ```
 
    > [!NOTE]
-   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin` from the url.
+   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin` from the URL.
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin

@@ -1,8 +1,8 @@
 ---
 title: What is the Azure Developer CLI (preview)?
 description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 10/21/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
