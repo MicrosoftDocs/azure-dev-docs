@@ -49,6 +49,15 @@
           tocHref: /azure/key-vault/general
           topicHref: /azure/developer/intro/index
         - name: Introduction
+          tocHref: /azure/key-vault/certificates
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/keys
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/secrets
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
           tocHref: /azure/cosmos-db
           topicHref: /azure/developer/intro/index
         - name: Introduction
