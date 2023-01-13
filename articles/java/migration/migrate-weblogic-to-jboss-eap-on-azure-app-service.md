@@ -2,7 +2,7 @@
 title: Migrate WebLogic Server applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing WebLogic Server application to run on Azure App Service using JBoss EAP.
 author: KarlErickson
-ms.author: jafreebe
+ms.author: karler
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.custom: devx-track-java, migration-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc
