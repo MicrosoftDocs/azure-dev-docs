@@ -1,5 +1,5 @@
 ---
-title: Configure passwordless datasource connection using marketplace offers
+title: Configure passwordless database connections for Java apps on Oracle WebLogic Servers
 description: Configure passwordless datasource connection using marketplace offers.
 author: KarlErickson
 ms.author: haiche
@@ -9,9 +9,9 @@ keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, ku
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls
 ---
 
-# Configure passwordless database connection using Azure Oracle WebLogic marketplace offers
+# Configure passwordless database connections for Java apps on Oracle WebLogic Servers
 
-This article shows you how to configure passwordless database connection in Azure Oracle WebLogic Server offers with the Azure portal.
+This article shows you how to configure passwordless database connections for Java apps on Oracle WebLogic Server offers with the Azure portal.
 
 In this guide, you'll:
 
