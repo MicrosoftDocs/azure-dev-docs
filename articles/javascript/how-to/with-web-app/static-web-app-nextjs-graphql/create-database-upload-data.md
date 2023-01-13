@@ -17,7 +17,10 @@ Hopefully reusing Sidney's includes here
 
 ## Add Cosmos DB secrets to .env.local
 
-1. Open the `.env.local` file at the root of the sample project.
+Add the Cosmos DB secrets to a local secrets file.
+
+1. Copy the `.env.sample` file to a new file named `.env.local`
+1. Open the [.env.local](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/.env.sample) file at the root of the sample project.
 1. Copy the key and resource name from the previous section into the appropriate variables:
 
     ```text
@@ -27,7 +30,7 @@ Hopefully reusing Sidney's includes here
 
 ## Upload trivia data to database
 
-Upload the catalog of trivia questions from the `./trivia.json` to your new Cosmos DB resource.
+Upload the catalog of trivia questions from the [`./trivia.json`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/trivia.json) to your new Cosmos DB resource.
 
 1. Build the project, including the upload script.
 
@@ -47,7 +50,10 @@ Upload the catalog of trivia questions from the `./trivia.json` to your new Cosm
 
 ## Code to upload data
 
-Upload the `./trivia.json` file's data with the following code in the sample found at `./azure/azureCosmosdb.ts`.
+Upload the [./trivia.json](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/trivia.json) file's data with the following code in the sample application:
+
+* [./azure/uploadData.tx](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/azure/uploadData.ts)
+* [./azure/azureCosmosdb.ts](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/azure/azureCosmosdb.ts)
 
 This code provides the following functionality:
 
