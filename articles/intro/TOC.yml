@@ -56,6 +56,12 @@ items:
                 href: /azure/cosmos-db/nosql/quickstart-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Event Hubs
                 href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault certificates
+                href: /azure/key-vault/certificates/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault keys
+                href: /azure/key-vault/keys/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault secrets
+                href: /azure/key-vault/secrets/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Service Bus - Queues
                 href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Service Bus - Topics
