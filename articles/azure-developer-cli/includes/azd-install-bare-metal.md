@@ -1,9 +1,9 @@
 ---
-author: hhunter-ms
+author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 01/11/2023
-ms.author: hannahhunter
+ms.author: alexwolf
 ---
 
 ## Pre-requisites

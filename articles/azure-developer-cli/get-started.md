@@ -2,8 +2,8 @@
 title: Get started using Azure Developer CLI (preview)
 description: Learn how to get started with Azure Developer CLI with a template for Node.js.
 keywords: azure developer cli, azd
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 10/21/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
