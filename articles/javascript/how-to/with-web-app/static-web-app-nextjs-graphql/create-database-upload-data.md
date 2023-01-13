@@ -102,25 +102,23 @@ That query is wrapped in a **useQuery** hook to pass the request to the Next.js 
 
 When the data flows back to the client component, the **useEffect** hook sets the state for the question.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="85-89":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="85-89" highlight="3":::
 
 Then the question is displayed.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="109-116":::
-
-Some of items for display, such as `wasCorrect` and `totalQuestions` will be fetched and discussed in later sections of this article. 
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="109-116" highlight="2"::: 
 
 ### Server: review code to get question and answers
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver, shown below, to get a question for the game from the database. The resolver calls the data source.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="8-33":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="8-33" highlight="11":::
 
 The data source uses a SQL Query to fetch the data from Cosmos DB. The query ensures the question is different from the last question. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/QuestionDataSource.ts" ::: 
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/QuestionDataSource.ts" highlight="15" ::: 
 
-A field resolver takes the answers and randomized them before returning the question.
+A field resolver randomizes all the answers (correct and incorrect) before returning the question.
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="34-41":::
 
@@ -130,27 +128,25 @@ The user's answer is a mutation, which includes the question ID, selected answer
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="30-45" highlight="1":::  
 
-That mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
+The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="60-63" highlight="4":::  
 
 When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="76-83" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="76-83" highlight="5,6":::  
 
-Then the results are displayed.
+Then the results are displayed. The first block of code displays if the answer is incorrect. The second block of code displays if the answer is correct.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="118-155" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="118-155" highlight="2,19":::  
 
 ### Server: review code to validate answer
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Mutation** resolver, shown below. Because the data is already known, the resolver doesn't need to call the database but instead just compare the selected answer with the correct answer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="43-74":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="43-74" highlight="11":::
 
 The Cosmos DB data source provides convenience methods, including **findOneById**, so you don't need to write these SQL queries. The data source provides caching to make sure you only go to the cloud database when necessary.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/QuestionDataSource.ts" ::: 
 
 ## Next step
 
