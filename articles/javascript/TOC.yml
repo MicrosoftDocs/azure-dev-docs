@@ -98,9 +98,9 @@
           items: 
             - name: 1. Getting started
               href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-            - name: 2. Create database and upload data
+            - name: 2. Working with database
               href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-            - name: 3. Create translator resource
+            - name: 3. Working with translator
               href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
             - name: 4. Deploy to Static Web App
               href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
@@ -314,9 +314,9 @@
         items: 
           - name: 1. Getting started
             href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-          - name: 2. Create database and upload data
+          - name: 2. Working with database
             href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-          - name: 3. Create translator resource
+          - name: 3. Working with translator
             href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
           - name: 4. Deploy to Static Web App
             href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
