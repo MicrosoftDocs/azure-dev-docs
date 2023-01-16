@@ -26,6 +26,4 @@ For the full list of Azure products and services, visit the [Azure documentation
 ### Next steps
 
 > [!div class="nextstepaction"]
-> [Key Azure Services for Go Developers](key-azure-services-for-go.md)
-> [!div class="nextstepaction"]
 > [Authenticate with the Azure SDK for Go](azure-sdk-authentication.md)
