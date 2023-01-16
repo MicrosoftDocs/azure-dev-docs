@@ -1,9 +1,9 @@
 ---
-author: hhunter-ms
+author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 09/12/2022
-ms.author: hannahhunter
+ms.author: alexwolf
 ---
 
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.

@@ -1,8 +1,8 @@
 ---
 title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps (preview)
 description: Learn how to push updates using GitHub Actions or Azure DevOps.
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 08/10/2022
 ms.service: azure-dev-cli
 ms.topic: how-to

@@ -1,9 +1,9 @@
 ---
-author: hhunter-ms
+author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 08/10/2022
-ms.author: hannahhunter
+ms.author: alexwolf
 ---
 
 Run and debug apps built on your local machine using [Visual Studio](/visualstudio/azure) and Azure Developer CLI (`azd`). In this guide, you'll use the [Todo application with C# and Azure Cosmos DB for MongoDB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
