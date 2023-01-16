@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: overview
 ms.date: 12/26/2022
-ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-was
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
 ---
 
 # Quickstart: Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift using the Azure portal
