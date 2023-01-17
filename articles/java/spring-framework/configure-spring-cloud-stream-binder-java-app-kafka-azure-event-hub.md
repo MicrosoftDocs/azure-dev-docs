@@ -1,5 +1,5 @@
 ---
-title: Use Spring Kafka with Azure Event Hubs
+title: Use Spring Kafka with Azure Event Hubs for Kafka API
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs. 
 services: event-hubs
 ms.date: 11/16/2022
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, passwordless-java, spring-cloud-azure
 ---
 
-# Use Spring Kafka with Azure Event Hubs
+# Use Spring Kafka with Azure Event Hubs for Kafka API
 
 This article shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
