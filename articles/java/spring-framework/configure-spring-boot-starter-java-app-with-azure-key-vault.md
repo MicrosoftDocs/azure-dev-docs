@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Load a secret from Azure Key Vault in a Spring Boot application"
+title: "Load a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
 ms.date: 12/07/2022
 ms.service: key-vault
