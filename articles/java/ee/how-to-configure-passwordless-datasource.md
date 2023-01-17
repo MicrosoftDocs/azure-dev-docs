@@ -509,8 +509,6 @@ Use the following steps to verify the database connection.
 
    :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png" alt-text="Screenshot of WebLogic Console portal showing the PostgreSQL state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png":::
 
-   ---
-
 1. Select the **Testing** tab, then select the radio button next to the desired server.
 1. Select **Test Data Source**. You should see a message indicating a successful test, as shown in the following screenshot.
 
