@@ -127,11 +127,11 @@ To create and initialize the Azure Key Vault, use the following steps:
    1. To see the list of regions and their locations, see [Azure geographies](https://azure.microsoft.com/regions/).
    1. Use the `az account list-locations` command to find the correct `Name` for your chosen region.
 
-     ```azurecli
-     az account list-locations --output table
-     ```
+      ```azurecli
+      az account list-locations --output table
+      ```
 
-     This tutorial uses `eastus`.
+      This tutorial uses `eastus`.
 
 1. Create a resource group to hold the Key Vault and the App Service app. The value must be unique within the Azure subscription. This tutorial uses `contosorg`.
 
