@@ -4,8 +4,8 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 02/10/2022
-ms.custom: devx-track-java, devx-track-azurecli, migration-java
+ms.date: 01/04/2023
+ms.custom: devx-track-azurecli, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java
 recommendations: false
 ---
 

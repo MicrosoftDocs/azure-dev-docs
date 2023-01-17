@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/developer/java/ee/weblogic-server-azure-virtual-machine). A less automated, but still accelerated option is to skip the steps of installing JDK and WLS on the operating system by using a pre-configured Oracle or Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](../ee/weblogic-server-azure-virtual-machine.md). A less automated, but still accelerated option is to skip the steps of installing JDK and WLS on the operating system by using a pre-configured Oracle or Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
 ## Prerequisites
 
@@ -1965,7 +1965,7 @@ This section shows you how to create a PostgreSQL instance on Azure and configur
 
 ### Create an Azure Database for PostgreSQL instance
 
-Use [az postgres server create](/cli/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
+Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
 
 ```azurecli
 DB_SERVER_NAME="wlsdb$(date +%s)"

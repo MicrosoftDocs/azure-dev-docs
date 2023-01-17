@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 12/07/2022
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # How to use Spring Cloud Azure Stream Binder for Azure Service Bus

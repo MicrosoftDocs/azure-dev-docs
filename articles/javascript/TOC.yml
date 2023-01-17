@@ -252,34 +252,36 @@
           href: sdk/authentication/azure-hosted-apps.md
         - name: On-premises apps
           href: sdk/authentication/on-premises-apps.md
-      - name: Database developer guide
-        items: 
-        - name: Getting started
-          href: how-to/with-database/getting-started.md
-        - name: Cache for Redis
-          href: how-to/with-database/use-azure-cache-for-redis-db.md
-        - name: Cassandra on Azure Cosmos DB
-          href: how-to/with-database/use-cassandra-as-cosmos-db.md
-        - name: MongoDB on Azure Cosmos DB
-          items: 
-            - name: Getting started
-              href: how-to/with-database/use-mongodb-as-cosmosdb.md
-            - name: Dev guide
-              href: /azure/cosmos-db/mongodb/how-to-javascript-get-started
-        - name: MySQL and MariaDB
-          href: how-to/with-database/use-mysql-mariadb.md
-        - name: PostgreSQL
-          href: how-to/with-database/use-postgresql-db.md
-        - name: Azure Cosmos DB for NoSQL
-          href: how-to/with-database/use-sql-api-as-cosmos-db.md
-        - name: Storage developer guide
-          href: /azure/storage/blobs/storage-blob-javascript-get-started
+
+
       - name: Resource management
         items: 
           - name: "List subscriptions"
-            href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+            href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
           - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
+  - name: Storage developer guide
+    href: /azure/storage/blobs/storage-blob-javascript-get-started
+  - name: Database developer guide
+    items: 
+    - name: Getting started
+      href: how-to/with-database/getting-started.md
+    - name: Cache for Redis
+      href: how-to/with-database/use-azure-cache-for-redis-db.md
+    - name: Cassandra on Azure Cosmos DB
+      href: how-to/with-database/use-cassandra-as-cosmos-db.md
+    - name: MongoDB on Azure Cosmos DB
+      items: 
+        - name: Getting started
+          href: how-to/with-database/use-mongodb-as-cosmosdb.md
+        - name: Dev guide
+          href: /azure/cosmos-db/mongodb/how-to-javascript-get-started
+    - name: MySQL and MariaDB
+      href: how-to/with-database/use-mysql-mariadb.md
+    - name: PostgreSQL
+      href: how-to/with-database/use-postgresql-db.md
+    - name: Azure Cosmos DB for NoSQL
+      href: how-to/with-database/use-sql-api-as-cosmos-db.md
   - name: GraphQL
     items: 
       - name: Hello world with Functions

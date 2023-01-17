@@ -6,7 +6,7 @@ ms.author: yiliu6
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.service: event-hubs
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
@@ -449,7 +449,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
 
 You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
-If you're using an Azure App Service, use the [az webapp connection](/azure/webapp/connection) command, as shown in the following example:
+If you're using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection) command, as shown in the following example:
 
 ```azurecli
 az webapp connection create eventhub \
@@ -574,6 +574,9 @@ If you connected your services using the Service Connector, you don't need to co
 1. Under **Assign access to**, select **Managed identity**, and then select **Select members**.
 
 1. In the flyout, search for the subscription where hosting service is located. Then, select *All system-assigned managed identities*, and select the managed identity of your hosting service. Select the system assigned identity, and then select **Select** to close the flyout menu.
+
+   > [!NOTE]
+   > If you use Azure Kubernetes Service, select **User-assigned managed identities** and then select the managed identity of the Kubernetes cluster, which has a name with the following structure: `<your-kubernetes-cluster-name>-agentpool`.
 
 1. Select **Next** a couple of times until you're able to select **Review + assign** to finish the role assignment.
 

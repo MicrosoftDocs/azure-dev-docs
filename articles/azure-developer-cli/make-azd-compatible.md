@@ -1,8 +1,8 @@
 ---
 title: Make your project compatible with Azure Developer CLI (preview)
 description: How to convert an app to an Azure developer enabled template.
-author: hhunter-ms
-ms.author: hannahhunter
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to

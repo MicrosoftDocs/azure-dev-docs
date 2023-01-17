@@ -3,9 +3,9 @@ title: Quickstarts for data for Java apps on Azure
 description: List of getting started material in the Azure documentation for data for Java apps.
 author: KarlErickson
 ms.author: bbenz
-ms.date: 07/15/2022
+ms.date: 01/04/2023
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
 ---
 
 # Data for Java apps on Azure
@@ -26,6 +26,11 @@ The following articles help you get started with various data options on Azure:
 - [PostgreSQL - Spring Data JDBC](../spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md)
 - [PostgreSQL - Spring Data JPA](../spring-framework/configure-spring-data-jpa-with-azure-postgresql.md)
 - [PostgreSQL - Spring Data R2DBC](../spring-framework/configure-spring-data-r2dbc-with-azure-postgresql.md)
+- SQL Database - Open Liberty JPA
+  - [Open Liberty on Azure Kubernetes - step-by-step guidance](../ee/howto-deploy-java-liberty-app-manual.md)
+  - [Open Liberty on Azure Kubernetes - Azure portal](/azure/aks/howto-deploy-java-liberty-app)
+  - [Open Liberty on Azure Red Hat OpenShift - Azure portal](/azure/openshift/howto-deploy-java-liberty-app)
+- [SQL Database - Red Hat JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)
 - [SQL Database - Spring Data JDBC](../spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md)
 - [SQL Database - Spring Data JPA](../spring-framework/configure-spring-data-jpa-with-azure-sql-server.md)
 - [SQL Database - Spring Data R2DBC](../spring-framework/configure-spring-data-r2dbc-with-azure-sql-server.md)

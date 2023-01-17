@@ -10,6 +10,7 @@ metadata:
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
+  ms.custom: spring-cloud-azure
 
 landingContent:
   - title: Spring Data

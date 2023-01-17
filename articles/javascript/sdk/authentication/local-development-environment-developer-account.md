@@ -116,25 +116,6 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Sign-in to Azure using VS Code, the Azure CLI, or Azure PowerShell
 
-### [VS Code Azure Tools extension](#tab/sign-in-vscode)
-
-For an app to use the developer credentials from VS Code, the VS Code Azure Tools extension must be installed in VS Code.
-
-> [!div class="nextstepaction"]
-> [Install the Azure Tools extensions for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
-On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
-
-:::image type="content" source="../../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../../media/configure-local-development-environment/vs-code-azure-login.png":::
-
-### [Azure CLI](#tab/sign-in-azure-cli)
-
-Open a terminal on your developer workstation and sign-in to Azure from the [Azure CLI](/cli/azure/what-is-azure-cli).
-
-```azurecli
-az login
-```
-
 ### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
 Open a terminal on your developer workstation and sign-in to Azure from [Azure PowerShell](/powershell/azure/what-is-azure-powershell).

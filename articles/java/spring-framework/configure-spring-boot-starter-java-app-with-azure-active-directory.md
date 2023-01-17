@@ -1,5 +1,5 @@
 ---
-title: How to use the Spring Boot Starter for Azure Active Directory
+title: Add sign-in with an Azure AD account in a Spring web app
 description: Learn how to configure a Spring Boot Initializer app with the Azure Active Directory starter.
 services: active-directory
 documentationcenter: java
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
-ms.custom: devx-track-java
+ms.custom: devx-track-java, spring-cloud-azure
 adobe-target: true
 ---
 
-# Secure REST API using Spring Security 5 and Azure Active Directory
+# Add sign-in with an Azure AD account in a Spring web app
 
 This article shows you how to secure REST API using Spring Security 5 and  Azure Active Directory.
 

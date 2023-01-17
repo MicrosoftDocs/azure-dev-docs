@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: v-muyaofeng
 ms.date: 09/26/2022
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for PostgreSQL
@@ -156,12 +156,12 @@ Next, use the following steps to update your code to use passwordless connection
 
 ### [Java](#tab/java)
 
-1. Inside your project, add the following reference to the `azure-identity-providers-jdbc-postgresql` package. This library contains all of the entities necessary to implement passwordless connections.
+1. Inside your project, add the following reference to the `azure-identity-extensions` package. This library contains all of the entities necessary to implement passwordless connections.
 
    ```xml
    <dependency>
        <groupId>com.azure</groupId>
-       <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
+       <artifactId>azure-identity-extensions</artifactId>
        <version>1.0.0</version>
    </dependency>
    ```

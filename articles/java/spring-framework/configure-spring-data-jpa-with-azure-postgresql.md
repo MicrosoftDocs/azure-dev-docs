@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021
 ---
 
@@ -37,12 +37,11 @@ In this article, you'll code a sample application. If you want to go faster, thi
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.6 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 > [!NOTE]
-> * Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`. For more information, see the [PostgreSQL support](spring-cloud-azure.md?tabs=maven#postgresql-support) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
-> * Spring Initializr currently doesn't add the `com.azure.spring:spring-cloud-azure-starter-jdbc-postgresql` dependency automatically, so you should manually add the dependency to your *pom.xml* or *build.gradle* file.
+> Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`. For more information, see the [PostgreSQL support](spring-cloud-azure.md?tabs=maven#postgresql-support) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 

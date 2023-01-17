@@ -9,7 +9,7 @@ ms.date: 09/07/2021
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java, team=cloud_advocates
+ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure
 ms.contributors: judubois-03042021
 ---
 
@@ -89,7 +89,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.*, 4.0.0)"
-  } 
+  },
   "functionTimeout": "00:10:00"
 }
 ```

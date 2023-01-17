@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 09/26/2022
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for MySQL
@@ -189,12 +189,12 @@ Next, use the following steps to update your code to use passwordless connection
 
 ### [Java](#tab/java)
 
-1. Inside your project, add the following reference to the `azure-identity-providers-jdbc-mysql` package. This library contains all of the entities necessary to implement passwordless connections.
+1. Inside your project, add the following reference to the `azure-identity-extensions` package. This library contains all of the entities necessary to implement passwordless connections.
 
    ```xml
    <dependency>
        <groupId>com.azure</groupId>
-       <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
+       <artifactId>azure-identity-extensions</artifactId>
        <version>1.0.0</version>
    </dependency>
    ```
@@ -207,7 +207,7 @@ Next, use the following steps to update your code to use passwordless connection
    ```
 
    > [!NOTE]
-   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin` from the url.
+   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin` from the URL.
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin

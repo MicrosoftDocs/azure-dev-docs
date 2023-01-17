@@ -5,7 +5,7 @@ services: python, azure-functions, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 01/03/2023
 ms.prod: azure-python
 ---
 
@@ -31,7 +31,7 @@ When deployed, the sample solution flow includes:
 
 ## Prerequisites for the tutorial
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
+If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](./configure-local-development-environment.md).
 
 To complete this tutorial, you'll need:
 
@@ -45,7 +45,9 @@ To complete this tutorial, you'll need:
 
 ## Get the sample solution
 
-A sample Python solution is available to help you follow along with this tutorial. Download or clone the sample codebase to your local workstation. 
+A sample Python solution is optionally available to help you follow along with this tutorial so you don't have to create the app or paste in the code. Download or clone the sample codebase to your local workstation. 
+
+In subsequent steps that ask you to create the app or apply code to the app, that work is already completed in the sample app. 
 
 > [!CAUTION]
 > If you download and open this sample, you don't need to copy any code, but you need to edit the settings for Azure resources in the **local.settings.json** for local development.
@@ -62,7 +64,26 @@ A sample Python solution is available to help you follow along with this tutoria
     cd msdocs-python-etl-serverless
     ```
 
-[!INCLUDE [proxy-note](./includes/create-virtual-environment-tab.md)]
+1. Create the virtual environment:
+
+    ### [Windows](#tab/cmd)
+
+    ```bash
+    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    py -3 -m venv .venv
+    ```
+
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    python3 -m venv .venv
+    ```
+
+    ---
+
+1. Create a [**requirements.txt**](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) file at the root and copy the following into it. 
+
+    :::code language="python" source="~/../msdocs-python-etl-serverless/requirements.txt" :::
 
 1. Install the dependencies:
 
@@ -74,16 +95,13 @@ A sample Python solution is available to help you follow along with this tutoria
 
     |SDK docs   |Install | Python package index |
     |---------------------|--------|----------------------|
-    |[Azure Storage Blobs](/python/api/overview/azure/storage-blob-readme) | `pip install azure-storage-blob`| [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) |
+    | [Azure Storage Blobs](/python/api/overview/azure/storage-blob-readme) | `pip install azure-storage-blob`| [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) |
     | [Azure Storage File Data Lake](/python/api/overview/azure/storage-file-datalake-readme) | `pip install azure-storage-file-datalake` | [azure-storage-file-datalake](https://pypi.org/project/azure-storage-file-datalake/) |
     | [Bing News Search API](/bing/search-apis/bing-news-search/reference/endpoints) | `pip install microsoft-bing-newssearch`| [microsoft-bing-newssearch](https://pypi.org/project/microsoft-bing-newssearch/) |
     | [Azure Identity](/python/api/overview/azure/identity-readme) | `pip install azure-identity` | [azure-identity](https://pypi.org/project/azure-identity/) |
     | [Azure Key Vault Secrets](/python/api/overview/azure/keyvault-secrets-readme) | `pip install azure-keyvault-secrets` | [azure-keyvault-secrets](https://pypi.org/project/azure-keyvault-secrets/) |
     | [Azure Core](/python/api/overview/azure/core-readme) | `pip install azure-core` | [azure-core](https://pypi.org/project/azure-core/) |
     | [Azure Function](/python/api/azure-functions/azure.functions) | `pip install azure-functions` | [azure-functions](https://pypi.org/project/azure-functions/) |
-
-> [!NOTE]
-> If you are following this tutorial with your own solution, look at the [requirements.txt](https://github.com/Azure-Samples/msdocs-python-etl-serverless/blob/main/requirements.txt) to see what packages you'll need.
 
 ## Create a resource group for your project
 
@@ -115,7 +133,7 @@ az role assignment create \
 
 To authenticate your local development environment to Azure, sign in with Azure CLI. 
 
-In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
+If you didn't log in in the terminal in the previous step, do that now. In a terminal or command prompt, use the Azure CLI, with [az login](/cli/azure/reference-index#az-login) to sign in to Azure on your local computer. To finish the authentication process, follow the steps displayed in your terminal.
 
 ```azurecli
 az login
@@ -124,4 +142,4 @@ az login
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get Started >>](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)
+> [Get data and store >>](tutorial-deploy-azure-cloud-python-etl-02-get-data.md)

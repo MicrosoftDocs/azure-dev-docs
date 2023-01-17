@@ -1,5 +1,5 @@
 ---
-title: How to use the Spring Boot Starter for Azure Storage
+title: Upload a file to an Azure Storage Blob
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
@@ -7,10 +7,10 @@ ms.date: 12/07/2022
 ms.service: storage
 ms.topic: article
 ms.workload: storage
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 ---
 
-# How to use the Spring Boot Starter for Azure Storage
+# Upload a file to an Azure Storage Blob
 
 This article walks you through creating a custom application using the **Spring Initializr**, then adding the Azure Storage Blob starter to your application, and then using your application to upload a blob to your Azure storage account.
 
@@ -106,7 +106,7 @@ The following procedure creates the Spring boot application.
 
    * Generate a **Maven** project.
    * Specify **Java 11**.
-   * Specify a **Spring Boot** version that is equal to **2.7.6**.
+   * Specify a **Spring Boot** version that is equal to **2.7.7**.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Spring Web** dependency.
 

@@ -52,16 +52,24 @@ items:
                 href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
-              - name: Blob Storage
-                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Cosmos DB for NoSQL
                 href: /azure/cosmos-db/nosql/quickstart-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Event Hubs
                 href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus queues
+              - name: Key Vault - Certificates
+                href: /azure/key-vault/certificates/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Keys
+                href: /azure/key-vault/keys/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Secrets
+                href: /azure/key-vault/secrets/quick-create-net?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus - Queues
                 href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Service Bus topics
+              - name: Service Bus - Topics
                 href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Storage - Blobs
+                href: /azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Storage - Queues
+                href: /azure/storage/queues/storage-quickstart-queues-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Tutorials
             items:
               - name: Azure Functions
@@ -104,14 +112,16 @@ items:
                 href: ../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
-              - name: Blob Storage
-                href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with MySQL
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with PostgreSQL
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Kafka with Event Hubs
                 href: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Storage - Blobs
+                href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Storage - Queues
+                href: /azure/storage/queues/storage-quickstart-queues-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Tutorials
             items:
               - name: Azure Spring Apps
@@ -130,18 +140,28 @@ items:
         items:
         - name: Quickstarts
           items:
-          - name: Blob Storage
-            href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: Service Bus queues
+          - name: Event Hubs
+            href: /azure/event-hubs/event-hubs-node-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: Service Bus topics
+          - name: Service Bus - Topics
             href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Storage - Blobs
+            href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Storage - Queues
+            href: /azure/storage/queues/storage-quickstart-queues-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Python
         items:
         - name: Quickstarts
           items:
-          - name: Blob Storage
+          - name: Event Hubs
+            href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus - Queues
+            href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Storage - Blobs
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Storage - Queues
+            href: /azure/storage/queues/storage-quickstart-queues-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
   - name: Azure developer centers
     items:
       - name: Azure developer home
