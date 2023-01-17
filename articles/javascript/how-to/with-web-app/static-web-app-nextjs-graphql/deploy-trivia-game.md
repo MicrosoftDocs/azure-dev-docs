@@ -7,105 +7,108 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
-# Trivia game: Create a Translator resource
+# Trivia game: Deploy to Static Web Apps
 
-The trivia game translates the questions and answers across a range of languages with the help of Azure Cognitive Services Translator. 
+The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application. When the app is deployed, you can see the `/graphql` server route deployed as a function in the Azure portal. 
 
-## Create a Translator resource 
+## Create a Static Web App
 
-Complete the steps in [this Translator quickstart](/azure/cognitive-services/translator/how-to-create-translator-resource) with the caveat of:
+Complete the steps in [this Static Web App tutorial](/azure/static-web-apps/deploy-nextjs-hybrid#create-a-static-web-app) starting with and completing only the **Create a static web app** step. 
 
-* Create the resource in the **Global** region
-* Use [the resource group you created](getting-started.md#create-a-resource-group-for-your-project) for this tutorial series
-* Copy the key and resource name to use in the next step.
+You need to use your fork of the sample project and select **Next.js** from the Build Presets during the process.
 
-## Add Translator secrets to .env.local
+The GitHub action to build your fork will fail for two reasons, which you'll fix briefly:
+* Preview features necessary for Next.js hybrid support aren't enabled in the **GitHub action**
+* Your static web app doesn't have your Cosmos DB and Translator secrets in the **Azure portal**
 
-Add the Translator secrets to a local secrets file.
+## Configure the Static Web App to use your Cosmos DB and Translator secrets
 
-1. Open the [.env.local](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/.env.sample) file at the root of the sample project.
-1. Copy the key and resource name from the previous section into the appropriate variables:
 
-    ```text
-    AZURE_COSMOSDB_ENDPOINT=https://REPLACE-WITH-YOUR-COSMOS-DB-RESOURCE-NAME.documents.azure.com:443/
-    AZURE_COSMOSDB_KEY=REPLACE-WITH-YOUR-COSMOS-DB-KEY
-    ``` 
+1. Open the Azure portal with the following URL, [https://portal.azure.com](https://portal.azure.com).
+1. Use the top search box to search for `Static Web Apps`.
+1. Select your app from the list.
+1. On the **Overview** page, copy the **URL** value. You use this URL later to view your app in a browser. If you look at it now, it won't work because the server doesn't know the Cosmos DB and Translator secrets.
+1. Select **Settings -> Application Insights**. For **Enable Application Insights** select **Yes**, then **Save**. This setting will help you see information about your Next.js server failures.
+1. Select **Settings -> APIs** to see your API is deployed as a **managed** backend resource. Select the managed resource to see the name of the function is `next_function`.
+
+    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/azure-portal-static-web-app-setting-api-backend-details.png" alt-text="Screenshot of Azure portal showing backend details for managed function for static web app.":::
+
+1. Select **Settings -> Configuration**.
+1. Use the **+ Add** feature to add your secrets to the app. You can use the following secrets from your local `.env.local` file. 
+
+    |Name|Value|
+    |--|--|
+    |AZURE_COSMOSDB_ENDPOINT|`https://YOUR-COSMOS-DB-RESOURCE-NAME.documents.azure.com:443/`, replace `YOUR-COSMOS-DB-RESOURCE-NAME` with your own Cosmos DB resource name.|
+    |AZURE_COSMOSDB_KEY|Enter your Cosmos DB key value.|
+    |AZURE_COSMOSDB_DATABASE_ID|`trivia`|
+    |AZURE_COSMOSDB_CONTAINER_ID|`questions`|
+    |AZURE_TRANSLATOR_KEY|Enter your Translator key, created in the **Global** region.|
+    |AZURE_TRANSLATOR_ENDPOINT|`https://api.cognitive.microsofttranslator.com/`|
+
+## Update the deployment script to allow preview features, such as hybrid Next.js support
+
+The deployment process added a GitHub action script to your fork in the `./github/workflows` directory. The file includes the public name of your static web app. It needs to be updated to turn on preview features. 
+
+1. Pull down the new action. _Origin_ should point to your fork of the sample. 
+
+    ```bash
+    git pull origin main
+    ```
+
+1. Open the action file, named something like `./github/workflows/azure-static-web-apps-RANDOM_NAME`, where random name is the part of the public URL for your app.
+1. Edit the file to turn on **preview features**. In the Build and Deploy step, add this `env` setting at the same YML level as the `with` settings. 
+
+    ```bash
+    env: 
+        ENABLE_PREVIEW_FEATURES: true
+    ```
+
+    The full YML for this step should look like:
+
+    ```yml
+    - name: Build And Deploy
+    id: builddeploy
+    uses: Azure/static-web-apps-deploy@v1
+    with:
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RANDOM_NAME }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+        action: "upload"
+        ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+        # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+        app_location: "/" # App source code path
+        api_location: "" # Api source code path - optional
+        output_location: "" # Built app content directory - optional
+        ###### End of Repository/Build Configurations ######
+    env: 
+        ENABLE_PREVIEW_FEATURES: true
+    ```
+
+1. Commit and push the change. 
+
+    ```bash
+    git add . && git commit -m "Add preview feature" && git push origin main
+    ```
+
+1. Open a browser to view the action running from your fork, using a URL like `https://github.com/YOUR-ACCOUNT/js-e2e-graphql-nextjs-triviagame/actions`, change `YOUR-ACCOUNT` to your own name.
+
 
 ## Play the trivia game
 
-Start and play the game in a different language, such as **Spanish**. 
+Start and play the game for your deployed app. 
 
-1. Build the project, including the upload script.
+1. In a browser, paste the URL you copied from the Azure portal for your static web app.
+1. Play through the game through to the end. 
 
-    ```bash
-    npm run dev
-    ```
+## Troubleshooting
 
-1. Before answering any questions, select **Spanish** in the top navigation bar.
-1. Play through the game.
+1. Verify that your static web app has the following configured:
 
-    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/image.png" alt-text="Screenshot of web browser showing the trivia game in Spanish.":::
+* Application Insights is enabled
+* Settings -> Configuration for your secrets
+* Setting -> APIs lists a managed function named `next_function`
+
+1. Verify your GitHub action finished successfully. 
+1. Verify that your updated action with preview features enabled was successfully pushed to your fork on the **main branch**.
+1. Review Application Insights logs for failures and exceptions. 
 
 
-## Next.js integration with Translator
-
-The complete source code is provided in the sample. Learn how Next.js integrates with Translator. All of the translation work is provided on the server by Next.js. Strings in the correct locale are returned to the client.
-
-### Client: translate question
-
-The Next.js client provides a route for each language in the `./pages/components/LocaleSwitcher.tsx` file.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/LocaleSwitcher.tsx" highlight="11":::
-
-The **Question** component, in the `./components/Question.tsx` file, reads the locale with a **useEffect** hook and sets the state for the component. 
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="91-95":::
-
-The locale is passed with the GraphQL query to the server in the **Question** component. The server returns the question and answers in that locale. 
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="65-74":::
-
-### Server: translate question
-
-The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts`, shown below, to get a question for the game from the database. When the question is retrieved, it's translated based on the language received from the client.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="8-33" highlight="17-23":::
-
-The resolver calls the Translator data source. The data source translates the question and answers.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/TranslatorDataSource.ts" highlight="34-39" ::: 
-
-### Client: validate answer
-
-The user submits an answer with the **onClick** event in the `./components/Question.tsx` file.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="120-133":::
-
-This calls the validateAnswer mutation. 
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="30-45" highlight="1":::  
-
-The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="60-63" highlight="4":::  
-
-When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="76-83" highlight="5,6":::  
-
-Then the results are displayed. The first block of code displays if the answer isn't_ correct. The second block of code displays if the answer is correct.
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="118-155" highlight="2,19":::  
-
-### Server: validate answer
-
-The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Mutation** resolver in `/pages/api/resolvers/resolvers.ts`, shown below. 
-
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="43-74" highlight="68-76":::
-
-The question is fetched from the database by its ID then the correct answer is translated. The translated correct answer is compared against the submitted answer. The submitted answer, in its translated form, was sent by the client. 
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Set up translation >>](create-translator-resource.md)
