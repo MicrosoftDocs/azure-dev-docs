@@ -44,7 +44,7 @@ Start and play the game in a different language, such as **Spanish**.
 1. Before answering any questions, select **Spanish** in the top navigation bar.
 1. Play through the game.
 
-    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/image.png" alt-text="Screenshot of web browser showing the trivia game in Spanish.":::
+    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/web-browser-trivia-game-spanish.png" alt-text="Screenshot of web browser showing the trivia game in Spanish.":::
 
 
 ## Next.js integration with Translator
@@ -59,11 +59,11 @@ The Next.js client provides a route for each language in the `./pages/components
 
 The **Question** component, in the `./components/Question.tsx` file, reads the locale with a **useEffect** hook and sets the state for the component. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="91-95":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="91-95":::
 
 The locale is passed with the GraphQL query to the server in the **Question** component. The server returns the question and answers in that locale. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="65-74":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="65-74":::
 
 ### Server: translate question
 
@@ -79,7 +79,7 @@ The resolver calls the Translator data source. The data source translates the qu
 
 The user submits an answer with the **onClick** event in the `./components/Question.tsx` file.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/components/Question.tsx" range="120-133":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="120-133":::
 
 This calls the validateAnswer mutation. 
 
