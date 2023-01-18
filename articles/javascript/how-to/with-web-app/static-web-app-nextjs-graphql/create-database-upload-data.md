@@ -105,16 +105,16 @@ Learn how the sample Next.js application integrates GraphQL on the client and se
 
 The client asks for a trivia question, and the answers. To ensure the new question is different from the last question, the last question ID is provided, along with the maximum number of items in the database and the cultural language of the response. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestion-GraphQL" highlight="1":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionGraphQL" highlight="1":::
 
 That query is wrapped in a **useQuery** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestion-useQuery" highlight="3":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseQuery" highlight="3":::
 
 
 When the data flows back to the client component, the **useEffect** hook sets the state for the question.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestion-useEffect" highlight="3":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseEffect" highlight="3":::
 
 Then the question is displayed.
 
@@ -132,21 +132,21 @@ The resolver calls the Cosmos DB data source. The data source uses a SQL Query t
 
 A field resolver randomizes all the answers (correct and incorrect) before returning the question.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestion-GraphQL-Resolver-Field-Question":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestionGraphQLResolverFieldQuestion":::
 
 ### Client: validate answer
 
 The user's answer is a mutation, which includes the question ID, selected answer in `/components/Question.tsx`. The returned response includes whether the answer was correct, and then separately the correct answer text.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswer-GraphQL" highlight="1":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" highlight="1":::  
 
 The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswer-useMutation" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" highlight="4":::  
 
 When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswer-useEffect" highlight="5,6":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" highlight="5,6":::  
 
 Then the results are displayed. The first block of code displays if the answer is _not_ correct. The second block of code displays if the answer is correct.
 
@@ -156,7 +156,7 @@ Then the results are displayed. The first block of code displays if the answer i
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Mutation** resolver in `/pages/api/resolvers/resolvers.ts`, shown below. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="ValidateAnswer-GraphQL-Resolver-Mutation" highlight="11":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="ValidateAnswerGraphQLResolverMutation" highlight="11":::
 
 The Cosmos DB data source provides convenience methods, including **findOneById**, so you don't need to write these SQL queries. 
 
