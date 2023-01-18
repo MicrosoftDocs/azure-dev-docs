@@ -2,7 +2,7 @@
 title: "Trivia game: Deploy to Static Web Apps"
 description: Create a Static Web App resource for the trivia game.
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/19/2023
 ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---

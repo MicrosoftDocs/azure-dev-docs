@@ -2,7 +2,7 @@
 title: "Trivia game: Upload data to Cosmos DB"
 description: Create a Cosmos DB NoSQL database and upload data for the trivia game.
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/19/2023
 ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
