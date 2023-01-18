@@ -10,7 +10,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✔️ 4.5.0 ✔️ 5.0.0
+**This article applies to:** ✔️ Version 4.5.0 ✔️ Version 5.0.0
 
 [!INCLUDE [version-information.md](includes/spring-cloud-azure/version-information.md)]
 
