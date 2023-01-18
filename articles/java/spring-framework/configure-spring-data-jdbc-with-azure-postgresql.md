@@ -41,7 +41,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresq
 ```
 
 > [!NOTE]
-> Spring Cloud Azure currently supports passwordless connections in `4.5.0` and above. If you want to use a passwordless connection, be sure to specify the version as `4.5.0` or above.
+> Passwordless connection is supported since `4.5.0`.
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 

@@ -68,4 +68,4 @@ spring:
 
 ### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) for more details.

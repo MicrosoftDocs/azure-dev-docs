@@ -24,8 +24,6 @@ ms.author: v-yonghuiye
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is **4.5.0** and above.
-
 #### Starter dependencies
 
 Spring Cloud Azure Starters are a set of convenient dependency descriptors to include in your application. Each starter contains all the dependencies and transitive dependencies needed to begin using their corresponding Spring Cloud Azure module. These starters boost your Spring Boot application development with Azure services.
@@ -94,4 +92,4 @@ The following table lists starters for PostgreSQL support:
 
 ### Learning Spring Cloud Azure
 
-We've prepared a full list of samples to show usage. You can find these samples at [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0).
+We've prepared a full list of samples to show usage. You can find these samples at [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).

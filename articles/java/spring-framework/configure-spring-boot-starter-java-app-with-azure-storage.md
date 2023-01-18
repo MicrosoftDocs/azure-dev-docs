@@ -138,9 +138,11 @@ The following procedure configures the Spring boot application to use Azure stor
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-      <version>5.0.0</version>
     </dependency>
    ```
+
+   > [!NOTE]
+   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
 
 1. Save and close the *pom.xml* file.
 

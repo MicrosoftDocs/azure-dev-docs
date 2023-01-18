@@ -71,8 +71,6 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is **4.5.0** and above.
-
 ## Artifact changes: renamed / added / deleted
 
 Group IDs are the same for modern and legacy Spring Cloud Azure libraries. They're all `com.azure.spring`. Artifact IDs for the modern Spring Cloud Azure libraries have changed. According to which Spring project it belongs to, Spring Boot, Spring Integration, or Spring Cloud Stream, the artifact IDs pattern could be `spring-cloud-azure-starter-[service]`, `spring-integration-azure-[service]`, or `spring-cloud-azure-stream-binder-[service]`. The legacy starters for each has an artifact ID following the pattern `azure-spring-*`. This provides a quick and accessible means to help understand, at a glance, whether you're using modern or legacy starters.

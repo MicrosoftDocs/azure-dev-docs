@@ -305,11 +305,13 @@ The following steps describe how to download, configure, build, and deploy the s
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
-       <version>5.0.0</version>
    </dependency>
    ```
 
    This dependency adds support for the Spring Cloud Azure starter.
+
+   > [!NOTE]
+   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
 
    ### [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -317,9 +319,11 @@ The following steps describe how to download, configure, build, and deploy the s
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-       <version>5.0.0</version>
    </dependency>
    ```
+
+   > [!NOTE]
+   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
 
    This dependency adds support for the Spring Cloud Azure starter.
 

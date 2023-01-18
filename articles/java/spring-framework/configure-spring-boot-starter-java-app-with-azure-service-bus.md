@@ -64,10 +64,11 @@ The following prerequisites are required for this article:
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
-      <version>5.0.0</version>
     </dependency>
     ```
 
+    > [!NOTE]
+    > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
 
 1. Save and close the *pom.xml* file.
 

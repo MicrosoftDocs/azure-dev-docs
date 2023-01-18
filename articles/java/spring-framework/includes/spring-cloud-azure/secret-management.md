@@ -135,4 +135,4 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 
 ### Samples
 
-See the [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) on GitHub.
+See the [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) on GitHub.
