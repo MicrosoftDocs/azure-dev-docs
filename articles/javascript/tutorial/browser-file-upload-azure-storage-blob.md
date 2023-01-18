@@ -1,18 +1,21 @@
 ---
-title: "JavaScript: Upload image to Blob Storage"
-description: Use a React/TypeScript Static Web App to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+title: "JavaScript: Upload file to Blob Storage"
+description: Use a React with JavaScript (TypeScript) Static Web App to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/18/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and a Azure Storage SAS token. 
+Use an Azure Static Web App (client-side React app) to upload a file to an Azure Storage blob using:
+
+* An Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package.
+* Authenticating with an Azure Storage SAS token. 
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
-* [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
+* [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
 * [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
 
 ## Application architecture and functionality
@@ -23,7 +26,7 @@ This article includes several top Azure tasks for JavaScript developers:
 * Create an **Azure Storage Blob** resource and configure for file uploads
     * Configure CORS
     * Create Shared access signatures (SAS) token
-* Configure code for Azure SDK client library to use SAS token to authenticate to service
+* Configure code for Azure SDK client library to use **SAS token to authenticate** to service
 * Deploy to Static Web App with GitHub Action
 
 The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), consists of the following elements:
@@ -39,23 +42,26 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 - [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
-    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
 
 ## 2. Fork and clone the sample application
 
-1. Open this GitHub sample URL in a web browser: 
+Create the fork of the sample so that you can deploy this sample to Azure as a [Static Web App](https://learn.microsoft.com/en-us/azure/static-web-apps/).
+
+1. Open this GitHub URL in a web browser to fork the sample application: 
 
     ```
-    https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob
+    https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/fork
     ```
-1. Select **Fork** to create your own fork of this sample project. Your own GitHub fork is necessary to deploy this sample to Azure as a static web app.
+
+1. Select your account for **owner** then select **Create fork**.
+
 1. Select the **Code** button, then copy the Clone URL.
-1. In a bash terminal, clone your forked repository, replacing `REPLACE-WITH-YOUR-ACCOUNT-NAME` with your GitHub account name:
+1. In a bash terminal, clone your forked repository, replacing `<YOUR-ACCOUNT-NAME>` with your GitHub account name:
 
     ```bash
-    git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/js-e2e-browser-file-upload-storage-blob
+    git clone https://github.com/<YOUR-ACCOUNT-NAME>/js-e2e-browser-file-upload-storage-blob
 
 1. Change into the new directory and open Visual Studio Code.
 
