@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 Build and deploy a Next.js app to Static Web Apps as a Next.js hybrid application. A hybrid application provides for both the client application and the server-side rendering functionality of the app. 
 
-## What the sample solution does
+## What the sample app does
 
 The sample solution is a Trivia game. You're asked a series of 5 trivia questions. At the end of the game, your score is displayed and you can start the game again. Bonus for multi-lingual players, start and play the game in a different language.
 
@@ -22,7 +22,7 @@ When deployed, the sample solution flow includes:
 1. After answered, display if the answer was correct.
 1. Move to next question. 
 
-## Where is Azure in this sample solution
+## Where is Azure in this app
 
 Azure provides three key parts to this solution:
 
@@ -74,7 +74,7 @@ A complete Next.js solution is available so you can follow along without worryin
     npm install
     ```
 
-## Create a resource group for your project
+## Create a resource group
 
 Create a resource group named `msdocs-python-cloud-etl-rg` in a region near you. A resource group allows you to control security and billing limited to the resource group. 
 
