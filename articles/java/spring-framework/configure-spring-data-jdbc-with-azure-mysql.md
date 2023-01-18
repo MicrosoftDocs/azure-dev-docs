@@ -93,7 +93,7 @@ Here's a screenshot of the application running for the first time:
 
 ### Create the database schema
 
-Spring Boot will automatically execute *src/main/resources/`schema.sql`* in order to create a database schema. Create that file, with the following content:
+Spring Boot will automatically execute *src/main/resources/schema.sql* in order to create a database schema. Create that file, with the following content:
 
 ```sql
 DROP TABLE IF EXISTS todo;
