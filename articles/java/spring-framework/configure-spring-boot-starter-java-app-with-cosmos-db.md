@@ -1,5 +1,5 @@
 ---
-title: How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL
+title: Access data with Azure Cosmos DB NoSQL API
 description: Learn how to configure an application created with the Spring Boot Initializer with Azure Cosmos DB for NoSQL.
 services: cosmos-db
 documentationcenter: java
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-# How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL
+# Access data with Azure Cosmos DB NoSQL API
 
 This article demonstrates adding the [Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB] to a custom application to store data in and retrieve data from your Azure Cosmos DB database by using Spring Data and Azure Cosmos DB for NoSQL. The article starts by showing you how to create an Azure Cosmos DB via the Azure portal, then shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
 

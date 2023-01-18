@@ -1,5 +1,5 @@
 ---
-title: How to use Spring and Azure Cosmos DB with App Service on Linux
+title: Use Spring Data with Azure Cosmos DB for Apache Cassandra API
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
 ms.reviewer: joshuapa
@@ -9,7 +9,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 ---
 
-# How to use Spring and Azure Cosmos DB with App Service on Linux
+# Use Spring Data with Azure Cosmos DB for Apache Cassandra API
 
 This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 
