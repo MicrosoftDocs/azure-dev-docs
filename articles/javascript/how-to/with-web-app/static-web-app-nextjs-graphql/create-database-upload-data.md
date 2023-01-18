@@ -124,7 +124,7 @@ Then the question is displayed.
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts`, shown below, to get a question for the game from the database. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="getQuestionGraphQLResolverQuery" highlight="11":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="get_question_graphql_resolver_query" highlight="11":::
 
 The resolver calls the Cosmos DB data source. The data source uses a SQL Query to fetch the data from Cosmos DB in `/pages/api/datasources/QuestionDataSource.ts`. The query ensures the question is different from the last question. 
 
