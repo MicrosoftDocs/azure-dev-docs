@@ -62,7 +62,7 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-[![The running application](media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-01.png)](media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-01.png#lightbox)
+:::image type="content" source="media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-01.png":::
 
 ## Code the application
 
@@ -72,7 +72,7 @@ Next, add the Java code that will use JPA to store and retrieve data from your A
 
 Here's a screenshot of these cURL requests:
 
-[![Test with cURL](media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-02.png)](media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-02.png#lightbox)
+:::image type="content" source="media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-02.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-jpa-with-azure-sql-server/create-sql-server-02.png":::
 
 Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure SQL Database.
 
