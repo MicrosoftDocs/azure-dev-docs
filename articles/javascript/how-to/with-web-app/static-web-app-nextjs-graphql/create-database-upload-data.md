@@ -105,20 +105,20 @@ Learn how the sample Next.js application integrates GraphQL on the client and se
 
 The client asks for a trivia question, and the answers. To ensure the new question is different from the last question, the last question ID is provided, along with the maximum number of items in the database and the cultural language of the response. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionGraphQL" highlight="1":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionGraphQL" :::
 
 That query is wrapped in a **useQuery** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseQuery" highlight="3":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseQuery" :::
 
 
 When the data flows back to the client component, the **useEffect** hook sets the state for the question.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseEffect" highlight="3":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseEffect" :::
 
 Then the question is displayed.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="118-126" highlight="2"::: 
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="125-133" ::: 
 
 ### Server: get question and answers
 
@@ -138,15 +138,15 @@ A field resolver randomizes all the answers (correct and incorrect) before retur
 
 The user's answer is a mutation, which includes the question ID, selected answer in `/components/Question.tsx`. The returned response includes whether the answer was correct, and then separately the correct answer text.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" highlight="1":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" :::  
 
 The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" :::  
 
 When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" highlight="5,6":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" :::  
 
 Then the results are displayed. The first block of code displays if the answer is _not_ correct. The second block of code displays if the answer is correct.
 

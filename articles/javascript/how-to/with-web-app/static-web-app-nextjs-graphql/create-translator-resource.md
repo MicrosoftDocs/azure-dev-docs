@@ -60,17 +60,17 @@ The Next.js client provides a route for each language in the `./pages/components
 
 The **Question** component, in the `./components/Question.tsx` file, reads the locale with a **useEffect** hook and sets the state for the component. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="91-95":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="GetQuestionUseEffect":::
 
 The locale is passed with the GraphQL query to the server in the **Question** component. The server returns the question and answers in that locale. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="65-74":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation":::
 
 ### Server: translate question
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts`, shown below, to get a question for the game from the database. When the question is retrieved, it's translated based on the language received from the client.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="8-33" highlight="17-23":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestionGraphQLResolverQuery" highlight="17-23":::
 
 The resolver calls the Translator data source. The data source translates the question and answers.
 
@@ -80,19 +80,19 @@ The resolver calls the Translator data source. The data source translates the qu
 
 The user submits an answer with the **onClick** event in the `./components/Question.tsx` file.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="120-133":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="136-149":::
 
 This calls the validateAnswer mutation. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="30-45" highlight="1":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" highlight="1":::  
 
 The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="60-63" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" highlight="4":::  
 
 When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="76-83" highlight="5,6":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" highlight="5,6":::  
 
 Then the results are displayed. The first block of code displays if the answer isn't_ correct. The second block of code displays if the answer is correct.
 
@@ -102,7 +102,7 @@ Then the results are displayed. The first block of code displays if the answer i
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Mutation** resolver in `/pages/api/resolvers/resolvers.ts`, shown below. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" range="43-74" highlight="68-76":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="ValidateAnswerGraphQLResolverMutation" highlight="68-76":::
 
 The question is fetched from the database by its ID then the correct answer is translated. The translated correct answer is compared against the submitted answer. The submitted answer, in its translated form, was sent by the client. 
 
