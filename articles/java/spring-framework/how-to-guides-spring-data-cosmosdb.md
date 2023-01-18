@@ -1,5 +1,5 @@
 ---
-title: Spring Data Azure Cosmos DB developer's guide
+title: Azure Cosmos DB dev guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Data Azure Cosmos DB SDK.
 author: KarlErickson
 ms.author: seal
@@ -8,7 +8,7 @@ ms.date: 12/07/2022
 ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-# Azure Spring Data Azure Cosmos DB client library for Java
+# Azure Cosmos DB dev guide
 
 Azure Spring Data for Azure Cosmos DB provides Spring Data support for [Azure Cosmos DB for NoSQL][sql_api_query]. [Azure Cosmos DB][cosmos_introduction] is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
