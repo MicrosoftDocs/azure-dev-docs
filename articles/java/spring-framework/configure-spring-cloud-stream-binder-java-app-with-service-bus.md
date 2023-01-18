@@ -139,17 +139,17 @@ You can configure your app based on either the connection string or service prin
 
     **<a name="fd">Field descriptions</a>**
 
-    | Field                                                                       | Description                                                                                                                                                   | 
-    |---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-    | `spring.cloud.azure.servicebus.namespace`                                   | Specify the namespace you obtained in your Service Bus from the Azure portal.                                                               |
-    | `spring.cloud.stream.function.definition`                                   | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                 |
-    | `spring.cloud.stream.poller.fixed-delay`                                    | Specify fixed delay for default poller in milliseconds, default 1000L.                                                                                        |
-    | `spring.cloud.stream.poller.initial-delay`                                  | Specify initial delay for periodic triggers, default 0.                                                                                                       |
-    | `spring.cloud.stream.bindings.consume-in-0.destination`                     | Specify the Service Bus queue or Service Bus topic you used in this tutorial.                                                                                 |
-    | `spring.cloud.stream.bindings.consume-in-0.group`                           | If you used a Service Bus topic, specify the topic subscription.                                                                                              |
-    | `spring.cloud.stream.bindings.supply-out-0.destination`                     | Specify the same value used for input destination.                                                                                                            |
-    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete`           | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
-    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type` | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                    |
+    | Field                                                                         | Description                                                                                                                                                             |
+    |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `spring.cloud.azure.servicebus.namespace`                                     | Specify the namespace you obtained in your Service Bus from the Azure portal.                                                                                           |
+    | `spring.cloud.stream.function.definition`                                     | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
+    | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds, default 1000L.                                                                                                  |
+    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers, default 0.                                                                                                                 |
+    | `spring.cloud.stream.bindings.consume-in-0.destination`                       | Specify the Service Bus queue or Service Bus topic you used in this tutorial.                                                                                           |
+    | `spring.cloud.stream.bindings.consume-in-0.group`                             | If you used a Service Bus topic, specify the topic subscription.                                                                                                        |
+    | `spring.cloud.stream.bindings.supply-out-0.destination`                       | Specify the same value used for input destination.                                                                                                                      |
+    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
+    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
 
 1. Save and close the *application.yaml* file.
 
