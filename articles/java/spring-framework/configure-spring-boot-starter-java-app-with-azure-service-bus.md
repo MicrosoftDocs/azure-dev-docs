@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Spring JMS Starter to send
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
 ---
@@ -64,7 +64,7 @@ The following prerequisites are required for this article:
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
-      <version>4.5.0</version>
+      <version>5.0.0</version>
     </dependency>
     ```
 

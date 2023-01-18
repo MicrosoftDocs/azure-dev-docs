@@ -4,7 +4,7 @@ description: This article demonstrates how to use Spring Cloud Stream Binder to 
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
 ---
@@ -58,7 +58,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-stream-binder-servicebus</artifactId>
-        <version>4.5.0</version>
+        <version>5.0.0</version>
     </dependency>
     ```
 
@@ -66,7 +66,7 @@ The following prerequisites are required for this article:
 
 ## Configure the app for your service bus
 
-You can configure your app based on either the connection string or service principal. This tutorial uses a connection string. For more information about using service principal, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder).
+You can configure your app based on either the connection string or service principal. This tutorial uses a connection string. For more information about using service principal, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder).
 
 1. Add an *application.yaml* in the *resources* directory of your app; for example:
 

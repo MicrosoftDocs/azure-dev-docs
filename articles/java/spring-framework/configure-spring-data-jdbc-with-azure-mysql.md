@@ -5,7 +5,7 @@ documentationcenter: java
 ms.service: mysql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
-ms.date: 07/22/2022
+ms.date: 01/18/2023
 ms.author: bbenz
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
@@ -41,7 +41,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azu
 ```
 
 > [!NOTE]
-> Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`.
+> Spring Cloud Azure currently supports passwordless connections in `4.5.0` and above. If you want to use a passwordless connection, be sure to specify the version as `4.5.0` or above.
 
 ### Configure Spring Boot to use Azure Database for MySQL
 

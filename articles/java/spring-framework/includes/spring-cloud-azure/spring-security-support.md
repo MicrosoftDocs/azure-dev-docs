@@ -1,5 +1,5 @@
 ---
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -257,7 +257,7 @@ class DemoConfiguration {
 
 ##### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 #### Web application accessing resource servers
 
@@ -411,7 +411,7 @@ spring:
 
 ##### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 #### Accessing a resource server
 
@@ -647,7 +647,7 @@ To connect Azure AD via proxy, provide a `RestTemplateCustomizer` bean. For more
 
 ##### Samples
 
-Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 #### Resource server visiting other resource servers
 
@@ -711,7 +711,7 @@ public class SampleController {
 
 ##### Samples
 
-Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 #### Web application and resource server in one application
 
@@ -1022,7 +1022,7 @@ This scenario uses [The OAuth 2.0 authorization code grant](/azure/active-direct
     }
     ```
 
-   Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow name respectively that completed earlier.
+   Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow name respectively that completed earlier.
 
 1. Build and test your app
 
@@ -1346,4 +1346,4 @@ This scenario is an upgrade of **Accessing a resource server**, supports access 
 
 #### Samples
 
-See [spring-cloud-azure-starter-active-directory-b2c samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/aad/spring-cloud-azure-starter-active-directory-b2c) for more details.
+See [spring-cloud-azure-starter-active-directory-b2c samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/aad/spring-cloud-azure-starter-active-directory-b2c) for more details.

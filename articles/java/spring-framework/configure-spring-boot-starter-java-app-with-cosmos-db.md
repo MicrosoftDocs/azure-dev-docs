@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: bbenz
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -53,7 +53,7 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.5.0/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_5.0.0/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
@@ -91,7 +91,7 @@ Your simple Spring Boot application is now ready for editing.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-     <version>4.5.0</version>
+     <version>5.0.0</version>
    </dependency>
    ```
 
@@ -374,7 +374,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Azure for Java Developers]: ../index.yml
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java
 [Spring Data for Azure Cosmos DB]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
-[Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.5.0/sdk/spring/spring-cloud-azure-starter-cosmos
+[Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_5.0.0/sdk/spring/spring-cloud-azure-starter-cosmos
 [Free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: https://azure.microsoft.com/services/devops/java/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

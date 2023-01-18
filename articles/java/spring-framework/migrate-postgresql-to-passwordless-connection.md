@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.topic: how-to
 author: KarlErickson
 ms.author: v-muyaofeng
-ms.date: 09/26/2022
+ms.date: 01/18/2023
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
@@ -183,7 +183,7 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-       <version>4.5.0</version>
+       <version>5.0.0</version>
    </dependency>
    ```
 
