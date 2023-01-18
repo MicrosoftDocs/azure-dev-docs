@@ -85,7 +85,7 @@ Start and play the game in the default language, **English**.
 
     :::image type="content" source="../../../media/static-web-app-nextjs-graphql/web-browser-trivia-game-english.png" alt-text="Screenshot of web browser showing first question of trivia game.":::
 
-1. Stop the game at the terminal,
+1. Stop the game at the terminal.
 
     #### [Windows](#tab/win) 
 
@@ -98,7 +98,7 @@ Start and play the game in the default language, **English**.
 
 ## Next.js integration with Cosmos DB
 
-The complete source code is provided in the sample. Learn how Next.js integrates GraphQL on the client and server to use the Cosmos DB database. 
+Learn how the sample Next.js application integrates GraphQL on the client and server to use the Cosmos DB database. 
 
 ### Client: get question and answers
 

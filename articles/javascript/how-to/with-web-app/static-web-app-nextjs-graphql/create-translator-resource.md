@@ -49,7 +49,7 @@ Start and play the game in a different language, such as **Spanish**.
 
 ## Next.js integration with Translator
 
-The complete source code is provided in the sample. Learn how Next.js integrates with Translator. All of the translation work is provided on the server by Next.js. Strings in the correct locale are returned to the client.
+Learn how the sample Next.js application integrates on the client and server to use the Azure Translator service. 
 
 ### Client: translate question
 

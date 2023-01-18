@@ -13,25 +13,35 @@ The trivia game deploys both client and server of the Next.js to Static Web Apps
 
 ## Create a Static Web App
 
-Complete the steps in [this Static Web App tutorial](/azure/static-web-apps/deploy-nextjs-hybrid#create-a-static-web-app) starting with and completing only the **Create a static web app** step. 
+Create a static web app in [this Static Web App tutorial](/azure/static-web-apps/deploy-nextjs-hybrid#create-a-static-web-app) with the following caveats
 
-You need to use your fork of the sample project and select **Next.js** from the Build Presets during the process.
+* Use your fork of the sample project. 
+* Select **Next.js** from the Build Presets during the process.
 
-The GitHub action to build your fork will fail for two reasons, which you'll fix briefly:
+The resulting GitHub action added to your fork fails for two reasons, which you'll fix briefly:
 * Preview features necessary for Next.js hybrid support aren't enabled in the **GitHub action**
 * Your static web app doesn't have your Cosmos DB and Translator secrets in the **Azure portal**
 
-## Configure the Static Web App to use your Cosmos DB and Translator secrets
-
+## Verify the Next.js app deployed
 
 1. Open the Azure portal with the following URL, [https://portal.azure.com](https://portal.azure.com).
 1. Use the top search box to search for `Static Web Apps`.
 1. Select your app from the list.
-1. On the **Overview** page, copy the **URL** value. You use this URL later to view your app in a browser. If you look at it now, it won't work because the server doesn't know the Cosmos DB and Translator secrets.
-1. Select **Settings -> Application Insights**. For **Enable Application Insights** select **Yes**, then **Save**. This setting will help you see information about your Next.js server failures.
 1. Select **Settings -> APIs** to see your API is deployed as a **managed** backend resource. Select the managed resource to see the name of the function is `next_function`.
 
     :::image type="content" source="../../../media/static-web-app-nextjs-graphql/azure-portal-static-web-app-setting-api-backend-details.png" alt-text="Screenshot of Azure portal showing backend details for managed function for static web app.":::
+
+## Configure the Static Web App
+
+1. Open the Azure portal with the following URL, [https://portal.azure.com](https://portal.azure.com).
+1. Use the top search box to search for `Static Web Apps`.
+1. Select your app from the list.
+1. On the **Overview** page, copy the **URL** value. You use this URL later to view your app in a browser. 
+
+    If you look at it now, it won't work because the server doesn't know the Cosmos DB and Translator secrets.
+1. Select **Settings -> Application Insights**. For **Enable Application Insights** select **Yes**, then **Save**. 
+
+    This setting will help you see information about your Next.js server failures.
 
 1. Select **Settings -> Configuration**.
 1. Use the **+ Add** feature to add your secrets to the app. You can use the following secrets from your local `.env.local` file. 
@@ -45,7 +55,7 @@ The GitHub action to build your fork will fail for two reasons, which you'll fix
     |AZURE_TRANSLATOR_KEY|Enter your Translator key, created in the **Global** region.|
     |AZURE_TRANSLATOR_ENDPOINT|`https://api.cognitive.microsofttranslator.com/`|
 
-## Update the deployment script to allow preview features, such as hybrid Next.js support
+## Update the deployment script 
 
 The deployment process added a GitHub action script to your fork in the `./github/workflows` directory. The file includes the public name of your static web app. It needs to be updated to turn on preview features. 
 
