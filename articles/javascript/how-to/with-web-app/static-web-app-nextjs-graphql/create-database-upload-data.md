@@ -7,6 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
+
 # Trivia game: Create and populate a Cosmos DB database
 
 The trivia game stores the questions and answers in a Cosmos DB database. The Next.js app requests the data through a GraphQL layer. 

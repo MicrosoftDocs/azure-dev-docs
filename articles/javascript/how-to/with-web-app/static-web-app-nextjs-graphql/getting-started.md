@@ -7,6 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
+
 # Trivia game: Create a Next.js GraphQL app with server-side rendering
 
 Build and deploy a Next.js app to Static Web Apps as a Next.js hybrid application. A hybrid application provides for both the client application and the server-side rendering functionality of the app. 

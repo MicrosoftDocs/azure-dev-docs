@@ -7,6 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
+
 # Trivia game: Deploy to Static Web Apps
 
 The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application. When the app is deployed, you can see the `/graphql` server route deployed as a function in the Azure portal. 
