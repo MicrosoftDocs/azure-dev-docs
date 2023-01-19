@@ -95,7 +95,7 @@ When the data flows back to the client component, a **useEffect** hook set the c
 
 Then the results are displayed. The first block of code displays if the answer _isn't_ correct. The second block of code displays if the answer is correct.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="134-177":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="134-171":::  
 
 ### Server: validate answer
 
