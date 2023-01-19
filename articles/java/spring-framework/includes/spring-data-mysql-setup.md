@@ -6,7 +6,7 @@ ms.author: bbenz
 
 ## Prepare the working environment
 
-First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+First, set up some environment variables by running the following commands:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -55,16 +55,14 @@ az group create \
     --output tsv
 ```
 
-## Create an Azure Database for MySQL instance
+## Create an Azure Database for MySQL instance and set up the admin user
 
-### Create a MySQL server and set up admin user
-
-The first thing we'll create is a managed MySQL server with an admin user.
+The first thing you'll create is a managed MySQL server with an admin user.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -117,9 +115,9 @@ az mysql flexible-server ad-admin create \
 > [!IMPORTANT]
 > When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
 
-This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
+### [Password](#tab/password)
 
-#### [Password](#tab/password)
+Run the following command to create the server:
 
 ```azurecli
 az mysql flexible-server create \
@@ -132,11 +130,9 @@ az mysql flexible-server create \
     --output tsv
 ```
 
-This command creates a small MySQL server.
-
 ---
 
-### Configure a MySQL database
+## Configure a MySQL database
 
 Create a new database called `demo` by using the following command:
 
@@ -148,7 +144,7 @@ az mysql flexible-server db create \
     --output tsv
 ```
 
-### Configure a firewall rule for your MySQL server
+## Configure a firewall rule for your MySQL server
 
 Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection.
 
@@ -178,16 +174,16 @@ az mysql flexible-server firewall-rule create \
     --output tsv
 ```
 
-### Create a MySQL non-admin user and grant permission
+## Create a MySQL non-admin user and grant permission
 
 This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
-We've already enabled the Azure AD authentication. This step will create an Azure AD user and grant permissions.
+You've already enabled the Azure AD authentication. This step will create an Azure AD user and grant permissions.
 
 First, create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -214,7 +210,7 @@ Now use the following command to remove the temporary SQL script file:
 rm create_ad_user.sql
 ```
 
-#### [Password](#tab/password)
+### [Password](#tab/password)
 
 First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 

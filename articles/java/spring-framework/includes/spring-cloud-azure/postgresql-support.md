@@ -1,5 +1,5 @@
 ---
-ms.date: 12/05/2022
+ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-muyaofeng
 ---
@@ -73,7 +73,7 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> If you want to use passwordless connections, you must add dependency version `4.5.0`.
+> Passwordless connections have been supported since version `4.5.0`.
 >
 > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](#getting-started) section.
 
@@ -82,7 +82,7 @@ Add the following dependency to your project. This will automatically include th
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create a PostgreSQL server and set up admin user](../../configure-spring-data-jdbc-with-azure-postgresql.md?branch=release-cred-free-java&tabs=passwordless#create-a-postgresql-server-and-set-up-admin-user) section.
+> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create an Azure Database for PostgreSQL instance and set up the admin user](../../configure-spring-data-jdbc-with-azure-postgresql.md?branch=release-cred-free-java&tabs=passwordless#create-an-azure-database-for-postgresql-instance-and-set-up-the-admin-user) section.
 
 #### Connect to Azure PostgreSQL locally without password
 
@@ -168,3 +168,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 > [!NOTE]
 > For more information, see [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](../../deploy-passwordless-spring-database-app.md)
+
+### Samples
+
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.
