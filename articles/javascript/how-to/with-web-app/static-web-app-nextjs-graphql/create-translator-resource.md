@@ -70,11 +70,11 @@ The locale is passed with the GraphQL query to the server in the **Question** co
 
 The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts`, shown below, to get a question for the game from the database. When the question is retrieved, it's translated based on the language received from the client.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestionGraphQLResolverQuery" highlight="17-23":::
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestionGraphQLResolverQuery" highlight="17":::
 
 The resolver calls the Translator data source. The data source translates the question and answers.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/TranslatorDataSource.ts" highlight="34-39" ::: 
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/datasources/TranslatorDataSource.ts" ::: 
 
 ### Client: validate answer
 
@@ -84,19 +84,19 @@ The user submits an answer with the **onClick** event in the `./components/Quest
 
 This calls the validateAnswer mutation. 
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" highlight="1":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerGraphQL" :::  
 
 The mutation is wrapped in a **useMutation** hook to pass the request to the Next.js API layer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" highlight="4":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" :::  
 
 When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" highlight="5,6":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" :::  
 
 Then the results are displayed. The first block of code displays if the answer _isn't_ correct. The second block of code displays if the answer is correct.
 
-:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="118-155" highlight="2,19":::  
+:::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" range="134-177":::  
 
 ### Server: validate answer
 

@@ -42,12 +42,6 @@ Make sure the following are installed on your local developer workstation:
 - An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - [Node.js LTS supported by Azure Functions runtime](https://nodejs.org/en/download) - use the same Node.js version on your local workstation and the deployed Azure Function.
 - [Azure CLI](/cli/azure/install-azure-cli): to remove resources after you completed the following procedure.
-- For local development
-    - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-        - Visual Studio Code extensions:
-            - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-            - [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-    - Azurite: [local storage](/azure/storage/common/storage-use-azurite?tabs=visual-studio) can use Azurite.
 
 ## Fork the sample solution
 

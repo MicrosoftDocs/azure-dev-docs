@@ -35,16 +35,10 @@ Upload the catalog of trivia questions from the [`./trivia.json`](https://github
 
 This section's build and start scripts are specific to uploading the data and won't be needed after this initial upload.
 
-1. Build the project, including the upload script.
-
-    ```bash
-    npm run upload:build
-    ```
-
 1. Upload the data.
 
     ```bash
-    npm run upload:start
+    npm run upload
     ```
 
 1. Use the Visual Studio extension for Cosmos DB to view the database, collection, and individual documents.
