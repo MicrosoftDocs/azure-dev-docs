@@ -109,4 +109,4 @@ The question is fetched from the database by its ID then the correct answer is t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Set up translation >>](create-translator-resource.md)
+> [Deploy trivia game >>](deploy-trivia-game.md)
