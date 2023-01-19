@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
-ms.date: 12/05/2022
+ms.date: 01/18/2023
 ms.author: bbenz
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
@@ -41,7 +41,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql
 ```
 
 > [!NOTE]
-> Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`. For more information, see the [PostgreSQL support](spring-cloud-azure.md?tabs=maven#postgresql-support) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
+> Passwordless connections have been supported since version `4.5.0`. For more information, see the [PostgreSQL support](spring-cloud-azure.md?tabs=maven#postgresql-support) section of the [Spring Cloud Azure reference documentation](spring-cloud-azure.md).
 
 ## Configure Spring Boot to use Azure Database for PostgreSQL
 

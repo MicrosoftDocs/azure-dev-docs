@@ -3,7 +3,7 @@ title: Spring Cloud Stream with Azure Event Hubs
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -130,9 +130,11 @@ The following procedure creates a Spring boot application.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-stream-binder-eventhubs</artifactId>
-     <version>4.5.0</version>
    </dependency>
    ```
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Save and close the *pom.xml* file.
 

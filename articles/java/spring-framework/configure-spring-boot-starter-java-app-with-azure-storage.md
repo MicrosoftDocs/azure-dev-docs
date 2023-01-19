@@ -3,7 +3,7 @@ title: Upload a file to an Azure Storage Blob
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.service: storage
 ms.topic: article
 ms.workload: storage
@@ -141,9 +141,11 @@ The following procedure configures the Spring boot application to use Azure stor
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-      <version>4.5.0</version>
     </dependency>
    ```
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Save and close the *pom.xml* file.
 

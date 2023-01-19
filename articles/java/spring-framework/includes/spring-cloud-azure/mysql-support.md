@@ -1,5 +1,5 @@
 ---
-ms.date: 09/26/2022
+ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -73,7 +73,7 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> If you want to use passwordless connections, you must add dependency version `4.5.0`.
+> Passwordless connections have been supported since version `4.5.0`.
 >
 > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](#getting-started) section.
 
@@ -170,3 +170,7 @@ The following sections show the classic Spring Boot application usage scenarios.
        azure:
          passwordless-enabled: true
    ```
+
+### Samples
+
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.
