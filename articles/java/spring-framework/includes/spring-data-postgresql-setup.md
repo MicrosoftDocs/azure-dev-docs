@@ -65,16 +65,14 @@ az group create \
     --output tsv
 ```
 
-## Create an Azure Database for PostgreSQL instance
-
-### Create a PostgreSQL server and set up admin user
+## Create an Azure Database for PostgreSQL instance and set up the admin user
 
 The first thing you'll create is a managed PostgreSQL server with an admin user.
 
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -98,7 +96,7 @@ Next, to set up an Azure AD administrator after creating the server, follow the 
 > [!IMPORTANT]
 > When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. You can create multiple Azure AD administrators per PostgreSQL Flexible Server.
 
-#### [Password](#tab/password)
+### [Password](#tab/password)
 
 ```azurecli
 az postgres flexible-server create \
@@ -115,7 +113,7 @@ This command creates a small PostgreSQL server.
 
 ---
 
-### Configure a PostgreSQL database
+## Configure a PostgreSQL database
 
 The PostgreSQL server that you created earlier is empty. Use the following command to create a new database.
 
@@ -127,7 +125,7 @@ az postgres flexible-server db create \
     --output tsv
 ```
 
-### Configure a firewall rule for your PostgreSQL server
+## Configure a firewall rule for your PostgreSQL server
 
 Azure Database for PostgreSQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
@@ -169,14 +167,14 @@ az postgres flexible-server firewall-rule create \
     --output tsv
 ```
 
-### Create a PostgreSQL non-admin user and grant permission
+## Create a PostgreSQL non-admin user and grant permission
 
 Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/flexible-server/how-to-create-users).
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -198,7 +196,7 @@ Now use the following command to remove the temporary SQL script file:
 rm create_ad_user.sql
 ```
 
-#### [Password](#tab/password)
+### [Password](#tab/password)
 
 Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 

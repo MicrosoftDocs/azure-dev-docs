@@ -28,7 +28,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by running the following command:
 
@@ -36,7 +36,7 @@ Generate the application on the command line by running the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
 ```
 
-### Configure Spring Boot to use Azure SQL Database
+## Configure Spring Boot to use Azure SQL Database
 
 Open the *src/main/resources/application.properties* file, and add the following text:
 
@@ -49,7 +49,6 @@ spring.datasource.password=${AZ_SQL_SERVER_PASSWORD}
 
 spring.sql.init.mode=always
 ```
-
 
 > [!WARNING]
 > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
@@ -64,7 +63,7 @@ Here's a screenshot of the application running for the first time:
 
 :::image type="content" source="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-01.png":::
 
-### Create the database schema
+## Create the database schema
 
 Spring Boot will automatically execute *src/main/resources/schema.sql* in order to create a database schema. Create that file and add the following content:
 
@@ -93,7 +92,7 @@ Congratulations! You've created a Spring Boot application that uses JDBC to stor
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 

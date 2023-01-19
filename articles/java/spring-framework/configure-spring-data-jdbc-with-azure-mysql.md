@@ -32,7 +32,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by entering:
 
@@ -43,11 +43,11 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql,azu
 > [!NOTE]
 > Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`.
 
-### Configure Spring Boot to use Azure Database for MySQL
+## Configure Spring Boot to use Azure Database for MySQL
 
 Open the *src/main/resources/application.properties* file, and add:
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
@@ -59,7 +59,7 @@ spring.datasource.azure.passwordless-enabled=true
 spring.sql.init.mode=always
 ```
 
-#### [Password](#tab/password)
+### [Password](#tab/password)
 
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
@@ -91,7 +91,7 @@ Here's a screenshot of the application running for the first time:
 
 :::image type="content" source="media/configure-spring-data-jdbc-with-azure-mysql/running-application.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jdbc-with-azure-mysql/running-application.png":::
 
-### Create the database schema
+## Create the database schema
 
 Spring Boot will automatically execute *src/main/resources/schema.sql* in order to create a database schema. Create that file, with the following content:
 
@@ -120,7 +120,7 @@ Congratulations! You've created a Spring Boot application that uses JDBC to stor
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 

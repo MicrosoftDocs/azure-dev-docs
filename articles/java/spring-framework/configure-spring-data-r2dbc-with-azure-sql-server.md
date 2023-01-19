@@ -28,7 +28,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by running the following command:
 
@@ -36,7 +36,7 @@ Generate the application on the command line by running the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
 ```
 
-### Add the reactive Azure SQL Database driver implementation
+## Add the reactive Azure SQL Database driver implementation
 
 Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
@@ -77,7 +77,7 @@ Here's a screenshot of the application running for the first time:
 
 :::image type="content" source="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png":::
 
-### Create the database schema
+## Create the database schema
 
 [!INCLUDE [spring-data-r2dbc-create-schema.md](includes/spring-data-r2dbc-create-schema.md)]
 
@@ -110,7 +110,7 @@ Congratulations! You've created a fully reactive Spring Boot application that us
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
 

@@ -53,9 +53,7 @@ az group create \
     --output tsv
 ```
 
-## Create an Azure Database for MySQL instance
-
-### Create a MySQL server and set up admin user
+## Create an Azure Database for MySQL instance and set up the admin user
 
 The first thing we'll create is a managed MySQL server with an admin user.
 
@@ -75,7 +73,7 @@ az mysql flexible-server create \
 
 This command creates a small MySQL server.
 
-### Configure a MySQL database
+## Configure a MySQL database
 
 Create a new database called `demo` by using the following command:
 
@@ -87,7 +85,7 @@ az mysql flexible-server db create \
     --output tsv
 ```
 
-### Configure a firewall rule for your MySQL server
+## Configure a firewall rule for your MySQL server
 
 Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection.
 
@@ -117,7 +115,7 @@ az mysql flexible-server firewall-rule create \
     --output tsv
 ```
 
-### Create a MySQL non-admin user and grant permission
+## Create a MySQL non-admin user and grant permission
 
 This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
@@ -148,7 +146,7 @@ rm create_user.sql
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by entering:
 
@@ -156,7 +154,7 @@ Generate the application on the command line by entering:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
 ```
 
-### Add the reactive MySQL driver implementation
+## Add the reactive MySQL driver implementation
 
 Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
 
@@ -171,7 +169,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 </dependency>
 ```
 
-### Configure Spring Boot to use Azure Database for MySQL
+## Configure Spring Boot to use Azure Database for MySQL
 
 Open the *src/main/resources/application.properties* file, and add:
 
@@ -199,7 +197,7 @@ Here's a screenshot of the application running for the first time:
 
 :::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png":::
 
-### Create the database schema
+## Create the database schema
 
 [!INCLUDE [spring-data-r2dbc-create-schema.md](includes/spring-data-r2dbc-create-schema.md)]
 
@@ -232,7 +230,7 @@ Congratulations! You've created a fully reactive Spring Boot application that us
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
 

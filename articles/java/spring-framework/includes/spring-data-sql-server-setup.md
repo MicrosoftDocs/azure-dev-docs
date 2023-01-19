@@ -54,7 +54,7 @@ az sql server create \
 
 This command creates an Azure SQL Database server.
 
-### Configure a firewall rule for your Azure SQL Database server
+## Configure a firewall rule for your Azure SQL Database server
 
 Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
@@ -98,7 +98,7 @@ az sql server firewall-rule create \
 
 ```
 
-### Configure an Azure SQL database
+## Configure an Azure SQL database
 
 The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by running the following command:
 

@@ -42,7 +42,7 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server, which should be unique across Azure.
 - `<YOUR_DATABASE_NAME>`: The database name of the PostgreSQL server, which should be unique within Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
 - `<YOUR_POSTGRESQL_ADMIN_PASSWORD>` and `<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
@@ -59,9 +59,7 @@ az group create \
     --output tsv
 ```
 
-## Create an Azure Database for PostgreSQL instance
-
-### Create a PostgreSQL server and set up admin user
+## Create an Azure Database for PostgreSQL instance and set up the admin user
 
 The first thing you'll create is a managed PostgreSQL server with an admin user.
 
@@ -81,7 +79,7 @@ az postgres flexible-server create \
 
 This command creates a small PostgreSQL server.
 
-### Configure a PostgreSQL database
+## Configure a PostgreSQL database
 
 The PostgreSQL server that you created earlier is empty. Use the following command to create a new database.
 
@@ -93,7 +91,7 @@ az postgres flexible-server db create \
     --output tsv
 ```
 
-### Configure a firewall rule for your PostgreSQL server
+## Configure a firewall rule for your PostgreSQL server
 
 Azure Database for PostgreSQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
@@ -135,7 +133,7 @@ az postgres flexible-server firewall-rule create \
     --output tsv
 ```
 
-### Create a PostgreSQL non-admin user and grant permission
+## Create a PostgreSQL non-admin user and grant permission
 
 Next, create a non-admin user and grant all permissions to the database.
 
@@ -165,7 +163,7 @@ rm create_user.sql
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by using the following command:
 
@@ -173,7 +171,7 @@ Generate the application on the command line by using the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
 ```
 
-### Add the reactive PostgreSQL driver implementation
+## Add the reactive PostgreSQL driver implementation
 
 Open the generated project's *pom.xml* file, and then add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/pgjdbc/r2dbc-postgresql). After the `spring-boot-starter-webflux` dependency, add the following text:
 
@@ -186,7 +184,7 @@ Open the generated project's *pom.xml* file, and then add the reactive PostgreSQ
 </dependency>
 ```
 
-### Configure Spring Boot to use Azure Database for PostgreSQL
+## Configure Spring Boot to use Azure Database for PostgreSQL
 
 Open the *src/main/resources/application.properties* file, and add the following text:
 
@@ -217,7 +215,7 @@ Here's a screenshot of the application running for the first time:
 
 :::image type="content" source="media/configure-spring-data-r2dbc-with-azure-postgresql/create-postgresql-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-r2dbc-with-azure-postgresql/create-postgresql-01.png":::
 
-### Create the database schema
+## Create the database schema
 
 [!INCLUDE [spring-data-r2dbc-create-schema.md](includes/spring-data-r2dbc-create-schema.md)]
 
@@ -250,7 +248,7 @@ Congratulations! You've created a fully reactive Spring Boot application that us
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
 

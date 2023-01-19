@@ -28,7 +28,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by entering:
 
@@ -36,7 +36,7 @@ Generate the application on the command line by entering:
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
 ```
 
-### Configure Spring Boot to use Azure SQL Database
+## Configure Spring Boot to use Azure SQL Database
 
 Open the *src/main/resources/application.properties* file, and add the following. Be sure to replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_PASSWORD` variable with the values that you configured at the beginning of this article.
 
@@ -78,7 +78,7 @@ Congratulations! You've created a Spring Boot application that uses JPA to store
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
 

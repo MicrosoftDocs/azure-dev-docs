@@ -31,7 +31,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by entering:
 
@@ -42,11 +42,11 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql,azur
 > [!NOTE]
 > Spring Cloud Azure currently supports passwordless connections only in version `4.5.0`. If you want to use passwordless connections, be sure to specify the version as `4.5.0`.
 
-### Configure Spring Boot to use Azure Database for MySQL
+## Configure Spring Boot to use Azure Database for MySQL
 
 Open the *src/main/resources/application.properties* file and add the following contents:
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
@@ -60,7 +60,7 @@ spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
 ```
 
-#### [Password](#tab/password)
+### [Password](#tab/password)
 
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
@@ -108,7 +108,7 @@ Congratulations! You've created a Spring Boot application that uses JPA to store
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
 
