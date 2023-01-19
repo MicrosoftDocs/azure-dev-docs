@@ -24,7 +24,7 @@
         items:
         - name: Add Login with Azure AD Account in Spring Web App
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
-        - name: Add sign-in with Azure AD B2C in a Spring web app
+        - name: Add Login with Azure AD B2C in Spring Web App
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
         - name: Azure AD dev guide
           href: spring-boot-starter-for-azure-active-directory-developer-guide.md
