@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 # Trivia game: Deploy to Static Web Apps
 
-The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application. When the app is deployed, you can see the `/graphql` server route deployed as a function in the Azure portal. 
+The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application. When the app is deployed, you can see the managed function deployed in the Azure portal. 
 
 ## Create a Static Web App
 
