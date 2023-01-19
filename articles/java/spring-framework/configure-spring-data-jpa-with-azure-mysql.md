@@ -40,7 +40,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql,azur
 ```
 
 > [!NOTE]
-> Passwordless connection is supported since `4.5.0`.
+> Passwordless connections have been supported since version `4.5.0`.
 
 ### Configure Spring Boot to use Azure Database for MySQL
 

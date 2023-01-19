@@ -73,7 +73,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Add the following properties to your *application.yml* file. You can get the values for these properties from the app registration you created in the Azure portal, as described in the prerequisites.
 
@@ -134,7 +134,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 
 1. Add the following properties to your *application.yml* file, as described previously:
@@ -195,7 +195,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 
 1. Add the following properties to your *application.yml* file, as described previously:
@@ -265,7 +265,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Add the following properties to your *application.yml* file:
 
@@ -323,7 +323,7 @@ To use `aad-starter` in this scenario, follow these steps:
     ```
 
     > [!NOTE]
-    > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 2. Update your *application.yml* file. Set property `spring.cloud.azure.active-directory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example. 
 

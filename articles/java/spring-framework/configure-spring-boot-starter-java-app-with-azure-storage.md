@@ -142,7 +142,7 @@ The following procedure configures the Spring boot application to use Azure stor
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Save and close the *pom.xml* file.
 

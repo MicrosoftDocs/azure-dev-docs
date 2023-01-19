@@ -8,7 +8,7 @@ ms.author: v-yonghuiye
 
 ### Setting up dependencies
 
-#### Bill of material (BOM)
+#### Bill of materials (BOM)
 
 ```xml
 <dependencyManagement>

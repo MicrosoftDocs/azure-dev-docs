@@ -187,7 +187,7 @@ Next, use the following steps to update your code to use passwordless connection
    ```
 
    > [!NOTE]
-   > See [Getting started](spring-cloud-azure.md#getting-started) section to get more information about how to manage spring-cloud-azure libraries' version by bom.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Azure AD user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 
