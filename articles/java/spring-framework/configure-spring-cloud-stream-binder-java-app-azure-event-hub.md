@@ -153,19 +153,18 @@ The following procedure creates a Spring boot application.
       cloud:
         azure:
           eventhubs:
-            connection-string: [eventhub-namespace-connection-string]
+            namespace: ${AZURE_EVENTHUBS_NAMESPACE}
             processor:
               checkpoint-store:
-                account-name: wingtiptoysstorage
-                account-key: [checkpoint-access-key]
-                container-name: wingtiptoyscontainer
+                account-name: ${AZURE_STORAGE_CONTAINER_NAME}
+                container-name: ${AZURE_STORAGE_ACCOUNT_NAME}
         stream:
           bindings:
             consume-in-0:
-              destination: wingtiptoyshub
-              group: $Default
+              destination: ${AZURE_EVENTHUB_NAME}
+              group: ${AZURE_EVENTHUB_CONSUMER_GROUP}
             supply-out-0:
-              destination: wingtiptoyshub
+              destination: ${AZURE_EVENTHUB_NAME} # same as the above destination
 
           eventhubs:
             bindings:
@@ -184,7 +183,7 @@ The following procedure creates a Spring boot application.
 
    | Field                                                                          | Description                                                                                   |
    |--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `spring.cloud.azure.eventhubs.connection-string`                               | Specify the connection string you obtained in your event hub namespace from the Azure portal. |
+   | `spring.cloud.azure.eventhubs.namespace`                                       | Specify the namespace you obtained in your event hub from the Azure portal.                   |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`          | Specify the access-key of your storage account.                                               |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`         | Specify the storage account you created in this tutorial.                                     |

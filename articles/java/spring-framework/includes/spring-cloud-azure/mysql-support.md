@@ -82,7 +82,7 @@ Add the following dependency to your project. This will automatically include th
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create a MySQL server and set up admin user](../../configure-spring-data-jdbc-with-azure-mysql.md?branch=release-cred-free-java&tabs=passwordless#create-a-mysql-server-and-set-up-admin-user) section.
+> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD Admin user can create and enable users for Azure AD-based authentication. For more information, see the [Create an Azure Database for MySQL instance and set up the admin user](../../configure-spring-data-jdbc-with-azure-mysql.md?branch=release-cred-free-java&tabs=passwordless#create-an-azure-database-for-mysql-instance-and-set-up-the-admin-user) section.
 
 #### Connect to Azure MySQL locally without password
 
