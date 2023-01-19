@@ -20,7 +20,7 @@ Create a static web app in [this Static Web App tutorial](/azure/static-web-apps
 * Select **Next.js** from the Build Presets during the process.
 
 The resulting GitHub Action added to your fork fails for two reasons, which you'll fix briefly:
-* Preview features necessary for Next.js hybrid support aren't enabled in the **GitHub action**
+* Preview features necessary for Next.js hybrid support aren't enabled in the **GitHub Action**
 * Your static web app doesn't have your Cosmos DB and Translator secrets in the **Azure portal**
 
 ## Verify the Next.js app deployed
