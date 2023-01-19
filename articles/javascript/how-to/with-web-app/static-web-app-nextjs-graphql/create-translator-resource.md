@@ -7,7 +7,6 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
-
 # Trivia game: Create a Translator resource
 
 The trivia game translates the questions and answers across a range of languages with the help of Azure Cognitive Services Translator. 
