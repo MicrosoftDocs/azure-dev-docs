@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy to Azure Spring Apps with passwordless connection to Azure database'
+title: 'Deploy to Azure Spring Apps with passwordless connection to Azure database'
 description: Create a Spring Boot application with passwordless connection to an Azure database and deploy to Azure Spring Apps.
 ms.author: xiada
 ms.service: spring-apps
@@ -8,7 +8,7 @@ ms.date: 09/27/2022
 ms.custom: passwordless-java, spring-cloud-azure
 ---
 
-# Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
+# Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
 
 This article shows you how to use passwordless connections to Azure databases in Spring Boot applications deployed to Azure Spring Apps.
 

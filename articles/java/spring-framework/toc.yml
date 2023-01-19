@@ -22,9 +22,9 @@
           href: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
       - name: Authentication and authorization
         items:
-        - name: Secure REST API using Spring Security 5 and Azure Active Directory
+        - name: Add sign-in with an Azure AD account in a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
-        - name: Enable OIDC sign in for Spring with Azure Active Directory B2C
+        - name: Add sign-in with Azure AD B2C in a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
         - name: Azure Active Directory dev guide
           href: spring-boot-starter-for-azure-active-directory-developer-guide.md
