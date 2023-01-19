@@ -6,7 +6,7 @@ ms.author: bbenz
 
 ## Prepare the working environment
 
-First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+First, set up some environment variables by running the following commands:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -57,7 +57,7 @@ az group create \
 
 ## Create an Azure Database for MySQL instance and set up the admin user
 
-The first thing we'll create is a managed MySQL server with an admin user.
+The first thing you'll create is a managed MySQL server with an admin user.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
@@ -115,9 +115,9 @@ az mysql flexible-server ad-admin create \
 > [!IMPORTANT]
 > When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
 
-This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
-
 ### [Password](#tab/password)
+
+Run the following command to create the server:
 
 ```azurecli
 az mysql flexible-server create \
@@ -129,8 +129,6 @@ az mysql flexible-server create \
     --yes \
     --output tsv
 ```
-
-This command creates a small MySQL server.
 
 ---
 
@@ -185,7 +183,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-We've already enabled the Azure AD authentication. This step will create an Azure AD user and grant permissions.
+You've already enabled the Azure AD authentication. This step will create an Azure AD user and grant permissions.
 
 First, create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 

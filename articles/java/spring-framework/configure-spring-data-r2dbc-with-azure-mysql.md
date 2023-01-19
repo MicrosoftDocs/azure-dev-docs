@@ -22,11 +22,11 @@ This article demonstrates creating a sample application that uses [Spring Data R
 
 ## Sample application
 
-In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-mysql](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-mysql).
+In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-mysql](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-mysql).
 
 ## Prepare the working environment
 
-First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+First, set up some environment variables by running the following commands:
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
@@ -55,7 +55,7 @@ az group create \
 
 ## Create an Azure Database for MySQL instance and set up the admin user
 
-The first thing we'll create is a managed MySQL server with an admin user.
+The first thing you'll create is a managed MySQL server with an admin user.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
@@ -70,8 +70,6 @@ az mysql flexible-server create \
     --yes \
     --output tsv
 ```
-
-This command creates a small MySQL server.
 
 ## Configure a MySQL database
 

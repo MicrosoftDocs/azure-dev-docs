@@ -7,7 +7,7 @@ ms.author: bbenz
 
 ## Prepare the working environment
 
-First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+First, set up some environment variables by running the following commands:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -98,6 +98,8 @@ Next, to set up an Azure AD administrator after creating the server, follow the 
 
 ### [Password](#tab/password)
 
+Run the following command to create the server:
+
 ```azurecli
 az postgres flexible-server create \
     --resource-group $AZ_RESOURCE_GROUP \
@@ -108,8 +110,6 @@ az postgres flexible-server create \
     --yes \
     --output tsv
 ```
-
-This command creates a small PostgreSQL server.
 
 ---
 

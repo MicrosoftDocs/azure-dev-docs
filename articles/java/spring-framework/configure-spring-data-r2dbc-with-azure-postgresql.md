@@ -22,11 +22,11 @@ This article demonstrates creating a sample application that uses [Spring Data R
 
 ## Sample application
 
-In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-postgresql).
+In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-postgresql).
 
 ## Prepare the working environment
 
-First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+First, set up some environment variables by running the following commands:
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
@@ -76,8 +76,6 @@ az postgres flexible-server create \
     --yes \
     --output tsv
 ```
-
-This command creates a small PostgreSQL server.
 
 ## Configure a PostgreSQL database
 
