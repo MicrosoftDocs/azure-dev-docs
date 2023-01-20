@@ -304,11 +304,17 @@ The [azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_package":::
 
-### Create Storage client and manage steps
+### Create Storage client
 
-The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
+The following code snippet creates the client object for the Storage service using the `storageAccountName` and the `sasToken`. The sas token is used to build the URL. The querystring delimiter, `?` separates the sas token from the rest of the URL. 
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_uploadFileToBlob":::
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_get_client":::
+
+### Manage blob storage tasks
+
+The `uploadFileToBlob` function is the main function. It uses the client to upload the file.
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_get_client":::
 
 ### Upload file to blob
 
