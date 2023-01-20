@@ -1,24 +1,24 @@
 ---
-title: Provision Azure Storage with the Azure libraries for Python
-description: Use the Azure SDK for Python libraries to provision a blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 06/24/2021
+title: Create Azure Storage with the Azure libraries for Python
+description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
+ms.date: 01/20/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
-# Example: Provision Azure Storage using the Azure libraries for Python
+# Example: Create Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).)
+In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).)
 
-After provisioning the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
+After creating the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install the needed Azure library packages
 
@@ -32,9 +32,9 @@ Be sure to create a service principal for local development, and create and acti
     pip install -r requirements.txt
     ```
 
-## 3: Write code to provision storage resources
+## 3: Write code to create storage resources
 
-This section describes how to provision storage resources from Python code. If you prefer, you can also provision resources through the Azure portal or through the [equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands).
+This section describes how to create storage resources from Python code. If you prefer, you can also create resources through the Azure portal or through the [equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands).
 
 Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
 
@@ -58,7 +58,7 @@ The script will take a minute or two to complete.
 
 ## 5: Verify the resources
 
-1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were provisioned as expected. You may need to wait a minute and also select **Show hidden types** in the resource group to see a storage account provisioned from a Python script:
+1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to wait a minute and also select **Show hidden types** in the resource group to see a storage account created from a Python script:
 
     ![Azure portal page for the new resource group, showing the storage account](../../media/azure-sdk-example-storage/portal-show-hidden-types.png)
 
@@ -66,13 +66,13 @@ The script will take a minute or two to complete.
 
     ![Azure portal page for the storage account showing the blob container](../../media/azure-sdk-example-storage/portal-show-blob-containers.png)
 
-1. If you want to try using these provisioned resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
+1. If you want to try using these resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
 For an additional example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/storage-python-manage/storage-python-manage/).
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script:
+The following Azure CLI commands complete the same creation steps as the Python script:
 
 # [cmd](#tab/cmd)
 
@@ -99,10 +99,10 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ## See also
 
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Example: Provision and query a database](azure-sdk-example-database.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Create and query a database](azure-sdk-example-database.md)
+- [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
 - [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
