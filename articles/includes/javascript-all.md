@@ -303,7 +303,7 @@
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
-| @azure/static-web-apps-cli | npm [1.0.4](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.4) |  |  |
+| @azure/static-web-apps-cli | npm [1.0.5](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.5) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.6](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.6) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
@@ -498,7 +498,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.5](https://www.npmjs.com/package/@autorest/common/v/1.5.5) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230118.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230118.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230120.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230120.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.1) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -518,18 +518,18 @@
 | @azure-tools/cadl-autorest | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.25.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230118.4](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230118.4) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230120.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230120.1) |  |  |
 | @azure-tools/cadl-dpg | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.25.0) |  |  |
 | @azure-tools/cadl-java | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.2.2) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.25.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.25.0) |  |  |
-| @azure-tools/cadl-python | npm [0.4.18](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.18) |  |  |
-| @azure-tools/cadl-ranch | npm [0.2.14](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.14) |  |  |
-| @azure-tools/cadl-ranch-api | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.10) |  |  |
-| @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.3) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.1.14](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.14) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.6.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.6.5) |  |  |
+| @azure-tools/cadl-python | npm [0.4.19](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.19) |  |  |
+| @azure-tools/cadl-ranch | npm [0.2.15](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.15) |  |  |
+| @azure-tools/cadl-ranch-api | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.11) |  |  |
+| @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.4) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.1.15](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.15) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.6.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.6.6) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
