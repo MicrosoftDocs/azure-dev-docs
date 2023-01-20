@@ -4,7 +4,7 @@ description: Create a Spring Boot application with passwordless connection to an
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 01/18/2023
 ms.custom: passwordless-java, spring-cloud-azure
 ---
 
@@ -305,11 +305,13 @@ The following steps describe how to download, configure, build, and deploy the s
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
-       <version>4.5.0</version>
    </dependency>
    ```
 
    This dependency adds support for the Spring Cloud Azure starter.
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
    ### [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -317,9 +319,11 @@ The following steps describe how to download, configure, build, and deploy the s
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-       <version>4.5.0</version>
    </dependency>
    ```
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
    This dependency adds support for the Spring Cloud Azure starter.
 

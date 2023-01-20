@@ -28,7 +28,7 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
-### Generate the application by using Spring Initializr
+## Generate the application by using Spring Initializr
 
 Generate the application on the command line by running the following command:
 
@@ -36,7 +36,7 @@ Generate the application on the command line by running the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
 ```
 
-### Add the reactive Azure SQL Database driver implementation
+## Add the reactive Azure SQL Database driver implementation
 
 Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
@@ -75,9 +75,9 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-[![The running application](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png)](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png#lightbox)
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png":::
 
-### Create the database schema
+## Create the database schema
 
 [!INCLUDE [spring-data-r2dbc-create-schema.md](includes/spring-data-r2dbc-create-schema.md)]
 
@@ -94,7 +94,7 @@ Stop the running application, and start it again using the following command. Th
 
 Here's a screenshot of the database table as it's being created:
 
-[![Creation of the database table](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-02.png)](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-02.png#lightbox)
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-02.png" alt-text="Screenshot of the creation of the database table." lightbox="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-02.png":::
 
 ## Code the application
 
@@ -104,13 +104,13 @@ Next, add the Java code that will use R2DBC to store and retrieve data from your
 
 Here's a screenshot of these cURL requests:
 
-[![Test with cURL](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png)](media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png#lightbox)
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png":::
 
 Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-### Additional resources
+## Additional resources
 
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
 
