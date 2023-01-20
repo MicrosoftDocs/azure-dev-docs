@@ -47,7 +47,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 ## 2. Fork and clone the sample application
 
-Create the fork of the sample so that you can deploy this sample to Azure as a [Static Web App](https://learn.microsoft.com/azure/static-web-apps/).
+Create the fork of the sample so that you can deploy this sample to Azure as a [Static Web App](/azure/static-web-apps/).
 
 1. Open this GitHub URL in a web browser to fork the sample application: 
 
