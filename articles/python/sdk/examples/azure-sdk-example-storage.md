@@ -36,7 +36,7 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 This section describes how to create storage resources from Python code. If you prefer, you can also create resources through the Azure portal or through the [equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands).
 
-Create a Python file named *provision_blob.py* with the following code. The comments explain the details. In particular, you must define your subscription ID as an environment variable `AZURE_SUBSCRIPTION_ID`. The resource group name, location, and storage account name are defined as constants in the code.
+Create a Python file named *provision_blob.py* with the following code. The comments explain the details. In particular, you must define your subscription ID as an environment variable `AZURE_SUBSCRIPTION_ID`. The resource group name, location, storage account name, and container name are all defined as constants in the code.
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
@@ -58,7 +58,7 @@ The script will take a minute or two to complete.
 
 ## 5: Verify the resources
 
-1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to wait a minute and also select **Show hidden types** in the resource group to see a storage account created from a Python script:
+1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to wait a minute and also select **Show hidden types** in the resource group.
 
     ![Azure portal page for the new resource group, showing the storage account](../../media/azure-sdk-example-storage/portal-show-hidden-types.png)
 
