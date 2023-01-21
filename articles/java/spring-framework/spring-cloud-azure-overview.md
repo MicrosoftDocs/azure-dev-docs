@@ -25,8 +25,8 @@ Spring Cloud Azure can help make it easier to accomplish the following tasks in 
 - Managing configuration properties with [Azure App Configuration](/azure/azure-app-configuration/overview).
 - Sending and receiving messages with [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview), and [Azure Storage Queue](/azure/storage/queues/storage-queues-introduction).
 - Managing secrets and certificates with [Azure Key Vault](/azure/key-vault/general/overview).
-- Supporting user sign in with work or school accounts provisioned with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
-- Supporting user sign in with social accounts like Facebook and Google with [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+- Supporting user sign-in with work or school accounts provisioned with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
+- Supporting user sign-in with social accounts like Facebook and Google with [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
 - Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
 - Storing structured data with [Azure Cosmos DB](/azure/cosmos-db/introduction).
 - Storing unstructured data like text or binary data with [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
@@ -278,7 +278,7 @@ Provides Spring Boot support for Azure Storage services. For more information, s
 If you need support for Spring Cloud Azure, you can ask for help in the following ways:
 
 - Create Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). We recommend this option if your problem requires immediate attention.
-- File GitHub issues in the [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub issues to track bugs, questions, and feature requests. GitHub issues are free, but the response time is not guaranteed. For more information, see [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/).
+- File GitHub issues in the [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub issues to track bugs, questions, and feature requests. GitHub issues are free, but the response time isn't guaranteed. For more information, see [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/).
 
 ## Next steps
 
