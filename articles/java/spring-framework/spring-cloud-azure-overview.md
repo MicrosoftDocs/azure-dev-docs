@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud Azure Overview
-description: Spring Cloud Azure is a project that helps developers easier to use Azure services in Spring Boot application by providing a group of Java libraries.
+description: Spring Cloud Azure is a project that helps make it easier to use Azure services in Spring Boot applications by providing a group of Java libraries.
 author: KarlErickson
 ms.author: rujche
 ms.service: azure-java
@@ -10,37 +10,37 @@ ms.date: 01/20/2023
 
 # What is Spring Cloud Azure?
 
-Spring Cloud Azure is an open-source project that helps developers easier to use [Azure services](https://azure.microsoft.com/products/) in [Spring](https://spring.io/) application.
+Spring Cloud Azure is an open source project that helps make it easier to use [Azure services](https://azure.microsoft.com/products/) in [Spring](https://spring.io/) applications.
 
-As an open-source project. All its content are public. Here are links to its content:
+Spring Cloud Azure is an open source project, with all resources available to the public. The following list provides links to these resources:
 
 - Source code: [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
 - Samples: [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples).
-- Document: [Spring Cloud Azure](./index.yml).
+- Documentation: [Spring Cloud Azure](./index.yml).
 
 ## What is Spring Cloud Azure used for?
 
-Spring Cloud Azure can help developer easier to develop these features in Spring application:
+Spring Cloud Azure can help make it easier to accomplish the following tasks in Spring applications:
 
-- Managing configuration properties by [Azure App Configuration](/azure/azure-app-configuration/overview).
-- Sending and receiving messages by [Azure Event Hubs](/azure/event-hubs/event-hubs-about) / [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) / [Azure Storage Queue](/azure/storage/queues/storage-queues-introduction).
-- Managing secrets / certificates by [Azure Key Vault](/azure/key-vault/general/overview).
-- Supporting sign in users with work or school accounts provisioned by [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
-- Supporting sign in users with social accounts (like Facebook and Google) by [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
-- Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data by [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) / [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
-- Storing structured data by [Azure Cosmos DB](/azure/cosmos-db/introduction).
-- Storing unstructured data (like text or binary data) by [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
-- Storing files by [Azure Files](/azure/storage/files/storage-files-introduction).
+- Managing configuration properties with [Azure App Configuration](/azure/azure-app-configuration/overview).
+- Sending and receiving messages with [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview), and [Azure Storage Queue](/azure/storage/queues/storage-queues-introduction).
+- Managing secrets and certificates with [Azure Key Vault](/azure/key-vault/general/overview).
+- Supporting user sign in with work or school accounts provisioned with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
+- Supporting user sign in with social accounts like Facebook and Google with [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+- Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+- Storing structured data with [Azure Cosmos DB](/azure/cosmos-db/introduction).
+- Storing unstructured data like text or binary data with [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+- Storing files with [Azure Files](/azure/storage/files/storage-files-introduction).
 
 :::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Diagram providing an overview of Spring Cloud Azure features.":::
 
 ## Benefits of using Spring Cloud Azure
 
-This section will demonstrate the benefits of using Spring Cloud Azure. Take retrieve secrets stored in Azure Key Vault as an example, comparing the difference of developing a Spring Boot application with and without Spring Cloud Azure.
+The following section demonstrates the benefits of using Spring Cloud Azure. In this section, the retrieval of secrets stored in Azure Key Vault is used as an example. This section compares the differences between developing a Spring Boot application with and without Spring Cloud Azure.
 
 ### Without Spring Cloud Azure
 
-Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, you need to these steps:
+Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, you need to the following steps:
 
 1. Add the following dependencies to your *pom.xml* file:
 
@@ -52,7 +52,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
    </dependency>
    ```
 
-1. Construct `SecretClient`.
+1. Construct a `SecretClient` class instance by using code similar to the following example:
 
    ```java
    public class DemoClass {
@@ -69,7 +69,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
    }
    ```
 
-1. Avoid hard code information like `client-id` and `client-secret`. Make these properties configurable:
+1. Avoid hard coding information such as `client-id` and `client-secret` by making these properties configurable, as shown in the following example:
 
    ```java
    @ConfigurationProperties("azure.keyvault")
@@ -120,7 +120,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
    }
    ```
 
-   Then update your application code like this:
+1. Update your application code as shown in this example:
 
    ```java
    @SpringBootApplication
@@ -151,7 +151,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
    }
    ```
 
-1. Add necessary properties in application.yml
+1. Add the necessary properties to your *application.yml* file, as shown in the following example:
 
    ```yaml
    azure:
@@ -162,11 +162,11 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
        client-secret:
    ```
 
-1. If `SecretClient` need to be used in multiple places, should define a `SecretClient` bean. Then auto-wire `SecretClient` in related place.
+1. If you need to use `SecretClient` in multiple places, define a `SecretClient` bean. Then, auto-wire `SecretClient` in the relevant places.
 
 ### With Spring Cloud Azure
 
-With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, things will be much easier. You just need to do these steps:
+With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, the requirements are simpler, as shown in the following steps:
 
 1. Add the following dependencies to your *pom.xml* file:
 
@@ -179,7 +179,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    </dependencies>
    ```
 
-   Use bom to manage Spring Cloud Azure version:
+1. Use a bill of materials (BOM) to manage the Spring Cloud Azure version, as shown in the following example:
 
    ```xml
    <dependencyManagement>
@@ -195,7 +195,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    </dependencyManagement>
    ```
 
-1. Add necessary properties in application.yml
+1. Add the following properties to your *application.yml* file:
 
    ```yaml
    spring:
@@ -206,13 +206,13 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
              endpoint:
    ```
 
-   Login by [Azure CLI](/cli/azure/), then credential can be provided by Azure CLI, no need to add other credential information (like `client-id` and `client-secret`).
+1. Sign in with [Azure CLI](/cli/azure/) by using the following command. Your credentials will then be provided by Azure CLI, so there will be no need to add other credential information such as `client-id` and `client-secret`.
 
    ```azurecli
    az login
    ```
 
-1. Auto-wire `SecretClient` in related place.
+1. Auto-wire `SecretClient` in the relevant places, as shown in the following example:
 
    ```java
    @SpringBootApplication
@@ -235,53 +235,53 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    }
    ```
 
-   Besides the autoconfigured `SecretClient`, Spring Cloud Azure still provided some other features. For example: Use `@Value` to get the secret value. Here is example java code:
+Spring Cloud Azure will provide some other features besides the auto-configured `SecretClient`. For example, you can use `@Value` to get the secret value, as shown in the following example:
 
-   ```java
-   @SpringBootApplication
-   public class PropertySourceApplication implements CommandLineRunner {
+```java
+@SpringBootApplication
+public class PropertySourceApplication implements CommandLineRunner {
 
-       @Value("${sampleProperty1}")
-       private String sampleProperty1;
+    @Value("${sampleProperty1}")
+    private String sampleProperty1;
 
-       public static void main(String[] args) {
-           SpringApplication.run(PropertySourceApplication.class, args);
-       }
+    public static void main(String[] args) {
+        SpringApplication.run(PropertySourceApplication.class, args);
+    }
 
-       public void run(String[] args) {
-           System.out.println("sampleProperty1: " + sampleProperty1);
-       }
+    public void run(String[] args) {
+        System.out.println("sampleProperty1: " + sampleProperty1);
+    }
 
-   }
-   ```
+}
+```
 
 ## Components of Spring Cloud Azure
 
 ### Azure support
 
-Provides autoconfiguration support for Azure Services. e.g. Service Bus, Storage, Active Directory, etc.
+Provides auto-configuration support for Azure Services, such as Service Bus, Storage, Active Directory, and so on.
 
 ### Azure Active Directory
 
-Provides integration support for Spring Security with Azure Active Directory for authentication. Please refer to [Developer Guide / Spring Security support](./spring-cloud-azure.md#spring-security-support) to get more information.
+Provides integration support for Spring Security with Azure Active Directory for authentication. For more information, see the [Spring security support](./spring-cloud-azure.md#spring-security-support) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
 
 ### Azure Key Vault
 
-Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. Please refer to [Developer Guide / Secret management](./spring-cloud-azure.md#secret-management) to get more information.
+Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. For more information, see the [Secret management](./spring-cloud-azure.md#secret-management) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
 
 ### Azure Storage
 
-Provides Spring Boot support for Azure Storage services. Please refer to [Developer Guide / Resource handling](./spring-cloud-azure.md#resource-handing) to get more information.
+Provides Spring Boot support for Azure Storage services. For more information, see the [Resource handling](./spring-cloud-azure.md#resource-handing) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
 
 ## Get support
 
-If you need get support about Spring Cloud Azure, you can ask for help by these ways:
+If you need support for Spring Cloud Azure, you can ask for help in the following ways:
 
-- Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). We recommend this option if your problem requires immediate attention.
-- GitHub issues in [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub Issues to track bugs, questions, and feature requests. GitHub Issues are free, but response time is not guaranteed. See [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/) for more details.
+- Create Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). We recommend this option if your problem requires immediate attention.
+- File GitHub issues in the [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub issues to track bugs, questions, and feature requests. GitHub issues are free, but the response time is not guaranteed. For more information, see [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/).
 
 ## Next steps
 
-- [Load a secret from Azure Key Vault](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
+- [Tutorial: Read a secret from Azure Key Vault in a Spring Boot application](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
 - [Secure REST API using Spring Security 5 and Azure Active Directory](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
-- [Access data with Azure Cosmos DB NoSQL API](configure-spring-boot-starter-java-app-with-cosmos-db.md)
+- [How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL](configure-spring-boot-starter-java-app-with-cosmos-db.md)
