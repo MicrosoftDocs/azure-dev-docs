@@ -79,4 +79,4 @@ Start and play the game for your deployed app.
 
 ## Next step
 
-* [Unsupported Next.js features during preview](https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-nextjs-hybrid#unsupported-features-in-preview)
+* [Unsupported Next.js features during preview](/azure/static-web-apps/deploy-nextjs-hybrid#unsupported-features-in-preview)
