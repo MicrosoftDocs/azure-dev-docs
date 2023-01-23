@@ -1,16 +1,16 @@
 ---
-title: How to use the Spring Boot Starter for Azure Storage
+title: Upload a file to an Azure Storage Blob
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 12/07/2022
+ms.date: 01/18/2023
 ms.service: storage
 ms.topic: article
 ms.workload: storage
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 ---
 
-# How to use the Spring Boot Starter for Azure Storage
+# Upload a file to an Azure Storage Blob
 
 This article walks you through creating a custom application using the **Spring Initializr**, then adding the Azure Storage Blob starter to your application, and then using your application to upload a blob to your Azure storage account.
 
@@ -93,6 +93,9 @@ You can also use Azure CLI to create an Azure storage account and container usin
       --auth-mode login
    ```
 
+> [!IMPORTANT]
+> In your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal), .
+
 ## Create a simple Spring Boot application with the Spring Initializr
 
 The following procedure creates the Spring boot application.
@@ -138,9 +141,11 @@ The following procedure configures the Spring boot application to use Azure stor
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-      <version>4.5.0</version>
     </dependency>
    ```
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Save and close the *pom.xml* file.
 
@@ -158,24 +163,22 @@ The following procedure configures the Spring boot application to use your Azure
 
 1. Open the *application.yml* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your storage account:
 
-```yaml
-spring:
-  cloud:
-    azure:
-      storage:
-        blob:
-          account-name: [storage-account-name]
-          account-key: [storage-account-access-key]
-          endpoint: [storage-blob-service-endpoint]
-```
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         storage:
+           blob:
+             account-name: [storage-account-name]
+             endpoint: [storage-blob-service-endpoint]
+   ```
 
    Where:
 
-   | Name                        | Description                                         | Required                                       |
-   |-----------------------------|-----------------------------------------------------|------------------------------------------------|
+   | Name                                           | Description                                         | Required                                       |
+   |------------------------------------------------|-----------------------------------------------------|------------------------------------------------|
    | spring.cloud.azure.storage.blob.account-name   | The name of the Azure Storage account.              | Yes                                            |
-   | spring.cloud.azure.storage.blob.account-key    | The access key of the Azure Storage account.        | Yes                                            |
-   | spring.cloud.azure.storage.blob.endpoint       | The blob endpoint URL of the Azure Storage account. | Yes|
+   | spring.cloud.azure.storage.blob.endpoint       | The blob endpoint URL of the Azure Storage account. | Yes                                            |
 
 1. Save and close the *application.yml* file.
 

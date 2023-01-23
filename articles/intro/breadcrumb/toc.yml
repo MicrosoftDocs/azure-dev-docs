@@ -10,6 +10,9 @@
           tocHref: /azure/developer/java/spring-framework
           topicHref: /azure/developer/intro/index
         - name: Introduction
+          tocHref: /azure/developer/java/ee
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
           tocHref: /azure/storage/common
           topicHref: /azure/developer/intro/index
         - name: Introduction
@@ -47,6 +50,15 @@
           topicHref: /azure/developer/intro/index
         - name: Introduction
           tocHref: /azure/key-vault/general
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/certificates
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/keys
+          topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/key-vault/secrets
           topicHref: /azure/developer/intro/index
         - name: Introduction
           tocHref: /azure/cosmos-db

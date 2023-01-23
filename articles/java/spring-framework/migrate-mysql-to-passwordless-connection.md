@@ -5,7 +5,7 @@ ms.service: mysql
 ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
-ms.date: 09/26/2022
+ms.date: 01/18/2023
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
 ---
 
@@ -207,7 +207,7 @@ Next, use the following steps to update your code to use passwordless connection
    ```
 
    > [!NOTE]
-   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin` from the url.
+   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin` from the URL.
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
@@ -226,9 +226,11 @@ Next, use the following steps to update your code to use passwordless connection
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
-       <version>4.5.0</version>
    </dependency>
    ```
+
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
 
 1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Azure AD user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 

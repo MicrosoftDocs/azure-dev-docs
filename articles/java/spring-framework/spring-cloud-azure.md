@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure developer guide
 description: Spring Cloud Azure developer guide
-ms.date: 12/09/2022
+ms.date: 01/18/2023
 ms.topic: article
 author: KarlErickson
 ms.author: v-yonghuiye
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 # Spring Cloud Azure developer guide
 
-This article provides developer guidance for Spring Cloud Azure 4.5.0.
+**This article applies to:** ✔️ Version 4.5.0 ✔️ Version 5.0.0
 
 [!INCLUDE [version-information.md](includes/spring-cloud-azure/version-information.md)]
 

@@ -1,6 +1,12 @@
+items:
 - name: Spring Cloud Azure
   href: index.yml
   items:
+  - name: Overview
+    expanded: true
+    items:
+    - name: What is Spring Cloud Azure?
+      href: spring-cloud-azure-overview.md
   - name: Get started
     expanded: true
     items:
@@ -22,11 +28,11 @@
           href: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
       - name: Authentication and authorization
         items:
-        - name: Secure REST API using Spring Security 5 and Azure Active Directory
+        - name: Add sign-in with Azure AD account to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
-        - name: Enable OIDC sign in for Spring with Azure Active Directory B2C
+        - name: Add sign-in with Azure AD B2C to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
-        - name: Azure Active Directory dev guide
+        - name: Azure AD dev guide
           href: spring-boot-starter-for-azure-active-directory-developer-guide.md
       - name: Passwordless connections
         items:
@@ -118,9 +124,9 @@
       items:
       - name: Common properties
         href: ./configuration-properties-global.md
-      - name: Azure Active Directory properties
+      - name: Azure AD properties
         href: ./configuration-properties-azure-active-directory.md
-      - name: Azure Active Directory B2C properties
+      - name: Azure AD B2C properties
         href: ./configuration-properties-azure-active-directory-b2c.md
       - name: Azure App Configuration properties
         href: ./configuration-properties-azure-app-configuration.md
