@@ -79,7 +79,7 @@ Start and play the game for your deployed app.
 
 ## Clean up
 
-[!INCLUDE [3 ways to delete resource group](../../includes/resource-group-remove.md)]
+[!INCLUDE [3 ways to delete resource group](../../../includes/resource-group-remove.md)]
 
 ## Next step
 
