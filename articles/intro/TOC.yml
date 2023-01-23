@@ -81,7 +81,7 @@ items:
               - name: App Service
                 href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Blob Storage
-                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps
                 href: /azure/container-apps/managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Cosmos DB NoSQL
