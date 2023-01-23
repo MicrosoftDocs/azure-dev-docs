@@ -29,7 +29,12 @@ When you create a Static Web App, it creates a GitHub action to deploy your app.
 
     :::image type="content" source="../../../media/static-web-app-nextjs-graphql/azure-portal-static-web-app-setting-api-backend-details.png" alt-text="Screenshot of Azure portal showing backend details for managed function for static web app.":::
 
+1. In the Azure portal, on the **Overview** page, select **URL** to view your static web app in the browser.
+1. The web app displays but the trivia game doesn't start. This is because the web app server doesn't know about the database and translation resource names and keys.  
+
 ## Configure the Static Web App
+
+Configure web app server with logging and secrets.  
 
 1. Open the Azure portal with the following URL, [https://portal.azure.com](https://portal.azure.com).
 1. Use the top search box to search for `Static Web Apps`.
@@ -53,53 +58,6 @@ When you create a Static Web App, it creates a GitHub action to deploy your app.
     |AZURE_TRANSLATOR_KEY|Enter your Translator key, created in the **Global** region.|
     |AZURE_TRANSLATOR_ENDPOINT|`https://api.cognitive.microsofttranslator.com/`|
 
-## Update the deployment script 
-
-The deployment process added a GitHub action script to your fork in the `./github/workflows` directory. The file includes the public name of your static web app. It needs to be updated to turn on preview features. 
-
-1. Pull down the new action. _Origin_ should point to your fork of the sample. 
-
-    ```bash
-    git pull origin main
-    ```
-
-1. Open the action file, named something like `./github/workflows/azure-static-web-apps-RANDOM_NAME`, where random name is the part of the public URL for your app.
-1. Edit the file to turn on **preview features**. In the Build and Deploy step, add this `env` setting at the same YML level as the `with` settings. 
-
-    ```bash
-    env: 
-        ENABLE_PREVIEW_FEATURES: true
-    ```
-
-    The full YML for this step should look like:
-
-    ```yml
-    - name: Build And Deploy
-    id: builddeploy
-    uses: Azure/static-web-apps-deploy@v1
-    with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RANDOM_NAME }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-        action: "upload"
-        ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-        # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-        app_location: "/" # App source code path
-        api_location: "" # Api source code path - optional
-        output_location: "" # Built app content directory - optional
-        ###### End of Repository/Build Configurations ######
-    env: 
-        ENABLE_PREVIEW_FEATURES: true
-    ```
-
-1. Commit and push the change. 
-
-    ```bash
-    git add . && git commit -m "Add preview feature" && git push origin main
-    ```
-
-1. Open a browser to view the action running from your fork, using a URL like `https://github.com/YOUR-ACCOUNT/js-e2e-graphql-nextjs-triviagame/actions`, change `YOUR-ACCOUNT` to your own name.
-
-
 ## Play the trivia game
 
 Start and play the game for your deployed app. 
@@ -119,4 +77,6 @@ Start and play the game for your deployed app.
 1. Verify that your updated action with preview features enabled was successfully pushed to your fork on the **main branch**.
 1. Review Application Insights logs for failures and exceptions. 
 
+## Next step
 
+* [Unsupported Next.js features during preview](https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-nextjs-hybrid#unsupported-features-in-preview)
