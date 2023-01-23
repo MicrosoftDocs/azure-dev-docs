@@ -89,7 +89,7 @@ The mutation is wrapped in a **useMutation** hook to pass the request to the Nex
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseMutation" :::  
 
-When the data flows back to the client component, a **useEffect** hook set the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
+When the data flows back to the client component, a **useEffect** hook sets the component's state for the answer. This allows the UI to display based on correctness of the user's answer.
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/components/Question.tsx" id="ValidateAnswerUseEffect" :::  
 
