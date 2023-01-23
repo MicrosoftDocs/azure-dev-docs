@@ -120,6 +120,12 @@ items:
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Kafka with Event Hubs
                 href: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Certificates
+                href: /azure/key-vault/certificates/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Keys
+                href: /azure/key-vault/keys/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Secrets
+                href: /azure/key-vault/secrets/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Blobs
                 href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Queues
