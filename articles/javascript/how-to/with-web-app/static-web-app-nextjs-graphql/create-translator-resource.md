@@ -16,7 +16,7 @@ The trivia game translates the questions and answers across a range of languages
 Complete the steps in [this Translator quickstart](/azure/cognitive-services/translator/how-to-create-translator-resource) with the caveat of:
 
 * Create the resource in the **Global** region
-* Use [the resource group you created](getting-started.md#create-a-resource-group) for this tutorial series
+* Use [the resource group you created](getting-started.md#create-a-resource-group) for this tutorial series.
 * Copy the key and resource name to use in the next step.
 
 ## Add Translator secrets to .env.local
