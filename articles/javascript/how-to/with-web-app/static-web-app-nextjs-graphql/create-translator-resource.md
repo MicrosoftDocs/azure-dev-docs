@@ -67,7 +67,7 @@ The locale is passed with the GraphQL query to the server in the **Question** co
 
 ### Server: translate question
 
-The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts`, shown below, to get a question for the game from the database. When the question is retrieved, it's translated based on the language received from the client.
+The client request passes through the Apollo server's [`/graphql`](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/blob/main/pages/api/graphql.ts) API to the **Query** resolver in `./pages/api/resolvers/resolvers.ts` to get a question for the game from the database. When the question is retrieved, it's translated based on the language received from the client:
 
 :::code language="TypeScript" source="~/../js-e2e-graphql-nextjs-triviagame/pages/api/resolvers/resolvers.ts" id="GetQuestionGraphQLResolverQuery" highlight="17":::
 
