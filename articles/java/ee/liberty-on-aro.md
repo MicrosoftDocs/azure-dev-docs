@@ -18,7 +18,7 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or above.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or higher.
 
   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -28,11 +28,11 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see [Get a Red Hat pull secret ](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional). To simply get the pull secret for use, continue to follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see [Get a Red Hat pull secret ](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional). To get the pull secret for use, continue to follow the steps in this section.
 
-Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept additional terms and update your account as shown here. Use the same password as when you created the account.
+Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept more terms and update your account as shown here. Use the same password as when you created the account.
 
-:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat account account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
+:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
 
 After you log in, select **OpenShit** then **Downloads**. Select the **All categories** dropdown and select **Tokens**. Under the **Pull secret**, select **Copy** or **Download** to get the value, as the following screenshot shows.
 
@@ -48,7 +48,7 @@ Save the secret to a file, you'll use it later.
 
 ## Create an Azure AD Service Principal from Azure portal
 
-The Azure Marketplace offer you're going to use in this article requires a service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, no role assignment needed. If you have a service principal ready to use, skip this section and move on to deploy the offer.
+The Azure Marketplace offer you're going to use in this article requires a service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
 
 This section shows you how to deploy a service principal and get its Application (client) ID and secret from Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
@@ -132,7 +132,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 The steps in this section show you how to verify the deployment has successfully completed.
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the step after the image below.
+If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
 
 1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
 
