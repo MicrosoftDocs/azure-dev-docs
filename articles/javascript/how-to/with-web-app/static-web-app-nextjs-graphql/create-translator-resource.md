@@ -13,7 +13,7 @@ The trivia game translates the questions and answers across a range of languages
 
 ## Create a Translator resource 
 
-Complete the steps in [this Translator quickstart](/azure/cognitive-services/translator/how-to-create-translator-resource) with the caveat of:
+Complete the steps in [this Translator quickstart](/azure/cognitive-services/translator/how-to-create-translator-resource) with the following caveats:
 
 * Create the resource in the **Global** region
 * Use [the resource group you created](getting-started.md#create-a-resource-group) for this tutorial series.
