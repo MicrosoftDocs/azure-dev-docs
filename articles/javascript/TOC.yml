@@ -298,7 +298,7 @@
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: CRUD with Functions
         href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
-      - name: Trivia game with React + Azure Cosmos DB
+      - name: Trivia game with React + Cosmos DB
         items: 
           - name: 1. Introduction
             href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
@@ -310,7 +310,7 @@
             href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
           - name: 5. Deploy to Azure Static Web Apps
             href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
-      - name: GraphQL trivia game with Next.js hybrid
+      - name: Trivia game with Next.js hybrid + Cosmos DB
         items: 
           - name: 1. Getting started
             href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
