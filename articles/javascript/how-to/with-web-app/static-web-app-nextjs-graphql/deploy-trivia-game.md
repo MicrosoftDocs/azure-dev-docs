@@ -77,6 +77,10 @@ Start and play the game for your deployed app.
 1. Verify that your updated action with preview features enabled was successfully pushed to your fork on the **main branch**.
 1. Review Application Insights logs for failures and exceptions. 
 
+## Clean up
+
+[!INCLUDE [3 ways to delete resource group](../../includes/resource-group-remove.md)]
+
 ## Next step
 
 * [Unsupported Next.js features during preview](/azure/static-web-apps/deploy-nextjs-hybrid#unsupported-features-in-preview)
