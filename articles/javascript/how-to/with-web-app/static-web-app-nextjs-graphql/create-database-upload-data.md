@@ -13,7 +13,7 @@ The trivia game stores the questions and answers in a Cosmos DB database. The Ne
 
 ## Create a Cosmos DB resource for NoSQL API
 
-Complete the steps in this [Cosmos DB quickstart](/azure/cosmos-db/nosql/quickstart-nodejs?tabs=azure-portal%2Cwindows#create-an-azure-cosmos-db-account) with the following caveats:
+Complete the **Create an Azure Cosmos DB account** step in this [Cosmos DB quickstart](/azure/cosmos-db/nosql/quickstart-nodejs?tabs=azure-portal%2Cwindows#create-an-azure-cosmos-db-account) with the following caveats:
 
 * Use the resource group you created for this tutorial series.
 * Copy the **resource name** and **key** for Cosmos DB to use in the next step.
@@ -43,9 +43,9 @@ This section's build and start scripts are specific to uploading the data and wo
     npm run upload
     ```
 
-1. Use the Visual Studio extension for Cosmos DB to view the database, collection, and individual documents.
+1. Use the Azure portal for your Cosmos DB NoSQL resource to view the database, collection, and individual documents.
 
-    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/visual-studio-code-cosmos-db-nosql-trivia-data-upload.png" alt-text="Screenshot of Visual Studio Code using the Azure Databases extension to show the database, collection, and uploaded doc for the trivia game.":::
+    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/azure-portal-cosmos-db-nosql-data-explorer-trivia-question.png" alt-text="Screenshot of Azure portal for your Cosmos DB NoSQL resource to show the database, collection, and uploaded doc for the trivia game.":::
 
 ### Review code to upload data
 
