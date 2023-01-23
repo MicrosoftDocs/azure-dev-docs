@@ -13,7 +13,10 @@ The trivia game stores the questions and answers in a Cosmos DB database. The Ne
 
 ## Create a Cosmos DB resource for NoSQL API
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](~/../azure-docs-pr/articles/cosmos-db/nosql/includes/create-resources.md)]
+Complete the steps in this [Cosmos DB quickstart](/azure/cosmos-db/nosql/quickstart-nodejs?tabs=azure-portal%2Cwindows#create-an-azure-cosmos-db-account) with the following caveats:
+
+* Use the resource group you created for this tutorial series.
+* Copy the **resource name** and **key** for Cosmos DB to use in the next step.
 
 ## Add Cosmos DB secrets to .env.local
 
