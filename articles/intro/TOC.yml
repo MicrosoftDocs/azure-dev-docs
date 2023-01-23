@@ -160,6 +160,8 @@ items:
             href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus - Topics and Subscriptions
+            href: /azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Blobs
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Queues
