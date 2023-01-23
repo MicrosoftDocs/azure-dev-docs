@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # Trivia game: Deploy to Static Web Apps
 
-The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application. When the app is deployed, you can see the managed function deployed in the Azure portal. 
+The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application from your GitHub fork. When the app is deployed, you can see the managed function deployed in the Azure portal. 
 
 ## Create a Static Web App
 
@@ -18,9 +18,7 @@ Create a static web app in [this Static Web App tutorial](/azure/static-web-apps
 * Use your fork of the sample project. 
 * Select **Next.js** from the Build Presets during the process.
 
-When you create a Static Web App, it creates a GitHub action to deploy your app. The action, added to your fork, fails for two reasons, which you'll fix briefly:
-* Preview features necessary for Next.js hybrid support aren't enabled in the **GitHub Action**
-* Your static web app doesn't have your Cosmos DB and Translator secrets in the **Azure portal**
+When you create a Static Web App, it creates a GitHub action to deploy your app. 
 
 ## Verify the Next.js app deployed
 
