@@ -3,7 +3,7 @@ title: "IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift"
 description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: haiche
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 01/24/2023
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
 ---
@@ -28,54 +28,52 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see [Get a Red Hat pull secret ](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional). To get the pull secret for use, continue to follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
 
-Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept more terms and update your account as shown here. Use the same password as when you created the account.
+Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
-:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
+:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
 
-After you log in, select **OpenShit** then **Downloads**. Select the **All categories** dropdown and select **Tokens**. Under the **Pull secret**, select **Copy** or **Download** to get the value, as the following screenshot shows.
+After you sign in, select **OpenShit** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
 
 :::image type="content" source="media/liberty-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/liberty-on-aro/redhat-console-portal-pull-secret.png":::
 
-The following content is an example that was copied from Red Hat console portal, the auth codes are replaced with `xxxx...xxx`.
+The following content is an example that was copied from the Red Hat console portal, with the auth codes replaced with `xxxx...xxx`.
 
 ```json
 {"auths":{"cloud.openshift.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"quay.io":{"auth":"xxx...xxx","email":"contoso-user@test.com"},"registry.connect.redhat.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"registry.redhat.io":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"}}}
 ```
 
-Save the secret to a file, you'll use it later.
+Save the secret to a file so you can use it later.
 
-## Create an Azure AD Service Principal from Azure portal
+## Create an Azure Active Directory service principal from the Azure portal
 
-The Azure Marketplace offer you're going to use in this article requires a service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
+The Azure Marketplace offer you're going to use in this article requires an Azure Active Directory (Azure AD) service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, with no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
 
-This section shows you how to deploy a service principal and get its Application (client) ID and secret from Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
+Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
 > [!NOTE]
-> You must have sufficient permissions to register an application with your Azure AD tenant. See [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> You must have sufficient permissions to register an application with your Azure AD tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-If you run into a problem, check the [required permissions](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) to make sure your account can create the identity.
-
-- Sign in to your Azure Account through the [Azure portal](https://portal.azure.com/).
-- Select **Azure Active Directory**.
-- Select **App registrations**.
-- Select **New registration**.
-- Name the application, for example "liberty-on-aro-app". Select a supported account type, which determines who can use the application. After setting the values, select **Register**. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
+1. Sign in to your Azure account through the [Azure portal](https://portal.azure.com/).
+1. Select **Azure Active Directory**.
+1. Select **App registrations**.
+1. Select **New registration**.
+1. Name the application, for example "liberty-on-aro-app". Select a supported account type, which determines who can use the application. After setting the values, select **Register**, as shown in the following screenshot. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
 
   :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
 
-- Save the Application (client) ID from the overview page. Hover the pointer over the value and select the copy icon that appears. The tooltip will say **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file, you'll use it later.
+1. Save the Application (client) ID from the overview page, as shown in the following screenshot. Hover the pointer over the value (redacted in the screenshot) and select the copy icon that appears. The tooltip will say **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file so you can use it later.
 
   :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
 
-- Create a new client secret.
-  - Select **Certificates & secrets**.
-  - Select **Client secrets**, then **New client secret**.
-  - Provide a description of the secret, and a duration. When done, select **Add**.
-  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later.
+1. Create a new client secret by following these steps:
+   1. Select **Certificates & secrets**.
+   1. Select **Client secrets**, then **New client secret**.
+   1. Provide a description of the secret and a duration. When you're done, select **Add**.
+   1. After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later.
 
-Now you've created your Azure AD application, service principal and client secret.
+You've now created your Azure AD application, service principal, and client secret.
 
 ## Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift
 
@@ -83,7 +81,7 @@ The steps in this section direct you to deploy IBM WebSphere Liberty or Open Lib
 
 The following steps show you how to find the offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift**.
+1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift**, as shown in the following screenshot.
 
    :::image type="content" source="media/liberty-on-aro/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift in search results." lightbox="media/liberty-on-aro/marketplace-search-results.png":::
 
@@ -91,42 +89,42 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 1. On the offer page, select **Create**.
 
-1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
+1. On the **Basics** pane, ensure that the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*.
 
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
 
-The following steps show you how to fill out the **ARO** pane.
+The following steps show you how to fill out the **ARO** pane shown in the following screenshot:
 
 :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ARO pane." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png":::
 
 1. Under **Create a new cluster**, select **Yes**.
 
-1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in [Get a Red Hat pull secret](#get-a-red-hat-pull-secret). Use the same value for **Confirm secret**.
+1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. Fill in **Service principal client ID** with your service principal Application (client) ID that you obtained in [Create an Azure AD Service Principal from Azure portal](#create-an-azure-ad-service-principal-from-azure-portal).
+1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create an Azure Active Directory Service Principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
 
-1. Fill in **Service principal client secret** with your service principal Application secret that you obtained in [Create an Azure AD Service Principal from Azure portal](#create-an-azure-ad-service-principal-from-azure-portal). Use the same value for **Confirm secret**.
+1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create an Azure Active Directory Service Principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
 
-The following steps show you how to fill out **Operator and application** pane and start the deployment.
+The following steps show you how to fill out the **Operator and application** pane shown in the following screenshot, and start the deployment.
 
 :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application pane." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
 
 1. Under **IBM supported?**, select **Yes**.
 
-1. Leave the default option for the **Deploy an application?**.
+1. Leave the default option for **Deploy an application?**.
 
-1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
+1. Select **Review + create**. Ensure that the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems and then select **Review + create** again.
 
 1. Select **Create**.
 
-1. Track the progress of the deployment in the **Deployment is in progress** page.
+1. Track the progress of the deployment on the **Deployment is in progress** page.
 
 Depending on network conditions and other activity in your selected region, the deployment may take up to 40 minutes to complete.
 
 > [!NOTE]
-> This quick start deploys IBM supported WebSphere Liberty Operator, you can also select **No** to deploy Open Liberty Operator. The quick start hasn't deployed an application either, you can select **Yes** for **Deploy an application?** to deploy an application.
+> This quickstart deploys IBM supported WebSphere Liberty Operator, you can also select **No** to deploy Open Liberty Operator. The quickstart hasn't deployed an application either, you can select **Yes** for **Deploy an application?** to deploy an application.
 
 ## Verify the functionality of the deployment
 
