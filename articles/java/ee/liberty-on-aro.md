@@ -1,10 +1,10 @@
 ---
 title: "IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift"
-description: Shows you how to quickly stand up JIBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift.
+description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: haiche
 ms.topic: overview
-ms.date: 12/26/2022
+ms.date: 01/24/2023
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
 ---
 
@@ -20,7 +20,7 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or above.
 
-   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
@@ -32,7 +32,7 @@ The Azure Marketplace offer you're going to use in this article requires a Red H
 
 Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept additional terms and update your account as shown here. Use the same password as when you created the account.
 
-:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Complete your Red Hat profile" lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
+:::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat account account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
 
 After you log in, select **OpenShit** then **Downloads**. Select the **All categories** dropdown and select **Tokens**. Under the **Pull secret**, select **Copy** or **Download** to get the value, as the following screenshot shows.
 
@@ -63,17 +63,17 @@ If you run into a problem, check the [required permissions](/azure/active-direct
 - Select **New registration**.
 - Name the application, for example "liberty-on-aro-app". Select a supported account type, which determines who can use the application. After setting the values, select **Register**. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing creating service principal." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
+  :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
 
 - Save the Application (client) ID from the overview page. Hover the pointer over the value and select the copy icon that appears. The tooltip will say **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file, you'll use it later.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
+  :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
 
-- Create a new client secret. 
+- Create a new client secret.
   - Select **Certificates & secrets**.
   - Select **Client secrets**, then **New client secret**.
   - Provide a description of the secret, and a duration. When done, select **Add**.
-  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later. 
+  - After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later.
 
 Now you've created your Azure AD application, service principal and client secret.
 
@@ -81,25 +81,25 @@ Now you've created your Azure AD application, service principal and client secre
 
 The steps in this section direct you to deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift.
 
-The following steps show you how to find the offer and fill out the **Basics** blade.
+The following steps show you how to find the offer and fill out the **Basics** pane.
 
 1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift**.
 
-    :::image type="content" source="media/liberty-on-aro/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift in search results." lightbox="media/liberty-on-aro/marketplace-search-results.png":::
+   :::image type="content" source="media/liberty-on-aro/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift in search results." lightbox="media/liberty-on-aro/marketplace-search-results.png":::
 
-    You can also go directly to the offer with this [portal link](https://aka.ms/liberty-aro).
+   You can also go directly to the offer with this [portal link](https://aka.ms/liberty-aro).
 
 1. On the offer page, select **Create**.
 
-1. On the **Basics** blade, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
+1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*.
 
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
 
-The following steps show you how to fill out the **ARO** blade.
+The following steps show you how to fill out the **ARO** pane.
 
-:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ARO blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png":::
+:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ARO pane." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-configure-cluster.png":::
 
 1. Under **Create a new cluster**, select **Yes**.
 
@@ -109,9 +109,9 @@ The following steps show you how to fill out the **ARO** blade.
 
 1. Fill in **Service principal client secret** with your service principal Application secret that you obtained in [Create an Azure AD Service Principal from Azure portal](#create-an-azure-ad-service-principal-from-azure-portal). Use the same value for **Confirm secret**.
 
-The following steps show you how to fill out **Operator and application** blade and start the deployment.
+The following steps show you how to fill out **Operator and application** pane and start the deployment.
 
-:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application blade." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
+:::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift Operator and application pane." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-operator-and-application.png":::
 
 1. Under **IBM supported?**, select **Yes**.
 
@@ -138,27 +138,27 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
 
-1. In the left navigation blade, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
+1. In the left navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
 
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown here.
 
-    :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift deployments." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png":::
+   :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift deployments." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 
 1. Open Azure Cloud Shell, paste the value of **cmdToGetKubeadminCredentials**, you'll get the admin account and credential to log in OpenShit cluster console portal. The following content is an example of an admin account.
 
-    ```bash
-    user@Azure:~$ az aro list-credentials -g abc1228rg -n clusterf9e8b9
-    {
-      "kubeadminPassword": "xxxxx-xxxxx-xxxxx-xxxxx",
-      "kubeadminUsername": "kubeadmin"
-    }
-    ```
+   ```bash
+   user@Azure:~$ az aro list-credentials -g abc1228rg -n clusterf9e8b9
+   {
+     "kubeadminPassword": "xxxxx-xxxxx-xxxxx-xxxxx",
+     "kubeadminUsername": "kubeadmin"
+   }
+   ```
 
-1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the admin user name and password, you'll find the installed IBM WebSphere Liberty operator, as the following screenshot shows.
+1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the admin user name and password, which you can find in the list of installed IBM WebSphere Liberty operators, as shown in the following screenshot.
 
-    :::image type="content" source="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png" alt-text="Screenshot of Azure portal showing Azure Red Hat OpenShift cluster console portal." lightbox="media/liberty-on-aro/redhat-openshit-cluster-console-portal.png":::
+   :::image type="content" source="media/liberty-on-aro/redhat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/liberty-on-aro/redhat-openshift-cluster-console-portal.png":::
 
 You're able to use the output commands to create an application or manage the cluster.
 
