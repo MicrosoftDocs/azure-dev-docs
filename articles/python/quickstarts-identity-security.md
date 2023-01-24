@@ -36,7 +36,7 @@ Many Azure resources you're likely to use when creating Python apps enable the [
 
 ## Key Vault
 
-In some cases, using a key management solution like [Azure Key Vault](/azure/key-vault/general/overview) gives you more control but with an increase in management complexity.
+Using a key management solution like [Azure Key Vault](/azure/key-vault/general/overview) gives you more control but with an increase in management complexity.
 
 * [Quickstart: Azure Key Vault certificate client library for Python](/azure/key-vault/certificates/quick-create-python)
 
