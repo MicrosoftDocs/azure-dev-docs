@@ -213,7 +213,7 @@ Use the following code sample to verify that your service principal authenticate
 1. Create a new directory called `go-on-azure` in your home directory.
 
     ```azurecli
-    mkidr ~/go-on-azure
+    mkdir ~/go-on-azure
     ```
 
 1. Change to the `go-on-azure` directory.
