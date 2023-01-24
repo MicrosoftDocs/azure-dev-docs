@@ -34,7 +34,7 @@ Use your Red Hat account to sign in to the OpenShift cluster manager portal, by 
 
 :::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
 
-After you sign in, select **OpenShit** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
+After you sign in, select **OpenShift** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
 
 :::image type="content" source="media/liberty-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/liberty-on-aro/redhat-console-portal-pull-secret.png":::
 
@@ -113,7 +113,13 @@ The following steps show you how to fill out the **Operator and application** pa
 
 1. Under **IBM supported?**, select **Yes**.
 
-1. Leave the default option for **Deploy an application?**.
+   > [!NOTE]
+   > This quickstart deploys the IBM-supported WebSphere Liberty Operator, but you can select **No** to deploy the Open Liberty Operator instead.
+
+1. Leave the default option of **No** for **Deploy an application?**.
+
+   > [!NOTE]
+   > This quickstart doesn't deploy an application, but you can select **Yes** for **Deploy an application?** if you prefer.
 
 1. Select **Review + create**. Ensure that the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems and then select **Review + create** again.
 
@@ -123,28 +129,25 @@ The following steps show you how to fill out the **Operator and application** pa
 
 Depending on network conditions and other activity in your selected region, the deployment may take up to 40 minutes to complete.
 
-> [!NOTE]
-> This quickstart deploys IBM supported WebSphere Liberty Operator, you can also select **No** to deploy Open Liberty Operator. The quickstart hasn't deployed an application either, you can select **Yes** for **Deploy an application?** to deploy an application.
-
 ## Verify the functionality of the deployment
 
-The steps in this section show you how to verify the deployment has successfully completed.
+The steps in this section show you how to verify that the deployment has successfully completed.
 
 If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
 
-1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
+1. In the upper left corner of any portal page, select the hamburger menu and then select **Resource groups**.
 
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
 
-1. In the left navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
+1. In the navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
 
-1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown here.
+1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown in the following screenshot.
 
-   :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift deployments." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png":::
+   :::image type="content" source="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift deployments with the oldest deployment highlighted." lightbox="media/liberty-on-aro/azure-portal-liberty-on-aro-deployments.png":::
 
-1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
+1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open Azure Cloud Shell, paste the value of **cmdToGetKubeadminCredentials**, you'll get the admin account and credential to log in OpenShit cluster console portal. The following content is an example of an admin account.
+1. Open Azure Cloud Shell and paste the value from the **cmdToGetKubeadminCredentials** field. You'll see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
 
    ```bash
    user@Azure:~$ az aro list-credentials -g abc1228rg -n clusterf9e8b9
@@ -154,11 +157,11 @@ If you navigated away from the **Deployment is in progress** page, the following
    }
    ```
 
-1. Paste the value of **clusterConsoleUrl** in an Internet-connected web browser, and press **Enter**. Fill in the admin user name and password, which you can find in the list of installed IBM WebSphere Liberty operators, as shown in the following screenshot.
+1. Paste the value from the **clusterConsoleUrl** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. Fill in the admin user name and password, which you can find in the list of installed IBM WebSphere Liberty operators, as shown in the following screenshot.
 
    :::image type="content" source="media/liberty-on-aro/redhat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/liberty-on-aro/redhat-openshift-cluster-console-portal.png":::
 
-You're able to use the output commands to create an application or manage the cluster.
+You can use the output commands to create an application or manage the cluster.
 
 ## Clean up resources
 
