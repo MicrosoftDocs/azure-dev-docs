@@ -2,7 +2,7 @@
 title: "JavaScript: Upload file to Blob Storage"
 description: Use a React with JavaScript (TypeScript) Static Web App to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/25/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
@@ -314,7 +314,7 @@ The following code snippet creates the client object for the Storage service usi
 
 The `uploadFileToBlob` function is the main function. It uses the client to upload the file.
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_get_client":::
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts"  id="snippet_uploadFileToBlob":::
 
 ### Upload file to blob
 
