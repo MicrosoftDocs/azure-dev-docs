@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 10/21/2021
+  ms.date: 01/25/2023
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -119,7 +119,6 @@ landingContent:
           - text: Text to speech
             url: ./tutorial/convert-text-to-speech-cognitive-services.md
           - text: Image analysis
-
             url: tutorial/static-web-app-image-analysis.md
   - title: Use Azure client libraries (SDK)
     linkLists:
@@ -127,16 +126,22 @@ landingContent:
         links:
           - text: Use the Azure SDKs for JS/TS
             url: core/use-azure-sdk.md
-          - text: Latest client libraries
+          - text: SDK lastest version
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
-          - text: Reference Documentation
+          - text: SDK Reference Documentation
             url: /javascript/api/overview/azure/
-          - text: Azure SDK for JS
+          - text: SDK Source code for JS
             url: https://github.com/Azure/azure-sdk-for-js
-          - text: Azure Storage Dev Guide
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Samples browser
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+  - title: Developer Guides
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure Storage Dev Guide
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
+          - text: Azure Cosmos DB for Mongo API
+            url: /azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows
   - title: Developer tools
     linkLists:
       - linkListType: get-started
