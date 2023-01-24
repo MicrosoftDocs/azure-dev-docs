@@ -37,7 +37,7 @@ The following articles help you get started with various identity and security o
   - [Quickstart: Azure Key Vault keys client library for Python](/azure/key-vault/keys/quick-create-python)
   - [Quickstart: Azure Key Vault secret client library for Python](/azure/key-vault/secrets/quick-create-python)
 
-- **Authentication and identity**
+- **Authentication and identity for signing in users in apps**
 
-  - [Add sign-in with Microsoft to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
-  - [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](/azure/active-directory/develop/quickstart-v2-python-daemon)
+  - [Quickstart: Add sign-in with Microsoft to a web app](/azure/active-directory/develop/web-app-quickstart)
+  - [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](/azure/active-directory/develop/console-app-quickstart?pivots=devlang-python)
