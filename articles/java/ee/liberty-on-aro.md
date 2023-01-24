@@ -61,13 +61,14 @@ Use the following steps to deploy a service principal and get its Application (c
 1. Select **New registration**.
 1. Name the application, for example "liberty-on-aro-app". Select a supported account type, which determines who can use the application. After setting the values, select **Register**, as shown in the following screenshot. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
 
-  :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
+   :::image type="content" source="media/liberty-on-aro/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/liberty-on-aro/azure-portal-create-service-principal.png":::
 
 1. Save the Application (client) ID from the overview page, as shown in the following screenshot. Hover the pointer over the value (redacted in the screenshot) and select the copy icon that appears. The tooltip will say **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file so you can use it later.
 
-  :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
+   :::image type="content" source="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/liberty-on-aro/azure-portal-obtain-service-principal-client-id.png":::
 
 1. Create a new client secret by following these steps:
+
    1. Select **Certificates & secrets**.
    1. Select **Client secrets**, then **New client secret**.
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
