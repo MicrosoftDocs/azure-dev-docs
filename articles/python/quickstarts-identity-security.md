@@ -8,13 +8,13 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Identity and security for Python apps on Azure
 
-Identity and security for Python apps in Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of a user, group, application, or service to access Azure resources. There are different options you can choose from depending on your application and security needs. Where possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use [*passwordless connections*](/azure/developer/intro/passwordless-overview) to avoid using embedding sensitive data such as passwords in code or environment variables.
+Identity and security for Python apps in Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of a user, group, application, or service to access Azure resources. There are different options you can choose from depending on your application and security needs. Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use [*passwordless connections*](/azure/developer/intro/passwordless-overview) to avoid using embedding sensitive data such as passwords in code or environment variables.
 
-Many Azure resources you are likely to use when creating Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
+Many Azure resources you're likely to use when creating Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
 
 In some cases, using a key management solution like [Azure Key Vault](/azure/key-vault/general/overview) gives you more control but with an increase in management complexity.
 
-When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The DefaultAzureCredential is appropriate for most applications which will run in Azure because it combines common production credentials with development credentials.
+When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The DefaultAzureCredential is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 
 The following articles help you get started with various identity and security options on Azure:
 
