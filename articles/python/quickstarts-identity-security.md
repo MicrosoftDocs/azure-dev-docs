@@ -1,20 +1,43 @@
 ---
 title: Quickstarts for Azure identity and security features for Python apps on Azure
-description: Index of getting started material in the Azure documentation for authentication, identity, and security in Python apps.
-ms.date: 05/28/2020
+description: Overview of getting started material in the Azure documentation for authentication, identity, and security in Python apps.
+ms.date: 01/24/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Identity and security for Python apps on Azure
 
+Identity and security for Python apps in Azure is fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of a user, group, application, or service to access Azure resources. There are different options you can choose from depending on your application and security needs. Where possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use [*passwordless connections*](/azure/developer/intro/passwordless-overview) to avoid using embedding sensitive data such as passwords in code or environment variables.
+
+Many Azure resources you are likely to use when creating Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
+
+In some cases, using a key management solution like [Azure Key Vault](/azure/key-vault/general/overview) gives you more control but with an increase in management complexity.
+
+When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The DefaultAzureCredential is appropriate for most applications which will run in Azure because it combines common production credentials with development credentials.
+
 The following articles help you get started with various identity and security options on Azure:
 
-- **Authentication and identity**
-  - [Add sign-in with Microsoft to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
-  - [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](/azure/active-directory/develop/quickstart-v2-python-daemon)
+- **Passwordless connections**
+
+  - [Overview: Passwordless connection for Azure services](/azure/developer/intro/passwordless-overview)
+  - [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
+  - Examples:
+        - [Quickstart: Azure Blob Storage client library for Python with passwordless connections](/azure/storage/blobs/storage-quickstart-blobs-python)
+        - [Quickstart: Send messages to and receive message from Azure Service Bus queues with passwordless connections](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
+
+- **Service Connector**
+
+  - [Quickstart: Create a service connection in App Service from the Azure portal](/azure/service-connector/quickstart-portal-app-service-connection)
+  - [Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service](/azure/service-connector/tutorial-django-webapp-postgres-cli)
 
 - **Security and key/secret/certificate storage**
-  - [Store and retrieve certificates with Key Vault](/azure/key-vault/certificates/quick-create-python)
-  - [Store and retrieve keys with Key Vault](/azure/key-vault/keys/quick-create-python)
-  - [Store and retrieve secrets with Key Vault](/azure/key-vault/quick-create-python)
+
+  - [Quickstart: Azure Key Vault certificate client library for Python](/azure/key-vault/certificates/quick-create-python)
+  - [Quickstart: Azure Key Vault keys client library for Python](/azure/key-vault/keys/quick-create-python)
+  - [Quickstart: Azure Key Vault secret client library for Python](/azure/key-vault/secrets/quick-create-python)
+
+- **Authentication and identity**
+
+  - [Add sign-in with Microsoft to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
+  - [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](/azure/active-directory/develop/quickstart-v2-python-daemon)
