@@ -1,6 +1,6 @@
 ---
 title: Quickstarts for Azure identity and security features for Python apps on Azure
-description: Overview of getting started material in the Azure documentation for authentication, identity, and security in Python apps.
+description: Overview and links to getting started material for authentication, identity, and security in Python apps on Azure.
 ms.date: 01/24/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
