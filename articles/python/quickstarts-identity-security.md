@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Identity and security for Python apps on Azure
 
-Identity and security for Python apps in Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of a user, group, application, or service to access Azure resources. There are different options you can choose from depending on your application and security needs. Here are some guidelines:
+Identity and security for Python apps in Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) of the identity of a user, group, application or service and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of that identity perform requested actions on Azure resources. There are different options you can choose from depending on your application and security needs. Here are some guidelines:
 
 * **Passwordless connections**: Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use [*passwordless connections*](/azure/developer/intro/passwordless-overview) to avoid using embedding sensitive data such as passwords in code or environment variables.
 
