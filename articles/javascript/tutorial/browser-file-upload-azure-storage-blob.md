@@ -6,6 +6,7 @@ ms.date: 01/25/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
+
 # Upload an image to an Azure Storage blob with JavaScript
 
 Use an Azure Static Web App (client-side React app) to upload a file to an Azure Storage blob using:
