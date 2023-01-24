@@ -20,7 +20,7 @@ Identity and security for Python apps in Azure are fundamentally about the [*aut
 
   When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 
-  * [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
+    * [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
 
 * **Service Connector**: Many Azure resources you're likely to use when creating Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
 
