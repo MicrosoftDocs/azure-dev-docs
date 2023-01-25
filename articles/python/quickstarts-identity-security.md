@@ -1,6 +1,6 @@
 ---
-title: Quickstarts for Azure identity and security features for Python apps on Azure
-description: Overview and links to getting started material for authentication, identity, and security in Python apps on Azure.
+title: Overview and resources for Azure identity and security features for Python apps
+description: Overview and links to resources about authentication, identity, and security for Python apps on Azure.
 ms.date: 01/24/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Identity and security for Python apps on Azure
 
-Identity and security for Python apps on Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) of the identity of a user, group, application, or service and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of that identity to perform requested actions on Azure resources. There are different identity and security options you can choose from depending on your application and security needs. This article provides links to resources and quickstarts to help you get started.
+Identity and security for Python apps on Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) of the identity of a user, group, application, or service and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of that identity to perform requested actions on Azure resources. There are different identity and security options you can choose from depending on your application and security needs. This article provides links to resources to help you get started.
 
 ## Passwordless connections
 
@@ -19,6 +19,8 @@ Whenever possible, we recommend you use managed identities to simplify overall m
 * [Quickstart: Azure Blob Storage client library for Python with passwordless connections](/azure/storage/blobs/storage-quickstart-blobs-python)
 
 * [Quickstart: Send messages to and receive message from Azure Service Bus queues with passwordless connections](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
+
+* [Tutorial: Deploy a Python web app to Azure with managed identity](/azure/developer/python/tutorial-python-managed-identity-01)
 
 When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 
