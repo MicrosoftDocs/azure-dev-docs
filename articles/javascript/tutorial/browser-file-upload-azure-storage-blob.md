@@ -1,6 +1,6 @@
 ---
 title: "JavaScript: Upload image to Blob Storage"
-description: Use a React/TypeScript Static Web App to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+description: Use a React Static Web App with TypeScript or JavaScript to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
@@ -12,28 +12,59 @@ Use an Azure Static Web App (client-side React app) to upload an image file to a
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
+#### [TypeScript](#tab/typescript)
+* [**Sample code**](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob)
+* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
+
+
+#### [JavaScript](#tab/javascript)
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
 * [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
+
+--- 
 
 ## Application architecture and functionality
 
 This article includes several top Azure tasks for JavaScript developers:
 
-* Run a React/TypeScript app locally with Visual Studio Code
+* Run a React app locally with Visual Studio Code
 * Create an **Azure Storage Blob** resource and configure for file uploads
     * Configure CORS
     * Create Shared access signatures (SAS) token
 * Configure code for Azure SDK client library to use SAS token to authenticate to service
 * Deploy to Static Web App with GitHub Action
 
-The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), consists of the following elements:
+The sample React app consists of the following elements:
 
-* **[React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)** hosted on port 3000
-* **[Azure SDK client library script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts)** to upload to Storage blobs
+#### [TypeScript](#tab/typescript)
+
+* **[React app](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)** hosted on port 3000
+* **[Azure SDK client library script](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts)** to upload to Storage blobs
+
+
+#### [JavaScript](#tab/javascript)
+
+* **[React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.jsx)** hosted on port 3000
+* **[Azure SDK client library script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.js)** to upload to Storage blobs
+
+--- 
 
 :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
 ## 1. Set up development environment
+
+#### [TypeScript](#tab/typescript)
+
+- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [TypeScript](https://www.typescriptlang.org/download)
+- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
+- Visual Studio Code extensions:
+    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
+    - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
+    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
+
+#### [JavaScript](#tab/javascript)
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
@@ -43,25 +74,62 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
 
+--- 
+
 ## 2. Fork and clone the sample application
 
 1. Open this GitHub sample URL in a web browser: 
 
+    #### [TypeScript](#tab/typescript)
+
+    ```
+    https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob
+    ```
+
+    #### [JavaScript](#tab/javascript)
+
     ```
     https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob
     ```
+
+    ---
+
 1. Select **Fork** to create your own fork of this sample project. Your own GitHub fork is necessary to deploy this sample to Azure as a static web app.
 1. Select the **Code** button, then copy the Clone URL.
 1. In a bash terminal, clone your forked repository, replacing `REPLACE-WITH-YOUR-ACCOUNT-NAME` with your GitHub account name:
 
+    #### [TypeScript](#tab/typescript)
+
+    ```bash
+    git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/ts-e2e-browser-file-upload-storage-blob
+    ```
+
+    #### [JavaScript](#tab/javascript)
+
+    
     ```bash
     git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/js-e2e-browser-file-upload-storage-blob
+    ```
+    ---
+
+
 
 1. Change into the new directory and open Visual Studio Code.
+
+    #### [TypeScript](#tab/typescript)
+
+    ```bash
+    cd ts-e2e-browser-file-upload-storage-blob && code .
+    ```
+
+    #### [JavaScript](#tab/javascript)
 
     ```bash
     cd js-e2e-browser-file-upload-storage-blob && code .
     ```
+    ---
+
+
 
 ## 3. Install dependencies and run local project
 
@@ -71,7 +139,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
     npm install
     ```
 
-1. In the same terminal window, run the command to run the web app.
+1. In the same terminal window, run the command to build and run the web app.
 
     ```javascript
     npm start
@@ -172,7 +240,7 @@ Configure CORS for your resource so the client-side React code can access your s
 
 ## 8. Run project locally to verify connection to Storage account
 
-Your SAS token and storage account name are set in the `src/azure-storage-blob.ts` file, so you are ready to run the application.
+Your SAS token and storage account name are pulled into the application from environment variables, so you are ready to run the application.
 
 1. If the app isn't running, start it again:
 
@@ -188,7 +256,7 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 
 1. Select an image from the `images` folder to upload then select the **Upload!** button. 
 
-1. The React front-end client code calls into the [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+1. The React front-end client code calls into the `./src/azure-storage-blob` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
 
 ## 9. Deploy static web app to Azure 
 
@@ -220,9 +288,19 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 
 1. In a web browser, return to your GitHub fork of the sample project to add the two secrets and their values:
 
+    #### [TypeScript](#tab/typescript)
+
+    ```HTTP
+    https://github.com/YOUR-GITHUB-ACCOUNT/ts-e2e-browser-file-upload-storage-blob/settings/secrets/actions
+    ```
+
+    #### [JavaScript](#tab/javascript)
+
     ```HTTP
     https://github.com/YOUR-GITHUB-ACCOUNT/js-e2e-browser-file-upload-storage-blob/settings/secrets/actions
     ```
+
+     ---
 
     :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
 
@@ -274,11 +352,25 @@ If you received an error or your file doesn't upload to the container, check the
 
 ## Upload button functionality
 
+#### [TypeScript](#tab/typescript)
+
 The `src/App.tsx` TypeScript file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
 
 The code connecting to the Azure Blob Storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="5,25":::
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="5,68":::
+
+#### [JavaScript](#tab/javascript)
+
+The `src/App.jsx` TypeScript file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
+
+The code connecting to the Azure Blob Storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.jsx" highlight="5,68":::
+
+---
+
+
 
 ## Upload file to Azure Storage blob with Azure SDK client library
 
@@ -288,7 +380,9 @@ The sample creates and uses a publicly accessible container and files. If you wa
 
 ### Dependencies and variables
 
-The [azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) TypeScript file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+#### [TypeScript](#tab/typescript)
+
+The [azure-storage-blob.ts](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
 
 | Variable | Description |
 |--|--|
@@ -296,25 +390,71 @@ The [azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file
 |`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
 |`storageAccountName`|Your resource name.|
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="2,5,6" id="snippet_package":::
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_package":::
+
+#### [JavaScript](#tab/javascript)
+
+
+The [azure-storage-blob.js](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.js) file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+
+| Variable | Description |
+|--|--|
+|`sasToken`|The SAS token created with the Azure portal is prepended with a `?`. Remove it before setting it in your `sasToken` variable.| 
+|`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
+|`storageAccountName`|Your resource name.|
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_package":::
+
+
+---
 
 ### Create Storage client and manage steps
 
+#### [TypeScript](#tab/typescript)
+
 The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="5-7," id="snippet_uploadFileToBlob":::
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_uploadFileToBlob":::
+
+#### [JavaScript](#tab/javascript)
+
+The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_uploadFileToBlob":::
+
+---
 
 ### Upload file to blob
 
+#### [TypeScript](#tab/typescript)
+
 The `createBlobInContainer` function uploads the file to the container, using the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) class, [uploadData](/javascript/api/@azure/storage-blob/blockblobclient#uploadData_Buffer___Blob___ArrayBuffer___ArrayBufferView__BlockBlobParallelUploadOptions_) method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="10" id="snippet_createBlobInContainer":::
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_createBlobInContainer":::
+
+#### [JavaScript](#tab/javascript)
+
+The `createBlobInContainer` function uploads the file to the container, using the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) class, [uploadData](/javascript/api/@azure/storage-blob/blockblobclient#uploadData_Buffer___Blob___ArrayBuffer___ArrayBufferView__BlockBlobParallelUploadOptions_) method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_createBlobInContainer":::
+
+---
 
 ### Get list of blobs
 
+#### [TypeScript](#tab/typescript)
+
 The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class, [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listBlobsFlat_ContainerListBlobsOptions_) method, for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="10" id="snippet_getBlobsInContainer":::
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_getBlobsInContainer":::
+
+#### [JavaScript](#tab/javascript)
+
+The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class, [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listBlobsFlat_ContainerListBlobsOptions_) method, for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_getBlobsInContainer":::
+
+---
 
 ## Clean up resources
 
