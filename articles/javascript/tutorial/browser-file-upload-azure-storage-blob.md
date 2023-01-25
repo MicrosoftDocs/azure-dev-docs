@@ -410,15 +410,13 @@ The [azure-storage-blob.js](https://github.com/Azure-Samples/js-e2e-browser-file
 
 ### Create Storage client and manage steps
 
-#### [TypeScript](#tab/typescript)
+The client is created with a URL that includes both the storage resource name and the SAS token. The SAS token is in the query string, denoted with the question mark, `?`. When adding your SAS token to your environment variable, do _not_ include the question mark because it is already included in the URL string.
 
-The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
+#### [TypeScript](#tab/typescript)
 
 :::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_get_client":::
 
 #### [JavaScript](#tab/javascript)
-
-The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
 
 :::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_get_client":::
 
