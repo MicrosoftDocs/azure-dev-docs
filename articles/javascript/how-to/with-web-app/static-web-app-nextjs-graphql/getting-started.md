@@ -49,7 +49,7 @@ A complete Next.js solution is available so you can follow along without worryin
 
 1. Fork the sample solution so you have a version under your own account. This is necessary for deploying from GitHub to Azure Static Web Apps in the final step of this series. 
 
-    In a browser, use the following URL to fork into your account, [https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame.git/fork](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame.git/fork). Finish the steps to complete the fork.
+    In a browser, use the following URL to fork into your account, [https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/fork](https://github.com/Azure-Samples/js-e2e-graphql-nextjs-triviagame/fork). Finish the steps to complete the fork.
 
 1. Clone your fork to your local computer in a command prompt or bash terminal. Change the following command to use your account name.
 
