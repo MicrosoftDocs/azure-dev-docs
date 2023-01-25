@@ -16,17 +16,17 @@ Whenever possible, we recommend you use managed identities to simplify overall m
 
 * [Overview: Passwordless connection for Azure services](/azure/developer/intro/passwordless-overview)
 
+* [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
+
+* [Use DefaultAzureCredential in an application](/azure/developer/python/sdk/authentication-overview#use-defaultazurecredential-in-an-application)
+
 * [Quickstart: Azure Blob Storage client library for Python with passwordless connections](/azure/storage/blobs/storage-quickstart-blobs-python)
 
 * [Quickstart: Send messages to and receive message from Azure Service Bus queues with passwordless connections](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
 
 * [Tutorial: Deploy a Python web app to Azure with managed identity](/azure/developer/python/tutorial-python-managed-identity-01)
 
-When programming using the Azure Python SDK (control or data plane), you should use the passwordless connection capabilities of the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
-
-* [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
-
-* [Use DefaultAzureCredential in an application](/azure/developer/python/sdk/authentication-overview#use-defaultazurecredential-in-an-application)
+The resources listed above show how to use Azure Python SDK with passwordless connection with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 
 ## Service Connector
 
