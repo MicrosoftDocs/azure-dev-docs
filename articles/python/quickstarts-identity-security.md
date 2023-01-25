@@ -12,7 +12,7 @@ Identity and security for Python apps on Azure are fundamentally about the [*aut
 
 ## Passwordless connections
 
-Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use [*passwordless connections*](/azure/developer/intro/passwordless-overview) to avoid using embedding sensitive data such as passwords in code or environment variables.
+Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use *passwordless connections* to avoid using embedding sensitive data such as passwords in code or environment variables.
 
 * [Overview: Passwordless connection for Azure services](/azure/developer/intro/passwordless-overview)
 
@@ -30,7 +30,7 @@ The resources listed show how to use Azure Python SDK and passwordless connectio
 
 ## Service Connector
 
-Many Azure resources you're likely to use when creating Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
+Many Azure resources you're likely to use with to your Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
 
 * [Quickstart: Create a service connection in App Service from the Azure portal](/azure/service-connector/quickstart-portal-app-service-connection)
 
@@ -48,7 +48,7 @@ Using a key management solution like [Azure Key Vault](/azure/key-vault/general/
 
 ## Authentication and identity for signing in users in apps
 
-You can also build applications to enable your users and customers to sign in to using their Microsoft identities or social accounts. Your app authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
+You can build Python applications that enable your users and customers to sign in using their Microsoft identities or social accounts. Your app authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
 
 * [Quickstart: Add sign-in with Microsoft to a web app](/azure/active-directory/develop/web-app-quickstart)
 
