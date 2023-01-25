@@ -36,9 +36,9 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 
 ## Install using MSI directly
 
-For an advanced approach, you can install using the MSI directly via the following command:
+For an advanced approach, you can install using the MSI directly. Download the MSI directly from [GitHub Releases](https://github.com/Azure/azure-dev/releases) and install the MSI via the following command:
 
-```bash
+```cmd
 msiexec.exe /i <msi-path> <optional parameters>
 ```
 
@@ -51,7 +51,7 @@ When installing using the MSI directly (instead of the [install script](#install
 
 For example, to install for all users in `c:\all-users\azd`, you can run a command similar to:
 
-```bash
+```cmd
 msiexec.exe /i <msi-path> ALLUSERS=1 INSTALLDIR=c:\all-users\azd
 ```
 
