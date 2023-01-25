@@ -169,7 +169,7 @@ The sample React app consists of the following elements:
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploaddemo`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
@@ -177,28 +177,31 @@ The sample React app consists of the following elements:
 
 ## 5. Generate your shared access signature (SAS) token 
 
-Generate the SAS token before configuring CORS. 
+Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
+
+* To implement least priviledge access 
+* To minimize access time range to 7 days or less. 
+* To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
-1. In the **Security + networking** section, select **Shared access signature**. 
-1. Configure the SAS token with the following settings. 
+1. Create a container named **uploaded**. 
+1. Select the container then right click the row and select **Generate SAS**.
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
+
+1. Configure the container SAS token with the following settings. 
 
     | Property|Value|
     |--|--|
-    |Allowed services|Blob|
-    |Allowed resource types|Service, Container, Object|
-    |Allowed permissions|Read, write, delete, list, add, create|
-    |Blob versioning permissions|Checked|
-    |Allow blob index permissions|Read/Write and Filter should be checked|
-    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your SAS token is only good for 24 hours.|
+    |Signing method|User delegation key|
+    |Allowed permissions|Read, create, write, list|
+    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
     |HTTPS only|Selected|
-    |Preferred routing tier|Basic|
-    |Signing Key|key1 selected|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Configure the SAS token as show in the image. The settings are explained below the image.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token":::
 
-1. Select **Generate SAS and connection string**. 
-1. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
+1. Select **Generate SAS and URL**. 
+1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you will need to regenerate a new SAS token. 
 
 <a name="set-sas-token-in-code-file"></a>
 
@@ -209,8 +212,8 @@ The SAS token is used when queries are made to your cloud-based resource.
 1. Add two required variables with their storage values:
 
     ```text
-    REACT_APP_STORAGESASTOKEN=
-    REACT_APP_STORAGERESOURCENAME=
+    REACT_APP_AZURE_STORAGE_SAS_TOKEN=
+    REACT_APP_AZURE_STORAGE_RESOURCE_NAME=
     ```
 
     React builds the static files with these variables.
@@ -235,6 +238,8 @@ Configure CORS for your resource so the client-side React code can access your s
     |Max age|86400|
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Configure CORS as show in the image. The settings are explained below the image.":::
+
+    Once the application is deployed, you returned to this CORS form to add the URL for the static web app.
 
 1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings. 
 
