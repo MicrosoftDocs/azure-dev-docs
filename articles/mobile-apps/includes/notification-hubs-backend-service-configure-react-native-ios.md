@@ -1,9 +1,9 @@
 ---
- author: alexeystrakh
- ms.author: alstrakh
- ms.date: 07/27/2020
- ms.service: mobile-services
- ms.topic: include
+author: mikeparker104
+ms.author: miparker
+ms.date: 07/27/2020
+ms.service: mobile-services
+ms.topic: include
 ---
 
 
