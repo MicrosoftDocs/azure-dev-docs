@@ -26,7 +26,7 @@ Whenever possible, we recommend you use managed identities to simplify overall m
 
 * [Tutorial: Deploy a Python web app to Azure with managed identity](/azure/developer/python/tutorial-python-managed-identity-01)
 
-The resources listed above show how to use Azure Python SDK with passwordless connection with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
+The resources listed show how to use Azure Python SDK and passwordless connections with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 
 ## Service Connector
 
