@@ -19,7 +19,7 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your Azure SQL Database server. It should be unique across Azure.
+- `<YOUR_DATABASE_NAME>`: The name of your Azure SQL Database server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
 - `<AZ_SQL_SERVER_PASSWORD>`: The password of your Azure SQL Database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
@@ -35,12 +35,10 @@ az group create \
 
 ## Create an Azure SQL Database instance
 
-The first thing we'll create is a managed Azure SQL Database server.
+The first thing you'll create is a managed Azure SQL Database server by running the following command.
 
 > [!NOTE]
 > The MS SQL password has to meet specific criteria, and setup will fail with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
-
-In [Azure Cloud Shell](https://shell.azure.com/), run the following command:
 
 ```azurecli
 az sql server create \
@@ -52,9 +50,7 @@ az sql server create \
     --output tsv
 ```
 
-This command creates an Azure SQL Database server.
-
-### Configure a firewall rule for your Azure SQL Database server
+## Configure a firewall rule for your Azure SQL Database server
 
 Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
@@ -98,7 +94,7 @@ az sql server firewall-rule create \
 
 ```
 
-### Configure an Azure SQL database
+## Configure an Azure SQL database
 
 The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by running the following command:
 

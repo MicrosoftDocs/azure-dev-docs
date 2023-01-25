@@ -4,6 +4,8 @@
   - name: Quickstart
     expanded: true
     items:
+      - name: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+        href: liberty-on-aro.md
       - name: Oracle WebLogic Server on Azure VM
         href: weblogic-server-azure-virtual-machine.md
       - name: Oracle WebLogic Server on AKS

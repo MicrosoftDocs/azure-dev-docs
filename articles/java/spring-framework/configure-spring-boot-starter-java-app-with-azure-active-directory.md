@@ -1,6 +1,6 @@
 ---
-title: Develop a Spring web app which supports sign-in by Azure Active Directory account
-description: Develop a Spring web app which supports sign-in by Azure Active Directory account
+title: Add sign-in with Azure Active Directory account to a Spring web app
+description: Shows you how to develop a Spring web app which supports sign-in by Azure Active Directory account.
 services: active-directory
 documentationcenter: java
 ms.date: 01/17/2023
@@ -12,9 +12,9 @@ ms.custom: devx-track-java, spring-cloud-azure
 adobe-target: true
 ---
 
-# Develop a Spring web app which supports sign-in by Azure Active Directory account
+# Add sign-in with Azure Active Directory account to a Spring web app
 
-This article shows you how to develop a Spring web app which supports sign-in by [Azure Active Directory (Azure AD) account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Azure AD sign-in page when it has been accessed anonymously. The following screenshot shows the Azure AD sign-in page:
+This article shows you how to develop a Spring web app which supports sign-in by [Azure Active Directory (Azure AD) account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Azure AD sign-in page when it's been accessed anonymously. The following screenshot shows the Azure AD sign-in page:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 

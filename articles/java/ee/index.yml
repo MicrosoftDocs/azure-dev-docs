@@ -97,6 +97,12 @@ landingContent:
         links:
           - text: JBoss EAP to Azure App Service
             url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+  - title: Migrate WebSphere to Azure
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+          url: liberty-on-aro.md
   - title: Reference
     linkLists:
       - linkListType: reference
