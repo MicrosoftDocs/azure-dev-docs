@@ -62,7 +62,7 @@ The sample React app consists of the following elements:
 - Visual Studio Code extensions:
     - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
+    - [reate storAzure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
 
 #### [JavaScript](#tab/javascript)
 
@@ -414,6 +414,23 @@ The [azure-storage-blob.js](https://github.com/Azure-Samples/js-e2e-browser-file
 
 The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
 
+:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_get_client":::
+
+#### [JavaScript](#tab/javascript)
+
+The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
+
+:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_get_client":::
+
+---
+
+
+### Upload file to blob storage
+
+#### [TypeScript](#tab/typescript)
+
+The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
+
 :::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_uploadFileToBlob":::
 
 #### [JavaScript](#tab/javascript)
@@ -424,7 +441,7 @@ The `uploadFileToBlob` function is the main function of the file. It creates the
 
 ---
 
-### Upload file to blob
+### Create blob in container
 
 #### [TypeScript](#tab/typescript)
 
