@@ -180,7 +180,7 @@ The sample React app consists of the following elements:
 Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
 * To implement least priviledge access 
-* To minimize access time range to 7 days or less. 
+* To minimize access time range to 7 days or less
 * To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
