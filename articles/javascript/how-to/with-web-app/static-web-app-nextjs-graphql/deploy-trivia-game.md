@@ -1,5 +1,5 @@
 ---
-title: "Trivia game: Deploy to Static Web Apps"
+title: "Trivia game: deploy to Static Web Apps"
 description: Create a Static Web App resource for the trivia game.
 ms.topic: how-to
 ms.date: 01/19/2023

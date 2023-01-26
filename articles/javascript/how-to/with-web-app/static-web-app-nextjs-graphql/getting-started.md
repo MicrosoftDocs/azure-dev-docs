@@ -1,5 +1,5 @@
 ---
-title: "Trivia game: Create Next.js GraphQL trivia game"
+title: "Trivia game: create Next.js GraphQL trivia game"
 description: Create a Next.js GraphQL app with server-side rendering to generate a trivia game.
 ms.topic: how-to
 ms.date: 01/19/2023

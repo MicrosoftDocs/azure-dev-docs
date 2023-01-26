@@ -1,5 +1,5 @@
 ---
-title: "Trivia game: Upload data to Cosmos DB"
+title: "Trivia game: upload data to Cosmos DB"
 description: Create a Cosmos DB NoSQL database and upload data for the trivia game.
 ms.topic: how-to
 ms.date: 01/19/2023

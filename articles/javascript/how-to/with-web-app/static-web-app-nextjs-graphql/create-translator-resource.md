@@ -1,5 +1,5 @@
 ---
-title: "Trivia game: Create translator resource"
+title: "Trivia game: create translator resource"
 description: Create a Translator resource for the trivia game.
 ms.topic: how-to
 ms.date: 01/19/2023
