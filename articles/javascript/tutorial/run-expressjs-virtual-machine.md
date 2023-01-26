@@ -6,7 +6,7 @@ ms.date: 01/26/2023
 ms.custom: devx-track-js, devx-track-azurecli, 
 ---
 
-# 1. Create Linux virtual machine with Express.js app using Azure CLI
+# Create Linux virtual machine with Express.js app using Azure CLI
 
 In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.
 
@@ -28,18 +28,18 @@ This tutorial includes the following tasks:
     * View list of traces with Azure portal
 * Remove resources with Azure CLI
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
 - SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
 [!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-# 2. Create Application Insights resource for web pages
+## 1. Create Application Insights resource for web pages
 
 In this step of the tutorial, create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
 
-## Create a resource group for your virtual machine resources
+### Create a resource group for your virtual machine resources
 
 This tutorial includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
 
@@ -51,7 +51,7 @@ az group create \
     --name rg-demo-vm-eastus 
 ```
 
-## Create Azure Monitor resource with Azure CLI
+### Create Azure Monitor resource with Azure CLI
 
 1. Install Application Insights extension to the Azure CLI.
 
@@ -74,13 +74,13 @@ az group create \
 
 1. Leave the terminal open, you will use it in the next step.
  
-# 3. Create Linux virtual machine using Azure CLI
+## 3. Create Linux virtual machine using Azure CLI
 
 In this section of the tutorial, use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud on the subscription where you intend to create the virtual machine. 
 
 All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud Shell and your local terminal, you will need to sign in again. 
 
-## Create a cloud-init file to expedite linux virtual machine creation
+### Create a cloud-init file to expedite linux virtual machine creation
 
 This tutorial uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
 
@@ -97,7 +97,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
     * Install the application dependencies
     * Start the Express.js app with PM2
 
-## Create a virtual machine resource 
+### Create a virtual machine resource 
 
 1. Enter the Azure CLI command, [az vm create](/cli/azure/vm#az-vm-create), at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
@@ -118,7 +118,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 1. Keep the **publicIpAddress** value from the response, it is needed to view the web app in a browser and to connect to the VM. 
      
 
-## Open port for virtual machine
+### Open port for virtual machine
 
 When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command, [az vm open-port](/cli/azure/vm#az-vm-open-port) so the web app is publicly available:
 
@@ -129,7 +129,7 @@ az vm open-port \
   --name demo-vm
 ```
 
-## Browse to web site
+### Browse to web site
 
 1. Use the public IP address in a web browser to make sure the virtual machine is available and running. Change the URL to use the value from `publicIpAddress`.
 
@@ -143,7 +143,7 @@ az vm open-port \
     * Your client IP
     * Current Date/Time  
 
-    :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
+    :::image type="content" source="../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
 
 1. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
 
@@ -151,11 +151,11 @@ az vm open-port \
 
     :::code language="JavaScript" source="~/../js-e2e-vm/index.js" :::
 
-# 4. Connect to Linux virtual machine using SSH
+## 4. Connect to Linux virtual machine using SSH
 
 In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells, including the Azure Cloud Shell. 
 
-## Get your IP address
+### Get your IP address
 
 1. Get your IP address using the Azure CLI command, [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses):
 
@@ -170,7 +170,7 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     :::code language="json" source="~/../js-e2e-vm/az-vm-public-ip.json" highlight="12":::
 
 
-## Connect with SSH and change web app
+### Connect with SSH and change web app
 
 Use the same terminal or shell window as with previous steps. 
 
@@ -212,7 +212,7 @@ Use the same terminal or shell window as with previous steps.
     -rw-r--r--   1 root root   697 Nov 11 20:23 readme.md
     ```
 
-## Install Monitoring SDK
+### Install Monitoring SDK
 
 1. In the SSH terminal which is connected to your virtual machine, install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
 
@@ -222,7 +222,7 @@ Use the same terminal or shell window as with previous steps.
 
 1. Wait until the command completes before continuing. 
 
-## Add Monitoring instrumentation key
+### Add Monitoring instrumentation key
 
 1. In the SSH terminal, which is connected to your virtual machine, use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to open the `package.json` file.
 
@@ -254,12 +254,12 @@ Use the same terminal or shell window as with previous steps.
     sudo npm start
     ```
 
-# 5. Install Azure SDK client library to monitor web app
+## 5. Install Azure SDK client library to monitor web app
 
 In this step, add the Azure SDK client library to the code on the virtual machine to begin collecting app logs in the Azure cloud.
 
 
-## Edit index.js for logging with Azure Monitor Application Insights
+### Edit index.js for logging with Azure Monitor Application Insights
 
 1. Still in the SSH terminal, use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) text editor provided in the virtual machine to open the `index.js`. 
 
@@ -291,7 +291,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 <a name="viewing-the-vm-logs-for-nginx-and-pm2"></a>
 
-## Viewing the log for NGINX
+### Viewing the log for NGINX
 
 The virtual machine (VM) collects logs for NGINX, which are available to view.
 
@@ -312,7 +312,7 @@ The log includes the call from your local computer.
 "GET /trace HTTP/1.1" 200 10 "-"
 ```
 
-## Viewing the log for PM2
+### Viewing the log for PM2
 
 The virtual machine collects logs for PM2, which are available to view.
 
@@ -341,11 +341,23 @@ The virtual machine collects logs for PM2, which are available to view.
     This displays your PM2 log with `APPINSIGHTS_INSTRUMENTATIONKEY` highlighted in a different color. 
 
 
-## VM logging and cloud logging
+### VM logging and cloud logging
 
 In this application, using `console.log` writes the messages into the PM2 logs found on the VM only. If you delete the logs or the VM, you lose that information.
 
 If you want to retain the logs beyond the lifespan of your virtual machine, use Application Insights. 
+
+## 7. Clean up resources
+
+Once you have completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you are not billed for any more usage. 
+
+In the same terminal, use the Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete the resource group:
+
+```azurecli
+az group delete --name rg-demo-vm-eastus -y
+```
+
+This command takes a few minutes. 
 
 ## Troubleshooting
 
@@ -355,19 +367,6 @@ If you have issues, use the following table to understand how to resolve your is
 |--|--|
 |502 Gateway error|This could indicate your index.js or package.js file has an error. View your PM2 logs at `/var/log/pm2.log` for more information. The most recent error is at the bottom of the file. If you are sure those files are correct, stop and start the PM2 using the npm scripts in `package.json`.|
 
-# 7. Clean up resources
-
-Once you have completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you are not billed for any more usage. 
-
-## Remove all the resources by removing resource group
-
-In the same terminal, use the Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete the resource group:
-
-```azurecli
-az group delete --name rg-demo-vm-eastus -y
-```
-
-This command takes a few minutes. 
 
 ## Sample code
 
