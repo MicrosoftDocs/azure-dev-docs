@@ -26,9 +26,6 @@ When you create a Static Web App, it creates a GitHub action to deploy your app.
 1. Use the top search box to search for `Static Web Apps`.
 1. Select your app from the list.
 1. Select **Settings -> APIs** to see your API is deployed as a **managed** backend resource. Select the managed resource to see the name of the function is `next_function`.
-
-    :::image type="content" source="../../../media/static-web-app-nextjs-graphql/azure-portal-static-web-app-setting-api-backend-details.png" alt-text="Screenshot of Azure portal showing backend details for managed function for static web app.":::
-
 1. In the Azure portal, on the **Overview** page, select **URL** to view your static web app in the browser.
 1. The web app displays but the trivia game doesn't start. This is because the web app server doesn't know about the database and translation resource names and keys.  
 
