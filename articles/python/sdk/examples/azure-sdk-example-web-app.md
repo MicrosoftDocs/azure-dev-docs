@@ -1,24 +1,24 @@
 ---
-title: Provision and deploy a web app using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 06/24/2021
+title: Create and deploy a Python web app to Azure App Service using the Azure SDK libraries
+description: Use Azure SDK for Python to create a web app and then deploy app code from a GitHub repository to Azure App Service.
+ms.date: 01/26/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
-# Example: Use the Azure libraries to provision and deploy a web app
+# Example: Use the Azure libraries to create and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
+This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create a web app on Azure App Service and deploy app code from a GitHub repository. Using the management libraries is useful for automating creation. Other ways to do the same think include Azure Portal, Azure CLI, and VS Code. For example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
-## 2: Install the needed Azure library packages
+## 2: Install the required Azure library packages
 
 Create a file named *requirements.txt* with the following contents:
 
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ## 3: Fork the sample repository
 
-Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You use a fork to ensure that you have permissions to deploy the repository to Azure.
+Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You'll use a fork to ensure that you have permissions to deploy the repository to Azure.
 
 ![Forking the sample repository on GitHub](../../media/azure-sdk-example-web-app/fork-github-repository.png)
 
