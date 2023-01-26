@@ -81,7 +81,7 @@ items:
               - name: App Service
                 href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Blob Storage
-                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                href: /azure/storage/blobs/assign-azure-role-data-access?tabs=portal&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps
                 href: /azure/container-apps/managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Cosmos DB NoSQL
@@ -120,6 +120,12 @@ items:
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Kafka with Event Hubs
                 href: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Certificates
+                href: /azure/key-vault/certificates/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Keys
+                href: /azure/key-vault/keys/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Key Vault - Secrets
+                href: /azure/key-vault/secrets/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Blobs
                 href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Queues
@@ -160,6 +166,8 @@ items:
             href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Service Bus - Topics
+            href: /azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Blobs
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Queues
