@@ -392,7 +392,7 @@ The [azure-storage-blob.ts](https://github.com/Azure-Samples/ts-e2e-browser-file
 | Variable | Description |
 |--|--|
 |`sasToken`|The SAS token created with the Azure portal is prepended with a `?`. Remove it before setting it in your `sasToken` variable.| 
-|`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
+|`container`|The name of the container in the storage account. You can think of this as equivalent to a folder or directory for a file system.|
 |`storageAccountName`|Your resource name.|
 
 :::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_package":::
