@@ -16,6 +16,34 @@
         "redirect_url": "/azure/developer/python" 
       },
       { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/introduction.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },      
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/clean-up-resources.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-expressjs-virtual-machine" 
+      }, 
+      { 
         "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
         "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
       },
