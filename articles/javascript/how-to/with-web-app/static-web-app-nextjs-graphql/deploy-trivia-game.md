@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 
-# Trivia game: Deploy to Static Web Apps
+# Trivia game: deploy to Static Web Apps
 
 The trivia game deploys both client and server of the Next.js to Static Web Apps as a Next.js Hybrid application from your GitHub fork. When the app is deployed, you can see the managed function deployed in the Azure portal. 
 
@@ -29,7 +29,7 @@ When you create a Static Web App, it creates a GitHub action to deploy your app.
 1. In the Azure portal, on the **Overview** page, select **URL** to view your static web app in the browser.
 1. The web app displays but the trivia game doesn't start. This is because the web app server doesn't know about the database and translation resource names and keys.  
 
-## Configure the Static Web App
+## Configure your static web app
 
 Configure web app server with logging and secrets.  
 
