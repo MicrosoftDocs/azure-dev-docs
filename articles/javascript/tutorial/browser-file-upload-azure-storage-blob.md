@@ -2,7 +2,7 @@
 title: "JavaScript: Upload image to Blob Storage"
 description: Use a React Static Web App with TypeScript or JavaScript to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/26/203
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
@@ -135,13 +135,13 @@ The sample React app consists of the following elements:
 
 1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, and run the following command to install the sample's dependencies.
 
-    ```javascript
+    ```bash
     npm install
     ```
 
 1. In the same terminal window, run the command to build and run the web app.
 
-    ```javascript
+    ```bash
     npm start
     ```
 
@@ -249,7 +249,7 @@ Your SAS token and storage account name are pulled into the application from env
 
 1. If the app isn't running, start it again:
 
-    ```javascript
+    ```bash
     npm start
     ```
 
