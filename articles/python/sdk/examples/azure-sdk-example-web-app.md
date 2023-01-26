@@ -8,7 +8,9 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 # Example: Use the Azure libraries to create and deploy a web app
 
-This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create a web app on Azure App Service and deploy app code from a GitHub repository. With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
+This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create  and deploy a web app to Azure App Service. The app code is deployed from a GitHub repository.
+
+With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -54,7 +56,7 @@ AZURE_SUBSCRIPTION_ID=<subscription_id>
 
 ---
 
-## 4: Write code to provision and deploy a web app
+## 4: Write code to create and deploy a web app
 
 Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details of the code. Be sure to define the `REPO_URL` and `AZURE_SUBSCRIPTION_ID` environment variables before running the script.
 
@@ -82,14 +84,21 @@ Visit the deployed web site by running the following command:
 az webapp browse --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
 ```
 
-Replace the web app name and resource group name with the values you used in the script. You should see "Hello, World!" in the browser.
+Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script. You should see "Hello, World!" in the browser.
 
-Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Select the resource group name to verify the expected resources exist, namely the App Service Plan and the App Service.
+If you don't see the expected output, wait a few minutes and try again.
+
+If you still don't see the expected output, then:
+
+1. Go to the [Azure portal](https://portal.azure.com).
+1. Select **Resource groups**, and find the resource group you created.
+1. Select the resource group name to view the resources it contains. Specifically, verify that there's an App Service Plan and the App Service.
+1. Select the App Service, and then select **Deployment Center** to view deployment logs.
 
 ## 7: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-WebApp-rg --no-wait
+az group delete --name PythonAzureExample-WebApp-rg --no-wait
 ```
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
