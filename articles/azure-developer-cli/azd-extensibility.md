@@ -9,6 +9,8 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
+The Azure Developer CLI supports various extension points you can hook into to customize your deployment pipelines. The Hooks middleware allows you to wire up
+
 ## Azd Command
 
 The following azd command are supported by hooks:
