@@ -179,7 +179,7 @@ The sample React app consists of the following elements:
 
 Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
-* To implement least priviledge access 
+* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) 
 * To minimize access time range to 7 days or less
 * To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
