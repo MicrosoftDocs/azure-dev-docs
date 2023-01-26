@@ -42,19 +42,21 @@ Then create an environment variable named `REPO_URL` with the URL of your fork. 
 
 ```cmd
 set REPO_URL=<url_of_your_fork>
+set AZURE_SUBSCRIPTION_ID=<subscription_id>
 ```
 
 # [bash](#tab/bash)
 
 ```bash
 REPO_URL=<url_of_your_fork>
+AZURE_SUBSCRIPTION_ID=<subscription_id>
 ```
 
 ---
 
 ## 4: Write code to provision and deploy a web app
 
-Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details:
+Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details of the code. Be sure to define the `REPO_URL` and `AZURE_SUBSCRIPTION_ID` environment variables before running the script.
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py":::
 
@@ -74,17 +76,15 @@ python provision_deploy_web_app.py
 
 ## 6: Verify the web app deployment
 
-1. Visit the deployed web site by running the following command:
+Visit the deployed web site by running the following command:
 
-    ```azurecli
-    az webapp browse -n PythonAzureExample-WebApp-12345
-    ```
+```azurecli
+az webapp browse --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
+```
 
-    Replace "PythonAzureExample-WebApp-12345" with the specific name of your web app.
+Replace the web app name and resource group name with the values you used in the script. You should see "Hello, World!" in the browser.
 
-    You should see "Hello, World!" in the browser.
-
-1. Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Then Navigate into that list to verify the expected resources exist, namely the App Service Plan and the App Service.
+Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Select the resource group name to verify the expected resources exist, namely the App Service Plan and the App Service.
 
 ## 7: Clean up resources
 
@@ -92,9 +92,9 @@ python provision_deploy_web_app.py
 az group delete -n PythonAzureExample-WebApp-rg --no-wait
 ```
 
-Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
 
 ### For reference: equivalent Azure CLI commands
 
