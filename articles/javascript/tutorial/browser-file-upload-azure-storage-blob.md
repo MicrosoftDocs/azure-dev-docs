@@ -12,17 +12,6 @@ Use an Azure Static Web App (client-side React app) to upload an image file to a
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
-#### [TypeScript](#tab/typescript)
-* [**Sample code**](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
-
-
-#### [JavaScript](#tab/javascript)
-* [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
-
---- 
-
 ## Application architecture and functionality
 
 This article includes several top Azure tasks for JavaScript developers:
@@ -481,6 +470,19 @@ The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClie
 In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on the your resource group then select **Delete**.
 
 This deletes all resources in the group, including your Storage and Static Web app resources.
+
+## Sample code 
+
+#### [TypeScript](#tab/typescript)
+* [**Sample code**](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob)
+* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
+
+
+#### [JavaScript](#tab/javascript)
+* [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
+* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
+
+--- 
 
 ## Next steps
 
