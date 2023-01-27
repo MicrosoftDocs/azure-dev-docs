@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create  and deploy a web app to Azure App Service. The app code is deployed from a GitHub repository.
 
-With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
+With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For examples, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
