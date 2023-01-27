@@ -1,5 +1,5 @@
 ---
-title: Extend your Azure Developer CLI deployment pipelines using Hooks
+title: Extend your Azure Developer CLI deployment pipelines using hooks
 description: Explores how to use Azure Developer CLI hooks to customize deployment pipelines
 author: alexwolfmsft
 ms.author: alexwolf
@@ -9,44 +9,44 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-# Extend your Azure Developer CLI deployment pipelines using Hooks
+# Extend your Azure Developer CLI deployment pipelines using hooks
 
-The Azure Developer CLI supports various extension points to customize your deployment pipelines. The Hooks middleware allows you to execute custom scripts before and after `azd` commands and service events. Hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. For example, you may want to run a custom scripts in the following scenarios:
+The Azure Developer CLI supports various extension points to customize your deployment pipelines. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecyle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
 
-* Use the *prerestore* to customize dependency management. 
-* Use the *predeploy* to verify external dependencies or custom configurations are in place before deploying your app.
+For example, you may want to run a custom scripts in the following scenarios:
+
+* Use the *prerestore* hook to customize dependency management.
+* Use the *predeploy* hook to verify external dependencies or custom configurations are in place before deploying your app.
 * Use the *postup* hook at the end of the pipeline to perform custom cleanup or logging.
 
-## Available Hooks
+## Available hooks
 
-The following `azd` commands support hooks:
+The following `azd` command hooks are available:
 
-* `prerestore` and `postrestore`: Run before and after packages and dependencies are restored.
+* `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
 * `predeploy` and `postdeploy`: Run before and after the application code is deployed to Azure.
-* `preup` and `postup`: Run before and after the combined deployment pipeline. `Up` is a shorthand command that runs `restore`, `provision`, and `deploy`.
+* `preup` and `postup`: Run before and after the combined deployment pipeline. `Up` is a shorthand command that runs `restore`, `provision`, and `deploy` sequentially.
 * `predown` and `postdown`: Run before and after the resources are removed.
 
-The following `service lifecycle events are supported by hooks:
+The following service lifecycle event hooks are available:
 
 * `prerestore` and `postrestore`: Run before and after the service packages and dependencies are restored.
 * `prepackage` and `postpackage`: Run before and after the app is packaged for deployment.
 * `predeploy` and `postdeploy`: Run before and after the service code is deployed to Azure.
 
-## Hook Configuration
+## Hook configuration
 
-All types of hooks support the following configuration options:
+Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
-* `shell`: sh | pwsh(automatically inferred from run if not specified)
-* `run`: Can either be inline script or path to a file
-* `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false)
-* `interactive`: When set will bind the running script to the console stdin, stdout & stderr (default false)
-* `windows`: Configuration that will only apply on windows OS
-* `posix`: Configuration that will only apply to POSIX based OSes (Linux & MaxOS)
+* `shell`: sh | pwsh (automatically inferred from run if not specified).
+* `run`: Define an inline script or a path to a file.
+* `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
+* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
+* `windows`: Specifies that the nested configurations will only apply on windows OS.
+* `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS).
 
-Hooks can be registered in the root of your azure.yaml or within a specific service configuration.
-
-## Hook Examples
+## Hook examples
 
 The examples below demonstrate different types of hook registrations and configurations.
 
@@ -78,7 +78,7 @@ services:
 
 ### Service registration
 
-Hooks can be also be configured to only run for specific services defined in your `.yml` file. 
+hooks can be also be configured to run only for specific services defined in your `.yml` file. 
 
 ```yml
 name: todo-nodejs-mongo
