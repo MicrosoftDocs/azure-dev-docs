@@ -166,18 +166,18 @@ The sample React app consists of the following elements:
 
 ## 5. Generate your shared access signature (SAS) token 
 
-Create a SAS token for the container. A SAS token is a time-duration and permission limited token. 
+Create a SAS token for the container. A SAS token is a time-duration and permission limited token for delegating access to a container or blob in your Azure Storage account. 
 
 Select from the two available types:
 
-* User delegation SAS: Recommended. Signed with Azure AD account. Requires set up for role-based access control.
+* User-delegated SAS: more secure, requires set up for role-based access control
 * Account key SAS: less secure
 
 #### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
 
 Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
-* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) 
+* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) through Azure RBAC
 * To minimize access time range to 7 days or less
 * To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
@@ -193,7 +193,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
     az storage account show --resource-group 'YOUR-RESOURCE-GROUP' --name 'YOUR-STORAGE-RESOURCE-NAME' --query id
     ```
 
-     This command returns a resource idin the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
+     This command returns a resource id in the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
 
 1. Copy the output, the resource id, and use it in the following command to add role-based-access control to the storage account.
 
@@ -211,7 +211,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
     |--|--|
     |Signing method|User delegation key|
     |Permissions|Read, create, write, list|
-    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
+    |Start and expiry date/time|Accept the start date/time and **set the expiry to 24 hours in the future**. A user-delgated SAS token can have a maximum expiry of 7 days after the start time.|
     |HTTPS only|Selected|
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
@@ -235,10 +235,10 @@ Generate the [account SAS token](/rest/api/storageservices/create-account-sas) b
     |--|--|
     |Signing method|Account key|
     |Permissions|Read, create, write, list|
-    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
+    |Start and expiry date/time|Accept the start date/time and **set the expiry to 24 hours in the future**. |
     |HTTPS only|Selected|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the service SAS token.":::
 
 1. Select **Generate SAS and URL**. 
 1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
