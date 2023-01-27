@@ -1,9 +1,9 @@
 ---
-title: Azure Developer CLI's azure.yaml schema
-description: Describes the schema for the Azure Developer CLI azure.yaml file
+title: Extend your Azure Developer CLI deployment pipelines using Hooks
+description: Explores how to use Azure Developer CLI hooks to customize deployment pipelines
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/24/2022
+ms.date: 1/27/2023
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
