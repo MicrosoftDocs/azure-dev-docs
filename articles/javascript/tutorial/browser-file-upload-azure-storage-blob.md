@@ -170,7 +170,7 @@ Create a SAS token for the container. A SAS token is a time-duration and permiss
 
 Select from the two available types:
 
-* User-delegated SAS: more secure, requires set up for role-based access control
+* User delegation SAS: more secure, requires set up for role-based access control
 * Account key SAS: less secure
 
 #### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
