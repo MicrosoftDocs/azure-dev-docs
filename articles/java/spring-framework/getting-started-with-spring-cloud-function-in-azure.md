@@ -68,7 +68,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
         <!-- customize those two properties. The functionAppName should be unique across Azure -->
         <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
-        <functionAppServicePlanName>sample-service-plan</functionAppServicePlanName>
+        <functionAppServicePlanName>my-spring-function-service-plan</functionAppServicePlanName>
         <functionAppName>my-spring-function</functionAppName>
 
         <functionAppRegion>westeurope</functionAppRegion>
