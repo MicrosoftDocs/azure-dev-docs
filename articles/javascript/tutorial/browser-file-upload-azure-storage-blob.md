@@ -175,7 +175,7 @@ Select from the two available types:
 
 #### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
 
-Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
+Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
 * To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) 
 * To minimize access time range to 7 days or less
@@ -185,7 +185,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 1. Create a container named **uploaded**. 
 1. Open the Cloud Shell in the portal.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" alt-text="Azure portal icon bar with Cloud Shell button highlighted." lightbox="source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" alt-text="Azure portal icon bar with Cloud Shell button highlighted." lightbox="source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png":::
 
 1. Use the following command with your own values.
 
@@ -205,12 +205,12 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
 
-1. Configure the container SAS token with the following settings. 
+1. Configure the container **User delegation** SAS token with the following settings. If a setting isn't specified, don't change the setting.
 
     | Property|Value|
     |--|--|
     |Signing method|User delegation key|
-    |Allowed permissions|Read, create, write, list|
+    |Permissions|Read, create, write, list|
     |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
     |HTTPS only|Selected|
 
@@ -219,8 +219,31 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 1. Select **Generate SAS and URL**. 
 1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
 
-#### [Account key SAS (recommended)](#tab/account-key-sas)
+#### [Account key SAS](#tab/account-key-sas)
 
+Generate the [account SAS token](/rest/api/storageservices/create-account-sas) before configuring CORS. 
+
+1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
+1. Create a container named **uploaded**. 
+1. Select the container then right-click the row and select **Generate SAS**.
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-account-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-account-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
+
+1. Configure the container **Account** SAS token with the following settings. If a setting isn't specified, don't change the setting.
+
+    | Property|Value|
+    |--|--|
+    |Signing method|Account key|
+    |Permissions|Read, create, write, list|
+    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
+    |HTTPS only|Selected|
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
+
+1. Select **Generate SAS and URL**. 
+1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
+
+---
 
 <a name="set-sas-token-in-code-file"></a>
 
