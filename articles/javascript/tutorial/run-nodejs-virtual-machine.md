@@ -1,14 +1,14 @@
 ---
-title: Azure CLI Linux virtual machine
+title: Azure CLI virtual machine with Express.js
 description: Create an Azure Linux virtual machine, with a clone of an Express.js-based app from a GitHub repository.  
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.custom: devx-track-js, devx-track-azurecli, 
 ---
 
-# Create Linux virtual machine with Express.js app using Azure CLI
+# Create Express.js virtual machine using Azure CLI
 
-In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.
+In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.
 
 This tutorial includes the following tasks:
 
@@ -32,18 +32,21 @@ This tutorial includes the following tasks:
 
 ## Prerequisites
 
-- SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
+- SSH to connect to the VM: Use Azure Cloud Shell or a modern terminal such as bash shell, which includes SSH.
 [!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Create Application Insights resource for web pages
 
-In this step of the tutorial, create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
+Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you are done.Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
 
-### Create a resource group for your virtual machine resources
+1. Optional, if you have more than one subscription, use [az account set](](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription)) to set the default subscription before completing the remaining commands.
 
-This tutorial includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
+    ```azurecli
+    az account set \
+        --subscription "ACCOUNT NAME OR ID" 
+    ```
 
-At a terminal or bash shell, enter the Azure CLI command to create an Azure resource group, [az group create](/cli/azure/group#az-group-create), with the name `rg-demo-vm-eastus`:
+2. Create an Azure resource group with [az group create](/cli/azure/group#az-group-create). Use the name `rg-demo-vm-eastus`:
 
 ```azurecli
 az group create \
@@ -70,19 +73,13 @@ az group create \
       --query instrumentationKey --output table
     ```
 
-    In the resulting table, copy the **Result**, you will need that value as your `instrumentationKey` later. 
+1. Copy the **Result** from the output, you will need that value as your `instrumentationKey` later. 
 
 1. Leave the terminal open, you will use it in the next step.
  
 ## 3. Create Linux virtual machine using Azure CLI
 
-In this section of the tutorial, use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud on the subscription where you intend to create the virtual machine. 
-
-All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud Shell and your local terminal, you will need to sign in again. 
-
-### Create a cloud-init file to expedite linux virtual machine creation
-
-This tutorial uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
+Uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
 
 1. Create a local file named `cloud-init-github.txt` and save the following contents to the file or you can [save the repository's file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The [cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples) formatted file needs to exist in the same folder as the terminal path for your Azure CLI commands.
 
@@ -113,9 +110,9 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
       --custom-data cloud-init-github.txt
     ```
 
-    The process may take a few minutes. 
+1. Please wait while the process may take a few minutes. 
 
-1. Keep the **publicIpAddress** value from the response, it is needed to view the web app in a browser and to connect to the VM. 
+1. Keep the **publicIpAddress** value from the response, it is needed to view the web app in a browser and to connect to the VM. If you lose this IP, use the Azure CLI command, [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) to get it again.
      
 
 ### Open port for virtual machine
@@ -137,6 +134,8 @@ az vm open-port \
     http://YOUR-VM-PUBLIC-IP-ADDRESS
     ```
 
+1. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
+
 1. The virtual machine's web app returns the following information:
 
     * VM name
@@ -145,7 +144,6 @@ az vm open-port \
 
     :::image type="content" source="../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
 
-1. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
 
 1. The initial code file for the web app has a single route, which passed through the NGINX proxy. 
 
@@ -155,24 +153,7 @@ az vm open-port \
 
 In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells, including the Azure Cloud Shell. 
 
-### Get your IP address
-
-1. Get your IP address using the Azure CLI command, [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses):
-
-    ```azurecli
-    az vm list-ip-addresses \
-      --resource-group rg-demo-vm-eastus \
-      --name demo-vm
-    ```
-
-    The results include your public IP address:
-
-    :::code language="json" source="~/../js-e2e-vm/az-vm-public-ip.json" highlight="12":::
-
-
 ### Connect with SSH and change web app
-
-Use the same terminal or shell window as with previous steps. 
 
 1. Connect to your remote virtual machine with the following command.  
 
@@ -375,3 +356,4 @@ If you have issues, use the following table to understand how to resolve your is
 ## Next step
 
 * Learn more about [Azure Linux VMs](/azure/virtual-machines)
+* [Inject certificates from Key Vault](/azure/virtual-machines/linux/tutorial-automate-vm-deployment#inject-certificates-from-key-vault)

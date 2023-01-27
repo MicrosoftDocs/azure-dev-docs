@@ -178,11 +178,11 @@
           href: how-to/with-visual-studio-code/containerize-local-project.md              
       - name: Virtual machine web apps
         items:
-          - name: "Express.js"
-            href: tutorial/run-expressjs-virtual-machine.md
-          - name: "VM: Create and delete VM"
+          - name: "Express.js VM"
+            href: tutorial/run-nodejs-virtual-machine.md
+          - name: "Create and delete VM with SDK"
             href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-          - name: "VM: Manage"
+          - name: "Manage VM with SDK"
             href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Visual Studio Code
     items:
