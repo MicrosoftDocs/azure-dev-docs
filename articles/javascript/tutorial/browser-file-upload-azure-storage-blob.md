@@ -166,6 +166,15 @@ The sample React app consists of the following elements:
 
 ## 5. Generate your shared access signature (SAS) token 
 
+Create a SAS token for the container. A SAS token is a time-duration and permission limited token. 
+
+Select from the two available types:
+
+* User-delegated SAS: more secure, requires set up for role-based access control
+* Account key SAS: less secure
+
+#### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
+
 Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
 * To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) 
@@ -174,6 +183,24 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
 1. Create a container named **uploaded**. 
+1. Open the Cloud Shell in the portal.
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" alt-text="Azure portal icon bar with Cloud Shell button highlighted." lightbox="source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"":::
+
+1. Use the following command with your own values.
+
+    ```azurecli
+    az storage account show --resource-group 'YOUR-RESOURCE-GROUP' --name 'YOUR-STORAGE-RESOURCE-NAME' --query id
+    ```
+
+     This command returns a resource idin the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
+
+1. Copy the output, the resource id, and use it in the following command to add role-based-access control to the storage account.
+
+    ```azurecli
+    az role assignment create --assignee "YOUR-EMAIL" --role "Storage Blob Data Contributor" --scope "YOUR-RESOURCE-ID"
+    ```
+
 1. Select the container then right-click the row and select **Generate SAS**.
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
@@ -191,6 +218,9 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
 1. Select **Generate SAS and URL**. 
 1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
+
+#### [Account key SAS (recommended)](#tab/account-key-sas)
+
 
 <a name="set-sas-token-in-code-file"></a>
 
