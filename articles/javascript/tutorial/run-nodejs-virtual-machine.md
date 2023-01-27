@@ -39,7 +39,7 @@ This tutorial includes the following tasks:
 
 Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you are done.Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
 
-1. Optional, if you have more than one subscription, use [az account set](](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription)) to set the default subscription before completing the remaining commands.
+1. Optional, if you have more than one subscription, use [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription)) to set the default subscription before completing the remaining commands.
 
     ```azurecli
     az account set \
