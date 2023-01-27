@@ -48,11 +48,11 @@ Create an Azure resource group for all your Azure resources and a Monitor resour
 
 2. Create an Azure resource group with [az group create](/cli/azure/group#az-group-create). Use the name `rg-demo-vm-eastus`:
 
-```azurecli
-az group create \
-    --location eastus \
-    --name rg-demo-vm-eastus 
-```
+    ```azurecli
+    az group create \
+        --location eastus \
+        --name rg-demo-vm-eastus 
+    ```
 
 ### Create Azure Monitor resource with Azure CLI
 
