@@ -25,7 +25,7 @@ Make sure the following are installed on your local developer workstation:
     - Docker: the sample repo includes files to run this sample is a Visual Studio Code dev container ready for local development
     - Azurite: local Function app development can use [Azurite](https://www.npmjs.com/package/azurite) to satisfy the local.settings.json's requirement for `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`.
     - [Azure CLI](/cli/azure/install-azure-cli): to remove resources after you completed the following procedure.
-    - 
+
 ## Clone and run the Azure Function GraphQL sample code
 
 1. Open a terminal window and `cd` to the directory where you want to clone the sample code.

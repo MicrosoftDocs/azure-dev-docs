@@ -318,6 +318,7 @@
 | Microsoft.Azure.Management.VideoAnalyzer | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Microsoft.Azure.Management.VideoAnalyzer/1.0.0-beta.3) |  |  |
 | Microsoft.Azure.ServiceBus.EventProcessorHost | NuGet [5.0.1](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/5.0.1) |  |  |
 | Microsoft.Azure.SignalR.Emulator | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Emulator/1.1.0)<br>NuGet [1.0.0-preview1-10809](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Emulator/1.0.0-preview1-10809) |  |  |
+| Microsoft.Azure.WebJobs.Extensions.Kusto | NuGet [1.0.0-Preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto/1.0.0-Preview) |  |  |
 | Microsoft.Azure.WebPubSub.AspNetCore | NuGet [1.0.0-beta.4](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.AspNetCore/1.0.0-beta.4) |  |  |
 | Microsoft.Azure.WebPubSub.Common | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.Common/1.2.0) |  |  |
 | Purview Share | NuGet [1.0.3-beta.20](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/1.0.3-beta.20) |  |  |
@@ -482,9 +483,9 @@
 | SignalR - Benchmark | NuGet [1.0.0-preview1-10415](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Benchmark/1.0.0-preview1-10415) |  | GitHub [1.0.0-preview1-10415](https://github.com/azure/azure-signalr-bench) |
 | SignalR - Protocols | NuGet [1.21.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Protocols/1.21.0) |  | GitHub [1.21.0](https://github.com/Azure/azure-signalr/tree/v1.5.0/src/Microsoft.Azure.SignalR.Protocols) |
 | SignalR - Serverless Protocols | NuGet [1.9.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Serverless.Protocols/1.9.0) |  | GitHub [1.9.0](https://github.com/Azure/azure-functions-signalrservice-extension/tree/v1.2.0/src/Microsoft.Azure.SignalR.Serverless.Protocols) |
-| Speech | NuGet [1.24.2](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.24.2) |  |  |
-| Speech Remote Conversation | NuGet [1.24.2](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Remoteconversation/1.24.2) |  |  |
-| Speech Xamarin iOS | NuGet [1.24.2](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Xamarin.iOS/1.24.2) |  |  |
+| Speech | NuGet [1.25.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.25.0) |  |  |
+| Speech Remote Conversation | NuGet [1.25.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Remoteconversation/1.25.0) |  |  |
+| Speech Xamarin iOS | NuGet [1.25.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Xamarin.iOS/1.25.0) |  |  |
 | Spell Check | NuGet [4.1.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/4.1.0-preview.1) |  | GitHub [4.1.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.SpellCheck_4.1.0-preview.1/sdk/cognitiveservices/Language.SpellCheck) |
 | Spring Cloud Client | NuGet [2.0.0-preview.3](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/2.0.0-preview.3) |  |  |
 | SQL Database Elastic Scale Client | NuGet [2.3.0](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/2.3.0) |  | GitHub [2.3.0](https://github.com/Azure/elastic-db-tools/tree/v2.3.0/Src/ElasticScale.Client) |

@@ -162,6 +162,8 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Cosmos DB for NoSQL
+            href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Queues

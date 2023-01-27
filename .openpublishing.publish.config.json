@@ -95,6 +95,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ts-e2e-browser-file-upload-storage-blob",
+      "url": "https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "js-e2e-vm",
       "url": "https://github.com/Azure-Samples/js-e2e-vm",
       "branch": "main",
@@ -157,6 +163,12 @@
     {
       "path_to_root": "js-e2e-graphql-cosmosdb-static-web-app",
       "url": "https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "js-e2e-graphql-nextjs-triviagame",
+      "url": "https://github.com/azure-samples/js-e2e-graphql-nextjs-triviagame",
       "branch": "main",
       "branch_mapping": {}
     },
