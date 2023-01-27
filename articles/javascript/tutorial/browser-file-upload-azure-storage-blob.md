@@ -166,7 +166,7 @@ The sample React app consists of the following elements:
 
 ## 5. Generate your shared access signature (SAS) token 
 
-Create a SAS token for the container. A SAS token is a time-duration and permission limited token. 
+Create a SAS token for the container. A SAS token is a time-duration and permission limited token for delegating access to a container or blob in your Azure Storage account. 
 
 Select from the two available types:
 
