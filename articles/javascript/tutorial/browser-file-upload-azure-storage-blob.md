@@ -203,7 +203,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
 1. Select the container then right-click the row and select **Generate SAS**.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
 
 1. Configure the container SAS token with the following settings. 
 
@@ -214,7 +214,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
     |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
     |HTTPS only|Selected|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
 
 1. Select **Generate SAS and URL**. 
 1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
@@ -256,7 +256,7 @@ Configure CORS for your resource so the client-side React code can access your s
     |Exposed headers|`*`|
     |Max age|86400|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Configure CORS as show in the image. The settings are explained below the image.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Configure CORS as show in the image. The settings are explained below the image.":::
 
     Once the application is deployed, you returned to this CORS form to add the URL for the static web app.
 
@@ -326,7 +326,7 @@ Your SAS token and storage account name are pulled into the application from env
 
      ---
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" lightbox="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
 
 ## 11. Configure Static Web App to connect to storage resource
 
