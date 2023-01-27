@@ -88,7 +88,7 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 
 ---
 
-For more community contributed templates, check out our template gallery: [Awesome AZD](aka.ms/awesome-azd).
+For more community contributed templates, check out our template gallery: [Awesome AZD](https://aka.ms/awesome-azd).
 
 ### Guidelines for using `azd` templates
 
