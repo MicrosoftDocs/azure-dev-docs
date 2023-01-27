@@ -185,7 +185,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 1. Create a container named **uploaded**. 
 1. Open the Cloud Shell in the portal.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" alt-text="Azure portal icon bar with Cloud Shell button highlighted." lightbox="source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"alt-text="Azure portal icon bar with Cloud Shell button highlighted." :::
 
 1. Use the following command with your own values.
 
