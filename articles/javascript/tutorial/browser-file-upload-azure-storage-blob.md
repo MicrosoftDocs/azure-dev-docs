@@ -193,7 +193,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
     az storage account show --resource-group 'YOUR-RESOURCE-GROUP' --name 'YOUR-STORAGE-RESOURCE-NAME' --query id
     ```
 
-     This command returns a resource idin the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
+     This command returns a resource id in the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
 
 1. Copy the output, the resource id, and use it in the following command to add role-based-access control to the storage account.
 
