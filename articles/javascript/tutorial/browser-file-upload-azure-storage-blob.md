@@ -38,7 +38,7 @@ The sample React app consists of the following elements:
 
 --- 
 
-:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
+:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Screenshot of web browser showing simple React app connected to Azure Storage blobs.":::
 
 ## 1. Set up development environment
 
@@ -142,7 +142,7 @@ The sample React app consists of the following elements:
 
     If you see the simple web app in your browser with the text that the Storage isn't configured, you've succeeded with this section of the tutorial.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Screenshot of web browser showing simple Node.js app connected to MongoDB database.":::
 
 1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
 
@@ -152,7 +152,7 @@ The sample React app consists of the following elements:
 
 1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Screenshot of Visual Studio Code using the Azure extensions. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
 
 1. Follow the prompts using the following table to understand how to create your Storage resource.
 
@@ -162,7 +162,7 @@ The sample React app consists of the following elements:
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="When the app creation process is complete, a notification appears with information about the new resource.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="Screenshot of Visual Studio Code notification popup. When the app creation process is complete, a notification appears with information about the new resource.":::
 
 ## 5. Generate your shared access signature (SAS) token 
 
@@ -188,7 +188,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 1. Create a container named **uploaded**. 
 1. Open the Cloud Shell in the portal.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"alt-text="Azure portal icon bar with Cloud Shell button highlighted." :::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"alt-text="Screenshot of Azure portal icon bar with Cloud Shell button highlighted." :::
 
 1. Use the following command with your own values.
 
@@ -282,7 +282,7 @@ Configure CORS for your resource so the client-side React code can access your s
     |Exposed headers|`*`|
     |Max age|86400|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Configure CORS as show in the image. The settings are explained below the image.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Screenshot showing the Azure portal for the Storage resource. Configure CORS as show in the image. The settings are explained below the image.":::
 
     Once the application is deployed, you returned to this CORS form to add the URL for the static web app.
 
@@ -302,7 +302,7 @@ Your SAS token and storage account name are pulled into the application from env
 
     `http://localhost:3000` 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="The React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="Screenshot showing web browser with the React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
 
 1. Select an image from the `images` folder to upload then select the **Upload!** button. 
 
