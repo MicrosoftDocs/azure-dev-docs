@@ -235,7 +235,7 @@ Generate the [account SAS token](/rest/api/storageservices/create-account-sas) b
     |--|--|
     |Signing method|Account key|
     |Permissions|Read, create, write, list|
-    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
+    |Start and expiry date/time|Accept the start date/time and **set the expiry to 24 hours in the future**. |
     |HTTPS only|Selected|
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the service SAS token.":::
