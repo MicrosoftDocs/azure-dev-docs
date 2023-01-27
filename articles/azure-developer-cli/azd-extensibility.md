@@ -9,14 +9,16 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
+# Working with Azure Developer CLI Hooks to extend deployment pipelines
+
 The Azure Developer CLI supports various extension points to customize your deployment pipelines. The Hooks middleware allows you to execute custom scripts before and after `azd` commands and service events. Hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. For example, you may want to run a custom scripts in the following scenarios:
     * Use the *preprovision* hook to verify that certain system configurations are enabled before deploying your app. 
     * Use the *postup* hook at the end of the pipeline to log data.
     * Use the *predeploy* to verify certain dependencies are in place.
 
-## Azd Command
+## Available Hooks
 
-The following `azd` command are supported by hooks:
+The following `azd` commands support hooks:
 
 * preprovision
 * postprovision
@@ -29,9 +31,7 @@ The following `azd` command are supported by hooks:
 * prerestore
 * postrestore
 
-## Service Lifecycle Events
-
-The Azure Developer CLI implements various lifecycle events for services. The following `service lifecycle events are supported by hooks:
+The following `service lifecycle events are supported by hooks:
 
 * predeploy
 * postdeploy
@@ -40,9 +40,9 @@ The Azure Developer CLI implements various lifecycle events for services. The fo
 * prepackage
 * postpackage
 
-## Hook Config
+## Hook Configuration
 
-All hook configurations support the following:
+All types of hooks support the following configurations:
 
 * shell: sh | pwsh(automatically inferred from run if not specified)
 * run: Can either be inline script or path to a file
@@ -52,6 +52,8 @@ All hook configurations support the following:
 * posix: Configuration that will only apply to POSIX based OSes (Linux & MaxOS)
 
 Hooks can be registered in the root of your azure.yaml or within a specific service configuration.
+
+## Hook Examples
 
 ### Root registration
 
