@@ -177,7 +177,7 @@ Select from the two available types:
 
 Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
 
-* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) 
+* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) through Azure RBAC
 * To minimize access time range to 7 days or less
 * To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
