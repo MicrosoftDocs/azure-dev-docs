@@ -170,8 +170,10 @@ Create a SAS token for the container. A SAS token is a time-duration and permiss
 
 Select from the two available types:
 
-* User delegation SAS: more secure, requires set up for role-based access control
+* User delegation SAS: more secure, requires set up for role-based access control with Azure AD.
 * Service SAS: Signed with the storage account key.
+
+Once the SAS is created and distributed to a client, it's equally secure whether it's signed with the account key or with an Azure AD account. The user delegation SAS does have the advantage of being easier to revoke. 
 
 #### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
 
@@ -179,6 +181,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
 * To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) through Azure RBAC
 * To minimize access time range to 7 days or less
+* To reduce developer and devops access to resource key
 * To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
