@@ -9,29 +9,40 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-The Azure Developer CLI supports various extension points you can hook into to customize your deployment pipelines. The Hooks middleware allows you to wire up
+The Azure Developer CLI supports various extension points to customize your deployment pipelines. The Hooks middleware allows you to execute custom scripts before and after `azd` commands and service events. Hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. For example, you may want to run a custom scripts in the following scenarios:
+    * Use the *preprovision* hook to verify that certain system configurations are enabled before deploying your app. 
+    * Use the *postup* hook at the end of the pipeline to log data.
+    * Use the *predeploy* to verify certain dependencies are in place.
 
 ## Azd Command
 
-The following azd command are supported by hooks:
+The following `azd` command are supported by hooks:
 
-* infra create (aka provision)
-* infra delete (aka down)
-* restore
-* deploy
-* up
+* preprovision
+* postprovision
+* predown
+* postdown
+* preup
+* postup
+* predeploy
+* postdeploy
+* prerestore
+* postrestore
 
 ## Service Lifecycle Events
 
-The following azd service lifecycle events are supported by hooks
+The Azure Developer CLI implements various lifecycle events for services. The following `service lifecycle events are supported by hooks:
 
-* restore
-* package
-* deploy
+* predeploy
+* postdeploy
+* prerestore
+* postrestore
+* prepackage
+* postpackage
 
 ## Hook Config
 
-All hook configuration support the following:
+All hook configurations support the following:
 
 * shell: sh | pwsh(automatically inferred from run if not specified)
 * run: Can either be inline script or path to a file
@@ -39,35 +50,10 @@ All hook configuration support the following:
 * interactive: When set will bind the running script to the console stdin, stdout & stderr (default false)
 * windows: Configuration that will only apply on windows OS
 * posix: Configuration that will only apply to POSIX based OSes (Linux & MaxOS)
-* How to register azd hooks?
 
-Hooks can be registered in the root of your azure.yaml or within a service configuration
+Hooks can be registered in the root of your azure.yaml or within a specific service configuration.
 
-Root registration
-
-```yml
-name: todo-nodejs-mongo
-metadata:
-  template: todo-nodejs-mongo@0.0.1-beta
-hooks:
-  preinit: # Example of an inline script. (shell is required for inline scripts)
-    shell: sh
-    run: echo 'Hello'
-  preprovision: # Example of external script (Relative path from project root)
-    run: ./hooks/preprovision.sh
-services:
-  web:
-    project: ./src/web
-    dist: build
-    language: js
-    host: appservice
-  api:
-    project: ./src/api
-    language: js
-    host: appservice
-```
-
-Service registration
+### Root registration
 
 ```yml
 name: todo-nodejs-mongo
@@ -91,7 +77,32 @@ services:
     host: appservice
 ```
 
-OS specific hooks
+### Service registration
+
+```yml
+name: todo-nodejs-mongo
+metadata:
+  template: todo-nodejs-mongo@0.0.1-beta
+hooks:
+  preinit: # Example of an inline script. (shell is required for inline scripts)
+    shell: sh
+    run: echo 'Hello'
+  preprovision: # Example of external script (Relative path from project root)
+    run: ./hooks/preprovision.sh
+services:
+  web:
+    project: ./src/web
+    dist: build
+    language: js
+    host: appservice
+  api:
+    project: ./src/api
+    language: js
+    host: appservice
+```
+
+### OS specific hooks
+
 Optionally, hooks can also be configured to run either on Windows or Posix (Linux & MaxOS)
 
 ```yml
