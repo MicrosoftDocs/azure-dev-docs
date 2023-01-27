@@ -8,7 +8,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and a Azure Storage SAS token. 
+Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and an Azure Storage SAS token. 
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
@@ -140,7 +140,7 @@ The sample React app consists of the following elements:
     http://localhost:3000/
     ```
 
-    If you see the simple web app in your browser with the text that the Storage isn't configured, you have succeeded with this section of the tutorial.
+    If you see the simple web app in your browser with the text that the Storage isn't configured, you've succeeded with this section of the tutorial.
 
     :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
@@ -174,7 +174,7 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
 1. Create a container named **uploaded**. 
-1. Select the container then right click the row and select **Generate SAS**.
+1. Select the container then right-click the row and select **Generate SAS**.
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
 
@@ -187,10 +187,10 @@ Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-de
     |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your user-delgated SAS token is only good for a maximum of 7 days.|
     |HTTPS only|Selected|
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
 
 1. Select **Generate SAS and URL**. 
-1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you will need to regenerate a new SAS token. 
+1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
 
 <a name="set-sas-token-in-code-file"></a>
 
@@ -234,7 +234,7 @@ Configure CORS for your resource so the client-side React code can access your s
 
 ## 8. Run project locally to verify connection to Storage account
 
-Your SAS token and storage account name are pulled into the application from environment variables, so you are ready to run the application.
+Your SAS token and storage account name are pulled into the application from environment variables, so you're ready to run the application.
 
 1. If the app isn't running, start it again:
 
@@ -404,7 +404,7 @@ The [azure-storage-blob.js](https://github.com/Azure-Samples/js-e2e-browser-file
 
 ### Create Storage client and manage steps
 
-The client is created with a URL that includes both the storage resource name and the SAS token. The SAS token is in the query string, denoted with the question mark, `?`. When adding your SAS token to your environment variable, do _not_ include the question mark because it is already included in the URL string.
+The client is created with a URL that includes both the storage resource name and the SAS token. The SAS token is in the query string, denoted with the question mark, `?`. When adding your SAS token to your environment variable, don't_ include the question mark because it's already included in the URL string.
 
 #### [TypeScript](#tab/typescript)
 
@@ -467,7 +467,7 @@ The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClie
 
 ## Clean up resources
 
-In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on the your resource group then select **Delete**.
+In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on your resource group then select **Delete**.
 
 This deletes all resources in the group, including your Storage and Static Web app resources.
 
