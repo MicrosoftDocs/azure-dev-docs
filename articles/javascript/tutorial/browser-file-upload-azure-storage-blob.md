@@ -170,7 +170,7 @@ Create a SAS token for the container. A SAS token is a time-duration and permiss
 
 Select from the two available types:
 
-* User delegation SAS: more secure, requires set up for role-based access control with Azure AD.
+* User delegation SAS: Recommended. Signed with Azure AD account. Requires set up for role-based access control.
 * Service SAS: Signed with the storage account key.
 
 Once the SAS is created and distributed to a client, it's equally secure whether it's signed with the account key or with an Azure AD account. The user delegation SAS does have the advantage of being easier to revoke. 
