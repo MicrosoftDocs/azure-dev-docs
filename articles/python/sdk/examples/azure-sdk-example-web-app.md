@@ -1,24 +1,26 @@
 ---
-title: Provision and deploy a web app using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 06/24/2021
+title: Create and deploy a Python web app to Azure App Service using the Azure SDK libraries
+description: Use Azure SDK for Python to create a web app and then deploy app code from a GitHub repository to Azure App Service.
+ms.date: 01/26/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
-# Example: Use the Azure libraries to provision and deploy a web app
+# Example: Use the Azure libraries to create and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
+This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create  and deploy a web app to Azure App Service. The app code is deployed from a GitHub repository.
+
+With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For examples, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
-## 2: Install the needed Azure library packages
+## 2: Install the required Azure library packages
 
 Create a file named *requirements.txt* with the following contents:
 
@@ -32,7 +34,7 @@ pip install -r requirements.txt
 
 ## 3: Fork the sample repository
 
-Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You use a fork to ensure that you have permissions to deploy the repository to Azure.
+Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You'll use a fork to ensure that you have permissions to deploy the repository to Azure.
 
 ![Forking the sample repository on GitHub](../../media/azure-sdk-example-web-app/fork-github-repository.png)
 
@@ -42,19 +44,21 @@ Then create an environment variable named `REPO_URL` with the URL of your fork. 
 
 ```cmd
 set REPO_URL=<url_of_your_fork>
+set AZURE_SUBSCRIPTION_ID=<subscription_id>
 ```
 
 # [bash](#tab/bash)
 
 ```bash
 REPO_URL=<url_of_your_fork>
+AZURE_SUBSCRIPTION_ID=<subscription_id>
 ```
 
 ---
 
-## 4: Write code to provision and deploy a web app
+## 4: Write code to create and deploy a web app
 
-Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details:
+Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details of the code. Be sure to define the `REPO_URL` and `AZURE_SUBSCRIPTION_ID` environment variables before running the script.
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py":::
 
@@ -74,27 +78,32 @@ python provision_deploy_web_app.py
 
 ## 6: Verify the web app deployment
 
-1. Visit the deployed web site by running the following command:
+Visit the deployed web site by running the following command:
 
-    ```azurecli
-    az webapp browse -n PythonAzureExample-WebApp-12345
-    ```
+```azurecli
+az webapp browse --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
+```
 
-    Replace "PythonAzureExample-WebApp-12345" with the specific name of your web app.
+Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script. You should see "Hello, World!" in the browser.
 
-    You should see "Hello, World!" in the browser.
+If you don't see the expected output, wait a few minutes and try again.
 
-1. Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Then Navigate into that list to verify the expected resources exist, namely the App Service Plan and the App Service.
+If you still don't see the expected output, then:
+
+1. Go to the [Azure portal](https://portal.azure.com).
+1. Select **Resource groups**, and find the resource group you created.
+1. Select the resource group name to view the resources it contains. Specifically, verify that there's an App Service Plan and the App Service.
+1. Select the App Service, and then select **Deployment Center** to view deployment logs.
 
 ## 7: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-WebApp-rg --no-wait
+az group delete --name PythonAzureExample-WebApp-rg --no-wait
 ```
 
-Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
 
 ### For reference: equivalent Azure CLI commands
 
@@ -112,11 +121,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 ## See also
 
-- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Create Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Example: Create and query a MySQL database](azure-sdk-example-database.md)
+- [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
 - [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
