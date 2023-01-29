@@ -1,27 +1,27 @@
 ---
-title: "Quickstart: Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines"
-description: Shows you how to deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines.
+title: "Quickstart: Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines"
+description: Shows you how to deploy a WebSphere Application Server (traditional) cluster on Azure Virtual Machines.
 author: KarlErickson
 ms.author: zhengchang
 ms.topic: quickstart
-ms.date: 07/29/2022
+ms.date: 01/28/2022
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was
 ---
 
-# Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines
+# Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines
 
 This article shows you how to quickly deploy a cluster of WebSphere Application Server (WAS) instances on Azure Virtual Machines (VMs).
 
 ## Prerequisites
 
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
-- An IBMid with necessary entitlement for WebSphere Traditional (optional). If you create the deployment with an evaluation license, you won't be required to provide an IBMid with entitlement for WebSphere Traditional. To get the benefit, you need to accept the [IBM WebSphere Application Server License Agreement](https://ibm.biz/tWASNDLicenseAzureVMs) during the deployment creation steps. Otherwise, you must enter your registered IBMid and your IBMid must have active WebSphere entitlements associated with it. If provisioning with IBMid fails due to lack of entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access. Alternately, follow steps at IBM eCustomer Care for further assistance. This offer also assumes you're properly licensed to run offers in Microsoft Azure. For more information, see [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
+- An IBMid with necessary entitlement for WebSphere Traditional (optional). If you create the deployment with an evaluation license, you won't need to provide an IBMid with entitlement for WebSphere Traditional. To get the benefit, you need to accept the [IBM WebSphere Application Server License Agreement](https://ibm.biz/tWASNDLicenseAzureVMs) during the deployment creation steps. Otherwise, you must enter your registered IBMid and your IBMid must have active WebSphere entitlements associated with it. If provisioning with IBMid fails due to lack of entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access. Alternately, follow steps at IBM eCustomer Care for further assistance. This offer also assumes you're properly licensed to run offers in Microsoft Azure. For more information, see [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
 
-## Provision a cluster
+## Deploy a cluster
 
-For background regarding the offer and also a video tutorial on how to set up and access the VMs, see the Azure portal offer for [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal).
+In this article, we use the [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal) offer from the Azure portal. The offer automates common steps for deploying a WAS cluster. You can find more background and a demo video on the offer page.
 
-You can start creating your deployment on the **IBM WebSphere Application Server Cluster** deployment page. By default, the deployment will consist of the following VMs:
+You can start creating your deployment from the page. By default, the deployment will consist of the following VMs:
 
 - One Deployment Manager instance for managing the applications and application servers.
 - One IBM HTTP Server instance for managing load balancing if you answer *yes* to **Configure an IBM HTTP Server**.
@@ -31,7 +31,7 @@ Each of these VMs is automatically created with the necessary networking and sto
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/default-configuration-cluster-deployment.png" alt-text="Diagram showing default configuration of WebSphere Application Server (traditional) Cluster deployment.":::
 
-To begin defining your deployment, select **Create** on the deployment page.
+To start your deployment, select **Create** on the deployment page.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-create-page.png" alt-text="Azure portal screenshot showing IBM WebSphere Application Server Cluster offering.":::
 
