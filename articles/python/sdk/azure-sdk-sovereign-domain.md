@@ -1,7 +1,7 @@
 ---
 title: Connect to all regions using Azure libraries for Python Multi-cloud 
 description: How to use the azure_cloud module of msrestazure to connect to Azure in different sovereign regions
-ms.date: 11/18/2020
+ms.date: 01/27/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
