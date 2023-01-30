@@ -112,15 +112,15 @@ Individual libraries aren't obligated to support any of these arguments, so alwa
 
 Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.
 
-For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#create-or-update-resource-group-name--parameters--custom-headers-none--raw-false----operation-config-)) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.models.resourcegroup).
+For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#create-or-update-resource-group-name--parameters--custom-headers-none--raw-false----operation-config-)) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.models.resourcegroup).
 
 To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
-:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="17-20":::
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="16-20":::
 
 Alternately, you can pass the same parameters as inline JSON:
 
-:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21":::
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-20":::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
