@@ -18,13 +18,14 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
   
 1. Install [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/) 
    
-   Note: this is different from Visual Studio. If you have the non-preview version of Visual Studio, you still need to install this. 
+   > [!NOTE]
+   > This is different from Visual Studio. If you have the non-preview version of Visual Studio, you still need to install this. 
 
-2. Open Visual Studio Preview.
+1. Open Visual Studio Preview.
 
-3. From the **Tools** menu, select **Options** > **Preview Features**.
+1. From the **Tools** menu, select **Options** > **Preview Features**.
 
-4. Make sure **Integration with azd, the Azure Developer CLI** is enabled.
+1. Make sure **Integration with azd, the Azure Developer CLI** is enabled.
 
    :::image type="content" source="../media/debug/visual-studio-options.png" alt-text="Screenshot of the Visual Studio option to turn on integration with the Azure Developer CLI.":::
 
