@@ -1,6 +1,6 @@
 ---
 title: Usage patterns with the Azure libraries for Python
-description: An overview of common usage patterns with the Azure SDK libraries for Python
+description: An overview of common usage patterns in the Azure SDK libraries for Python
 ms.date: 01/30/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -60,7 +60,7 @@ For more information, including how to remove packages or install specific versi
 
 ## Asynchronous operations
 
-Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations?view=azure-python#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.These methods are asynchronous.
+Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.These methods are asynchronous.
 
 > [!NOTE]
 > You may notice differences in method names in a library, which is due to
