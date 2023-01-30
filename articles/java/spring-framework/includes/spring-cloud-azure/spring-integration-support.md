@@ -161,7 +161,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
                     account-name: ${ACCOUNT_NAME}
     ```
 
-1. Create `DefaultMessageHandler` with the bean of `EventHubsTemplate` to send messages to Event Hubs.
+1. Create `DefaultMessageHandler` with the `EventHubsTemplate` bean to send messages to Event Hubs.
 
     ``` java
     class Demo {
@@ -227,7 +227,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
     }
     ```
 
-1. Create `EventHubsInboundChannelAdapter` with the bean of `EventHubsMessageListenerContainer` to receive messages from Event Hubs.
+1. Create `EventHubsInboundChannelAdapter` with the `EventHubsMessageListenerContainer` bean to receive messages from Event Hubs.
 
     ``` java
     @Configuration
@@ -449,7 +449,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
                   namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
       ```            
 
-1. Create `DefaultMessageHandler` with the bean of `ServiceBusTemplate` to send messages to Service Bus, set the entity type for the ServiceBusTemplate. This sample takes Service Bus Queue as example.
+1. Create `DefaultMessageHandler` with the `ServiceBusTemplate` bean to send messages to Service Bus, set the entity type for the ServiceBusTemplate. This sample takes Service Bus Queue as example.
 
     ``` java
     class Demo {
@@ -519,7 +519,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
     }
     ```
 
-1. Create `ServiceBusInboundChannelAdapter` with the bean of `ServiceBusMessageListenerContainer` to receive messages to Service Bus. This sample takes Service Bus Queue as example.
+1. Create `ServiceBusInboundChannelAdapter` with the `ServiceBusMessageListenerContainer` bean to receive messages to Service Bus. This sample takes Service Bus Queue as example.
 
     ``` java
     @Configuration
@@ -751,7 +751,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
                   namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
     ```              
 
-1. Create `DefaultMessageHandler` with the bean of `StorageQueueTemplate` to send messages to Storage Queue.
+1. Create `DefaultMessageHandler` with the `StorageQueueTemplate` bean to send messages to Storage Queue.
 
     ``` java
     class Demo {
@@ -819,7 +819,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
     }
     ```
 
-1. Create `StorageQueueMessageSource` with the bean of `StorageQueueTemplate` to receive messages to Storage Queue.
+1. Create `StorageQueueMessageSource` with the `StorageQueueTemplate` bean to receive messages to Storage Queue.
 
     ``` java
     class Demo {
