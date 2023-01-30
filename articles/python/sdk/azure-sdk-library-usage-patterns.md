@@ -108,20 +108,6 @@ These arguments apply to those libraries listed on [Python - New Libraries](http
 
 Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support other arguments. For example, for blob storage specific keyword arguments, see the GitHub Readme for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
 
-### Arguments for non-core libraries
-
-| Name               | Type | Default | Description |
-| ---                | ---  | ---     | ---         |
-| verify             | bool | True    | Verify the SSL certificate. |
-| cert               | str  | None    | Path to local certificate for client-side verification. |
-| timeout            | int  | 30      | Timeout for establishing a server connection in seconds. |
-| allow_redirects    | bool | False   | Enable redirects. |
-| max_redirects      | int  | 30      | Maximum number of allowed redirects. |
-| proxies            | dict | {}      | Proxy server URL. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
-| use_env_proxies    | bool | False   | Enable reading of proxy settings from local environment variables. |
-| retries            | int  | 10      | Total number of allowable retry attempts. |
-| enable_http_logger | bool | False   | Enable logs of HTTP in debug mode. |
-
 ## Inline JSON pattern for object arguments
 
 Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.
