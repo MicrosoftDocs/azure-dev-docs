@@ -60,7 +60,7 @@ For more information, including how to remove packages or install specific versi
 
 ## Asynchronous operations
 
-Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.These methods are asynchronous.
+Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question. These methods are asynchronous.
 
 > [!NOTE]
 > You may notice differences in method names in a library, which is due to
@@ -76,7 +76,7 @@ In this case, the return value of `begin_create_or_update` is of type `AzureOper
 
 ## Exceptions
 
-In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, then, you can use `try...except` blocks around library operations.
+In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, you can use `try...except` blocks around library operations.
 
 For more information on the type of exceptions that may be raised, see the documentation for the operation in question.
 
@@ -90,7 +90,7 @@ To specify a proxy, you can use environment variables or optional arguments. For
 
 ## Optional arguments for client objects and methods
 
-In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
+In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support other named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
 
 ### Arguments for libraries based on azure.core
 
@@ -106,7 +106,7 @@ These arguments apply to those libraries listed on [Python - New Libraries](http
 | retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
 | retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If 'single', retries are made at regular intervals. If 'exponential', each retry waits twice as long as the previous retry. |
 
-Individual libraries are not obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support additional arguments. For example, for blob storage specific keyword agruments, see the GitHub Readme for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
+Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support other arguments. For example, for blob storage specific keyword arguments, see the GitHub Readme for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
 
 ### Arguments for non-core libraries
 
@@ -156,7 +156,7 @@ If your JSON isn't formed properly, you typically get the error, "Deserializatio
 
 ## Next steps
 
-Now that you understand the common patterns for using the Azure libraries for Python, see the following standalone examples to explore specific management and client library scenarios. You can try these examples in any order as they are neither sequential nor interdependent.
+Now that you understand the common patterns for using the Azure libraries for Python, see the following standalone examples to explore specific management and client library scenarios. You can try these examples in any order as they're not sequential or interdependent.
 
 - [Example: Create a resource group](./examples/azure-sdk-example-resource-group.md)
 - [Example: Use Azure Storage](./examples/azure-sdk-example-storage.md)
