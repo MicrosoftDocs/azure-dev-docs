@@ -16,7 +16,7 @@ All the libraries share certain common characteristics and usage patterns, such 
 
 If you haven't already, you can set up an environment where you can run this code. Here are some options:
 
-[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+[!INCLUDE [create_environment_options](../includes/create-environment-options.md)]
 
 ## Library installation
 
