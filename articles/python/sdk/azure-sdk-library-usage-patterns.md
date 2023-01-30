@@ -1,16 +1,22 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns with the Azure SDK libraries for Python
-ms.date: 06/24/2021
+ms.date: 01/30/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Azure libraries for Python usage patterns
 
-The Azure SDK for Python is composed solely of many independent libraries, which are listed on the [Python SDK package index](azure-sdk-library-package-index.md).
+The Azure SDK for Python is composed of many independent libraries, which are listed on the [Python SDK package index](azure-sdk-library-package-index.md).
 
 All the libraries share certain common characteristics and usage patterns, such as installation and the use of inline JSON for object arguments.
+
+## Set up your local development environment
+
+If you haven't already, you can set up an environment where you can run this code. Here are some options:
+
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## Library installation
 
@@ -54,17 +60,19 @@ For more information, including how to remove packages or install specific versi
 
 ## Asynchronous operations
 
-Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
+Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations?view=azure-python#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.These methods are asynchronous.
 
-Both of these methods are asynchronous. The difference in the method names is due to version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+> [!NOTE]
+> You may notice differences in method names in a library, which is due to
+version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
-In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
+The [`LROPoller`](/python/api/azure-core/azure.core.polling.lropoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
 The following code, taken from [Example: Provision and deploy a web app](./examples/azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
-In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site) object.
+In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.models.site) object.
 
 ## Exceptions
 
@@ -86,7 +94,7 @@ In the library reference documentation, you often see a `**kwargs` or `**operati
 
 ### Arguments for libraries based on azure.core
 
-These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python).
+These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python). For example, here are a subset of the keyword arguments for `azure-core`. For a complete list, see the GitHub Readme for [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core#configurations).
 
 | Name                       | Type | Default     | Description |
 | ---                        | ---  | ---         | ---         |
@@ -98,7 +106,7 @@ These arguments apply to those libraries listed on [Python - New Libraries](http
 | retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
 | retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If 'single', retries are made at regular intervals. If 'exponential', each retry waits twice as long as the previous retry. |
 
-Individual libraries are not obligated to support any of these arguments, so always consult the reference documentation for each library for exact details.
+Individual libraries are not obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support additional arguments. For example, for blob storage specific keyword agruments, see the GitHub Readme for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
 
 ### Arguments for non-core libraries
 
