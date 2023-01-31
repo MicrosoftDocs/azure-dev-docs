@@ -60,11 +60,27 @@ For more information, including how to remove packages or install specific versi
 
 ## Asynchronous operations
 
-Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question. These methods are asynchronous.
+### Asynchronous libraries
+
+Many client and management libraries provide async versions (`.aio`). The `asyncio` library has been available since Python 3.4, and the async/await keywords were introduced in Python 3.5. The async versions of the libraries are intended to be used with Python 3.5 and later.
+
+Examples of Azure Python SDK libraries with async versions include: [azure.storage.blog.aio](/python/api/azure-storage-blob/azure.storage.blob.aio), [azure.servicebus.aio](/python/api/azure-servicebus/azure.servicebus.aio), [azure.mgmt.keyvault.aio](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.aio), and [azure.mgmt.compute.aio](/python/api/azure-mgmt-compute/azure.mgmt.compute.aio).
+
+These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which is used by the async libraries.
+
+The following code shows how to create a client for the async version of the Azure Blob Storage library:
+
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_async.py" range="14-33":::
+
+The full example is on Github at [use_blob_auth_async.py](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/storage/use_blob_auth_async.py). For the synchronous version of this code, see [Example: Upload a blob](./examples/azure-sdk-example-storage-blob.md).
+
+### Long running operations
+
+Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
 > You may notice differences in method names in a library, which is due to
-version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 The [`LROPoller`](/python/api/azure-core/azure.core.polling.lropoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
