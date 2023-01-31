@@ -9,10 +9,10 @@ ms.custom: devx-track-js, vscode-azure-extension-update-completed
 
 # 7. Stream logs into Visual Studio Code
 
-In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This app uses console.log in the `./scr/utils.js` file to log each request with the `appLogger` function. This output appears in the **Output** window in Visual Studio Code.
+In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This app uses console.log in the `./src/utils.js` file to log each request with the `appLogger` function. This output appears in the **Output** window in Visual Studio Code.
 
 ```javascript
-// ./scr/utils.js
+// ./src/utils.js
 const appLogger = (req, res, next) => {
   const srcIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   const {method} = req;
