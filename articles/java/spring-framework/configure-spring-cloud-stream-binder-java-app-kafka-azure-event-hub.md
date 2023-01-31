@@ -159,7 +159,7 @@ export AZ_EVENTHUBS_CONNECTION_STRING=$(az eventhubs namespace authorization-rul
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,kafka,cloud-stream,azure-support -d baseDir=azure-eventhubs-workshop -d bootVersion=2.7.7 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,kafka,cloud-stream,azure-support -d baseDir=azure-eventhubs-workshop -d bootVersion=2.7.8 -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Event Hubs for Kafka
