@@ -3,7 +3,7 @@ title: Deploy GraphQL to Static Web Apps
 description: Learn how to deploy to Static Web Apps with Visual Studio Code.
 ms.topic: how-to
 ms.date: 07/26/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # 5. Deploy to Static Web Apps
