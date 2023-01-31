@@ -146,9 +146,9 @@ Now that you understand the common patterns for using the Azure libraries for Py
 
 - [Example: Create a resource group](./examples/azure-sdk-example-resource-group.md)
 - [Example: Use Azure Storage](./examples/azure-sdk-example-storage.md)
-- [Example: Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md)
-- [Example: Provision and query a database](./examples/azure-sdk-example-database.md)
-- [Example: Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md)
+- [Example: Create a web app and deploy code](./examples/azure-sdk-example-web-app.md)
+- [Example: Create and query a database](./examples/azure-sdk-example-database.md)
+- [Example: Create a virtual machine](./examples/azure-sdk-example-virtual-machines.md)
 - [Use Azure Managed Disks with virtual machines](./examples/azure-sdk-samples-managed-disks.md)
 
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
