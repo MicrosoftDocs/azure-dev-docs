@@ -72,7 +72,7 @@ The following code shows how to create a client for the async version of the Azu
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_async.py" range="14-33":::
 
-The full example is on GitHub at [use_blob_auth_async.py](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/storage/use_blob_auth_async.py). For the synchronous version of this code, see [Example: Upload a blob](./examples/azure-sdk-example-storage-blob.md).
+The full example is on GitHub at [use_blob_auth_async.py](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/storage/use_blob_auth_async.py). For the synchronous version of this code, see [Example: Upload a blob](examples/azure-sdk-example-storage-use.md).
 
 ### Long running operations
 
