@@ -94,7 +94,7 @@ In the library reference documentation, you often see a `**kwargs` or `**operati
 
 ### Arguments for libraries based on azure.core
 
-These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python). For example, here are a subset of the keyword arguments for `azure-core`. For a complete list, see the GitHub Readme for [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core#configurations).
+These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python). For example, here are a subset of the keyword arguments for `azure-core`. For a complete list, see the GitHub README for [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core#configurations).
 
 | Name                       | Type | Default     | Description |
 | ---                        | ---  | ---         | ---         |
@@ -106,7 +106,7 @@ These arguments apply to those libraries listed on [Python - New Libraries](http
 | retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
 | retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If 'single', retries are made at regular intervals. If 'exponential', each retry waits twice as long as the previous retry. |
 
-Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support other arguments. For example, for blob storage specific keyword arguments, see the GitHub Readme for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
+Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support other arguments. For example, for blob storage specific keyword arguments, see the GitHub README for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
 
 ## Inline JSON pattern for object arguments
 
