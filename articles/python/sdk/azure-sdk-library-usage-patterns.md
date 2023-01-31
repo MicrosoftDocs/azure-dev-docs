@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns in the Azure SDK libraries for Python
-ms.date: 01/30/2023
+ms.date: 01/31/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -72,7 +72,7 @@ The following code shows how to create a client for the async version of the Azu
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_async.py" range="14-33":::
 
-The full example is on Github at [use_blob_auth_async.py](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/storage/use_blob_auth_async.py). For the synchronous version of this code, see [Example: Upload a blob](./examples/azure-sdk-example-storage-blob.md).
+The full example is on GitHub at [use_blob_auth_async.py](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/storage/use_blob_auth_async.py). For the synchronous version of this code, see [Example: Upload a blob](./examples/azure-sdk-example-storage-blob.md).
 
 ### Long running operations
 
@@ -84,7 +84,7 @@ version differences. Older libraries that aren't based on azure.core typically u
 
 The [`LROPoller`](/python/api/azure-core/azure.core.polling.lropoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
-The following code, taken from [Example: Provision and deploy a web app](./examples/azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
+The following code, taken from [Example: Create and deploy a web app](./examples/azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
@@ -130,7 +130,7 @@ Many operations within the Azure libraries allow you to express object arguments
 
 For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#create-or-update-resource-group-name--parameters--custom-headers-none--raw-false----operation-config-)) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.models.resourcegroup).
 
-To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
+To call the `create_or_update` method, you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
 :::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="16-20":::
 
@@ -138,7 +138,7 @@ Alternately, you can pass the same parameters as inline JSON:
 
 :::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-20":::
 
-When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
+When you use inline JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
 Objects can also have nested object arguments, in which case you can also use nested JSON.
 
