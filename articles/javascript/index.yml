@@ -64,14 +64,6 @@ landingContent:
           - text: "Server from VM: Express.js with NGINX"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
-  - title: Returning to Azure?
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What's new in docs 
-            url: whats-new-docs.md
-          - text: What's new with Developer Advocates
-            url: whats-new-developer-advocacy.md
   - title: Azure SDK client library tutorials
     linkLists: 
       - linkListType: tutorial
