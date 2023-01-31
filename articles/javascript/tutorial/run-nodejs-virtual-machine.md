@@ -2,7 +2,7 @@
 title: Azure CLI virtual machine with Express.js
 description: Create an Azure Linux virtual machine, with a clone of an Express.js-based app from a GitHub repository.  
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 01/31/2023
 ms.custom: devx-track-js, devx-track-azurecli, 
 ---
 
@@ -37,9 +37,9 @@ This tutorial includes the following tasks:
 
 ## 1. Create Application Insights resource for web pages
 
-Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you are done.Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
+Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you are done. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
 
-1. Optional, if you have more than one subscription, use [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription)) to set the default subscription before completing the remaining commands.
+1. Optional, if you have more than one subscription, use [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) to set the default subscription before completing the remaining commands.
 
     ```azurecli
     az account set \
@@ -77,7 +77,7 @@ Create an Azure resource group for all your Azure resources and a Monitor resour
 
 1. Leave the terminal open, you will use it in the next step.
  
-## 3. Create Linux virtual machine using Azure CLI
+## 2. Create Linux virtual machine using Azure CLI
 
 Uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
 
@@ -142,14 +142,14 @@ az vm open-port \
     * Your client IP
     * Current Date/Time  
 
-    :::image type="content" source="../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
+    :::image type="content" source="../media/tutorial-vm/basic-web-app.png" alt-text="Screenshot of web browser showing simple app served from Linus virtual machine on Azure.":::
 
 
 1. The initial code file for the web app has a single route, which passed through the NGINX proxy. 
 
     :::code language="JavaScript" source="~/../js-e2e-vm/index.js" :::
 
-## 4. Connect to Linux virtual machine using SSH
+## 3. Connect to Linux virtual machine using SSH
 
 In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells, including the Azure Cloud Shell. 
 
@@ -235,7 +235,7 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     sudo npm start
     ```
 
-## 5. Install Azure SDK client library to monitor web app
+## 4. Install Azure SDK client library to monitor web app
 
 In this step, add the Azure SDK client library to the code on the virtual machine to begin collecting app logs in the Azure cloud.
 
@@ -328,7 +328,7 @@ In this application, using `console.log` writes the messages into the PM2 logs f
 
 If you want to retain the logs beyond the lifespan of your virtual machine, use Application Insights. 
 
-## 7. Clean up resources
+## 5. Clean up resources
 
 Once you have completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you are not billed for any more usage. 
 
@@ -353,7 +353,7 @@ If you have issues, use the following table to understand how to resolve your is
 
 * [Express.js virtual machine sample code](https://github.com/Azure-Samples/js-e2e-vm)
 
-## Next step
+## Next steps
 
 * Learn more about [Azure Linux VMs](/azure/virtual-machines)
 * [Inject certificates from Key Vault](/azure/virtual-machines/linux/tutorial-automate-vm-deployment#inject-certificates-from-key-vault)
