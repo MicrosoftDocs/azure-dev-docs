@@ -166,7 +166,7 @@ rm create_user.sql
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.8 -d javaVersion=17 | tar -xzvf -
 ```
 
 ## Add the reactive PostgreSQL driver implementation
