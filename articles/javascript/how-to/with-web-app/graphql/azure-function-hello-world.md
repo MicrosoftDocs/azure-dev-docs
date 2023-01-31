@@ -3,7 +3,7 @@ title: Deploy GraphQL API as Azure Function on Azure
 description: Learn how to deploy a `Hello World` GraphQL API to Azure in an Azure Function.  
 ms.topic: how-to
 ms.date: 08/16/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # Deploy a GraphQL API as an Azure Function 
