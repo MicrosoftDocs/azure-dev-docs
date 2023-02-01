@@ -42,7 +42,15 @@
       { 
         "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/clean-up-resources.md",
         "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      }, 
+      },
+      { 
+        "source_path": "articles/javascript/whats-new-developer-advocacy.md",
+        "redirect_url": "/azure/developer/javascript" 
+      },
+      { 
+        "source_path": "articles/javascript/whats-new-docs.md",
+        "redirect_url": "/azure/developer/javascript" 
+      },            
       { 
         "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
         "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
@@ -575,6 +583,10 @@
       {
         "source_path": "articles/java/spring-framework/spring-cloud-azure-appendix.md",
         "redirect_url": "/azure/developer/java/spring-framework/spring-cloud-azure"
+      },
+      {
+        "source_path": "articles/java/spring-framework/spring-boot-starters-for-azure.md",
+        "redirect_url": "/azure/developer/java/spring-framework/spring-cloud-azure-overview"
       },
       {
         "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",

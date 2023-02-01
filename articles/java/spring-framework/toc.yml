@@ -10,8 +10,6 @@ items:
   - name: Get started
     expanded: true
     items:
-    - name: Overview
-      href: spring-boot-starters-for-azure.md
     - name: Storage
       items:
       - name: Upload a file to an Azure Storage Blob

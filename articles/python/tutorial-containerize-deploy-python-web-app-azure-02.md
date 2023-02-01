@@ -28,7 +28,7 @@ Clone the repository:
 git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
 
 # Flask
-git clone https://github.com/Azure-Samples/msdocs-flask-django-container-web-app.git
+git clone https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
 ```
 
 Then navigate into that folder:

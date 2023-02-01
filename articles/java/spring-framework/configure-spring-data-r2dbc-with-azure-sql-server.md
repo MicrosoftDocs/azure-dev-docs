@@ -33,7 +33,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by running the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.8 -d javaVersion=17 | tar -xzvf -
 ```
 
 ## Add the reactive Azure SQL Database driver implementation
