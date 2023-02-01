@@ -195,7 +195,7 @@
 | Resource Management - Kusto | npm [7.2.1](https://www.npmjs.com/package/@azure/arm-kusto/v/7.2.1) | [docs](/javascript/api/overview/azure/arm-kusto-readme) | GitHub [7.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto) |
 | Resource Management - Lab Services | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-labservices/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-labservices-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/labservices/arm-labservices) |
 | Resource Management - Links | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-links/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-links-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links) |
-| Resource Management - Load Testing | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-loadtesting/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-loadtesting-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtesting_1.0.0-beta.2/sdk/loadtestservice/arm-loadtesting/) |
+| Resource Management - Load Testing | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-loadtesting/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-loadtesting-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtesting_1.0.0/sdk/loadtestservice/arm-loadtesting/) |
 | Resource Management - Load Testing | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-loadtestservice/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-loadtestservice-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtestservice_1.0.0-beta.2/sdk/loadtestservice/arm-loadtestservice/) |
 | Resource Management - Locks | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-locks/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
 | Resource Management - Logic Apps | npm [8.2.0](https://www.npmjs.com/package/@azure/arm-logic/v/8.2.0) | [docs](/javascript/api/overview/azure/arm-logic-readme) | GitHub [8.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/logic/arm-logic) |
@@ -332,7 +332,7 @@
 | Batch | npm [10.2.0](https://www.npmjs.com/package/@azure/batch/v/10.2.0) |  | GitHub [10.2.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.9.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1) |  |  |
-| Communication Signaling | npm [1.0.0-beta.15](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.15) |  |  |
+| Communication Signaling | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.16) |  |  |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  | GitHub [8.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-computervision) |
 | Computer Vision | npm [4.0.0](https://www.npmjs.com/package/azure-cognitiveservices-computervision/v/4.0.0) |  |  |
 | Content Moderator | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-contentmoderator) |
@@ -498,7 +498,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.5](https://www.npmjs.com/package/@autorest/common/v/1.5.5) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230130.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230130.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230201.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230201.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.1) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -518,18 +518,18 @@
 | @azure-tools/cadl-autorest | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.25.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230130.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230130.1) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230201.2](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230201.2) |  |  |
 | @azure-tools/cadl-dpg | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.25.0) |  |  |
-| @azure-tools/cadl-java | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.2.2) |  |  |
+| @azure-tools/cadl-java | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.3.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.25.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.25.0) |  |  |
 | @azure-tools/cadl-python | npm [0.4.21](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.4.21) |  |  |
-| @azure-tools/cadl-ranch | npm [0.2.15](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.15) |  |  |
+| @azure-tools/cadl-ranch | npm [0.2.16](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.16) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.11) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.4) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.15](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.15) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.6.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.6.6) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.6.7](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.6.7) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
