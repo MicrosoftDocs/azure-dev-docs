@@ -3,7 +3,7 @@ title: GraphQL Azure Functions introduction and prerequisites
 description: Learn how to build a static web app and API that use the Apollo GraphQL client and server libraries to build and run a trivia game app.
 ms.topic: how-to
 ms.date: 07/26/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # 1. Build and deploy a GraphQL static web app to Azure

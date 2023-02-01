@@ -3,7 +3,7 @@ title: Build a static web app with GraphQL
 description: Learn how to locally build a static web app and API that uses the Apollo GraphQL client and server libraries.
 ms.topic: how-to
 ms.date: 07/26/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # 3. Local development of a GraphQL static web app

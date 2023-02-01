@@ -16,6 +16,14 @@
         "redirect_url": "/azure/developer/python" 
       },
       { 
+        "source_path": "articles/javascript/whats-new-developer-advocacy.md",
+        "redirect_url": "/azure/developer/javascript" 
+      },
+      { 
+        "source_path": "articles/javascript/whats-new-docs.md",
+        "redirect_url": "/azure/developer/javascript" 
+      },            
+      { 
         "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
         "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
       },

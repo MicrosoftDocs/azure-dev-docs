@@ -3,7 +3,7 @@ title: GraphQL CRUD API as Azure Function on Azure
 description: Learn how to deploy a GraphQL API for CRUD mutations to Azure in an Azure Function.  
 ms.topic: how-to
 ms.date: 08/05/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # Deploy a GraphQL API for CRUD mutations as an Azure Function 
