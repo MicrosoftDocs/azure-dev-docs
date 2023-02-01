@@ -3,7 +3,7 @@ title: GraphQL basics
 description: Learn fundamental GraphQL concepts
 ms.topic: how-to
 ms.date: 08/09/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # 2. GraphQL basics

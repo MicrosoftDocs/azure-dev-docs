@@ -498,7 +498,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.5](https://www.npmjs.com/package/@autorest/common/v/1.5.5) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230123.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230123.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230130.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230130.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.1) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -518,7 +518,7 @@
 | @azure-tools/cadl-autorest | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.25.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.25.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230123.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230123.3) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230130.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230130.1) |  |  |
 | @azure-tools/cadl-dpg | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.25.0) |  |  |
 | @azure-tools/cadl-java | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.2.2) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
@@ -535,7 +535,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.8) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.6.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.6.0) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.6.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.6.1) |  |  |
 | @azure-tools/json | npm [1.2.3](https://www.npmjs.com/package/@azure-tools/json/v/1.2.3) |  |  |
 | @azure-tools/jsonschema | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.2) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |

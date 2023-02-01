@@ -1,10 +1,6 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
-  - name: What's new in docs
-    href: whats-new-docs.md
-  - name: What's new with Developer Advocates
-    href: whats-new-developer-advocacy.md  
   - name: Cloud development with Azure
     items:
     - name: What is Azure?

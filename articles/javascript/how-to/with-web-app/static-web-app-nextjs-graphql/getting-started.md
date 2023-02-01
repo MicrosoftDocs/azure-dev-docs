@@ -3,7 +3,7 @@ title: "Trivia game: create Next.js GraphQL trivia game"
 description: Create a Next.js GraphQL app with server-side rendering to generate a trivia game.
 ms.topic: how-to
 ms.date: 01/19/2023
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 #intent: Create Next.js GraphQL app with SSR to deploy as SWA hybrid. 
 ---
 

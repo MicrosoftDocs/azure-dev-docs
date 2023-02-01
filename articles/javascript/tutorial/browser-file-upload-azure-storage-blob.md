@@ -3,7 +3,7 @@ title: "JavaScript: Upload image to Blob Storage"
 description: Use a React Static Web App with TypeScript or JavaScript to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
+ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 ---
 
 # Upload an image to an Azure Storage blob with JavaScript

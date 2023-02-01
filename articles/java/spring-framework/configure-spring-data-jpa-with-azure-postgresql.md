@@ -37,7 +37,7 @@ In this article, you'll code a sample application. If you want to go faster, thi
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.8 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 > [!NOTE]
