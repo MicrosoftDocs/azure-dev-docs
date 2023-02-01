@@ -94,6 +94,7 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
           azure_rm_virtualmachine:
             resource_group: {{ resource_group_name }}
             name: {{ vm_name }}
+            started: yes
     ```
 
 1. Replace the `{{ resource_group_name }}` and `{{ vm_name }}` placeholders with your values.
