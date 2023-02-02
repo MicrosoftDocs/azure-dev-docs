@@ -243,4 +243,4 @@ az group delete --name YOUR-RESOURCE-GROUP-NAME --yes
 
 ## Next steps
 
-* [Get started with databases in JavaScript](../../with-database/getting-started.md)
+* [Get started with databases in JavaScript](database-developer-guide.md)
