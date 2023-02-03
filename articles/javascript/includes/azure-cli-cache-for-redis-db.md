@@ -26,51 +26,6 @@ The response includes your server's configuration details including:
 * the version of Redis: `redisVersion`
 * ports: `sslPort` and `port`
 
-```text
-{
-  "accessKeys": null,
-  "enableNonSslPort": true,
-  "hostName": "YOUR-RESOURCE-NAME.redis.cache.windows.net",
-  "id": "/subscriptions/YOUR-SUBSCRIPTION-ID-OR-NAME/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Cache/Redis/YOUR-RESOURCE-NAME",
-  "instances": [
-    {
-      "isMaster": false,
-      "nonSslPort": 13000,
-      "shardId": null,
-      "sslPort": 15000,
-      "zone": null
-    }
-  ],
-  "linkedServers": [],
-  "location": "East US",
-  "minimumTlsVersion": null,
-  "name": "YOUR-RESOURCE-NAME",
-  "port": 6379,
-  "provisioningState": "Creating",
-  "redisConfiguration": {
-    "maxclients": "256",
-    "maxfragmentationmemory-reserved": "12",
-    "maxmemory-delta": "2",
-    "maxmemory-reserved": "2"
-  },
-  "redisVersion": "4.0.14",
-  "replicasPerMaster": null,
-  "resourceGroup": "YOUR-RESOURCE-GROUP",
-  "shardCount": null,
-  "sku": {
-    "capacity": 0,
-    "family": "C",
-    "name": "Basic"
-  },
-  "sslPort": 6380,
-  "staticIp": null,
-  "subnetId": null,
-  "tags": {},
-  "tenantSettings": {},
-  "type": "Microsoft.Cache/Redis",
-  "zones": null
-}
-```
 
 ### Add firewall rule for your client IP address to Redis resource
 
@@ -88,7 +43,7 @@ az redis firewall-rules create \
 
 If you don't know your client IP address, use one of these methods:
 * Use the Azure portal to view and change your firewall rules, which include adding your detected client IP.
-* When you run your Node.js code, your receive an error about your firewall rules violation which includes your client IP address. Copy the IP address and use it to set your firewall rule.
+* When you run your Node.js code, your receive an error about your firewall rules violation, which includes your client IP address. Copy the IP address and use it to set your firewall rule.
 
 ### Get the Redis keys with Azure CLI
 

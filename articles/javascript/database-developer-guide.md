@@ -2,7 +2,7 @@
 title: Getting started with Azure Databases 
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 02/03/2023
 ms.custom: devx-track-js, devx-graphql
 ---
 
@@ -90,34 +90,44 @@ Data query languages, agnostic of a specific database, allow you to use the quer
 
 ## GraphQL data layer
 
-GraphQL is a database-agnostic query language. It allows a client to describe the data schema along with the data requested from the data source.
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-|Summary|
-|--|
-|GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
-|
+### GraphQL resources
 
-Learn more about developing GraphQL for [Azure Functions](./how-to/with-web-app/graphql/azure-function-hello-world.md).
+#### Static Web apps with GraphQL
+
+* [Next.js: Trivia game with Cosmos DB](how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md)
+* [React.js: Trivia game with Cosmos DB](how-to/with-web-app/graphql/static-web-app-graphql/introduction.md)
+
+#### Azure Functions with GraphQL
+
+* [Serverless: Hello world API](how-to/with-web-app/graphql/azure-function-hello-world.md)
+* [Serverless: Data (CRUD) API](how-to/with-web-app/graphql/azure-function-crud-mutation.md)
+
+#### Azure API Management with GraphQL
+
+* [Import GraphQL into Azure API Management](/azure/api-management/graphql-api)
+* [Import and resolve GraphQL schema with](/azure/api-management/graphql-schema-resolve-api)
 
 ## Cassandra on Azure
 
-To create, move, or use a Cassandra DB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database.
+To create, move, or use a Cassandra DB database to Azure, you need an **Azure Cosmos DB** resource. 
 
-<a name="locally-develop-with-the-cosmosdb-emulator"></a>
+<a name="create-a-cosmos-db-resource-for-cassandra-db"></a>
 
-### Locally develop with the Azure Cosmos DB emulator
+### Create a resource for Azure Cosmos DB for Apache Cassandra
 
-Learn how to install the [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Cassandra development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#cassandra-api). 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database.
 
-### Create an Azure Cosmos DB resource for a Cassandra DB database
+```azurecli
+az cosmosdb create \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-RESOURCE_NAME \
+    --capabilities EnableCassandra
+```
 
-You can create a resource with:
-
-* Azure CLI
-* [Azure portal](https://portal.azure.com)
-* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-
-[!INCLUDE [Azure CLI commands](includes/azure-cli-cassandra-db.md)]
+This command may take a couple of minutes to complete and creates a publicly available resource. You don't need to configure firewall rules to allow your client IP address through.
 
 ### View and use your Cassandra DB on Azure Cosmos DB
 
@@ -127,7 +137,44 @@ While developing your Cassandra DB database with JavaScript, use [Azure Cosmos D
 
 The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-:::image type="content" source="media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
+### Create a keyspace on the server with Azure CLI
+
+Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
+
+```azurecli
+az cosmosdb cassandra keyspace create \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --account-name YOUR-RESOURCE_NAME \
+    --name YOUR-KEYSPACE-NAME
+```
+
+### Create a table on the keyspace with Azure CLI
+
+Use the following Azure CLI [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
+
+```azurecli
+az cosmosdb cassandra table create \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --account-name YOUR-RESOURCE_NAME \
+    --keyspace-name YOUR-KEYSPACE-NAME \
+    --name YOUR-TABLE-NAME \
+    --schema @schema.json
+```
+
+### Get the Cassandra connection string with Azure CLI
+Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
+
+```azurecli
+az cosmosdb keys list \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-RESOURCE-NAME \
+    --type connection-strings 
+```
+
+Connect to the Cassandra database with a connection string. Your Cassandra user name is the resource name. 
 
 ### Use native SDK packages to connect to Cassandra DB on Azure
 
@@ -162,7 +209,7 @@ NoHostAvailableError: All host(s) tried for query failed. First host tried, xxx.
 
 To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cassandra-driver, use the following procedure.
 
-1. Make sure Node.js and npm are installed.
+1. Make sure Node.js LTS and npm are installed.
 1. Create a Node.js project in a new folder:
 
     ```bash
@@ -240,23 +287,9 @@ To create, move, or use a MySQL or MariaDB database, you need an **Azure** resou
 
 To create, move, or use a mongoDB database to Azure, you need an Azure Cosmos DB resource. Learn how to create the resource and use your database.
 
-#### [VS Code extension](#tab/vscode)
-
-To Use the VSCode extension for Azure Cosmos DB, install the following:
-
-* [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-
-[!INCLUDE [VSCode extension for Azure Cosmos DB databases](includes/vscode-extension-mongodb.md)]
-
 #### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI commands](includes/azure-cli-mongodb.md)]
-
-#### [Azure portal](#tab/azure-portal)
-
-[!INCLUDE [Azure portal](includes/azure-portal-mongodb.md)]
-
----
 
 <a name="locally-develop-with-the-cosmosdb-emulator"></a>
 
@@ -316,14 +349,6 @@ You can create a resource with:
 * Visual Studio Code extension - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 [!INCLUDE [Azure CLI commands](includes/azure-cli-cosmos-db-sql-api.md)]
-
-### View and use your Azure Cosmos DB for NoSQL database
-
-While developing your Azure Cosmos DB for NoSQL database with JavaScript, use [Azure Cosmos DB explorer](https://cosmos.azure.com/) to work with your database.
-
-:::image type="content" source="media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your database.":::
-
-The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
 ### Use @azure/cosmos SDK to connect to database
 
@@ -634,16 +659,6 @@ You can create a resource with:
 
 [!INCLUDE [Azure CLI commands](includes/azure-cli-cache-for-redis-db.md)]
 
-### View and use your Redis database
-
-While developing your Redis database with JavaScript, use the [Redis console](/azure/azure-cache-for-redis/cache-configure#redis-console) from the Azure portal to work with your database.
-
-:::image type="content" source="media/howto-database/azure-cache-for-redis-console-button.png" alt-text="While developing your Redis database with JavaScript, use the Redis console from the Azure portal to work with your database.":::
-
-This console provides [Redis CLI](https://redis.io/topics/rediscli) functionality. Be aware [some commands are not supported](/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis).
-
-Once you have your resource created, [import your data](/azure/azure-cache-for-redis/cache-how-to-import-export-data) into your Redis resource from Azure Storage using the Azure portal. 
-
 ### Use native SDK packages to connect to Redis on Azure
 
 The Redis database uses npm packages such as:
@@ -721,12 +736,6 @@ Use the following procedure to install the `ioredis` package and initialize your
     null
     done
     ```
-
-### Use Redis console in Azure portal to view data
-
-In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`. 
-
-:::image type="content" source="media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
 
 ### Redis resources
 

@@ -61,82 +61,10 @@ To connect and use your MySQL on Azure with JavaScript, use the following proced
 
     :::code language="JavaScript" source="~/../js-e2e/database/mysql/index.js" :::
 
-
 1. Replace the host, user, and password with your values in the script for your connection configuration object, `config`. 
 
 1. Run the script.
 
-    ```bash
-    [
-      RowDataPacket { Database: 'information_schema' },
-      RowDataPacket { Database: 'defaultdb' },
-      RowDataPacket { Database: 'dbproducts' },
-      RowDataPacket { Database: 'mysql' },
-      RowDataPacket { Database: 'performance_schema' },
-      RowDataPacket { Database: 'sys' }
-    ]
-    [
-      RowDataPacket { Tables_in_mysql: '__az_action_history__' },
-      RowDataPacket { Tables_in_mysql: '__az_changed_static_configs__' },
-      RowDataPacket { Tables_in_mysql: '__az_replica_information__' },
-      RowDataPacket { Tables_in_mysql: '__az_replication_current_state__' },
-      RowDataPacket { Tables_in_mysql: '__firewall_rules__' },
-      RowDataPacket { Tables_in_mysql: '__querystore_event_wait__' },
-      RowDataPacket { Tables_in_mysql: '__querystore_query_metrics__' },
-      RowDataPacket { Tables_in_mysql: '__querystore_query_text__' },
-      RowDataPacket {
-        Tables_in_mysql: '__querystore_wait_stats_procedure_errors__'
-      },
-      RowDataPacket {
-        Tables_in_mysql: '__querystore_wait_stats_procedure_status__'
-      },
-      RowDataPacket { Tables_in_mysql: '__recommendation__' },
-      RowDataPacket { Tables_in_mysql: '__recommendation_session__' },
-      RowDataPacket { Tables_in_mysql: '__script_version__' },
-      RowDataPacket { Tables_in_mysql: 'columns_priv' },
-      RowDataPacket { Tables_in_mysql: 'db' },
-      RowDataPacket { Tables_in_mysql: 'engine_cost' },
-      RowDataPacket { Tables_in_mysql: 'event' },
-      RowDataPacket { Tables_in_mysql: 'func' },
-      RowDataPacket { Tables_in_mysql: 'general_log' },
-      RowDataPacket { Tables_in_mysql: 'gtid_executed' },
-      RowDataPacket { Tables_in_mysql: 'help_category' },
-      RowDataPacket { Tables_in_mysql: 'help_keyword' },
-      RowDataPacket { Tables_in_mysql: 'help_relation' },
-      RowDataPacket { Tables_in_mysql: 'help_topic' },
-      RowDataPacket { Tables_in_mysql: 'innodb_index_stats' },
-      RowDataPacket { Tables_in_mysql: 'innodb_table_stats' },
-      RowDataPacket { Tables_in_mysql: 'ndb_binlog_index' },
-      RowDataPacket { Tables_in_mysql: 'plugin' },
-      RowDataPacket { Tables_in_mysql: 'proc' },
-      RowDataPacket { Tables_in_mysql: 'procs_priv' },
-      RowDataPacket { Tables_in_mysql: 'proxies_priv' },
-      RowDataPacket { Tables_in_mysql: 'query_store' },
-      RowDataPacket { Tables_in_mysql: 'query_store_wait_stats' },
-      RowDataPacket { Tables_in_mysql: 'recommendation' },
-      RowDataPacket { Tables_in_mysql: 'server_cost' },
-      RowDataPacket { Tables_in_mysql: 'servers' },
-      RowDataPacket { Tables_in_mysql: 'slave_master_info' },
-      RowDataPacket { Tables_in_mysql: 'slave_relay_log_info' },
-      RowDataPacket { Tables_in_mysql: 'slave_worker_info' },
-      RowDataPacket { Tables_in_mysql: 'slow_log' },
-      RowDataPacket { Tables_in_mysql: 'tables_priv' },
-      RowDataPacket { Tables_in_mysql: 'time_zone' },
-      RowDataPacket { Tables_in_mysql: 'time_zone_leap_second' },
-      RowDataPacket { Tables_in_mysql: 'time_zone_name' },
-      RowDataPacket { Tables_in_mysql: 'time_zone_transition' },
-      RowDataPacket { Tables_in_mysql: 'time_zone_transition_type' },
-      RowDataPacket { Tables_in_mysql: 'user' }
-    ]
-    [
-      RowDataPacket { User: 'mySqlAdmin' },
-      RowDataPacket { User: 'azure_superuser' },
-      RowDataPacket { User: 'azure_superuser' },
-      RowDataPacket { User: 'mysql.session' },
-      RowDataPacket { User: 'mysql.sys' }
-    ]
-    done
-    ```
 
 ### MySql resources
 

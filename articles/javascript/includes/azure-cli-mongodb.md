@@ -113,7 +113,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 
 ### Add firewall rule for your client IP address with Azure CLI
 
-By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
+By default, the firewall rules aren't configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
 Use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command to update the firewall rules.
 
