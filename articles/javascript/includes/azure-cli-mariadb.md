@@ -5,7 +5,7 @@ ms.date: 08/08/2022
 ---
 
 
-## Create a MariaDB resource with Azure CLI
+### Create a MariaDB resource with Azure CLI
 
 Use the following Azure CLI [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB resource for your database. 
 
@@ -69,7 +69,7 @@ The response includes your server's configuration details including:
 
 Before you can connect to the server programmatically, you need to configure your firewall rules to allow your client IP address through. 
 
-## Add firewall rule for your client IP address to MariaDB resource
+### Add firewall rule for your client IP address to MariaDB resource
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
@@ -87,7 +87,7 @@ If you don't know your client IP address, use one of these methods:
 
 While you can add the full range of internet addresses as a firewall rule, 0.0.0.0-255.255.255.255, this leaves your server open to attacks.
 
-## Create a database on the server with Azure CLI
+### Create a database on the server with Azure CLI
 
 Use the following Azure CLI [az mariadb db create](/cli/azure/mariadb/db#az-mariadb-db-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB database on your server. 
 
@@ -99,7 +99,7 @@ az mariadb db create \
     --name YOURDATABASENAME
 ```
 
-## Get the MariaDB connection string with Azure CLI
+### Get the MariaDB connection string with Azure CLI
 
 Retrieve the MariaDB connection string for this instance with the [az mariadb server show-connection-string](/cli/azure/mariadb/server#az-mariadb-server-show-connection-string) command:
 
@@ -126,7 +126,3 @@ This returns the connection strings for the popular languages as a JSON object:
   }
 }
 ``` 
-
-
-
-

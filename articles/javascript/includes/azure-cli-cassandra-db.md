@@ -6,7 +6,7 @@ ms.date: 08/08/2022
 
 <a name="create-a-cosmos-db-resource-for-cassandra-db"></a>
 
-## Create a resource for Azure Cosmos DB for Apache Cassandra
+### Create a resource for Azure Cosmos DB for Apache Cassandra
 
 Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database.
 
@@ -105,7 +105,7 @@ The response includes your server's configuration details including:
 ```
 
 
-## Create a keyspace on the server with Azure CLI
+### Create a keyspace on the server with Azure CLI
 
 Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
@@ -117,7 +117,7 @@ az cosmosdb cassandra keyspace create \
     --name YOUR-KEYSPACE-NAME
 ```
 
-## Create a table on the keyspace with Azure CLI
+### Create a table on the keyspace with Azure CLI
 
 Use the following Azure CLI [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
@@ -157,7 +157,7 @@ The schema file's JSON defines the table columns, data types, and partition key:
 }
 ```
 
-## Get the Cassandra connection string with Azure CLI
+### Get the Cassandra connection string with Azure CLI
 Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
 
 ```azurecli

@@ -5,7 +5,7 @@ ms.date: 08/08/2022
 ---
 
 
-## Create an Azure Database for PostgreSQL server resource with Azure CLI
+### Create an Azure Database for PostgreSQL server resource with Azure CLI
 
 Use the following Azure CLI [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL server resource for your database. 
 
@@ -72,7 +72,7 @@ The response includes your server's configuration details including:
 
 Before you can connect to the server, you need to configure your firewall rules to allow your client IP address through. 
 
-## Add a firewall rule for your client IP address to PostgreSQL resource
+### Add a firewall rule for your client IP address to PostgreSQL resource
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
@@ -95,7 +95,7 @@ If you don't know your client IP address, use one of these methods:
 
 While you can add the full range of internet addresses as a firewall rule, 0.0.0.0-255.255.255.255, this leaves your server open to attacks. 
 
-## Create a PostgreSQL database on the server with Azure CLI
+### Create a PostgreSQL database on the server with Azure CLI
 
 Use the following Azure CLI [az postgres db create](/cli/azure/postgres/db#az-postgres-db-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL database on your server. 
 
@@ -107,7 +107,7 @@ az postgres db create \
     --name YOURDATABASENAME
 ```
 
-## Get the PostgreSQL connection string with Azure CLI
+### Get the PostgreSQL connection string with Azure CLI
 
 Retrieve the PostgreSQL connection string for this instance with the [az postgres server show-connection-string](/cli/azure/postgres/server#az-postgres-server-show-connection-string) command:
 

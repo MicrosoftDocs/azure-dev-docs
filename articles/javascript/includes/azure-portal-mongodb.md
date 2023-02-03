@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 08/09/2022
 ---
 
-## Create and use a MongoDB database with Azure portal 
+### Create and use a MongoDB database with Azure portal 
 
 1. Use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) to create an Azure Cosmos DB for MongoDB database.
 2. On the **Basics** page, make sure you select the **version** of MongoDB you intend to use. Learn more about MongoDB versions:
@@ -15,7 +15,7 @@ ms.date: 08/09/2022
 
 3. Once the resource is created, use the **Data Explorer** for your resource to create a new database and collection.
 
-## Add firewall rule for your client IP address with Azure portal
+### Add firewall rule for your client IP address with Azure portal
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
@@ -26,7 +26,7 @@ By default, the firewall rules are not configured. You should add your client IP
 
     :::image type="content" source="../media/howto-database/azure-portal-cosmos-db-firewall-setting.png" alt-text="Screenshot of Azure Portal to configure firewall for your local computer." lightbox="../media/howto-database/azure-portal-cosmos-db-firewall-setting.png":::
 
-## Get the MongoDB connection string for your resource with Azure portal
+### Get the MongoDB connection string for your resource with Azure portal
 
 1. In the Azure portal for your MongoDB database, select **Connection String**.
 2. Select the _copy icon_ at the end of the row for the **Primary Connection String**.
@@ -35,7 +35,7 @@ By default, the firewall rules are not configured. You should add your client IP
 
 3. Paste the connection string into either an Azure Key Vault **secret** or web app (see next section). 
 
-## Configure your Azure web app with the connection string with Azure portal
+### Configure your Azure web app with the connection string with Azure portal
 
 Add an Azure web app **MONGODB_URL** environment variable in the Azure portal
 

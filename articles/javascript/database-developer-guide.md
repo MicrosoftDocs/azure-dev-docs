@@ -18,13 +18,13 @@ Microsoft provides managed services for the following databases:
 
 |Database|Azure Service|
 |--|--|
-|[Cassandra](#cassandra)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[Cassandra](#cassandra-on-azure)|[Azure Cosmos DB](/azure/cosmos-db/)|
 |Gremlin|[Azure Cosmos DB](/azure/cosmos-db/)|
-|[MongoDB](#mongodb)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[MongoDB](#mongodb-on-azure)|[Azure Cosmos DB](/azure/cosmos-db/)|
 |MariaDB/MySQL|[Azure Database for MariaDB](/azure/mariadb/)|
-|[PostgreSQL](#postgresql)|[Azure Database for PostgreSQL](/azure/postgresql/)|
-|[Redis](#redis)|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|
-|[No-SQL](No SQL)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[PostgreSQL](#postgresql-on-azure)|[Azure Database for PostgreSQL](/azure/postgresql/)|
+|[Redis](#redis-on-azure)|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|
+|[No-SQL]()|[Azure Cosmos DB](/azure/cosmos-db/)|
 |Tables|[Azure Cosmos DB](/azure/cosmos-db/)|
 
 **Need help with choosing?** 
@@ -97,7 +97,7 @@ GraphQL is a database-agnostic query language. It allows a client to describe th
 |GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 |
 
-Learn more about developing GraphQL for [Azure Functions](../with-web-app/graphql/azure-function-hello-world.md).
+Learn more about developing GraphQL for [Azure Functions](./how-to/with-web-app/graphql/azure-function-hello-world.md).
 
 ## Cassandra on Azure
 
@@ -215,7 +215,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 
 ### Cassandra resources
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Cosmos DB for Apache Cassandra documentation](/azure/cosmos-db/cassandra-introduction)
 * [Azure Cosmos DB for Apache Cassandra quickstart](/azure/cosmos-db/create-cassandra-nodejs)
 * [Migration guide to move to Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-migrate-cosmos-db-databricks)
@@ -286,7 +286,7 @@ The mongoDB database on Azure Cosmos DB uses npm packages already available, suc
 
 ### Mongo DB resources
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](../how-to/deploy-web-app.md)
 * [Azure Cosmos DB for MongoDB documentation](/azure/cosmos-db/mongodb-introduction)
 * [Azure Cosmos DB for MongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-pre-migration)
@@ -527,7 +527,7 @@ To connect and use your Azure Cosmos DB for NoSQL database with JavaScript, use 
 
 ### NoSQL resources
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Cosmos DB for NoSQL documentation](/azure/cosmos-db)
 * [Azure Cosmos DB for NoSQL quickstart](/azure/cosmos-db/create-sql-api-nodejs)
 
@@ -618,7 +618,7 @@ To connect and use your PostgreSQL on Azure with JavaScript, use the following p
 
 ### PostgreSQL resources
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Database for PostgreSQL server](/azure/postgresql/)
 
 ## Redis on Azure
@@ -730,12 +730,8 @@ In the Azure portal, view your resource's console with the command `SCAN 0 COUNT
 
 ### Redis resources
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Cache for Redis documentation](/azure/azure-cache-for-redis)
 * [Azure Cache for Redis quickstart](/azure/azure-cache-for-redis/cache-nodejs-get-started)
 * [Azure Architecture Center - Best practices with Caching](/azure/architecture/best-practices/caching)
 * [Best practices with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-best-practices#client-library-specific-guidance)
-
-## Next steps
-
-* [Develop a JavaScript application with MongoDB on Azure](use-mongodb-as-cosmosdb.md)
