@@ -4,7 +4,6 @@ description: Clean up resources used and show next steps of the tutorial showing
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 

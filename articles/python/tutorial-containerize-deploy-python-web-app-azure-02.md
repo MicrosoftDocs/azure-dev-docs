@@ -4,7 +4,6 @@ description: Build and run a containerized Python web app (Django or Flask) loca
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Build and run a containerized Python web app locally with MongoDB

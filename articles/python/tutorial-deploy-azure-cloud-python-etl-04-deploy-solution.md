@@ -6,7 +6,6 @@ ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/03/2023
-ms.prod: azure-python
 ---
 
 # Tutorial: Deploy Python ETL Solution to Azure

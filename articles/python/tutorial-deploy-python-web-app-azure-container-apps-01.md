@@ -4,7 +4,6 @@ description: Overview of how to create a container from a Python web app and dep
 ms.topic: conceptual
 ms.date: 08/30/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Overview: Deploy a Python web app on Azure Container Apps
