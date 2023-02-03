@@ -286,7 +286,7 @@ The mongoDB database on Azure Cosmos DB uses npm packages already available, suc
 
 ### Mongo DB resources
 
-* How to [deploy a JavaScript web app](../how-to/deploy-web-app.md)
+* How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Cosmos DB for MongoDB documentation](/azure/cosmos-db/mongodb-introduction)
 * [Azure Cosmos DB for MongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-pre-migration)
