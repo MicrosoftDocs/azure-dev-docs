@@ -117,17 +117,17 @@ You can create a resource with:
 * [Azure portal](https://portal.azure.com)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra-db.md)]
+[!INCLUDE [Azure CLI commands](includes/azure-cli-cassandra-db.md)]
 
 ### View and use your Cassandra DB on Azure Cosmos DB
 
 While developing your Cassandra DB database with JavaScript, use [Azure Cosmos DB explorer](https://cosmos.azure.com/) to work with your database.
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-cassandra-add-table-row.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your Cassandra DB database.":::
+:::image type="content" source="media/howto-database/cosmos-explorer-cassandra-add-table-row.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your Cassandra DB database.":::
 
 The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
+:::image type="content" source="media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
 
 ### Use native SDK packages to connect to Cassandra DB on Azure
 
@@ -246,15 +246,15 @@ To Use the VSCode extension for Azure Cosmos DB, install the following:
 
 * [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-[!INCLUDE [VSCode extension for Azure Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
+[!INCLUDE [VSCode extension for Azure Cosmos DB databases](includes/vscode-extension-mongodb.md)]
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
+[!INCLUDE [Azure CLI commands](includes/azure-cli-mongodb.md)]
 
 #### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [Azure portal](../../includes/azure-portal-mongodb.md)]
+[!INCLUDE [Azure portal](includes/azure-portal-mongodb.md)]
 
 ---
 
@@ -276,11 +276,11 @@ The mongoDB database on Azure Cosmos DB uses npm packages already available, suc
 
 # [MongoDB](#tab/mongodb)
 
-[!INCLUDE [JavaScript MongoDB](../../includes/javascript-mongodb.md)]
+[!INCLUDE [JavaScript MongoDB](includes/javascript-mongodb.md)]
 
 # [Mongoose](#tab/mongoose)
 
-[!INCLUDE [JavaScript Mongoose](../../includes/javascript-mongoose.md)]
+[!INCLUDE [JavaScript Mongoose](includes/javascript-mongoose.md)]
 
 ---
 
@@ -315,13 +315,13 @@ You can create a resource with:
 * [Azure portal](https://portal.azure.com)
 * Visual Studio Code extension - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cosmos-db-sql-api.md)]
+[!INCLUDE [Azure CLI commands](includes/azure-cli-cosmos-db-sql-api.md)]
 
 ### View and use your Azure Cosmos DB for NoSQL database
 
 While developing your Azure Cosmos DB for NoSQL database with JavaScript, use [Azure Cosmos DB explorer](https://cosmos.azure.com/) to work with your database.
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your database.":::
+:::image type="content" source="media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Azure Cosmos DB explorer, found at `https://cosmos.azure.com/`, to view and work with your database.":::
 
 The Azure Cosmos DB explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
@@ -541,12 +541,12 @@ To create, move, or use a PostgreSQL database to Azure, you need an **Azure Data
 Create a resource with:
 
 * [Azure CLI command](/cli/azure/postgres/server#az-postgres-server-create) = `az postgres server create`
-* [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-server-for-cosmos-db)
+* [Visual Studio Code](./how-to/with-visual-studio-code/create-azure-database.md#create-a-postgresql-server-for-cosmos-db)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
 * [@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
 
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-postgresql-db.md)]
+[!INCLUDE [Azure CLI commands](includes/azure-cli-postgresql-db.md)]
 
 ### View and use your PostgreSQL server on Azure
 While developing your PostgreSQL database with JavaScript, use one of the following tools:
@@ -632,13 +632,13 @@ You can create a resource with:
 * Azure CLI
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cache)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cache-for-redis-db.md)]
+[!INCLUDE [Azure CLI commands](includes/azure-cli-cache-for-redis-db.md)]
 
 ### View and use your Redis database
 
 While developing your Redis database with JavaScript, use the [Redis console](/azure/azure-cache-for-redis/cache-configure#redis-console) from the Azure portal to work with your database.
 
-:::image type="content" source="../../media/howto-database/azure-cache-for-redis-console-button.png" alt-text="While developing your Redis database with JavaScript, use the Redis console from the Azure portal to work with your database.":::
+:::image type="content" source="media/howto-database/azure-cache-for-redis-console-button.png" alt-text="While developing your Redis database with JavaScript, use the Redis console from the Azure portal to work with your database.":::
 
 This console provides [Redis CLI](https://redis.io/topics/rediscli) functionality. Be aware [some commands are not supported](/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis).
 
@@ -726,7 +726,7 @@ Use the following procedure to install the `ioredis` package and initialize your
 
 In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`. 
 
-:::image type="content" source="../../media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
+:::image type="content" source="media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
 
 ### Redis resources
 
