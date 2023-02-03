@@ -150,6 +150,12 @@ items:
           items:
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-node-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Certificates
+            href: /azure/key-vault/certificates/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Keys
+            href: /azure/key-vault/keys/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Secrets
+            href: /azure/key-vault/secrets/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Topics
