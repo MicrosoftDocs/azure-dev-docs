@@ -23,11 +23,14 @@ For example, you may want to run a custom scripts in the following scenarios:
 
 The following `azd` command hooks are available:
 
+* `preinit` and `postinit`: Run before and after the pipeline is initialized.
 * `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
+* `preinfracreate` and `preinfracrate`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
 * `predeploy` and `postdeploy`: Run before and after the application code is deployed to Azure.
 * `preup` and `postup`: Run before and after the combined deployment pipeline. `Up` is a shorthand command that runs `restore`, `provision`, and `deploy` sequentially.
 * `predown` and `postdown`: Run before and after the resources are removed.
+* `preinfradelete` and `preinfradelete`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
 
 The following service lifecycle event hooks are available:
 
@@ -43,8 +46,8 @@ Hooks can be registered in your `azure.yaml` file at the root or within a specif
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
 * `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
-* `windows`: Specifies that the nested configurations will only apply on windows OS.
-* `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS).
+* `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook will execute on all platforms.
+* `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook will execute on all platforms.
 
 ## Hook examples
 
@@ -52,7 +55,7 @@ The examples below demonstrate different types of hook registrations and configu
 
 ### Root command registration
 
-Hooks can be configured to run for specific `azd` commands at the root of your `azure.yml` file.
+Hooks can be configured to run for specific `azd` commands at the root of your `azure.yaml` file.
 
 ```yml
 name: todo-nodejs-mongo
@@ -78,7 +81,7 @@ services:
 
 ### Service registration
 
-hooks can be also be configured to run only for specific services defined in your `.yml` file. 
+hooks can be also be configured to run only for specific services defined in your `.yaml` file. 
 
 ```yml
 name: todo-nodejs-mongo
@@ -104,7 +107,7 @@ services:
 
 ### OS specific hooks
 
-Optionally, hooks can also be configured to run either on Windows or Posix (Linux & MaxOS).
+Optionally, hooks can also be configured to run either on Windows or Posix (Linux & MaxOS). By default, if the Windows or Posix configurations are excluded the hook will execute on all platforms.
 
 ```yml
 name: todo-nodejs-mongo
