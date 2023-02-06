@@ -1366,7 +1366,7 @@
         "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
       },
       {
-        "source_path":"articles/developer/terraform/get-started-powershell.md",
+        "source_path":"articles/terraform/get-started-powershell.md",
         "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
       }
     ]
