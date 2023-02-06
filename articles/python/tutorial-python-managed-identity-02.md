@@ -4,7 +4,6 @@ description: How to run a Python (Django or Flask) web app locally with local Po
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 

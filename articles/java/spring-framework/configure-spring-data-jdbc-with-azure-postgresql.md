@@ -77,7 +77,7 @@ spring.sql.init.mode=always
 > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create later, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
 
 > [!NOTE]
-> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure PostgreSQL using a service principal](spring-cloud-azure.md#connect-to-azure-postgresql-using-a-service-principal) or [Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps](spring-cloud-azure.md#connect-to-azure-postgresql-with-managed-identity-in-azure-spring-apps).
+> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure PostgreSQL using a service principal](postgresql-support.md#connect-to-azure-postgresql-using-a-service-principal) or [Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps](postgresql-support.md#connect-to-azure-postgresql-with-managed-identity-in-azure-spring-apps).
 
 You should now be able to start your application by using the provided Maven wrapper as follows:
 
@@ -118,7 +118,7 @@ Congratulations! You've created a Spring Boot application that uses JDBC to stor
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-## Additional resources
+## See also
 
 For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 

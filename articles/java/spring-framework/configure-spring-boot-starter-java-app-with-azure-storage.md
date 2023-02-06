@@ -42,7 +42,7 @@ The following procedure creates an Azure storage account and container in the po
    * Select **Resource group**, or create a new resource group.
    * Enter a unique **Storage account name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
    * Specify the **Location** for your storage account.
-1. When you have specified the options listed above, select **Review + create**.
+1. When you've specified the options listed above, select **Review + create**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png" alt-text="Azure portal screenshot of 'Create a storage account' page." lightbox="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png":::
 
@@ -115,11 +115,11 @@ The following procedure creates the Spring boot application.
    > [!NOTE]
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
 
-1. When you have specified the options listed above, select **GENERATE**.
+1. When you've specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer.
 
-1. After you have extracted the files on your local system, your simple Spring Boot application will be ready to edit.
+1. After you've extracted the files on your local system, your simple Spring Boot application will be ready to edit.
 
 ## Configure your Spring Boot app to use the Azure Storage Blob starter
 
@@ -145,11 +145,11 @@ The following procedure configures the Spring boot application to use Azure stor
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Save and close the *pom.xml* file.
 
-### Configure property in application.yml
+### Configure properties in application.yml
 
 The following procedure configures the Spring boot application to use your Azure storage account.
 
@@ -289,11 +289,11 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](index.yml)
 
-### Additional Resources
+### See also
 
-For more information about the additional Spring Boot Starters that are available for Microsoft Azure, see [Spring Boot Starters for Azure](spring-boot-starters-for-azure.md).
+For more information about the additional Spring Boot Starters that are available for Microsoft Azure, see [What is Spring Cloud Azure?](spring-cloud-azure-overview.md).
 
-For detailed information about additional Azure storage APIs that you can call from your Spring Boot applications, see the following articles:
+For more information about additional Azure storage APIs that you can call from your Spring Boot applications, see the following articles:
 
 * [How to use Azure Blob storage from Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
 * [How to use Azure Queue storage from Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)

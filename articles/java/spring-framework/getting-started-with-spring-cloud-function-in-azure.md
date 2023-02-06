@@ -53,7 +53,7 @@ You'll need to customize a few properties for your application:
 
 - `<functionAppName>` is the name of your Azure Function
 - `<functionAppRegion>` is the name of the Azure region where your Function is deployed
-- `<functionResourceGroup>` is the name of the Azure resource group you are using
+- `<functionResourceGroup>` is the name of the Azure resource group you're using
 
 Change those properties directly near the top of the *pom.xml* file, as shown in the following example:
 
@@ -68,6 +68,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
         <!-- customize those two properties. The functionAppName should be unique across Azure -->
         <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
+        <functionAppServicePlanName>my-spring-function-service-plan</functionAppServicePlanName>
         <functionAppName>my-spring-function</functionAppName>
 
         <functionAppRegion>westeurope</functionAppRegion>
@@ -88,7 +89,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.*, 4.0.0)"
+    "version": "[4.*, 5.0.0)"
   },
   "functionTimeout": "00:10:00"
 }
@@ -103,7 +104,6 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "java",
     "FUNCTIONS_EXTENSION_VERSION": "~4",
-    "MAIN_CLASS":"com.example.DemoApplication",
     "AzureWebJobsDashboard": ""
   }
 }

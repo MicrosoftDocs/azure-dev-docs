@@ -4,7 +4,6 @@ description: Describes how to create a container from a Python web app and deplo
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Build and deploy a Python web app with Azure Container Apps and PostgreSQL

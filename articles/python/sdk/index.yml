@@ -10,7 +10,7 @@ metadata:
   ms.date: 04/18/2022
   ms.topic: landing-page
   ms.collection: collection
-  ms.prod: azure-python
+  ms.service: azure-python
   ms.devlang: python
   ms.custom: devx-track-python
 

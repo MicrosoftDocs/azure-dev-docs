@@ -4,7 +4,6 @@ description: Create a storage account that a deployed Python (Django or Flask) w
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/20/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 

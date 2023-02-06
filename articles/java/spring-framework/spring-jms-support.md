@@ -1,15 +1,18 @@
 ---
-ms.date: 01/18/2023
+title: Spring JMS support
+description: This article describes how Spring Cloud Azure and Spring JMS can be used together.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Spring JMS support
+# Spring JMS support
 
 To use Azure Service Bus by the JMS API integrated into the Spring JMS framework.
 Azure Service Bus connection string have to be provided which is to be parsed into the login username, password and remote URI for the AMQP broker.
 
-### Dependency setup
+## Dependency setup
 
 Adding the following dependencies if you want to migrate your Spring JMS application to use Azure Service Bus.
 
@@ -20,7 +23,7 @@ Adding the following dependencies if you want to migrate your Spring JMS applica
 </dependency>
 ```
 
-### Configuration
+## Configuration
 
 Configurable properties when using Spring JMS support:
 
@@ -53,15 +56,16 @@ Configurable properties when using Spring JMS support:
 
 > [!NOTE]
 > Spring JMS general configuration is omitted for short.
-See [Spring JMS Document](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/jms.html) for more details.
 
-### Basic usage
+For more information, see [Spring JMS Document](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/jms.html).
 
-#### Use Service Bus connection String
+## Basic usage
+
+### Use Service Bus connection String
 
 The simplest way to connect to Service Bus for Spring JMS application is with the connection string.
 
-Add the following properties and you are good to go.
+Add the following properties and you're good to go.
 
 ``` yaml
 spring:
@@ -74,7 +78,6 @@ spring:
 > [!NOTE]
 > The default enabled `ConnectionFactory` is the `CachingConnectionFactory` which adds Session caching as well MessageProducer caching. If you want to activate the connection pooling featured one of JmsPoolConnectionFactory, the property of `spring.jms.servicebus.pool.enabled` should be specified `true`. You can find other pooling configuration options (properties with prefix `spring.jms.servicebus.pool.`) from the above [Configuration](#configuration) section.
 
+## Samples
 
-### Samples
-
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) for more details.
+For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

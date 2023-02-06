@@ -65,11 +65,11 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
 [Best Practices for using Azure Cache for Redis with Lettuce]: https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md
 [Quickstart: Manage blobs with Java v12 SDK]: /azure/storage/blobs/storage-quickstart-blobs-java
-[Spring Cloud Azure resource handing]: ../spring-framework/spring-cloud-azure.md#resource-handing
+[Spring Cloud Azure resource handing]: ../spring-framework/resource-handling.md
 [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic]: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
 [Azure Service Bus Samples client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.4.1/sdk/servicebus/azure-messaging-servicebus/src/samples
-[Spring integration with Azure Service Bus]: ../spring-framework/spring-cloud-azure.md#spring-integration-with-azure-service-bus
-[Spring Cloud Stream Binder for Azure Service Bus]: ../spring-framework/spring-cloud-azure.md#spring-cloud-stream-binder-for-azure-service-bus
+[Spring integration with Azure Service Bus]: ../spring-framework/spring-integration-support.md#spring-integration-with-azure-service-bus
+[Spring Cloud Stream Binder for Azure Service Bus]: ../spring-framework/spring-cloud-stream-support.md#spring-cloud-stream-binder-for-azure-service-bus
 [Send and Receive Messages in Java using Azure Event Hubs for Apache Kafka Ecosystems]: https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java
 [Use Java to send events to or receive events from Azure Event Hubs]: /azure/event-hubs/event-hubs-java-get-started-send
 [Enable Java Servlet apps to sign in users on Azure AD]: https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in#readme
@@ -83,11 +83,11 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring Data Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
 [Spring Data Redis]: https://spring.io/projects/spring-data-redis
 [Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
-[Spring Cloud Azure Redis support]: ../spring-framework/spring-cloud-azure.md#redis-support
+[Spring Cloud Azure Redis support]: ../spring-framework/redis-support.md
 [Spring AMQP]: https://spring.io/projects/spring-amqp
-[Spring Cloud Azure JMS support]: ../spring-framework/spring-cloud-azure.md#spring-jms-support
+[Spring Cloud Azure JMS support]: ../spring-framework/spring-jms-support.md
 [Spring for Apache Kafka]: https://spring.io/projects/spring-kafka
-[Spring Cloud Azure Kafka support]: ../spring-framework/spring-cloud-azure.md#kafka-support
+[Spring Cloud Azure Kafka support]: ../spring-framework/kafka-support.md
 [Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-stream-binder-eventhubs
 [Azure AD Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
 [Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c

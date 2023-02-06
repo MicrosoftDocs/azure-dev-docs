@@ -4,7 +4,6 @@ description: Use CI/CD with GitHub Actions to automatically build, test, and dep
 ms.topic: conceptual
 ms.date: 10/29/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux

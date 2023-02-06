@@ -120,7 +120,8 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform"
+        "terraform/**/*.md": "terraform",
+        "python/**/*.md": "azure-python"
       },
       
       "titleSuffix": {
@@ -143,7 +144,6 @@
         "**/includes/**/*.md": "include"
       },
       "ms.prod": {
-        "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
       },
       "ROBOTS": {

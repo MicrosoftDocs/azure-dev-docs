@@ -1,18 +1,21 @@
 ---
-ms.date: 12/07/2022
+title: Spring Cloud Azure kafka support
+description: This article describes how Spring Cloud Azure and Kafka can be used together.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Kafka support
+# Spring Cloud Azure Kafka support
 
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
-### Supported Kafka version
+## Supported Kafka version
 
 The current version of the starter should be compatible with Apache Kafka Clients 2.0.0 using Java 8 or above.
 
-### Supported authentication types
+## Supported authentication types
 
 The following authentication types are supported:
 
@@ -25,9 +28,9 @@ The following authentication types are supported:
   - Service principal authentication
   - `DefaultAzureCredential` authentication
 
-### How it works
+## How it works
 
-#### OAuth credential authentication
+### OAuth credential authentication
 
 This section describes the overall workflow of Spring Cloud Azure OAuth authentication.
 
@@ -38,24 +41,24 @@ Spring Cloud Azure will first build one of the following types of credentials de
 - `UsernamePasswordCredential`
 - `ManagedIdentityCredential`
 
-If none of these types of credentials are found, the credential chain via `DefaultAzureTokenCredential` will be used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For detailed information, see the [Spring Cloud Azure authentication](#spring-cloud-azure-authentication) section.
+If none of these types of credentials are found, the credential chain via `DefaultAzureTokenCredential` will be used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For detailed information, see [Spring Cloud Azure authentication](authentication.md).
 
-#### Plain connection string authentication
+### Plain connection string authentication
 
 For the connection string authentication mode, you can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string. For more information about the usage, see the [Basic usage for connection string authentication](#basic-usage-connection-string) section.
 
 > [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
 
-### Configuration
+## Configuration
 
-#### Configurable properties when using Kafka support with OAuth authentication
+### Configurable properties when using Kafka support with OAuth authentication
 
 Spring Cloud Azure for Kafka supports the following two levels of configuration options:
 
 1. Spring Cloud Azure for Event Hubs Kafka properties.
-2. The global authentication configuration options of `credential` and `profile` with prefixes of `spring.cloud.azure`.
-3. Kafka-specific level configurations. The Kafka-level configurations are also available for Spring Boot and Spring Cloud Stream binders for `common`, `consumer`, `producer`, or `admin` scopes, which have different prefixes.
+1. The global authentication configuration options of `credential` and `profile` with prefixes of `spring.cloud.azure`.
+1. Kafka-specific level configurations. The Kafka-level configurations are also available for Spring Boot and Spring Cloud Stream binders for `common`, `consumer`, `producer`, or `admin` scopes, which have different prefixes.
 
 The global properties are exposed via `com.azure.spring.cloud.autoconfigure.context.AzureGlobalProperties`. The Kafka-specific properties are exposed via `org.springframework.boot.autoconfigure.kafka.KafkaProperties` (Spring Boot) and `org.springframework.cloud.stream.binder.kafka.properties.KafkaBinderConfigurationProperties` (Spring Cloud Stream binder).
 
@@ -71,7 +74,7 @@ The following list shows all supported configuration options.
   - Prefix: `spring.cloud.azure`
   - Supported options: `spring.cloud.azure.credential.*`, `spring.cloud.azure.profile.*`
 
-  For the full list of global configuration options, see [Global configuration properties](../../configuration-properties-global.md).
+  For the full list of global configuration options, see [Global configuration properties](configuration-properties-global.md).
 
 - Spring Boot Kafka common configuration
 
@@ -136,7 +139,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > - Spring Kafka admin configuration options supersede the common options.
 > - The Spring Cloud Stream Kafka Binder options are just like the above.
 
-#### Configurable properties when using Kafka support with plain connection string authentication
+### Configurable properties when using Kafka support with plain connection string authentication
 
 The following table shows the Spring Boot Event Hubs for Kafka common configuration options:
 
@@ -149,7 +152,7 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 > | **spring.cloud.azure.eventhubs**.resource.resource-group | The resource group of Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager. |
 > | **spring.cloud.azure**.profile.subscription-id           | The subscription ID. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                              |
 
-### Dependency setup
+## Dependency setup
 
 Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
 
@@ -161,26 +164,26 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For details, see the  [Getting started](#getting-started) section.
+> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For details, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-### Basic usage
+## Basic usage
 
 The following sections show the classic Spring Boot application usage scenarios.
 
-#### Use OAuth authentication
+### Use OAuth authentication
 
 When you use the OAuth authentication provided by Spring Cloud Azure for Kafka, you can configure the specific credentials using the above configurations. Alternatively, you can choose to configure nothing about credentials, in which case Spring Cloud Azure will load the credentials from the environment. This section describes the usages that load the credentials from the Azure CLI environment or the Azure Spring Apps hosting environment.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see the [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory) section to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see the [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory) section to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 The following section describes the scenarios using different Spring ecosystem libraries with OAuth authentication.
 
-##### Spring Kafka application support
+#### Spring Kafka application support
 
 This section describes the usage scenario for Spring Boot application using Spring Kafka or Spring Integration Kafka library.
 
-###### Dependency setup
+##### Dependency setup
 
 ``` xml
 <dependency>
@@ -202,7 +205,7 @@ This section describes the usage scenario for Spring Boot application using Spri
 ```
 
 <a name="spring-kafka-configuraiton-setup"></a>
-###### Configuration update
+##### Configuration update
 
 To use the OAuth authentication, just specify the Event Hubs endpoint, as shown in the following example:
 
@@ -210,11 +213,11 @@ To use the OAuth authentication, just specify the Event Hubs endpoint, as shown 
 spring.kafka.bootstrap-servers=<NAMESPACENAME>.servicebus.windows.net:9093
 ```
 
-##### Spring Cloud Stream binder Kafka application support
+#### Spring Cloud Stream binder Kafka application support
 
 This section describes the usage scenario for Spring Boot applications using the Spring Cloud Stream binder Kafka library.
 
-###### Dependency setup
+##### Dependency setup
 
 ``` xml
 <dependency>
@@ -228,7 +231,7 @@ This section describes the usage scenario for Spring Boot applications using the
 </dependency>
 ```
 
-###### Configuration
+##### Configuration
 
 To use the OAuth authentication, just specify the Event Hubs endpoint as shown in the following example:
 
@@ -241,12 +244,12 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 >
 > For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
-###### Samples
+##### Samples
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) repository on GitHub.
 
 <a name="basic-usage-connection-string"></a>
-#### Use connection string authentication
+### Use connection string authentication
 
 You can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string.
 
@@ -257,7 +260,7 @@ You can use connection string authentication directly or use the Azure Resource 
 >
 > `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 
-##### Dependency setup
+#### Dependency setup
 
 Add the following dependencies if you want to migrate your Apache Kafka application to use Azure Event Hubs for Kafka.
 
@@ -277,9 +280,9 @@ If you want to retrieve the connection string using Azure Resource Manager, add 
 </dependency>
 ```
 
-##### Configuration
+#### Configuration
 
-###### Use Event Hubs connection string directly
+##### Use Event Hubs connection string directly
 
 The simplest way to connect to Event Hubs for Kafka is with the connection string. Just add the following property.
 
@@ -287,12 +290,12 @@ The simplest way to connect to Event Hubs for Kafka is with the connection strin
 spring.cloud.azure.eventhubs.connection-string=${AZURE_EVENTHUBS_CONNECTION_STRING}
 ```
 
-###### Use Azure Resource Manager to retrieve connection string
+##### Use Azure Resource Manager to retrieve connection string
 
 If you don't want to configure the connection string in your application, you can use Azure Resource Manager to retrieve the connection string. To authenticate with Azure Resource Manager, you can also use credentials stored in Azure CLI or another local development tool such as Visual Studio Code or Intellij IDEA. Alternately, you can use Managed Identity if your application is deployed to Azure Cloud. Just be sure the principal has sufficient permission to read resource metadata.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see the [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory) section to be sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see the [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory) section to be sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 To use Azure Resource Manager to retrieve the connection string, just add the following property.
 
@@ -308,6 +311,6 @@ spring:
           resource-group: ${AZURE_EVENTHUBS_RESOURCE_GROUP}
 ```
 
-### Samples
+## Samples
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 
 This tutorial walks you through the process of building, configuring, deploying, troubleshooting and scaling Java web apps in App Service Linux.
 
-This tutorial builds on the popular Spring PetClinic sample app. In this topic, you will test an HSQLDB version of the app locally, then deploy it to [Azure App Service](/azure/app-service/containers). After that, you will configure and deploy a version that uses [Azure Database for MySQL](/azure/mysql). Finally, you will learn how to access the app logs and scale out by increasing the number of workers running your app.
+This tutorial builds on the popular Spring PetClinic sample app. In this topic, you'll test an HSQLDB version of the app locally, then deploy it to [Azure App Service](/azure/app-service/containers). After that, you'll configure and deploy a version that uses [Azure Database for MySQL](/azure/mysql). Finally, you'll learn how to access the app logs and scale out by increasing the number of workers running your app.
 
 ## Prerequisites
 
@@ -139,7 +139,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 ---
 
-You can now navigate your browser to `http://localhost:8080` to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now navigate your browser to `http://localhost:8080` to see the running app and get a feel for how it works. When you're finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 ## Deploy to Azure App Service
 
@@ -466,7 +466,7 @@ mvn cargo:deploy
 ```
 ---
 
-You can now view the app locally at `http://localhost:8080`. The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now view the app locally at `http://localhost:8080`. The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you're finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 Finally, deploy the app to App Service.
 
@@ -500,9 +500,10 @@ az webapp log tail --name $env:WEBAPP_NAME `
 az webapp log tail --name %WEBAPP_NAME% ^
     --resource-group %RESOURCEGROUP_NAME%
 ```
+
 ---
 
-When you are finished viewing the logs, select Ctrl+C to halt the stream.
+When you're finished viewing the logs, select Ctrl+C to halt the stream.
 
 The log stream is also available at `https://<app-name>.scm.azurewebsites.net/api/logstream`.
 

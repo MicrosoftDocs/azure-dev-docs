@@ -78,7 +78,7 @@ Congratulations! You've created a Spring Boot application that uses JPA to store
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-## Additional resources
+## See also
 
 For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
 
