@@ -53,7 +53,7 @@ You'll need to customize a few properties for your application:
 
 - `<functionAppName>` is the name of your Azure Function
 - `<functionAppRegion>` is the name of the Azure region where your Function is deployed
-- `<functionResourceGroup>` is the name of the Azure resource group you are using
+- `<functionResourceGroup>` is the name of the Azure resource group you're using
 
 Change those properties directly near the top of the *pom.xml* file, as shown in the following example:
 

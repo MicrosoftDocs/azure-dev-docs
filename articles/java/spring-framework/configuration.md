@@ -1,12 +1,17 @@
 ---
-ms.date: 06/30/2022
+title: Spring Cloud Azure configuration
+description: This reference doc contains all Spring Cloud Azure common configuration.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Spring Cloud Azure configuration
+# Spring Cloud Azure configuration
 
-### Configuration for each Azure Service SDK
+This article describes all the Spring Cloud Azure common configuration properties.
+
+## Configuration for each Azure Service SDK
 
 Most of Azure Service SDKs can be divided into two categories by transport type: HTTP-based or AMQP-based. There are properties that are common to all SDKs, such as authentication principals and Azure environment settings, or common to HTTP-based clients, such as logging level to log HTTP requests and responses. In Spring Cloud Azure 4.0, we added five common categories of configuration properties that you can specify for each Azure service.
 
@@ -25,17 +30,17 @@ The configuration properties' prefixes have been unified to the `spring.cloud.az
 
 | Azure service               | Configuration property prefix             | Configuration Properties Link                                                                                          |
 |-----------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| Azure App Configuration     | *spring.cloud.azure*.appconfiguration     | [App Configuration configuration properties](../../configuration-properties-azure-app-configuration.md)                |
-| Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Azure Cosmos DB configuration properties](../../configuration-properties-azure-cosmos-db.md)                          |
-| Azure Event Hubs            | *spring.cloud.azure*.eventhubs            | [Event Hubs configuration properties](../../configuration-properties-azure-event-hubs.md) |
-| Azure Key Vault Certificate | *spring.cloud.azure*.keyvault.certificate | [Key Vault Certificates configuration properties](../../configuration-properties-azure-key-vault-certificates.md)      |
-| Azure Key Vault Secret      | *spring.cloud.azure*.keyvault.secret      | [Key Vault Secrets configuration properties](../../configuration-properties-azure-key-vault-secrets.md)                |
-| Azure Service Bus           | *spring.cloud.azure*.servicebus           | [Service Bus configuration properties](../../configuration-properties-azure-service-bus.md)                            |
-| Azure Storage Blob          | *spring.cloud.azure*.storage.blob         | [Storage Blob configuration properties](../../configuration-properties-azure-storage-blob.md)                          |
-| Azure Storage File Share    | *spring.cloud.azure*.storage.fileshare    | [Storage File Share configuration properties](../../configuration-properties-azure-storage-file-share.md)              |
-| Azure Storage Queue         | *spring.cloud.azure*.storage.queue        | [Storage Queue configuration properties](../../configuration-properties-azure-storage-queue.md)                        |
+| Azure App Configuration     | *spring.cloud.azure*.appconfiguration     | [App Configuration configuration properties](configuration-properties-azure-app-configuration.md)                |
+| Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Azure Cosmos DB configuration properties](configuration-properties-azure-cosmos-db.md)                          |
+| Azure Event Hubs            | *spring.cloud.azure*.eventhubs            | [Event Hubs configuration properties](configuration-properties-azure-event-hubs.md) |
+| Azure Key Vault Certificate | *spring.cloud.azure*.keyvault.certificate | [Key Vault Certificates configuration properties](configuration-properties-azure-key-vault-certificates.md)      |
+| Azure Key Vault Secret      | *spring.cloud.azure*.keyvault.secret      | [Key Vault Secrets configuration properties](configuration-properties-azure-key-vault-secrets.md)                |
+| Azure Service Bus           | *spring.cloud.azure*.servicebus           | [Service Bus configuration properties](configuration-properties-azure-service-bus.md)                            |
+| Azure Storage Blob          | *spring.cloud.azure*.storage.blob         | [Storage Blob configuration properties](configuration-properties-azure-storage-blob.md)                          |
+| Azure Storage File Share    | *spring.cloud.azure*.storage.fileshare    | [Storage File Share configuration properties](configuration-properties-azure-storage-file-share.md)              |
+| Azure Storage Queue         | *spring.cloud.azure*.storage.queue        | [Storage Queue configuration properties](configuration-properties-azure-storage-queue.md)                        |
 
-### Global configuration for Azure Service SDKs
+## Global configuration for Azure Service SDKs
 
 There are some properties that you can share among different Azure services, for example to use the same service principal to access Azure Cosmos DB and Azure Event Hubs. Spring Cloud Azure 4.0 enables you to define properties that apply to all Azure SDKs in the namespace `spring.cloud.azure`.
 
@@ -53,9 +58,9 @@ The following table lists global properties:
 > [!NOTE]
 > Properties configured under each Azure service will override the global configurations.
 
-### Configuration examples
+## Configuration examples
 
-#### Global retry configuration for Azure Service SDKs
+### Global retry configuration for Azure Service SDKs
 
 The following example shows you how to configure the retry behavior for any HTTP or AMQP protocol based Azure SDK client:
 
@@ -69,7 +74,7 @@ spring.cloud.azure:
       max-delay: PT9S
 ```
 
-#### Retry configuration for Key Vault property source
+### Retry configuration for Key Vault property source
 
 The following configuration example shows you how to configure the retry behavior for the Azure Key Vault Secret client:
 

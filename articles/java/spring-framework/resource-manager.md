@@ -1,14 +1,17 @@
 ---
+title: Spring Cloud Azure resource manager
+description: This article describes Spring Cloud Azure resource manager.
 ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Azure Resource Manager
+# Spring Cloud Azure Resource Manager
 
 Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. Spring Cloud Azure Resource Manager can help provision resources or retrieve resource metadata.
 
-### Dependency setup
+## Dependency setup
 
 ``` xml
 <dependency>
@@ -17,10 +20,10 @@ Azure Resource Manager (ARM) is the deployment and management service for Azure.
 </dependency>
 ```
 
-### Configuration
+## Configuration
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, refer to [Authorize access with Azure AD](#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Configurable properties of spring-cloud-azure-resourcemanager:
 
@@ -42,13 +45,12 @@ Configurable properties of spring-cloud-azure-resourcemanager:
 > | **spring.cloud.azure.azure-service**.namespace                   | The namespace of the Azure service to provision resources with.                                    |
 > | **spring.cloud.azure.azure-service**.resource.resource-group     | The resource group holding an Azure service resource.                                              |
 
-<a name="resource-manager-example"></a>
-### Basic usage
+## Basic usage
 
-Spring Cloud Azure Resource Manager can work together with specific Spring Cloud Azure starters to retrieve connection information, such as connection strings, to connect to Azure services. It can also work together with `spring-cloud-azure-starter` and third-party libraries to retrieve metadata like username/password, and to complete authentication. For more information, see the [Kafka Support](#kafka-support) and [Redis Support](#redis-support) sections.
+Spring Cloud Azure Resource Manager can work together with specific Spring Cloud Azure starters to retrieve connection information, such as connection strings, to connect to Azure services. It can also work together with `spring-cloud-azure-starter` and third-party libraries to retrieve metadata like username/password, and to complete authentication. For more information, see [Spring Cloud Azure Kafka Support](kafka-support.md) and [Spring Cloud Azure Redis Support](redis-support.md).
 
 For example, to retrieve the connection string of an Azure Service, developers can use a service principal as the credential to authenticate and retrieve the connection string. The configuration is listed the follows. The provided service principal should
-be assigned a role of `Contributor` of the associated namespace at least. See [Authorize access with Azure AD](#authorize-access-with-azure-active-directory) to make sure the principal has been granted the sufficient permission to access the Azure resource.
+be assigned a role of `Contributor` of the associated namespace at least. See [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the principal has been granted the sufficient permission to access the Azure resource.
 
 ``` yaml
 spring:
@@ -66,6 +68,6 @@ spring:
           resource-group: ${RESOURCE_GROUP}
 ```
 
-### Samples
+## Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) for more details.
+For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

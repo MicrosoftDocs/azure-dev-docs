@@ -1,12 +1,17 @@
 ---
-ms.date: 06/30/2022
+title: Spring Cloud Azure authentication
+description: This reference doc contains all Spring Cloud Azure authentication methods.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Spring Cloud Azure authentication
+# Spring Cloud Azure authentication
 
-### DefaultAzureCredential
+This article describes all the Spring Cloud Azure authentication methods.
+
+## DefaultAzureCredential
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
 
@@ -15,7 +20,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 
 The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order:
 
-:::image type="content" source="../../media/spring-cloud-azure/default-azure-credential-authentication.png" alt-text="Diagram showing the authentication mechanism for `DefaultAzureCredential`." border="false":::
+:::image type="content" source="media/spring-cloud-azure/default-azure-credential-authentication.png" alt-text="Diagram showing the authentication mechanism for `DefaultAzureCredential`." border="false":::
 
 * Environment - The `DefaultAzureCredential` will read account information specified via environment variables and use it to authenticate.
 * Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` will authenticate with that account.
@@ -29,13 +34,13 @@ The `DefaultAzureCredential` will attempt to authenticate via the following mech
 > [!NOTE]
 > Since Spring Cloud Azure AutoConfigure 4.1.0, a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` will be automatically registered by default and will manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
 
-### Managed identities
+## Managed identities
 
 A common challenge is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where you can store credentials in a secure manner or to access storage accounts.
 
 We encourage using managed identity instead of using connection string or key in your application because it's more secure and will save the trouble of managing secrets and credentials. In this case, `DefaultAzureCredential` could better serve the scenario of developing locally using account information stored locally, then deploying the application to Azure Cloud and using managed identity.
 
-#### Managed identity types
+### Managed identity types
 
 There are two types of managed identities:
 
@@ -50,18 +55,18 @@ There are two types of managed identities:
 
 For more information about managed identity, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-### Other credential types
+## Other credential types
 
 If you want more control, or your scenario isn't served by the `DefaultAzureCredential` or the default settings, you should use other credential types.
 
-#### Authentication and authorization with Azure Active Directory
+### Authentication and authorization with Azure Active Directory
 
 With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user or an application service principal. When a security principal (a user or an application) attempts to access an Azure resource, for example an Event Hubs resource, the request must be authorized. With Azure AD, access to a resource is a two-step process:
 
 1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
-2. Next, the token is passed as part of a request to the Azure service to authorize access to the specified resource.
+1. Next, the token is passed as part of a request to the Azure service to authorize access to the specified resource.
 
-##### Authenticate with Azure Active Directory
+#### Authenticate with Azure Active Directory
 
 To connect applications to resources that support Azure Active Directory (Azure AD) authentication, you can set the following configurations with the prefix `spring.cloud.azure.credential` or `spring.cloud.azure.<azure-service>.credential`
 
@@ -78,7 +83,7 @@ The following table lists authentication properties:
 | managed-identity-enabled    | Whether to enable managed identity.                                                                |
 
 > [!TIP]
-> For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](../../configuration-properties-all.md).
+> For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
 The application will look in several places to find an available credential, and will use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
 
@@ -157,7 +162,7 @@ spring.cloud.azure:
       tenant-id: ${AZURE_TENANT_ID}
 ```
 
-##### Authorize access with Azure Active Directory
+#### Authorize access with Azure Active Directory
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have.
 
@@ -190,10 +195,10 @@ The following table lists the Azure built-in roles for authorizing access to Azu
 > [!IMPORTANT]
 > Azure Cosmos DB exposes two built-in role definitions: `Cosmos DB Built-in Data Reader` and `Cosmos DB Built-in Data Contributor`. However, Azure portal support for role management isn't available yet. For more information about the permission model, role definitions, and role assignment, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
 
-#### SAS tokens
+### SAS tokens
 
 You can also configure services for authentication with Shared Access Signature (SAS). `spring.cloud.azure.<azure-service>.sas-token` is the property to configure. For example, use `spring.cloud.azure.storage.blob.sas-token` to authenticate to Storage Blob service.
 
-#### Connection strings
+### Connection strings
 
 Connection string is supported by some Azure services to provide connection information and credentials. To connect to those Azure services using connection string, just configure `spring.cloud.azure.<azure-service>.connection-string`. For example, configure `spring.cloud.azure.eventhubs.connection-string` to connect to the Event Hubs service.

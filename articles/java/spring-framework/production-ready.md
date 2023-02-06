@@ -1,14 +1,17 @@
 ---
-ms.date: 06/30/2022
+title: Spring Cloud Azure Production ready
+description: This article describes Spring Cloud Azure Production ready.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Production ready
+# Production ready
 
 We’ve added health indicators for App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File, as well as Spring Cloud Sleuth support for all HTTP-based Azure SDKs. As an example, you now can probe to determine whether a storage blob is up or down via Spring Boot actuator endpoint, as well as track dependencies and latencies going from your application to Key Vault.
 
-### Enable health indicator
+## Enable health indicator
 
 To enable the health indicators, add the Spring Cloud Azure Actuator Starter dependency to your *pom.xml* file. This dependency will also include the `spring-boot-starter-actuator`.
 
@@ -40,7 +43,7 @@ The following table lists configurable properties to enable or disable health in
 >
 > For calling the health endpoint of `Storage Queue`, role of `Storage Account Contributor` is required if `Azure AD` is used for authorizing.
 
-### Enable sleuth
+## Enable sleuth
 
 When you want to trace Azure SDK activities by using Spring Cloud Sleuth, add the following Spring Cloud Azure Trace Sleuth dependency to your *pom.xml* file:
 

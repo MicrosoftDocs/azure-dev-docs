@@ -1,16 +1,21 @@
 ---
-ms.date: 01/18/2023
+title: Spring Data support
+description: This article describes how Spring Cloud Azure and Spring Data can be used together.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Spring Data support
+# Spring Data support
 
-### Spring Data Azure Cosmos DB support
+This article describes how Spring Cloud Azure and Spring Data can be used together.
+
+## Spring Data Azure Cosmos DB support
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Azure Table storage.
 
-#### Dependency setup
+### Dependency setup
 
 ```xml
 <dependency>
@@ -19,10 +24,10 @@ ms.author: v-yonghuiye
 </dependency>
 ```
 
-#### Configuration
+### Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory).
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-data-cosmos`:
 
@@ -43,7 +48,7 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > | *spring.cloud.azure.cosmos*.populate-query-metrics                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is *false*. |
 > | *spring.cloud.azure.cosmos*.consistency-level                      | A [consistency level](/azure/cosmos-db/consistency-levels) for Azure Cosmos DB.                                 |
 
-#### Key concepts
+### Key concepts
 
 The following list shows the key concepts of the Spring Data support:
 
@@ -74,9 +79,9 @@ The following list shows the key concepts of the Spring Data support:
 
 * Supports List and nested types in domain classes.
 
-#### Basic usage
+### Basic usage
 
-##### Use a private key to access Azure Cosmos DB
+#### Use a private key to access Azure Cosmos DB
 
 The simplest way to connect Azure Cosmos DB with `spring-cloud-azure-starter-data-cosmos` is with a primary key. Add the following properties:
 
@@ -90,7 +95,7 @@ spring:
         database: ${AZURE_COSMOS_DATABASE}
 ```
 
-##### Define an entity
+#### Define an entity
 
 Define an entity as a Document in Azure Cosmos DB, as shown in the following example:
 
@@ -157,7 +162,7 @@ The `id` field will be used as the document `id` in Azure Cosmos DB. Alternately
 
 The annotation `@Container(containerName = "mycollection")` is used to specify the collection name of your document in Azure Cosmos DB.
 
-##### Create repositories
+#### Create repositories
 
 To create repositories, extend the `ReactiveCosmosRepository` interface, which provides Spring Data repository support.
 
@@ -170,7 +175,7 @@ public interface UserRepository extends ReactiveCosmosRepository<User, String> {
 
 Currently, the `ReactiveCosmosRepository` interface provides basic save, delete, and find operations. More operations will be supported later.
 
-##### Create an application class
+#### Create an application class
 
 The following example creates an application class with all the components:
 
@@ -200,7 +205,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(CosmosSampleApplica
         final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
 
         //  Nothing happens until we subscribe to these Monos.
-        //  findById will not return the user as user isn't present.
+        //  findById won't return the user as user isn't present.
         final Mono<User> findByIdMono = repository.findById(testUser.getId());
         final User findByIdUser = findByIdMono.block();
         Assert.isNull(findByIdUser, "User must be null");
@@ -234,7 +239,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(CosmosSampleApplica
 
 This example includes an autowired `UserRepository` interface to support save, delete, and find operations.
 
-#### Samples
+### Samples
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos) on GitHub.
 

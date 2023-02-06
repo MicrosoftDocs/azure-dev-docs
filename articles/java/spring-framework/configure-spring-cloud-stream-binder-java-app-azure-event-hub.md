@@ -50,7 +50,7 @@ The following procedure creates an Azure event hub.
    >[!div class="mx-imgBorder"]
    >![Specify Azure event hub namespace options.][IMG02]
 
-1. When you have specified the options listed above, select **Review + Create**, review the specifications and select **Create** to create your namespace.
+1. When you've specified the options listed above, select **Review + Create**, review the specifications and select **Create** to create your namespace.
 
 ## Create an Azure event hub in your namespace
 
@@ -85,7 +85,7 @@ The following procedure creates a storage account for event hub checkpoints.
    >[!div class="mx-imgBorder"]
    >![Specify Azure Storage Account options.][IMG08]
 
-1. When you have specified the options listed above, select **Review + create** to create your storage account.
+1. When you've specified the options listed above, select **Review + create** to create your storage account.
 
 1. Review the specifications and select **Create**.  The deployment will take several minutes.
 
@@ -108,13 +108,13 @@ The following procedure creates a Spring boot application.
    > [!NOTE]
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.contoso.eventhubs.sample*.
 
-1. When you have specified the options listed above, select **GENERATE**.
+1. When you've specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer.
 
-1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
+1. After you've extracted the files on your local system, your simple Spring Boot application will be ready for editing.
 
-## Configure your Spring Boot app to use the Azure event hub starter
+## Configure your Spring Boot app to use the Azure Event Hubs starter
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
@@ -134,11 +134,11 @@ The following procedure creates a Spring boot application.
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Save and close the *pom.xml* file.
 
-## Configure your Spring Boot app to use your Azure Event Hub
+## Configure your Spring Boot app to use your event hub
 
 1. Add an *application.yaml* in the *resources* directory of your app; for example:
 
@@ -379,7 +379,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### See also
 
 For more information about Azure support for event hub Stream Binder, see the following articles:
 

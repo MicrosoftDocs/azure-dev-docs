@@ -10,9 +10,9 @@ ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
 
 # Migration guide for Spring Cloud Azure 4.0
 
-## Introduction
-
 This guide helps with migration to Spring Cloud Azure 4.0 from legacy Azure Spring libraries.
+
+## Introduction
 
 We'll call libraries whose group ID and artifact ID follow the pattern `com.azure.spring:spring-cloud-azure-*` the **modern** libraries, and those with pattern `com.azure.spring:azure-spring-boot-*`, `com.azure.spring:azure-spring-cloud-*`, or `com.azure.spring:azure-spring-integration-*` the *legacy* libraries.
 
@@ -20,7 +20,7 @@ This guide will focus on side-by-side comparisons for similar configurations bet
 
 Familiarity with `com.azure.spring:azure-spring-boot-*`, `com.azure.spring:azure-spring-cloud-*` or `com.azure.spring:azure-spring-integration-*` package is assumed.
 
-If you're new to the Spring Cloud Azure 4.0 libraries, see [Spring Cloud Azure 4.0 reference documentation](./spring-cloud-azure.md) rather than this guide.
+If you're new to the Spring Cloud Azure 4.0 libraries, see the [Spring Cloud Azure developer guide](developer-guide-overview.md) rather than this guide.
 
 ## Migration benefits
 
@@ -94,8 +94,8 @@ The following table shows the mappings between legacy artifact ID and modern art
 > | azure-spring-cloud-autoconfigure                  | not applicable                                                                             | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                                                    |
 > | azure-spring-cloud-context                        | not applicable                                                                             | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` and `spring-cloud-azure-resourcemanager` artifacts.                                                                                                                                          |
 > | azure-spring-cloud-messaging                      | spring-messaging-azure                                                                     | The messaging listener annotation has been dropped.                                                                                                                                                                                                                                                          |
-> | azure-spring-cloud-starter-cache                  | not applicable                                                                             | This artifact has been deleted, for using redis, just add spring-boot-starter-data-redis, spring-boot-starter-cache, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Redis support](./spring-cloud-azure.md#redis-support). |
-> | azure-spring-cloud-starter-eventhubs-kafka        | not applicable                                                                             | This artifact has been deleted, for using kafka, just add spring kafka, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Kafka support](./spring-cloud-azure.md#kafka-support).                                              |
+> | azure-spring-cloud-starter-cache                  | not applicable                                                                             | This artifact has been deleted, for using redis, just add spring-boot-starter-data-redis, spring-boot-starter-cache, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Redis support](redis-support.md). |
+> | azure-spring-cloud-starter-eventhubs-kafka        | not applicable                                                                             | This artifact has been deleted, for using kafka, just add spring kafka, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Kafka support](kafka-support.md).                                              |
 > | azure-spring-cloud-starter-eventhubs              | spring-cloud-azure-starter-integration-eventhubs                                           | Renamed the artifact to add `integration`, indicating using Spring Integration with Event Hubs.                                                                                                                                                                                                              |
 > | azure-spring-cloud-starter-servicebus             | spring-cloud-azure-starter-integration-servicebus                                          | Renamed the artifact to add `integration`, indicating using Spring Integration with Service Bus.                                                                                                                                                                                                             |
 > | azure-spring-cloud-starter-storage-queue          | spring-cloud-azure-starter-integration-storage-queue                                       | Renamed the artifact to add `integration`, indicating using Spring Integration with Storage Queue.                                                                                                                                                                                                           |
@@ -334,26 +334,26 @@ The following table shows the property mappings between `azure-spring-boot-start
     * spring.cloud.azure.active-directory.user-group.use-transitive-members
 
 > [!NOTE]
-> The function of `azure.activedirectory.graph-membership-uri` has been replaced by 2 properties: `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint` and `spring.cloud.azure.active-directory.user-group.use-transitive-members`. The first property is used to specify the host name, and the second a flag for using the url path: `v1.0/me/memberOf` or `v1.0/me/transitiveMemberOf`.
+> The function of `azure.activedirectory.graph-membership-uri` has been replaced by 2 properties: `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint` and `spring.cloud.azure.active-directory.user-group.use-transitive-members`. The first property is used to specify the host name, and the second a flag for using the URL path: `v1.0/me/memberOf` or `v1.0/me/transitiveMemberOf`.
 
 Here are some examples of migration:
 
 * *Example 1. Case 1*
 
-    * For legacy:
-      azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/memberOf
+  * For legacy:
+    azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/memberOf
 
-    * For modern:
-      spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
-      spring.cloud.azure.active-directory.user-group.use-transitive-members=`false`
+  * For modern:
+    spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
+    spring.cloud.azure.active-directory.user-group.use-transitive-members=`false`
 
 * *Example 2. Case 2*
 
-    * For legacy:
-      azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/transitiveMemberOf
+  * For legacy:
+    azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/transitiveMemberOf
 
-    * For modern:
-      spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
+  * For modern:
+    spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
       spring.cloud.azure.active-directory.user-group.use-transitive-members=`true`
 
 #### API changes
@@ -445,12 +445,13 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 
 * Removed properties from azure-spring-boot-starter-active-directory-b2c:
 
-    * azure.activedirectory.b2c.allow-telemetry
-    * azure.activedirectory.b2c.tenant
+  * azure.activedirectory.b2c.allow-telemetry
+  * azure.activedirectory.b2c.tenant
 
 * The value type of the following properties is changed from `long` to `Duration`:
-    * jwt-connect-timeout
-    * jwt-read-timeout
+
+  * jwt-connect-timeout
+  * jwt-read-timeout
 
 #### API changes
 
@@ -731,98 +732,98 @@ The following table shows the class mappings from `azure-spring-cloud-starter-ev
 
 #### Sample code snippet
 
-1.EventHubsInboundChannelAdapter sample code:
+* `EventHubsInboundChannelAdapter` sample code:
 
-Legacy code:
+  Legacy code:
 
-```java
-public class Demo {
-    @Bean
-    public EventHubInboundChannelAdapter messageChannelAdapter(
-        @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel, EventHubOperation eventhubOperation) {
-        eventhubOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode(CheckpointMode.MANUAL).build());
-        EventHubInboundChannelAdapter adapter = new EventHubInboundChannelAdapter("EVENTHUB_NAME",
-            eventhubOperation, "CONSUMER_GROUP");
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
-}
-```
+  ```java
+  public class Demo {
+      @Bean
+      public EventHubInboundChannelAdapter messageChannelAdapter(
+          @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel, EventHubOperation   eventhubOperation) {
+          eventhubOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode  (CheckpointMode.MANUAL).build());
+          EventHubInboundChannelAdapter adapter = new EventHubInboundChannelAdapter("EVENTHUB_NAME",
+              eventhubOperation, "CONSUMER_GROUP");
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
+  }
+  ```
 
-Modern code:
+  Modern code:
 
-```java
-public class Demo {
-    @Bean
-    public EventHubsMessageListenerContainer messageListenerContainer(EventHubsProcessorFactory processorFactory) {
-        EventHubsContainerProperties containerProperties = new EventHubsContainerProperties();
-        containerProperties.setEventHubName("EVENTHUB_NAME");
-        containerProperties.setConsumerGroup("CONSUMER_GROUP");
-        CheckpointConfig config = new CheckpointConfig(CheckpointMode.MANUAL);
-        containerProperties.setCheckpointConfig(config);
-        return new EventHubsMessageListenerContainer(processorFactory, containerProperties);
-    }
+  ```java
+  public class Demo {
+      @Bean
+      public EventHubsMessageListenerContainer messageListenerContainer(EventHubsProcessorFactory processorFactory) {
+          EventHubsContainerProperties containerProperties = new EventHubsContainerProperties();
+          containerProperties.setEventHubName("EVENTHUB_NAME");
+          containerProperties.setConsumerGroup("CONSUMER_GROUP");
+          CheckpointConfig config = new CheckpointConfig(CheckpointMode.MANUAL);
+          containerProperties.setCheckpointConfig(config);
+          return new EventHubsMessageListenerContainer(processorFactory, containerProperties);
+      }
 
-    @Bean
-    public EventHubsInboundChannelAdapter messageChannelAdapter(@Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
-                                                                EventHubsMessageListenerContainer listenerContainer) {
-        EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer);
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
-}
-```
+      @Bean
+      public EventHubsInboundChannelAdapter messageChannelAdapter(@Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
+                                                                  EventHubsMessageListenerContainer listenerContainer) {
+          EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer);
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
+  }
+  ```
 
-2.DefaultMessageHandler sample code:
+* `DefaultMessageHandler` sample code:
 
-Legacy code:
+  Legacy code:
 
-```java
-public class Demo {
-    @Bean
-    @ServiceActivator(inputChannel = "OUTPUT_CHANNEL")
-    public MessageHandler messageSender(EventHubOperation eventhubOperation) {
-        DefaultMessageHandler handler = new DefaultMessageHandler("EVENTHUB_NAME", eventhubOperation);
-        handler.setSendCallback(new ListenableFutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void result) {
-                LOGGER.info("Message was sent successfully.");
-            }
+  ```java
+  public class Demo {
+      @Bean
+      @ServiceActivator(inputChannel = "OUTPUT_CHANNEL")
+      public MessageHandler messageSender(EventHubOperation eventhubOperation) {
+          DefaultMessageHandler handler = new DefaultMessageHandler("EVENTHUB_NAME", eventhubOperation);
+          handler.setSendCallback(new ListenableFutureCallback<Void>() {
+              @Override
+              public void onSuccess(Void result) {
+                  LOGGER.info("Message was sent successfully.");
+              }
 
-            @Override
-            public void onFailure(Throwable ex) {
-                LOGGER.error("There was an error sending the message.", ex);
-            }
-        });
-        return handler;
-    }
-}
-```
+              @Override
+              public void onFailure(Throwable ex) {
+                  LOGGER.error("There was an error sending the message.", ex);
+              }
+          });
+          return handler;
+      }
+  }
+  ```
 
-Modern code:
+  Modern code:
 
-```java
-public class Demo {
-    @Bean
-    @ServiceActivator(inputChannel = "OUTPUT_CHANNEL")
-    public MessageHandler messageSender(EventHubsTemplate eventhubOperation) {
-        DefaultMessageHandler handler = new DefaultMessageHandler("EVENTHUB_NAME", eventhubOperation);
-        handler.setSendCallback(new ListenableFutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void result) {
-                LOGGER.info("Message was sent successfully.");
-            }
+  ```java
+  public class Demo {
+      @Bean
+      @ServiceActivator(inputChannel = "OUTPUT_CHANNEL")
+      public MessageHandler messageSender(EventHubsTemplate eventhubOperation) {
+          DefaultMessageHandler handler = new DefaultMessageHandler("EVENTHUB_NAME", eventhubOperation);
+          handler.setSendCallback(new ListenableFutureCallback<Void>() {
+              @Override
+              public void onSuccess(Void result) {
+                  LOGGER.info("Message was sent successfully.");
+              }
 
-            @Override
-            public void onFailure(Throwable ex) {
-                LOGGER.error("There was an error sending the message.", ex);
-            }
-        });
+              @Override
+              public void onFailure(Throwable ex) {
+                  LOGGER.error("There was an error sending the message.", ex);
+              }
+          });
 
-        return handler;
-    }
-}
-```
+          return handler;
+      }
+  }
+  ```
 
 ### From azure-spring-integration-eventhubs to spring-integration-azure-eventhubs
 
@@ -835,24 +836,23 @@ This guide is intended to assist in the migration to [spring-integration-azure-e
 #### API changes
 
 * Drop `EventHubOperation` with the subscribing function moved to class `EventHubsMessageListenerContainer` and the sending function moved to `EventHubsTemplate`.
-* Rename `EventHubInboundChannelAdapter` as `EventHubsInboundChannelAdapter` to keep consistent with the service of Azure
-  Event Hubs.
+* Rename `EventHubInboundChannelAdapter` as `EventHubsInboundChannelAdapter` to keep consistent with the service of Azure Event Hubs.
 * Change the constructor from `EventHubInboundChannelAdapter(String, SubscribeByGroupOperation, String)` to `EventHubsInboundChannelAdapter(EventHubsMessageListenerContainer)` and `EventHubsInboundChannelAdapter(EventHubsMessageListenerContainer, ListenerMode)`.
 * Change `CheckpointConfig` instantiation style to the simple constructor instead of build style.
 * Drop API `EventHubOperation#setCheckpointConfig`. To set the checkpoint configuration for the inbound channel adapter, users can call the method `EventHubsContainerProperties#setCheckpointConfig`.
 * Drop API `EventHubOperation#setBatchConsumerConfig`. To set the batch-consuming configuration for the inbound channel adapter, users can call the two methods `EventHubsContainerProperties#getBatch#setMaxSize` and `EventHubsContainerProperties#getBatch#setMaxWaitTime` meanwhile.
 * For the batch consuming mode, change the message header names converted from batched messages.
-    * Change message header from `azure_eventhub_enqueued_time` to `azure_eventhubs_batch_converted_enqueued_time`.
-    * Change message header from `azure_eventhub_offset` to `azure_eventhubs_batch_converted_offset`.
-    * Change message header from `azure_eventhub_sequence_number` to `azure_eventhubs_batch_converted_sequence_number`.
-    * Change message header from `azure_partition_key` to `azure_batch_converted_partition_key`.
+  * Change message header from `azure_eventhub_enqueued_time` to `azure_eventhubs_batch_converted_enqueued_time`.
+  * Change message header from `azure_eventhub_offset` to `azure_eventhubs_batch_converted_offset`.
+  * Change message header from `azure_eventhub_sequence_number` to `azure_eventhubs_batch_converted_sequence_number`.
+  * Change message header from `azure_partition_key` to `azure_batch_converted_partition_key`.
 * When publishing messages to Event Hubs, ignore all message headers converted from batched messages. Headers include:
-    * azure_batch_converted_partition_key
-    * azure_eventhubs_batch_converted_enqueued_time
-    * azure_eventhubs_batch_converted_offset
-    * azure_eventhubs_batch_converted_sequence_number
-    * azure_eventhubs_batch_converted_system_properties
-    * azure_eventhubs_batch_converted_application_properties
+  * azure_batch_converted_partition_key
+  * azure_eventhubs_batch_converted_enqueued_time
+  * azure_eventhubs_batch_converted_offset
+  * azure_eventhubs_batch_converted_sequence_number
+  * azure_eventhubs_batch_converted_system_properties
+  * azure_eventhubs_batch_converted_application_properties
 * The `BATCH` checkpoint mode only works in the batch-consuming mode now, which can be enabled by passing `ListenerMode.BATCH` to EventHubsInboundChannelAdapter constructor.
 
 The following table shows the class mappings from `azure-spring-integration-eventhubs ` to `spring-integration-azure-eventhubs`:
@@ -924,127 +924,127 @@ The following table shows the class mappings from `azure-spring-cloud-starter-se
 
 #### Sample code snippet
 
-1.ServiceBusInboundChannelAdapter sample code:
+* `ServiceBusInboundChannelAdapter` sample code:
 
-Legacy code of using `ServiceBusQueueInboundChannelAdapter` or `ServiceBusTopicInboundChannelAdapter`:
+  Legacy code of using `ServiceBusQueueInboundChannelAdapter` or `ServiceBusTopicInboundChannelAdapter`:
 
-```java
-public class Demo {
-    @Bean
-    public ServiceBusQueueInboundChannelAdapter queueMessageChannelAdapter(
-        @Qualifier("INPUT_CHANNEL_NAME") MessageChannel inputChannel, ServiceBusQueueOperation queueOperation) {
-        queueOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode(CheckpointMode.MANUAL).build());
-        ServiceBusQueueInboundChannelAdapter adapter = new ServiceBusQueueInboundChannelAdapter("QUEUE_NAME",
-            queueOperation);
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
+  ```java
+  public class Demo {
+      @Bean
+      public ServiceBusQueueInboundChannelAdapter queueMessageChannelAdapter(
+          @Qualifier("INPUT_CHANNEL_NAME") MessageChannel inputChannel, ServiceBusQueueOperation queueOperation) {
+          queueOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode(CheckpointMode.MANUAL).build());
+          ServiceBusQueueInboundChannelAdapter adapter = new ServiceBusQueueInboundChannelAdapter("QUEUE_NAME",
+              queueOperation);
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
 
-    @Bean
-    public ServiceBusTopicInboundChannelAdapter topicMessageChannelAdapter(
-        @Qualifier("INPUT_CHANNEL_NAME") MessageChannel inputChannel, ServiceBusTopicOperation topicOperation) {
-        topicOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode(CheckpointMode.MANUAL).build());
-        ServiceBusTopicInboundChannelAdapter adapter = new ServiceBusTopicInboundChannelAdapter("TOPIC_NAME",
-            topicOperation, "SUBSCRIPTION_NAME");
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
+      @Bean
+      public ServiceBusTopicInboundChannelAdapter topicMessageChannelAdapter(
+          @Qualifier("INPUT_CHANNEL_NAME") MessageChannel inputChannel, ServiceBusTopicOperation topicOperation) {
+          topicOperation.setCheckpointConfig(CheckpointConfig.builder().checkpointMode(CheckpointMode.MANUAL).build());
+          ServiceBusTopicInboundChannelAdapter adapter = new ServiceBusTopicInboundChannelAdapter("TOPIC_NAME",
+              topicOperation, "SUBSCRIPTION_NAME");
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
 
-}
-```
+  }
+  ```
 
-Modern code:
+  Modern code:
 
-```java
-public class Demo {
-    @Bean("queue-listener-container")
-    public ServiceBusMessageListenerContainer messageListenerContainer(ServiceBusProcessorFactory processorFactory) {
-        ServiceBusContainerProperties containerProperties = new ServiceBusContainerProperties();
-        containerProperties.setEntityName("QUEUE_NAME");
-        containerProperties.setAutoComplete(false);
-        return new ServiceBusMessageListenerContainer(processorFactory, containerProperties);
-    }
+  ```java
+  public class Demo {
+      @Bean("queue-listener-container")
+      public ServiceBusMessageListenerContainer messageListenerContainer(ServiceBusProcessorFactory processorFactory) {
+          ServiceBusContainerProperties containerProperties = new ServiceBusContainerProperties();
+          containerProperties.setEntityName("QUEUE_NAME");
+          containerProperties.setAutoComplete(false);
+          return new ServiceBusMessageListenerContainer(processorFactory, containerProperties);
+      }
 
-    @Bean
-    public ServiceBusInboundChannelAdapter queueMessageChannelAdapter(
-        @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
-        @Qualifier("queue-listener-container") ServiceBusMessageListenerContainer listenerContainer) {
-        ServiceBusInboundChannelAdapter adapter = new ServiceBusInboundChannelAdapter(listenerContainer);
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
+      @Bean
+      public ServiceBusInboundChannelAdapter queueMessageChannelAdapter(
+          @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
+          @Qualifier("queue-listener-container") ServiceBusMessageListenerContainer listenerContainer) {
+          ServiceBusInboundChannelAdapter adapter = new ServiceBusInboundChannelAdapter(listenerContainer);
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
 
-    @Bean("topic-listener-container")
-    public ServiceBusMessageListenerContainer messageListenerContainer(ServiceBusProcessorFactory processorFactory) {
-        ServiceBusContainerProperties containerProperties = new ServiceBusContainerProperties();
-        containerProperties.setEntityName("TOPIC_NAME");
-        containerProperties.setSubscriptionName("SUBSCRIPTION_NAME");
-        containerProperties.setAutoComplete(false);
-        return new ServiceBusMessageListenerContainer(processorFactory, containerProperties);
-    }
+      @Bean("topic-listener-container")
+      public ServiceBusMessageListenerContainer messageListenerContainer(ServiceBusProcessorFactory processorFactory) {
+          ServiceBusContainerProperties containerProperties = new ServiceBusContainerProperties();
+          containerProperties.setEntityName("TOPIC_NAME");
+          containerProperties.setSubscriptionName("SUBSCRIPTION_NAME");
+          containerProperties.setAutoComplete(false);
+          return new ServiceBusMessageListenerContainer(processorFactory, containerProperties);
+      }
 
-    @Bean
-    public ServiceBusInboundChannelAdapter topicMessageChannelAdapter(
-        @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
-        @Qualifier("topic-listener-container") ServiceBusMessageListenerContainer listenerContainer) {
-        ServiceBusInboundChannelAdapter adapter = new ServiceBusInboundChannelAdapter(listenerContainer);
-        adapter.setOutputChannel(inputChannel);
-        return adapter;
-    }
-}
-```
+      @Bean
+      public ServiceBusInboundChannelAdapter topicMessageChannelAdapter(
+          @Qualifier("INPUT_CHANNEL") MessageChannel inputChannel,
+          @Qualifier("topic-listener-container") ServiceBusMessageListenerContainer listenerContainer) {
+          ServiceBusInboundChannelAdapter adapter = new ServiceBusInboundChannelAdapter(listenerContainer);
+          adapter.setOutputChannel(inputChannel);
+          return adapter;
+      }
+  }
+  ```
 
-2.DefaultMessageHandler sample code:
+* `DefaultMessageHandler` sample code:
 
-Legacy code, taking queue as example:
+  Legacy code, taking queue as example:
 
-```java
-public class Demo {
-    @Bean
-    @ServiceActivator(inputChannel = "OUTPUT_CHANNEL_NAME")
-    public MessageHandler queueMessageSender(ServiceBusQueueOperation queueOperation) {
-        DefaultMessageHandler handler = new DefaultMessageHandler("QUEUE_NAME", queueOperation);
-        handler.setSendCallback(new ListenableFutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void result) {
-                LOGGER.info("Message was sent successfully.");
-            }
-            @Override
-            public void onFailure(Throwable ex) {
-                LOGGER.info("There was an error sending the message.");
-            }
-        });
-        return handler;
-    }
-}
-```
+  ```java
+  public class Demo {
+      @Bean
+      @ServiceActivator(inputChannel = "OUTPUT_CHANNEL_NAME")
+      public MessageHandler queueMessageSender(ServiceBusQueueOperation queueOperation) {
+          DefaultMessageHandler handler = new DefaultMessageHandler("QUEUE_NAME", queueOperation);
+          handler.setSendCallback(new ListenableFutureCallback<Void>() {
+              @Override
+              public void onSuccess(Void result) {
+                  LOGGER.info("Message was sent successfully.");
+              }
+              @Override
+              public void onFailure(Throwable ex) {
+                  LOGGER.info("There was an error sending the message.");
+              }
+          });
+          return handler;
+      }
+  }
+  ```
 
-Modern code:
+  Modern code:
 
-```java
-public class Demo {
+  ```java
+  public class Demo {
 
-    @Bean
-    @ServiceActivator(inputChannel = "OUTPUT_CHANNEL_NAME")
-    public MessageHandler queueMessageSender(ServiceBusTemplate serviceBusTemplate) {
-        serviceBusTemplate.setDefaultEntityType(ServiceBusEntityType.QUEUE);
-        DefaultMessageHandler handler = new DefaultMessageHandler("QUEUE_NAME", serviceBusTemplate);
-        handler.setSendCallback(new ListenableFutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void result) {
-                LOGGER.info("Message was sent successfully for {}.", "QUEUE_NAME");
-            }
+      @Bean
+      @ServiceActivator(inputChannel = "OUTPUT_CHANNEL_NAME")
+      public MessageHandler queueMessageSender(ServiceBusTemplate serviceBusTemplate) {
+          serviceBusTemplate.setDefaultEntityType(ServiceBusEntityType.QUEUE);
+          DefaultMessageHandler handler = new DefaultMessageHandler("QUEUE_NAME", serviceBusTemplate);
+          handler.setSendCallback(new ListenableFutureCallback<Void>() {
+              @Override
+              public void onSuccess(Void result) {
+                  LOGGER.info("Message was sent successfully for {}.", "QUEUE_NAME");
+              }
 
-            @Override
-            public void onFailure(Throwable ex) {
-                LOGGER.info("There was an error sending the message.");
-            }
-        });
+              @Override
+              public void onFailure(Throwable ex) {
+                  LOGGER.info("There was an error sending the message.");
+              }
+          });
 
-        return handler;
-    }
-}
-```
+          return handler;
+      }
+  }
+  ```
 
 ### From azure-spring-integration-servicebus to spring-integration-azure-servicebus
 
@@ -1256,7 +1256,7 @@ spring:
 
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Event Hubs. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Event Hubs namespace.
 
-For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to Azure Event Hubs directly. In this case, the `Contributor` role is not necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](./spring-cloud-azure.md#authorize-access-with-azure-active-directory).
+For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to Azure Event Hubs directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory).
 
 For authentication based on ARM, taking service principal as example, configuration migration is listed the follows, where the assigned role should not change:
 
@@ -1296,31 +1296,31 @@ You can also migrate to authenticate and authorize with Azure AD directly withou
 
 * With a service principal
 
-```yaml
-spring:
-  cloud:
-    azure:
-      credential:
-        client-id: ${AZURE_CLIENT_ID}
-        client-secret: ${AZURE_CLIENT_SECRET}
-      profile:
-        tenant-id: ${AZURE_TENANT_ID}
-      eventhubs:
-        namespace: ${EVENTHUB_NAMESPACE}
-```
+  ```yaml
+  spring:
+    cloud:
+      azure:
+        credential:
+          client-id: ${AZURE_CLIENT_ID}
+          client-secret: ${AZURE_CLIENT_SECRET}
+        profile:
+          tenant-id: ${AZURE_TENANT_ID}
+        eventhubs:
+          namespace: ${EVENTHUB_NAMESPACE}
+  ```
 
 * With a managed identity
 
-```yaml
-spring:
-  cloud:
-    azure:
-      credential:
-        managed-identity-enabled: true
-        client-id: ${AZURE_MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
-      eventhubs:
-        namespace: ${EVENTHUB_NAMESPACE}
-```
+  ```yaml
+  spring:
+    cloud:
+      azure:
+        credential:
+          managed-identity-enabled: true
+          client-id: ${AZURE_MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
+        eventhubs:
+          namespace: ${EVENTHUB_NAMESPACE}
+  ```
 
 #### API changes
 
@@ -1440,7 +1440,7 @@ spring:
 
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Service Bus. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Service Bus namespace.
 
-For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to the Azure Service Bus directly. In this case, the `Contributor` role is not necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](./spring-cloud-azure.md#authorize-access-with-azure-active-directory).
+For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to the Azure Service Bus directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory).
 
 For authentication based on ARM, taking service principal as example, configuration migration is listed the follows, where the assigned role should not change:
 
@@ -1480,31 +1480,31 @@ You can also migrate to authenticate and authorize with Azure AD directly withou
 
 * With a service principal
 
-```yaml
-spring:
-  cloud:
-    azure:
-      credential:
-        client-id: ${AZURE_CLIENT_ID}
-        client-secret: ${AZURE_CLIENT_SECRET}
-      profile:
-        tenant-id: ${AZURE_TENANT_ID}
-      servicebus:
-        namespace: ${SERVICEBUS_NAMESPACE}
-```
+  ```yaml
+  spring:
+    cloud:
+      azure:
+        credential:
+          client-id: ${AZURE_CLIENT_ID}
+          client-secret: ${AZURE_CLIENT_SECRET}
+        profile:
+          tenant-id: ${AZURE_TENANT_ID}
+        servicebus:
+          namespace: ${SERVICEBUS_NAMESPACE}
+  ```
 
 * With a managed identity
 
-```yaml
-spring:
-  cloud:
-    azure:
-      credential:
-        managed-identity-enabled: true
-        client-id: ${AZURE_MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
-      servicebus:
-        namespace: ${SERVICEBUS_NAMESPACE}
-```
+  ```yaml
+  spring:
+    cloud:
+      azure:
+        credential:
+          managed-identity-enabled: true
+          client-id: ${AZURE_MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned   managed identity
+        servicebus:
+          namespace: ${SERVICEBUS_NAMESPACE}
+  ```
 
 #### API changes
 
@@ -1521,5 +1521,4 @@ The following table shows the class mappings from `azure-spring-cloud-stream-bin
 
 ### azure-spring-cloud-messaging
 
-Library of `com.azure.spring:azure-spring-cloud-messaging` is not ready for 4.0. The function of listener annotations is under redesign,
-so annotations of `@AzureMessageListener`, `@AzureMessageListeners` and `@EnableAzureMessaging` are not supported now.
+The `com.azure.spring:azure-spring-cloud-messaging` library isn't ready for 4.0. The function of listener annotations is under redesign, so the `@AzureMessageListener`, `@AzureMessageListeners`, and `@EnableAzureMessaging` annotations aren't currently supported.

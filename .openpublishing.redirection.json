@@ -554,11 +554,15 @@
       },
       {
         "source_path": "articles/java/spring-framework/spring-cloud-azure-appendix.md",
-        "redirect_url": "/azure/developer/java/spring-framework/spring-cloud-azure"
+        "redirect_url": "/azure/developer/java/spring-framework/developer-guide-overview"
       },
       {
         "source_path": "articles/java/spring-framework/spring-boot-starters-for-azure.md",
         "redirect_url": "/azure/developer/java/spring-framework/spring-cloud-azure-overview"
+      },
+      {
+        "source_path": "articles/java/spring-framework/spring-cloud-azure.md",
+        "redirect_url": "/azure/developer/java/spring-framework/developer-guide-overview"
       },
       {
         "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",

@@ -265,15 +265,15 @@ Provides auto-configuration support for Azure Services, such as Service Bus, Sto
 
 ### Azure Active Directory
 
-Provides integration support for Spring Security with Azure Active Directory for authentication. For more information, see the [Spring security support](./spring-cloud-azure.md#spring-security-support) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Provides integration support for Spring Security with Azure Active Directory for authentication. For more information, see [Spring Cloud Azure support for Spring Security](spring-security-support.md).
 
 ### Azure Key Vault
 
-Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. For more information, see the [Secret management](./spring-cloud-azure.md#secret-management) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Provides Spring `@Value` annotation support for integration with Azure Key Vault Secrets. For more information, see [Spring Cloud Azure secret management](secret-management.md).
 
 ### Azure Storage
 
-Provides Spring Boot support for Azure Storage services. For more information, see the [Resource handling](./spring-cloud-azure.md#resource-handing) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Provides Spring Boot support for Azure Storage services. For more information, see [Spring Cloud Azure resource handling](resource-handling.md).
 
 ## Get support
 
