@@ -228,7 +228,7 @@ Congratulations! You've created a fully reactive Spring Boot application that us
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-## Additional resources
+## See also
 
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
 

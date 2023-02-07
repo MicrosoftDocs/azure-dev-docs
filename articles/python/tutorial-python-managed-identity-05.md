@@ -4,7 +4,6 @@ description: Create an Azure Database for PostgreSQL services that a deployed Py
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/10/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 

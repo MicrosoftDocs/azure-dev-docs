@@ -4,7 +4,6 @@ description: Set up CI/CD for a Python web app container in Azure Container Apps
 ms.topic: conceptual
 ms.date: 09/21/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Configure continuous deployment for a Python web app in Azure Container Apps

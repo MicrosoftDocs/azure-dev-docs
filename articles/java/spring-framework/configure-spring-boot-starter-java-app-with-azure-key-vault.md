@@ -151,9 +151,9 @@ The following list shows some of the reasons why this code isn't flexible or gra
 - If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your *application.properties* file.
 - If you have a microservice scenario, the code must be duplicated in each project, and it's easy to make mistakes and hard to be consistent.
 
-Fortunately, building the `SecretClient` bean by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject `SecretClient` and use the [configuration properties](spring-cloud-azure.md?tabs=maven#configuration-properties) that you're already familiar with to configure Key Vault.
+Fortunately, building the `SecretClient` bean by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject `SecretClient` and use the configuration properties that you're already familiar with to configure Key Vault. For more information, see [Configuration examples](configuration.md#configuration-examples).
 
-Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](spring-cloud-azure.md?tabs=maven#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](configuration.md#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 - Proxy options.
 - Retry options.
@@ -184,7 +184,7 @@ To retrieve the URL of an H2 database from Key Vault and store data from the H2 
    ```
 
    > [!TIP]
-   > For examples of Spring Cloud Azure property configuration, see the [Configuration examples](spring-cloud-azure.md#configuration-examples) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+   > For examples of Spring Cloud Azure property configuration, see the [Configuration examples](configuration.md#configuration-examples) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
    > [!TIP]
    > This example is a simple database scenario using an H2 database. We recommend using Azure Database for MySQL or Azure Database for PostgreSQL in a production environment and storing database URL, user name, and password in Azure Key Vault. If you want to avoid the password, passwordless connections is a good choice. For more information, see [Passwordless connections for Azure services](../../intro/passwordless-overview.md).

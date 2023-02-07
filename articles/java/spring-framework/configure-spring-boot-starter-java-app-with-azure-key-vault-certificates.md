@@ -15,7 +15,7 @@ This tutorial shows you how to secure your Spring Boot (including Azure Spring A
 
 Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 
-Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
+Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates aren't installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
 
@@ -189,7 +189,7 @@ To create the application, use the following steps:
    :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. At the bottom of the page, select **Generate**.
-1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you an *ssltest.zip* file in that directory.
+1. When prompted, download the project to a path on your local computer. This tutorial uses a directory called *ssltest* in the current user's home directory. The values shown previously will give you a file called *ssltest.zip* in that directory.
 
 ### Enable the Spring Boot app to load the TLS/SSL certificate
 
@@ -494,4 +494,4 @@ az group delete --name <your resource group name>
 Explore other things you can do with Spring and Azure.
 
 > [!div class="nextstepaction"]
-> [More Spring Boot Starters](spring-boot-starters-for-azure.md)
+> [What is Spring Cloud Azure?](spring-cloud-azure-overview.md)

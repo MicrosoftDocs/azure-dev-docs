@@ -311,7 +311,7 @@ The following steps describe how to download, configure, build, and deploy the s
    This dependency adds support for the Spring Cloud Azure starter.
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
    ### [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -323,7 +323,7 @@ The following steps describe how to download, configure, build, and deploy the s
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
    This dependency adds support for the Spring Cloud Azure starter.
 

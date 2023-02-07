@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-# Deploy application to Azure hosting services
+# Deploy applications to Azure hosting services
 
 The following list provides references on how to deploy applications to various Azure hosting services.
 

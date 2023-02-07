@@ -30,7 +30,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 > [!IMPORTANT]
-> When setting <YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>, the username must already exist in your Azure AD tenant or you will be unable to create an Azure AD user in your database.
+> When setting <YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>, the username must already exist in your Azure AD tenant or you'll be unable to create an Azure AD user in your database.
 
 ### [Password](#tab/password)
 

@@ -92,7 +92,7 @@ Congratulations! You've created a Spring Boot application that uses JDBC to stor
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-## Additional resources
+## See also
 
 For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 

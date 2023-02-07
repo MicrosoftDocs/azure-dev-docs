@@ -73,7 +73,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Add the following properties to your *application.yml* file. You can get the values for these properties from the app registration you created in the Azure portal, as described in the prerequisites.
 
@@ -134,8 +134,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
-
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Add the following properties to your *application.yml* file, as described previously:
 
@@ -195,8 +194,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
-
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Add the following properties to your *application.yml* file, as described previously:
 
@@ -265,7 +263,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Add the following properties to your *application.yml* file:
 
@@ -307,82 +305,82 @@ To use `aad-starter` in this scenario, follow these steps:
 
 1. Add the following dependencies to your *pom.xml* file.
 
-    ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-client</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-oauth2-client</artifactId>
+   </dependency>
+   ```
 
-    > [!NOTE]
-    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > [!NOTE]
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-2. Update your *application.yml* file. Set property `spring.cloud.azure.active-directory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example. 
+1. Update your *application.yml* file. Set property `spring.cloud.azure.active-directory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example.
 
-    ```yaml
-    spring:
-      cloud:
-        azure:
-          active-directory:
-            enabled: true
-            profile:
-              tenant-id: <Tenant-id-registered-by-application>
-            credential:
-              client-id: <Web-API-C-client-id>
-              client-secret: <Web-API-C-client-secret>
-            app-id-uri: <Web-API-C-app-id-url>
-            application-type: web_application_and_resource_server  # This is required.
-            authorization-clients:
-              graph:
-                authorizationGrantType: authorization_code  # This is required.
-                scopes:
-                  - https://graph.microsoft.com/User.Read
-                  - https://graph.microsoft.com/Directory.Read.All
-    ```
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         active-directory:
+           enabled: true
+           profile:
+             tenant-id: <Tenant-id-registered-by-application>
+           credential:
+             client-id: <Web-API-C-client-id>
+             client-secret: <Web-API-C-client-secret>
+           app-id-uri: <Web-API-C-app-id-url>
+           application-type: web_application_and_resource_server  # This is required.
+           authorization-clients:
+             graph:
+               authorizationGrantType: authorization_code  # This is required.
+               scopes:
+                 - https://graph.microsoft.com/User.Read
+                 - https://graph.microsoft.com/Directory.Read.All
+   ```
 
-3. Write Java code to configure multiple `HttpSecurity` instances.
+1. Write Java code to configure multiple `HttpSecurity` instances.
 
-   In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter. 
+   In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter.
 
-    ```java
-    @EnableWebSecurity
-    @EnableGlobalMethodSecurity(prePostEnabled = true)
-    public class AadWebApplicationAndResourceServerConfig {
-    
-        @Order(1)
-        @Configuration
-        public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
-            protected void configure(HttpSecurity http) throws Exception {
-                super.configure(http);
-                // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as  the web application.
-                http.antMatcher("/api/**")
-                    .authorizeRequests().anyRequest().authenticated();
-            }
-        }
-    
-        @Configuration
-        public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
-    
-            @Override
-            protected void configure(HttpSecurity http) throws Exception {
-                super.configure(http);
-                // @formatter:off
-                http.authorizeRequests()
-                        .antMatchers("/login").permitAll()
-                        .anyRequest().authenticated();
-                // @formatter:on
-            }
-        }
-    }
-    ```
+   ```java
+   @EnableWebSecurity
+   @EnableGlobalMethodSecurity(prePostEnabled = true)
+   public class AadWebApplicationAndResourceServerConfig {
+
+       @Order(1)
+       @Configuration
+       public static class ApiWebSecurityConfigurationAdapter extends adResourceServerWebSecurityConfigurerAdapter {
+           protected void configure(HttpSecurity http) throws Exception {
+               super.configure(http);
+               // All the paths that match `/api/**`(configurable) work as the esource server. Other paths work as  the web application.
+               http.antMatcher("/api/**")
+                   .authorizeRequests().anyRequest().authenticated();
+           }
+       }
+
+       @Configuration
+       public static class HtmlWebSecurityConfigurerAdapter extends adWebSecurityConfigurerAdapter {
+
+           @Override
+           protected void configure(HttpSecurity http) throws Exception {
+               super.configure(http);
+               // @formatter:off
+               http.authorizeRequests()
+                       .antMatchers("/login").permitAll()
+                       .anyRequest().authenticated();
+               // @formatter:on
+           }
+       }
+   }
+   ```
 
 ### Application type
 
@@ -598,20 +596,20 @@ To support access control by ID token in a web application, use the following st
 
 1. Add the following `appRoles` configuration to your application's manifest:
 
-    ```manifest
-      "appRoles": [
-        {
-          "allowedMemberTypes": [
-            "User"
-          ],
-          "displayName": "Admin",
-          "id": "2fa848d0-8054-4e11-8c73-7af5f1171001",
-          "isEnabled": true,
-          "description": "Full admin access",
-          "value": "Admin"
-         }
-      ]
-    ```
+   ```manifest
+     "appRoles": [
+       {
+         "allowedMemberTypes": [
+           "User"
+         ],
+         "displayName": "Admin",
+         "id": "2fa848d0-8054-4e11-8c73-7af5f1171001",
+         "isEnabled": true,
+         "description": "Full admin access",
+         "value": "Admin"
+        }
+     ]
+   ```
 
 1. Add code to your application similar to the following example:
 

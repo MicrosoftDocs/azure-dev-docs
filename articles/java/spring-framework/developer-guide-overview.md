@@ -1,8 +1,53 @@
 ---
-ms.date: 01/18/2023
+title: Spring Cloud Azure overview
+description: This reference doc contains Spring Cloud Azure overview.
+ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
+
+# Spring Cloud Azure developer guide
+
+**This article applies to:** ✔️ Version 4.5.0 ✔️ Version 5.0.0
+
+Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
+
+For more information about supported versions, see [Spring Versions Mapping](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
+
+## Get help
+
+If you have any questions about this documentation, create a GitHub issue in one of the following GitHub repositories. Pull requests are also welcome.
+
+| GitHub repositories                                                                          | Description                              |
+|----------------------------------------------------------------------------------------------|------------------------------------------|
+| [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring) | This repository holds the source code.   |
+| [MicrosoftDocs/azure-dev-docs](https://github.com/MicrosoftDocs/azure-dev-docs)              | This repository holds the documentation. |
+
+## What's new in 4.0 since 3.10.x
+
+This documentation covers changes made in 4.0 since 3.10. This major release brings better security, leaner dependencies, support for production readiness, and more.
+
+> [!TIP]
+> For more information on migrating to 4.0, see [Migration guide for 4.0](migration-guide-for-4.0.md).
+
+The following list summarizes some of the changes that Spring Cloud Azure 4.0 provides:
+
+* A unified development experience, with unified project name, artifact ID, and properties.
+* Simplified dependency management using a single `spring-cloud-azure-dependencies` BOM.
+* Expanded Azure support on [Spring Initializr](https://start.spring.io) to cover Kafka, Event Hubs, Azure Cache for Redis, and Azure App Configuration.
+* Rearchitected Spring module dependencies to remove excess layers and entanglement.
+* Managed Identity support for Azure App Configuration, Event Hubs, Service Bus, Azure Cosmos DB, Key Vault, Storage Blob, and Storage Queue.
+* Continued support for authentication methods in the underlying Azure SDK from our Spring libraries, such as SAS token and token credential authentication with Service Bus and Event Hubs.
+* [Credential chain](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential) is now enabled by default, enabling applications to obtain credentials from application properties, environment variables, managed identity, IDEs, and so on.
+* Granular access control at the resource level (such as Service Bus queue) to enable better security governance and adherence to IT policies.
+* More options exposed in a Spring-idiomatic way through significantly improved auto-configuration coverage of Azure SDK clients for both synchronous and asynchronous scenarios.
+* Added health indicators for Azure App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File.
+* Spring Cloud Sleuth support for all HTTP-based Azure SDKs.
+
+## Migration guide for 4.0
+
+For more information on migrating to 4.0, see [Migration guide for 4.0](migration-guide-for-4.0.md).
 
 ## Getting started
 

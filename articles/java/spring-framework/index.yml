@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Spring Cloud Azure overview
-            url: ./spring-boot-starters-for-azure.md
+            url: ./spring-cloud-azure-overview.md
   - title: Security
     linkLists:
       - linkListType: get-started

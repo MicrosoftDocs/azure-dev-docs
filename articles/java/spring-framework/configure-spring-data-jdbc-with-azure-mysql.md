@@ -79,7 +79,7 @@ spring.sql.init.mode=always
 > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, your Java server would not use the same date format as the database, which would result in an error.
 
 > [!NOTE]
-> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure MySQL using a service principal](spring-cloud-azure.md#connect-to-azure-mysql-using-a-service-principal) or [Connect to Azure MySQL with Managed Identity in Azure Spring Apps](spring-cloud-azure.md#connect-to-azure-mysql-with-managed-identity-in-azure-spring-apps).
+> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure MySQL using a service principal](mysql-support.md#connect-to-azure-mysql-using-a-service-principal) or [Connect to Azure MySQL with Managed Identity in Azure Spring Apps](mysql-support.md#connect-to-azure-mysql-with-managed-identity-in-azure-spring-apps).
 
 You should now be able to start your application by using the provided Maven wrapper:
 
@@ -120,7 +120,7 @@ Congratulations! You've created a Spring Boot application that uses JDBC to stor
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-## Additional resources
+## See also
 
 For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 

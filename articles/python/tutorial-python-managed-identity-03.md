@@ -4,7 +4,6 @@ description: Create an Azure App Service that a Python (Django or Flask) web app
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 

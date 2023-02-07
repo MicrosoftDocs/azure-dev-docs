@@ -1,14 +1,17 @@
 ---
+title: Spring Cloud Azure secret management
+description: This article describes Spring Cloud Azure secret management.
 ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-yonghuiye
+ms.topic: reference
 ---
 
-## Secret management
+# Spring Cloud Azure secret management
 
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
-### Dependency setup
+## Dependency setup
 
 ```xml
 <dependency>
@@ -20,11 +23,11 @@ Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azur
 > [!TIP]
 > We also provide `spring-cloud-azure-starter-keyvault` to support all the features of Key Vault. If you choose to use it, `spring.cloud.azure.keyvault.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.keyvault.<keyvault-service>.enable` to disable unneeded services.
 
-### Basic usage
+## Basic usage
 
 If you want to authenticate by `client-id` and `client-secret`, the following properties are required:
 
-#### Configuration Properties
+### Configuration Properties
 
 ```yaml
 spring:
@@ -39,7 +42,7 @@ spring:
               endpoint: ${ENDPOINT_2}
 ```
 
-#### Java code
+### Java code
 
 ```java
 @SpringBootApplication
@@ -64,20 +67,20 @@ public class SampleApplication implements CommandLineRunner {
 }
 ```
 
-### Advanced usage
+## Advanced usage
 
-#### Special characters in property name
+### Special characters in property name
 
 Key Vault secret names support only characters in `[0-9a-zA-Z-]`. For more information, see the[Vault-name and Object-name](/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) section of [Azure Key Vault keys, secrets and certificates overview](/azure/key-vault/general/about-keys-secrets-certificates). If your property name contains other characters, you can use the workarounds described in the following sections.
 
-##### Use `-` instead of `.` in secret names
+#### Use `-` instead of `.` in secret names
 
 `.` isn't supported in secret names. If your application has a property name that contains `.`, such as `spring.datasource.url`, replace `.` with `-` when saving the secret in Azure Key Vault. For example, save `spring-datasource-url` in Azure Key Vault. In your application, you can still use `spring.datasource.url` to retrieve the property value.
 
 > [!NOTE]
 > This method cannot satisfy a requirement like `spring.datasource-url`. When you save `spring-datasource-url` in Key Vault, only `spring.datasource.url` and `spring-datasource-url` is supported to retrieve the property value, but `spring.datasource-url` isn't supported. To handle this case, see the [Use property placeholders](#use-property-placeholders) section.
 
-##### Use property placeholders
+#### Use property placeholders
 
 For example, suppose you're setting this property in your *application.properties* file:
 
@@ -87,7 +90,7 @@ property.with.special.character__=${propertyWithoutSpecialCharacter}
 
 The application will get a `propertyWithoutSpecialCharacter` key name and assign its value to `property.with.special.character__`.
 
-#### Case-sensitive
+### Case-sensitive
 
 To enable case-sensitive mode, you can set the following property:
 
@@ -95,15 +98,15 @@ To enable case-sensitive mode, you can set the following property:
 spring.cloud.azure.keyvault.secret.property-sources[].case-sensitive=true
 ```
 
-#### Not retrieve all secrets in Key Vault
+### Not retrieve all secrets in Key Vault
 
 If you stored 1000 secrets in the Key Vault, and you just want to use 3 of them. You can list the 3 secret names by `spring.cloud.azure.keyvault.secret.property-sources[].secret-keys`.
 
-#### Setting refresh interval
+### Setting refresh interval
 
 By default, the secrets in `KeyVaultPropertySource` will refresh every 30 minutes. You can configure the time by `spring.cloud.azure.keyvault.secret.property-sources[].refresh-interval`. For example: `spring.cloud.azure.keyvault.secret.property-sources[].refresh-interval=60m` means refresh every 60 minutes. Set to `0` to disable auto refresh.
 
-#### PropertySource priority
+### PropertySource priority
 
 If key exists in multiple PropertySources, which will take effect is decided by the priority.
 
@@ -111,7 +114,7 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 * If there is `SystemEnvironmentPropertySource` in PropertySource list, then `SystemEnvironmentPropertySource` have higher priority than KeyVaultPropertySource. Which means you can use environment variable to override the Key Vault secret value in your application.
 * If there are multiple KeyVaultPropertySource in PropertySource list, then the definition order is the priority order. Take above sample as example, `key-vault-property-souece-1` has higher priority than `key-vault-property-souece-2`.
 
-#### All configurable properties
+### All configurable properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                 | Default value | Description                                                                                            |
@@ -129,10 +132,10 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].proxy            |               | Proxy related properties.                                                                              |
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].retry            |               | Retry related properties.                                                                              |
 
-* See [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
-* If common properties like `client`, `credential`, `profile`, `proxy`, `retry` aren't configured in `spring.cloud.azure.keyvault.secret.property-sources[].xxx`, `spring.cloud.azure.xxx` will be used. See [Spring Cloud Azure configuration](../../configuration-properties-global.md) to get more information about these common properties.
-* See [Spring Cloud Azure configuration properties](../../configuration-properties-all.md) to get more information about nested properties.
+* See [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
+* If common properties like `client`, `credential`, `profile`, `proxy`, `retry` aren't configured in `spring.cloud.azure.keyvault.secret.property-sources[].xxx`, `spring.cloud.azure.xxx` will be used. See [Spring Cloud Azure configuration](configuration-properties-global.md) to get more information about these common properties.
+* See [Spring Cloud Azure configuration properties](configuration-properties-all.md) to get more information about nested properties.
 
-### Samples
+## Samples
 
 See the [spring-cloud-azure-starter-keyvault-secrets samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/spring-cloud-azure-starter-keyvault-secrets/property-source) on GitHub.

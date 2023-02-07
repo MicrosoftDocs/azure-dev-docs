@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 11/21/2022
 ms.custom: devx-track-python
 adobe-target: true
-ms.prod: azure-python
 ---
 
 # Configure your local environment for deploying Python web apps on Azure

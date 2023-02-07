@@ -38,7 +38,7 @@ The following prerequisites are required in order to complete the steps in this 
    > The Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.contoso.myazuredemo*.
    >
 
-1. After you have extracted the files on your local system, your custom Spring Boot application will be ready for editing.
+1. After you've extracted the files on your local system, your custom Spring Boot application will be ready for editing.
 
    ![Custom Spring Boot project files][SI04]
 
@@ -60,7 +60,7 @@ The following prerequisites are required in order to complete the steps in this 
    > You can use SSL with Redis caches, but you would need to use a different Redis client like Jedis. For more information, see [Quickstart: Use Azure Cache for Redis in Java][Redis Cache with Java].
    >
 
-   When you have specified these options, select **Advanced** tab.
+   When you've specified these options, select the **Advanced** tab.
 
    ![Create the cache in the Azure portal.][AZ03]
 
@@ -68,7 +68,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Select Non-TLS port when creating azure cache.][create-redis-cache-select-non-tls-port]
 
-1. Once your cache has been completed, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources**, and **Redis Caches** pages. You can click on your cache on any of those locations to open the properties page for your cache.
+1. Once your cache has been completed, you'll see it listed on your Azure **Dashboard**, as well as under the **All Resources**, and **Redis Caches** pages. You can click on your cache on any of those locations to open the properties page for your cache.
 
    ![Resource provisioned in the Azure portal.][AZ04]
 
@@ -97,10 +97,10 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Editing the application.properties file][RE02]
 
-   > [!NOTE] 
-   > 
+   > [!NOTE]
+   >
    > If you were using a different Redis client like Jedis that enables SSL, you would specify that you want to use SSL in your *application.properties* file and use port 6380. For example:
-   > 
+   >
    > ```properties
    > # Specify the DNS URI of your Redis cache.
    > spring.redis.host=myspringbootcache.redis.cache.windows.net
@@ -111,9 +111,8 @@ The following prerequisites are required in order to complete the steps in this 
    > # Specify the SSL port for your Redis cache.
    > spring.redis.port=6380
    > ```
-   > 
-   > For more information, see [Quickstart: Use Azure Cache for Redis in Java][Redis Cache with Java]. 
-   > 
+   >
+   > For more information, see [Quickstart: Use Azure Cache for Redis in Java][Redis Cache with Java].
 
 1. Save and close the *application.properties* file.
 
@@ -162,7 +161,7 @@ The following prerequisites are required in order to complete the steps in this 
    }
    ```
    
-   Where you will need to replace `com.contoso.myazuredemo` with the package name for your project.
+   Where you'll need to replace `com.contoso.myazuredemo` with the package name for your project.
 
 1. Save and close the *HelloController.java* file.
 
@@ -188,7 +187,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### See also
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
