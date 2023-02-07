@@ -153,6 +153,38 @@ az vm open-port \
 
 In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells, including the Azure Cloud Shell. 
 
+## Add subnet to Virtual network to support Azure Bastion
+
+In Azure portal, for Virtaul Network, create new subnet. 
+
+1. Under settings -> subnets, select +Subnet. Use the following settings. If a setting isn't specified, don't change the default.
+
+	name: AzureBastionSubnet
+	subnet address range: 10.0.1.0/26
+1. Select Save.
+
+## Add Azure Bastion to Virtual network
+
+In Azure portal, for Virtaul Network, add Bastion. 
+
+1. Under settings -> Bastion, select **I want to configure Azure Bastion on my own**. 
+ 
+1. On the **Create a Bastion** page, use the following settings. If a setting isn't specified, don't change the default.
+
+	name: MyBastionHost
+	region: Select same region as virtual network
+	tier: basic
+	virtual network: select existing virtual network, which fills in the Subnet
+	Public IP Address name: MyPublicIp
+1. Select Review + Create.
+
+## Connect to VM 
+
+1. In Azure portal, for Virtual Machine, select **Settings -> Connect**.
+1. Select **Bastion** then select **Use Bastion**. 
+1. Enter **Username** and **Password** from the Azure CLI script in previous section.
+1. You may have to allow pop-ups in your browser for the Azure portal.
+
 ### Connect with SSH and change web app
 
 1. Connect to your remote virtual machine with the following command.  
