@@ -46,7 +46,7 @@ Creating a resource is accomplished with:
 |Azure portal|Use for first or infrequently used database is the Azure portal.|
 |Azure CLI|Use for repeatable/scriptable scenarios.|
 |Visual Studio Code extension (for that service)|Use to stay within the development IDE.|
-|npm ARM library (for that service)|Use to stay within the JavaScript language.| 
+|npm Azure Resource Manager library (for that service)|Use to stay within the JavaScript language.| 
 
 Once you create the server, depending on the service, you may still need to:
 
@@ -198,7 +198,7 @@ The Cassandra DB database on Azure Cosmos DB uses npm packages already available
   });
 ```
 
-If you are unsure of your localDataCenter, remove the property, run the sample code, and the value of the property is returned in the error text. 
+If you're unsure of your localDataCenter, remove the property, run the sample code, and the value of the property is returned in the error text. 
 
 ```text
 NoHostAvailableError: All host(s) tried for query failed. First host tried, xxx.xxx.xxx.xxx:10350: ArgumentError: localDataCenter was configured as 'dataCenter1', but only found hosts in data centers: [Central US]
@@ -318,16 +318,17 @@ The mongoDB database on Azure Cosmos DB uses npm packages already available, suc
 
 ### Mongo DB resources
 
+* [MongoDB on Cosmos DB developer guide](/azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows)
 * How to [deploy a JavaScript web app](./how-to/deploy-web-app.md)
 * [Azure Cosmos DB for MongoDB documentation](/azure/cosmos-db/mongodb-introduction)
 * [Azure Cosmos DB for MongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-pre-migration)
-* 
 * [Tutorial: Build a Node.js and MongoDB app in Azure](/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-windows)
 * Learn about MongoDB versions:
-   * [4.0](/azure/cosmos-db/mongodb-feature-support-40) 
-   * [3.6](/azure/cosmos-db/mongodb-feature-support-36)
-   * [3.2](/azure/cosmos-db/mongodb-feature-support)
+    * [4.2](/azure/cosmos-db/mongodb/feature-support-42)
+    * [4.0](/azure/cosmos-db/mongodb-feature-support-40)
+    * [3.6](/azure/cosmos-db/mongodb-feature-support-36)
+    * [3.2](/azure/cosmos-db/mongodb-feature-support)
 
 ## NoSQL on Azure
 
