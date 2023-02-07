@@ -114,7 +114,7 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 
 ---
 
-## Uninstall using package management tools
+## Uninstall using a package manager
 
 If you installed the Azure Developer CLI using a package manager, you can also uninstall it using the following commands:
 
