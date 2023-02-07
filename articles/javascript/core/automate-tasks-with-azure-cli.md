@@ -36,7 +36,7 @@ az login --identity
 
 ## Authentication with service principal for automated tasks with Azure CLI
 
-After [the Service Principal is created](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal), [login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
+After [the Service Principal is created](../sdk/authentication/local-development-environment-service-principal.md), [login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
 
 ```bash
 read -sp "Azure password: " AZ_PASS && echo && \ 
