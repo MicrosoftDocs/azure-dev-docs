@@ -58,6 +58,26 @@ msiexec.exe /i <msi-path> ALLUSERS=1 INSTALLDIR=c:\all-users\azd
 > [!NOTE]
 > The install script doesn't support installing versions of `azd` on Windows that **predate** the MSI. To manually update older versions of the Azure Developer CLI without MSI, see the [Install versions predating MSI section](#install-versions-predating-msi). 
 
+## Install using package management tools
+
+A package manager assists developers and administrators with installing, updating, configuring, and removing software packages in a reliable way. You can install the Azure Developer CLI using the following popular package management tools:
+
+* Brew
+* Windows Package Manager
+
+### [Brew](#tab/brew)
+
+```bash
+brew tap azure/azd && brew install azd
+```
+
+### [Winget](#tab/winget)
+
+```bash
+winget install microsoft.azd
+```
+
+---
 
 ## Uninstall `azd`
 
@@ -87,6 +107,23 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 
 ---
 
+## Uninstall using a package manager
+
+If you installed the Azure Developer CLI using a package manager, you can also uninstall it using the following commands:
+
+### [Brew](#tab/brew)
+
+```bash
+brew uninstall azd
+```
+
+### [Winget](#tab/winget)
+
+```bash
+winget uninstall microsoft.azd
+```
+
+---
 
 ## Install versions predating MSI
 
