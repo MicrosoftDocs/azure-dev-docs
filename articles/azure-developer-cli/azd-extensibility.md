@@ -11,13 +11,13 @@ ms.service: azure-dev-cli
 
 # Customize your Azure Developer CLI workflows using command and event hooks
 
-The Azure Developer CLI supports various extension points to customize your deployment pipelines. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
+The Azure Developer CLI supports various extension points to customize your workflows and deployments. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
 
 For example, you may want to run a custom script in the following scenarios:
 
 * Use the *prerestore* hook to customize dependency management.
 * Use the *predeploy* hook to verify external dependencies or custom configurations are in place before deploying your app.
-* Use the *postup* hook at the end of the pipeline to perform custom cleanup or logging.
+* Use the *postup* hook at the end of a workflow or pipeline to perform custom cleanup or logging.
 
 ## Available hooks
 
@@ -87,12 +87,6 @@ Hooks can also be configured to run only for specific services defined in your `
 name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
-hooks:
-  preinit: # Example of an inline script. (shell is required for inline scripts)
-    shell: sh
-    run: echo 'Hello'
-  preprovision: # Example of external script (Relative path from project root)
-    run: ./hooks/preprovision.sh
 services:
   web:
     project: ./src/web
@@ -103,6 +97,12 @@ services:
     project: ./src/api
     language: js
     host: appservice
+    hooks:
+      prerestore: # Example of an inline script. (shell is required for inline scripts)
+        shell: sh
+        run: echo 'Restoring API service...'
+      prepackage: # Example of external script (Relative path from service path)
+        run: ./hooks/postpackage.sh
 ```
 
 ### OS specific hooks
