@@ -19,6 +19,8 @@
       href: debug.md
     - name: Configure deployment pipeline
       href: configure-devops-pipeline.md
+    - name: Customize workflows using command and event hooks
+      href: azd-extensibility.md
     - name: Monitor your project
       href: monitor-your-app.md
     - name: Make your project azd-compatible
