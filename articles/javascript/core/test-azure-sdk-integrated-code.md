@@ -34,4 +34,4 @@ The Azure SDK tests for each SDK are available in the GitHub repo for the JavaSc
 
 ## Next steps
 
-* [List account subscriptions](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript#3-list-azure-subscriptions-with-service-principal) with the resource manager SDK for subscriptions
+* [List account subscriptions](../sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript) with the resource manager SDK for subscriptions
