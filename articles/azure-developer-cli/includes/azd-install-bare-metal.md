@@ -63,8 +63,7 @@ msiexec.exe /i <msi-path> ALLUSERS=1 INSTALLDIR=c:\all-users\azd
 A package manager assists developers and administrators with installing, updating, configuring, and removing software packages in a reliable way. You can install the Azure Developer CLI using the following popular package management tools:
 
 * Brew
-* Windows Package Manager 
-* Chocolatey
+* Windows Package Manager
 
 ### [Brew](#tab/brew)
 
@@ -76,12 +75,6 @@ brew tap azure/azd && brew install azd
 
 ```bash
 winget install microsoft.azd
-```
-
-### [Chocolatey](#tab/chocolatey)
-
-```powershell
-choco install azd
 ```
 
 ---
@@ -128,12 +121,6 @@ brew uninstall azd
 
 ```bash
 winget uninstall microsoft.azd
-```
-
-### [Chocolatey](#tab/chocolatey)
-
-```powershell
-choco uninstall azd
 ```
 
 ---
