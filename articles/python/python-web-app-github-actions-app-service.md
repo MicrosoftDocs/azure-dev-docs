@@ -175,7 +175,7 @@ For example, if you used the VS Code Flask tutorial, you can
 **Step 3.** Commit the change directly to the branch you're working in.
 
 * On the bottom of the page you editing, select the **Commit** button.
-* The commit kicks off the GitHub action workflow.
+* The commit kicks off the GitHub Actions workflow.
 
 You can also kick off the workflow manually.
 
