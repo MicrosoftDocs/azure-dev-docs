@@ -102,7 +102,7 @@ services:
         shell: sh
         run: echo 'Restoring API service...'
       prepackage: # Example of external script (Relative path from service path)
-        run: ./hooks/postpackage.sh
+        run: ./hooks/prepackage.sh
 ```
 
 ### OS specific hooks
