@@ -11,9 +11,9 @@ ms.service: azure-dev-cli
 
 # Customize your Azure Developer CLI workflows using command and event hooks
 
-The Azure Developer CLI supports various extension points to customize your deployment pipelines. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecyle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
+The Azure Developer CLI supports various extension points to customize your deployment pipelines. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
 
-For example, you may want to run a custom scripts in the following scenarios:
+For example, you may want to run a custom script in the following scenarios:
 
 * Use the *prerestore* hook to customize dependency management.
 * Use the *predeploy* hook to verify external dependencies or custom configurations are in place before deploying your app.
@@ -42,16 +42,16 @@ The following service lifecycle event hooks are available:
 
 Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
-* `shell`: sh | pwsh (automatically inferred from run if not specified).
+* `shell`: `sh` | `pwsh` (automatically inferred from run if not specified).
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
 * `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
-* `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook will execute on all platforms.
-* `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook will execute on all platforms.
+* `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook executes on all platforms.
+* `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook executes on all platforms.
 
 ## Hook examples
 
-The examples below demonstrate different types of hook registrations and configurations.
+The following examples demonstrate different types of hook registrations and configurations.
 
 ### Root command registration
 
@@ -81,7 +81,7 @@ services:
 
 ### Service registration
 
-hooks can be also be configured to run only for specific services defined in your `.yaml` file. 
+Hooks can also be configured to run only for specific services defined in your `.yaml` file.
 
 ```yml
 name: todo-nodejs-mongo
@@ -107,7 +107,7 @@ services:
 
 ### OS specific hooks
 
-Optionally, hooks can also be configured to run either on Windows or Posix (Linux & MaxOS). By default, if the Windows or Posix configurations are excluded the hook will execute on all platforms.
+Optionally, hooks can also be configured to run either on Windows or Posix (Linux & MaxOS). By default, if the Windows or Posix configurations are excluded the hook executes on all platforms.
 
 ```yml
 name: todo-nodejs-mongo
