@@ -19,7 +19,7 @@ The Azure login action supports two different ways of authenticating with Azure:
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
 * [OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
-By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
