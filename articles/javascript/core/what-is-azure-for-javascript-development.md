@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # What is Azure for JavaScript developers
 
-Azure is a cloud platform providing a full range of hosting options and cloud-based services. If you are new to cloud development, learn more about Azure:
+Azure is a cloud platform providing a full range of hosting options and cloud-based services. If you're new to cloud development, learn more about Azure:
 
 * [Azure Architecture Center](/azure/architecture/) 
 * [Azure terminology](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
@@ -29,7 +29,7 @@ Top service types for JavaScript developers include:
 * Authentication and authorization
 * Containers
 * VMs
-* [Databases](../how-to/with-database/getting-started.md)
+* [Databases](../database-developer-guide.md)
 * Storage
 * [Search](/azure/search/tutorial-javascript-overview)
 * Cognitive services
@@ -40,7 +40,7 @@ Top service types for JavaScript developers include:
 
 When you begin learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then start in the [Quickstart Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
-Each service's page on the Azure portal includes connection information you will need to access your resource outside of the portal. 
+Each service's page on the Azure portal includes connection information you'll need to access your resource outside of the portal. 
 
 ### Pricing tiers
 
@@ -48,16 +48,16 @@ Pricing tiers are how your resource is billed. Use the [Azure pricing calculator
 
 ### Free tier resources
 
-When selecting the free (F0) pricing tier, it is important to understand limitations that come with that plan. When a free tier is offered:
+When selecting the free (F0) pricing tier, it's important to understand limitations that come with that plan. When a free tier is offered:
 
 * A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
-* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPM), your application will receive an HTTP error with a message indicating you are out of quota. 
+* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPM), your application receives an HTTP error with a message indicating you're out of quota. 
 
 ## 2. Prepare your development environment
 
 Your development environment needs a few tools to have the best development experience:
 
-* [VS Code](https://code.visualstudio.com/) and the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
+* [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/) - always use the Long-term support (LTS) version if possible. 
 * If you need to synchronize your local development runtime with your Azure hosted runtime (such as Azure App Service, Azure Functions, or Azure Static Web apps), use a runtime version management solution such as:
@@ -70,9 +70,9 @@ Your development environment needs a few tools to have the best development expe
 
 ## 3. Use Azure SDK with JavaScript
 
-To use Azure services programmatically with JavaScript, find the [npm package](../azure-sdk-library-package-index.md) specific to the service you will use. Each npm package has service-specific connection information.
+To use Azure services programmatically with JavaScript, find the [npm package](../azure-sdk-library-package-index.md) specific to the service you'll use. Each npm package has service-specific connection information.
 
-All Azure SDKs run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript is not a requirement to use the Azure SDKs or the Azure cloud services. 
+All Azure SDKs run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript isn't a requirement to use the Azure SDKs or the Azure cloud services. 
 
 Your JavaScript code can use Azure services, regardless of where your code is hosted (local, hybrid, cloud). The recommended way to use Azure services programmatically with JavaScript is the Azure SDKs. These SDKs expect a minimum Node.js with Long-term support (LTS). 
 

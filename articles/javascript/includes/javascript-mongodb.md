@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 08/08/2022
 ---
 
-## Install mongodb SDK 
+### Install mongodb SDK 
 
 To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, use the following procedure.
 
@@ -26,7 +26,7 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, 
     * Installs the SDK
     * Opens the project in Visual Studio Code
 
-## Create JavaScript file to bulk insert data into MongoDB database
+### Create JavaScript file to bulk insert data into MongoDB database
 
 1. In Visual Studio Code, create a `bulk_insert.js` file.
 
@@ -46,7 +46,7 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, 
     node bulk_insert.js
     ```
 
-## Create JavaScript code to use MongoDB
+### Create JavaScript code to use MongoDB
 
 1. In Visual Studio Code, create a `index.js` file.
 
