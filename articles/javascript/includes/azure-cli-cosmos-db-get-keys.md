@@ -6,7 +6,7 @@ ms.date: 08/08/2022
 
 <a name="get-the-cosmos-db-keys-for-your-resource"></a>
 
-## Get the Azure Cosmos DB keys for your resource
+### Get the Azure Cosmos DB keys for your resource
 
 Retrieve the keys for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
 
