@@ -2,8 +2,9 @@
 title: Azure CLI virtual machine with Express.js
 description: Create an Azure Linux virtual machine, with a clone of an Express.js-based app from a GitHub repository.  
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/09/2023
 ms.custom: devx-track-js, devx-track-azurecli, 
+# Must use non-internal sub
 ---
 
 # Create Express.js virtual machine using Azure CLI
@@ -37,9 +38,9 @@ This tutorial includes the following tasks:
 
 ## 1. Create Application Insights resource for web pages
 
-Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you are done. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
+Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Creating a resource group allows you to easily find the resources, and delete them when you're done. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses. 
 
-1. Optional, if you have more than one subscription, use [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) to set the default subscription before completing the remaining commands.
+1. Optional, if you've more than one subscription, use [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) to set the default subscription before completing the remaining commands.
 
     ```azurecli
     az account set \
@@ -73,9 +74,9 @@ Create an Azure resource group for all your Azure resources and a Monitor resour
       --query instrumentationKey --output table
     ```
 
-1. Copy the **Result** from the output, you will need that value as your `instrumentationKey` later. 
+1. Copy the **Result** from the output, you'll need that value as your `instrumentationKey` later. 
 
-1. Leave the terminal open, you will use it in the next step.
+1. Leave the terminal open, you'll use it in the next step.
  
 ## 2. Create Linux virtual machine using Azure CLI
 
@@ -110,10 +111,16 @@ Uses a cloud-init configuration file to create both the NGINX reverse proxy serv
       --custom-data cloud-init-github.txt
     ```
 
-1. Please wait while the process may take a few minutes. 
+1. Wait while the process may take a few minutes. 
 
-1. Keep the **publicIpAddress** value from the response, it is needed to view the web app in a browser and to connect to the VM. If you lose this IP, use the Azure CLI command, [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) to get it again.
-     
+1. Keep the **publicIpAddress** value from the response, it's needed to view the web app in a browser and to connect to the VM. If you lose this IP, use the Azure CLI command, [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) to get it again.
+
+1. The process created SSH keys and but them in a location stated in the response.
+1. Go to that location and create the `authorized_keys` file:
+
+    ```bash
+    cd <SSH-KEY-LOCATION> && cat id_rsa >> authorized_keys
+    ``` 
 
 ### Open port for virtual machine
 
@@ -163,9 +170,9 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     ssh azureuser@YOUR-VM-PUBLIC-IP
     ``` 
 
-    This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. If you are asked if you want to continue connecting, answer `yes`. When the connection is complete, the terminal prompt should change to indicate the remote virtual machine.
+    This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. 
 
-1. If you are asked if you are sure you want to connect, answer `y` or `yes` to continue. 
+1. If you're asked if you're sure you want to connect, answer `y` or `yes` to continue. 
 
 1. Use the following command to understand where you are on the virtual machine. You should be at the azureuser root: `/home/azureuser`. 
 
@@ -173,7 +180,11 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     pwd
     ```
 
-1. The response should be `/home/azureuser`.
+1. When the connection is complete, the terminal prompt should change to indicate the username and resource name of remote virtual machine.
+
+    ```bash
+    azureuser@demo-vm:
+    ```
 
 1. Your web app is in the subdirectory, `myapp`. Change to the `myapp` directory and list the contents:
 
@@ -181,7 +192,7 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     cd myapp && ls -l
     ```
 
-1. You should see contents like, representing the GitHub repository cloned into the virtual machine and the npm package files:
+1. You should see contents representing the GitHub repository cloned into the virtual machine and the npm package files:
     
     ```console
     -rw-r--r--   1 root root   891 Nov 11 20:23 cloud-init-github.txt
@@ -195,7 +206,7 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
 
 ### Install Monitoring SDK
 
-1. In the SSH terminal which is connected to your virtual machine, install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
+1. In the SSH terminal, which is connected to your virtual machine, install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
 
     ```bash
     sudo npm install --save applicationinsights
@@ -218,8 +229,12 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     ```
 
 1. Still in the SSH terminal, save the file in the Nano editor with <kbd>control</kbd> + <kbd>X</kbd>. 
-1. In the Nano editor, enter **Y** to save, when prompted. 
-1. In the Nano editor, accept the file name when prompted. 
+1. If prompted in the Nano editor, enter **Y** to save. 
+1. If prompted in the Nano editor, accept the file name when prompted. 
+
+## Stop VM to change application
+
+The Azure client library is now in your _node_modules_ directory and the key is passed into the app as an environment variable. The next step programmatically uses Application Insights.
 
 1. Stop [PM2](https://www.npmjs.com/package/pm2), which is a production process manager for Node.js applications, with the following commands:
 
@@ -227,40 +242,22 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
     sudo npm run-script stop 
     ```
 
-    The Azure client library is now in your _node_modules_ directory and the key is passed into the app as an environment variable. The next step is to add the required code to `index.js`. 
+1. Replace original `index.js` with file using Application Insights.
+
+    ```bash
+    sudo npm run-script appinsights
+    ```
+
+1. The client library and logging code is provided for you. 
+
+    :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" highlight="7-36":::
 
 1. Restart the app with PM2 to pick up the next environment variable.
 
     ```bash
     sudo npm start
     ```
-
-## 4. Install Azure SDK client library to monitor web app
-
-In this step, add the Azure SDK client library to the code on the virtual machine to begin collecting app logs in the Azure cloud.
-
-
-### Edit index.js for logging with Azure Monitor Application Insights
-
-1. Still in the SSH terminal, use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) text editor provided in the virtual machine to open the `index.js`. 
-
-    ```bash
-    sudo nano index.js
-    ```
-
-1. Edit the `index.js` file to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into Nano. 
-
-    :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" :::
-
-1. Still in the SSH terminal, save the file in the Nano editor with <kbd>control</kbd> + <kbd>X</kbd>. Enter **Y** to save, when prompted. Accept the file name when prompted.  
-
-    Changes to the web app are watched by PM2; this change caused a restart of the app, without having to restart the VM. 
-
-1. To have PM2 load the environment variable and have it available in the index.js, restart PM2 with the following command:
-
-    ```bash
-    sudo npm run-script restart
-    ```
+## Use app to verify logging 
 
 1. In a web browser, test the app with the new `trace` route:
 
@@ -281,13 +278,13 @@ The virtual machine (VM) collects logs for NGINX, which are available to view.
 |NGINX| /var/log/nginx/access.log|
 
 
-Still in the SSH terminal, view VM log for the NGINX proxy service with the following command to view the log:
+1. Still in the SSH terminal, view VM log for the NGINX proxy service with the following command to view the log:
 
 ```bash
 cat /var/log/nginx/access.log
 ```
 
-The log includes the call from your local computer. 
+1. The log includes the call from your local computer. 
 
 ```console
 "GET /trace HTTP/1.1" 200 10 "-"
@@ -330,7 +327,7 @@ If you want to retain the logs beyond the lifespan of your virtual machine, use 
 
 ## 5. Clean up resources
 
-Once you have completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you are not billed for any more usage. 
+Once you've completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you aren't billed for any more usage. 
 
 In the same terminal, use the Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete the resource group:
 
@@ -346,7 +343,7 @@ If you have issues, use the following table to understand how to resolve your is
 
 |Problem|Resolution|
 |--|--|
-|502 Gateway error|This could indicate your index.js or package.js file has an error. View your PM2 logs at `/var/log/pm2.log` for more information. The most recent error is at the bottom of the file. If you are sure those files are correct, stop and start the PM2 using the npm scripts in `package.json`.|
+|502 Gateway error|This could indicate your index.js or package.js file has an error. View your PM2 logs at `/var/log/pm2.log` for more information. The most recent error is at the bottom of the file. If you're sure those files are correct, stop and start the PM2 using the npm scripts in `package.json`.|
 
 
 ## Sample code
@@ -355,5 +352,6 @@ If you have issues, use the following table to understand how to resolve your is
 
 ## Next steps
 
-* Learn more about [Azure Linux VMs](/azure/virtual-machines)
+* [Create load balancer in front of a virtual machine](/azure/load-balancer/quickstart-load-balancer-standard-public-cli)
 * [Inject certificates from Key Vault](/azure/virtual-machines/linux/tutorial-automate-vm-deployment#inject-certificates-from-key-vault)
+* [Connect to VM with Bastion](/azure/bastion/tutorial-create-host-portal)
