@@ -95,7 +95,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     
 ## Query GraphQL API using cURL
 
-1. In VS Code, open an integrated terminal.
+1. In Visual Studio Code, open an integrated terminal.
 1. Enter the cURL command:
 
     ```bash
@@ -105,7 +105,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     ```
 1. View the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
 
-## Create your Azure Function resource from VS Code
+## Create your Azure Function resource from Visual Studio Code
 
 1. In Visual Studio Code, select the Azure explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
 1. In the **Resources** section, select the Azure subscription. 
@@ -127,7 +127,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     
 1. Visual Studio Code's **Azure:Activity Log** reports when the Function App is created successfully and the workspace shows the **Attached Storage Accounts**. To use local storage, you need to install [**Azurite**](https://www.npmjs.com/package/azurite).
 
-## Deploy your GraphQL API from VS Code
+## Deploy your GraphQL API from Visual Studio Code
 
 1. In Visual Studio Code, still in the Azure explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>), find your new Azure Function resource under your subscription.
 1. Right-click the resource and select **Deploy to Function App**.
@@ -138,7 +138,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
 ## Insert data into your GraphQL API with cURL
 
-1. In VS Code, open an integrated terminal. 
+1. In Visual Studio Code, open an integrated terminal. 
 1. Use the cURL command:
 
     ```bash
@@ -161,7 +161,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
 ## Update data into your GraphQL API with cURL
 
-1. In VS Code, open an integrated terminal. 
+1. In Visual Studio Code, open an integrated terminal. 
 1. Use the cURL command:
 
     ```bash
@@ -186,7 +186,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
 ## Query your GraphQL API with cURL
 
-1. In VS Code, open an integrated terminal. 
+1. In Visual Studio Code, open an integrated terminal. 
 1. Use the cURL command:
 
     ```bash
@@ -254,7 +254,7 @@ Use the following troubleshooting guide to resolve any issues.
 
 |Issue|Possible fix|
 |--|--|
-|cURL command doesn't return anything|In VS Code, expand the Azure Function resource in the Azure explorer. Under the Files node, make sure all your local files have been moved to the remote location and the `/dist` folder has been generated. If the files aren't present, redeploy the app and watch the deployment output for any errors. If the files do exist, run the cURL command again, adding `--verbose` to the end of the command to see what status code is returned.|
+|cURL command doesn't return anything|In Visual Studio Code, expand the Azure Function resource in the Azure explorer. Under the Files node, make sure all your local files have been moved to the remote location and the `/dist` folder has been generated. If the files aren't present, redeploy the app and watch the deployment output for any errors. If the files do exist, run the cURL command again, adding `--verbose` to the end of the command to see what status code is returned.|
 |API doesn't return anything - but the code is correct.|The Azure Function returns the Apollo server's results if the `./graphql/function.json` correctly states the name of the return binding as `$return`. If you played with the function.json file, make sure the http binding name is reset to the value of `$return`. Another possible issue is if you changed `authLevel`, also found in the `function.json` file from `anonymous` to another value, you need to either change the value back to `anonymous` or correctly pass in the authentication when you use the API.|
 
 Did you run into an issue not described in the preceding table? Open an issue to let us know. 

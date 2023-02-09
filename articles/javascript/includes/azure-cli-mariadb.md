@@ -42,7 +42,7 @@ az mariadb server firewall-rule create \
 
 If you don't know your client IP address, use one of these methods:
 * Use the Azure portal to view and change your firewall rules, which include adding your detected client IP
-* Run you Node.js code, the error about your firewall rules violation includes your client IP address
+* Run your Node.js code, the error about your firewall rules violation includes your client IP address
 
 While you can add the full range of internet addresses as a firewall rule, 0.0.0.0-255.255.255.255, this leaves your server open to attacks.
 
