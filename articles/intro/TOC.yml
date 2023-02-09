@@ -174,6 +174,12 @@ items:
             href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Certificates
+            href: /azure/key-vault/certificates/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Keys
+            href: /azure/key-vault/keys/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Secrets
+            href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json            
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Topics
