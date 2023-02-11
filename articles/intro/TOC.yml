@@ -16,6 +16,8 @@ items:
         href: azure-developer-key-concepts.md
       - name: Overview of Azure billing
         href: azure-developer-billing.md
+      - name: Versioning principles for services, SDKs and tools
+        href: azure-sdk-cli-tool-versioning.md
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
