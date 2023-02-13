@@ -208,9 +208,9 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       }
 
       // Azure SDK Azure Resource Management clients accept the credential as a parameter
-      client := armresources.NewClient(subscriptionId, cred, nil)
+      client, _ := armresources.NewClient(subscriptionId, cred, nil)
 
-      log.Printf("Authenticated to subscription", client)
+      log.Print("Authenticated to subscription", client)
     }
     ```
 
@@ -234,7 +234,10 @@ if err != nil {
 }
 
 // Azure SDK Azure Resource Management clients accept the credential as a parameter
-client := armresources.NewClient("<subscription ID>", cred, nil)
+client, err := armresources.NewClient("<subscription ID>", cred, nil)
+if err != nil {
+  // handle error
+}
 ```
 
 <!-- TODO: Uncomment after manage resource groups with GO sdk is merged -->
