@@ -4,9 +4,9 @@ ms.topic: include
 ms.date: 08/08/2022
 ---
 
-## Add firewall rule for your client IP address
+### Add firewall rule for your client IP address
 
-If you need to add a client IP address to your resource after it is created so your client connection to the server with JavaScript is successful, use this procedure. Use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command to update the firewall rules.
+If you need to add a client IP address to your resource after it's created so your client connection to the server with JavaScript is successful, use this procedure. Use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command to update the firewall rules.
 
 
 ```azurecli

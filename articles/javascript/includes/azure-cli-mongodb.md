@@ -6,7 +6,7 @@ ms.date: 08/08/2022
 
 <a name="create-a-cosmos-db-resource-for-mongodb"></a>
 
-## Create a resource for Azure Cosmos DB for MongoDB via the Azure CLI
+### Create a resource for Azure Cosmos DB for MongoDB via the Azure CLI
 
 Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Azure Cosmos DB resource for a mongoDB database. 
 
@@ -111,9 +111,9 @@ This command may take a couple of minutes to complete and creates a publicly ava
 }
 ```
 
-## Add firewall rule for your client IP address with Azure CLI
+### Add firewall rule for your client IP address with Azure CLI
 
-By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
+By default, the firewall rules aren't configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
 Use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command to update the firewall rules.
 
@@ -137,7 +137,7 @@ az cosmosdb update \
 
 <a name="get-the-mongodb-connection-string-for-your-resource"></a>
 
-## Get the MongoDB connection string for your resource with Azure CLI
+### Get the MongoDB connection string for your resource with Azure CLI
 
 Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
 
@@ -158,7 +158,7 @@ Connect to the mongoDB database with a connection string. Make sure your service
 
 <a name="configure-your-azure-web-app-with-the-connection-string"></a>
 
-## Configure your Azure web app with the connection string with Azure CLI
+### Configure your Azure web app with the connection string with Azure CLI
 
 Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) so the web app connects to the Azure Cosmos DB resource:
 

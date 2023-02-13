@@ -174,25 +174,11 @@
           href: how-to/with-visual-studio-code/containerize-local-project.md              
       - name: Virtual machine web apps
         items:
-          - name: "Express.js"
-            items:
-              - name: 1. Introduction and prerequisites
-                href: tutorial/nodejs-virtual-machine-vm/introduction.md
-              - name: 2. Create Application Insights resource
-                href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
-              - name: 3. Create virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-              - name: 4. Connect to Linux virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
-              - name: 5. Add cloud logging to app
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
-              - name: 6. View logs
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
-              - name: 7. Clean up resources
-                href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md    
-          - name: "VM: Create and delete VM"
+          - name: "Express.js VM"
+            href: tutorial/run-nodejs-virtual-machine.md
+          - name: "Create and delete VM with SDK"
             href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-          - name: "VM: Manage"
+          - name: "Manage VM with SDK"
             href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Visual Studio Code
     items:
@@ -275,25 +261,7 @@
   - name: Storage developer guide
     href: /azure/storage/blobs/storage-blob-javascript-get-started
   - name: Database developer guide
-    items: 
-    - name: Getting started
-      href: how-to/with-database/getting-started.md
-    - name: Cache for Redis
-      href: how-to/with-database/use-azure-cache-for-redis-db.md
-    - name: Cassandra on Azure Cosmos DB
-      href: how-to/with-database/use-cassandra-as-cosmos-db.md
-    - name: MongoDB on Azure Cosmos DB
-      items: 
-        - name: Getting started
-          href: how-to/with-database/use-mongodb-as-cosmosdb.md
-        - name: Dev guide
-          href: /azure/cosmos-db/mongodb/how-to-javascript-get-started
-    - name: MySQL and MariaDB
-      href: how-to/with-database/use-mysql-mariadb.md
-    - name: PostgreSQL
-      href: how-to/with-database/use-postgresql-db.md
-    - name: Azure Cosmos DB for NoSQL
-      href: how-to/with-database/use-sql-api-as-cosmos-db.md
+    href: database-developer-guide.md
   - name: GraphQL
     items: 
       - name: Hello world with Functions

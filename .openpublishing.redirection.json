@@ -16,13 +16,69 @@
         "redirect_url": "/azure/developer/python" 
       },
       { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/introduction.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },      
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
+        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/clean-up-resources.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+      },
+      { 
         "source_path": "articles/javascript/whats-new-developer-advocacy.md",
         "redirect_url": "/azure/developer/javascript" 
       },
       { 
         "source_path": "articles/javascript/whats-new-docs.md",
         "redirect_url": "/azure/developer/javascript" 
-      },            
+      },          
+      { 
+        "source_path": "articles/javascript/how-to/with-database/getting-started.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-azure-cache-for-redis-db.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-mongodb-as-cosmosdb.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-mysql-mariadb.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-postgresql-db.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },
+      { 
+        "source_path": "articles/javascript/how-to/with-database/use-sql-api-as-cosmos-db.md",
+        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+      },      
       { 
         "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
         "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
@@ -817,6 +873,10 @@
         "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"
       },
       {
+        "source_path": "articles/java/migration/migrate-weblogic-with-aad-ldap.md",
+        "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps"
+      },
+      {
         "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
         "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app"
       },
@@ -1364,6 +1424,10 @@
       {
         "source_path":"articles/python/how-to-manage-service-principals.md",
         "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
+      },
+      {
+        "source_path":"articles/terraform/get-started-powershell.md",
+        "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
       }
     ]
   }
