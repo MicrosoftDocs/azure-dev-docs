@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure offers a choice of fully managed relational, NoSQL, and in-memory databases, spanning proprietary and open-source engines in addition to storage services for object, block, and file storage. The following articles help you get started with various data solutions on Azure.
 
-## SQL databases
+## Databases
 
 - **PostgreSQL**: Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud.
   - [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server](/azure/postgresql/single-server/connect-python)
@@ -27,7 +27,7 @@ Azure offers a choice of fully managed relational, NoSQL, and in-memory database
 - **MariaDB**: Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MariaDB database service
   - [How to connect applications to Azure Database for MariaDB](/azure/mariadb/howto-connection-string)
 
-## Tables, blobs, files, NoSQL
+## NoSQL, blobs, tables, files, graphs, and caches
 
 - **Cosmos DB**: Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, and other NoSQL workloads to the cloud.
   - [Quickstart: Azure Cosmos DB for NoSQL client library for Python](/azure/cosmos-db/nosql/quickstart-python)
@@ -36,8 +36,13 @@ Azure offers a choice of fully managed relational, NoSQL, and in-memory database
   - [Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/table/quickstart-python)
   - [Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/gremlin/quickstart-python)
 
-- **Blob and file storage**: Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. 
+- **Blob storage**: Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. 
   - [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+  - [Azure Storage samples using v12 Python client libraries](/azure/storage/common/storage-samples-python)
+
+- **Azure Data Lake Storage Gen2**: Massively scalable and secure data lake for your high-performance analytics workloads.
+  - [Use Python to manage directories and files in Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-directory-file-acl-python)
+  - [Use Python to manage ACLs in Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-acl-python)
 
 - **File storage**: Simple, secure, and serverless enterprise-grade cloud file shares.
   - [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage)
