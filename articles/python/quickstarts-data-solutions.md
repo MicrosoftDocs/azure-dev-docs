@@ -1,45 +1,49 @@
 ---
 title: Getting started with data solutions for Python apps on Azure
 description: Index of getting started material in the Azure documentation for data solutions for Python apps.
-ms.date: 05/28/2020
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Data solutions for Python apps on Azure
 
-The following articles help you get started with various data solutions on Azure.
+Azure offers a choice of fully managed relational, NoSQL, and in-memory databases, spanning proprietary and open-source engines in addition to storage services for object, block, and file storage. The following articles help you get started with various data solutions on Azure.
 
 ## SQL databases
 
-- **PostgreSQL**:
-  - [Use Python to connect and query data in Azure Database for PostgreSQL](/azure/postgresql/connect-python)
+- **PostgreSQL**: Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud.
+  - [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server](/azure/postgresql/single-server/connect-python)
+  - [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/connect-python)
   - [Run a Python (Django or Flask) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
-- **MySQL**:
-  - [Use Python to connect and query data with Azure Database for MySQL](/azure/mysql/connect-python)
+- **MySQL**: Build apps that scale with managed and intelligent SQL database in the cloud.
+  - [Quickstart: Use Python to connect and query data in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-python)
+  - [Quickstart: Use Python to connect and query data in Azure Database for MySQL](/azure/mysql/single-server/connect-python)
 
-- **Azure SQL**:
-  - [Use Python to query an Azure SQL database](/azure/sql-database/sql-database-connect-query-python)
+- **Azure SQL**: Build apps that scale with managed and intelligent SQL database in the cloud.
+  - [Quickstart: Use Python to query a database](/azure/azure-sql/database/connect-query-python)
 
-- **MariaDB**:
+- **MariaDB**: Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MariaDB database service
   - [How to connect applications to Azure Database for MariaDB](/azure/mariadb/howto-connection-string)
 
 ## Tables, blobs, files, NoSQL
 
-- **Tables and NoSQL**:
-  - [Build an Azure Cosmos DB for Table app with Python](/azure/cosmos-db/create-table-python)
-  - [Build a Python application using an Azure Cosmos DB for NoSQL account](/azure/cosmos-db/create-sql-api-python)
-  - [Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/create-cassandra-python)
-  - [Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/create-graph-python)
-  - [Build a Python app using Azure Cosmos DB for MongoDB](/azure/cosmos-db/create-mongodb-flask)
+- **Cosmos DB**: Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, and other NoSQL workloads to the cloud.
+  - [Quickstart: Azure Cosmos DB for NoSQL client library for Python](/azure/cosmos-db/nosql/quickstart-python)
+  - [Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver](/azure/cosmos-db/mongodb/quickstart-python)
+  - [Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-python)
+  - [Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/table/quickstart-python)
+  - [Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/gremlin/quickstart-python)
 
-- **Blob and file storage**:
-  - [Manage Azure Storage blobs with Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+- **Blob and file storage**: Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. 
+  - [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+
+- **File storage**: Simple, secure, and serverless enterprise-grade cloud file shares.
   - [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage)
 
-- **Redis Cache**:
-  - [Create a Python app that uses Azure Cache for Redis](/azure/azure-cache-for-redis/cache-python-get-started)
+- **Redis Cache**: Power fast, scalable applications with an open-source-compatible in-memory data store.
+  - [Quickstart: Use Azure Cache for Redis in Python](/azure/azure-cache-for-redis/cache-python-get-started)
 
 ## Big data and analytics
 
