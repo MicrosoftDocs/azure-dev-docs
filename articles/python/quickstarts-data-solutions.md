@@ -71,3 +71,6 @@ Azure offers a choice of fully managed relational, NoSQL, and in-memory database
   - [Connect to Azure Databricks from Excel, Python, or R](/azure/databricks/scenarios/connect-databricks-excel-python-r)
   - [Get Started with Azure Databricks](/azure/databricks/getting-started/)
   - [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
+
+- **Azure Synapse Analytics**: A limitless analytics service that brings together enterprise data warehousing and big data analytics.
+  - [Quickstart: Use Python to query a database](/azure/azure-sql/database/connect-query-python)
