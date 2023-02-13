@@ -59,9 +59,9 @@ landingContent:
       - linkListType: quickstart
         links: 
           - text: SQL databases
-            url: quickstarts-data-solutions.md#sql-databases
+            url: quickstarts-data-solutions.md#databases
           - text: Tables, blobs, files, NoSQL
-            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
+            url: quickstarts-data-solutions.md#nosql-blobs-tables-files-graphs-and-caches
           - text: Big data and analytics
             url: quickstarts-data-solutions.md#big-data-and-analytics
   - title: Machine learning
