@@ -401,7 +401,6 @@
 | kusto-log4j-appender | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/1.0.1/jar/) |  |  |
 | Management - Digital Twins | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_12_01/azure-mgmt-digitaltwins/1.0.0/jar/) |  |  |
 | Management - Stream Analytics | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.streamanalytics.v2020_03_01_preview/azure-mgmt-streamanalytics/1.0.0-beta/jar/) |  |  |
-| msal4j-brokers | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure/msal4j-brokers/1.0.0-beta/jar/) |  |  |
 | onnx-protobuf_2.12 | Maven [0.9.1](https://search.maven.org/artifact/com.microsoft.azure/onnx-protobuf_2.12/0.9.1/jar/) |  |  |
 | Purview Administration | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar/) |  |  |
 | spring-cloud-azure-feature-management | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-feature-management/4.0.0-beta.2/jar/) |  |  |
