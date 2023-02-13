@@ -52,18 +52,17 @@ Azure offers a choice of fully managed relational, NoSQL, and in-memory database
 
 ## Big data and analytics
 
-- **Big data analytics (Azure Data Lake analytics)**:
+- **Azure Data Lake analytics**: A fully managed on-demand pay-per-job analytics service with enterprise-grade security, auditing, and support.
   - [Manage Azure Data Lake Analytics using Python](/azure/data-lake-analytics/data-lake-analytics-manage-use-python-sdk)
-  - [Develop U-SQL with Python for Azure Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode)
+  - [Develop U-SQL with Python for Azure Data Lake Analytics in Visual Studio Code](/azure/data-lake-analytics/data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode)
 
-- **Big data orchestration (Azure Data Factory)**:
-  - [Create a data factory and pipeline using Python](/azure/data-factory/quickstart-create-data-factory-python)
+- **Azure Data Factory**: A data integration service to orchestrate and automate data movement and transformation.
+  - [Quickstart: Create a data factory and pipeline using Python](/azure/data-factory/quickstart-create-data-factory-python)
   - [Transform data by running a Python activity in Azure Databricks](/azure/data-factory/transform-data-databricks-python)
 
-- **Big data streaming and event ingestion (Azure Event Hubs)**:
-  - [Send events to or receive events from event hubs by using Python](/azure/event-hubs/get-started-python-send-v2)
-  - [Event Hubs Capture walkthrough: Python](/azure/event-hubs/event-hubs-capture-python)
-  - [Capture Event Hubs data in Azure Storage and read it by using Python](/azure/event-hubs/get-started-capture-python-v2)
+- **Azure Event Hubs**: A hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events.
+  - [Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
+  - [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](/azure/event-hubs/event-hubs-capture-python)
 
 - **HDInsight**: A fully managed cloud Hadoop and Spark service backed by 99.9% SLA for your enterprise
   - [Use Spark & Hive Tools for Visual Studio Code](/azure/hdinsight/hdinsight-for-vscode)
