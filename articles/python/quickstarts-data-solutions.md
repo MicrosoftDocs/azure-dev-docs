@@ -65,10 +65,10 @@ Azure offers a choice of fully managed relational, NoSQL, and in-memory database
   - [Event Hubs Capture walkthrough: Python](/azure/event-hubs/event-hubs-capture-python)
   - [Capture Event Hubs data in Azure Storage and read it by using Python](/azure/event-hubs/get-started-capture-python-v2)
 
-- **Hadoop (Azure HDInsights)**:
+- **HDInsight**: A fully managed cloud Hadoop and Spark service backed by 99.9% SLA for your enterprise
   - [Use Spark & Hive Tools for Visual Studio Code](/azure/hdinsight/hdinsight-for-vscode)
 
-- **Spark-based analytics (Azure Databricks)**:
-  - [Connect to Azure Databricks from Excel, Python, or R](/azure/azure-databricks/connect-databricks-excel-python-r)
-  - [Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+- **Azure Databricks**: A fully managed, fast, easy and collaborative Apache® Spark™ based analytics platform optimized for Azure.
+  - [Connect to Azure Databricks from Excel, Python, or R](/azure/databricks/scenarios/connect-databricks-excel-python-r)
+  - [Get Started with Azure Databricks](/azure/databricks/getting-started/)
   - [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
