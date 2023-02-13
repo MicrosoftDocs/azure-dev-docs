@@ -51,8 +51,6 @@
         href: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-      - name: WebLogic with Azure AD via LDAP
-        href: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with App Gateway
         href: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with Elastic on Azure

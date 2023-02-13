@@ -36,8 +36,6 @@
           href: migrate-weblogic-to-azure-kubernetes-service.md
         - name: WebLogic Server to Azure Virtual Machines
           href: migrate-weblogic-to-virtual-machines.md
-        - name: WebLogic Server with Azure AD via LDAP
-          href: migrate-weblogic-with-aad-ldap.md
         - name: WebLogic Server to WildFly on AKS
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
         - name: "Tutorial: WebLogic to Azure VMs manual guidance"
