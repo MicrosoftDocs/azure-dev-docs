@@ -63,4 +63,4 @@
       - name: JBoss EAP to Azure App Service
         href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs
-        href: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+        href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
