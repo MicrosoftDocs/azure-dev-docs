@@ -10,6 +10,8 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 # Deploy applications to Azure hosting services
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 The following list provides references on how to deploy applications to various Azure hosting services.
 
 - Azure Virtual Machines (VMs). For more information, see the [Connect to VM](/azure/virtual-machines/linux/tutorial-manage-vm#connect-to-vm) section of [Tutorial: Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm). After you connect to the VM, you have to install and configure your applications yourself.

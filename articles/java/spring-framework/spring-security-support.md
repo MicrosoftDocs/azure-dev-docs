@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure support for Spring Security
 
+**This article applies to:** ✔️ Version 4.6.0
+
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
 ## Spring Security with Azure Active Directory

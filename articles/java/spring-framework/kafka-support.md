@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure Kafka support
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
 ## Supported Kafka version
