@@ -23,7 +23,6 @@ For example, you may want to run a custom script in the following scenarios:
 
 The following `azd` command hooks are available:
 
-* `preinit` and `postinit`: Run before and after the pipeline is initialized.
 * `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
 * `preinfracreate` and `preinfracrate`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
@@ -62,9 +61,9 @@ name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
 hooks:
-  preinit: # Example of an inline script. (shell is required for inline scripts)
+  prerestore: # Example of an inline script. (shell is required for inline scripts)
     shell: sh
-    run: echo 'Hello'
+    run: echo 'Hello' -interactive
   preprovision: # Example of external script (Relative path from project root)
     run: ./hooks/preprovision.sh
 services:
@@ -100,7 +99,7 @@ services:
     hooks:
       prerestore: # Example of an inline script. (shell is required for inline scripts)
         shell: sh
-        run: echo 'Restoring API service...'
+        run: echo 'Restoring API service...' -interactive
       prepackage: # Example of external script (Relative path from service path)
         run: ./hooks/prepackage.sh
 ```
@@ -114,13 +113,13 @@ name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
 hooks:
-  preinit: 
+  prerestore: 
     posix: # Only runs on Posix environments
       shell: sh
-      run: echo 'Hello'
+      run: echo 'Hello' -interactive
    windows: # Only runs on Windows environments
      shell: pwsh
-     run: Write-Host "Hello"
+     run: Write-Host "Hello" -interactive
 services:
   web:
     project: ./src/web
