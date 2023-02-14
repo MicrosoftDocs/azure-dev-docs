@@ -19,7 +19,7 @@ The Azure login action supports two different ways of authenticating with Azure:
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
 * [OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
-By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
@@ -28,7 +28,7 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
 * An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
-* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
+* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs. [Workload identity federation](/azure/active-directory/develop/workload-identity-federation) is in public preview
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
 
 ### Create an Azure Active Directory application and service principal
@@ -102,7 +102,7 @@ You'll need to create an Azure Active Directory application and service principa
     ```
 
 ---
-### Add federated credentials
+### Add federated credentials (preview)
 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 

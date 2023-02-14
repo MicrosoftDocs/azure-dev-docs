@@ -52,8 +52,6 @@ The offer requires a JBoss EAP subscription and works on a Bring-Your-Own-Subscr
 
 The following articles provide more information on getting started with these technologies.
 
-- [Red Hat JBoss EAP on Azure best practices](/azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-best-practices)
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
 - [Deploy a Java application with JBoss EAP on ARO](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)
-- [Deploy Red Hat JBoss EAP on Azure VMs and virtual machine scale sets using the Azure Marketplace offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image)
