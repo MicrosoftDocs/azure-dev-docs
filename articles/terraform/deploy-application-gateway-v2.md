@@ -18,7 +18,7 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you deploy an Azure Application Gateway v2 and two Windows Server 2019 Datacenter test servers for the backend pool
+In this article, you deploy an Azure Application Gateway v2 and two Windows Server 2019 Datacenter test servers for the backend pool using Terraform.
 
 > [!div class="checklist"]
 
