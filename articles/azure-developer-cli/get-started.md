@@ -24,7 +24,7 @@ Upon completion, you'll get the code in your development environment and be able
 
 Select your preferred environment to continue:
 
-## [BareMetal](#tab/baremetal)
+## [Local install](#tab/localinstall)
 
 ### Prerequisites
 
@@ -217,7 +217,7 @@ Upon completion, you'll get the code in your development environment and be able
 
 Select your preferred environment to continue:
 
-## [BareMetal](#tab/baremetal)
+## [Local install](#tab/localinstall)
 
 ### Pre-requisites
 
@@ -415,7 +415,7 @@ Upon completion, you'll get the code in your development environment and be able
 
 Select your preferred environment to continue:
 
-## [BareMetal](#tab/baremetal)
+## [Local install](#tab/localinstall)
 
 ### Pre-requisites
 
@@ -608,7 +608,7 @@ Upon completion, you'll get the code in your development environment and be able
 
 Select your preferred environment to continue:
 
-## [BareMetal](#tab/baremetal)
+## [Local install](#tab/localinstall)
 
 ### Pre-requisites
 
