@@ -33,6 +33,14 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 
 Run `azd login` to refresh the access token.
 
+## Cannot connect to the Docker daemon in Cloud Shell
+
+The Azure Developer CLI is only partially supported in the Cloud Shell environment. Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon are not allowed.
+
+### Solution
+
+Use another host to perform tasks that require the docker daemon.
+
 ## Azure Bicep CLI requirement
 
 `azd up` and `azd provision` require the latest release of Azure Bicep CLI. You might get the following error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
