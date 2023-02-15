@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure secret management
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
 ## Dependency setup

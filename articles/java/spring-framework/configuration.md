@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure configuration
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 This article describes all the Spring Cloud Azure common configuration properties.
 
 ## Configuration for each Azure Service SDK

@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure resource handling
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 The Spring project provides a [Spring Resources](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources) abstraction to access a number of low-level resources. The project provides interfaces like `Resource`, `ResourceLoader` and `ResourcePatternResolver`. Spring Cloud Azure implements these interfaces for Azure Storage services, which allows you to interact with Azure storage Blob and File Share using the Spring programming model. Spring Cloud Azure provides `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-storage-file-share` to auto-configure Azure Storage Blob and Azure Storage File Share.
 
 The following table lists Azure Storage related libraries:

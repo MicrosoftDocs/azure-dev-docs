@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring Cloud Azure support for Spring Cloud Stream
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 
 The framework provides a flexible programming model built on already established and familiar Spring idioms and best practices, including support for persistent pub/sub semantics, consumer groups, and stateful partitions.
