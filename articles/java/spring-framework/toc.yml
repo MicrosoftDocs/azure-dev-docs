@@ -148,6 +148,8 @@ items:
         href: spring-jms-support.md
       - name: Troubleshooting Guide
         href: spring-jms-troubleshooting-guide.md
+    - name: MySQL support
+      href: mysql-support.md
     - name: PostgreSQL support
       href: postgresql-support.md
     - name: Kafka support
