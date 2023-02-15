@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Spring JMS Troubleshooting Guide
 
+This guide is to troubleshoot known issues, common errors, and frequently asked questions for `spring-cloud-azure-starter-servicebus-jms`.
+
 ## Connectivity issues
 
 ### The MessageProducer was closed due to an unrecoverable error
