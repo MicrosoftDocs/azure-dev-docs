@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/18/2023
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java
 ---
 
 # Migrate an application to use passwordless connections with Azure SQL Database
