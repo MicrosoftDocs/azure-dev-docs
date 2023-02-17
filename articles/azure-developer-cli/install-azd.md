@@ -16,7 +16,7 @@ Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing an
 Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
 
-## [BareMetal](#tab/baremetal)
+## [Local install](#tab/localinstall)
 
 [!INCLUDE [azd-install-bare-metal](includes/azd-install-bare-metal.md)]
 
