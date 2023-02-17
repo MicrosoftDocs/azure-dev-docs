@@ -23,7 +23,6 @@ For example, you may want to run a custom script in the following scenarios:
 
 The following `azd` command hooks are available:
 
-* `preinit` and `postinit`: Run before and after the pipeline is initialized.
 * `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
 * `preinfracreate` and `preinfracrate`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
@@ -45,7 +44,7 @@ Hooks can be registered in your `azure.yaml` file at the root or within a specif
 * `shell`: `sh` | `pwsh` (automatically inferred from run if not specified).
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
-* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
+* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false). This property need to be set to `true` in order to see the hook's output.
 * `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook executes on all platforms.
 * `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook executes on all platforms.
 
@@ -62,7 +61,7 @@ name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
 hooks:
-  preinit: # Example of an inline script. (shell is required for inline scripts)
+  prerestore: # Example of an inline script. (shell is required for inline scripts)
     shell: sh
     run: echo 'Hello'
   preprovision: # Example of external script (Relative path from project root)
@@ -114,7 +113,7 @@ name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
 hooks:
-  preinit: 
+  prerestore: 
     posix: # Only runs on Posix environments
       shell: sh
       run: echo 'Hello'
