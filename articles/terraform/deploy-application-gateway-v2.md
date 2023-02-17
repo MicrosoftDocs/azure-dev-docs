@@ -46,19 +46,19 @@ In this article, you use Terraform to deploy an Azure Application Gateway v2 and
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-application-gateway/providers.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-application-gateway/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-application-gateway/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-application-gateway/outputs.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/outputs.tf)]
 
 ## 3. Initialize Terraform
 
