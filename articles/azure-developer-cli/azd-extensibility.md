@@ -44,7 +44,7 @@ Hooks can be registered in your `azure.yaml` file at the root or within a specif
 * `shell`: `sh` | `pwsh` (automatically inferred from run if not specified).
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
-* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
+* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false). This property need to be set to `true` in order to see the hook's output.
 * `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook executes on all platforms.
 * `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook executes on all platforms.
 
@@ -63,7 +63,7 @@ metadata:
 hooks:
   prerestore: # Example of an inline script. (shell is required for inline scripts)
     shell: sh
-    run: echo 'Hello' -interactive
+    run: echo 'Hello'
   preprovision: # Example of external script (Relative path from project root)
     run: ./hooks/preprovision.sh
 services:
@@ -99,7 +99,7 @@ services:
     hooks:
       prerestore: # Example of an inline script. (shell is required for inline scripts)
         shell: sh
-        run: echo 'Restoring API service...' -interactive
+        run: echo 'Restoring API service...'
       prepackage: # Example of external script (Relative path from service path)
         run: ./hooks/prepackage.sh
 ```
@@ -116,10 +116,10 @@ hooks:
   prerestore: 
     posix: # Only runs on Posix environments
       shell: sh
-      run: echo 'Hello' -interactive
+      run: echo 'Hello'
    windows: # Only runs on Windows environments
      shell: pwsh
-     run: Write-Host "Hello" -interactive
+     run: Write-Host "Hello"
 services:
   web:
     project: ./src/web
