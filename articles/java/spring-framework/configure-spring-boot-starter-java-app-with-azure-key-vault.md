@@ -1,7 +1,7 @@
 ---
 title: "Load a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
-ms.date: 01/31/2022
+ms.date: 02/15/2023
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.5.0</version>
+        <version>4.6.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
-  ms.custom: spring-cloud-azure
+  ms.custom: spring-cloud-azure, devx-track-java
 
 landingContent:
   - title: Overview
