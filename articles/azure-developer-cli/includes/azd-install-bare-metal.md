@@ -123,6 +123,13 @@ brew uninstall azd
 winget uninstall microsoft.azd
 ```
 
+### [Chocolatey](#tab/chocolatey)
+
+```bash
+choco install azd
+```
+
+
 ---
 
 ## Install versions predating MSI
