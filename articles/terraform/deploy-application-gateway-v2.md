@@ -11,10 +11,8 @@ ms.author: victorh
 
 # Deploy an Azure Application Gateway v2 using Terraform to direct web traffic
 
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+> [!NOTE]
+> View the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-application-gateway/TestRecord.md).
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
@@ -26,9 +24,6 @@ In this article, you use Terraform to deploy an Azure Application Gateway v2 and
 > * Deploy two virtual machines in the Application Gateway backend pool to test
 > * Test the Application Gateway to verify the deployment
 
-> [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-application-gateway).
-
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -36,6 +31,9 @@ In this article, you use Terraform to deploy an Azure Application Gateway v2 and
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## 2. Implement the Terraform code
+
+> [!NOTE]
+> The example code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-application-gateway). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
@@ -65,11 +63,22 @@ In this article, you use Terraform to deploy an Azure Application Gateway v2 and
 
 ## 6. Verify the results
 
+1. Get the resource group name by running [terraform state show](https://developer.hashicorp.com/terraform/cli/commands/state/show).
+
+    ```console
+    terraform state show azurerm_resource_group.rg
+    ```
+
 1. Browse to the [Azure portal](https://portal.azure.com).
+
 1. Under **Azure services**, select **Resource groups**.
-1. Select the **myResourceGroupAG** resource group.
+
+1. Select the resource group created in this article.
+
 1. Select the **myAppGateway** resource.
+
 1. On the **Overview** page, copy the **Frontend public IP address** to the clipboard.
+
 1. Paste the public IP address into the address bar of your web browser. Refresh the browser to see the name of the virtual machine. A valid response verifies the application gateway is successfully created and can connect with the backend.
 
 ## 7. Clean up resources
