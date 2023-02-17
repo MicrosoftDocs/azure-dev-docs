@@ -35,11 +35,11 @@ Run `azd login` to refresh the access token.
 
 ## Cannot connect to the Docker daemon in Cloud Shell
 
-The Azure Developer CLI is only partially supported in the Cloud Shell environment. Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon are not allowed.
+Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
 
 ### Solution
 
-Use another host to perform tasks that require the docker daemon.
+Use another host to perform tasks that require the docker daemon. One option is to use docker-machine, as described in the [Cloud Shell troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon) documentation.
 
 ## Azure Bicep CLI requirement
 
