@@ -117,52 +117,52 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
    * For credentials as connection string, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               eventhubs:
-                 connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
-                 processor:
-                   checkpoint-store:
-                     container-name: ${CHECKPOINT-CONTAINER}
-                     account-name: ${CHECKPOINT-STORAGE-ACCOUNT}
-                     account-key: ${CHECKPOINT-ACCESS-KEY}
+     spring:
+       cloud:
+         azure:
+           eventhubs:
+             connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+             processor:
+               checkpoint-store:
+                 container-name: ${CHECKPOINT-CONTAINER}
+                 account-name: ${CHECKPOINT-STORAGE-ACCOUNT}
+                 account-key: ${CHECKPOINT-ACCESS-KEY}
      ```
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 managed-identity-enabled: true
-                 client-id: ${AZURE_CLIENT_ID}
-               eventhubs:
-                 namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
-                 processor:
-                   checkpoint-store:
-                     container-name: ${CONTAINER_NAME}
-                     account-name: ${ACCOUNT_NAME}
+     spring:
+       cloud:
+         azure:
+           credential:
+             managed-identity-enabled: true
+             client-id: ${AZURE_CLIENT_ID}
+           eventhubs:
+             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             processor:
+               checkpoint-store:
+                 container-name: ${CONTAINER_NAME}
+                 account-name: ${ACCOUNT_NAME}
      ```
 
    * For credentials as service principal, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 client-id: ${AZURE_CLIENT_ID}
-                 client-secret: ${AZURE_CLIENT_SECRET}
-               profile:
-                 tenant-id: ${AZURE_TENANT_ID}
-               eventhubs:
-                 namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
-                 processor:
-                   checkpoint-store:
-                     container-name: ${CONTAINER_NAME}
-                     account-name: ${ACCOUNT_NAME}
+     spring:
+       cloud:
+         azure:
+           credential:
+             client-id: ${AZURE_CLIENT_ID}
+             client-secret: ${AZURE_CLIENT_SECRET}
+           profile:
+             tenant-id: ${AZURE_TENANT_ID}
+           eventhubs:
+             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             processor:
+               checkpoint-store:
+                 container-name: ${CONTAINER_NAME}
+                 account-name: ${ACCOUNT_NAME}
      ```
 
 1. Create `DefaultMessageHandler` with the `EventHubsTemplate` bean to send messages to Event Hubs.
@@ -413,41 +413,41 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
    * For credentials as connection string, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               servicebus:
-                 connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+     spring:
+       cloud:
+         azure:
+           servicebus:
+             connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
      ```
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 managed-identity-enabled: true
-                 client-id: ${AZURE_CLIENT_ID}
-               profile:
-                 tenant-id: ${AZURE_TENANT_ID}
-               servicebus:
-                 namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+     spring:
+       cloud:
+         azure:
+           credential:
+             managed-identity-enabled: true
+             client-id: ${AZURE_CLIENT_ID}
+           profile:
+             tenant-id: ${AZURE_TENANT_ID}
+           servicebus:
+             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
      ```
 
    * For credentials as service principal, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 client-id: ${AZURE_CLIENT_ID}
-                 client-secret: ${AZURE_CLIENT_SECRET}
-               profile:
-                 tenant-id: ${AZURE_TENANT_ID}
-               servicebus:
-                 namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+     spring:
+       cloud:
+         azure:
+           credential:
+             client-id: ${AZURE_CLIENT_ID}
+             client-secret: ${AZURE_CLIENT_SECRET}
+           profile:
+             tenant-id: ${AZURE_TENANT_ID}
+           servicebus:
+             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
      ```
 
 1. Create `DefaultMessageHandler` with the `ServiceBusTemplate` bean to send messages to Service Bus, set the entity type for the ServiceBusTemplate. This sample takes Service Bus Queue as example.
@@ -619,25 +619,6 @@ public class SampleController {
 }
 ```
 
-*Not recommended but currently supported:* `AzureHeaders.PARTITION_KEY` as the key of the header.
-
-``` java
-public class SampleController {
-    @PostMapping("/messages")
-    public ResponseEntity<String> sendMessage(@RequestParam String message) {
-        LOGGER.info("Going to add message {} to Sinks.Many.", message);
-        many.emitNext(MessageBuilder.withPayload(message)
-                                    .setHeader(AzureHeaders.PARTITION_KEY, "Customize partition key")
-                                    .build(), Sinks.EmitFailureHandler.FAIL_FAST);
-        return ResponseEntity.ok("Sent!");
-    }
-}
-```
-
-> [!NOTE]
-> When both `ServiceBusMessageHeaders.PARTITION_KEY` and `AzureHeaders.PARTITION_KEY` are set in the message headers,
-`ServiceBusMessageHeaders.PARTITION_KEY` is preferred.
-
 #### Session support
 
 This example demonstrates how to manually set the session ID of a message in the application.
@@ -656,7 +637,7 @@ public class SampleController {
 ```
 
 > [!NOTE]
-> When the `ServiceBusMessageHeaders.SESSION_ID` is set in the message headers, and a different `ServiceBusMessageHeaders.PARTITION_KEY` (or `AzureHeaders.PARTITION_KEY`) header is also set, the value of the session ID will eventually be used to overwrite the value of the partition key.
+> When the `ServiceBusMessageHeaders.SESSION_ID` is set in the message headers, and a different `ServiceBusMessageHeaders.PARTITION_KEY` header is also set, the value of the session ID will eventually be used to overwrite the value of the partition key.
 
 ### Samples
 
@@ -711,44 +692,44 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
    * For credentials as connection string, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               storage:
-                 queue:
-                   connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+     spring:
+       cloud:
+         azure:
+           storage:
+             queue:
+               connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
      ```
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 managed-identity-enabled: true
-                 client-id: ${AZURE_CLIENT_ID}
-               profile:
-                 tenant-id: ${AZURE_TENANT_ID}
-               storage:
-                 queue:
-                   namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+     spring:
+       cloud:
+         azure:
+           credential:
+             managed-identity-enabled: true
+             client-id: ${AZURE_CLIENT_ID}
+           profile:
+             tenant-id: ${AZURE_TENANT_ID}
+           storage:
+             queue:
+               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
      ```
 
    * For credentials as service principal, configure the following properties in your *application.yml* file:
 
      ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 client-id: ${AZURE_CLIENT_ID}
-                 client-secret: ${AZURE_CLIENT_SECRET}
-               profile:
-                 tenant-id: ${AZURE_TENANT_ID}
-               storage:
-                 queue:
-                   namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+     spring:
+       cloud:
+         azure:
+           credential:
+             client-id: ${AZURE_CLIENT_ID}
+             client-secret: ${AZURE_CLIENT_SECRET}
+           profile:
+             tenant-id: ${AZURE_TENANT_ID}
+           storage:
+             queue:
+               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
      ```
 
 1. Create `DefaultMessageHandler` with the `StorageQueueTemplate` bean to send messages to Storage Queue.
