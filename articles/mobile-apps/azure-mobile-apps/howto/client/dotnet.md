@@ -582,6 +582,7 @@ The options (defined by the `PullOptions` object) don't generally need to be set
 
 * `PushOtherTables` - if set to true, all tables are pushed.
 * `QueryId` - a specific query ID to use rather than the generated one.
+* `WriteDeltaTokenInterval` - how often to write the delta-token used to track incremental synchronization.
 
 The SDK performs an implicit `PushAsync()` before pulling records.
 
