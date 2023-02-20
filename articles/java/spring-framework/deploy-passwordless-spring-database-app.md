@@ -5,7 +5,7 @@ ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 01/18/2023
-ms.custom: passwordless-java, spring-cloud-azure, devx-track-java
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector
 ---
 
 # Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
@@ -26,7 +26,7 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 
 - [JDK 8 or JDK 11](../fundamentals/java-jdk-install.md).
 - An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above required.
+- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or above required.
 - The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
@@ -175,9 +175,15 @@ Use the following command to create the app. If you selected Java version 11 whe
 
 ## Connect Azure Spring Apps to the Azure database
 
+First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
 ### [Azure Database for MySQL](#tab/mysql)
 
-First, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 AZ_IDENTITY_RESOURCE_ID=$(az identity create \
@@ -216,9 +222,6 @@ This Service Connector command will do the following tasks in the background:
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
 Use the following command to create a passwordless connection to the database.
-
-> [!NOTE]
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 ```azurecli
 az spring connection create postgres-flexible \
