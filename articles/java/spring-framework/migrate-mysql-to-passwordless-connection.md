@@ -345,6 +345,12 @@ AZ_IDENTITY_RESOURCE_ID=$(az identity create \
 > [!IMPORTANT]
 > After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
 
+Then, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
 
 ```azurecli
