@@ -916,7 +916,7 @@ public void producerError(Message<?> message) {
 
 #### Service Bus message headers
 
-See the [Service Bus message headers](#service-bus-message-headers) for the basic message headers supported.
+For the basic message headers supported, see the [Service Bus message headers](spring-integration-support.md#service-bus-message-headers) section of [Spring Cloud Azure support for Spring Integration](spring-integration-support.md).
 
 > [!NOTE]
 > When setting the partiton key, the priority of message header is higher than Spring Cloud Stream property. So `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression` will take effect only when none of the headers of `ServiceBusMessageHeaders#SESSION_ID`, `ServiceBusMessageHeaders#PARTITION_KEY`, `AzureHeaders#PARTITION_KEY` is configured.
