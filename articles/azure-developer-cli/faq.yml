@@ -61,7 +61,7 @@ sections:
         answer: |
           The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
           
-          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. The output of the function is assigned as a Bicep parameter.
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. The output of the function is assigned as a Bicep parameter.
 
           ```json
             "sqlAdminPassword": {
