@@ -57,6 +57,18 @@ sections:
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
 
+      - question: What is the behavior of the `secretOrRandomPassword` function?
+        answer: |
+          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
+          
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. The output of the function is assigned as a Bicep parameter.
+
+          ```json
+            "sqlAdminPassword": {
+              "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
+            } 
+          ```
+          
       - question: Can I use Azure Free Subscription?
         answer: |
           Yes, but each Azure location can only have one deployment. If you've already used the selected Azure location, you'll see the deployment error:   
