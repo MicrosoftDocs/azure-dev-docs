@@ -359,7 +359,7 @@ To use `aad-starter` in this scenario, follow these steps:
 
        @Order(1)
        @Configuration
-       public static class ApiWebSecurityConfigurationAdapter extends adResourceServerWebSecurityConfigurerAdapter {
+       public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
            protected void configure(HttpSecurity http) throws Exception {
                super.configure(http);
                // All the paths that match `/api/**`(configurable) work as the esource server. Other paths work as  the web application.
@@ -369,7 +369,7 @@ To use `aad-starter` in this scenario, follow these steps:
        }
 
        @Configuration
-       public static class HtmlWebSecurityConfigurerAdapter extends adWebSecurityConfigurerAdapter {
+       public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
 
            @Override
            protected void configure(HttpSecurity http) throws Exception {
