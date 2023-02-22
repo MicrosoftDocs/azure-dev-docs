@@ -69,7 +69,7 @@ sections:
             } 
           ```
 
-          The output of the secretOrRandomPassword should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across your workflow runs can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the following Bicep code:
+          The output of the secretOrRandomPassword should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across your workflow runs can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the Bicep code below. You can view the full sample code for these modules on the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev/tree/main/templates/common/infra/bicep/core/security). 
 
           ```json
           module keyVault './core/security/keyvault.bicep' = {
@@ -93,7 +93,7 @@ sections:
             }
           }]
           ```
-
+          
           This Bicep setup enables the following workflow for managing your secrets:
 
           1. If the specified secret exists, it will be retrieved from Key Vault using the `secretOrRandomPassword` function.
