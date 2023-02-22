@@ -61,13 +61,44 @@ sections:
         answer: |
           The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
           
-          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. The output of the function is assigned as a Bicep parameter.
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. 
 
           ```json
             "sqlAdminPassword": {
               "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
             } 
           ```
+
+          The output of the secretOrRandomPassword should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across your workflow runs can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the following Bicep code:
+
+          ```json
+          module keyVault './core/security/keyvault.bicep' = {
+            name: 'keyvault'
+            scope: resourceGroup
+            params: {
+              name: '${take(prefix, 17)}-vault'
+              location: location
+              tags: tags
+              principalId: principalId
+            }
+          }
+
+          module keyVaultSecrets './core/security/keyvault-secret.bicep' = {
+            name: 'keyvault-secret-sqlAdminPassword'
+            scope: resourceGroup
+            params: {
+              keyVaultName: keyVault.outputs.name
+              name: 'sqlAdminPassword'
+              secretValue: sqlAdminPassword
+            }
+          }]
+          ```
+
+          This Bicep setup enables the following workflow for managing your secrets:
+
+          1. If the specified secret exists, it will be retrieved from Key Vault using the `secretOrRandomPassword` function.
+          2. If the secret does not exist, a Key Vault will be created, and the randomly generated secret will be stored inside of it. 
+          3. On future workflow runs the the stored secret will be retrieved by the `secretOrRandomPassword` method now that it exists in Key Vault. The Key Vault will not be recreated if it already exists, but the same secret value will be stored again for the next run.
           
       - question: Can I use Azure Free Subscription?
         answer: |
