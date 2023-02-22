@@ -225,6 +225,12 @@ You can use Service Connector to create a connection between an Azure compute ho
 - Azure Spring Apps
 - Azure Container Apps
 
+First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
 
 ```azurecli
