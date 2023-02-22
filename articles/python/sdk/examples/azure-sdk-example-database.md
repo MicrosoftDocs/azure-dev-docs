@@ -22,13 +22,13 @@ Be sure to create and activate a virtual environment for this project.
 
 ## 2: Install the needed Azure library packages
 
-1. Create a file named *requirements.txt* with the following contents:
+Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
 The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions aren't based on azure.core and therefore use older methods for authentication.
 
-1. In a terminal with the virtual environment activated, install the requirements:
+In a terminal with the virtual environment activated, install the requirements:
 
 ```cmd
 pip install -r requirements.txt
