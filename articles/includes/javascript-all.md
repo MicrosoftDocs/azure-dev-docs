@@ -483,7 +483,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.5](https://www.npmjs.com/package/@autorest/common/v/1.5.5) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230221.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230221.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230222.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230222.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.1) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -504,7 +504,7 @@
 | @azure-tools/cadl-autorest | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.26.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.26.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.26.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230221.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230221.1) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.11-beta.20230222.1](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.11-beta.20230222.1) |  |  |
 | @azure-tools/cadl-diff | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-diff/v/0.1.0) |  |  |
 | @azure-tools/cadl-dpg | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-dpg/v/0.26.0) |  |  |
 | @azure-tools/cadl-java | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-java/v/0.4.1) |  |  |
@@ -563,12 +563,12 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.45](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.45) |  |  |
 | AutoRest - Modeler Four | npm [4.26.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.0) |  | GitHub [4.26.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.497](https://www.npmjs.com/package/@autorest/powershell/v/3.0.497)<br>npm [4.0.0-dev.7](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.7) |  | GitHub [3.0.497](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.499](https://www.npmjs.com/package/@autorest/powershell/v/3.0.499)<br>npm [4.0.0-dev.7](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.7) |  | GitHub [3.0.499](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.4.0](https://www.npmjs.com/package/@autorest/python/v/6.4.0) |  | GitHub [6.4.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
-| Avocado | npm [0.8.13](https://www.npmjs.com/package/@azure/avocado/v/0.8.13) |  | GitHub [0.8.13](https://github.com/Azure/avocado) |
+| Avocado | npm [0.8.14](https://www.npmjs.com/package/@azure/avocado/v/0.8.14) |  | GitHub [0.8.14](https://github.com/Azure/avocado) |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
 | cadl-vs | npm [0.40.0](https://www.npmjs.com/package/cadl-vs/v/0.40.0) |  |  |
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
