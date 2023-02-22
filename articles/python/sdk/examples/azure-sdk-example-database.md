@@ -39,11 +39,9 @@ pip install -r requirements.txt
 
 ## 3: Write code to create the database
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details.
+Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`, the latter is your workstation's IP address for this sample to run. You can use [WhatsIsMyIPorg](https://www.whatsmyip.org/) to find your IP address.
 
 :::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
-
-You must create an environment variable named `PUBLIC_IP_ADDRESS` with your workstation's IP address for this sample to run.
 
 [!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
@@ -67,7 +65,7 @@ python provision_db.py
 
 ## 5: Insert a record and query the database
 
-1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, whose values are from the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
+1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, whose values are specified in the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
     :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
