@@ -26,8 +26,6 @@ Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
-The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions aren't based on azure.core and therefore use older methods for authentication.
-
 In a terminal with the virtual environment activated, install the requirements:
 
 ```cmd
