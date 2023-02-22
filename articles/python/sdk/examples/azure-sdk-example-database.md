@@ -1,16 +1,16 @@
 ---
-title: Provision an Azure MySQL database using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to provision an Azure MySQL, PostgresSQL, or MariaDB database.
-ms.date: 06/24/2021
+title: Create an Azure MySQL database using the Azure SDK libraries
+description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL, PostgresSQL, or MariaDB database.
+ms.date: 02/22/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
-# Example: Use the Azure libraries to provision a database
+# Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).)
 
-You can use similar code to provision a PostgreSQL or MariaDB database.
+You can use similar code to create a PostgreSQL or MariaDB database.
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -26,7 +26,7 @@ Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
-The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
+The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions aren't based on azure.core and therefore use older methods for authentication.
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 > [!NOTE]
 > On Windows, attempting to install the mysql library into a 32-bit Python library produces an error about the *mysql.h* file. In this case, install a 64-bit version of Python and try again.
 
-## 3: Write code to provision the database
+## 3: Write code to create the database
 
 Create a Python file named *provision_db.py* with the following code. The comments explain the details.
 
@@ -67,13 +67,13 @@ python provision_db.py
 
 ## 5: Insert a record and query the database
 
-1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, which should be populated with the values from the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
+1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, whose values are from the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
     :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
     All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-1. Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. (This step is described on [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.)
+1. Download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
 1. Run the code:
 
@@ -107,11 +107,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 ## See also
 
-- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Create Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision and deploy a web app](azure-sdk-example-web-app.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Example: Create and deploy a web app](azure-sdk-example-web-app.md)
+- [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
 - [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
