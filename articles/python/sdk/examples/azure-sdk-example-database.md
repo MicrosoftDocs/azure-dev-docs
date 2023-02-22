@@ -8,9 +8,9 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 # Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create a PostgreSQL or MariaDB database.
 
-You can use similar code to create a PostgreSQL or MariaDB database.
+[Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -18,17 +18,17 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+Be sure to create and activate a virtual environment for this project.
 
 ## 2: Install the needed Azure library packages
 
-Create a file named *requirements.txt* with the following contents:
+1. Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
 The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions aren't based on azure.core and therefore use older methods for authentication.
 
-In a terminal or command prompt with the virtual environment activated, install the requirements:
+1. In a terminal with the virtual environment activated, install the requirements:
 
 ```cmd
 pip install -r requirements.txt
