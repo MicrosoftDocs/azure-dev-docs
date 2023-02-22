@@ -16,6 +16,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- A [Git](https://git-scm.com/downloads) client.
 
 ## Create an Azure Cosmos DB account
 

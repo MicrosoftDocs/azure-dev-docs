@@ -15,7 +15,7 @@ From version 4.3.0, Spring Cloud Azure for Kafka supports various types of crede
 
 ## Supported Kafka version
 
-The current version of the starter should be compatible with Apache Kafka Clients 2.0.0 using Java 8 or above.
+The current version of the starter should be compatible with Apache Kafka Clients 2.0.0 using Java 8 or higher.
 
 ## Supported authentication types
 

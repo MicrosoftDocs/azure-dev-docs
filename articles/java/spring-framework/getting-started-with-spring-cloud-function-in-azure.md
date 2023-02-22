@@ -24,7 +24,7 @@ This article guides you through using [Spring Cloud Functions](https://spring.io
 To develop functions using Java, you must have the following installed:
 
 - [Java Developer Kit](../fundamentals/java-support-on-azure.md), version 11
-- [Apache Maven](https://maven.apache.org), version 3.0 or above
+- [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v4) version 4
 
@@ -49,7 +49,7 @@ In an empty folder, create a new *pom.xml* file and copy/paste the content from 
 > This file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and it configures
 the Spring Boot and Azure Functions Maven plugins.
 
-You'll need to customize a few properties for your application:
+You need to customize a few properties for your application:
 
 - `<functionAppName>` is the name of your Azure Function
 - `<functionAppRegion>` is the name of the Azure region where your Function is deployed

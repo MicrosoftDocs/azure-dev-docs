@@ -142,7 +142,7 @@ Spring Cloud Azure 4.0 supports all the authentication methods that each Azure S
 > [!NOTE]
 > When assign roles to the security principals to interact with Azure messaging services, the `Data` related roles are required to conduct messaging operations. For Azure Spring Apps Stream Event Hubs / Service Bus Binder libraries, `Contributor` role is required when the function of auto creating resources is needed. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
-A chained credential, the [DefaultAzureCredential](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential) bean is auto-configured by default and will be used by all components if no more authentication information is specified.
+A chained credential, the `DefaultAzureCredential` bean is auto-configured by default and will be used by all components if no more authentication information is specified. For more information, see the [DefaultAzureCredential](/java/api/overview/azure/identity-readme#defaultazurecredential) section of [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 
 ## Configuration properties
 

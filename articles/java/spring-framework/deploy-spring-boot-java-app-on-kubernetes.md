@@ -111,7 +111,7 @@ The following steps walk you through building a Spring Boot web application and 
 1. Log in to your Azure Container Registry from the Azure CLI.
 
    ```azurecli
-   # set the default name for Azure Container Registry, otherwise you'll need to specify the name in "az acr login"
+   # set the default name for Azure Container Registry, otherwise you need to specify the name in "az acr login"
    az config set defaults.acr=wingtiptoysregistry
    az acr login
    ```
