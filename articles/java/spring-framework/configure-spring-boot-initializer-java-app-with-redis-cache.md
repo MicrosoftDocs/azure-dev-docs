@@ -160,8 +160,8 @@ The following prerequisites are required in order to complete the steps in this 
       }
    }
    ```
-   
-   Where you'll need to replace `com.contoso.myazuredemo` with the package name for your project.
+
+   You need to replace `com.contoso.myazuredemo` with the package name for your project.
 
 1. Save and close the *HelloController.java* file.
 

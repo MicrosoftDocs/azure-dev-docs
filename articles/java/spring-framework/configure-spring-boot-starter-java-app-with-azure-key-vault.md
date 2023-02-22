@@ -16,11 +16,11 @@ This tutorial shows you how to use Key Vault in Spring Boot applications to secu
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- If you don't have a Key Vault instance, follow [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal) to create a Key Vault instance. Also, make a note of the URI of the Key Vault instance, as you'll need it for the test application for this tutorial.
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **H2 Database** dependencies, and select Java version 8 or higher.
+- If you don't have a Key Vault instance, follow [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal) to create a Key Vault instance. Also, make a note of the URI of the Key Vault instance, as you need it for the test application for this tutorial.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **H2 Database** dependencies, and then select Java version 8 or higher.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.

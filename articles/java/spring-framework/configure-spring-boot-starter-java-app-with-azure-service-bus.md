@@ -13,7 +13,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
 
-Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
+Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. You can use Service Bus across the range of supported Azure platforms.
 
 The Spring Boot Starter for Azure Service Bus JMS provides Spring JMS integration with Service Bus.
 
@@ -25,23 +25,21 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 ## Prerequisites
 
-The following prerequisites are required for this article:
+- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 
-1. An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
+- A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
-1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
+- [Apache Maven](http://maven.apache.org/), version 3.2 or later.
 
-1. [Apache Maven](http://maven.apache.org/), version 3.2 or later.
+- If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
-1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
+  - Allows access from all networks.
+  - Is Premium (or higher).
+  - Has an access policy with read/write access for your queue and topic.
 
-   1. Allows access from all networks
-   1. Is Premium (or higher)
-   1. Has an access policy with read/write access for your queue and topic
+- If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
-
-1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, then select **8** or **11** for the Java version.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, and then select Java version 8 or 11.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
@@ -205,7 +203,7 @@ In this section, you create the necessary Java classes for sending messages to y
    }
    ```
 
-   `Serializable` is implemented to use the `send` method in `JmsTemplate` in the Spring framework. Otherwise, a customized `MessageConverter` bean should be defined to serialize the content to json in text format. For more information about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
+   The `Serializable` implementation uses the `send` method in `JmsTemplate` in the Spring framework. Alternately, you should define a customized `MessageConverter` bean to serialize the content to JSON in text format. For more information about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
 
 1. Save and close the *User.java* file.
 
