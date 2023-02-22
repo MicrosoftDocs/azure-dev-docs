@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ## 3: Write code to create the database
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter variable is your workstation's IP address for this sample to run. You can use [WhatsIsMyIPorg](https://www.whatsmyip.org/) to find your IP address.
+Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter variable is your workstation's IP address for this sample to run. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP address.
 
 :::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
 
