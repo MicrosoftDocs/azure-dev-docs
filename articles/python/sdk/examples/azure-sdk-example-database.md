@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ## 3: Write code to create the database
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`, the latter is your workstation's IP address for this sample to run. You can use [WhatsIsMyIPorg](https://www.whatsmyip.org/) to find your IP address.
+Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter variable is your workstation's IP address for this sample to run. You can use [WhatsIsMyIPorg](https://www.whatsmyip.org/) to find your IP address.
 
 :::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
 
@@ -54,8 +54,9 @@ Create a Python file named *provision_db.py* with the following code. The commen
 - [ServerVersion (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverversion)
 
 Also see:
-    - [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql.postgresqlmanagementclient)
-    - [MariaDBManagementClient (azure.mgmt.rdbms.mariadb)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mariadb.mariadbmanagementclient)
+
+- [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql.postgresqlmanagementclient)
+- [MariaDBManagementClient (azure.mgmt.rdbms.mariadb)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mariadb.mariadbmanagementclient)
 
 ## 4: Run the script
 
@@ -65,19 +66,21 @@ python provision_db.py
 
 ## 5: Insert a record and query the database
 
-1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, whose values are specified in the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
+Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables. You get these values from the output of running the previous code *provision_db.py* or in the code itself.
 
-    :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
+This code works only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
-    All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
+:::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
-1. Download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-1. Run the code:
+Next, Download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
-    ```cmd
-    python use_db.py
-    ```
+Finally, run the code:
+
+```cmd
+python use_db.py
+```
 
 ## 6: Clean up resources
 
