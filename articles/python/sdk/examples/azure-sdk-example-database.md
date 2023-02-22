@@ -53,7 +53,7 @@ Create a Python file named *provision_db.py* with the following code. The commen
 - [ServerPropertiesForDefaultCreate (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverpropertiesfordefaultcreate)
 - [ServerVersion (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverversion)
 
-Also see:
+For other database types, see:
 
 - [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql.postgresqlmanagementclient)
 - [MariaDBManagementClient (azure.mgmt.rdbms.mariadb)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mariadb.mariadbmanagementclient)
@@ -87,6 +87,8 @@ python use_db.py
 ```azurecli
 az group delete -n PythonAzureExample-DB-rg  --no-wait
 ```
+
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group (and resources in it) created in this example. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
