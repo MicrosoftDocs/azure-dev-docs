@@ -352,7 +352,7 @@ In this section, you'll execute two steps to enable your application to run in a
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or higher.
 
 #### Assign the managed identity for your Azure hosting environment
 

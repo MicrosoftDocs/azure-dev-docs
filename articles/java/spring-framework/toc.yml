@@ -28,6 +28,8 @@ items:
         items:
         - name: Add sign-in with Azure AD account to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
+        - name: Secure your REST API using Spring Cloud Azure
+          href: secure-your-restful-api-using-spring-cloud-azure.md
         - name: Add sign-in with Azure AD B2C to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
         - name: Azure AD dev guide

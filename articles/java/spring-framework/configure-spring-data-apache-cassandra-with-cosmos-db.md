@@ -16,6 +16,9 @@ ms.custom: devx-track-java, spring-cloud-azure
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- A [Git](https://git-scm.com/downloads) client.
+
+- [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
 ## Create an Azure Cosmos DB account
 
@@ -54,7 +57,7 @@ The following procedure creates and configures an Azure Cosmos DB account in the
    >[!div class="mx-imgBorder"]
    >![Review your Azure Cosmos DB account settings.][COSMOSDB04]
 
-It will take a few minutes to deploy the database.
+It takes a few minutes to deploy the database.
 
 ### Add a keyspace to your Azure Cosmos DB account
 
@@ -115,7 +118,7 @@ The following procedure configures the test application.
 
 ## Package and test the sample application
 
-Browse to the directory that contains the *.pom* file to build and test the application.
+Browse to the directory that contains the *pom.xml* file to build and test the application.
 
 1. Build the sample application with Maven; for example:
 

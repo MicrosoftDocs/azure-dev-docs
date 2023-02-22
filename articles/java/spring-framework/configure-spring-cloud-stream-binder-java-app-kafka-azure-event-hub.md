@@ -12,18 +12,18 @@ ms.custom: devx-track-java, passwordless-java, spring-cloud-azure
 
 This article shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
-In this article, we'll include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/event-hubs/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/event-hubs/authenticate-shared-access-signature). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+In this article, we include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/event-hubs/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/event-hubs/authenticate-shared-access-signature). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-SAS authentication uses the connection string of your Azure Event Hubs namespace for the delegated access to Event Hubs for Kafka. If you choose to use Shared Access Signatures as credentials, you'll need to manage the connection string by yourself.
+SAS authentication uses the connection string of your Azure Event Hubs namespace for the delegated access to Event Hubs for Kafka. If you choose to use Shared Access Signatures as credentials, you need to manage the connection string by yourself.
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli) 2.37.0 or above required. We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli) 2.37.0 or higher required. We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you need.
 - If you're using a Windows machine and want to run the samples locally, install and use the latest [Windows Subsystem for Linux (WSL)](/windows/wsl/install).
-- A supported [Java Development Kit](../fundamentals/java-support-on-azure.md), version 8 or above. (17 or above preferred. A JDK is included in Azure Cloud Shell). We recommend installing the [Microsoft Build of OpenJDK](/java/openjdk/install).
+- A supported [Java Development Kit](../fundamentals/java-support-on-azure.md), version 8 or higher. (17 or higher preferred. A JDK is included in Azure Cloud Shell). We recommend installing the [Microsoft Build of OpenJDK](/java/openjdk/install).
 - Apache's [Maven](http://maven.apache.org/), version 3 or later.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
@@ -42,7 +42,7 @@ export AZ_EVENTHUB_NAME=my-eventhub
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 ```
 
-Replace the `<YOUR_AZURE_REGION>` placeholder with the Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
+Replace the `<YOUR_AZURE_REGION>` placeholder with the Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 
 Next, sign to your Azure account:
 

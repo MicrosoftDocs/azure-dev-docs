@@ -1,149 +1,80 @@
 ---
-ms.date: 05/06/2020
+ms.date: 02/22/2023
 author: KarlErickson
 ms.author: judubois
 ---
 
-Create a new `Todo` Java class, next to the `DemoApplication` class, and add the following code:
+1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be created automatically by Spring Boot. The following code ignores the `getters` and `setters` methods.
 
-```java
-package com.example.demo;
+   ```java
+   import org.springframework.data.annotation.Id;
 
-import org.springframework.data.annotation.Id;
+   public class Todo {
 
-public class Todo {
+       public Todo() {
+       }
 
-    public Todo() {
-    }
+       public Todo(String description, String details, boolean done) {
+           this.description = description;
+           this.details = details;
+           this.done = done;
+       }
 
-    public Todo(String description, String details, boolean done) {
-        this.description = description;
-        this.details = details;
-        this.done = done;
-    }
+       @Id
+       private Long id;
 
-    @Id
-    private Long id;
+       private String description;
 
-    private String description;
+       private String details;
 
-    private String details;
+       private boolean done;
 
-    private boolean done;
+   }
+   ```
 
-    public Long getId() {
-        return id;
-    }
+1. Edit the startup class file to show the following content.
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+   ```java
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.boot.context.event.ApplicationReadyEvent;
+   import org.springframework.context.ApplicationListener;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.data.repository.CrudRepository;
 
-    public String getDescription() {
-        return description;
-    }
+   import java.util.stream.Stream;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   @SpringBootApplication
+   public class DemoApplication {
 
-    public String getDetails() {
-        return details;
-    }
+       public static void main(String[] args) {
+           SpringApplication.run(DemoApplication.class, args);
+       }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
+       @Bean
+       ApplicationListener<ApplicationReadyEvent> basicsApplicationListener(TodoRepository epository) {
+           return event->repository
+               .saveAll(Stream.of("A", "B", "C").map(name->new Todo("configuration", congratulations, you have set up correctly!", true)).toList())
+               .forEach(System.out::println);
+       }
 
-    public boolean isDone() {
-        return done;
-    }
+   }
 
-    public void setDone(boolean done) {
-        this.done = done;
-    }
-}
-```
+   interface TodoRepository extends CrudRepository<Todo, Long> {
 
-This class is a domain model mapped on the `todo` table that you created before.
+   }
+   ```
 
-To manage that class, you'll need a repository. Define a new `TodoRepository` interface in the same package:
+   > [!TIP]
+   > In this tutorial, neither the configurations nor the code have any authentication operations. In fact, connecting to Azure service requires authentication. In order to complete the authentication, you need to use the Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which Azure Identity provides to help you get credentials without any code changes.
+   >
+   > `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. For more information, see the [DefaultAzureCredential](../../sdk/identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticate Azure-hosted Java applications](../../sdk/identity-azure-hosted-auth.md). `DefaultAzureCredential` enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+   >
+   > In local development environments, you can use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication. For more information, see [Azure authentication in Java development environments](../../sdk/identity-dev-env-auth.md). In Azure hosting environments, we recommend using managed identity to complete the authentication. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
-```java
-package com.example.demo;
+1. Start the application. The application stores data into the database. You'll see logs similar to the following example:
 
-import org.springframework.data.repository.CrudRepository;
-
-public interface TodoRepository extends CrudRepository<Todo, Long> {
-}
-```
-
-This repository is a repository that Spring Data JDBC manages.
-
-Finish the application by creating a controller that can store and retrieve data. Implement a `TodoController` class in the same package, and add the following code:
-
-```java
-package com.example.demo;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-@RestController
-@RequestMapping("/")
-public class TodoController {
-
-    private final TodoRepository todoRepository;
-
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
-    }
-
-    @PostMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Todo createTodo(@RequestBody Todo todo) {
-        return todoRepository.save(todo);
-    }
-
-    @GetMapping("/")
-    public Iterable<Todo> getTodos() {
-        return todoRepository.findAll();
-    }
-}
-```
-
-Finally, halt the application and start it again using the following command:
-
-```bash
-./mvnw spring-boot:run
-```
-
-## Test the application
-
-To test the application, you can use cURL.
-
-First, create a new "todo" item in the database using the following command:
-
-```bash
-curl --header "Content-Type: application/json" \
-    --request POST \
-    --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
-    http://127.0.0.1:8080
-```
-
-This command should return the created item as follows:
-
-```json
-{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}
-```
-
-Next, retrieve the data by using a new cURL request as follows:
-
-```bash
-curl http://127.0.0.1:8080
-```
-
-This command will return the list of "todo" items, including the item you've created, as follows:
-
-```json
-[{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}]
-```
+   ```shell
+   2023-02-01 10:22:36.701 DEBUG 7948 --- [main] o.s.jdbc.core.JdbcTemplate : Executing prepared SQL statement [INSERT INTO todo (description, details, done) VALUES (?, ?, ?)]    
+   com.example.demo.Todo@4bdb04c8
+   ```

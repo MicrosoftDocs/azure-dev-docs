@@ -19,11 +19,11 @@ This tutorial shows you how to upload and read from container blobs in an Azure 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 - [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 - An Azure storage account and container. If you don't have, [create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-- If you don't have a Spring Boot application, create a **Maven project** with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and select Java version 8 or higher.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
 > [!NOTE]
 > To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

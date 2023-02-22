@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
-ms.date: 01/18/2023
+ms.date: 02/22/2023
 ms.author: bbenz
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
@@ -10,105 +10,131 @@ author: KarlErickson
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021
+zone_pivot_group_filename: java/java-zone-pivot-groups.json
+zone_pivot_groups: passwordless-postgresql
 ---
 
 # Use Spring Data JPA with Azure Database for PostgreSQL
 
-This article demonstrates how to create a sample application that uses [Spring Data JPA](https://spring.io/projects/spring-data-jpa) to store and retrieve information in [Azure Database for PostgreSQL](/azure/postgresql/).
+This tutorial demonstrates how to store data in [Azure Database for PostgreSQL](/azure/postgresql/) using [Spring Data JPA](https://spring.io/projects/spring-data-jpa).
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the PostgreSQL authentication.
+In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the PostgreSQL authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you'll need to manage the rotation of the passwords by yourself.
+PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- [PostgreSQL command line client](https://www.postgresql.org/download/).
 
-## Sample application
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **PostgreSQL Driver** dependencies, and then select Java version 8 or higher.
+
+::: zone pivot="postgresql-passwordless-flexible-server"
+
+- If you don't have one, create an Azure Database for PostgreSQL Flexible Server instance named `postgresqlflexibletest` and a database named `demo`. For instructions, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
+
+> [!IMPORTANT]
+> To use passwordless connections, configure the Azure AD admin user for your Azure Database for PostgreSQL Flexible Server instance. For more information, see [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
+
+## See the sample application
+
+In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
+
+[!INCLUDE [spring-data-azure-postgresql-flexible-server-setup.md](includes/spring-data-azure-postgresql-flexible-server-setup.md)]
+
+### Configure Spring Boot to use Azure Database for PostgreSQL
+
+To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
+
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
+
+   #### [Passwordless (Recommended)](#tab/passwordless)
+
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
+
+   spring.datasource.url=jdbc:postgresql://postgresqlflexibletest.postgres.database.azure.com:5432/demo?sslmode=require
+   spring.datasource.username=<your_postgresql_ad_non_admin_username>
+   spring.datasource.azure.passwordless-enabled=true
+
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   ```
+
+   #### [Password](#tab/password)
+
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
+
+   spring.datasource.url=jdbc:postgresql://postgresqlflexibletest.postgres.database.azure.com:5432/demo?sslmode=require
+   spring.datasource.username=<your_postgresql_non_admin_username>
+   spring.datasource.password=<your_postgresql_non_admin_password>
+
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   ```
+
+   ---
+
+::: zone-end
+
+::: zone pivot="postgresql-passwordless-single-server"
+
+- If you don't have one, create an Azure Database for PostgreSQL Single Server instance named `postgresqlsingletest` and a database named `demo`. For instructions, see [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/single-server/quickstart-create-server-database-portal).
+
+> [!IMPORTANT]
+> To use passwordless connections, configure the Azure AD admin user for your Azure Database for PostgreSQL Single Server instance. For more information, see [Use Azure Active Directory for authentication with PostgreSQL](/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+
+## See the sample application
 
 In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
 
-[!INCLUDE [spring-data-postgresql-setup.md](includes/spring-data-postgresql-setup.md)]
+[!INCLUDE [spring-data-azure-postgresql-single-server-setup.md](includes/spring-data-azure-postgresql-single-server-setup.md)]
 
-## Generate the application by using Spring Initializr
+### Configure Spring Boot to use Azure Database for PostgreSQL
 
-Generate the application on the command line by entering:
+To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
 
-```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.8 -d javaVersion=1.8 | tar -xzvf -
-```
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
 
-> [!NOTE]
-> Passwordless connections have been supported since version `4.5.0`. For more information, see [Spring Cloud Azure PostgreSQL support](postgresql-support.md).
+   #### [Passwordless (Recommended)](#tab/passwordless)
 
-## Configure Spring Boot to use Azure Database for PostgreSQL
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
 
-Open the *src/main/resources/application.properties* file, and add the following text:
+   spring.datasource.url=jdbc:postgresql://postgresqlsingletest.postgres.database.azure.com:5432/demo?sslmode=require
+   spring.datasource.username=<your_postgresql_ad_non_admin_username>@postgresqlsingletest
+   spring.datasource.azure.passwordless-enabled=true
 
-### [Passwordless (Recommended)](#tab/passwordless)
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   ```
 
-```properties
-logging.level.org.hibernate.SQL=DEBUG
+   #### [Password](#tab/password)
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
-spring.datasource.azure.passwordless-enabled=true
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
 
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-```
+   spring.datasource.url=jdbc:postgresql://postgresqlsingletest.postgres.database.azure.com:5432/demo?sslmode=require
+   spring.datasource.username=<your_postgresql_non_admin_username>@postgresqlsingletest
+   spring.datasource.password=<your_postgresql_non_admin_password>
 
-### [Password](#tab/password)
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   ```
 
-```properties
-logging.level.org.hibernate.SQL=DEBUG
+   ---
 
-spring.datasource.url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
-spring.datasource.username=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}
-spring.datasource.password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
-
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-```
-
----
-
-> [!WARNING]
-> The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create later, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
-
-> [!NOTE]
-> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure PostgreSQL using a service principal](postgresql-support.md#connect-to-azure-postgresql-using-a-service-principal) or [Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps](postgresql-support.md#connect-to-azure-postgresql-with-managed-identity-in-azure-spring-apps).
-
-You should now be able to start your application by using the provided Maven wrapper as follows:
-
-```bash
-./mvnw spring-boot:run
-```
-
-Here's a screenshot of the application running for the first time:
-
-:::image type="content" source="media/configure-spring-data-jpa-with-azure-postgresql/running-application.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jpa-with-azure-postgresql/running-application.png":::
-
-## Code the application
-
-Next, add the Java code that will use JPA to store and retrieve data from your PostgreSQL server.
+::: zone-end
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
 
-Here's a screenshot of these cURL requests:
+[!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
-:::image type="content" source="media/configure-spring-data-jpa-with-azure-postgresql/curl-test.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-jpa-with-azure-postgresql/curl-test.png":::
+## Next steps
 
-Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for PostgreSQL.
-
-[!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
-
-## See also
-
-For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
-
-For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).
+> [!div class="nextstepaction"]
+> [Azure for Spring developers](../spring/index.yml)
+> [Spring Cloud Azure PostgreSQL Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/postgresql)

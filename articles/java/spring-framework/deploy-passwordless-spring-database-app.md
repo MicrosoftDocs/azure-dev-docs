@@ -52,7 +52,7 @@ export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your Azure Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using the command `az account list-locations`.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 - `<YOUR_AZURE_SPRING_APPS_SERVICE_NAME>`: The name of your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 - `<AZ_DB_ADMIN_USERNAME>`: The admin username of your Azure database server.
 - `<AZ_DB_ADMIN_PASSWORD>`: The admin password of your Azure database server.

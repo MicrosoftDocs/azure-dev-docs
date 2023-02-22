@@ -19,12 +19,145 @@ This article demonstrates creating a sample application that uses [Spring Data R
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility).
 
-## Sample application
+- [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
-In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server).
+## See the sample application
 
-[!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
+In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server).
+
+## Prepare the working environment
+
+First, set up some environment variables by using the following commands:
+
+```bash
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_SQL_SERVER_ADMIN_USERNAME=spring
+export AZ_SQL_SERVER_ADMIN_PASSWORD=<YOUR_AZURE_SQL_ADMIN_PASSWORD>
+export AZ_SQL_SERVER_NON_ADMIN_USERNAME=nonspring
+export AZ_SQL_SERVER_NON_ADMIN_PASSWORD=<YOUR_AZURE_SQL_NON_ADMIN_PASSWORD>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+```
+
+Replace the placeholders with the following values, which are used throughout this article:
+
+- `<YOUR_DATABASE_NAME>`: The name of your Azure SQL Database server, which should be unique across Azure.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
+- `<AZ_SQL_SERVER_ADMIN_PASSWORD>` and `<AZ_SQL_SERVER_NON_ADMIN_PASSWORD>`: The password of your Azure SQL Database server, which should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+Next, create a resource group by using the following command:
+
+```azurecli
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION \
+    --output tsv
+```
+
+## Create an Azure SQL Database instance
+
+Next, create a managed Azure SQL Database server instance by running the following command.
+
+> [!NOTE]
+> The MS SQL password has to meet specific criteria, and setup will fail with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
+
+```azurecli
+az sql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --admin-user $AZ_SQL_SERVER_ADMIN_USERNAME \
+    --admin-password $AZ_SQL_SERVER_ADMIN_PASSWORD \
+    --output tsv
+```
+
+## Configure a firewall rule for your Azure SQL Database server
+
+Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+
+Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
+
+```azurecli
+az sql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --output tsv
+```
+
+If you're connecting to your Azure SQL Database server from Windows Subsystem for Linux (WSL) on a Windows computer, you need to add the WSL host ID to your firewall.
+
+Obtain the IP address of your host machine by running the following command in WSL:
+
+```bash
+cat /etc/resolv.conf
+```
+
+Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+
+```bash
+AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+```
+
+Then, use the following command to open the server's firewall to your WSL-based app:
+
+```azurecli
+
+az sql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_WSL_IP_ADDRESS \
+    --end-ip-address $AZ_WSL_IP_ADDRESS \
+    --output tsv
+
+```
+
+## Configure an Azure SQL database
+
+The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by running the following command:
+
+```azurecli
+az sql db create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name demo \
+    --server $AZ_DATABASE_NAME \
+    --output tsv
+```
+
+## Create an SQL database non-admin user and grant permission
+
+This step will create a non-admin user and grant all permissions on the `demo` database to it.
+
+Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+
+```bash
+cat << EOF > create_user.sql
+USE demo;
+GO
+CREATE USER $AZ_SQL_SERVER_NON_ADMIN_USERNAME WITH PASSWORD='$AZ_SQL_SERVER_NON_ADMIN_PASSWORD'
+GO
+GRANT CONTROL ON DATABASE::demo TO $AZ_SQL_SERVER_NON_ADMIN_USERNAME;
+GO
+EOF
+```
+
+Then, use the following command to run the SQL script to create the non-admin user:
+
+```bash
+sqlcmd -S $AZ_DATABASE_NAME.database.windows.net,1433  -d demo -U $AZ_SQL_SERVER_ADMIN_USERNAME -P $AZ_SQL_SERVER_ADMIN_PASSWORD  -i create_user.sql
+```
+
+> [!NOTE]
+> For more information about creating SQL database users, see [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql).
+
+---
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
@@ -58,11 +191,11 @@ Open the *src/main/resources/application.properties* file, and add the following
 logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:pool:mssql://$AZ_DATABASE_NAME.database.windows.net:1433/demo
-spring.r2dbc.username=spring@$AZ_DATABASE_NAME
-spring.r2dbc.password=$AZ_SQL_SERVER_PASSWORD
+spring.r2dbc.username=nonspring@$AZ_DATABASE_NAME
+spring.r2dbc.password=$AZ_SQL_SERVER_NON_ADMIN_PASSWORD
 ```
 
-Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_PASSWORD` variable with the values that you configured at the beginning of this article.
+Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_NON_ADMIN_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).

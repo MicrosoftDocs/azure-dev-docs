@@ -82,11 +82,11 @@ Your simple Spring Boot application is now ready for editing.
 
 1. Locate the *pom.xml* file in the directory of your app; for example:
 
-   `C:\SpringBoot\wingtiptoysdata\pom.xml`
+   *C:\SpringBoot\wingtiptoysdata\pom.xml*
 
    -or-
 
-   `/users/example/home/wingtiptoysdata/pom.xml`
+   */users/example/home/wingtiptoysdata/pom.xml*
 
 1. Open the *pom.xml* file in a text editor, and add the following to the `<dependencies>` element:
 
@@ -106,11 +106,11 @@ Your simple Spring Boot application is now ready for editing.
 
 1. Locate the *application.properties* file in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties`
+   *C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties*
 
    -or-
 
-   `/users/example/home/wingtiptoysdata/src/main/resources/application.properties`
+   */users/example/home/wingtiptoysdata/src/main/resources/application.properties*
 
 1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:
 

@@ -2,98 +2,117 @@
 title: Use Spring Data JDBC with Azure SQL Database
 description: Learn how to use Spring Data JDBC with an Azure SQL Database.
 documentationcenter: java
-ms.date: 07/22/2022
+ms.date: 02/22/2023
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.author: judubois
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java
 ms.contributors: judubois-01202022
 ---
 
 # Use Spring Data JDBC with Azure SQL Database
 
-This article demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure SQL Database](/azure/sql-database/).
+This tutorial demonstrates how to store data in [Azure SQL Database](/azure/sql-database/) using [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc).
 
 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
-Azure SQL database also supports Azure Active Directory (Azure AD) authentication. Azure AD authentication is a mechanism for connecting to Azure SQL Database using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. With Azure AD authentication, you can achieve passwordless connection. To learn more about deploying a Spring Data application to Azure Spring Apps and using managed identity, see [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](deploy-passwordless-spring-database-app.md?tabs=sqlserver).
+In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and SQL Database authentication. The Passwordless tab shows the Azure AD authentication and the Password tab shows the SQL Database authentication.
+
+Azure AD authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords by yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility).
 
-## Sample application
+- If you don't have one, create an Azure SQL Server instance named `sqlservertest` and a database named `demo`. For instructions, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
-In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server).
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **MS SQL Server Driver** dependencies, and then select Java version 8 or higher.
+
+## See the sample application
+
+In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server).
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
-## Generate the application by using Spring Initializr
+## Store data from Azure SQL Database
 
-Generate the application on the command line by running the following command:
+Now that you have an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
 
-```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.8 -d javaVersion=1.8 | tar -xzvf -
-```
+To install the Spring Cloud Azure Starter module, add the following dependencies to your *pom.xml* file:
 
-## Configure Spring Boot to use Azure SQL Database
+- The Spring Cloud Azure Bill of Materials (BOM):
 
-Open the *src/main/resources/application.properties* file, and add the following text:
+  ```xml
+   <dependencyManagement>
+     <dependencies>
+       <dependency>
+         <groupId>com.azure.spring</groupId>
+         <artifactId>spring-cloud-azure-dependencies</artifactId>
+         <version>4.5.0</version>
+         <type>pom</type>
+         <scope>import</scope>
+         </dependency>
+     </dependencies>
+   </dependencyManagement>
+  ```
 
-```properties
-logging.level.org.springframework.jdbc.core=DEBUG
+- The Spring Cloud Azure Starter artifact:
 
-spring.datasource.url=jdbc:sqlserver://${AZ_DATABASE_NAME}.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-spring.datasource.username=spring@${AZ_DATABASE_NAME}
-spring.datasource.password=${AZ_SQL_SERVER_PASSWORD}
+  ```xml
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter</artifactId>
+  </dependency>
+  ```
 
-spring.sql.init.mode=always
-```
+### Configure Spring Boot to use Azure SQL Database
 
-> [!WARNING]
-> The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
+To store data from Azure SQL Database using Spring Data JDBC, follow these steps to configure the application:
 
-You should now be able to start your application by using the provided Maven wrapper as follows:
+1. Configure an Azure SQL Database credentials in the *application.properties* configuration file.
 
-```bash
-./mvnw spring-boot:run
-```
+   #### [Passwordless (Recommended)](#tab/passwordless)
 
-Here's a screenshot of the application running for the first time:
+   ```properties
+   logging.level.org.springframework.jdbc.core=DEBUG
 
-:::image type="content" source="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-01.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-01.png":::
+   spring.datasource.url=jdbc:sqlserver://sqlservertest.database.windows.net:1433;databaseName=demo;authentication=DefaultAzureCredential;
 
-## Create the database schema
+   spring.sql.init.mode=always
+   ```
 
-Spring Boot will automatically execute *src/main/resources/schema.sql* in order to create a database schema. Create that file and add the following content:
+   #### [Password](#tab/password)
 
-```sql
-DROP TABLE IF EXISTS todo;
-CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
-```
+   ```properties
+   logging.level.org.springframework.jdbc.core=DEBUG
 
-Stop the running application, and start it again using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+   spring.datasource.url=jdbc:sqlserver://sqlservertest.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+   spring.datasource.username=<your_sql_server_non_admin_username>@sqlservertest
+   spring.datasource.password=<your_sql_server_non_admin_password>
 
-```bash
-./mvnw spring-boot:run
-```
+   spring.sql.init.mode=always
+   ```
 
-## Code the application
+   ---
 
-Next, add the Java code that will use JDBC to store and retrieve data from your Azure SQL Database server.
+   > [!WARNING]
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
+
+1. Create the *src/main/resources/schema.sql* configuration file to configure the database schema, then add the following contents.
+
+   ```sql
+   DROP TABLE IF EXISTS todo;
+   CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
+   ```
 
 [!INCLUDE [spring-data-jdbc-create-application.md](includes/spring-data-jdbc-create-application.md)]
 
-Here's a screenshot of these cURL requests:
+[!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
-:::image type="content" source="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-02.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-jdbc-with-azure-sql-server/create-sql-server-02.png":::
+## Next steps
 
-Congratulations! You've created a Spring Boot application that uses JDBC to store and retrieve data from Azure SQL Database.
-
-[!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
-
-## See also
-
-For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
-
-For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).
+> [!div class="nextstepaction"]
+> [Azure for Spring developers](../spring/index.yml)

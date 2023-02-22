@@ -354,6 +354,7 @@ mysql -u $env:MYSQL_SERVER_ADMIN_LOGIN_NAME@$env:MYSQL_SERVER_NAME `
 mysql -u %MYSQL_SERVER_ADMIN_LOGIN_NAME%@%MYSQL_SERVER_NAME% ^
  -h %MYSQL_SERVER_FULL_NAME% -P 3306 -p
 ```
+
 ---
 
 At the MySQL CLI prompt, run the following command to verify your database named with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.

@@ -56,7 +56,7 @@ SLF4J is only needed if you plan to use logging, also download an SLF4J binding,
 
 ### Set up and customize the configuration class
 
-In order to set up the configuration class, you'll need to extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
+In order to set up the configuration class, you need to extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
 
 You can customize underlying `CosmosAsyncClient` used by Azure Spring Data Azure Cosmos DB SDK by providing `DirectConnectionConfig` or `GatewayConnectionConfig` or both and provide them to `CosmosClientBuilder`. For complete sample, visit [customizing configuration section][customizing-configuration].
 
@@ -181,7 +181,7 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [source_code]: src
 [cosmos_introduction]: /azure/cosmos-db/
 [cosmos_docs]: /azure/cosmos-db/introduction
-[jdk]: /java/azure/jdk/?view=azure-java-stable
+[jdk]: /java/azure/jdk/
 [maven]: https://maven.apache.org/
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/

@@ -887,7 +887,7 @@ For full configurations, check [Spring Cloud Azure configuration properties](con
 
 ### Basic usage
 
-A *web application* is any web-based application that allows user to login with Azure AD, whereas a *resource server* will either accept or deny access after validating access_token obtained from Azure AD. We will cover 4 scenarios in this guide:
+A *web application* is any web-based application that allows user to login with Azure AD, whereas a *resource server* will either accept or deny access after validating access_token obtained from Azure AD. We'll cover 4 scenarios in this guide:
 
 1. Accessing a web application.
 

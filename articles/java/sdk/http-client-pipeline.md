@@ -20,7 +20,10 @@ Although Netty is the default HTTP client, the SDK provides three client impleme
 
 * [Netty](https://netty.io)
 * [OkHttp](https://square.github.io/okhttp/)
-* The new [HttpClient](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in JDK 11
+* [HttpClient](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in JDK 11
+
+> [!NOTE]
+> The JDK `HttpClient` in combination with the Azure SDK for Java is only supported with JDK 12 and higher.
 
 ### Replace the default HTTP client
 

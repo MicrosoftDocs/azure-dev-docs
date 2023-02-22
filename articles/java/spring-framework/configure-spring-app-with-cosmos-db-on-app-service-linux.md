@@ -83,7 +83,7 @@ The following procedure creates Azure Cosmos DB database using CLI.
    ```
 
 1. Create the Azure Cosmos DB and specify the type as GlobalDocumentDB.
-The name of the Azure Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You'll need this value later.
+The name of the Azure Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You need this value later.
 
    ```azurecli
    az cosmosdb create \
@@ -104,7 +104,7 @@ The name of the Azure Cosmos DB must use only lower case letters. Make sure to n
 
 The following procedure runs the application on the development computer.
 
-1. Within your console of choice, configure the environment variables shown in the following code sections with the Azure and Azure Cosmos DB connection information you gathered previously in this article. You'll need to provide a unique name for **WEBAPP_NAME** and value for the **REGION** variables.
+1. Within your console of choice, configure the environment variables shown in the following code sections with the Azure and Azure Cosmos DB connection information you gathered previously in this article. You need to provide a unique name for **WEBAPP_NAME** and value for the **REGION** variables.
 
    For Linux (Bash):
 
