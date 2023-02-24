@@ -334,7 +334,7 @@ public class PgEntityTableData : EntityTableData
 }
 ```
 
-This will ensure the version property is correctly created and handled within the database.  Your model will now look similar to the following:
+This will ensure the version property is correctly created and handled within the database.  Derive database models from the `PgEntityTableData` class:
 
 ```csharp
 public class TodoItem : PgEntityTableData
@@ -343,6 +343,8 @@ public class TodoItem : PgEntityTableData
     public bool Completed { get; set; }
 }
 ```
+
+The database table will contain an `xmin` column (instead of a `Version` column) that is maintained by the database. For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
 ### SqLite
 

@@ -18,6 +18,14 @@
       href: quickstarts/maui/authentication.md     
     - name: Add Offline Sync
       href: quickstarts/maui/offline.md
+  - name: Uno Platform
+    items:
+    - name: Introduction
+      href: quickstarts/uno/index.md
+    - name: Add Authentication
+      href: quickstarts/uno/authentication.md
+    - name: Add Offline Sync
+      href: quickstarts/uno/offline.md
   - name: Windows (UWP)
     items:
     - name: Introduction

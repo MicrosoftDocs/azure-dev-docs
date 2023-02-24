@@ -1,6 +1,6 @@
 ---
-title: Add offline data sync to your Avalonia app
-description: Add offline data sync to your Avalonia app using Azure Mobile Apps with our tutorial.
+title: Add offline data sync to your Uno Platform app
+description: Add offline data sync to your Uno Platform app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
@@ -8,11 +8,11 @@ ms.date: 02/24/2023
 ms.author: adhal
 ---
 
-# Add offline data sync to your Avalonia app
+# Add offline data sync to your Uno Platform app
 
-This tutorial covers the offline sync feature of Azure Mobile Apps for the Avalonia quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
+This tutorial covers the offline sync feature of Azure Mobile Apps for the Uno Platform quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
-Before starting this tutorial, you should have completed the [Avalonia Quickstart Tutorial](./index.md), which includes creating a suitable backend service.  We also assume you have [added authentication](./authentication.md) to your application.  You can add offline capabilities to your app without authentication.
+Before starting this tutorial, you should have completed the [Uno Platform Quickstart Tutorial](./index.md), which includes creating a suitable backend service.  We also assume you have [added authentication](./authentication.md) to your application.  You can add offline capabilities to your app without authentication.
 
 ## Update the app to support offline sync
 
@@ -26,7 +26,7 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Set the offline database location
 
-In the `TodoApp.AvaloniaUI` project, edit the `MainWindowViewModel.cs` file in the `ViewModels` folder.  Change the definition of the `RemoteTodoService` as follows:
+In the `TodoApp.Uno` project, edit the `MainWindowViewModel.cs` file in the `ViewModels` folder.  Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
 TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
