@@ -37,6 +37,9 @@ highlightedContent:
     - title: Understand Azure billing
       itemType: concept
       url: ./intro/azure-developer-billing.md
+    - title: Versioning policy for Azure services, SDKs, and CLI tools
+      itemType: concept
+      url: ./intro/azure-service-sdk-tool-versioning.md
 
 productDirectory:
 #  title: Developer centers

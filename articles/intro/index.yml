@@ -34,3 +34,5 @@ landingContent:
             url: ./azure-developer-key-concepts.md
           - text: Azure billing
             url: ./azure-developer-billing.md
+          - text: Versioning policy for Azure services, SDKs, and CLI tools
+            url: ./azure-service-sdk-tool-versioning.md
