@@ -16,6 +16,8 @@ items:
         href: azure-developer-key-concepts.md
       - name: Overview of Azure billing
         href: azure-developer-billing.md
+      - name: Versioning policy for Azure services, SDKs, and CLI tools
+        href: azure-service-sdk-tool-versioning.md
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
@@ -152,6 +154,8 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Cosmos DB for NoSQL
+            href: /azure/cosmos-db/nosql/quickstart-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-node-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Key Vault - Certificates
