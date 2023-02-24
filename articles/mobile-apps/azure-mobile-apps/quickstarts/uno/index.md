@@ -23,6 +23,9 @@ To complete this tutorial, you need:
   * Azure development
   * .NET desktop development
 * The [Uno Platform for Visual Studio extension](https://platform.uno/visual-studio/).
+* An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
+  * Phone: Any phone image - we use the Pixel 5 for testing.
+  * System Image: Android 11 (API 30 with Google APIs)
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
@@ -46,9 +49,9 @@ This tutorial assumes you are using Windows and Visual Studio 2022.  We recommen
 
 ## Build and run the sample app
 
-1. In the solutions explorer, expand the `others` folder.
-1. Right-click the `TodoApp.Uno` project and select **Set as Startup Project**.
-1. In the top bar, select the **Any CPU** configuration and the **TodoApp.Uno** target:
+1. In the solutions explorer, expand the `uno` folder.
+1. Right-click the `TodoApp.Uno.Mobile` project and select **Set as Startup Project**.
+1. In the top bar, select the **Any CPU** configuration, **TodoApp.Un.Mobile** target.  Select a suitable Android emulator to run the application:
 
     ![Screenshot of the Visual Studio configuration bar.](./media/win-configuration.png)
 

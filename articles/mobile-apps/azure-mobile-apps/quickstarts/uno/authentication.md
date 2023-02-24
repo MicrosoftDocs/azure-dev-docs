@@ -95,11 +95,9 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser is opened to ask you for authentication.  The first time the app runs, you are asked to consent to the access:
+Run or restart the app.
 
-![Screenshot of the AAD consent request.](./media/authentication-consent.png)
-
-Press **Yes** to continue to your app.  The app continues as before.
+When the app starts, a browser is opened to ask you for authentication.  If you haven't authenticated with the app before, the app asks for consent.  Once authentication is complete, the browser closes and your app continues as before.
 
 ## Next steps
 
