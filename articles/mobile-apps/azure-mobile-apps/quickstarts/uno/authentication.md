@@ -25,11 +25,13 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Uno`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Uno` project:
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Uno`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Uno` projects:
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
-Open the `MainWindowViewModel.cs` file in the `ViewModels` folder of the `TodoApp.Uno` project.  
+Ensure you add the Microsoft Identity Library (MSAL) to all the `TodoApp.Uno` projects, including `TodoApp.Uno.Mobile`.
+
+Open the `MainPage.xaml.cs` file in the top folder of the `TodoApp.Uno` project.  
 
 Add the following `using` statements to the top of the file:
 
@@ -43,55 +45,113 @@ using System.Linq;
 Remove the `TodoService` property and replace it with the following code:
 
 ``` csharp
-public MainWindowViewModel()
-{
-    IdentityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
-        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-        .WithRedirectUri("http://localhost")
-        .Build();
-    TodoService = new RemoteTodoService(GetAuthenticationToken);
-    TodoList = new TodoListViewModel(TodoService);
-}
+    private readonly IPublicClientApplication _identityClient;
+    private readonly TodoListViewModel _viewModel;
+    private readonly ITodoService _service;
 
-public IPublicClientApplication IdentityClient { get; }
+    public MainPage() {
+        this.InitializeComponent();
 
-public ITodoService TodoService { get; }
-
-public TodoListViewModel TodoList { get; }
-
-public async Task<AuthenticationToken> GetAuthenticationToken()
-{
-    var accounts = await IdentityClient.GetAccountsAsync();
-    AuthenticationResult? result = null;
-    try
-    {
-        result = await IdentityClient
-            .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-            .ExecuteAsync();
+#if ANDROID
+        _identityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .WithParentActivityOrWindow(() => Platform.CurrentActivity)
+            .Build();
+#elif IOS
+        _identityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .Build();
+#else
+        _identityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+            .Build();
+#endif
+        _service = new RemoteTodoService();
+        _viewModel = new TodoListViewModel(this, _service);
+        mainContainer.DataContext = _viewModel;
     }
-    catch (MsalUiRequiredException)
-    {
-        result = await IdentityClient
-            .AcquireTokenInteractive(Constants.Scopes)
-            .ExecuteAsync();
-    }
-    catch (Exception ex)
-    {
-        // Display the error text - probably as a pop-up
-        Debug.WriteLine($"Error: Authentication failed: {ex.Message}");
-    }
+```
 
-    return new AuthenticationToken
+Add the following method into the `MainPage` class:
+
+``` csharp
+    public async Task<AuthenticationToken> GetAuthenticationToken()
     {
-        DisplayName = result?.Account?.Username ?? "",
-        ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
-        Token = result?.AccessToken ?? "",
-        UserId = result?.Account?.Username ?? ""
-    };
-}
+        var accounts = await _identityClient.GetAccountsAsync();
+        AuthenticationResult result = null;
+        bool tryInteractiveLogin = false;
+
+        try
+        {
+            result = await _identityClient
+                .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
+                .ExecuteAsync();
+        }
+        catch (MsalUiRequiredException)
+        {
+            tryInteractiveLogin = true;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
+        }
+
+        if (tryInteractiveLogin)
+        {
+            try
+            {
+                result = await _identityClient
+                    .AcquireTokenInteractive(Constants.Scopes)
+                    .ExecuteAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
+            }
+        }
+
+        return new AuthenticationToken
+        {
+            DisplayName = result?.Account?.Username ?? string.Empty,
+            ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
+            Token = result?.AccessToken ?? string.Empty,
+            UserId = result?.Account?.Username ?? string.Empty
+        };
+    }
 ```
 
 The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired bad token is produced instead.
+
+## Configure the Android app for authentication
+
+Open the `TodoApp.Uno.Mobile` project. Create a new class `MsalActivity` with the following code:
+
+``` csharp
+using Android.App;
+using Android.Content;
+using Microsoft.Identity.Client;
+
+namespace TodoApp.Forms.Droid
+{
+    [Activity(Exported = true)]
+    [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client-id}")]
+    public class MsalActivity : BrowserTabActivity
+    {
+    }
+}
+```
+
+Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
 ## Test the app
 
