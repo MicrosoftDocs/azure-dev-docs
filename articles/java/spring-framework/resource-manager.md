@@ -15,7 +15,7 @@ Azure Resource Manager (ARM) is the deployment and management service for Azure.
 
 ## Dependency setup
 
-``` xml
+```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>spring-cloud-azure-resourcemanager</artifactId>
@@ -54,7 +54,7 @@ Spring Cloud Azure Resource Manager can work together with specific Spring Cloud
 For example, to retrieve the connection string of an Azure Service, developers can use a service principal as the credential to authenticate and retrieve the connection string. The configuration is listed the follows. The provided service principal should
 be assigned a role of `Contributor` of the associated namespace at least. See [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the principal has been granted the sufficient permission to access the Azure resource.
 
-``` yaml
+```yaml
 spring:
   cloud:
     azure:

@@ -158,7 +158,7 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 
 Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -187,7 +187,7 @@ This section describes the usage scenario for Spring Boot application using Spri
 
 ##### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -221,7 +221,7 @@ This section describes the usage scenario for Spring Boot applications using the
 
 ##### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -266,7 +266,7 @@ You can use connection string authentication directly or use the Azure Resource 
 
 Add the following dependencies if you want to migrate your Apache Kafka application to use Azure Event Hubs for Kafka.
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -275,7 +275,7 @@ Add the following dependencies if you want to migrate your Apache Kafka applicat
 
 If you want to retrieve the connection string using Azure Resource Manager, add the following dependency:
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-resourcemanager</artifactId>
