@@ -80,7 +80,7 @@ Finally, run the code:
 python use_db.py
 ```
 
-If you see an error that you client IP address is not allowed, you may need to add it manually. Go to the Azure portal, select the MySQL server, and then select **Connection security**. Add the IP address of your workstation to the list of allowed IP addresses.
+If you see an error that you client IP address is not allowed, check that you defined the environment variable `PUBLIC_IP_ADDRESS` correctly. If you already created the MySQL server with the wrong IP address, you can add another in the [Azure portal](https://portal.azure.com/). Go to the portal, select the MySQL server, and then select **Connection security**. Add the IP address of your workstation to the list of allowed IP addresses.
 
 ## 6: Clean up resources
 
