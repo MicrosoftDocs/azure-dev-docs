@@ -258,6 +258,21 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 > [!NOTE]
 > You can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. If you wish to create a new environment, run `azd env new`.
 
+## Configure the Dev Container and Dockerfile
+
+You can also configure and run `azd` templates as Dev Containers. A Dev Container is a Docker image that includes all of the prerequisites you need to run and develop the app on your local machine and other environments like Codespaces. You can read more about working with Dev Containers on the [overview page](https://code.visualstudio.com/docs/devcontainers/containers).
+
+When configuring an `azd` project template as a Dev Container, add a Dockerfile in the `.devcontainer` folder with the specification seen below. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
+
+```dockerfile
+ARG VARIANT=bullseye
+FROM --platform=amd64 mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+RUN export DEBIAN_FRONTEND=noninteractive \
+     && apt-get update && apt-get install -y xdg-utils \
+     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL https://aka.ms/install-azd.sh | bash
+```
+
 ## Configure a DevOps pipeline
 
 1. Within your project directory, create a directory named `.github`.
