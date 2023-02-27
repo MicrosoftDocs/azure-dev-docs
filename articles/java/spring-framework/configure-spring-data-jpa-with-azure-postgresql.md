@@ -76,7 +76,8 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
 ::: zone-end
 
@@ -125,7 +126,8 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
 ::: zone-end
 

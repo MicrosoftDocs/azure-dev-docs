@@ -26,7 +26,7 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 
 - [JDK 8 or JDK 11](../fundamentals/java-jdk-install.md).
 - An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or above required.
+- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or higher required.
 - The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.

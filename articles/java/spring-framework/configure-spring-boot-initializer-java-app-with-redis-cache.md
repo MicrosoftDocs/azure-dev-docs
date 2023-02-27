@@ -20,7 +20,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 
 ## Create a custom application using the Spring Initializr
 
