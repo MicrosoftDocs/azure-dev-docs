@@ -14,8 +14,7 @@ The services referenced in this article for Python are specialized or focused on
   - [Connect to Azure Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)
 
 - **Automation**:
-  - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python-3
-)
+  - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python-3)
 
 - **DevOps**:
   - [Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux](/azure/developer/python/python-web-app-github-actions-app-service)
