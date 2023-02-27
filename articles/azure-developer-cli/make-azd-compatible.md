@@ -260,7 +260,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 ## Configure the Dev Container and Dockerfile
 
-You can also configure and run `azd` templates as Dev Containers. A Dev Container is a Docker image that includes all of the prerequisites you need to run and develop the app on your local machine and other environments like Codespaces. You can read more about working with Dev Containers on the [overview page](https://code.visualstudio.com/docs/devcontainers/containers).
+You can also optionally configure and run `azd` templates as Dev Containers. A Dev Container is a Docker image that includes all of the prerequisites needed to run and develop the app in a containerized environment locally and in other environments like Codespaces. You can read more about working with Dev Containers on the [overview page](https://code.visualstudio.com/docs/devcontainers/containers).
 
 When configuring an `azd` project template as a Dev Container, add a Dockerfile in the `.devcontainer` folder with the specification seen below. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
 
