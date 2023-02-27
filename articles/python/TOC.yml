@@ -127,7 +127,7 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
-- name: Azure Monitor logs
+- name: Logs
   href: /azure/azure-monitor/app/opencensus-python
 - name: Azure SDK for Python
   items:
