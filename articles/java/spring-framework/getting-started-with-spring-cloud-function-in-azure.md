@@ -29,8 +29,8 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v4) version 4
 
 > [!IMPORTANT]
-> You must set the JAVA_HOME environment variable to the install location of the JDK to complete this quickstart.
-> Make sure your core tools version is at least 4.0.5030
+> 1. You must set the JAVA_HOME environment variable to the install location of the JDK to complete this quickstart.
+> 2. Make sure your core tools version is at least 4.0.5030
 
 ## What we're going to build
 
@@ -441,7 +441,11 @@ Like in the previous section, the Function should answer you with a `Greeting` o
 }
 ```
 
-Congratulations, you have a Spring Cloud Function running on Azure Functions!
+Congratulations, you have a Spring Cloud Function running on Azure Functions! For more docs and samples of spring cloud functions please checkout below links
+- [Spring cloud function blog](https://spring.io/blog/2023/02/24/spring-cloud-function-for-azure-function)
+- [Spring cloud function reference documents](https://docs.spring.io/spring-cloud-function/docs/4.0.2-SNAPSHOT/reference/html/azure.html#_microsoft_azure)
+- [Spring cloud function samples](https://github.com/spring-cloud/spring-cloud-function/tree/main/spring-cloud-function-samples/function-azure-di-samples)
+
 
 ## Next steps
 
