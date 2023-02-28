@@ -1,7 +1,7 @@
 ---
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -21,7 +21,7 @@ The services referenced in this article for Python are specialized or focused on
   - [Build a Python cloud app with the Azure Developer CLI (azd) open-source tool](/azure/developer/azure-developer-cli/get-started?pivots=programming-language-python)
   - [Build, test, and deploy Python apps with Azure Pipelines](/azure/devops/pipelines/ecosystems/python)
 
-- **Internet of Things and Geographical mapping**:
+- **Internet of Things and geographical mapping**:
   - [Tutorial: Route electric vehicles by using Azure Notebooks](/azure/azure-maps/tutorial-ev-routing)
   - [Tutorial: Join sensor data with weather forecast data by using Azure Notebooks](/azure/azure-maps/weather-service-tutorial)
 
