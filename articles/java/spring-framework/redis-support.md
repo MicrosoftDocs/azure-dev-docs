@@ -17,7 +17,7 @@ Connect to Azure Cache for Redis using Spring Redis libraries. With adding `spri
 
 Add the following dependencies if you want to use the Spring Cloud Azure Redis support to your Spring Boot application using Redis.
 
-``` xml
+```xml
 <dependencies>
     <dependency>
       <groupId>com.azure.spring</groupId>
@@ -52,7 +52,7 @@ Authentication information is also required for authenticating for Azure Resourc
 
 Add the following properties and you're good to go.
 
-``` properties
+```properties
 spring.cloud.azure.redis.name=${AZURE_CACHE_REDIS_NAME}
 spring.cloud.azure.redis.resource.resource-group=${AZURE_CACHE_REDIS_RESOURCE_GROUP}
 ```
