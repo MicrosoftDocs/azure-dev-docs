@@ -1,6 +1,6 @@
 ---
 title: Use Azure Service Bus by JMS
-description: This article describes how Spring Cloud Azure and Spring JMS can be used together.
+description: This article describes how to use Spring Cloud Azure and Spring JMS together.
 ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
-This article describes how to to use Azure Service Bus by the JMS API integrated into the Spring JMS framework.
+This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
 You have to provide an Azure Service Bus connection string, which is parsed into the login username, password, and remote URI for the AMQP broker.
 
@@ -29,7 +29,7 @@ Add the following dependencies if you want to migrate your Spring JMS applicatio
 
 ## Configuration
 
-The following table describes the configurable properties when using Spring JMS support:
+The following table describes the configurable properties when using the Spring JMS support:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                         | Description                                                                                                                |

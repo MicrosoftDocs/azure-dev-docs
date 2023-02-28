@@ -1,15 +1,15 @@
 ---
-title: Spring JMS Troubleshooting Guide
-description: This article describes Spring JMS Troubleshooting Guide.
+title: Spring JMS troubleshooting guide
+description: Describes how to troubleshoot known issues and common errors when using Spring JMS.
 ms.date: 02/15/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
 ---
 
-# Spring JMS Troubleshooting Guide
+# Spring JMS troubleshooting guide
 
-This guide is to troubleshoot known issues, common errors, and frequently asked questions for `spring-cloud-azure-starter-servicebus-jms`.
+This article describes how to troubleshoot known issues and common errors when using Spring JMS. The article also answers some frequently asked questions for `spring-cloud-azure-starter-servicebus-jms`.
 
 ## Connectivity issues
 
@@ -24,10 +24,10 @@ When using `JmsTemplate` sending messages, `JmsTemplate` becomes unavailable dur
 2022-11-06 11:12:05.772 ERROR 25944 --- [   scheduling-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
 
 org.springframework.jms.IllegalStateException: The MessageProducer was closed due to an unrecoverable error.; nested exception is javax.jms.IllegalStateException: The MessageProducer was closed due to an unrecoverable error.
-	at org.springframework.jms.support.JmsUtils.convertJmsAccessException(JmsUtils.java:274) ~[spring-jms-5.3.23.jar:5.3.23]
+    at org.springframework.jms.support.JmsUtils.convertJmsAccessException(JmsUtils.java:274) ~[spring-jms-5.3.23.jar:5.3.23]
   ...
 Caused by: org.apache.qpid.jms.provider.ProviderException: The link 'G0:36906660:qpid-jms:sender:azure:5caf3ef4-9602-413c-964d-cf1292d6e1f5:1:1:1:t4' is force detached. Code: publisher(link376). Details: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:10:00. [condition = amqp:link:detach-forced]
-	at org.apache.qpid.jms.provider.amqp.AmqpSupport.convertToNonFatalException(AmqpSupport.java:181) ~[qpid-jms-client-0.53.0.jar:na]
+    at org.apache.qpid.jms.provider.amqp.AmqpSupport.convertToNonFatalException(AmqpSupport.java:181) ~[qpid-jms-client-0.53.0.jar:na]
   ...
 ```
 
@@ -54,7 +54,7 @@ spring:
 
 ### Usage of spring.jms.servicebus.idle-timeout
 
-The idle-timeout properties are to configure the [idle timeout](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-doc-idle-time-out)  of an AMQP connection. From AMQP spec,
+The idle-timeout properties are to configure the [idle timeout](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-doc-idle-time-out) of an AMQP connection. From AMQP spec,
 
 ```shell
 Connections are subject to an idle timeout threshold. The timeout is triggered by a local peer when no frames are received after a threshold value is exceeded. The idle timeout is measured in milliseconds, and starts from the time the last frame is received. If the threshold is exceeded, then a peer SHOULD try to gracefully close the connection using a close frame with an error explaining why. If the remote peer does not respond gracefully within a threshold to this, then the peer MAY close the TCP socket.
@@ -78,9 +78,9 @@ When using `@JmsListener` API, in some cases can customers observe in Azure port
 
 #### Cause analysis
 
-`@JmsListener` essentially is a [polling listener](https://github.com/spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45)  which is built for repeated polling attempts.
+`@JmsListener` essentially is a [polling listener](https://github.com/spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45) which is built for repeated polling attempts.
 
-The listener sits on an ongoing loop of polling, each invoking the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134)  to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties including receiveTimeout, prefetchSize and `receiveLocalOnly` or `receiveNoWaitLocalOnly`(the latter one used only when the receive timeout is set as negative).
+The listener sits on an ongoing loop of polling, each invoking the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134) to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties including receiveTimeout, prefetchSize and `receiveLocalOnly` or `receiveNoWaitLocalOnly`(the latter one used only when the receive timeout is set as negative).
 
 So when this happens to your application.
 
@@ -92,13 +92,13 @@ So when this happens to your application.
 
 For complete analysis, see the [issue](https://github.com/Azure/azure-sdk-for-java/issues/30192#issuecomment-1362458734).
 
-#### Solution
+#### Solutions
 
-For how to deal with the issue, there are two solutions:
+The following sections describe two solutions for dealing with this issue
 
 ##### Solution 1. Change to push consumer and local-check only.
 
-By changing the mode as `push`, the consumer is now an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576)  consumer that it doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As Service Bus(sender) pushes messages, the sender’s link-credit decreases and when the sender’s link-credit falls below a threshold, the client(receiver) sends a request to the server to increase the sender’s link-credit back to the desired target amount.
+By changing the mode as `push`, the consumer is now an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576) consumer that it doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As Service Bus(sender) pushes messages, the sender’s link-credit decreases and when the sender’s link-credit falls below a threshold, the client(receiver) sends a request to the server to increase the sender’s link-credit back to the desired target amount.
 
 To accomplish it, users can add the following configuration:
 
@@ -155,7 +155,7 @@ The following sections explain what this value means.
 > [!NOTE]
 > A high timeout value can bring some side effects: it will also extend the time when the main thread is in a block status, which means the container will be less responsive to stop() calls - the container can only stop between receive().
 
-Besides, since the container can only send requests after the receive-timeout, so if the interval is longer than 10 minutes, Service Bus will close the [link](/azure/service-bus-messaging/service-bus-amqp-troubleshoot#link-is-closed)  and cause the listener, which by default uses a [CachingConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L51) can't send/receive anymore. So if you require a high receive-timeout, please use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L71)  alongside.
+Besides, since the container can only send requests after the receive-timeout, so if the interval is longer than 10 minutes, Service Bus will close the [link](/azure/service-bus-messaging/service-bus-amqp-troubleshoot#link-is-closed) and cause the listener, which by default uses a [CachingConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L51) can't send/receive anymore. So if you require a high receive-timeout, please use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L71) alongside.
 
 For details about the link-close issue and how to use `JmsPoolConnectionFactory`, see this [section](https://dev.azure.com/SpringOnAzure/Spring%20on%20Azure/_wiki/wikis/spring-integration-private.wiki/425/Troubleshoot-Spring-Cloud-Azure-Service-Bus-JMS-Starter-issues?anchor=jmstemplate-issues#the-messageproducer-was-closed-due-to-an-unrecoverable-error).
 
@@ -251,10 +251,10 @@ For some users, they import some Spring Cloud Azure Starter for the autoconfigur
 
 ```shell
 Caused by: java.lang.IllegalArgumentException: 'spring.jms.servicebus.connection-string' should be provided
-	at com.azure.spring.cloud.autoconfigure.jms.properties.AzureServiceBusJmsProperties.afterPropertiesSet(AzureServiceBusJmsProperties.java:210)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
-	... 98 more
+    at com.azure.spring.cloud.autoconfigure.jms.properties.AzureServiceBusJmsProperties.afterPropertiesSet(AzureServiceBusJmsProperties.java:210)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+    ... 98 more
 ```
 
 #### Cause analysis
@@ -280,21 +280,21 @@ First, customize the message converter to be used in JmsTemplate:
 ```java
 public class CustomMappingJackson2MessageConverter extends MappingJackson2MessageConverter {
 
-  public static final String CONTENT_TYPE = "application/json";
+    public static final String CONTENT_TYPE = "application/json";
 
-  public CustomMappingJackson2MessageConverter() {
-    this.setTargetType(MessageType.BYTES);
-  }
+    public CustomMappingJackson2MessageConverter() {
+        this.setTargetType(MessageType.BYTES);
+    }
 
-  @Override
-  protected BytesMessage mapToBytesMessage(Object object, Session session, ObjectWriter objectWriter)
-      throws JMSException, IOException {
-    final BytesMessage message = super.mapToBytesMessage(object, session, objectWriter);
-    JmsBytesMessage msg = (JmsBytesMessage) message;
-    AmqpJmsMessageFacade facade = (AmqpJmsMessageFacade) msg.getFacade();
-    facade.setContentType(Symbol.valueOf(CONTENT_TYPE));
-    return msg;
-  }
+    @Override
+    protected BytesMessage mapToBytesMessage(Object object, Session session, ObjectWriter objectWriter)
+            throws JMSException, IOException {
+        final BytesMessage message = super.mapToBytesMessage(object, session, objectWriter);
+        JmsBytesMessage msg = (JmsBytesMessage) message;
+        AmqpJmsMessageFacade facade = (AmqpJmsMessageFacade) msg.getFacade();
+        facade.setContentType(Symbol.valueOf(CONTENT_TYPE));
+        return msg;
+    }
 }
 ```
 
@@ -359,10 +359,10 @@ Additional information on ways to reach out for support can be found in the [SUP
 When filing GitHub issues, the following details are requested:
 
 - Service Bus configuration / Namespace environment
-    - What tier is the namespace (standard / premium)?
-    - What type of messaging entity is being used (queue/topic)? and its configuration.
-    - What is the average size of each Message?
+  - What tier is the namespace (standard / premium)?
+  - What type of messaging entity is being used (queue/topic)? and its configuration.
+  - What is the average size of each Message?
 - What is the traffic pattern like? (i.e. # messages/minute and if the Client is always busy or has slow traffic periods.)
 - Repro code and steps
-    - This is important as we often can't reproduce the issue in our environment.
+  - This is important as we often can't reproduce the issue in our environment.
 - Logs.

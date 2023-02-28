@@ -146,7 +146,7 @@ items:
       items:
       - name: Use Azure Service Bus by JMS
         href: spring-jms-support.md
-      - name: Troubleshooting Guide
+      - name: Troubleshooting guide
         href: spring-jms-troubleshooting-guide.md
     - name: MySQL support
       href: mysql-support.md
