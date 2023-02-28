@@ -42,7 +42,7 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 ## Store data from Azure SQL Database
 
-Now that you have an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
+With an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
 
 To install the Spring Cloud Azure Starter module, add the following dependencies to your *pom.xml* file:
 
@@ -101,7 +101,8 @@ To store data from Azure SQL Database using Spring Data JPA, follow these steps 
    spring.jpa.hibernate.ddl-auto=create-drop
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    ---
 
    > [!WARNING]
    > The configuration property `spring.jpa.hibernate.ddl-auto=create-drop` means that Spring Boot will automatically create a database schema at application start-up, and will try to delete it when it shuts down. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.

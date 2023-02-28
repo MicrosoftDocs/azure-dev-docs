@@ -6,4 +6,4 @@ ms.service: azure-java
 ms.topic: include
 ---
 
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.38 or later
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.38 or higher
