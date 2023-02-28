@@ -55,7 +55,7 @@ The batch size can be specified by properties of `max-size` and `max-wait-time` 
 
 ### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-stream-binder-eventhubs</artifactId>
@@ -64,7 +64,7 @@ The batch size can be specified by properties of `max-size` and `max-wait-time` 
 
 Alternatively, you can also use the Spring Cloud Azure Stream Event Hubs Starter, as shown in the following example for Maven:
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-stream-eventhubs</artifactId>
@@ -146,7 +146,7 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 > [!NOTE]
 > The `initial-partition-event-position` configuration accepts a `map` to specify the initial position for each event hub. Thus, its key is the partition ID, and the value is of `StartPositionProperties` which includes properties of offset, sequence number, enqueued date time and whether inclusive. For example, you can set it as
 
-``` yaml
+```yaml
 spring:
   cloud:
     stream:
@@ -193,7 +193,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
    * For credentials as connection string, configure the following properties in your *application.yml* file:
 
-     ``` yaml
+     ```yaml
      spring:
        cloud:
          azure:
@@ -223,7 +223,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
    * For credentials as service principal, configure the following properties in your *application.yml* file:
 
-     ``` yaml
+     ```yaml
      spring:
        cloud:
          azure:
@@ -257,7 +257,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
    * For credentials as managed identites, configure the following properties in your *application.yml* file:
 
-     ``` yaml
+     ```yaml
      spring:
        cloud:
          azure:
@@ -290,7 +290,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
 1. Define supplier and consumer.
 
-   ``` java
+   ```java
    @Bean
    public Consumer<Message<String>> consume() {
        return message -> {
@@ -329,7 +329,7 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
 1. Fill the batch configuration options
 
-   ``` yaml
+   ```yaml
    spring:
      cloud:
        stream:
@@ -356,7 +356,7 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
    For checkpointing mode as `BATCH`, you can use the following code to send messages and consume in batches.
 
-   ``` java
+   ```java
    @Bean
    public Consumer<Message<List<String>>> consume() {
        return message -> {
@@ -383,7 +383,7 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
    For checkpointing mode as `MANUAL`, you can use the following code to send messages and consume/checkpoint in batches.
 
-   ``` java
+   ```java
    @Bean
    public Consumer<Message<List<String>>> consume() {
        return message -> {
@@ -422,7 +422,7 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
   This channel is open by default, you can handle the error message in this way:
 
-  ``` java
+  ```java
   // Replace destination with spring.cloud.stream.bindings.input.destination
   // Replace group with spring.cloud.stream.bindings.input.group
   @ServiceActivator(inputChannel = "{destination}.{group}.errors")
@@ -435,13 +435,13 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
   This channel isn't open by default. You need to add a configuration in your *application.properties* file to enable it, like this:
 
-  ``` properties
+  ```properties
   spring.cloud.stream.default.producer.errorChannelEnabled=true
   ```
 
   You can handle the error message in this way:
 
-  ``` java
+  ```java
   // Replace destination with spring.cloud.stream.bindings.output.destination
   @ServiceActivator(inputChannel = "{destination}.errors")
   public void producerError(Message<?> message) {
@@ -453,7 +453,7 @@ A `PartitionSupplier` with user-provided partition information will be created t
 
   A global error channel called "errorChannel" is created by default Spring Integration, which allows users to subscribe many endpoints to it.
 
-  ``` java
+  ```java
   @ServiceActivator(inputChannel = "errorChannel")
   public void producerError(Message<?> message) {
       LOGGER.error("Handling ERROR: " + message);
@@ -470,7 +470,7 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
 
 1. To use multiple binders of EventHubs, configure the following properties in your *application.yml* file:
 
-   ``` yaml
+   ```yaml
    spring:
      cloud:
        stream:
@@ -535,7 +535,7 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
 
 1. We need define two suppliers and two consumers:
 
-   ``` java
+   ```java
    @Bean
    public Supplier<Message<String>> supply1() {
        return () -> {
@@ -581,7 +581,7 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
 
 Event Hubs binder supports provisioning of event hub and consumer group, users could use the following properties to enable provisioning.
 
-``` yaml
+```yaml
 spring:
   cloud:
     azure:
@@ -617,7 +617,7 @@ This binder relies on `Subscription` of a topic to act as a consumer group.
 
 ### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-stream-binder-servicebus</artifactId>
@@ -626,7 +626,7 @@ This binder relies on `Subscription` of a topic to act as a consumer group.
 
 Alternatively, you can also use the Spring Cloud Azure Stream Service Bus Starter, as shown in the following example for Maven:
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-stream-servicebus</artifactId>
@@ -807,7 +807,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
 1. Define supplier and consumer.
 
-   ``` java
+   ```java
    @Bean
    public Consumer<Message<String>> consume() {
        return message -> {
@@ -836,7 +836,7 @@ The binder supports [Service Bus partitioning](/azure/service-bus-messaging/serv
 
 Spring Cloud Stream provides a partition key SpEL expression property `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression`. For example, setting this property as `"'partitionKey-' + headers[<message-header-key>]"` and add a header called message-header-key. Spring Cloud Stream will use the value for this header when evaluating the above expression to assign a partition key. Here is an example producer code:
 
-``` java
+```java
 @Bean
 public Supplier<Message<String>> generate() {
     return () -> {
@@ -852,7 +852,7 @@ public Supplier<Message<String>> generate() {
 
 The binder supports [message sessions](/azure/service-bus-messaging/message-sessions) of Service Bus. Session ID of a message could be set via the message header.
 
-``` java
+```java
 @Bean
 public Supplier<Message<String>> generate() {
     return () -> {
@@ -876,7 +876,7 @@ This channel is open by default, and a default consumer error channel handler is
 
 To customize the consumer error channel handler, you can register you own error handler to the related consumer error channel in this way:
 
-``` java
+```java
 // Replace destination with spring.cloud.stream.bindings.input.destination
 // Replace group with spring.cloud.stream.bindings.input.group
 @ServiceActivator(inputChannel = "{destination}.{group}.errors")
@@ -889,13 +889,13 @@ public void consumerError(Message<?> message) {
 
 This channel isn't open by default. You need to add a configuration in your *application.properties* file to enable it, like this:
 
-``` properties
+```properties
 spring.cloud.stream.default.producer.errorChannelEnabled=true
 ```
 
 You can handle the error message in this way:
 
-``` java
+```java
 // Replace destination with spring.cloud.stream.bindings.output.destination
 @ServiceActivator(inputChannel = "{destination}.errors")
 public void producerError(Message<?> message) {
@@ -907,7 +907,7 @@ public void producerError(Message<?> message) {
 
 A global error channel called "errorChannel" is created by default Spring Integration, which allows users to subscribe many endpoints to it.
 
-``` java
+```java
 @ServiceActivator(inputChannel = "errorChannel")
 public void producerError(Message<?> message) {
     LOGGER.error("Handling ERROR: " + message);
@@ -927,7 +927,7 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
 
 1. To use multiple binders of ServiceBus, configure the following properties in your *application.yml* file:
 
-   ``` yaml
+   ```yaml
    spring:
      cloud:
        stream:
@@ -985,7 +985,7 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
 
 1. we need define two suppliers and two consumers
 
-   ``` java
+   ```java
    @Bean
    public Supplier<Message<String>> supply1() {
        return () -> {
@@ -1032,7 +1032,7 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
 
 Service bus binder supports provisioning of queue, topic and subscription, users could use the following properties to enable provisioning.
 
-``` yaml
+```yaml
 spring:
   cloud:
     azure:

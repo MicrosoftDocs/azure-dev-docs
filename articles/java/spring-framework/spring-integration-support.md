@@ -54,7 +54,7 @@ To specify the batch consuming strategy, developers can use `EventHubsContainerP
 
 ### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-integration-eventhubs</artifactId>
@@ -167,7 +167,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Create `DefaultMessageHandler` with the `EventHubsTemplate` bean to send messages to Event Hubs.
 
-   ``` java
+   ```java
    class Demo {
        private static final String OUTPUT_CHANNEL = "output";
        private static final String EVENTHUB_NAME = "eh1";
@@ -193,7 +193,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Create a message gateway binding with the above message handler via a message channel.
 
-   ``` java
+   ```java
    class Demo {
        @Autowired
        EventHubOutboundGateway messagingGateway;
@@ -207,7 +207,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Send messages using the gateway.
 
-   ``` java
+   ```java
    class Demo {
        public void demo() {
            this.messagingGateway.send(message);
@@ -221,7 +221,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Create a bean of message channel as the input channel.
 
-   ``` java
+   ```java
    @Configuration
    class Demo {
        @Bean
@@ -233,7 +233,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Create `EventHubsInboundChannelAdapter` with the `EventHubsMessageListenerContainer` bean to receive messages from Event Hubs.
 
-   ``` java
+   ```java
    @Configuration
    class Demo {
        private static final String INPUT_CHANNEL = "input";
@@ -262,7 +262,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Create a message receiver binding with EventHubsInboundChannelAdapter via the message channel created before.
 
-   ``` java
+   ```java
    class Demo {
        @ServiceActivator(inputChannel = INPUT_CHANNEL)
        public void messageReceiver(byte[] payload, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
@@ -286,7 +286,7 @@ To consume messages from Event Hubs in batches is similar with the above sample,
 
 When create `EventHubsInboundChannelAdapter`, the listener mode should be set as `BATCH`. When create bean of `EventHubsMessageListenerContainer`, set the checkpoint mode as either `MANUAL` or `BATCH`, and the batch options can be configured as needed.
 
-``` java
+```java
 @Configuration
 class Demo {
     private static final String INPUT_CHANNEL = "input";
@@ -371,7 +371,7 @@ See Javadoc for details.
 
 ### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-integration-servicebus</artifactId>
@@ -452,7 +452,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Create `DefaultMessageHandler` with the `ServiceBusTemplate` bean to send messages to Service Bus, set the entity type for the ServiceBusTemplate. This sample takes Service Bus Queue as example.
 
-   ``` java
+   ```java
    class Demo {
        private static final String OUTPUT_CHANNEL = "queue.output";
 
@@ -480,7 +480,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Create a message gateway binding with the above message handler via a message channel.
 
-   ``` java
+   ```java
    class Demo {
        @Autowired
        QueueOutboundGateway messagingGateway;
@@ -494,7 +494,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Send messages using the gateway.
 
-   ``` java
+   ```java
    class Demo {
        public void demo() {
            this.messagingGateway.send(message);
@@ -508,7 +508,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Create a bean of message channel as the input channel.
 
-   ``` java
+   ```java
    @Configuration
    class Demo {
        private static final String INPUT_CHANNEL = "input";
@@ -522,7 +522,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Create `ServiceBusInboundChannelAdapter` with the `ServiceBusMessageListenerContainer` bean to receive messages to Service Bus. This sample takes Service Bus Queue as example.
 
-   ``` java
+   ```java
    @Configuration
    class Demo {
        private static final String QUEUE_NAME = "queue1";
@@ -548,7 +548,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Create a message receiver binding with `ServiceBusInboundChannelAdapter` via the message channel we created before.
 
-   ``` java
+   ```java
    class Demo {
        @ServiceActivator(inputChannel = INPUT_CHANNEL)
        public void messageReceiver(byte[] payload, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
@@ -606,7 +606,7 @@ This starter supports [Service Bus partitioning](/azure/service-bus-messaging/se
 
 *Recommended:* Use `ServiceBusMessageHeaders.PARTITION_KEY` as the key of the header.
 
-``` java
+```java
 public class SampleController {
     @PostMapping("/messages")
     public ResponseEntity<String> sendMessage(@RequestParam String message) {
@@ -619,11 +619,30 @@ public class SampleController {
 }
 ```
 
+*Not recommended but currently supported:* `AzureHeaders.PARTITION_KEY` as the key of the header.
+
+```java
+public class SampleController {
+    @PostMapping("/messages")
+    public ResponseEntity<String> sendMessage(@RequestParam String message) {
+        LOGGER.info("Going to add message {} to Sinks.Many.", message);
+        many.emitNext(MessageBuilder.withPayload(message)
+                                    .setHeader(AzureHeaders.PARTITION_KEY, "Customize partition key")
+                                    .build(), Sinks.EmitFailureHandler.FAIL_FAST);
+        return ResponseEntity.ok("Sent!");
+    }
+}
+```
+
+> [!NOTE]
+> When both `ServiceBusMessageHeaders.PARTITION_KEY` and `AzureHeaders.PARTITION_KEY` are set in the message headers,
+`ServiceBusMessageHeaders.PARTITION_KEY` is preferred.
+
 #### Session support
 
 This example demonstrates how to manually set the session ID of a message in the application.
 
-``` java
+```java
 public class SampleController {
     @PostMapping("/messages")
     public ResponseEntity<String> sendMessage(@RequestParam String message) {
@@ -651,7 +670,7 @@ Azure Queue Storage is a service for storing large numbers of messages. You acce
 
 ### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-integration-storage-queue</artifactId>
@@ -734,7 +753,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Create `DefaultMessageHandler` with the `StorageQueueTemplate` bean to send messages to Storage Queue.
 
-   ``` java
+   ```java
    class Demo {
        private static final String STORAGE_QUEUE_NAME = "example";
        private static final String OUTPUT_CHANNEL = "output";
@@ -761,7 +780,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Create a Message gateway binding with the above message handler via a message channel.
 
-   ``` java
+   ```java
    class Demo {
        @Autowired
        StorageQueueOutboundGateway storageQueueOutboundGateway;
@@ -775,7 +794,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Send messages using the gateway.
 
-   ``` java
+   ```java
    class Demo {
        public void demo() {
            this.storageQueueOutboundGateway.send(message);
@@ -789,7 +808,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Create a bean of message channel as the input channel.
 
-   ``` java
+   ```java
    class Demo {
        private static final String INPUT_CHANNEL = "input";
 
@@ -802,7 +821,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Create `StorageQueueMessageSource` with the `StorageQueueTemplate` bean to receive messages to Storage Queue.
 
-   ``` java
+   ```java
    class Demo {
        private static final String STORAGE_QUEUE_NAME = "example";
 
@@ -816,7 +835,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Create a message receiver binding with StorageQueueMessageSource created in the last step via the message channel we created before.
 
-   ``` java
+   ```java
    class Demo {
        @ServiceActivator(inputChannel = INPUT_CHANNEL)
        public void messageReceiver(byte[] payload, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
