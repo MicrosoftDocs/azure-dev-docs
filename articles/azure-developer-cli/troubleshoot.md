@@ -91,6 +91,10 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 `azd monitor` is currently not supported if you use a development container as your development environment.
 
+## Unable to authenticate in Codespaces environments
+
+If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
