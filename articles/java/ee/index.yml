@@ -83,8 +83,6 @@ landingContent:
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
             url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic with Elastic on Azure
-            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart
