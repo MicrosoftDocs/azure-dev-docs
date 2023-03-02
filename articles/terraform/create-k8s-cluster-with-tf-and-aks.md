@@ -4,7 +4,7 @@ description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Serv
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
 ms.date: 08/29/2022
-ms.custom: devx-track-terraform, devx-track-azurecli 
+ms.custom: devx-track-terraform
 ---
 
 # Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform

@@ -2,7 +2,7 @@
 title: "Tutorial: Get Bing News with Python"
 description: In this tutorial, you'll create a local Python Azure Functions project to call the Bing News Search SDK and store the search results in Azure Blob Storage.
 services: python, azure-functions, azure-storage-accounts, bing-search-services
-ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-python, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/03/2023

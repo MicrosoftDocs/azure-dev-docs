@@ -4,7 +4,7 @@ description: How to run a Python (Django or Flask) web app locally with local Po
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Configure and run the Python app locally with a PostgreSQL instance and a storage emulator
