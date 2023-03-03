@@ -3,7 +3,7 @@ title: Create an Azure MySQL database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL, PostgresSQL, or MariaDB database.
 ms.date: 02/27/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Use the Azure libraries to create a database
