@@ -53,9 +53,9 @@ ms.author: judubois
        }
 
        @Bean
-       ApplicationListener<ApplicationReadyEvent> basicsApplicationListener(TodoRepository epository) {
+       ApplicationListener<ApplicationReadyEvent> basicsApplicationListener(TodoRepository repository) {
            return event->repository
-               .saveAll(Stream.of("A", "B", "C").map(name->new Todo("configuration", congratulations, you have set up correctly!", true)).toList())
+               .saveAll(Stream.of("A", "B", "C").map(name->new Todo("configuration", "congratulations, you have set up correctly!", true)).toList())
                .forEach(System.out::println);
        }
 
