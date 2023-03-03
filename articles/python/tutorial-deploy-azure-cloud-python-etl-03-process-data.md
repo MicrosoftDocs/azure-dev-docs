@@ -2,7 +2,7 @@
 title: "Tutorial: Process JSON Data for a Python ETL Solution on Azure"
 description: In this article, you'll process JSON data for a Python ETL Solution on Azure
 services: python, azure-functions, azure-storage-accounts
-ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zinc
+ms.custom: devx-track-python, engagement-fy23, py-fresh-zinc
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/03/2023
@@ -257,4 +257,3 @@ If you've reached this point and your processed file isn't in the Data Lake cont
 
 > [!div class="nextstepaction"]
 > [Deploy the Solution >>](tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md)
-

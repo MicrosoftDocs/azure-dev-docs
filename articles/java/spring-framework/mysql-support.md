@@ -5,6 +5,7 @@ ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure MySQL support

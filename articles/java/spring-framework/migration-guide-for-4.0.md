@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: rujche
 ms.date: 01/18/2023
 ms.topic: reference
-ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Migration guide for Spring Cloud Azure 4.0

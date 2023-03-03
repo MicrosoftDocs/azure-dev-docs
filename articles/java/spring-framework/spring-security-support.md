@@ -5,6 +5,7 @@ ms.date: 12/29/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure support for Spring Security
@@ -545,7 +546,7 @@ public class AadOAuth2ResourceServerSecurityConfig {
     @Bean
     public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
         // @formatter:off
-        http.apply(AadWebApplicationHttpSecurityConfigurer.aadWebApplication())
+        http.apply(AadResourceServerHttpSecurityConfigurer.aadResourceServer())
             .and()
             .authorizeHttpRequests()
             .anyRequest().authenticated();

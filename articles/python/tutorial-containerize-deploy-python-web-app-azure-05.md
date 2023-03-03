@@ -4,7 +4,7 @@ description: How to clean up resources used in a tutorial showing how to contain
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/24/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Containerize tutorial cleanup and next steps

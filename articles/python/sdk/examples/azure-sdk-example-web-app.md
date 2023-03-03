@@ -3,7 +3,7 @@ title: Create and deploy a Python web app to Azure App Service using the Azure S
 description: Use Azure SDK for Python to create a web app and then deploy app code from a GitHub repository to Azure App Service.
 ms.date: 01/26/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Use the Azure libraries to create and deploy a web app
