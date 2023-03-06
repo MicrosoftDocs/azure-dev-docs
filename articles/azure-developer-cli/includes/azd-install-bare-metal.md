@@ -77,6 +77,13 @@ brew tap azure/azd && brew install azd
 winget install microsoft.azd
 ```
 
+### [Chocolatey](#tab/chocolatey)
+
+```bash
+choco install azd
+```
+
+
 ---
 
 ## Uninstall `azd`
@@ -122,6 +129,13 @@ brew uninstall azd
 ```bash
 winget uninstall microsoft.azd
 ```
+
+### [Chocolatey](#tab/chocolatey)
+
+```bash
+choco uninstall azd
+```
+
 
 ---
 
