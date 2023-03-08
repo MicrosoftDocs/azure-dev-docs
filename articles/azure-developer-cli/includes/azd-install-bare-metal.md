@@ -12,7 +12,6 @@ Before you get started using `azd`, ensure you have:
 
 - Installed:
   - [Git](https://git-scm.com/)
-  - [GitHub CLI v2.3+](https://github.com/cli/cli) **(only required for `azd pipeline config` when using GitHub Actions)**
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
