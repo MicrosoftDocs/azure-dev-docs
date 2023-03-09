@@ -39,9 +39,9 @@ spring:
       keyvault:
         secret:
           property-sources:
-            - name: key-vault-property-souece-1
+            - name: key-vault-property-source-1
               endpoint: ${ENDPOINT_1}
-            - name: key-vault-property-souece-2
+            - name: key-vault-property-source-2
               endpoint: ${ENDPOINT_2}
 ```
 
