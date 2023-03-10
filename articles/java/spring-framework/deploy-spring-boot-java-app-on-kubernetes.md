@@ -314,7 +314,7 @@ The following links provide additional information about using Kubernetes with A
 
 * [Get started with a Kubernetes cluster in Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
-More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
+More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/reference/kubectl/>.
 
 The Kubernetes website has several articles that discuss using images in private registries:
 
