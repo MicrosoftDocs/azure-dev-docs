@@ -54,6 +54,10 @@ items:
                 href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
+              - name: Azure SQL Database with EF Core
+                href: /azure/azure-sql/database/azure-sql-dotnet-entity-framework-core-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Azure SQL Database with SqlClient
+                href: /azure/azure-sql/database/azure-sql-dotnet-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Cosmos DB for NoSQL
                 href: /azure/cosmos-db/nosql/quickstart-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Event Hubs
