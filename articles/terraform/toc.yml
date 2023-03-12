@@ -147,11 +147,11 @@
       items:
         - name: Configure a virtual machine cluster
           href: create-vm-cluster-module.md
-        - name: Virtual machine cluster with Terraform and HCL
+        - name: Virtual Machine cluster with Terraform and HCL
           href: create-vm-cluster-with-infrastructure.md
-        - name: Virtual machine scale set with infrastructure
+        - name: Virtual Machine Scale Set with infrastructure
           href: create-vm-scaleset-network-disks-hcl.md
-        - name: Virtual machine scale set from Packer image
+        - name: Virtual Machine Scale Set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Reference
   items:
