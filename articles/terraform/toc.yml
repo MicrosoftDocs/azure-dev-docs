@@ -33,6 +33,10 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
+    - name: Analysis Services
+      items:
+        - name: Create a server
+          href: /azure/analysis-services/analysis-services-create-terraform
     - name: Containers
       items:
         - name: Kubernetes cluster with AKS
@@ -41,6 +45,10 @@
       items:
         - name: MySQL Flexible Server
           href: /azure/mysql/flexible-server/quickstart-create-terraform
+    - name: DevTest Labs
+      items:
+        - name: Create a Windows Server VM in a lab
+          href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
     - name: IoT Device Provisioning Service
       items:
         - name: Create a DPS instance
