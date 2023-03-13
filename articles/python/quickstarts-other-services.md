@@ -17,8 +17,8 @@ The services referenced in this article for Python are specialized or focused on
   - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python-3)
 
 - **DevOps**:
-  - [Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux](/azure/developer/python/python-web-app-github-actions-app-service)
-  - [Build a Python cloud app with the Azure Developer CLI (azd) open-source tool](/azure/developer/azure-developer-cli/get-started?pivots=programming-language-python)
+  - [Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux](./python-web-app-github-actions-app-service.md)
+  - [Build a Python cloud app with the Azure Developer CLI (azd) open-source tool](../azure-developer-cli/get-started.md?pivots=programming-language-python)
   - [Build, test, and deploy Python apps with Azure Pipelines](/azure/devops/pipelines/ecosystems/python)
 
 - **Internet of Things and geographical mapping**:
@@ -33,4 +33,4 @@ The services referenced in this article for Python are specialized or focused on
 
 - **Virtual machine management**:
   - [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
-  - [Use the Azure libraries to create a virtual machine](/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines)
+  - [Use the Azure libraries to create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)
