@@ -12,15 +12,15 @@ Azure Cognitive Services are cloud-based artificial intelligence (AI) services t
 
 Because of the dynamic nature of Azure Cognitive Services, the best way to find getting started material for Python is to begin on the [Azure Cognitive Service hub page](/azure/cognitive-services/) and then find the specific service you are looking for.
 
-1. On the hub page, select a service to go its hub page. For example, for [Computer Vision](/azure/cognitive-services/computer-vision/).
+1. On the hub page, select a service to go its documentation landing page. For example, for [Computer Vision](/azure/cognitive-services/computer-vision/).
 
-1. Select a category of the service. For example, in Computer Vision, select [Image Analysis](/azure/cognitive-services/computer-vision/overview-image-analysis).
+1. On the landing page, select a category of the service. For example, in Computer Vision, select [Image Analysis](/azure/cognitive-services/computer-vision/overview-image-analysis).
 
-1. In the documentation, look for a **Quickstarts** node. For example, in the Image Analysis documenatation, there's a [Quickstart: Image Analysis](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40).
+1. In the service documentation, look for **Quickstarts** in the table of contents. For example, in the Image Analysis documenatation, there's a [Quickstart: Image Analysis](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40).
 
-1. In the quickstart, choose the Python programming language if it exists or the REST API.
+1. In quickstart articles, choose the Python programming language if it exists or the REST API.
 
-If a quickstart section doesn't exist for a service, use the *filter by title* box, and search for *Python* to find Python articles. Also, go to the [Azure Cognitive Services modules for Python](/python/api/overview/azure/cognitive-services) overview to learn about the available Python SDK modules.
+    If a quickstart section doesn't exist for a service, use the *filter by title* box, and search for *Python* to find Python articles. Also, go to the [Azure Cognitive Services modules for Python](/python/api/overview/azure/cognitive-services) overview to learn about the available Python SDK modules.
 
 > [!div class="nextstepaction"]
 > [Go to the Cognitive Services hub page >>>](/azure/cognitive-services/)
