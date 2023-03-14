@@ -800,7 +800,7 @@ public async Task CallClientWithHandler()
         HttpPipeline = new DelegatingHandler[] { new MyHandler() }
     };
     var client = new Datasync("AppUrl", options);
-    var todoTable = client.GetRemoveTable<TodoItem>();
+    var todoTable = client.GetRemoteTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertItemAsync(newItem);
 }
