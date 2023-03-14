@@ -31,7 +31,7 @@ Messaging services on Azure provide the interconnectivity between components and
 
 ## Events
 
-Event Hubs and Event Grid are event ingestion and event broker services. Event Hubs is a managed, real-time ingestion service. Event Grid is a single service for managing the routing of events.
+Event Hubs is a big data streaming platform and event ingestion service. Event Grid is a scalable, serverless event broker that you can use to integrate applications using events.
 
 - **Event Hubs**
   - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
