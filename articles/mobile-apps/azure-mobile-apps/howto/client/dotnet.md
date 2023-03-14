@@ -34,6 +34,8 @@ The .NET client library supports .NET Standard 2.0, .NET 6, and the following pl
 * Windows App SDK (WinUI 3).
 * Xamarin.Forms
 
+In addition, samples have been created for [Avalonia](https://www.avaloniaui.net/) and [Uno Platform](https://platform.uno/).
+
 The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
@@ -159,6 +161,12 @@ To create a remote table reference, use `GetRemoteTable<T>`:
 
 ``` csharp
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable();
+```
+
+If you wish to return a read-only table, use the `IReadOnlyRemoteTable<T>` version:
+
+``` csharp
+IReadOnlyRemoteTable<TodoItem> remoteTable = client.GetRemoteTable();
 ```
 
 The model type must implement the `ITableData` contract from the service.  Use `DatasyncClientData` to provide the required fields:
@@ -521,7 +529,13 @@ var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 A table reference can be obtained using the `GetOfflineTable<T>` method:
 
 ```csharp
-var table = client.GetOfflineTable<TodoItem>();
+IOfflineTable<TodoItem> table = client.GetOfflineTable<TodoItem>();
+```
+
+As with the remote table, you can also expose a read-only offline table:
+
+```csharp
+IReadOnlyOfflineTable<TodoItem> table = client.GetOfflineTable<TodoItem>();
 ```
 
 You don't need to authenticate to use an offline table.  You only need to authenticate when you're communicating with the backend service.
