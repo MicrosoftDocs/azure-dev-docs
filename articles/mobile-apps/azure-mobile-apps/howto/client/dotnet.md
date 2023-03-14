@@ -34,6 +34,8 @@ The .NET client library supports .NET Standard 2.0, .NET 6, and the following pl
 * Windows App SDK (WinUI 3).
 * Xamarin.Forms
 
+In addition, samples have been created for [Avalonia](https://www.avaloniaui.net/) and [Uno Platform](https://platform.uno/).
+
 The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
@@ -89,13 +91,13 @@ var options = new DatasyncClientOptions
 
 #### HttpPipeline
 
-Normally, an HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header for the currently authenticated user) before sending the request.  You can, optionally, add more delegating handlers that each request will pass through.  Delegating handlers allow you to add extra headers, do retries, or provide logging capabilities.
+Normally, an HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header for the currently authenticated user) before sending the request.  You can, optionally, add more delegating handlers.  Each request passes through the delegating handlers before being sent to the service.  Delegating handlers allow you to add extra headers, do retries, or provide logging capabilities.
 
 Examples of delegating handlers are provided for [logging](#enable-request-logging) and [adding request headers](#customize-request-headers) later in this article.
 
 #### IdGenerator
 
-When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated. For example, the following setting will generate a string that includes the table name and a GUID:
+When an entity is added to an offline table, it must have an ID.  An ID is generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated. For example, the following setting generates a string that includes the table name and a GUID:
 
 ``` csharp
 var options = new DatasyncClientOptions 
@@ -118,8 +120,7 @@ Part of the offline synchronization process involves pushing queued operations t
 
 #### SerializerSettings
 
-If you've changed the serializer settings on the data sync server, you'll also need to make the same changes to the `SerializerSettings` on
-the client.  This option allows you to specify your own serializer settings.
+If you've changed the serializer settings on the data sync server, you need to make the same changes to the `SerializerSettings` on the client.  This option allows you to specify your own serializer settings.
 
 #### TableEndpointResolver
 
@@ -161,6 +162,12 @@ To create a remote table reference, use `GetRemoteTable<T>`:
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable();
 ```
 
+If you wish to return a read-only table, use the `IReadOnlyRemoteTable<T>` version:
+
+``` csharp
+IReadOnlyRemoteTable<TodoItem> remoteTable = client.GetRemoteTable();
+```
+
 The model type must implement the `ITableData` contract from the service.  Use `DatasyncClientData` to provide the required fields:
 
 ``` csharp
@@ -178,7 +185,7 @@ The `DatasyncClientData` object includes:
 * `Version` (string) - an opaque string used for versioning.
 * `Deleted` (boolean) - if `true`, the item is deleted.
 
-These fields are maintained by the service and shouldn't be set by the client application.
+The service maintains these fields.  Don't adjust these fields as part of your client application.
 
 Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
 
@@ -197,7 +204,7 @@ Alternatively, you can specify the name of the table in the `GetRemoteTable()` c
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable("todoitem");
 ```
 
-The client will use the path `/tables/tablename` as the URI, and the table name will be the name of the offline table in the SQLite database.
+The client uses the path `/tables/tablename` as the URI, and the table name is the name of the offline table in the SQLite database.
 
 ### Supported types
 
@@ -218,7 +225,7 @@ The remote table can be used with LINQ-like statements, including:
 
 ### Count items from a query
 
-If you need a count of the items that would be returned by a query, you can use `.CountItemsAsync()` on a table or `.LongCountAsync()` on a query:
+If you need a count of the items that the query would return, you can use `.CountItemsAsync()` on a table or `.LongCountAsync()` on a query:
 
 ```csharp
 // Count items in a table.
@@ -228,7 +235,7 @@ long count = await remoteTable.CountItemsAsync();
 long count = await remoteTable.Where(m => m.Rating == "R").LongCountAsync();
 ```
 
-This method will cause a round-trip to the server.  You can also get a count while populating a list (for example), avoiding the extra round-trip:
+This method causes a round-trip to the server.  You can also get a count while populating a list (for example), avoiding the extra round-trip:
 
 ```csharp
 var enumerable = remoteTable.ToAsyncEnumerable() as AsyncPageable<T>;
@@ -267,7 +274,7 @@ HashSet<T> items = await remoteTable.ToHashSetAsync();
 List<T> items = await remoteTable.ToListAsync();
 ```
 
-Behind the scenes, the remote table is handling paging of the result for you.  All items will be returned irrespective of how many server side requests are needed to fulfill the query.  These elements are also available on query results (for example, `remoteTable.Where(m => m.Rating == "R")`).
+Behind the scenes, the remote table handles paging of the result for you.  All items are returned irrespective of how many server side requests are needed to fulfill the query.  These elements are also available on query results (for example, `remoteTable.Where(m => m.Rating == "R")`).
 
 The Data sync framework also provides `ConcurrentObservableCollection<T>` - a thread-safe observable collection.  This class can be used in the context of UI applications that would normally use `ObservableCollection<T>` to manage a list (for example, Xamarin Forms or MAUI lists).  You can clear and load a `ConcurrentObservableCollection<T>` directly from a table or query:
 
@@ -276,7 +283,7 @@ var collection = new ConcurrentObservableCollection<T>();
 await remoteTable.ToObservableCollection(collection);
 ```
 
-Using `.ToObservableCollection(collection)` will trigger the `CollectionChanged` event once for the entire collection rather than for individual items, resulting in a faster redraw time.  
+Using `.ToObservableCollection(collection)` triggers the `CollectionChanged` event once for the entire collection rather than for individual items, resulting in a faster redraw time.  
 
 The `ConcurrentObservableCollection<T>` also has predicate-driven modifications:
 
@@ -291,7 +298,7 @@ bool modified = collection.DeleteIf(t => t.Id == item.Id);
 bool modified = collection.ReplaceIf(t => t.Id == item.Id, item);
 ```
 
-Predicate-driven modifications can be used in event handlers when the index of the item is not known in advance.
+Predicate-driven modifications can be used in event handlers when the index of the item isn't known in advance.
 
 #### Filtering data
 
@@ -355,7 +362,7 @@ navigate between pages.
 All the functions described so far are additive, so we can keep chaining them. Each chained call affects more of the query. One more example:
 
 ```csharp
-MobileServiceTableQuery<TodoItem> query = todoTable
+var query = todoTable
                 .Where(todoItem => todoItem.Complete == false)
                 .Select(todoItem => todoItem.Text)
                 .Skip(3).
@@ -381,7 +388,7 @@ await remoteTable.InsertItemAsync(item);
 // Note that item.Id will now be set
 ```
 
-If a unique custom ID value isn't included in the `item` during an insert, a GUID is generated by the server. You can retrieve the generated ID by inspecting the object after the call returns.
+If a unique custom ID value isn't included in the `item` during an insert, the server generates an ID. You can retrieve the generated ID by inspecting the object after the call returns.
 
 ### Update data on the remote server
 
@@ -521,7 +528,13 @@ var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 A table reference can be obtained using the `GetOfflineTable<T>` method:
 
 ```csharp
-var table = client.GetOfflineTable<TodoItem>();
+IOfflineTable<TodoItem> table = client.GetOfflineTable<TodoItem>();
+```
+
+As with the remote table, you can also expose a read-only offline table:
+
+```csharp
+IReadOnlyOfflineTable<TodoItem> table = client.GetOfflineTable<TodoItem>();
 ```
 
 You don't need to authenticate to use an offline table.  You only need to authenticate when you're communicating with the backend service.
@@ -623,7 +636,9 @@ var items = await store.ExecuteQueryAsync(definition, sqlStatement, parameters);
 // Items is an IList<JObject> where each JObject conforms to the definition.
 ```
 
-The definition is a set of key/values.  The keys must match the field names being returned by the SQL statement, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and a string for everything else.  SQLite has a restrictive set of types to work with.  Date/times are stored as a numeric value (as ms since the epoch) for comparison.
+The definition is a set of key/values.  The keys must match the field names that the SQL query returns, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and `string.Empty` for everything else.  
+
+> SQLite has a restrictive set of supported types.  Date/times are stored as the number of milliseconds since the epoch to allow comparisons.
 
 ## Authenticate users
 
@@ -634,7 +649,7 @@ AuthenticationProvider authProvider = GetAuthenticationProvider();
 var client = new DatasyncClient("APP_URL", authProvider);
 ```
 
-Whenever authentication is required, the authentication provider will be called to get the token.  A generic authentication provider can be used for both Authorization header based authentication and App Service Authentication and Authorization based authentication. Use the following model:
+Whenever authentication is required, the authentication provider is called to get the token.  A generic authentication provider can be used for both Authorization header based authentication and App Service Authentication and Authorization based authentication. Use the following model:
 
 ``` csharp
 public AuthenticationProvider GetAuthenticationProvider()
@@ -785,7 +800,7 @@ public async Task CallClientWithHandler()
         HttpPipeline = new DelegatingHandler[] { new MyHandler() }
     };
     var client = new Datasync("AppUrl", options);
-    var todoTable = client.GetRemoveTable<TodoItem>();
+    var todoTable = client.GetRemoteTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertItemAsync(newItem);
 }
@@ -875,7 +890,7 @@ public class SynchronizationEventArgs
 }
 ```
 
-The properties within `args` will be `null` or `-1` when the property isn't relevant to the synchronization event.
+The properties within `args` are either `null` or `-1` when the property isn't relevant to the synchronization event.
 
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
