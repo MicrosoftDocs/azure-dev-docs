@@ -91,7 +91,7 @@ var options = new DatasyncClientOptions
 
 #### HttpPipeline
 
-Normally, an HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header for the currently authenticated user) before sending the request.  You can, optionally, add more delegating handlers that each request will pass through.  Delegating handlers allow you to add extra headers, do retries, or provide logging capabilities.
+Normally, an HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header for the currently authenticated user) before sending the request.  You can, optionally, add more delegating handlers.  Each request passes through the delegating handlers before being sent to the service.  Delegating handlers allow you to add extra headers, do retries, or provide logging capabilities.
 
 Examples of delegating handlers are provided for [logging](#enable-request-logging) and [adding request headers](#customize-request-headers) later in this article.
 
@@ -185,7 +185,7 @@ The `DatasyncClientData` object includes:
 * `Version` (string) - an opaque string used for versioning.
 * `Deleted` (boolean) - if `true`, the item is deleted.
 
-These fields are maintained by the service and shouldn't be set by the client application.
+The service maintains these fields.  Do not adjust these fields as part of your client application.
 
 Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
 
@@ -298,7 +298,7 @@ bool modified = collection.DeleteIf(t => t.Id == item.Id);
 bool modified = collection.ReplaceIf(t => t.Id == item.Id, item);
 ```
 
-Predicate-driven modifications can be used in event handlers when the index of the item is not known in advance.
+Predicate-driven modifications can be used in event handlers when the index of the item isn't known in advance.
 
 #### Filtering data
 
@@ -636,7 +636,9 @@ var items = await store.ExecuteQueryAsync(definition, sqlStatement, parameters);
 // Items is an IList<JObject> where each JObject conforms to the definition.
 ```
 
-The definition is a set of key/values.  The keys must match the field names being returned by the SQL statement, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and a string for everything else.  SQLite has a restrictive set of types to work with.  Date/times are stored as a numeric value (as ms since the epoch) for comparison.
+The definition is a set of key/values.  The keys must match the field names that the SQL query returns, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and `string.Empty` for everything else.  
+
+> SQLite has a restrictive set of supported types.  Date/times are stored as the number of milliseconds since the epoch to allow comparisons.
 
 ## Authenticate users
 
@@ -888,7 +890,7 @@ public class SynchronizationEventArgs
 }
 ```
 
-The properties within `args` is `null` or `-1` when the property isn't relevant to the synchronization event.
+The properties within `args` are either `null` or `-1` when the property isn't relevant to the synchronization event.
 
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
