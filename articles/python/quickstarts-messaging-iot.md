@@ -1,12 +1,12 @@
 ---
-title: Getting starting with messaging and IoT for Python apps on Azure
+title: Getting starting with messaging, events, and IoT for Python apps on Azure
 description: Index of getting started material in the Azure documentation for messaging and IoT for Python apps.
 ms.date: 03/14/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Messaging and IoT for Python apps on Azure
+# Messaging, Events, and IoT for Python apps on Azure
 
 The following articles help you get started with various messaging options on Azure.
 
@@ -33,7 +33,7 @@ The following articles help you get started with various messaging options on Az
   - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
   - [Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](/azure/event-hubs/event-hubs-capture-python)
 
-- **Event Grids**
+- **Event Grid**
   - [Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid](/azure/event-grid/custom-event-quickstart)
   - [Azure Event Grid Client Library Python Samples](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
 
