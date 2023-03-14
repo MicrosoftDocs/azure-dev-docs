@@ -40,11 +40,11 @@ The following articles help you get started with various messaging options on Az
 ## Internet of Things (IoT)
 
 - **IoT Hub**
-  - [Send telemetry from a device to an IoT hub and read it with a back-end application](/azure/iot-hub/quickstart-send-telemetry-python)
+  - [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python)
   - [Send cloud-to-device messages with IoT Hub](/azure/iot-hub/iot-hub-python-python-c2d)
   - [Upload files from your device to the cloud with IoT Hub](/azure/iot-hub/iot-hub-python-python-file-upload)
   - [Schedule and broadcast jobs](/azure/iot-hub/iot-hub-python-python-schedule-jobs)
-  - [Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device-python)
+  - [Quickstart: Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device?pivots=programming-language-python)
 
 - **Device provisioning**
   - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm-python)
