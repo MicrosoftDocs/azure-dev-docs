@@ -54,11 +54,11 @@ Internet of Things or IoT refers to a collection of managed and platform service
 
 - **Device provisioning**
   - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-python)
-  - [Enroll TPM device to IoT Hub Device Provisioning Service](/azure/iot-dps/quick-enroll-device-tpm-python)*
+  - [Enroll TPM device to IoT Hub Device Provisioning Service](/azure/iot-dps/quick-enroll-device-tpm)*
   - [Quickstart: Provision an X.509 certificate simulated device](azure/iot-dps/quick-create-simulated-device-x509?pivots=programming-language-python)
   - [Enroll X.509 devices to the Device Provisioning Service](/azure/iot-dps/quick-enroll-device-x509)*
 
-\* Not Python-specific examples, but can be used to understand concepts that can be used with [Azure IoT Hub libraries for Python](/python/api/overview/azure/iot?view=azure-python).
+\* Not Python-specific examples, but can be used to understand concepts that can be used with [Azure IoT Hub libraries for Python](/python/api/overview/azure/iot).
 
 - **IoT Central/IoT Edge**
   - [Tutorial: Create and connect a client application to your Azure IoT Central application](/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-python)
