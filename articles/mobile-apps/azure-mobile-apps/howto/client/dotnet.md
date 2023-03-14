@@ -185,7 +185,7 @@ The `DatasyncClientData` object includes:
 * `Version` (string) - an opaque string used for versioning.
 * `Deleted` (boolean) - if `true`, the item is deleted.
 
-The service maintains these fields.  Do not adjust these fields as part of your client application.
+The service maintains these fields.  Don't adjust these fields as part of your client application.
 
 Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
 
