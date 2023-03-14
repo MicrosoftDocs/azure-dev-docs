@@ -8,9 +8,11 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Messaging, Events, and IoT for Python apps on Azure
 
-The following articles help you get started with various messaging options on Azure.
+The following articles help you get started with messaging, event ingestion and processing, and Internet of Things (IoT) services in Azure.
 
 ## Messaging
+
+Messaging services on Azure provide the interconnectivity between components and applications that are written in different languages and hosted in the same cloud, multiple clouds, or on-premises.
 
 - **Notifications**
   - [How to use Notification Hubs from Python](/azure/notification-hubs/notification-hubs-python-push-notification-tutorial)
@@ -29,6 +31,8 @@ The following articles help you get started with various messaging options on Az
 
 ## Events
 
+Event Hubs and Event Grid are event ingestion and event broker services. Event Hubs is a managed, real-time ingestion service. Event Grid is a single service for managing he routing of events.
+
 - **Event Hubs**
   - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
   - [Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](/azure/event-hubs/event-hubs-capture-python)
@@ -38,6 +42,8 @@ The following articles help you get started with various messaging options on Az
   - [Azure Event Grid Client Library Python Samples](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
 
 ## Internet of Things (IoT)
+
+Internet of Things or IoT refers to a collection of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. It also includes security and operating systems for devices and equipment, along with data and analytics that help businesses to build, deploy, and manage IoT applications.
 
 - **IoT Hub**
   - [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python)
