@@ -20,7 +20,7 @@ Because of the dynamic nature of Azure Cognitive Services, the best way to find 
 
 1. In quickstart articles, choose the Python programming language if it exists or the REST API.
 
-    If you don't see a quickstart, use the *filter by title* box, and search for *Python* to find Python-related articles.
+    If you don't see a quickstart, in the table of contents search box enter *Python* to find Python-related articles.
 
 Also, you can go to the [Azure Cognitive Services modules for Python](/python/api/overview/azure/cognitive-services) overview to learn about the available Python SDK modules.
 
