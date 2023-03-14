@@ -47,11 +47,13 @@ The following articles help you get started with various messaging options on Az
   - [Quickstart: Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device?pivots=programming-language-python)
 
 - **Device provisioning**
-  - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm-python)
-  - [Enroll TPM device to IoT Hub Device Provisioning Service](/azure/iot-dps/quick-enroll-device-tpm-python)
-  - [Create and provision a simulated X.509 device](/azure/iot-dps/quick-create-simulated-device-x509-python)
-  - [Enroll X.509 devices to the Device Provisioning Service](/azure/iot-dps/quick-enroll-device-x509-python)
+  - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-python)
+  - [Enroll TPM device to IoT Hub Device Provisioning Service](/azure/iot-dps/quick-enroll-device-tpm-python)*
+  - [Quickstart: Provision an X.509 certificate simulated device](azure/iot-dps/quick-create-simulated-device-x509?pivots=programming-language-python)
+  - [Enroll X.509 devices to the Device Provisioning Service](/azure/iot-dps/quick-enroll-device-x509)*
+
+\* Not Python-specific examples, but can be used to understand concepts that can be used with [Azure IoT Hub libraries for Python](/python/api/overview/azure/iot?view=azure-python).
 
 - **IoT Central/IoT Edge**
-  - [Tutorial: Create and connect a client application to your Azure IoT Central application (Python)](/azure/iot-central/core/tutorial-connect-device-python)
+  - [Tutorial: Create and connect a client application to your Azure IoT Central application](/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-python)
   - [Tutorial: Develop and deploy a Python IoT Edge module for Linux devices](/azure/iot-edge/tutorial-python-module)
