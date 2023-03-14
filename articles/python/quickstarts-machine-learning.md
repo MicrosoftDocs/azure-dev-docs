@@ -34,7 +34,7 @@ With Azure Machine Learning, you can bring data from a local machine or an exist
 
 ## Deploy models
 
-Deploy the machine learning models for real-time inference.
+Deploy machine learning models for real-time inference.
 
 - [Tutorial: Designer - deploy a machine learning model](/azure/machine-learning/tutorial-designer-automobile-price-deploy)
 - [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints)
