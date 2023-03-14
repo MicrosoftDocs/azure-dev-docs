@@ -34,7 +34,7 @@ With Azure Machine Learning, you can bring data from a local machine or an exist
 
 ## Machine learning pipelines
 
-Use machine learning pipelines to create a workflow that stitches together various ML phases. Publish pipelines for later access or sharing with others. Track pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
+Use machine learning pipelines to create a workflow that stitches together various ML phases. Publish pipelines for later access or sharing with others.
 
 - [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](/azure/machine-learning/how-to-create-component-pipeline-python)
 - [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](/azure/machine-learning/tutorial-pipeline-python-sdk)
