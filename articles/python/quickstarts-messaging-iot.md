@@ -31,7 +31,7 @@ Messaging services on Azure provide the interconnectivity between components and
 
 ## Events
 
-Event Hubs and Event Grid are event ingestion and event broker services. Event Hubs is a managed, real-time ingestion service. Event Grid is a single service for managing he routing of events.
+Event Hubs and Event Grid are event ingestion and event broker services. Event Hubs is a managed, real-time ingestion service. Event Grid is a single service for managing the routing of events.
 
 - **Event Hubs**
   - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
@@ -43,7 +43,7 @@ Event Hubs and Event Grid are event ingestion and event broker services. Event H
 
 ## Internet of Things (IoT)
 
-Internet of Things or IoT refers to a collection of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. It also includes security and operating systems for devices and equipment, along with data and analytics that help businesses to build, deploy, and manage IoT applications.
+Internet of Things or IoT refers to a collection of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. IoT also includes security and operating systems for devices and data and analytics that help you build, deploy, and manage IoT applications.
 
 - **IoT Hub**
   - [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python)
