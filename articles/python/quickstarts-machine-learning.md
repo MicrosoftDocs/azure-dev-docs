@@ -32,6 +32,13 @@ With Azure Machine Learning, you can bring data from a local machine or an exist
 - [Create data sets](/azure/machine-learning/how-to-create-data-assets)
 - [Access datasets with Python using the Azure Machine Learning Python client library](/azure/architecture/data-science-process/python-data-access)
 
+## Deploy models
+
+Deploy the machine learning models for real-time inference.
+
+- [Tutorial: Designer - deploy a machine learning model](/azure/machine-learning/tutorial-designer-automobile-price-deploy)
+- [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints)
+
 ## Machine learning pipelines
 
 Use machine learning pipelines to create a workflow that stitches together various ML phases. Publish pipelines for later access or sharing with others.
