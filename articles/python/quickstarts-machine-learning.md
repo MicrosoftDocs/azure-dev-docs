@@ -8,9 +8,9 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Machine learning for Python apps on Azure
 
-The following articles help you get started with Azure Machine Learning. Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK accelerate the production machine learning lifecycle.The links below are targeted at v2, which is recommended if you're starting a new machine learning project.
+The following articles help you get started with Azure Machine Learning. Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK accelerate the production machine learning lifecycle. The links in this article target v2, which is recommended if you're starting a new machine learning project.
 
-## Manage ML workspaces
+## Getting started
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
@@ -23,8 +23,14 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
 
 - [Train a regression model with AutoML and Python (SDK v1)](/azure/machine-learning/v1/how-to-auto-train-models-v1)
-- [Access datasets with Python using the Azure Machine Learning Python client library](/azure/architecture/data-science-process/python-data-access)
 - [Set up AutoML training with the Azure Machine Learning Python SDK v2](/azure/machine-learning/how-to-configure-auto-train)
+
+## Data access
+
+With Azure Machine Learning, you can bring data from a local machine or an existing cloud-based storage.
+
+- [Create data sets](/azure/machine-learning/how-to-create-data-assets)
+- [Access datasets with Python using the Azure Machine Learning Python client library](/azure/architecture/data-science-process/python-data-access)
 
 ## Machine learning pipelines
 
