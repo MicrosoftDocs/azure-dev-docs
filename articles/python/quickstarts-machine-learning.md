@@ -14,13 +14,13 @@ The following articles help you get started with Azure Machine Learning. Azure M
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
+- [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](/azure/machine-learning/how-to-manage-workspace)
 - [Quickstart: Run Jupyter notebooks in studio and Python](/azure/machine-learning/quickstart-run-notebooks)
 - [Tutorial: Azure Machine Learning in a day with the Python SDK](/azure/machine-learning/tutorial-azure-ml-in-a-day)
-- [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](/azure/machine-learning/how-to-manage-workspace)
 
 ## Automated machine learning
 
-Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
+Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development.
 
 - [Train a regression model with AutoML and Python (SDK v1)](/azure/machine-learning/v1/how-to-auto-train-models-v1)
 - [Set up AutoML training with the Azure Machine Learning Python SDK v2](/azure/machine-learning/how-to-configure-auto-train)
