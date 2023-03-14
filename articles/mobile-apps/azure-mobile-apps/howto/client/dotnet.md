@@ -362,7 +362,7 @@ navigate between pages.
 All the functions described so far are additive, so we can keep chaining them. Each chained call affects more of the query. One more example:
 
 ```csharp
-MobileServiceTableQuery<TodoItem> query = todoTable
+var query = todoTable
                 .Where(todoItem => todoItem.Complete == false)
                 .Select(todoItem => todoItem.Text)
                 .Skip(3).
