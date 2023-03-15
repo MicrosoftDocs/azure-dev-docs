@@ -51,7 +51,7 @@
       items:
         - name: MySQL Flexible Server
           items:
-            - name: Create an MySQL Flexible Server instance
+            - name: Create a MySQL Flexible Server instance
               href: /azure/mysql/flexible-server/quickstart-create-terraform
     - name: DevTest Labs
       items:
