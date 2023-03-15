@@ -18,6 +18,13 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 - [Quickstart: Run Jupyter notebooks in studio and Python](/azure/machine-learning/quickstart-run-notebooks)
 - [Tutorial: Azure Machine Learning in a day with the Python SDK](/azure/machine-learning/tutorial-azure-ml-in-a-day)
 
+## Deploy models
+
+Deploy machine learning models for real-time inference.
+
+- [Tutorial: Designer - deploy a machine learning model](/azure/machine-learning/tutorial-designer-automobile-price-deploy)
+- [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints)
+
 ## Automated machine learning
 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development.
@@ -31,13 +38,6 @@ With Azure Machine Learning, you can bring data from a local machine or an exist
 
 - [Create data sets](/azure/machine-learning/how-to-create-data-assets)
 - [Access datasets with Python using the Azure Machine Learning Python client library](/azure/architecture/data-science-process/python-data-access)
-
-## Deploy models
-
-Deploy machine learning models for real-time inference.
-
-- [Tutorial: Designer - deploy a machine learning model](/azure/machine-learning/tutorial-designer-automobile-price-deploy)
-- [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints)
 
 ## Machine learning pipelines
 
