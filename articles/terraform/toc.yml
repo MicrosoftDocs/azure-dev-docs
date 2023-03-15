@@ -37,14 +37,22 @@
       items:
         - name: Create a server
           href: /azure/analysis-services/analysis-services-create-terraform
+    - name: API Management
+      items:
+        - name: Create a service
+          href: /azure/api-management/quickstart-terraform?tabs=azure-cli
     - name: Containers
       items:
-        - name: Kubernetes cluster with AKS
-          href: create-k8s-cluster-with-tf-and-aks.md
+        - name: Kubernetes
+          items:
+            - name: Create a cluster
+              href: create-k8s-cluster-with-tf-and-aks.md
     - name: Database
       items:
         - name: MySQL Flexible Server
-          href: /azure/mysql/flexible-server/quickstart-create-terraform
+          items:
+            - name: Create a MySQL Flexible Server instance
+              href: /azure/mysql/flexible-server/quickstart-create-terraform
     - name: DevTest Labs
       items:
         - name: Create a Windows Server VM in a lab
