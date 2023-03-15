@@ -39,7 +39,7 @@ Each package includes documentation to quickly get you started with the package.
 
 ## Provide authentication credentials
 
-The Azure SDKs require credentials [to authenticate to the Azure platform](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal). [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
+The Azure SDKs require credentials [to authenticate to the Azure platform](../sdk/authentication/local-development-environment-service-principal.md). [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
 * Fast onboarding
 * Most secure method
 * Separate the authentication mechanism from the code. This allows you to use the same code locally and on the Azure platform while the credentials are different. 
@@ -115,7 +115,7 @@ Learn about bundling with the Azure SDK:
 
 ## Next steps
 
-* [List subscriptions with **@azure/arm-subscriptions** SDK](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal#3-list-azure-subscriptions-with-service-principal)
+* [List subscriptions with **@azure/arm-subscriptions** SDK](../sdk/authentication/local-development-environment-service-principal.md)
 * [List recent resource operations with **@azure/arm-monitor** SDK](../how-to/with-azure-sdk/list-resource-operation-history.md)
 * [Create a virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/create-manage-virtual-machine.md)
 * [Stop, start, get status for your virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/stop-start-virtual-machine.md)
