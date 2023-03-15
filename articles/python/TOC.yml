@@ -209,7 +209,7 @@
     href: quickstarts-machine-learning.md
   - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
-  - name: Messaging & IoT
+  - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
   - name: Other services
     href: quickstarts-other-services.md
