@@ -41,7 +41,7 @@ Deploy machine learning models for real-time inference.
 
 ## Machine learning pipelines
 
-Use machine learning pipelines to create a workflow that stitches together various ML phases. Publish pipelines for later access or sharing with others.
+Use machine learning pipelines to create a workflow that stitches together various ML phases.
 
 - [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](/azure/machine-learning/how-to-create-component-pipeline-python)
 - [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](/azure/machine-learning/tutorial-pipeline-python-sdk)
