@@ -37,6 +37,10 @@
       items:
         - name: Create a server
           href: /azure/analysis-services/analysis-services-create-terraform
+    - name: API Management
+      items:
+        - name: Create a service
+          href: /azure/api-management/quickstart-terraform?tabs=azure-cli
     - name: Containers
       items:
         - name: Kubernetes cluster with AKS
