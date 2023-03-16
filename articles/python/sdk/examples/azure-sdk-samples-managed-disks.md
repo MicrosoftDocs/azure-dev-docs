@@ -8,9 +8,9 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Use Azure Managed Disks with the Azure libraries (SDK) for Python
 
-Azure Managed Disks provide a simplified disk management, enhanced scalability, better security, and better scaling without having to work directly with storage accounts.
+Azure Managed Disks are high-performance, durable block storage designed to be used with Azure Virtual Machines and Azure VMware Solution. Azure Managed Disks provide simplified disk management, enhanced scalability, improved security, and better scaling without having to work directly with storage accounts.
 
-You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks. (For an example of provisioning a virtual machine with the `azure-mgmt-compute` library, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).)
+You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks for an existing virtual machine. For an example of how to provision a virtual machine with the `azure-mgmt-compute` library, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).
 
 ## Standalone Managed Disks
 
