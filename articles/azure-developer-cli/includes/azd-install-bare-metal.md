@@ -31,7 +31,10 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 ```azdeveloper
 curl -fsSL https://aka.ms/install-azd.sh | bash 
 ```
-Note: If you are on Apple Silicon you may need to install the emulator. We are working to remove this requirement in the future.
+
+> [!NOTE]
+> If you're on Apple Silicon, you might need to install the emulator. 
+
 
 ```emulator
 softwareupdate --install-rosetta
