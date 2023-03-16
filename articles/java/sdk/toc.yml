@@ -6,6 +6,8 @@
       items:
         - name: Get started with Apache Maven
           href: get-started-maven.md
+        - name: Get started with Gradle
+          href: get-started-gradle.md          
         - name: Eclipse and IntelliJ integration
           href: get-started-ide.md
         - name: Azure development using Java
