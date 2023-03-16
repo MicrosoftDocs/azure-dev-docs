@@ -2,7 +2,7 @@
 title: Use Azure Managed Disks through the Azure Libraries for Python
 description: Use the Azure SDK to create, resize, and update managed disks.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/16/2023
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -10,11 +10,11 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure Managed Disks provide a simplified disk management, enhanced scalability, better security, and better scaling without having to work directly with storage accounts.
 
-You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks. (For an example of provisioning a virtual machine with the `azure-mgmt-compute` library, see [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md).)
+You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks. (For an example of provisioning a virtual machine with the `azure-mgmt-compute` library, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).)
 
 ## Standalone Managed Disks
 
-You can create standalone Managed Disks in a number of ways as illustrated in the following sections.
+You can create standalone Managed Disks in many ways as illustrated in the following sections.
 
 ### Create an empty Managed Disk
 
@@ -40,17 +40,17 @@ A Managed Disk is created implicitly when creating VM from an OS image in Azure.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/vm_with_managed_disks.py":::
 
-For a complete example on how to create a virtual machine using the Azure management libraries, for Python, see [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md).
+For a complete example on how to create a virtual machine using the Azure management libraries, for Python, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).
 
 You can also create a `storage_profile` from your own image:
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/storage_profile_from_image.py":::
 
-You can easily attach a previously provisioned Managed Disk.:
+You can easily attach a previously provisioned Managed Disk:
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/attach_disk_to_vm.py":::
 
-## Virtual machine scale sets with Managed Disks
+## Virtual Machine Scale Sets with Managed Disks
 
 Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter `vhd_containers` to provide all the storage account name to the Scale Set RestAPI. (For a migration guide, see [Convert a scale set template to a manage disk scale set template](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md).)
 
@@ -82,10 +82,10 @@ The full sample is as follows:
 
 ## See also
 
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
-- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Create Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Create and use a MySQL database](azure-sdk-example-database.md)
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
