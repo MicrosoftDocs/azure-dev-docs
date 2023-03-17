@@ -191,11 +191,10 @@ Once the app has started, you'll see an empty list and a text box to add items i
 
    ![Screenshot showing how to set the run configuration for a dot net maui for windows app.](./media/win-windows-configuration.png)
 
-   If you do not see an Android device, select **Manage Android Devices...**
 
 4. Press **F5** to build and run the project.
 
-Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+Once the app has started, you'll see an empty list and a text box to add items.  You can:
 
 * Enter some text in the box, then press Enter to insert a new item.
 * Select an item to set or clear the completed flag.
