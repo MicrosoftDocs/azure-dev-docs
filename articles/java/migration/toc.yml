@@ -53,6 +53,8 @@
           href: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
         - name: JBoss EAP to Azure VMs
           href: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
+        - name: JBoss EAP to Azure Red Hat OpenShift
+          href: migrate-jboss-eap-to-azure-redhat-openshift.md
         - name: JBoss EAP to WildFly on AKS
           href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
     - name: WebSphere to JBoss EAP on App Service

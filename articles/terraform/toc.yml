@@ -43,7 +43,11 @@
           href: /azure/api-management/quickstart-terraform?tabs=azure-cli
     - name: Containers
       items:
-        - name: Kubernetes
+        - name: Azure Container Instances
+          items:
+            - name: Create an instance with a public IP address
+              href: /azure/container-instances/container-instances-quickstart-terraform
+        - name: Azure Kubernetes Service
           items:
             - name: Create a cluster
               href: create-k8s-cluster-with-tf-and-aks.md

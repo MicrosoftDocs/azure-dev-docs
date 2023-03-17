@@ -89,5 +89,7 @@ landingContent:
             url: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
           - text: JBoss EAP to Azure VMs
             url: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
+          - text: JBoss EAP to Azure Red Hat OpenShift
+            url: migrate-jboss-eap-to-azure-redhat-openshift.md
           - text: JBoss EAP to WildFly on AKS
             url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
