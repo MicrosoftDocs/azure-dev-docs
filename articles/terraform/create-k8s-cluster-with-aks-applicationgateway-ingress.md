@@ -21,8 +21,8 @@ Article tested with the following Terraform and Terraform provider versions:
 An Application Gateway Ingress Controller (AGIC) provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes Ingress resources are used to configure the Ingress rules for individual Kubernetes services. An Ingress controller allows a single IP address to route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
 
 In this article, you learn how:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress controller
 > * Define a Kubernetes cluster
 > * Create Application Gateway resource

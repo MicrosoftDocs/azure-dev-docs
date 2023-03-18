@@ -14,8 +14,8 @@ ms.custom: devx-track-terraform
 In this article, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Set up Azure authentication.
 > * Create a Terraform configuration file.
 > * Use a Terraform configuration file to create a load balancer.

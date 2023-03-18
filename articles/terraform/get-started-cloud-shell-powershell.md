@@ -16,8 +16,8 @@ adobe-target: true
 This article shows how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using Cloud Shell and PowerShell.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Configure Cloud Shell
 > * Understand common Terraform and Azure authentication scenarios
 > * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)

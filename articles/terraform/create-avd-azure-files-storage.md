@@ -19,11 +19,11 @@ Article tested with the following Terraform and Terraform provider versions:
 Azure offers multiple storage solutions that you can use to store your FSLogix profiles container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to Azure File Storage account
-> - Use Terraform to configure File Share
-> - Use Terraform to configure RBAC permission on Azure File Storage
+> [!div class="checklist"]
+> * Use Terraform to Azure File Storage account
+> * Use Terraform to configure File Share
+> * Use Terraform to configure RBAC permission on Azure File Storage
 
 ## 1. Configure your environment
 

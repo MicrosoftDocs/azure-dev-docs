@@ -19,8 +19,8 @@ Article tested with the following Terraform and Terraform provider versions:
 This article shows how to use Terraform create an [Attestation provider](/azure/attestation/overview) on Azure.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Configure an Azure Attestation provider
 
 > [!NOTE]

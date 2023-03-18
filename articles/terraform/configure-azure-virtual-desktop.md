@@ -25,12 +25,12 @@ New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](/azure
 It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation)
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create an Azure Virtual Desktop workspace
-> - Use Terraform to create an Azure Virtual Desktop host pool
-> - Use Terraform to create an Azure Desktop Application Group
-> - Associate a Workspace and a Desktop Application Group
+> [!div class="checklist"]
+> * Use Terraform to create an Azure Virtual Desktop workspace
+> * Use Terraform to create an Azure Virtual Desktop host pool
+> * Use Terraform to create an Azure Desktop Application Group
+> * Associate a Workspace and a Desktop Application Group
 
 ## 1. Configure your environment
 

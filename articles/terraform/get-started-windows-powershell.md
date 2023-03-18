@@ -16,8 +16,8 @@ adobe-target: true
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using PowerShell.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Install the latest version of PowerShell
 > * Install the new PowerShell Az Module
 > * Install the Azure CLI

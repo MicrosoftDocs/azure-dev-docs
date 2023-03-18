@@ -13,8 +13,8 @@ ms.custom: devx-track-terraform
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Implement the Hub VNet in hub-spoke topology
 > * Verify the resources to be deployed
 > * Create the resources in Azure

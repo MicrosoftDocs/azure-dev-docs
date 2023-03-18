@@ -18,8 +18,8 @@ Article tested with the following Terraform and Terraform provider versions:
 This article shows how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create an Azure Cosmos DB instance
 > * Create an Azure Container Instance
 > * Create an app that works across these two resources

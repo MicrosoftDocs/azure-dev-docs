@@ -15,8 +15,8 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell
 To use Terraform commands against your Azure subscription, you must first authenticate Terraform to that subscription. This article covers some common scenarios for authenticating to Azure.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Understand common Terraform and Azure authentication scenarios
 > * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)
 > * Authenticate via a Microsoft account from Windows (using Bash or PowerShell)

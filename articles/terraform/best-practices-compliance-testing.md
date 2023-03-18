@@ -15,7 +15,6 @@ Many times, compliance testing is part of the continuous integration process and
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Understand when to use compliance testing
 > * Learn how to do a compliance test
 > * See and run an example compliance test

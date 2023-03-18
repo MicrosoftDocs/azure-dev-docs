@@ -18,7 +18,6 @@ If you use Terraform to deploy standard Azure Firewall with classic rules, you c
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Deploy a standard Azure Firewall with classic rules using Terraform
 > * Import the firewall rules into a premium firewall policy
 > * Edit the Terraform configuration file to migrate the firewall

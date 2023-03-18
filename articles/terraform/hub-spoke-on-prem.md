@@ -13,8 +13,8 @@ ms.custom: devx-track-terraform
 This article shows how to implement an on-premises network in Azure. You can replace the sample network with a private virtual network. To do so, modify the subnet IP addresses to suit your environment.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Implement an on-premises VNet in hub-spoke topology
 > * Create hub network appliance resources
 > * Create on-premises virtual machine

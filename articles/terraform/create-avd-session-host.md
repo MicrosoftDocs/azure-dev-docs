@@ -19,13 +19,13 @@ Article tested with the following Terraform and Terraform provider versions:
 [Learn more about using Terraform in Azure](/azure/terraform)
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create NIC for each session host
-> - Use Terraform to create VM for session host
-> - Join VM to domain
-> - Register VM with Azure Virtual Desktop
-> - Use variables file
+> [!div class="checklist"]
+> * Use Terraform to create NIC for each session host
+> * Use Terraform to create VM for session host
+> * Join VM to domain
+> * Register VM with Azure Virtual Desktop
+> * Use variables file
 
 ## 1. Configure your environment
 

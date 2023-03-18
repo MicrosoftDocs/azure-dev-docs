@@ -19,8 +19,8 @@ By default, Terraform state is stored locally, which isn't ideal for the followi
 - Storing state locally increases the chance of inadvertent deletion.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create an Azure storage account
 > * Use Azure storage to store remote Terraform state.
 > * Understand state locking

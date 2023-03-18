@@ -14,8 +14,8 @@ ms.custom: devx-track-terraform
 This article shows you how to configure Azure Compute Gallery.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Use Terraform to configure Azure Compute Gallery (formerly Shared Image Gallery)
 
 ## 1. Configure your environment

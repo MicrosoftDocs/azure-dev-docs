@@ -14,8 +14,8 @@ ms.custom: devx-track-terraform
 This article shows example Terraform code for creating a VM cluster on Azure.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Configure an Azure VM cluster
 
 ## 1. Configure your environment

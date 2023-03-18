@@ -21,8 +21,8 @@ Article tested with the following Terraform and Terraform provider versions:
 This article shows how to create an Azure resource group using Terraform.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create an Azure resource group to hold other Azure resources
 > * Verify (using Azure CLI and Azure PowerShell) the resource group was created
 > * Delete the resource group when finished using it

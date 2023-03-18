@@ -22,7 +22,6 @@ Article tested with the following Terraform and Terraform provider versions:
 In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage a new feature of an Azure service that isn't currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_update_resource` will be used to manage an [Azure EventHub](/azure/event-hubs/) network rule set.
 
 > [!div class="checklist"]
-
 > * Define and configure the AzureRM and AzAPI providers
 > * Generate a random name for the Event Hubs namespace
 > * Use the AzureRM provider to create an Azure resource group and the required networking and Event Hubs resources

@@ -25,8 +25,8 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create a static webpage module
 > * Create a unit test
 > * Create an integration test

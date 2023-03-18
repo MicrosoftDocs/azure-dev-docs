@@ -16,8 +16,8 @@ adobe-target: true
 This article presents you with the options to authenticate to Azure for use with Terraform.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Configure Cloud Shell
 > * Display current Azure account
 > * Understand common Terraform and Azure authentication scenarios
