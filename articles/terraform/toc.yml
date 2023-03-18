@@ -61,6 +61,10 @@
       items:
         - name: Create a Windows Server VM in a lab
           href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+    - name: DNS
+      items:
+        - name: Create an Azure DNS zone and record
+          href: /azure/dns/dns-get-started-terraform
     - name: IoT Device Provisioning Service
       items:
         - name: Create a DPS instance
