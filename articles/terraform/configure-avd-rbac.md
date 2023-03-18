@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop Role-Based access control using Terraform
 description: Learn how to use Terraform to configure role-based access control for Azure Virtual Desktop.
 keywords: azure devops terraform avd virtual desktop rbac
 ms.topic: how-to
-ms.date: 3/18/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 

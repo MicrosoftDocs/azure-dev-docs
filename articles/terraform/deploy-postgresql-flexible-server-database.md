@@ -3,7 +3,7 @@ title: Deploy a PostgreSQL Flexible Server Database using Terraform
 description: Learn how to deploy a PostgreSQL Flexible Server Database using Terraform
 keywords: azure, devops, terraform, postgresql, flexible server, database
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 

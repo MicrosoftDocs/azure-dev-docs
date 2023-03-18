@@ -3,7 +3,7 @@ title: Deploy an Azure Application Gateway v2 using Terraform to direct web traf
 description: In this article, you learn how to use Terraform to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 keywords: azure, devops, terraform, application gateway
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 author: vhorne
 ms.author: victorh

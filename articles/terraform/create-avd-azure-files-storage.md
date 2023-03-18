@@ -3,7 +3,7 @@ title: Configure Azure Files for FSLogix profiles for Azure Virtual Desktop usin
 description: Learn how to use Terraform to configure Azure Files for FSLogix profiles Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop storage fslogix
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 

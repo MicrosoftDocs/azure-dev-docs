@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 4/12/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 

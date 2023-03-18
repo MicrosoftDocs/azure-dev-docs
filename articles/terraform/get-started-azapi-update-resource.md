@@ -3,7 +3,7 @@ title: Quickstart - Deploy your first Azure update-resource with the AzAPI Terra
 description: Learn how to use the AzAPI Terraform provider to manage network rules on an Azure Event Hubs namespace
 keywords: azure devops terraform event hubs azapi update_resource
 ms.topic: quickstart
-ms.date: 04/24/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
