@@ -16,6 +16,7 @@ This tutorial shows the steps to install JBoss EAP and configure a cluster in do
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Create a custom virtual network and create the VMs within the network.
 > - Install the desired JDK and JBoss EAP on the VMs by using the command-line manually.
 > - Configure a JBoss EAP cluster in domain mode using the command-line interface(CLI).
@@ -38,7 +39,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 - After you're registered, you can find the necessary credentials (*Pool IDs*) by following steps below. The *Pool IDs* will also be used as the *RHSM Pool ID with EAP entitlement* later.
   - Sign in to your [Red Hat account](https://sso.redhat.com).
   - The first time you sign in, you'll be asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
-    
+
     :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
 
   - In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
@@ -146,27 +147,6 @@ az network vnet subnet update --vnet-name myVNet --name jbossVMGatewaySubnet --n
 
 ### Create an Red Hat Enterprise Linux machine for admin
 
-#### Create public IP address for admin VM
-
-```azurecli
-az network public-ip create \
-    --resource-group abc1110rg \
-    --name adminPublicIp \
-    --allocation-method static \
-    --public-ip-sku Standard
-```
-
-#### Create network interface for admin VM
-
-```azurecli
-az network nic create \
-    --resource-group abc1110rg \
-    --name adminNic \
-    --vnet-name myVnet \
-    --subnet mySubnet \
-    --public-ip-address adminPublicIp
-```
-
 #### Create the admin VM
 
 The Marketplace image that you use to create the VMs is `RedHat:RHEL:8_6:latest`.
@@ -190,12 +170,73 @@ az vm create \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
-    --nics adminNic
+    --public-ip-sku Standard \
+    --nsg mynsg \
+    --vnet-name myVnet \
+    --subnet mySubnet
+```
+
+#### Install OpenJDK 11 and JBoss EAP 7.4
+
+1. Open a terminal and SSH to the `adminVM` by running the following command:
+
+```bash
+ssh azureuser@<adminvm_public_ip>
+```
+
+Provide `Secret123456` as password.
+
+2. Configure firewall for ports by running:
+
+```bash
+sudo firewall-cmd  --zone=public --add-port={9999,8443,8009,8080,9990,9993,45700,7600}/tcp
+sudo firewall-cmd --reload
+sudo iptables-save
+```
+
+3. Register the admin host to your Red Hat Subscription Management(RHSM) account
+
+```bash
+RHSM_USER=<your rhsm username>
+RHSM_PASSWORD=<your rhsm password>
+EAP_POOL=<your rhsm pool id>
+
+sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
+```
+
+4. Attach the admin host to JBoss EAP pool
+
+```bash
+sudo subscription-manager attach --pool=${EAP_POOL}
+```
+
+5. Install OpenJDK 11
+
+```bash
+sudo yum install java-11-openjdk -y
+```
+
+6. Install JBoss EAP 7.4
+
+```bash
+sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
+sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
+sudo yum groupinstall -y jboss-eap7
+```
+
+7. Permission and TCP configurations
+
+```bash
+sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+
+sudo sed '/AllowTcpForwarding/a\AllowTcpForwarding no' /etc/ssh/sshd_config
+
+sudo systemctl restart sshd
 ```
 
 ### Create machines for managed servers
 
-You've now installed Oracle GraalVM (or another approved JVM), Oracle WebLogic Server 14c Enterprise Edition, and PostgreSQL JDBC driver on `adminVM`, which will run the WLS Administration Server. You still need to prepare machines to run the two managed servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've now installed OpenJDK 11, and JBoss EAP 7.4 on `adminVM`, which will run the domain controller server. You still need to prepare machines to run the two managed servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then follow these steps:
 
@@ -255,12 +296,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name mspVM1 \
        --attach-os-disk ${MSPVM1_DISK_ID} \
        --os-type linux \
-       --availability-set myAvailabilitySet \
-       --public-ip-address "" \
-       --nsg ""
+       --public-ip-sku Standard \
+       --nsg mynsg \
+       --vnet-name myVnet \
+       --subnet mySubnet
    ```
 
-   You've now created `mspVM1` with JDK and WLS installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+   You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
    ```azurecli
    az vm run-command invoke \
@@ -306,10 +348,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --resource-group abc1110rg \
        --name mspVM2 \
        --attach-os-disk ${MSPVM2_DISK_ID} \
-       --availability-set myAvailabilitySet \
        --os-type linux \
-       --public-ip-address "" \
-       --nsg ""
+       --public-ip-sku Standard \
+       --nsg mynsg \
+       --vnet-name myVnet \
+       --subnet mySubnet
 
    #Set hostname
    az vm run-command invoke \
@@ -323,128 +366,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 Now, all three machines are ready. Next, you'll configure a WebLogic cluster.
 
-### Configure WebLogic Server domain and cluster
-
-[!INCLUDE [configure-domain](includes/wls-manual-guidance-configure-domain.md)]
-
-#### Create the domain using the configuration wizard
-
-You'll keep using the X-server and Oracle Configuration Wizard to create the WLS domain.
-
-The following section shows how to create a new WLS domain on the `adminVM`. Make sure you're still on your Windows machine, if not, remote connect to `myWindowsVM`.
-
-1. Connect to `adminVM` from a command prompt.
-
-   Run the following commands on your Windows machine `myWindowsVM`.
-
-   ```cmd
-   set ADMINVM_IP="192.168.0.4"
-   ssh azureuser@%ADMINVM_IP%
-   ```
-
-1. Use the following commands to initialize the folder for domain configuration.
-
-   ```bash
-   sudo su
-
-   DOMAIN_PATH="/u01/domains"
-   mkdir -p ${DOMAIN_PATH}
-   chown oracle:oracle -R ${DOMAIN_PATH}
-   ```
-
-1. Use the following commands to become the `oracle` user and set the `DISPLAY` variable.
-
-   ```bash
-   sudo su - oracle
-
-   export DISPLAY=<my-windows-vm-private-ip>:0.0
-   #export DISPLAY=192.168.0.5:0.0
-   ```
-
-1. Run the following command to launch the Oracle Configuration Wizard:
-
-   ```bash
-   bash /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin/config.sh
-   ```
-
-The Oracle Configuration Wizard starts and directs you to configure the domain. The following page asks for domain type and location. Select **Create a new domain** and set domain location to */u01/domains/wlsd*. The domain configuration will be saved to this folder.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png" alt-text="Screenshot of Oracle Configuration Wizard - Create Domain." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png":::
-
-Select **Next**, then select **Create Domain Using Product Templates**. Keep the default selected template, as shown in the following screenshot.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png" alt-text="Screenshot of Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png":::
-
-Select **Next**, then input **Administration Account**. Set the **Name** as *weblogic* and **Password** as *Secret123456*.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Account." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png":::
-
-Select **Next**. For domain mode, select **Production**. For JDK, keep the default option.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-mode.png" alt-text="Screenshot of Oracle Configuration Wizard - Domain Mode and JDK." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-mode.png":::
-
-Select **Next**. For advanced configurations, select **Administration Server**, **Node Manager**, and **Topology**.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Screenshot of Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
-
-Select **Next** and fill in the **Administration Server** name with *admin*. Fill in the **Listen IP Address** with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
-
-Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is *weblogic* and the password is *Secret123456*.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png" alt-text="Screenshot of Oracle Configuration Wizard - Node Manager." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png":::
-
-Select **Next**. For managed servers, add the following items. Use the IP addresses you discovered earlier:
-
-| Server name | Listen address                      | Listen port |
-|-------------|-------------------------------------|-------------|
-| `msp1`      | The private IP address of `mspVM1`. | `8001`      |
-| `msp2`      | The private IP address of `mspVM2`. | `8001`      |
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-managed-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Managed Servers." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-managed-server.png":::
-
-Select **Next**, then create a cluster with the name `cluster1`.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-cluster.png" alt-text="Screenshot of Oracle Configuration Wizard - Cluster." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-cluster.png":::
-
-Select **Next**. Don't change the values for **Server Templates** and **Dynamic Servers**. The defaults are acceptable for a dynamic cluster.
-
-For **Assign Servers to Clusters**, assign both `msp1` and `msp2` to `cluster1`.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-cluster.png" alt-text="Screenshot of Oracle Configuration Wizard - Assign Servers to Clusters." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-cluster.png":::
-
-Select **Next**. Add the machines `adminVM`, `mspVM1`, and `mspVM2`. Use the IP addresses you discovered earlier.
-
-| Name      | Node manager listen address          | Node manager listen port |
-|-----------|--------------------------------------|--------------------------|
-| `mspVM1`  | The private IP address of `mspVM1`.  | `5556`                   |
-| `mspVM2`  | The private IP address of `mspVM2`.  | `5556`                   |
-| `adminVM` | The private IP address of `adminVM`. | `5556`                   |
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-machines.png" alt-text="Screenshot of Oracle Configuration Wizard - Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-machines.png":::
-
-Select **Next**. For **Assign Servers to Machines**, assign server `admin` to `adminVM`, `msp1` to `mspVM1`, and `msp2` to `mspVM2`.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png" alt-text="Screenshot of Oracle Configuration Wizard - Assign Servers to Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png":::
-
-Select **Next**. You'll find the **Configuration Summary**, which should look like the following screenshot.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png" alt-text="Screenshot of Oracle Configuration Wizard - Configuration Summary." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png":::
-
-Select **Create**. The **Configuration Progress** page will show the progress. All the listed items should be configured successfully.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-configuration-progress.png" alt-text="Screenshot of Oracle Configuration Wizard - Configuration Progress." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-configuration-progress.png":::
-
-Finally, there's an **End of Configuration** page to show the URL of the Administration Server.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-end.png" alt-text="Screenshot of Oracle Configuration Wizard - End." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-end.png":::
-
-The Administration Server isn't running, so the URL will not resolve. Select **Next**, then **Finish**. You've now finished configuring the `wlsd` domain with a cluster `cluster1` including two managed servers.
-
-Next, apply the domain configuration to `mspVM1` and `mspVM2`.
-
-You'll use the pack and unpack command to extend the domain.
+### Configure managed domain and cluster
 
 #### Create replicas using the pack and unpack command
 
