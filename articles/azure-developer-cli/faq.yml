@@ -26,6 +26,16 @@ sections:
           curl -fsSL https://aka.ms/uninstall-azd.sh | bash
           ```
 
+      - question: What's the difference between Azure Developer CLI and the Azure CLI?
+
+        answer: | 
+          [Azure Developer CLI (azd)] and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools, but they help you do different tasks.
+
+          [`azd`](./index.yml) focuses on the developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
+
+          Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
+
+
       - question: What is an environment name?
         answer: |
           Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
