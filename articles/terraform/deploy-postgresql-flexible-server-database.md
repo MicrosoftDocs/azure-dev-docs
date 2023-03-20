@@ -3,7 +3,7 @@ title: Deploy a PostgreSQL Flexible Server Database using Terraform
 description: Learn how to deploy a PostgreSQL Flexible Server Database using Terraform
 keywords: azure, devops, terraform, postgresql, flexible server, database
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -21,7 +21,6 @@ This article shows how to deploy a [PostgreSQL Flexible Server Database](/azure/
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create an Azure virtual network (VNet) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
 > * Create an Azure Network Security Group (NSG) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
