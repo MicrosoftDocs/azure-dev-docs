@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 4/12/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -25,12 +25,12 @@ New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](/azure
 It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation)
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create an Azure Virtual Desktop workspace
-> - Use Terraform to create an Azure Virtual Desktop host pool
-> - Use Terraform to create an Azure Desktop Application Group
-> - Associate a Workspace and a Desktop Application Group
+> [!div class="checklist"]
+> * Use Terraform to create an Azure Virtual Desktop workspace
+> * Use Terraform to create an Azure Virtual Desktop host pool
+> * Use Terraform to create an Azure Desktop Application Group
+> * Associate a Workspace and a Desktop Application Group
 
 ## 1. Configure your environment
 

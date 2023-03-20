@@ -2,7 +2,7 @@
 title: Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -25,8 +25,8 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create a static webpage module
 > * Create a unit test
 > * Create an integration test

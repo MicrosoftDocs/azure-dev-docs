@@ -3,7 +3,7 @@ title: Configure Azure Compute Gallery using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Compute Gallery
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 12/30/2021
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -14,8 +14,8 @@ ms.custom: devx-track-terraform
 This article shows you how to configure Azure Compute Gallery.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Use Terraform to configure Azure Compute Gallery (formerly Shared Image Gallery)
 
 ## 1. Configure your environment
