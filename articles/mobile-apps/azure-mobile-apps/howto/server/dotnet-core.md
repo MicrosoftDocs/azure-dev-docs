@@ -409,7 +409,7 @@ public void InitializeDatabase(DbContext context)
 
 ### LiteDB
 
-[LiteDB](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
+[LiteDB](https://www.litedb.org/) is a serverless database delivered in a single small DLL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
 1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
@@ -453,7 +453,7 @@ You can publish the API defined by data sync controllers using [NSwag](/aspnet/c
 
 Follow the basic instructions for NSwag integration, then modify as follows:
 
-1. Add packages to your project to support NSwag.  The following packages are required"
+1. Add packages to your project to support NSwag.  The following packages are required:
    
     * [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore).
     * [Microsoft.AspNetCore.Datasync.NSwag](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.NSwag).
