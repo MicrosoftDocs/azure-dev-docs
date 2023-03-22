@@ -96,6 +96,8 @@ items:
                 href: /azure/container-instances/container-instances-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Java
         items:
+          - name: Azure Service Bus JMS 2.0 developer guide
+            href: /azure/service-bus-messaging/jms-developer-guide?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Configure
             items:
               - name: JDBC
