@@ -178,7 +178,13 @@ az vm create \
 
 #### Install OpenJDK 11 and JBoss EAP 7.4
 
-1. Open a terminal and SSH to the `adminVM` by running the following command:
+1. Use the following command to get the public IP of `adminVM`
+
+```azurecli
+az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps
+```
+
+2. Open a terminal and SSH to the `adminVM` by running the following command:
 
 ```bash
 ssh azureuser@<adminvm_public_ip>
@@ -186,15 +192,15 @@ ssh azureuser@<adminvm_public_ip>
 
 Provide `Secret123456` as password.
 
-2. Configure firewall for ports by running:
+3. Configure firewall for ports by running:
 
 ```bash
-sudo firewall-cmd  --zone=public --add-port={9999,8443,8009,8080,9990,9993,45700,7600}/tcp
+sudo firewall-cmd --zone=public --add-port={9999/tcp,8443/tcp,8009/tcp,8080/tcp,9990/tcp,9993/tcp,45700/tcp,7600/tcp} --permanent
 sudo firewall-cmd --reload
 sudo iptables-save
 ```
 
-3. Register the admin host to your Red Hat Subscription Management(RHSM) account
+4. Register the admin host to your Red Hat Subscription Management(RHSM) account
 
 ```bash
 RHSM_USER=<your rhsm username>
@@ -204,19 +210,19 @@ EAP_POOL=<your rhsm pool id>
 sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
 ```
 
-4. Attach the admin host to JBoss EAP pool
+5. Attach the admin host to JBoss EAP pool
 
 ```bash
 sudo subscription-manager attach --pool=${EAP_POOL}
 ```
 
-5. Install OpenJDK 11
+6. Install OpenJDK 11
 
 ```bash
 sudo yum install java-11-openjdk -y
 ```
 
-6. Install JBoss EAP 7.4
+7. Install JBoss EAP 7.4
 
 ```bash
 sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
@@ -224,14 +230,23 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 sudo yum groupinstall -y jboss-eap7
 ```
 
-7. Permission and TCP configurations
+8. Permission and TCP configurations
 
 ```bash
 sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-
 sudo sed '/AllowTcpForwarding/a\AllowTcpForwarding no' /etc/ssh/sshd_config
-
+echo 'AllowTcpForwarding no' | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
+```
+
+9. Environment variables
+
+```bash
+echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
+echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
+source ~/.bash_profile
+sudo touch /etc/profile.d/eap_env.sh
+echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
 ```
 
 ### Create machines for managed servers
@@ -242,125 +257,125 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following command to stop `adminVM`:
 
-   ```azurecli
-   az vm stop --resource-group abc1110rg --name adminVM
-   ```
+```azurecli
+az vm stop --resource-group abc1110rg --name adminVM
+```
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
-   ```azurecli
-   ADMIN_OS_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
-       --name adminVM \
-       --query storageProfile.osDisk.managedDisk.id \
-       --output tsv)
-   az snapshot create \
-       --resource-group abc1110rg \
-       --name myAdminOSDiskSnapshot \
-       --source ${ADMIN_OS_DISK_ID}
-   ```
+```azurecli
+ADMIN_OS_DISK_ID=$(az vm show \
+    --resource-group abc1110rg \
+    --name adminVM \
+    --query storageProfile.osDisk.managedDisk.id \
+    --output tsv)
+az snapshot create \
+    --resource-group abc1110rg \
+    --name myAdminOSDiskSnapshot \
+    --source ${ADMIN_OS_DISK_ID}
+```
 
 1. Create `mspVM1`.
 
-   First, create a managed disk for `mspVM1` with [az disk create](/cli/azure/disk#az-disk-create):
+First, create a managed disk for `mspVM1` with [az disk create](/cli/azure/disk#az-disk-create):
 
-   ```azurecli
-   #Get the snapshot ID
-   SNAPSHOT_ID=$(az snapshot show \
-       --name myAdminOSDiskSnapshot \
-       --resource-group abc1110rg \
-       --query [id] \
-       --output tsv)
+```azurecli
+#Get the snapshot ID
+SNAPSHOT_ID=$(az snapshot show \
+    --name myAdminOSDiskSnapshot \
+    --resource-group abc1110rg \
+    --query [id] \
+    --output tsv)
 
-   #Create a new Managed Disks using the snapshot Id
-   #Note that managed disk will be created in the same location as the snapshot
-   az disk create \
-       --resource-group abc1110rg \
-       --name mspVM1_OsDisk_1 \
-       --source ${SNAPSHOT_ID}
-   ```
+#Create a new Managed Disks using the snapshot Id
+#Note that managed disk will be created in the same location as the snapshot
+az disk create \
+    --resource-group abc1110rg \
+    --name mspVM1_OsDisk_1 \
+    --source ${SNAPSHOT_ID}
+```
 
-   Next, create VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
+Next, create VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
 
-   ```azurecli
-   #Get the resource Id of the managed disk
-   MSPVM1_DISK_ID=$(az disk show \
-       --name mspVM1_OsDisk_1 \
-       --resource-group abc1110rg \
-       --query [id] \
-       --output tsv)
+```azurecli
+#Get the resource Id of the managed disk
+MSPVM1_DISK_ID=$(az disk show \
+    --name mspVM1_OsDisk_1 \
+    --resource-group abc1110rg \
+    --query [id] \
+    --output tsv)
 
-   #Create VM by attaching existing managed disks as OS
-   az vm create \
-       --resource-group abc1110rg \
-       --name mspVM1 \
-       --attach-os-disk ${MSPVM1_DISK_ID} \
-       --os-type linux \
-       --public-ip-sku Standard \
-       --nsg mynsg \
-       --vnet-name myVnet \
-       --subnet mySubnet
-   ```
+#Create VM by attaching existing managed disks as OS
+az vm create \
+    --resource-group abc1110rg \
+    --name mspVM1 \
+    --attach-os-disk ${MSPVM1_DISK_ID} \
+    --os-type linux \
+    --public-ip-sku Standard \
+    --nsg mynsg \
+    --vnet-name myVnet \
+    --subnet mySubnet
+```
 
-   You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
-   ```azurecli
-   az vm run-command invoke \
-       --resource-group abc1110rg \
-       --name mspVM1 \
-       --command-id RunShellScript \
-       --scripts "sudo hostnamectl set-hostname mspVM1"
-   ```
+```azurecli
+az vm run-command invoke \
+    --resource-group abc1110rg \
+    --name mspVM1 \
+    --command-id RunShellScript \
+    --scripts "sudo hostnamectl set-hostname mspVM1"
+```
 
-   When the command completes successfully, you'll see output similar to this:
+When the command completes successfully, you'll see output similar to this:
 
-   ```json
-   {
-       "value": [
-           {
-           "code": "ProvisioningState/succeeded",
-           "displayStatus": "Provisioning succeeded",
-           "level": "Info",
-           "message": "Enable succeeded: \n[stdout]\n\n[stderr]\n",
-           "time": null
-           }
-       ]
-   }
-   ```
+```json
+{
+    "value": [
+        {
+        "code": "ProvisioningState/succeeded",
+        "displayStatus": "Provisioning succeeded",
+        "level": "Info",
+        "message": "Enable succeeded: \n[stdout]\n\n[stderr]\n",
+        "time": null
+        }
+    ]
+}
+```
 
 1. Create `mspVM2`.
 
-   The steps to create `mspVM2` are the same as creating `mspVM1`.
+The steps to create `mspVM2` are the same as creating `mspVM1`.
 
-   ```azurecli
-   #Create a new Managed Disks for mspVM2
-   az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
+```azurecli
+#Create a new Managed Disks for mspVM2
+az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
 
-   #Get the resource Id of the managed disk
-   MSPVM2_DISK_ID=$(az disk show \
-   --name mspVM2_OsDisk_1 \
-   --resource-group abc1110rg \
-   --query [id] \
-   --output tsv)
+#Get the resource Id of the managed disk
+MSPVM2_DISK_ID=$(az disk show \
+--name mspVM2_OsDisk_1 \
+--resource-group abc1110rg \
+--query [id] \
+--output tsv)
 
-   #Create VM by attaching existing managed disks as OS
-   az vm create \
-       --resource-group abc1110rg \
-       --name mspVM2 \
-       --attach-os-disk ${MSPVM2_DISK_ID} \
-       --os-type linux \
-       --public-ip-sku Standard \
-       --nsg mynsg \
-       --vnet-name myVnet \
-       --subnet mySubnet
+#Create VM by attaching existing managed disks as OS
+az vm create \
+    --resource-group abc1110rg \
+    --name mspVM2 \
+    --attach-os-disk ${MSPVM2_DISK_ID} \
+    --os-type linux \
+    --public-ip-sku Standard \
+    --nsg mynsg \
+    --vnet-name myVnet \
+    --subnet mySubnet
 
-   #Set hostname
-   az vm run-command invoke \
-       --resource-group abc1110rg \
-       --name mspVM2 \
-       --command-id RunShellScript \
-       --scripts "sudo hostnamectl set-hostname mspVM2"
-   ```
+#Set hostname
+az vm run-command invoke \
+    --resource-group abc1110rg \
+    --name mspVM2 \
+    --command-id RunShellScript \
+    --scripts "sudo hostnamectl set-hostname mspVM2"
+```
 
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
@@ -368,40 +383,127 @@ Now, all three machines are ready. Next, you'll configure a WebLogic cluster.
 
 ### Configure managed domain and cluster
 
-#### Create replicas using the pack and unpack command
+In the documentation we will configure a cluster with session replication enabled. For more information, see [Session Replication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/development_guide/clustering_in_web_applications#session_replication). 
 
-This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F).
+To enable session replication we will use JBoss EAP High Availability for the cluster. Microsoft Azure does not support JGroups discovery protocols that are based on UDP multicast. Although you may use other JGroups discovery protocols (such as a static configuration (`TCPPING`), a shared database (`JDBC_PING`), shared file system-based ping (`FILE_PING`), or `TCPGOSSIP`), we strongly recommend that you use the shared file discovery protocol specifically developed for Azure: `AZURE_PING`. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper) 
 
-1. Pack the domain configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `oracle` user.
+#### Create Azure storage account and Blob container for AZURE_PING
 
-   ```bash
-   cd /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin
-   bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
-   ```
+Use the following command to create a storage account and Blob container.
 
-   If the command is completed successfully, you'll see output similar the following example.
+```azurecli
+# Define your storage account name
+STORAGE_ACCOUNT_NAME=azurepingstg0322
 
-   ```output
-   [oracle@adminVM bin]$ bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
-   << read domain from "/u01/domains/wlsd"
-   >>  succeed: read domain from "/u01/domains/wlsd"
-   << set config option Managed to "true"
-   >>  succeed: set config option Managed to "true"
-   << write template to "/tmp/cluster.jar"
-   ..............................
-   >>  succeed: write template to "/tmp/cluster.jar"
-   << close template
-   >>  succeed: close template
-   ```
+# Create storage account
+az storage account create \
+  --name ${STORAGE_ACCOUNT_NAME} \
+  --resource-group abc1110rg \
+  --location eastus \
+  --sku Standard_LRS \
+  --kind StorageV2 \
+  --access-tier Hot
 
-   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
+# Retrieve the storage account key
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+  --account-name ${STORAGE_ACCOUNT_NAME} \
+  --query "[0].value" --output tsv)
 
-   ```bash
-   scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
-   scp /tmp/cluster.jar azureuser@<mspvm2-private-ip>:/tmp/cluster.jar
-   #scp /tmp/cluster.jar azureuser@192.168.0.6:/tmp/cluster.jar
-   #scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
-   ```
+# Define your Blob container name
+CONTAINER_NAME=azurepingcontainer0322
+
+# Create blob container
+az storage container create \
+  --name ${CONTAINER_NAME} \
+  --account-name ${STORAGE_ACCOUNT_NAME} \
+  --account-key ${STORAGE_ACCOUNT_KEY}
+```
+
+#### Configure domain controller
+
+This tutorial uses the JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
+
+1. Setup the domain controller configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `azureuser` user.
+
+```bash
+HOST_VM_IP=$(hostname -I)
+
+# Configure the HA profile and JGroups using AZURE_PING protocol
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
+':write-attribute(name=name,value=domain1)',\
+'/profile=ha/subsystem=jgroups/stack=tcp:remove',\
+'/profile=ha/subsystem=jgroups/stack=tcp:add()',\
+'/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
+"/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
+'/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
+'/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
+'/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
+"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
+
+# Configure the JBoss server and setup EAP service
+echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+
+# Start the JBoss server and setup EAP service
+sudo systemctl enable eap7-domain.service
+
+# Edit eap7-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap7-domain.service
+
+# Check the status of EAP service
+systemctl status eap7-domain.service 
+
+# Configure JBoss EAP management user
+JBOSS_EAP_USER=jbossadmin
+JBOSS_EAP_PASSWORD=Secret123456
+sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+```
+
+After start the JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like:
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
+
+
+```output
+[oracle@adminVM bin]$ bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
+<< read domain from "/u01/domains/wlsd"
+>>  succeed: read domain from "/u01/domains/wlsd"
+<< set config option Managed to "true"
+>>  succeed: set config option Managed to "true"
+<< write template to "/tmp/cluster.jar"
+..............................
+>>  succeed: write template to "/tmp/cluster.jar"
+<< close template
+>>  succeed: close template
+```
+
+Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
+
+```bash
+scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
+scp /tmp/cluster.jar azureuser@<mspvm2-private-ip>:/tmp/cluster.jar
+#scp /tmp/cluster.jar azureuser@192.168.0.6:/tmp/cluster.jar
+#scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
+```
 
 1. Use the following instructions to apply domain configuration to `mspVM1`.
 
