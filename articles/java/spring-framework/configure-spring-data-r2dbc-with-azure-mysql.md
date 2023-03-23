@@ -14,7 +14,7 @@ ms.contributors: judubois-09162021
 
 # Use Spring Data R2DBC with Azure Database for MySQL
 
-This article demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for MySQL](/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
+This article demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for MySQL](/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/asyncer-io/r2dbc-mysql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -157,16 +157,15 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive MySQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
+Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/asyncer-io/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ```xml
 <dependency>
-   <groupId>dev.miku</groupId>
-   <artifactId>r2dbc-mysql</artifactId>
-   <version>0.8.1.RELEASE</version>
-   <scope>runtime</scope>
+  <groupId>io.asyncer</groupId>
+  <artifactId>r2dbc-mysql</artifactId>
+  <version>0.9.1</version>
 </dependency>
 ```
 
