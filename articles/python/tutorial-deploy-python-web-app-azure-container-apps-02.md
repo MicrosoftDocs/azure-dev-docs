@@ -647,7 +647,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         AZURE_POSTGRESQL_USERNAME=demoadmin
         AZURE_POSTGRESQL_PASSWORD=<db-password>
         RUNNING_IN_PRODUCTION=1* 
-        AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
+        AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
         ```
 
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
