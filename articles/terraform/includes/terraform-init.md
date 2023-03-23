@@ -10,3 +10,7 @@ Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initia
 ```console
 terraform init -upgrade
 ```
+
+**Key points:**
+
+- The `-upgrade` parameter upgrades the necessary provider plugins to the newest version that complies with the configuration's version constraints.
