@@ -40,7 +40,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   - Sign in to your [Red Hat account](https://sso.redhat.com).
   - The first time you sign in, you'll be asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
 
-    :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
+    :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
   - In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   - Select the first subscription from the **All purchased Subscriptions** table.
@@ -101,7 +101,7 @@ az network vnet create \
     --address-prefixes 192.168.0.0/24
 ```
 
-Create a subnet for the WLS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
+Create a subnet for the JBoss EAP cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet subnet create \
@@ -565,13 +565,13 @@ Repeat the above steps on `mspVM2`, after two host controller are connected to `
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
-## Expose WLS with Azure Application Gateway
+## Expose c with Azure Application Gateway
 
-Now that you've created the WebLogic Server (WLS) cluster on either Windows or GNU/Linux virtual machines, this section walks you through the process of exposing WLS to the internet with Azure Application Gateway.
+Now that you've created the JBoss EAP cluster on Azure virtual machines, this section walks you through the process of exposing JBoss EAP to the internet with Azure Application Gateway.
 
 ### Create the Azure Application Gateway
 
-To expose WLS to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
+To expose JBoss EAP to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
 
 ```azurecli
 az network public-ip create \
@@ -581,18 +581,9 @@ az network public-ip create \
     --sku Standard
 ```
 
-You'll add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands.
+You'll add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands. We will only have the host controllers(work nodes) configured as backend servers.
 
-```azurecli
-ADMINVM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
-    --name adminVM \
-    --query networkProfile.networkInterfaces[0].id \
-    --output tsv)
-ADMINVM_IP=$(az network nic show \
-    --ids ${ADMINVM_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
-    --output tsv)
+```azureclire
 MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
@@ -600,7 +591,7 @@ MSPVM1_NIC_ID=$(az vm show \
     --output tsv)
 MSPVM1_IP=$(az network nic show \
     --ids ${MSPVM1_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 MSPVM2_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
@@ -609,11 +600,11 @@ MSPVM2_NIC_ID=$(az vm show \
     --output tsv)
 MSPVM2_IP=$(az network nic show \
     --ids ${MSPVM2_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 ```
 
-Next, create an Azure Application Gateway. The following example creates an application gateway with managed servers in the default backend pool.
+Next, create an Azure Application Gateway. The following example creates an application gateway with host controllers in the default backend pool.
 
 ```azurecli
 az network application-gateway create \
@@ -622,11 +613,11 @@ az network application-gateway create \
     --public-ip-address myAGPublicIPAddress \
     --location eastus \
     --capacity 2 \
-    --http-settings-port 80 \
+    --http-settings-port 8080 \
     --http-settings-protocol Http \
     --frontend-port 80 \
     --sku Standard_V2 \
-    --subnet wlsVMGateway \
+    --subnet jbossVMGatewaySubnet \
     --vnet-name myVNet \
     --priority 1001 \
     --servers ${MSPVM1_IP} ${MSPVM2_IP}
@@ -634,102 +625,18 @@ az network application-gateway create \
 
 After the application gateway is created, you can see these new features:
 
-- `appGatewayBackendPool` - A backend address pool includes the managed servers.
+- `appGatewayBackendPool` - A backend address pool includes the host controllers.
 - `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
 - `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
 
-The managed servers expose their workloads with port `8001`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `8001` and creating a probe for it.
-
-```azurecli
-az network application-gateway probe create \
-    --resource-group abc1110rg \
-    --gateway-name myAppGateway \
-    --name clusterProbe \
-    --protocol http \
-    --host 127.0.0.1 \
-    --path /weblogic/ready
-
-az network application-gateway http-settings update \
-    --resource-group abc1110rg \
-    --gateway-name myAppGateway \
-    --name appGatewayBackendHttpSettings \
-    --port 8001 \
-    --probe clusterProbe
-```
-
-The next commands provision a basic rule `rule1`. This example will add a path to the Administration Server. First, use the following commands to create a URL path map:
-
-```azurecli
-az network application-gateway address-pool create \
-    --resource-group abc1110rg \
-    --gateway-name myAppGateway \
-    --name adminServerAddressPool \
-    --servers ${ADMINVM_IP}
-
-az network application-gateway probe create \
-    --resource-group abc1110rg \
-    --gateway-name myAppGateway \
-    --name adminProbe \
-    --protocol http \
-    --host 127.0.0.1 \
-    --path /weblogic/ready
-
-az network application-gateway http-settings create \
-    --resource-group abc1110rg \
-    --gateway-name myAppGateway \
-    --name adminBackendSettings \
-    --port 7001 \
-    --protocol Http \
-    --probe adminProbe
-
-az network application-gateway url-path-map create \
-    --gateway-name myAppGateway \
-    --name urlpathmap \
-    --paths /console/* \
-    --resource-group abc1110rg \
-    --address-pool adminServerAddressPool \
-    --default-address-pool appGatewayBackendPool \
-    --default-http-settings appGatewayBackendHttpSettings \
-    --http-settings adminBackendSettings \
-    --rule-name consolePathRule
-```
-
-Next, use [az network application-gateway rule update](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-update) to update the rule type to be `PathBasedRouting`.
-
-```azurecli
-az network application-gateway rule update \
-    --gateway-name myAppGateway \
-    --name rule1 \
-    --resource-group abc1110rg \
-    --http-listener appGatewayHttpListener \
-    --rule-type PathBasedRouting \
-    --url-path-map urlpathmap \
-    --priority 1001 \
-    --address-pool appGatewayBackendPool \
-    --http-settings appGatewayBackendHttpSettings
-```
-
-You're now able to access the Administration Server with the URL `http://<gateway-public-ip-address>/console/`. Run the following commands to get the URL.
-
-```azurecli
-APPGATEWAY_IP=$(az network public-ip show \
-    --resource-group abc1110rg \
-    --name myAGPublicIPAddress \
-    --query [ipAddress] \
-    --output tsv)
-echo "admin console URL is http://${APPGATEWAY_IP}/console/"
-```
-
-Verify that you can log into the Administration Server console. If you can't, troubleshoot and resolve the problem before proceeding.
-
 > [!NOTE]
-> This example sets up simple access to the WebLogic servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
->
-> This example exposes the Administration Server console via the Application Gateway. Don't do this in a production environment.
+> This example sets up simple access to the JBoss EAP servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
 ## Connect Azure Database for PostgreSQL
 
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your WLS cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
+This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your JBoss EAP cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
+
+### Install driver
 
 ### Create an Azure Database for PostgreSQL instance
 
