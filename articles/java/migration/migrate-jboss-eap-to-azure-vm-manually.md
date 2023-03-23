@@ -58,8 +58,12 @@ In this section, you'll set up the infrastructure within which you'll install th
 
 This tutorial will configure a JBoss EAP cluster in domain mode with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following 3 Azure VMs:
 
-- The admin VM (VM name `adminVM`) has the administration server running.
-- The managed VMs (VM names `mspVM1` and `mspVM2`) have two managed servers running.
+- An admin VM (VM name `adminVM`) runs as the domain controller.
+- Two managed VMs (VM names `mspVM1` and `mspVM2`) run as host controller.
+
+The topology of the cluster will look like: 
+
+**Add image here**
 
 ### Sign in to Azure
 
@@ -234,7 +238,6 @@ sudo yum groupinstall -y jboss-eap7
 
 ```bash
 sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-sudo sed '/AllowTcpForwarding/a\AllowTcpForwarding no' /etc/ssh/sshd_config
 echo 'AllowTcpForwarding no' | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 ```
@@ -419,7 +422,7 @@ az storage container create \
   --account-key ${STORAGE_ACCOUNT_KEY}
 ```
 
-#### Configure domain controller
+#### Configure domain controller(admin node)
 
 This tutorial uses the JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
@@ -454,6 +457,9 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
 
+# Save a copy of the domain.xml, later we need to share it with all host controllers
+cp domain.xml /tmp/domain.xml
+
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
 
@@ -482,505 +488,82 @@ After start the JBoss EAP service, you will be able to access the management con
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
+Select `Runtime` and then browser the `Topology` you should see that for now our cluster only contains one domain controller:
 
-```output
-[oracle@adminVM bin]$ bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
-<< read domain from "/u01/domains/wlsd"
->>  succeed: read domain from "/u01/domains/wlsd"
-<< set config option Managed to "true"
->>  succeed: set config option Managed to "true"
-<< write template to "/tmp/cluster.jar"
-..............................
->>  succeed: write template to "/tmp/cluster.jar"
-<< close template
->>  succeed: close template
-```
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of cluster topology with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
 
-Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
 
-```bash
-scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
-scp /tmp/cluster.jar azureuser@<mspvm2-private-ip>:/tmp/cluster.jar
-#scp /tmp/cluster.jar azureuser@192.168.0.6:/tmp/cluster.jar
-#scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
-```
 
-1. Use the following instructions to apply domain configuration to `mspVM1`.
+#### Configure host controller(worker node)
 
-   Open a new command prompt, and use the following commands to connect to `mspVM1`. Replace `192.168.0.6` with your `mspVM1` private IP address:
+1. Retrieve the private IP of `adminVM`, we will use it to configure the connection between domain controller and host controllers.
+    1. Portal **Fill in steps**
 
-   ```cmd
-   set MSPVM1_IP="192.168.0.6"
-   ssh azureuser@%MSPVM1_IP%
-   ```
+1. Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply domain configuration to `mspVM1`.
 
-   You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
-
-   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to be owned by `oracle`.
-
-   ```bash
-   sudo su
-
-   chown oracle:oracle /tmp/cluster.jar
-
-   DOMAIN_PATH="/u01/domains"
-   mkdir -p ${DOMAIN_PATH}
-   chown oracle:oracle -R ${DOMAIN_PATH}
-   ```
-
-   As the `oracle` user, use the following commands to apply the domain configuration.
-
-   ```bash
-   sudo su - oracle
-
-   cd /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin
-   bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
-   ```
-
-   If the command completes successfully, you'll see output similar to the following example.
-
-   ```output
-   [oracle@mspVM1 bin]$ bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
-   << read template from "/tmp/cluster.jar"
-   >>  succeed: read template from "/tmp/cluster.jar"
-   << set config option DomainName to "wlsd"
-   >>  succeed: set config option DomainName to "wlsd"
-   >>  validateConfig "KeyStorePasswords"
-   >>  succeed: validateConfig "KeyStorePasswords"
-   << write Domain to "/u01/domains/wlsd"
-   ..................................................
-   >>  succeed: write Domain to "/u01/domains/wlsd"
-   << close template
-   >>  succeed: close template
-   ```
-
-1. Use the following instructions to apply domain configuration to `mspVM2`.
-
-   Connect `mspVM2` in a new command prompt. Replace `192.168.0.7` with your `mspVM2` private IP address:
-
-   ```cmd
-   set MSPVM2_IP="192.168.0.7"
-   ssh azureuser@%MSPVM2_IP%
-   ```
-
-   You'll be asked for a password for the connection. For this example, the password is *Secret123456*.
-
-   You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration.
-
-   ```bash
-   sudo su
-
-   chown oracle:oracle /tmp/cluster.jar
-
-   DOMAIN_PATH="/u01/domains"
-   mkdir -p ${DOMAIN_PATH}
-   chown oracle:oracle -R ${DOMAIN_PATH}
-
-   sudo su - oracle
-
-   cd /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin
-   bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
-   ```
-
-You've now replicated the domain configuration on `mspVM1` and `mspVM2`, and you're ready to start the servers.
-
-### Start servers
-
-The steps in this section direct you to perform the following two tasks:
-
-1. Make it so the admin and managed servers start automatically after server reboot.
-1. Start the servers for immediate use.
-
-These two tasks are not easily separated, so the steps for the two tasks are intermixed.
-
-#### Start admin
-
-Go back to the command prompt that connects to `adminVM`. If you've lost it, run the following command to connect to it:
-
-```cmd
-set ADMINVM_IP="192.168.0.4"
-ssh azureuser@%ADMINVM_IP%
-```
-
-If you aren't working with the `oracle` user, log in with `oracle`:
+Open a new command prompt, and use the following commands to connect to `mspVM1`:
 
 ```bash
-sudo su - oracle
+ssh azureuser@<mspVM1_public_ip>
 ```
 
-The following command persists the `admin` account to */u01/domains/wlsd/servers/admin/security/boot.properties* to enable automatically starting the `admin` server without asking for credentials.
+You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
 
-Replace the username and password with yours.
+You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to fetch the domain configuration file `domain.xml` from `adminVM`.
 
 ```bash
-mkdir -p /u01/domains/wlsd/servers/admin/security
+# environment variables
+DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
+HOST_VM_NAME=$(hostname)
+HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
+HOST_VM_IP=$(hostname -I)
 
-cat <<EOF >/u01/domains/wlsd/servers/admin/security/boot.properties
-username=weblogic
-password=Secret123456
-EOF
-```
+JBOSS_EAP_USER=jbossadmin
+JBOSS_EAP_PASSWORD=Secret123456
 
-Use the following commands to inspect the file. Be sure it has the correct ownership, permissions, and contents.
+# Save default domain configuration as backup
+sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
 
-```bash
-ls -la /u01/domains/wlsd/servers/admin/security/boot.properties
-cat /u01/domains/wlsd/servers/admin/security/boot.properties
-```
+# Fetch domain.xml from domain controller
+sudo -u jboss scp azureuser@<adminVM_private_IP>:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
 
-The output should look nearly identical to the following example.
+# Setup host controller
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+"embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
 
-```output
-[oracle@adminVM bin]$ ls -la /u01/domains/wlsd/servers/admin/security/boot.properties
--rw-rw-r--. 1 oracle oracle 40 Nov 28 17:00 /u01/domains/wlsd/servers/admin/security/boot.properties
-[oracle@adminVM bin]$ cat /u01/domains/wlsd/servers/admin/security/boot.properties
-username=weblogic
-password=Secret123456
-```
+# Configure the JBoss server and setup EAP service
+echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
 
-#### Enable the admin sever and node manager to start automatically after VM restart
+# Start the JBoss server and setup EAP service
+sudo systemctl enable eap7-domain.service
 
-Create a Linux service for the WLS admin server and node manager, to start the process automatically after reboot. For more information, see [Use systemd on Oracle Linux](https://docs.oracle.com/en/learn/use_systemd/index.html).
+# Edit eap7-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
 
-Exit the `oracle` user and sign in with the `root` user.
-
-```bash
-exit
-
-sudo su
-```
-
-Create the Linux service for the node manager:
-
-```bash
-cat <<EOF >/etc/systemd/system/wls_nodemanager.service
-[Unit]
-Description=WebLogic nodemanager service
-After=network-online.target
-Wants=network-online.target
-[Service]
-Type=simple
-# Note that the following three parameters should be changed to the correct paths
-# on your own system
-WorkingDirectory=/u01/domains/wlsd
-ExecStart="/u01/domains/wlsd/bin/startNodeManager.sh"
-ExecStop="/u01/domains/wlsd/bin/stopNodeManager.sh"
-User=oracle
-Group=oracle
-KillMode=process
-LimitNOFILE=65535
-Restart=always
-RestartSec=3
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-
-Create the Linux service for the admin server:
-
-```bash
-cat <<EOF >/etc/systemd/system/wls_admin.service
-[Unit]
-Description=WebLogic Adminserver service
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-WorkingDirectory=/u01/domains/wlsd
-ExecStart="/u01/domains/wlsd/startWebLogic.sh"
-ExecStop="/u01/domains/wlsd/bin/stopWebLogic.sh"
-User=oracle
-Group=oracle
-KillMode=process
-LimitNOFILE=65535
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-
-You're now ready to start the node manager and admin server on `adminVM` by using the following commands:
-
-```bash
-sudo systemctl enable wls_nodemanager
-sudo systemctl enable wls_admin
+# Reload and restart EAP service
 sudo systemctl daemon-reload
-sudo systemctl start wls_nodemanager
-sudo systemctl start wls_admin
+sudo systemctl restart eap7-domain.service
+
+# Check the status of EAP service
+systemctl status eap7-domain.service 
+
 ```
 
-Check the admin server state with `sudo systemctl status wls_admin -l`. The Administration Server should be ready when you find similar logs:
+Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
 
-```output
-[root@adminVM wlsd]# sudo systemctl status wls_admin -l
-● wls_admin.service - WebLogic Adminserver service
-Loaded: loaded (/etc/systemd/system/wls_admin.service; enabled; vendor preset: disabled)
-Active: active (running) since Mon 2022-09-26 07:47:34 UTC; 54s ago
-Main PID: 26738 (startWebLogic.s)
-    Tasks: 61 (limit: 20654)
-Memory: 649.2M
-
-... ...
-
-Sep 26 07:48:15 adminVM startWebLogic.sh[26802]: <Sep 26, 2022, 7:48:15,411 AM Coordinated Universal Time> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to RUNNING.>
-```
-
-Press <kbd>Q</kbd> to exit the log monitoring mode.
-
-You can't access admin server before opening ports `7001` and `5556`. Run the following command to open ports:
-
-```bash
-sudo firewall-cmd --zone=public --add-port=7001/tcp
-sudo firewall-cmd --zone=public --add-port=5556/tcp
-sudo firewall-cmd --runtime-to-permanent
-sudo systemctl restart firewalld
-```
-
-At this point, you can access the admin server on the browser of `myWindowsVM` with the URL `http://<adminvm-private-ip>:7001/console`. Verify that you can view the admin server, but don't sign in just yet. If the admin server is not running, troubleshoot and resolve the problem before proceeding. The admin server is not accessible outside of Azure.
-
-#### Start msp1
-
-Go back to the command prompt that connects to `mspVM1`. If you've lost it, run the following command to connect to it:
-
-```cmd
-set MSPVM1_IP="192.168.0.6"
-ssh azureuser@%MSPVM1_IP%
-```
-
-If you aren't working with `oracle` user, log in with `oracle`:
-
-```bash
-sudo su - oracle
-```
-
-Persist the `admin` account to */u01/domains/wlsd/servers/msp1/security/boot.properties* to enable automatically starting `msp1` without asking for credentials. Replace the username and password with yours.
-
-```bash
-mkdir -p /u01/domains/wlsd/servers/msp1/security
-
-cat <<EOF >/u01/domains/wlsd/servers/msp1/security/boot.properties
-username=weblogic
-password=Secret123456
-EOF
-```
-
-Now, you'll create a Linux service for node manager, to start the process automatically on machine reboot. For more information, see [Use systemd on Oracle Linux](https://docs.oracle.com/en/learn/use_systemd/index.html).
-
-Exit the `oracle` user and sign in with the `root` user.
-
-```bash
-exit
-
-#Skip this command if you are root
-sudo su
-```
-
-Create the Linux service for the node manager:
-
-```bash
-cat <<EOF >/etc/systemd/system/wls_nodemanager.service
-[Unit]
-Description=WebLogic nodemanager service
-After=network-online.target
-Wants=network-online.target
-[Service]
-Type=simple
-# Note that the following three parameters should be changed to the correct paths
-# on your own system
-WorkingDirectory=/u01/domains/wlsd
-ExecStart="/u01/domains/wlsd/bin/startNodeManager.sh"
-ExecStop="/u01/domains/wlsd/bin/stopNodeManager.sh"
-User=oracle
-Group=oracle
-KillMode=process
-LimitNOFILE=65535
-Restart=always
-RestartSec=3
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-
-Next, start the node manager.
-
-```bash
-sudo systemctl enable wls_nodemanager
-sudo systemctl daemon-reload
-sudo systemctl start wls_nodemanager
-```
-
-If the node manager is running successfully, you'll see logs similar to the following example:
-
-```output
-[root@mspVM1 azureuser]# systemctl status wls_nodemanager -l
-● wls_nodemanager.service - WebLogic nodemanager service
-Loaded: loaded (/etc/systemd/system/wls_nodemanager.service; enabled; vendor preset: disabled)
-Active: active (running) since Tue 2022-09-27 01:23:42 UTC; 19s ago
-Main PID: 107544 (startNodeManage)
-    Tasks: 15 (limit: 20654)
-Memory: 146.7M
-
-... ...
-
-Sep 27 01:23:45 mspVM1 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:45 AM Coordinated Universal Time> <INFO> <Server Implementation Class: weblogic.nodemanager.server.NMServer$ClassicServer.>
-Sep 27 01:23:46 mspVM1 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:46 AM Coordinated Universal Time> <INFO> <Secure socket listener started on port 5556, host /192.168.0.6>
-```
-
-Press <kbd>Q</kbd> to exit log monitoring mode.
-
-You must open port `8001` to access application that deployed to the cluster and `5556` for communication inside the domain. Run the following command to open ports:
-
-```bash
-sudo firewall-cmd --zone=public --add-port=8001/tcp
-sudo firewall-cmd --zone=public --add-port=5556/tcp
-sudo firewall-cmd --runtime-to-permanent
-sudo systemctl restart firewalld
-```
-
-#### Start msp2
-
-Go back to the command prompt that connects to `mspVM2`. If you've lost it, run the following command to connect to it:
-
-```cmd
-set MSPVM2_IP="192.168.0.7"
-ssh azureuser@%MSPVM2_IP%
-```
-
-If you aren't working with the `oracle` user, sign in with `oracle`:
-
-```bash
-sudo su - oracle
-```
-
-Persist the `admin` account to */u01/domains/wlsd/servers/msp2/security/boot.properties* to enable automatically starting `msp2` without asking for credentials. Replace the username and password with yours.
-
-```bash
-
-mkdir -p /u01/domains/wlsd/servers/msp2/security
-
-cat <<EOF >/u01/domains/wlsd/servers/msp2/security/boot.properties
-username=weblogic
-password=Secret123456
-EOF
-```
-
-Next, create a Linux service for the node manager.
-
-Exit the `oracle` user and sign in with the `root` user.
-
-```bash
-exit
-
-#SKip this command if you are in root
-sudo su
-```
-
-Create the Linux service for the node manager:
-
-```bash
-cat <<EOF >/etc/systemd/system/wls_nodemanager.service
-[Unit]
-Description=WebLogic nodemanager service
-After=network-online.target
-Wants=network-online.target
-[Service]
-Type=simple
-# Note that the following three parameters should be changed to the correct paths
-# on your own system
-WorkingDirectory=/u01/domains/wlsd
-ExecStart="/u01/domains/wlsd/bin/startNodeManager.sh"
-ExecStop="/u01/domains/wlsd/bin/stopNodeManager.sh"
-User=oracle
-Group=oracle
-KillMode=process
-LimitNOFILE=65535
-Restart=always
-RestartSec=3
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-
-Start the node manager.
-
-```bash
-sudo systemctl enable wls_nodemanager
-sudo systemctl daemon-reload
-sudo systemctl start wls_nodemanager
-```
-
-If the node manager is running successfully, you'll see logs similar to the following example:
-
-```output
-[root@mspVM2 azureuser]# systemctl status wls_nodemanager -l
-● wls_nodemanager.service - WebLogic nodemanager service
-Loaded: loaded (/etc/systemd/system/wls_nodemanager.service; enabled; vendor preset: disabled)
-Active: active (running) since Tue 2022-09-27 01:23:42 UTC; 19s ago
-Main PID: 107544 (startNodeManage)
-    Tasks: 15 (limit: 20654)
-Memory: 146.7M
-
-... ...
-
-Sep 27 01:23:45 mspVM2 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:45 AM Coordinated Universal Time> <INFO> <Server Implementation Class: weblogic.nodemanager.server.NMServer$ClassicServer.>
-Sep 27 01:23:46 mspVM2 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:46 AM Coordinated Universal Time> <INFO> <Secure socket listener started on port 5556, host /192.168.0.6>
-```
-
-Press <kbd>Q</kbd> to exit log monitoring mode.
-
-Open port `8001` and `5556`.
-
-```bash
-sudo firewall-cmd --zone=public --add-port=8001/tcp
-sudo firewall-cmd --zone=public --add-port=5556/tcp
-sudo firewall-cmd --runtime-to-permanent
-sudo systemctl restart firewalld
-```
-
-#### Start managed servers
-
-Now, open the Administration Console portal from a browser in your Windows machine `myWindowsVM`, and use the following steps to start the managed servers:
-
-[!INCLUDE [start-managed-server](includes/wls-manual-guidance-start-managed-server.md)]
-
-### Clean up the Windows machine
-
-You've now completed the WLS cluster configuration. If desired, remove the Windows machine with the following commands. Alternatively, you could shut down the Windows machine `myWindowsVM` and continue to use it as a jump box for ongoing cluster maintenance tasks.
-
-```azurecli
-WINDOWSVM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
-    --name myWindowsVM \
-    --query networkProfile.networkInterfaces[0].id \
-    --output tsv)
-WINDOWSVM_NSG_ID=$(az network nic show \
-    --ids ${WINDOWSVM_NIC_ID} \
-    --query networkSecurityGroup.id \
-    --output tsv)
-WINDOWSVM_DISK_ID=$(az vm show \
-    --resource-group abc1110rg \
-    --name myWindowsVM \
-    --query storageProfile.osDisk.managedDisk.id \
-    --output tsv)
-WINDOWSVM_PUBLIC_IP=$(az network nic show \
-    --ids ${WINDOWS_NIC_ID} \
-    --query ipConfigurations[0].publicIpAddress.id \
-    --output tsv)
-
-echo "deleting myWindowsVM"
-az vm delete --resource-group abc1110rg --name myWindowsVM --yes
-echo "deleting nic ${WINDOWSVM_NIC_ID}"
-az network nic delete --ids ${WINDOWS_NIC_ID}
-echo "deleting public-ip ${WINDOWSVM_PUBLIC_IP}"
-az network public-ip delete --ids ${WINDOWSVM_PUBLIC_IP}
-echo "deleting disk ${WINDOWSVM_DISK_ID}"
-az disk delete --yes --ids ${WINDOWSVM_DISK_ID}
-echo "deleting nsg ${WINDOWSVM_NSG_ID}"
-az network nsg delete --ids ${WINDOWSVM_NSG_ID}
-```
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
 ## Expose WLS with Azure Application Gateway
 
