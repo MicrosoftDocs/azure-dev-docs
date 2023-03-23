@@ -211,16 +211,16 @@ Once the rule is enabled, you can run the analysis again and check the report. A
 
 Q: Where do I download WindUp from?
 
-A: 
+A: You can download WindUp from https://windup.github.io/downloads
 
 Q: Where can I find more information about WindUp?
 
-A: 
+A: WindUp has several online guides. From an overview of the tool to the installation and execution of the tool, to the creation of custom rules. You can find all the guides in the [WindUp documentation](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0)
 
 Q: Where can I find the WindUp Azure rules?
 
-A: 
+A: All the Azure rules are available in the [WindUp Ruleset GitHub repository](https://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure)
 
-Q: Where can I find more information about creating custom WindUp rules?
+Q: Where can I find more information about creating custom rules?
 
-A: 
+A: WindUp has a dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index)
