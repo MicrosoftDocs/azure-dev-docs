@@ -587,7 +587,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<admin-password>
         * RUNNING_IN_PRODUCTION=1
-        * AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
+        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
 
     Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
         
