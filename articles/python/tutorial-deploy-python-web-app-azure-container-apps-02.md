@@ -589,7 +589,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         * RUNNING_IN_PRODUCTION=1
         * AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
 
-    Get `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+    Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
         
     :::column-end:::
     :::column:::
