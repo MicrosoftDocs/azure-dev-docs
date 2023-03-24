@@ -8,9 +8,9 @@ ms.custom: devx-track-ts
 
 # Manage Azure resource groups with TypeScript Function API
 
-In this article series, you'll create a local TypeScript Azure Function app with APIs to manage Azure resource groups and deploy the app to Azure.
+In this tutorial, you'll create a local TypeScript Azure Function app with APIs to manage Azure resource groups and deploy the app to Azure.
 
-Features and functionality of this article series:
+Features and functionality:
 
 * Create local TypeScript Azure Function app project in Visual Studio Code
 * Create function APIs boilerplate code in Visual Studio Code
@@ -30,7 +30,7 @@ Features and functionality of this article series:
     - [Azure Function](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy a Function app to Azure.
 - [Azure CLI](/cli/azure/install-azure-cli) installed to your local machine.
 
-While the source code is written with TypeScript, the source code is simple. If you are comfortable with modern JavaScript, the code in this article series will be familiar to you.
+While the source code is written with TypeScript, the source code is simple. If you are comfortable with modern JavaScript, the code will be familiar to you.
 
 ## Application architecture
 
@@ -42,7 +42,7 @@ The app provides the following API endpoints.
 |GET| http://localhost:7071/api/resource-groups |List all resource groups in subscription.|
 |GET| http://localhost:7071/api/resources | List all resources in a subscription or resource group.|
 
-While these endpoints are public in this article series, you _should_ secure your API endpoints with authentication and authorization before deploying to your live environment. 
+While these endpoints are public, you _should_ secure your API endpoints with authentication and authorization before deploying to your live environment. 
 
 This app is limited to a subscription because that is what the DefaultAzureCredential specifies. 
 
@@ -85,18 +85,18 @@ An Azure service principal provides access to Azure without having to use your p
 
 #### Get your Azure subscription ID
 
-1. In a bash terminal, get your subscriptions and find the subscription ID you want to use for this article series.
+1. In a bash terminal, get your subscriptions and find the subscription ID you want to use. The following query returns the subscription Id, subscription name, and tenant Id sort by subscription name.
 
     ```azurecli
-    az account list --output table
+     az account list --query "sort_by([].{Name:name, SubscriptionId:id, TenantId:tenantId}, &Name)" --output table
     ```
 
-1. Copy the subscription ID to the previous temporary file. You will need this setting later. 
+1. Copy the subscription Id to the previous temporary file. You will need this setting later. 
 
 
 ## 2. Create local Azure Function app in Visual Studio Code
 
-In this article of the series, you create an Azure Function app in Visual Studio Code to manage Azure resource groups. 
+Create an Azure Function app in Visual Studio Code to manage Azure resource groups. 
 
 #### Create function app 
 
@@ -123,8 +123,9 @@ Use Visual Studio Code to create a local Function app.
     |Create new project|Accept the default name, `typescript-function-resource-group-api`.|
     |Select a language| Select **TypeScript**.|
     |Select a template for your project's first function|Select **HTTP trigger**.|
+    |Create a new project|Select `Model v4 (Preview)`.|
     |Create new HTTP trigger|Enter the API name of `resource-groups`. |
-    |Authorization level|Select **anonymous**. If you continue with this project after this article series, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
+
 
     The project boilerplate is created.
 
@@ -219,12 +220,12 @@ If you couldn't complete this article, check the following table for issues. If 
 |--|--|
 |The app didn't start.|Review the errors. Make sure you installed the required dependencies.|
 |The app started but you can't get a 200 response.|Make sure your curl command is requesting from the correct local route.|
-|The API returned a 200 response but returned no results.|Use the Visual Studio Code extension for Azure Resources to verify that your subscription has any resource groups. If you don't see any resource groups, don't worry. This article series adds an API to create and delete resource groups in your subscription. This API is added after the first deployment of the source code to Azure, so that you learn how to redeploy your code.|
+|The API returned a 200 response but returned no results.|Use the Visual Studio Code extension for Azure Resources to verify that your subscription has any resource groups. If you don't see any resource groups, don't worry. This tutorial adds an API to create and delete resource groups in your subscription. This API is added after the first deployment of the source code to Azure, so that you learn how to redeploy your code.|
 
 
 ## 3. Deploy resource manager function app
 
-In this article of the series, you deploy an Azure Function app in Visual Studio Code to manage Azure resource groups. 
+Deploy an Azure Function app in Visual Studio Code to manage Azure resource groups. 
 
 #### Use Visual Studio Code extension to deploy to hosting environment
 
@@ -278,9 +279,9 @@ You need to configure your Azure app settings to connect to the Azure Function a
 
 ## 4. Add APIs to function app and redeploy to Azure
 
-In this article of the series, you add APIs to add and delete resource groups, then redeploy your Azure Function app in Visual Studio Code. 
+Add APIs to add and delete resource groups, then redeploy your Azure Function app in Visual Studio Code. 
 
-At this point in the article series, you created a local function app with one API to list your subscription's resource groups and you deployed that app to Azure. As an Azure developer, you may want to create or delete resource groups as part of your process automation pipeline. 
+At this point in the tutorial, you created a local function app with one API to list your subscription's resource groups and you deployed that app to Azure. As an Azure developer, you may want to create or delete resource groups as part of your process automation pipeline. 
 
 #### Create resource-group API for your function app
 
@@ -294,7 +295,7 @@ Use the Visual Studio Code extension for Azure Functions to add the APIs files t
     |--|--|
     |Select a template for your function|HTTP trigger|
     |Provide a function name|`resource-group`|
-    |Authorization level|Select **anonymous**. If you continue with this project after this article series, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
+    |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. To limit the function to adding and deleting resource groups, open the `./resource-group/function.json` and edit the methods to `POST` and `DELETE`.
 
     :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/resource-group/function.json" highlight="9":::
@@ -368,7 +369,7 @@ In the following cURL commands, replace `YOUR-RESOURCE-NAME` with your Azure Fun
 
 ## 5. View and query your Function app logs
 
-In this article of the series, you view and query Azure Function app logs in the Azure portal.
+View and query Azure Function app logs in the Azure portal.
 
 #### Query your Azure Function logs
 
@@ -409,7 +410,7 @@ Use the Azure portal to view and query your function logs.
 
 ## 6. Clean up Azure resources
 
-In this article of the series, you remove all Azure resources.
+Remove all Azure resources.
 
 #### Delete the resource group
 
@@ -420,7 +421,7 @@ In VS Code, find the Azure Explorer's Functions section, right-click on the Func
 
 # [Azure CLI](#tab/azcli-remove-resource-group)
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete your resource group:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this tutorial, use the following Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete your resource group:
 
 ```azurecli
 az group delete --name YOUR-RESOURCE-GROUP-NAME --no-wait --yes
