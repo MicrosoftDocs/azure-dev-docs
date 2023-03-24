@@ -284,7 +284,7 @@ You need to configure your Azure app settings to connect to the Azure Function a
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
    * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
    * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
-   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
+   * `AZURE_SUBSCRIPTION_ID`: Your default subscription containing your resource groups. 
 
 :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-function-app-settings.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer showing the remote/cloud function's app settings.":::
 
