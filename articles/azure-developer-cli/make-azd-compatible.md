@@ -114,7 +114,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "name": {
+            "environmentName": {
             "value": "${AZURE_ENV_NAME}"
             },
             "location": {
