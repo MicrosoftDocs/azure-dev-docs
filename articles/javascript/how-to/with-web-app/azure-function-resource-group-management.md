@@ -145,7 +145,7 @@ Use Visual Studio Code to create a local Function app.
 
 1. You also need to set the subscription ID. It is required to use the Azure SDK for resource management. 
 
-   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
+   * `AZURE_SUBSCRIPTION_ID`: Your default subscription containing your resource groups. 
 
 This `local.settings.json` file is ignored by your local **git** on purpose so you don't accidentally commit it to your source code. 
 
