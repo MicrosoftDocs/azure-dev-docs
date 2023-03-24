@@ -1,14 +1,14 @@
 ---
-title: Resource group management API
-description: Learn how to build an Azure Function API to manage Azure resource groups.
+title: JavaScript Resource group management API
+description: Learn how to build a TypeScript Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 09/16/2021
-ms.custom: devx-track-js
+ms.date: 03/24/2023
+ms.custom: devx-track-ts
 ---
 
-# Manage Azure resource groups with Function API
+# Manage Azure resource groups with TypeScript Function API
 
-In this article series, you'll create a local Azure Function app with APIs to manage Azure resource groups and deploy the app to Azure.
+In this article series, you'll create a local TypeScript Azure Function app with APIs to manage Azure resource groups and deploy the app to Azure.
 
 Features and functionality of this article series:
 
@@ -65,11 +65,12 @@ An Azure service principal provides access to Azure without having to use your p
     * Your department and date: `IT-2021-September`
     * A unique identifier: `1e8966d7-ba85-424b-9db4-c39e1ae9d0ca`
 
-1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac): 
+1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Replace `<SUBSCRIPTION-ID>` with your subscription ID. 
 
     ```azurecli
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor --scopes /subscriptions/mySubscriptionID
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor --scopes /subscriptions/<SUBSCRIPTION-ID>
     ```
+
 1. Copy the entire output results to a temporary file. You will need these settings later.
 
     ```json
@@ -77,7 +78,7 @@ An Azure service principal provides access to Azure without having to use your p
       "appId": "YOUR-SERVICE-PRINCIPAL-ID",
       "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
       "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
-      "password": "!@#$%",
+      "password": "..omitted...",
       "tenant": "YOUR-TENANT-ID"
     }
     ```
@@ -239,7 +240,7 @@ In this article of the series, you deploy an Azure Function app in Visual Studio
     |--|--|
     |Selection Function App in Azure|Create new Function App in Azure ...Advanced|
     |Enter a globally unique name for the new function app|Use your normal naming conventions for the resource. For example, use the name of the local directory, then postpend your email alias or name, such as `typescript-function-resource-group-api-johnsmith`.|
-    |Select a runtime stack.|Node.js X LTS - select one of the LTS versions of Node.js.|
+    |Select a runtime stack.|Node.js - select one of the LTS versions of Node.js.|
     |Select an OS|Linux|
     |Select a resource group for new resources|Use your normal naming conventions for the resource group. For example, use the name of the local directory, then postpend your email alias or name, such as `resource-group-johnsmith`.|
     |Select a location for new resources|Select a location geographically close to you, for example `West US 2`.|
@@ -253,7 +254,7 @@ In this article of the series, you deploy an Azure Function app in Visual Studio
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress.  When deploying, the entire Functions application is deployed, so changes to all individual functions are deployed at once.
 
-## Configure your Azure app settings
+#### Configure your Azure app settings
 
 You need to configure your Azure app settings to connect to the Azure Function app. Locally, these settings are in your `local.settings.json` file. This process adds those values to your cloud app.
 
