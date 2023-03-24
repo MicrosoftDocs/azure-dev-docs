@@ -434,4 +434,4 @@ az group delete --name YOUR-RESOURCE-GROUP-NAME --no-wait --yes
 
 ## Next steps
 
-* [Deploy a GraphQL API as an Azure Function](../graphql/azure-function-hello-world.md)
+* [Deploy a GraphQL API as an Azure Function](./graphql/azure-function-hello-world.md)
