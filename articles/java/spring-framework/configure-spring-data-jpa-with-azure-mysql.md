@@ -4,112 +4,144 @@ description: Learn how to use Spring Data JPA with an Azure Database for MySQL d
 ms.service: mysql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
-ms.date: 01/18/2023
+ms.date: 02/22/2023
 ms.author: bbenz
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021
+zone_pivot_group_filename: java/java-zone-pivot-groups.json
+zone_pivot_groups: passwordless-mysql
 ---
 
 # Use Spring Data JPA with Azure Database for MySQL
 
-This article demonstrates creating a sample application that uses [Spring Data JPA](https://spring.io/projects/spring-data-jpa) to store and retrieve information in [Azure Database for MySQL](/azure/mysql/).
+This tutorial demonstrates how to store data in [Azure Database for MySQL](/azure/mysql/) database using [Spring Data JPA](https://spring.io/projects/spring-data-jpa).
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
+In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you'll need to manage the rotation of the passwords by yourself.
+MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you need to manage the rotation of the passwords by yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- [MySQL command line client](https://dev.mysql.com/downloads/).
 
-## Sample application
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **MySQL Driver** dependencies, and then select Java version 8 or higher.
 
-In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
+::: zone pivot="mysql-passwordless-flexible-server"
 
-[!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
+- If you don't have one, create an Azure Database for MySQL Flexible Server instance named `mysqlflexibletest`. For instructions, see [Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). Then, create a database named `demo`. For instructions, see [Create and manage databases for Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/how-to-create-manage-databases).
 
-## Generate the application by using Spring Initializr
+> [!IMPORTANT]
+> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For instructions, see the [Configure the Azure AD Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
-Generate the application on the command line by entering:
+## See the sample application
 
-```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql,azure-support -d baseDir=azure-database-workshop -d bootVersion=2.7.7 -d javaVersion=1.8 | tar -xzvf -
-```
+In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
 
-> [!NOTE]
-> Passwordless connections have been supported since version `4.5.0`.
+[!INCLUDE [spring-data-azure-mysql-flexible-server-setup.md](includes/spring-data-azure-mysql-flexible-server-setup.md)]
 
-## Configure Spring Boot to use Azure Database for MySQL
+### Configure Spring Boot to use Azure Database for MySQL
 
-Open the *src/main/resources/application.properties* file and add the following contents:
+To store data from Azure Database for MySQL using Spring Data JPA, follow these steps to configure the application:
 
-### [Passwordless (Recommended)](#tab/passwordless)
+1. Configure Azure Database for MySQL credentials by adding the following properties to your *application.properties* configuration file.
 
-```properties
-logging.level.org.hibernate.SQL=DEBUG
+   #### [Passwordless (Recommended)](#tab/passwordless)
 
-spring.datasource.azure.passwordless-enabled=true
-spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
 
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
-```
+   spring.datasource.azure.passwordless-enabled=true
+   spring.datasource.url=jdbc:mysql://mysqlflexibletest.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+   spring.datasource.username=<your_mysql_ad_non_admin_username>
 
-### [Password](#tab/password)
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
+   ```
 
-```properties
-logging.level.org.hibernate.SQL=DEBUG
+   #### [Password](#tab/password)
 
-spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_NON_ADMIN_USERNAME}
-spring.datasource.password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
 
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
-```
+   spring.datasource.url=jdbc:mysql://mysqlflexibletest.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+   spring.datasource.username=<your_mysql_non_admin_username>
+   spring.datasource.password=<your_mysql_non_admin_password>
 
----
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
+   ```
 
-> [!WARNING]
-> The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create later, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
->
-> The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, your Java server would not use the same date format as the database, which would result in an error.
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
-> [!NOTE]
-> This article describes the basic usage, but you can also use a service principal or managed identity to connect. For more information, see [Connect to Azure MySQL using a service principal](spring-cloud-azure.md#connect-to-azure-mysql-using-a-service-principal) or [Connect to Azure MySQL with Managed Identity in Azure Spring Apps](spring-cloud-azure.md#connect-to-azure-mysql-with-managed-identity-in-azure-spring-apps).
+   > [!WARNING]
+   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
 
-You should now be able to start your application by using the provided Maven wrapper:
+::: zone-end
 
-```bash
-./mvnw spring-boot:run
-```
+::: zone pivot="mysql-passwordless-single-server"
 
-Here's a screenshot of the application running for the first time:
+- If you don't have one, create an Azure Database for MySQL Single Server instance named `mysqlsingletest`. For instructions, see [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal). Then, create a database named `demo`. For instructions, see the [Create a database](/azure/mysql/single-server/how-to-create-users#create-a-database) section of [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
-:::image type="content" source="media/configure-spring-data-jpa-with-azure-mysql/running-application.png" alt-text="Screenshot of the running application." lightbox="media/configure-spring-data-jpa-with-azure-mysql/running-application.png":::
+> [!IMPORTANT]
+> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For instructions, see the [Setting the Azure AD Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
-## Code the application
+## See the sample application
 
-Next, add the Java code that will use JPA to store and retrieve data from your MySQL server.
+In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
+
+[!INCLUDE [spring-data-azure-mysql-single-server-setup.md](includes/spring-data-azure-mysql-single-server-setup.md)]
+
+### Configure Spring Boot to use Azure Database for MySQL
+
+To store data from Azure Database for MySQL using Spring Data JPA, follow these steps to configure the application:
+
+1. Configure Azure Database for MySQL credentials by adding the following properties to your *application.properties* configuration file.
+
+   #### [Passwordless (Recommended)](#tab/passwordless)
+
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
+
+   spring.datasource.azure.passwordless-enabled=true
+   spring.datasource.url=jdbc:mysql://mysqlsingletest.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+   spring.datasource.username=<your_mysql_ad_non_admin_username>@mysqlsingletest
+
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
+   ```
+
+   #### [Password](#tab/password)
+
+   ```properties
+   logging.level.org.hibernate.SQL=DEBUG
+
+   spring.datasource.url=jdbc:mysql://mysqlsingletest.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+   spring.datasource.username=<your_mysql_non_admin_username>@mysqlsingletest
+   spring.datasource.password=<your_mysql_non_admin_password>
+
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
+   ```
+
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    ---
+
+   > [!WARNING]
+   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
+
+::: zone-end
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
 
-Here's a screenshot of these cURL requests:
+[!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
-:::image type="content" source="media/configure-spring-data-jpa-with-azure-mysql/curl-test.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-jpa-with-azure-mysql/curl-test.png":::
+## Next steps
 
-Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for MySQL.
-
-[!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
-
-## Additional resources
-
-For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
-
-For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).
+> [!div class="nextstepaction"]
+> [Azure for Spring developers](../spring/index.yml)
+> [Spring Cloud Azure MySQL Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/mysql)

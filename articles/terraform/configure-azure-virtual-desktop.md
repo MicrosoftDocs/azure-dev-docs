@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 4/12/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -25,12 +25,12 @@ New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](/azure
 It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation)
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create an Azure Virtual Desktop workspace
-> - Use Terraform to create an Azure Virtual Desktop host pool
-> - Use Terraform to create an Azure Desktop Application Group
-> - Associate a Workspace and a Desktop Application Group
+> [!div class="checklist"]
+> * Use Terraform to create an Azure Virtual Desktop workspace
+> * Use Terraform to create an Azure Virtual Desktop host pool
+> * Use Terraform to create an Azure Desktop Application Group
+> * Associate a Workspace and a Desktop Application Group
 
 ## 1. Configure your environment
 
@@ -52,7 +52,7 @@ In this article, you learn how to:
 
 1. Create a file named `variables.tf` and insert the following code:
 
-```
+    ```
     variable "resource_group_location" {
     default     = "eastus"
     description = "Location of the resource group."
@@ -87,41 +87,41 @@ In this article, you learn how to:
     default     = "avdtf"
     description = "Prefix of the name of the AVD machine(s)"
     }
-```
+    ```
 
 1. Create a file named `output.tf` and insert the following code:
 
-```
-output "azure_virtual_desktop_compute_resource_group" {
-  description = "Name of the Resource group in which to deploy session host"
-  value       = azurerm_resource_group.sh.name
-}
-
-output "azure_virtual_desktop_host_pool" {
-  description = "Name of the Azure Virtual Desktop host pool"
-  value       = azurerm_virtual_desktop_host_pool.hostpool.name
-}
-
-output "azurerm_virtual_desktop_application_group" {
-  description = "Name of the Azure Virtual Desktop DAG"
-  value       = azurerm_virtual_desktop_application_group.dag.name
-}
-
-output "azurerm_virtual_desktop_workspace" {
-  description = "Name of the Azure Virtual Desktop workspace"
-  value       = azurerm_virtual_desktop_workspace.workspace.name
-}
-
-output "location" {
-  description = "The Azure region"
-  value       = azurerm_resource_group.sh.location
-}
-
-output "AVD_user_groupname" {
-  description = "Azure Active Directory Group for AVD users"
-  value       = azuread_group.aad_group.display_name
-}
-```
+    ```
+    output "azure_virtual_desktop_compute_resource_group" {
+      description = "Name of the Resource group in which to deploy session host"
+      value       = azurerm_resource_group.sh.name
+    }
+    
+    output "azure_virtual_desktop_host_pool" {
+      description = "Name of the Azure Virtual Desktop host pool"
+      value       = azurerm_virtual_desktop_host_pool.hostpool.name
+    }
+    
+    output "azurerm_virtual_desktop_application_group" {
+      description = "Name of the Azure Virtual Desktop DAG"
+      value       = azurerm_virtual_desktop_application_group.dag.name
+    }
+    
+    output "azurerm_virtual_desktop_workspace" {
+      description = "Name of the Azure Virtual Desktop workspace"
+      value       = azurerm_virtual_desktop_workspace.workspace.name
+    }
+    
+    output "location" {
+      description = "The Azure region"
+      value       = azurerm_resource_group.sh.location
+    }
+    
+    output "AVD_user_groupname" {
+      description = "Azure Active Directory Group for AVD users"
+      value       = azuread_group.aad_group.display_name
+    }
+    ```
 
 ## 3. Initialize Terraform
 

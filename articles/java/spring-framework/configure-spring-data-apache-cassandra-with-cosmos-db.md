@@ -16,6 +16,9 @@ ms.custom: devx-track-java, spring-cloud-azure
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- A [Git](https://git-scm.com/downloads) client.
+
+- [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
 ## Create an Azure Cosmos DB account
 
@@ -40,27 +43,27 @@ The following procedure creates and configures an Azure Cosmos DB account in the
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this name will be used to create a fully qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
    - **API**: Specify *Cassandra* for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
    >[!div class="mx-imgBorder"]
    >![Specify your Azure Cosmos DB account settings.][COSMOSDB03]
 
-1. When you have entered all of the above information, click **Review + create**.
+1. When you've entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Review your Azure Cosmos DB account settings.][COSMOSDB04]
 
-It will take a few minutes to deploy the database.
+It takes a few minutes to deploy the database.
 
 ### Add a keyspace to your Azure Cosmos DB account
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
+1. Select **All Resources**, then select the Azure Cosmos DB account you created.
 
 1. Select **Data Explorer**, select down arrow and select **New Keyspace**. Enter a unique identifier for your **Keyspace id**, then select **OK**.
 
@@ -74,9 +77,9 @@ It will take a few minutes to deploy the database.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
+1. Select **All Resources**, then select the Azure Cosmos DB account you created.
 
-1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
+1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you'll use those values to configure your application later.
 
    >[!div class="mx-imgBorder"]
    >![Retrieve your Azure Cosmos DB connection settings.][COSMOSDB06]
@@ -91,7 +94,7 @@ The following procedure configures the test application.
    git clone https://github.com/Azure-Samples/spring-data-cassandra-on-azure.git
    ```
 
-1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
+1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it doesn't already exist.
 
 1. Open the *application.properties* file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
 
@@ -113,9 +116,9 @@ The following procedure configures the test application.
 
 1. Save and close the *application.properties* file.
 
-## Package and test the sample application 
+## Package and test the sample application
 
-Browse to the directory that contains the .pom file to build and test the application.
+Browse to the directory that contains the *pom.xml* file to build and test the application.
 
 1. Build the sample application with Maven; for example:
 
@@ -137,7 +140,7 @@ Browse to the directory that contains the .pom file to build and test the applic
    curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
-   Your application should return values like the following:
+   Your application should return values like the following example:
 
    ```shell
    Added Pet{id=60fa8cb0-0423-11e9-9a70-39311962166b, name='dog', species='canine'}.
@@ -151,7 +154,7 @@ Browse to the directory that contains the .pom file to build and test the applic
    curl -s http://localhost:8080/pets
    ```
 
-   Your application should return values like the following:
+   Your application should return values like the following examples:
 
    ```json
    [{"id":"60fa8cb0-0423-11e9-9a70-39311962166b","name":"dog","species":"canine"},{"id":"72c1c9e0-0423-11e9-9a70-39311962166b","name":"cat","species":"feline"}]
@@ -172,7 +175,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### See also
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 

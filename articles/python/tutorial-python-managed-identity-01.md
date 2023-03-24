@@ -3,9 +3,8 @@ title: Deploy a Python web app to Azure with managed identity
 description: An overview of how to create and deploy a Python (Django or Flask) web app to Azure that uses managed identity to access to Azure Storage and PostgreSQL.
 ms.devlang: python
 ms.topic: tutorial
-ms.prod: azure-python
 ms.date: 11/21/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Overview: Deploy a Python web app to Azure with managed identity

@@ -4,7 +4,6 @@ description: Use CI/CD with GitHub Actions to automatically build, test, and dep
 ms.topic: conceptual
 ms.date: 10/29/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux
@@ -176,7 +175,7 @@ For example, if you used the VS Code Flask tutorial, you can
 **Step 3.** Commit the change directly to the branch you're working in.
 
 * On the bottom of the page you editing, select the **Commit** button.
-* The commit kicks off the GitHub action workflow.
+* The commit kicks off the GitHub Actions workflow.
 
 You can also kick off the workflow manually.
 

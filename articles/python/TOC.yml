@@ -127,6 +127,8 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
+- name: Logs
+  href: /azure/azure-monitor/app/opencensus-python
 - name: Azure SDK for Python
   items:
     - name: Overview
@@ -207,7 +209,7 @@
     href: quickstarts-machine-learning.md
   - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
-  - name: Messaging & IoT
+  - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
   - name: Other services
     href: quickstarts-other-services.md

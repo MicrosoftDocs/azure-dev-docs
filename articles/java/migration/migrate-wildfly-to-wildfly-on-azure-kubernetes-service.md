@@ -13,6 +13,9 @@ recommendations: false
 
 This guide describes what you should be aware of when you want to migrate an existing WildFly application to run on WildFly in an Azure Kubernetes Service container.
 
+> [!NOTE]
+> This article provides general advice only. Neither Microsoft nor Red Hat offers support for WildFly, but the WildFly community can offer assistance. For information on offers jointly supported by Red Hat and Microsoft, see [Red Hat JBoss EAP on Azure](../ee/jboss-on-azure.md).
+
 ## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.

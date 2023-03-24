@@ -3,8 +3,8 @@ title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (A
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 08/29/2022
-ms.custom: devx-track-terraform, devx-track-azurecli 
+ms.date: 03/18/2023
+ms.custom: devx-track-terraform
 ---
 
 # Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -19,8 +19,8 @@ Article tested with the following Terraform and Terraform provider versions:
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
 > * Use Terraform and AKS to create a Kubernetes cluster
 > * Use the kubectl tool to test the availability of a Kubernetes cluster

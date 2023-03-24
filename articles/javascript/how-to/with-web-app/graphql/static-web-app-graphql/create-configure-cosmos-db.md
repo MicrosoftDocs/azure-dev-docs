@@ -3,7 +3,7 @@ title: Create and configure an Azure Cosmos DB resource
 description: Learn how to create and configure your Azure Cosmos DB resource to support this GraphQL app.
 ms.topic: how-to
 ms.date: 08/09/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-graphql
 ---
 
 # 4. Create and configure your Azure Cosmos DB resource

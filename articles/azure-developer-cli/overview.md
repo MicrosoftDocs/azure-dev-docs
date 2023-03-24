@@ -71,7 +71,7 @@ Currently supported/planned hosting platform for the app:
 | Function                 | Yes            |
 | Azure Container Apps     | Yes            |
 | Azure Static Web Apps    | Yes            |
-| Azure Kubernetes Service | Coming soon    |
+| Azure Kubernetes Service | Preview (only for projects deployable via `kubectl apply -f`)    |
 
 ## Supported programming languages
 

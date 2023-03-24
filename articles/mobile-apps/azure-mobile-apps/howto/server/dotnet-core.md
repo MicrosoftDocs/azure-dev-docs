@@ -21,6 +21,7 @@ Database servers must meet the following criteria have a `DateTime` or `Timestam
 For specific database support, see the following sections:
 
 * [Azure Cosmos DB](#azure-cosmos-db)
+* [PostgreSQL](#postgresql)
 * [SqLite](#sqlite)
 * [LiteDb](#litedb)
 
@@ -304,6 +305,44 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
 You can also set the container, partition key, and other Azure Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
 
 Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Azure Cosmos DB][cosmos-sample] available in the GitHub repository.
+
+### PostgreSQL
+
+PostgreSQL does not support "timestamp" row versions. If using PostgreSQL, create the following class:
+
+```csharp
+public class PgEntityTableData : EntityTableData
+{
+    /// <summary>
+    /// The row version for the entity.
+    /// </summary>
+    [NotMapped]
+    public override byte[] Version
+    {
+        get => BitConverter.GetBytes(RowVersion);
+        set => BitConverter.ToUInt32(value);
+    }
+
+    /// <summary>
+    /// The actual version
+    /// </summary>
+    [JsonIgnore]
+    [Timestamp]
+    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+    [Column("xmin", TypeName = "xid")]
+    public uint RowVersion { get; set; }
+}
+```
+
+This will ensure the version property is correctly created and handled within the database.  Your model will now look similar to the following:
+
+```csharp
+public class TodoItem : PgEntityTableData
+{
+    public string Title { get; set; }
+    public bool Completed { get; set; }
+}
+```
 
 ### SqLite
 

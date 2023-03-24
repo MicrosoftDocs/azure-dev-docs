@@ -34,6 +34,7 @@ Each template was written for hosts such as:
 - Azure Container Apps
 - Azure Static Web Apps
 - Azure Function Apps
+- Azure Kubernetes Service
 
 Check back for our growing list of templates.
 
@@ -76,6 +77,7 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | [ToDo NodeJs MongoDB (Terraform)](https://github.com/azure-samples/todo-nodejs-mongo-terraform) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Terraform |  
 | [ToDo NodeJs MongoDB ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |
 | [ToDo NodeJs MongoDB SWA + Functions](https://github.com/azure-samples/todo-nodejs-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |
+| [ToDo NodeJs MongoDB AKS](https://github.com/Azure-Samples/todo-nodejs-mongo-aks) |  [Azure Kubernetes Service](/azure/aks/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep
 
 ### [Python](#tab/python)
 
@@ -88,7 +90,7 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 
 ---
 
-For more community contributed templates, [browse GitHub using `azd-templates` as the topic]( https://github.com/topics/azd-templates).
+For more community contributed templates, check out our template gallery: [Awesome AZD](https://aka.ms/awesome-azd).
 
 ### Guidelines for using `azd` templates
 

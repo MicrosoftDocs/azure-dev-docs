@@ -4,7 +4,6 @@ description: An overview of how to create and deploy a containerized Python web 
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Overview: Containerized Python web app on Azure with MongoDB

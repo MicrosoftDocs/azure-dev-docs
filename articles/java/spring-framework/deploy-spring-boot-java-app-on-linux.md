@@ -86,7 +86,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-   Once you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+   Once you've signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
 1. Click the menu icon for **New**, select **Containers**, and then select **Azure Container Registry**.
 
@@ -143,19 +143,19 @@ The following steps walk through using the Azure portal to create an Azure Conta
    ```
 
 > [!NOTE]
-> 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you will need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
-> 2. When you are using Jib to push your image to the Azure Container Registry, the image will not use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
+> 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
+> 1. When you're using Jib to push your image to the Azure Container Registry, the image won't use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
 ## Create a web app on Linux on Azure App Service using your container image
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App**.
-   
+1. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App**.
+
    ![Create a new web app in the Azure portal][LX01]
 
-3. When the **Web App on Linux** page is displayed, enter the following information:
+1. When the **Web App on Linux** page is displayed, enter the following information:
 
    * Choose your **Subscription** from the drop-down list.
 
@@ -187,11 +187,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * **Startup Command**: Keep it blank since the image already has the start up command
 
-   After you have entered all of the above information, select **Review + create**.
+   After you've entered all of the above information, select **Review + create**.
 
    ![Finish by selecting Review + Create.][LX02-A]
 
-   * Click **Review + create**.
+   * Select **Review + create**.
 
 Review the information and select **Create**.
 
@@ -249,7 +249,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional resources
+### See also
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 

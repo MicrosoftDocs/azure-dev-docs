@@ -46,7 +46,7 @@ If you're using Maven, add the following dependency.
 
 ### Prerequisites
 
-- [Java Development Kit (JDK)][jdk_link], version 8 or later.
+- [Java Development Kit (JDK)][jdk_link], version 8 or higher.
 - An active Azure account. If you don't have one, you can sign up for a [free account][azure_subscription]. Alternatively, you can use the [Azure Cosmos DB Emulator][local_emulator] for development and testing. As emulator https certificate is self-signed, you need to import its certificate to java trusted cert store, [explained here][local_emulator_export_ssl_certificates]
 - (Optional) SLF4J is a logging facade.
 - (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
@@ -56,7 +56,7 @@ SLF4J is only needed if you plan to use logging, also download an SLF4J binding,
 
 ### Set up and customize the configuration class
 
-In order to set up the configuration class, you'll need to extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
+In order to set up the configuration class, you need to extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
 
 You can customize underlying `CosmosAsyncClient` used by Azure Spring Data Azure Cosmos DB SDK by providing `DirectConnectionConfig` or `GatewayConnectionConfig` or both and provide them to `CosmosClientBuilder`. For complete sample, visit [customizing configuration section][customizing-configuration].
 
@@ -181,7 +181,7 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [source_code]: src
 [cosmos_introduction]: /azure/cosmos-db/
 [cosmos_docs]: /azure/cosmos-db/introduction
-[jdk]: /java/azure/jdk/?view=azure-java-stable
+[jdk]: /java/azure/jdk/
 [maven]: https://maven.apache.org/
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/

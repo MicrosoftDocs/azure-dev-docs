@@ -13,11 +13,15 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
 - [Install azd](../install-azd.md)
 - [Run `azd` with the Node.js template](../get-started.md)
 - [.NET SDK 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Visual Studio version later than 17.3.0 Preview 2 with the integration with `azd` feature flag enabled](/visualstudio/install/install-visual-studio)
 
-## Enable the preview feature
+## Install and enable the preview feature
+  
+1. Install [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/) 
+   
+   > [!NOTE]
+   > This is different from Visual Studio. If you have the non-preview version of Visual Studio, you still need to install this. 
 
-1. Open Visual Studio.
+1. Open Visual Studio Preview.
 
 1. From the **Tools** menu, select **Options** > **Preview Features**.
 

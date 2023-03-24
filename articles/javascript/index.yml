@@ -38,7 +38,7 @@ landingContent:
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
           - text: Databases for developers
-            url: how-to/with-database/getting-started.md
+            url: database-developer-guide.md
           - text: Storage for developers
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Azure SDK Blog
@@ -64,14 +64,6 @@ landingContent:
           - text: "Server from VM: Express.js with NGINX"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
-  - title: Returning to Azure?
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What's new in docs 
-            url: whats-new-docs.md
-          - text: What's new with Developer Advocates
-            url: whats-new-developer-advocacy.md
   - title: Azure SDK client library tutorials
     linkLists: 
       - linkListType: tutorial
@@ -92,7 +84,7 @@ landingContent:
           - text: Storage on Azure
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Databases on Azure
-            url: how-to/with-database/getting-started.md
+            url: database-developer-guide.md
           - text: GraphQL on Azure
             url: how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
           - text: Full stack serverless with Mongoose
@@ -140,8 +132,8 @@ landingContent:
         links:
           - text: Azure Storage Dev Guide
             url: /azure/storage/blobs/storage-blob-javascript-get-started
-          - text: Azure Cosmos DB for Mongo API
-            url: /azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows
+          - text: Azure Database Dev Guide
+            url: database-developer-guide.md
   - title: Developer tools
     linkLists:
       - linkListType: get-started

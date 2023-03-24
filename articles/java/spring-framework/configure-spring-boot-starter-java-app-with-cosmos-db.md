@@ -27,7 +27,7 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png" alt-text="Azure portal screenshot showing 'Create a resource' page with search box highlighted and containing text 'Azure Cosmos D B'." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png" alt-text="Azure portal screenshot showing 'Create a resource' page with search box highlighted and containing text 'Azure Cosmos DB'." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png":::
 
 1. On the **Select API option** screen, select **Core (SQL)**.
 
@@ -37,33 +37,33 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
    * Choose the **Subscription** you want to use for your database.
    * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
-   * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccounttest*.
+   * Enter a unique **Account Name**, which you'll use as the URI for your database. For example: *contosoaccounttest*.
    * Choose **Core (SQL)** for the API.
    * Specify the **Location** for your database.
 
-   When you have specified these options, select **Review + create**, review your specifications, and select **Create**.
+   When you've specified these options, select **Review + create**, review your specifications, and select **Create**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png" alt-text="Azure portal screenshot showing the 'Create Azure Cosmos D B Account - Core S Q L' page." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png" alt-text="Azure portal screenshot showing the 'Create Azure Cosmos DB Account - Core S Q L' page." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png":::
 
 1. When your database has been created, it's listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. To create a database and a container for a newly created Azure Cosmos DB, see the [Add a database and a container](/azure/cosmos-db/nosql/quickstart-portal#create-container-database) section of [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](/azure/cosmos-db/nosql/quickstart-portal). You can select your database for any of those locations to open the properties page for your cache.
 
-1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you'll use these values in your Spring Boot application.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png" alt-text="Azure portal screenshot of an Azure Cosmos D B account with the Keys page showing." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png" alt-text="Azure portal screenshot of an Azure Cosmos DB account with the Keys page showing." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png":::
 
 > [!IMPORTANT]
 > In your newly created Azure Cosmos DB, assign the `Owner` role to the Azure account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal), .
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.7**.
+   * Specify your **Spring Boot** version to **2.7.9**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.
@@ -72,7 +72,7 @@ Use the following steps to create a new Spring Boot application project with Azu
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
    > 1. The version of Spring Boot may be higher than the version supported by Azure Support. After the project is automatically generated, you can manually change the Spring Boot version to the highest version supported by Azure, which you can find in [Spring-Versions-Mapping](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
-1. When you have specified the options listed above, select **GENERATE**.
+1. When you've specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer and extract the files.
 
@@ -82,11 +82,11 @@ Your simple Spring Boot application is now ready for editing.
 
 1. Locate the *pom.xml* file in the directory of your app; for example:
 
-   `C:\SpringBoot\wingtiptoysdata\pom.xml`
+   *C:\SpringBoot\wingtiptoysdata\pom.xml*
 
    -or-
 
-   `/users/example/home/wingtiptoysdata/pom.xml`
+   */users/example/home/wingtiptoysdata/pom.xml*
 
 1. Open the *pom.xml* file in a text editor, and add the following to the `<dependencies>` element:
 
@@ -98,7 +98,7 @@ Your simple Spring Boot application is now ready for editing.
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Save and close the *pom.xml* file.
 
@@ -106,11 +106,11 @@ Your simple Spring Boot application is now ready for editing.
 
 1. Locate the *application.properties* file in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties`
+   *C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties*
 
    -or-
 
-   `/users/example/home/wingtiptoysdata/src/main/resources/application.properties`
+   */users/example/home/wingtiptoysdata/src/main/resources/application.properties*
 
 1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:
 
@@ -278,7 +278,7 @@ In this section you create two Java classes for storing user data, and then you 
            final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
 
            //  Nothing happens until we subscribe to these Monos.
-           //  findById will not return the user as user is not present.
+           //  findById won't return the user as user isn't present.
            final Mono<User> findByIdMono = repository.findById(testUser.getId());
            final User findByIdUser = findByIdMono.block();
            Assert.isNull(findByIdUser, "User must be null");

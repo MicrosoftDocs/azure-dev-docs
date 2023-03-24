@@ -2,7 +2,7 @@
 title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -19,8 +19,8 @@ By default, Terraform state is stored locally, which isn't ideal for the followi
 - Storing state locally increases the chance of inadvertent deletion.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Create an Azure storage account
 > * Use Azure storage to store remote Terraform state.
 > * Understand state locking
@@ -183,12 +183,12 @@ terraform {
       version = "=2.46.0"
     }
   }
-    backend "azurerm" {
-        resource_group_name  = "tfstate"
-        storage_account_name = "<storage_account_name>"
-        container_name       = "tfstate"
-        key                  = "terraform.tfstate"
-    }
+  backend "azurerm" {
+      resource_group_name  = "tfstate"
+      storage_account_name = "<storage_account_name>"
+      container_name       = "tfstate"
+      key                  = "terraform.tfstate"
+  }
 
 }
 

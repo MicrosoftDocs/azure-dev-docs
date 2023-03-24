@@ -12,7 +12,6 @@ Before you get started using `azd`, ensure you have:
 
 - Installed:
   - [Git](https://git-scm.com/)
-  - [GitHub CLI v2.3+](https://github.com/cli/cli) **(only required for `azd pipeline config` when using GitHub Actions)**
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
@@ -30,6 +29,14 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 ```azdeveloper
 curl -fsSL https://aka.ms/install-azd.sh | bash 
+```
+
+> [!NOTE]
+> If you're on Apple Silicon, you might need to install the emulator. 
+
+
+```emulator
+softwareupdate --install-rosetta
 ```
 
 ---
@@ -58,6 +65,33 @@ msiexec.exe /i <msi-path> ALLUSERS=1 INSTALLDIR=c:\all-users\azd
 > [!NOTE]
 > The install script doesn't support installing versions of `azd` on Windows that **predate** the MSI. To manually update older versions of the Azure Developer CLI without MSI, see the [Install versions predating MSI section](#install-versions-predating-msi). 
 
+## Install using package management tools
+
+A package manager assists developers and administrators with installing, updating, configuring, and removing software packages in a reliable way. You can install the Azure Developer CLI using the following popular package management tools:
+
+* Brew
+* Windows Package Manager
+
+### [Brew](#tab/brew)
+
+```bash
+brew tap azure/azd && brew install azd
+```
+
+### [Winget](#tab/winget)
+
+```bash
+winget install microsoft.azd
+```
+
+### [Chocolatey](#tab/chocolatey)
+
+```bash
+choco install azd
+```
+
+
+---
 
 ## Uninstall `azd`
 
@@ -87,6 +121,30 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 
 ---
 
+## Uninstall using a package manager
+
+If you installed the Azure Developer CLI using a package manager, you can also uninstall it using the following commands:
+
+### [Brew](#tab/brew)
+
+```bash
+brew uninstall azd
+```
+
+### [Winget](#tab/winget)
+
+```bash
+winget uninstall microsoft.azd
+```
+
+### [Chocolatey](#tab/chocolatey)
+
+```bash
+choco uninstall azd
+```
+
+
+---
 
 ## Install versions predating MSI
 

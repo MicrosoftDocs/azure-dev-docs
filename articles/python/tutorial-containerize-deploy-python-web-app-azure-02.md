@@ -4,7 +4,6 @@ description: Build and run a containerized Python web app (Django or Flask) loca
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Build and run a containerized Python web app locally with MongoDB
@@ -28,7 +27,7 @@ Clone the repository:
 git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
 
 # Flask
-git clone https://github.com/Azure-Samples/msdocs-flask-django-container-web-app.git
+git clone https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
 ```
 
 Then navigate into that folder:

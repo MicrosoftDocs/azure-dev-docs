@@ -4,7 +4,6 @@ description: Shows configuration and deployment of a Python (Django or Flask) we
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/21/2022
-ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 

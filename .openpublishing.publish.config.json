@@ -167,6 +167,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "js-e2e-graphql-nextjs-triviagame",
+      "url": "https://github.com/azure-samples/js-e2e-graphql-nextjs-triviagame",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "python-sdk-docs-examples",
       "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
       "branch": "main",

@@ -1,10 +1,6 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
-  - name: What's new in docs
-    href: whats-new-docs.md
-  - name: What's new with Developer Advocates
-    href: whats-new-developer-advocacy.md  
   - name: Cloud development with Azure
     items:
     - name: What is Azure?
@@ -82,18 +78,28 @@
               - name: Deploy to Azure
                 href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
 
-        - name: Use GraphQL with trivia game
+        - name: GraphQL trivia game with React + APIs
           items: 
             - name: 1. Introduction
               href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
             - name: 2. GraphQL basics
-              href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
+              href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
             - name: 3. Local TypeScript development
-              href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
+              href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
             - name: 4. Create an Azure Cosmos DB resource
-              href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
+              href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
             - name: 5. Deploy to Azure Static Web Apps
-              href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
+              href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
+        - name: GraphQL trivia game with Next.js hybrid
+          items: 
+            - name: 1. Getting started
+              href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
+            - name: 2. Working with database
+              href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
+            - name: 3. Working with translator
+              href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
+            - name: 4. Deploy to Static Web App
+              href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
       - name: Migrate to Serverless
         items: 
         - name: "Training: Migrate to Azure Functions"
@@ -107,7 +113,11 @@
         - name: Store data in MongoDB 
           href: tutorial/azure-function-cosmos-db-mongo-api.md
         - name: Upload file to Storage
-          href: ./how-to/with-web-app/azure-function-file-upload.md
+          items: 
+          - name: with SDK
+            href: how-to/with-web-app/azure-function-file-upload.md
+          - name: with trigger and bindings
+            href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
         - name: Resource management API
           items: 
           - name: 1. Introduction and prerequisites
@@ -164,25 +174,11 @@
           href: how-to/with-visual-studio-code/containerize-local-project.md              
       - name: Virtual machine web apps
         items:
-          - name: "Express.js"
-            items:
-              - name: 1. Introduction and prerequisites
-                href: tutorial/nodejs-virtual-machine-vm/introduction.md
-              - name: 2. Create Application Insights resource
-                href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
-              - name: 3. Create virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-              - name: 4. Connect to Linux virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
-              - name: 5. Add cloud logging to app
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
-              - name: 6. View logs
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
-              - name: 7. Clean up resources
-                href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md    
-          - name: "VM: Create and delete VM"
+          - name: "Express.js VM"
+            href: tutorial/run-nodejs-virtual-machine.md
+          - name: "Create and delete VM with SDK"
             href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-          - name: "VM: Manage"
+          - name: "Manage VM with SDK"
             href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Visual Studio Code
     items:
@@ -257,38 +253,22 @@
       - name: Resource management
         items: 
           - name: "List subscriptions"
-            href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+            href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
           - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
+  - name: Serverless developer guide
+    href: /azure/azure-functions/functions-reference?tabs=blob
   - name: Storage developer guide
     href: /azure/storage/blobs/storage-blob-javascript-get-started
   - name: Database developer guide
-    items: 
-    - name: Getting started
-      href: how-to/with-database/getting-started.md
-    - name: Cache for Redis
-      href: how-to/with-database/use-azure-cache-for-redis-db.md
-    - name: Cassandra on Azure Cosmos DB
-      href: how-to/with-database/use-cassandra-as-cosmos-db.md
-    - name: MongoDB on Azure Cosmos DB
-      items: 
-        - name: Getting started
-          href: how-to/with-database/use-mongodb-as-cosmosdb.md
-        - name: Dev guide
-          href: /azure/cosmos-db/mongodb/how-to-javascript-get-started
-    - name: MySQL and MariaDB
-      href: how-to/with-database/use-mysql-mariadb.md
-    - name: PostgreSQL
-      href: how-to/with-database/use-postgresql-db.md
-    - name: Azure Cosmos DB for NoSQL
-      href: how-to/with-database/use-sql-api-as-cosmos-db.md
+    href: database-developer-guide.md
   - name: GraphQL
     items: 
       - name: Hello world with Functions
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: CRUD with Functions
         href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
-      - name: Trivia game with SWA + Azure Cosmos DB
+      - name: Trivia game with React + Cosmos DB
         items: 
           - name: 1. Introduction
             href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
@@ -300,6 +280,16 @@
             href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
           - name: 5. Deploy to Azure Static Web Apps
             href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
+      - name: Trivia game with Next.js hybrid + Cosmos DB
+        items: 
+          - name: 1. Getting started
+            href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
+          - name: 2. Working with database
+            href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
+          - name: 3. Working with translator
+            href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
+          - name: 4. Deploy to Static Web App
+            href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
       - name: Import GraphQL into APIM
         href: /azure/api-management/graphql-api
       - name: Import and resolve GraphQL schema

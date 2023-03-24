@@ -6,7 +6,7 @@ ms.author: yiliu6
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.service: event-hubs
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure
+ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
@@ -352,7 +352,7 @@ In this section, you'll execute two steps to enable your application to run in a
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or higher.
 
 #### Assign the managed identity for your Azure hosting environment
 
@@ -448,6 +448,12 @@ export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
 ##### [Service Connector](#tab/service-connector)
 
 You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
+
+First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
 
 If you're using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection) command, as shown in the following example:
 

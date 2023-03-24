@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure for Go developers
-summary: Learn to use the Azure SDK for Go, browse API references, sample code, tutorials, quickstarts, conceptual articles and more.
+summary: Learn to use the Azure SDK for Go, browse API references, sample code, tutorials, quickstarts, conceptual articles, and more.
 metadata:
   title: Azure for Go developers
   description: Get started developing with the Azure SDK for Go.
-  author: TomArcherMsft
-  ms.author: tarcher
-  ms.date: 08/04/2021
+  author: dlepow
+  ms.author: danlep
+  ms.date: 02/17/2023
   ms.topic: landing-page
   ms.service: azure
   ms.collection: collection
@@ -23,8 +23,6 @@ landingContent:
             url: /training/paths/go-first-steps
           - text: What is the Azure SDK for Go?
             url: overview.md
-          - text: Configure your development environment
-            url: configure-visual-studio-code.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
@@ -34,13 +32,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Use Blob Storage with Go
-            url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/develoer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Connect to an Azure Database for PostgreSQL
-            url: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/develpoer/breadcrumb/toc.json
+            url: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Connect to an Azure Database for MySQL
-            url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Query an Azure SQL database
-            url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
   - title: Virtual Machines
     linkLists:
       - linkListType: quickstart

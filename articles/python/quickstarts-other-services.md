@@ -1,25 +1,27 @@
 ---
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
-ms.date: 05/28/2020
+ms.date: 02/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Other services for Python apps on Azure
 
+The services referenced in this article for Python are specialized or focused on solving a targeted problem. By other services we mean services other than the core services compute, networking, storage, and database. The references in this article include management and governance, media, genomics, and Internet of Things services. For a complete list of services, see [Azure products](https://azure.microsoft.com/products/).
+
 - **Media streaming**:
-  - [Connect to Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)
+  - [Connect to Azure Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)
 
 - **Automation**:
-  - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python2
-)
+  - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python-3)
 
 - **DevOps**:
-  - [Create a CI/CD pipeline for Python with Azure DevOps Starter](/azure/devops-project/azure-devops-project-python)
-  - [Build Python apps](/azure/devops/pipelines/ecosystems/python)
+  - [Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux](./python-web-app-github-actions-app-service.md)
+  - [Build a Python cloud app with the Azure Developer CLI (azd) open-source tool](../azure-developer-cli/get-started.md?pivots=programming-language-python)
+  - [Build, test, and deploy Python apps with Azure Pipelines](/azure/devops/pipelines/ecosystems/python)
 
-- **Geographical mapping**:
+- **Internet of Things and geographical mapping**:
   - [Tutorial: Route electric vehicles by using Azure Notebooks](/azure/azure-maps/tutorial-ev-routing)
   - [Tutorial: Join sensor data with weather forecast data by using Azure Notebooks](/azure/azure-maps/weather-service-tutorial)
 
@@ -31,3 +33,4 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 - **Virtual machine management**:
   - [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
+  - [Use the Azure libraries to create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)

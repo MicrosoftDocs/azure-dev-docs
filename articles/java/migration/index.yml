@@ -11,7 +11,7 @@ metadata:
   ms.author: karler
   ms.date: 04/03/2020
   ms.topic: landing-page
-  ms.custom: seo-azure-migrate
+  ms.custom: seo-azure-migrate, devx-track-java
 
 landingContent:
   - title: Migrate Java applications to Azure
@@ -59,16 +59,12 @@ landingContent:
             url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
           - text: WebLogic Server to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
-          - text: WebLogic Server with Azure AD via LDAP
-            url: migrate-weblogic-with-aad-ldap.md
           - text: "Tutorial: WebLogic to Azure VMs manual guidance"
             url: migrate-weblogic-to-azure-vm-manually.md
           - text: "Tutorial: WebLogic to AKS within custom VNET"
             url: migrate-weblogic-to-aks-within-an-existing-vnet.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
-          - text: "Tutorial: WebLogic Server with Elastic on Azure"
-            url: migrate-weblogic-with-elk.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
   - title: Migrate WildFly to Azure
@@ -93,5 +89,7 @@ landingContent:
             url: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
           - text: JBoss EAP to Azure VMs
             url: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
+          - text: JBoss EAP to Azure Red Hat OpenShift
+            url: migrate-jboss-eap-to-azure-redhat-openshift.md
           - text: JBoss EAP to WildFly on AKS
             url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md

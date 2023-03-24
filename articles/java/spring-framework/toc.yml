@@ -10,8 +10,6 @@ items:
   - name: Get started
     expanded: true
     items:
-    - name: Overview
-      href: spring-boot-starters-for-azure.md
     - name: Storage
       items:
       - name: Upload a file to an Azure Storage Blob
@@ -30,6 +28,8 @@ items:
         items:
         - name: Add sign-in with Azure AD account to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
+        - name: Secure your REST API using Spring Cloud Azure
+          href: secure-your-restful-api-using-spring-cloud-azure.md
         - name: Add sign-in with Azure AD B2C to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
         - name: Azure AD dev guide
@@ -117,7 +117,45 @@ items:
       - name: Spring Cloud Function in Azure
         href: getting-started-with-spring-cloud-function-in-azure.md
   - name: Developer guide
-    href: spring-cloud-azure.md
+    items:
+    - name: Overview
+      href: developer-guide-overview.md
+    - name: Spring Cloud Azure configuration
+      href: configuration.md
+    - name: Spring Cloud Azure authentication
+      href: authentication.md
+    - name: Production ready
+      href: production-ready.md
+    - name: Auto-configure Azure SDK clients
+      href: auto-configure-azure-sdk-clients.md
+    - name: Resource handing
+      href: resource-handling.md
+    - name: Secret management
+      href: secret-management.md
+    - name: Spring Data support
+      href: spring-data-support.md
+    - name: Spring Security support
+      href: spring-security-support.md
+    - name: Spring Integration support
+      href: spring-integration-support.md
+    - name: Spring Cloud Stream support
+      href: spring-cloud-stream-support.md
+    - name: Spring JMS support
+      href: spring-jms-support.md
+    - name: MySQL support
+      href: mysql-support.md
+    - name: PostgreSQL support
+      href: postgresql-support.md
+    - name: Kafka support
+      href: kafka-support.md
+    - name: Redis support
+      href: redis-support.md
+    - name: Azure Resource Manager
+      href: resource-manager.md
+    - name: Create and configure a managed identity on Azure hosting services
+      href: create-and-configure-managed-identity.md
+    - name: Deploy applications to Azure hosting services
+      href: deploy-applications-to-azure-hosting-environments.md
   - name: Reference
     items:
     - name: Application properties

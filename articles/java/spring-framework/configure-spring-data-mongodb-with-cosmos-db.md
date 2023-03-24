@@ -16,6 +16,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+- A [Git](https://git-scm.com/downloads) client.
 
 ## Create an Azure Cosmos DB account
 
@@ -42,7 +43,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
-1. When you have entered all of the above information, click **Review + create**.
+1. When you've entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
 
@@ -54,7 +55,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
 1. Click **All Resources**, then click the Azure Cosmos DB account you just created.
 
-1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you will use that value to configure your application later.
+1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you'll use that value to configure your application later.
 
    ![Retrieve your Azure Cosmos DB connection string.][COSMOSDB06]
 
@@ -86,7 +87,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
 ## Package and test the sample application
 
-To build the application, browse to the directory */gs-accessing-data-mongodb/complete*, which contains the pom.xml file.
+To build the application, browse to the directory */gs-accessing-data-mongodb/complete*, which contains the *pom.xml* file.
 
 1. Build the sample application with Maven, and configure Maven to skip tests; for example:
 
@@ -133,7 +134,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### See also
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 

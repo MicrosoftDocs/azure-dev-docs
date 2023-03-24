@@ -6,7 +6,7 @@ ms.custom: vscode-azure-extension-update-completed
 ---
 
 
-## Create and use database with VS Code extension
+### Create and use database with VS Code extension
 
 Create an Azure Cosmos DB resource first because this will take several minutes.
 
@@ -27,11 +27,11 @@ Create an Azure Cosmos DB resource first because this will take several minutes.
 
     Creating the resource may take up to 15 minutes. 
 
-## Add firewall rule for your client IP address 
+### Add firewall rule for your client IP address 
 
 You need to use the [Azure CLI](/cli/azure/install-azure-cli) or the [Azure portal](https://portal.azure.com) to configure a firewall rule.
 
-## Get the MongoDB connection string for your resource 
+### Get the MongoDB connection string for your resource 
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, select your subscription, then right-click on **Azure Cosmos DB** and select **Copy connection string**.

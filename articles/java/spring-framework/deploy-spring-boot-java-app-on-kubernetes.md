@@ -111,12 +111,12 @@ The following steps walk you through building a Spring Boot web application and 
 1. Log in to your Azure Container Registry from the Azure CLI.
 
    ```azurecli
-   # set the default name for Azure Container Registry, otherwise you will need to specify the name in "az acr login"
+   # set the default name for Azure Container Registry, otherwise you need to specify the name in "az acr login"
    az config set defaults.acr=wingtiptoysregistry
    az acr login
    ```
 
-1. Open the *pom.xml* file with a text editor; for example [VS Code](https://code.visualstudio.com/docs).
+1. Open the *pom.xml* file with a text editor; for example [Visual Studio Code](https://code.visualstudio.com/docs).
 
    ```bash
    code pom.xml
@@ -283,7 +283,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR04.png" alt-text="Kubernetes resources view, services list, external endpoints highlighted.":::
 
-1. Select **External IP**. You will then see your Spring Boot application running on Azure.
+1. Select **External IP**. You'll then see your Spring Boot application running on Azure.
 
    ![Browse Sample App on Azure][SB02]
 
@@ -294,7 +294,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### See also
 
 For more information about using Spring Boot on Azure, see the following article:
 
@@ -314,7 +314,7 @@ The following links provide additional information about using Kubernetes with A
 
 * [Get started with a Kubernetes cluster in Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
-More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
+More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/reference/kubectl/>.
 
 The Kubernetes website has several articles that discuss using images in private registries:
 

@@ -6,7 +6,6 @@ ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23, py-fresh-zin
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/03/2023
-ms.prod: azure-python
 ---
 
 # Overview: Deploy a serverless Python cloud ETL solution on Azure

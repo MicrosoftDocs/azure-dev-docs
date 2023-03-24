@@ -5,7 +5,7 @@ ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 01/18/2023
-ms.custom: passwordless-java, spring-cloud-azure
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector, devx-track-azurecli
 ---
 
 # Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
@@ -26,7 +26,7 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 
 - [JDK 8 or JDK 11](../fundamentals/java-jdk-install.md).
 - An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above required.
+- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or higher required.
 - The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
@@ -52,7 +52,7 @@ export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your Azure Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using the command `az account list-locations`.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 - `<YOUR_AZURE_SPRING_APPS_SERVICE_NAME>`: The name of your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 - `<AZ_DB_ADMIN_USERNAME>`: The admin username of your Azure database server.
 - `<AZ_DB_ADMIN_PASSWORD>`: The admin password of your Azure database server.
@@ -175,9 +175,15 @@ Use the following command to create the app. If you selected Java version 11 whe
 
 ## Connect Azure Spring Apps to the Azure database
 
+First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
 ### [Azure Database for MySQL](#tab/mysql)
 
-First, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 AZ_IDENTITY_RESOURCE_ID=$(az identity create \
@@ -216,9 +222,6 @@ This Service Connector command will do the following tasks in the background:
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
 Use the following command to create a passwordless connection to the database.
-
-> [!NOTE]
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 ```azurecli
 az spring connection create postgres-flexible \
@@ -311,7 +314,7 @@ The following steps describe how to download, configure, build, and deploy the s
    This dependency adds support for the Spring Cloud Azure starter.
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
    ### [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -323,7 +326,7 @@ The following steps describe how to download, configure, build, and deploy the s
    ```
 
    > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](spring-cloud-azure.md#getting-started) section.
+   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
    This dependency adds support for the Spring Cloud Azure starter.
 

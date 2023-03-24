@@ -1,107 +1,50 @@
 ---
-ms.date: 05/18/2020
+ms.date: 02/22/2023
 author: KarlErickson
 ms.author: judubois
 ---
 
-## Prepare the working environment
-
-First, set up some environment variables by using the following commands:
-
-```bash
-export AZ_RESOURCE_GROUP=database-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
-export AZ_LOCATION=<YOUR_AZURE_REGION>
-export AZ_SQL_SERVER_USERNAME=spring
-export AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
-export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
-```
-
-Replace the placeholders with the following values, which are used throughout this article:
-
-- `<YOUR_DATABASE_NAME>`: The name of your Azure SQL Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<AZ_SQL_SERVER_PASSWORD>`: The password of your Azure SQL Database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
-
-Next, create a resource group using the following command:
-
-```azurecli
-az group create \
-    --name $AZ_RESOURCE_GROUP \
-    --location $AZ_LOCATION \
-    --output tsv
-```
-
-## Create an Azure SQL Database instance
-
-The first thing you'll create is a managed Azure SQL Database server by running the following command.
-
-> [!NOTE]
-> The MS SQL password has to meet specific criteria, and setup will fail with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
-
-```azurecli
-az sql server create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
-    --location $AZ_LOCATION \
-    --admin-user $AZ_SQL_SERVER_USERNAME \
-    --admin-password $AZ_SQL_SERVER_PASSWORD \
-    --output tsv
-```
-
 ## Configure a firewall rule for your Azure SQL Database server
 
-Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection.
 
-Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running the following command:
+To be able to use your database, open the server's firewall to allow the local IP address to access the database server. For more information, see [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial).
 
-```azurecli
-az sql server firewall-rule create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip \
-    --server $AZ_DATABASE_NAME \
-    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --output tsv
-```
+If you're connecting to your Azure SQL Database server from Windows Subsystem for Linux (WSL) on a Windows computer, you need to add the WSL host ID to your firewall.
 
-If you're connecting to your Azure SQL Database server from WSL on a Windows computer, you'll need to add the WSL host ID to your firewall.
+## Create an SQL database non-admin user and grant permission
 
-Obtain the IP address of your host machine by running the following command in WSL:
+This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
-```bash
-cat /etc/resolv.conf
-```
+### [Passwordless (Recommended)](#tab/passwordless)
 
-Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+> [!IMPORTANT]
+> To use passwordless connections, first upgrade [MS SQL Server Driver](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) to version `12.1.0` or higher. Then, create an Azure AD admin user for your Azure SQL Database server. For more information, see [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial).
+
+The Azure AD admin you created earlier is an SQL database admin user, so you don't need to create a new user.
+
+### [Password](#tab/password)
+
+First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+cat << EOF > create_user.sql
+USE demo;
+GO
+CREATE USER <your_sql_server_non_admin_username> WITH PASSWORD='<your_sql_server_non_admin_password>'
+GO
+GRANT CONTROL ON DATABASE::demo TO <your_sql_server_non_admin_username>;
+GO
+EOF
 ```
 
-Then, use the following command to open the server's firewall to your WSL-based app:
+Then, use the following command to run the SQL script to create the non-admin user:
 
-```azurecli
-
-az sql server firewall-rule create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_NAME \
-    --start-ip-address $AZ_WSL_IP_ADDRESS \
-    --end-ip-address $AZ_WSL_IP_ADDRESS \
-    --output tsv
-
+```bash
+sqlcmd -S sqlservertest.database.windows.net,1433 -d demo -U <your_sql_server_admin_username> -P <your_sql_server_admin_password> -i create_user.sql
 ```
 
-## Configure an Azure SQL database
+> [!NOTE]
+> For more information about creating SQL database users, see [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql).
 
-The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by running the following command:
-
-```azurecli
-az sql db create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name demo \
-    --server $AZ_DATABASE_NAME \
-    --output tsv
-```
+---

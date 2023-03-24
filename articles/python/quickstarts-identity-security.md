@@ -14,17 +14,17 @@ Identity and security for Python apps on Azure are fundamentally about the [*aut
 
 Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use *passwordless connections* to avoid using embedding sensitive data such as passwords in code or environment variables.
 
-* [Overview: Passwordless connection for Azure services](/azure/developer/intro/passwordless-overview)
+* [Overview: Passwordless connection for Azure services](../intro/passwordless-overview.md)
 
-* [Authenticate Python Apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview)
+* [Authenticate Python Apps to Azure services using the Azure SDK for Python](./sdk/authentication-overview.md)
 
-* [Use DefaultAzureCredential in an application](/azure/developer/python/sdk/authentication-overview#use-defaultazurecredential-in-an-application)
+* [Use DefaultAzureCredential in an application](./sdk/authentication-overview.md#use-defaultazurecredential-in-an-application)
 
 * [Quickstart: Azure Blob Storage client library for Python with passwordless connections](/azure/storage/blobs/storage-quickstart-blobs-python)
 
 * [Quickstart: Send messages to and receive message from Azure Service Bus queues with passwordless connections](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
 
-* [Tutorial: Deploy a Python web app to Azure with managed identity](/azure/developer/python/tutorial-python-managed-identity-01)
+* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
 
 The resources listed show how to use Azure Python SDK and passwordless connections with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 

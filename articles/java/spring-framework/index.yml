@@ -6,108 +6,106 @@ summary: Spring is an open-source application framework developed by VMware that
 metadata:
   title: Spring Cloud Azure documentation
   description: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications.
-  ms.date: 01/18/2023
+  ms.date: 01/30/2023
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
-  ms.custom: spring-cloud-azure
+  ms.custom: spring-cloud-azure, devx-track-java
 
 landingContent:
-  - title: Spring Data
+  - title: Overview
     linkLists:
-      - linkListType: tutorial
+      - linkListType: overview
         links:
-          - text: SQL database
-            url: ./configure-spring-data-jdbc-with-azure-sql-server.md
-          - text: MySQL
-            url: ./configure-spring-data-jdbc-with-azure-mysql.md
-          - text: PostgreSQL
-            url: ./configure-spring-data-jdbc-with-azure-postgresql.md
-          - text: Azure Cosmos DB - SQL
-            url: ./configure-spring-boot-starter-java-app-with-cosmos-db.md
-          - text: Azure Cosmos DB - MongoDB
-            url: ./configure-spring-data-mongodb-with-cosmos-db.md
-          - text: Azure Cosmos DB - Cassandra
-            url: ./configure-spring-data-apache-cassandra-with-cosmos-db.md
-  - title: R2DBC
+          - text: Spring Cloud Azure overview
+            url: ./spring-cloud-azure-overview.md
+  - title: Security
     linkLists:
-      - linkListType: tutorial
+      - linkListType: get-started
         links:
-          - text: SQL database
-            url: ./configure-spring-data-r2dbc-with-azure-sql-server.md
-          - text: PostgreSQL
-            url: ./configure-spring-data-r2dbc-with-azure-postgresql.md
-          - text: MySQL
-            url: ./configure-spring-data-r2dbc-with-azure-mysql.md
-  - title: Spring Security
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Azure Active Directory
+          - text: Secure REST API using Spring Security and Azure AD
             url: ./configure-spring-boot-starter-java-app-with-azure-active-directory.md
-          - text: Azure AD B2C
-            url: ./configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
-  - title: Spring Messaging
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Service Bus
-            url: ./configure-spring-boot-starter-java-app-with-azure-service-bus.md
-          - text: Event Hubs
-            url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-messaging-azure-eventhubs
-  - title: Spring Integration
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Service Bus
-            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-integration-servicebus/single-namespace
-          - text: Event Hubs
-            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration
-          - text: Storage Queue
-            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-integration-storage-queue/storage-queue-integration
-  - title: Spring Cloud
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: App Configuration
-            url: /azure/azure-app-configuration/quickstart-java-spring-app
-      - linkListType: tutorial
-        links:
-          - text: Event Hubs
-            url: ./configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
-          - text: Kafka
-            url: ./configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
-          - text: Service Bus
-            url: ./configure-spring-cloud-stream-binder-java-app-with-service-bus.md
-          - text: Redis
-            url: ./configure-spring-boot-initializer-java-app-with-redis-cache.md
-          - text: Functions
-            url: ./getting-started-with-spring-cloud-function-in-azure.md
-  - title: Spring Resource
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Blob Storage
-            url: ./configure-spring-boot-starter-java-app-with-azure-storage.md
-          - text: Azure Files
-            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample
-  - title: Zero Trust
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Key Vault secrets
+          - text: Spring Security support
+            url: ./spring-boot-starter-for-azure-active-directory-developer-guide.md
+          - text: Load a secret from Azure Key Vault
             url: ./configure-spring-boot-starter-java-app-with-azure-key-vault.md
-          - text: Key Vault certificates
+          - text: Enable OIDC sign-in for Spring with Azure AD B2C
+            url: ./configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
+          - text: Enable HTTPS in Spring Boot with Azure Key Vault certificates
             url: ./configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
-  - title: Spring Cache
+  - title: Database
     linkLists:
-      - linkListType: tutorial
+      - linkListType: get-started
         links:
-          - text: Redis Cache
+          - text: Accessing data with Azure Cosmos DB NoSQL API
+            url: ./configure-spring-boot-starter-java-app-with-cosmos-db.md
+          - text: Azure Cosmos DB Dev Guide
+            url: ./how-to-guides-spring-data-cosmosdb.md
+          - text: Use Spring Data with Azure Cosmos DB for MongoDB API
+            url: ./configure-spring-data-mongodb-with-cosmos-db.md
+          - text: JDBC with Azure SQL Server
+            url: ./configure-spring-data-jdbc-with-azure-sql-server.md
+          - text: JDBC with Azure PostgreSQL
+            url: ./configure-spring-data-jdbc-with-azure-postgresql.md
+          - text: JDBC with Azure MySQL
+            url: ./configure-spring-data-jdbc-with-azure-mysql.md
+          - text: JPA with Azure SQL Database
+            url: ./configure-spring-data-jpa-with-azure-sql-server.md
+          - text: JPA with Azure MySQL
+            url: ./configure-spring-data-jpa-with-azure-mysql.md
+          - text: R2DBC with Azure PostgreSQL
+            url: ./configure-spring-data-r2dbc-with-azure-postgresql.md
+          - text: R2DBC with Azure SQL Server
+            url: ./configure-spring-data-r2dbc-with-azure-sql-server.md
+  - title: Messaging
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Using JMS to access Azure Service Bus
+            url: ./configure-spring-boot-starter-java-app-with-azure-service-bus.md
+          - text: Spring Cloud Stream with Azure Event Hubs
+            url: ./configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
+          - text: Spring Cloud Stream with Azure Service Bus
+            url: ./configure-spring-cloud-stream-binder-java-app-with-service-bus.md
+          - text: Use Spring Kafka with Azure Event Hubs for Kafka API
+            url: ./configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+  - title: Storage
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Upload a file to Azure Storage Blob
+            url: ./configure-spring-boot-starter-java-app-with-azure-storage.md
+  - title: Passwordless connections
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Access a database without passwords in Spring
+            url: ./deploy-passwordless-spring-database-app.md
+          - text: Migrate to use passwordless connections - Azure MySQL
+            url: ./migrate-mysql-to-passwordless-connection.md
+          - text: Migrate to use passwordless connections - Azure PostgreSQL
+            url: ./migrate-postgresql-to-passwordless-connection.md
+          - text: Migrate to use passwordless connections - Azure SQL Database
+            url: ./migrate-sql-database-to-passwordless-connection.md
+          - text: Migrate to use passwordless connections - Azure Event Hubs for Kafka
+            url: ./migrate-sql-database-to-passwordless-connection.md
+  - title: Configuration management
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Externalize configuration properties to Azure App Configuration
+            url: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+          - text: Use Key Vault references
+            url: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+          - text: Use feature flags
+            url: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+          - text: Add feature flags
+            url: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+          - text: Use dynamic configuration
+            url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+  - title: Caching
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Use Azure Redis Cache in Spring
             url: ./configure-spring-boot-initializer-java-app-with-redis-cache.md
-  - title: Micrometer
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Monitor
-            url: /azure/azure-monitor/app/java-in-process-agent

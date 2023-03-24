@@ -10,13 +10,15 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 # Create and configure a managed identity on Azure hosting services
 
+**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+
 This article shows you how to create and configure a managed identity on Azure hosting services. There are two types of managed identities: system-assigned and user-assigned.
 
 For more information about Azure managed identities, see [Azure AD-managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
 
 For more information about Azure Active Directory, see [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 
-### Create and configure a system-assigned managed identity
+## Create and configure a system-assigned managed identity
 
 The following list provides references on how to create and configure system-assigned managed identity on various Azure hosting services.
 
@@ -26,7 +28,7 @@ The following list provides references on how to create and configure system-ass
 - Azure Kubernetes Service (AKS). For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 - Azure Spring Apps. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](/azure/spring-apps/how-to-enable-system-assigned-managed-identity?tabs=azure-portal&pivots=sc-standard-tier).
 
-### Create and configure a user-assigned managed identity
+## Create and configure a user-assigned managed identity
 
 For instructions on how to create a user-assigned managed identity, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 

@@ -2,7 +2,7 @@
 title: Implement integration testing with Terraform and Azure
 description: Learn about integration tests and how to use Azure DevOps to configure continuous integration for Terraform projects.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 03/23/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -17,8 +17,8 @@ Integration tests validate that a newly introduced code change doesn't break exi
 - Run [terraform plan](https://www.terraform.io/docs/commands/validate.html) to ensure the configuration will work as expected.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Learn the basics of integration testing for Terraform projects.
 > * Use Azure DevOps to configure a continuous integration pipeline.
 > * Run static code analysis on Terraform code.
@@ -38,7 +38,7 @@ In this article, you learn how to:
 
 - **Grant Azure DevOps access to your Azure Subscription**: Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure) named `terraform-basic-testing-azure-connection` to allow Azure Pipelines to connect to your Azure subscriptions
 
-- **Example code and resources:** Using the DownGit tool, download from GitHub the [integration-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/integration-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
+- **Example code and resources:** Download from GitHub the [integration-testing project](https://github.com/Azure/terraform/tree/master/samples/integration-testing). The directory into which you download the sample is referred to as the *example directory*.
 
 ## 2. Validate a local Terraform configuration
 

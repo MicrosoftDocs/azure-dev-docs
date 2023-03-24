@@ -1,51 +1,63 @@
 ---
-title: Getting starting with messaging and IoT for Python apps on Azure
-description: Index of getting started material in the Azure documentation for messaging and IoT for Python apps.
-ms.date: 05/28/2020
+title: Getting starting with messaging, events, and IoT for Python apps on Azure
+description: Index of Python-specific articles in Azure documentation for learning more about messaging, events, and IoT.
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Messaging and IoT for Python apps on Azure
+# Messaging, Events, and IoT for Python apps on Azure
 
-The following articles help you get started with various messaging options on Azure.
+The following articles help you get started with messaging, event ingestion and processing, and Internet of Things (IoT) services in Azure.
 
 ## Messaging
 
-- **Notifications**:
+Messaging services on Azure provide the interconnectivity between components and applications that are written in different languages and hosted in the same cloud, multiple clouds, or on-premises.
+
+- **Notifications**
   - [How to use Notification Hubs from Python](/azure/notification-hubs/notification-hubs-python-push-notification-tutorial)
 
-- **Queues**:
-  - [How to use Azure Queue storage v2.1 from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage)
-  - [Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python)
-  - [Use Azure Service Bus queues with Python](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
-  - [Use Service Bus topics and subscriptions with Python](/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions)
+- **Queues**
+  - [Quickstart: Azure Queue Storage client library for Python](/azure/storage/queues/storage-quickstart-queues-python)
+  - [Develop with Queues: How to use Azure Queue Storage from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage)
+  - [Quickstart: Send messages to and receive messages from Azure Service Bus queues (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
+  - [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions)
 
-- **Real-time web functionality (SignalR)**:
-  - [Create a chat room with Azure Functions and SignalR Service using Python](/azure/azure-signalr/signalr-quickstart-azure-functions-python)
+- **Real-time web functionality (SignalR)**
+  - [Quickstart: Create a serverless app with Azure Functions, SignalR Service, and Python](/azure/azure-signalr/signalr-quickstart-azure-functions-python)
 
-## Event ingestion
+- **Azure Web PubSub**
+  - [How to create a WebPubSubServiceClient with Python and Azure Identity](/azure/azure-web-pubsub/howto-create-serviceclient-with-python-and-azure-identity)
 
-- **Event ingestion**:
-  - [Ingest real-time data with Event Hubs using Python](/azure/event-hubs/event-hubs-python)
-  - [Event Hubs data in Azure Storage and read it by using Python](/azure/event-hubs/get-started-capture-python-v2)
-  - [Route custom events to web endpoint with Azure CLI and Event Grid](/azure/event-grid/custom-event-quickstart)
+## Events
+
+Event Hubs is a big data streaming platform and event ingestion service. Event Grid is a scalable, serverless event broker that you can use to integrate applications using events.
+
+- **Event Hubs**
+  - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
+  - [Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](/azure/event-hubs/event-hubs-capture-python)
+
+- **Event Grid**
+  - [Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid](/azure/event-grid/custom-event-quickstart)
+  - [Azure Event Grid Client Library Python Samples](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
 
 ## Internet of Things (IoT)
 
-- **IoT Hub**:
-  - [Send telemetry from a device to an IoT hub and read it with a back-end application](/azure/iot-hub/quickstart-send-telemetry-python)
+Internet of Things or IoT refers to a collection of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. IoT also includes security and operating systems for devices and data and analytics that help you build, deploy, and manage IoT applications.
+
+- **IoT Hub**
+  - [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python)
   - [Send cloud-to-device messages with IoT Hub](/azure/iot-hub/iot-hub-python-python-c2d)
   - [Upload files from your device to the cloud with IoT Hub](/azure/iot-hub/iot-hub-python-python-file-upload)
   - [Schedule and broadcast jobs](/azure/iot-hub/iot-hub-python-python-schedule-jobs)
-  - [Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device-python)
+  - [Quickstart: Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device?pivots=programming-language-python)
 
-- **Device provisioning**:
-  - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm-python)
-  - [Enroll TPM device to IoT Hub Device Provisioning Service](/azure/iot-dps/quick-enroll-device-tpm-python)
-  - [Create and provision a simulated X.509 device](/azure/iot-dps/quick-create-simulated-device-x509-python)
-  - [Enroll X.509 devices to the Device Provisioning Service](/azure/iot-dps/quick-enroll-device-x509-python)
+- **Device provisioning**
+  - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-python)
+  - [Quickstart: Provision an X.509 certificate simulated device](/azure/iot-dps/quick-create-simulated-device-x509?pivots=programming-language-python)
+  - [Tutorial: Provision devices using symmetric key enrollment groups](/azure/iot-dps/how-to-legacy-device-symm-key?pivots=programming-language-python)
+  - [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-python)
 
-- **IoT Central/IoT Edge**:
-  - [Tutorial: Create and connect a client application to your Azure IoT Central application (Python)](/azure/iot-central/core/tutorial-connect-device-python)
+- **IoT Central/IoT Edge**
+  - [Tutorial: Create and connect a client application to your Azure IoT Central application](/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-python)
   - [Tutorial: Develop and deploy a Python IoT Edge module for Linux devices](/azure/iot-edge/tutorial-python-module)

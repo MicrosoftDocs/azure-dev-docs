@@ -5,7 +5,7 @@ ms.date: 08/09/2022
 ---
 
 
-## Create an Azure Cache for Redis resource with Azure CLI
+### Create an Azure Cache for Redis resource with Azure CLI
 
 Use the following Azure CLI [az redis create](/cli/azure/redis#az-redis-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Redis resource for your database. 
 
@@ -26,53 +26,8 @@ The response includes your server's configuration details including:
 * the version of Redis: `redisVersion`
 * ports: `sslPort` and `port`
 
-```text
-{
-  "accessKeys": null,
-  "enableNonSslPort": true,
-  "hostName": "YOUR-RESOURCE-NAME.redis.cache.windows.net",
-  "id": "/subscriptions/YOUR-SUBSCRIPTION-ID-OR-NAME/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Cache/Redis/YOUR-RESOURCE-NAME",
-  "instances": [
-    {
-      "isMaster": false,
-      "nonSslPort": 13000,
-      "shardId": null,
-      "sslPort": 15000,
-      "zone": null
-    }
-  ],
-  "linkedServers": [],
-  "location": "East US",
-  "minimumTlsVersion": null,
-  "name": "YOUR-RESOURCE-NAME",
-  "port": 6379,
-  "provisioningState": "Creating",
-  "redisConfiguration": {
-    "maxclients": "256",
-    "maxfragmentationmemory-reserved": "12",
-    "maxmemory-delta": "2",
-    "maxmemory-reserved": "2"
-  },
-  "redisVersion": "4.0.14",
-  "replicasPerMaster": null,
-  "resourceGroup": "YOUR-RESOURCE-GROUP",
-  "shardCount": null,
-  "sku": {
-    "capacity": 0,
-    "family": "C",
-    "name": "Basic"
-  },
-  "sslPort": 6380,
-  "staticIp": null,
-  "subnetId": null,
-  "tags": {},
-  "tenantSettings": {},
-  "type": "Microsoft.Cache/Redis",
-  "zones": null
-}
-```
 
-## Add firewall rule for your client IP address to Redis resource
+### Add firewall rule for your client IP address to Redis resource
 
 Add firewall rules with [az redis firewall-rules create](/cli/azure/redis/firewall-rules#az-redis-firewall-rules-create) command to define access to your cache from your client IP or your app's IP.
 
@@ -88,9 +43,9 @@ az redis firewall-rules create \
 
 If you don't know your client IP address, use one of these methods:
 * Use the Azure portal to view and change your firewall rules, which include adding your detected client IP.
-* When you run your Node.js code, your receive an error about your firewall rules violation which includes your client IP address. Copy the IP address and use it to set your firewall rule.
+* When you run your Node.js code, your receive an error about your firewall rules violation, which includes your client IP address. Copy the IP address and use it to set your firewall rule.
 
-## Get the Redis keys with Azure CLI
+### Get the Redis keys with Azure CLI
 
 Retrieve the Redis connection string for this instance with the [az redis list-keys](/cli/azure/redis#az-redis-list-keys) command:
 
@@ -110,7 +65,7 @@ This returns the two keys:
   }
 ```
 
-## Connect Azure Cache for Redis to your App service web app
+### Connect Azure Cache for Redis to your App service web app
 
 Add connection information to your App service web app with [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 

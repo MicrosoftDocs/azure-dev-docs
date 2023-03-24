@@ -5,7 +5,7 @@ ms.date: 01/04/2022
 ms.custom: devx-track-terraform
 ---
 
-- **Configure Terraform:** If you haven't already done so, configure Terraform using one of the following options:
+- **Configure Terraform**: If you haven't already done so, configure Terraform using one of the following options:
 
     - [Configure Terraform in Azure Cloud Shell with Bash](../get-started-cloud-shell-bash.md)
     - [Configure Terraform in Azure Cloud Shell with PowerShell](../get-started-cloud-shell-powershell.md)

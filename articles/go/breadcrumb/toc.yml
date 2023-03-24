@@ -1,0 +1,20 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Developer
+    tocHref: /azure/developer
+    topicHref: /azure/developer/index
+    items:
+    - name: Go
+      tocHref: /azure/storage/blobs
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/postgresql
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/mysql
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/sql-database
+      topicHref: /azure/developer/go/index

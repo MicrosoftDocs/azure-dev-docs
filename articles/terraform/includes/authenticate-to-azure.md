@@ -11,9 +11,9 @@ Terraform only supports authenticating to Azure via the Azure CLI. Authenticatin
 
 This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
-- [Authenticating via a Microsoft account using Cloud Shell (with Bash or PowerShell) and ](#authenticate-to-azure-via-a-microsoft-account)
-- [Authenticating via a Microsoft account using Windows (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
-- Authenticating via a service principal:
+- [Authenticate via a Microsoft account using Cloud Shell (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
+- [Authenticate via a Microsoft account using Windows (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
+- Authenticate via a service principal:
     1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
     1. [Authenticate to Azure using environment variables](#specify-service-principal-credentials-in-environment-variables) or [authenticate to Azure using the Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
 

@@ -4,7 +4,6 @@ description: Discusses how to start a Python web app running on App Service, inc
 ms.topic: conceptual
 ms.date: 06/20/2022
 ms.custom: devx-track-python
-ms.prod: azure-python
 ---
 
 # Configure a custom startup file for Python apps on Azure App Service

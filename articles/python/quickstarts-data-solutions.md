@@ -1,65 +1,76 @@
 ---
 title: Getting started with data solutions for Python apps on Azure
 description: Index of getting started material in the Azure documentation for data solutions for Python apps.
-ms.date: 05/28/2020
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Data solutions for Python apps on Azure
 
-The following articles help you get started with various data solutions on Azure.
+Azure offers a choice of fully managed relational, NoSQL, and in-memory databases, spanning proprietary and open-source engines in addition to storage services for object, block, and file storage. The following articles help you get started with Python data solutions on Azure.
 
-## SQL databases
+## Databases
 
-- **PostgreSQL**:
-  - [Use Python to connect and query data in Azure Database for PostgreSQL](/azure/postgresql/connect-python)
+- **PostgreSQL**: Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud.
+  - [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server](/azure/postgresql/single-server/connect-python)
+  - [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/connect-python)
   - [Run a Python (Django or Flask) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
-- **MySQL**:
-  - [Use Python to connect and query data with Azure Database for MySQL](/azure/mysql/connect-python)
+- **MySQL**: Build apps that scale with managed and intelligent SQL database in the cloud.
+  - [Quickstart: Use Python to connect and query data in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-python)
+  - [Quickstart: Use Python to connect and query data in Azure Database for MySQL](/azure/mysql/single-server/connect-python)
 
-- **Azure SQL**:
-  - [Use Python to query an Azure SQL database](/azure/sql-database/sql-database-connect-query-python)
+- **Azure SQL**: Build apps that scale with managed and intelligent SQL database in the cloud.
+  - [Quickstart: Use Python to query a database](/azure/azure-sql/database/connect-query-python)
 
-- **MariaDB**:
+- **MariaDB**: Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MariaDB database service
   - [How to connect applications to Azure Database for MariaDB](/azure/mariadb/howto-connection-string)
 
-## Tables, blobs, files, NoSQL
+## NoSQL, blobs, tables, files, graphs, and caches
 
-- **Tables and NoSQL**:
-  - [Build an Azure Cosmos DB for Table app with Python](/azure/cosmos-db/create-table-python)
-  - [Build a Python application using an Azure Cosmos DB for NoSQL account](/azure/cosmos-db/create-sql-api-python)
-  - [Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/create-cassandra-python)
-  - [Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/create-graph-python)
-  - [Build a Python app using Azure Cosmos DB for MongoDB](/azure/cosmos-db/create-mongodb-flask)
+- **Cosmos DB**: Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, and other NoSQL workloads to the cloud.
+  - [Quickstart: Azure Cosmos DB for NoSQL client library for Python](/azure/cosmos-db/nosql/quickstart-python)
+  - [Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver](/azure/cosmos-db/mongodb/quickstart-python)
+  - [Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-python)
+  - [Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/table/quickstart-python)
+  - [Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/gremlin/quickstart-python)
 
-- **Blob and file storage**:
-  - [Manage Azure Storage blobs with Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+- **Blob storage**: Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. 
+  - [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+  - [Azure Storage samples using v12 Python client libraries](/azure/storage/common/storage-samples-python)
+
+- **Azure Data Lake Storage Gen2**: Massively scalable and secure data lake for your high-performance analytics workloads.
+  - [Use Python to manage directories and files in Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-directory-file-acl-python)
+  - [Use Python to manage ACLs in Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-acl-python)
+
+- **File storage**: Simple, secure, and serverless enterprise-grade cloud file shares.
   - [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage)
 
-- **Redis Cache**:
-  - [Create a Python app that uses Azure Cache for Redis](/azure/azure-cache-for-redis/cache-python-get-started)
+- **Redis Cache**: Power fast, scalable applications with an open-source-compatible in-memory data store.
+  - [Quickstart: Use Azure Cache for Redis in Python](/azure/azure-cache-for-redis/cache-python-get-started)
 
 ## Big data and analytics
 
-- **Big data analytics (Azure Data Lake analytics)**:
+- **Azure Data Lake analytics**: A fully managed on-demand pay-per-job analytics service with enterprise-grade security, auditing, and support.
   - [Manage Azure Data Lake Analytics using Python](/azure/data-lake-analytics/data-lake-analytics-manage-use-python-sdk)
-  - [Develop U-SQL with Python for Azure Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode)
+  - [Develop U-SQL with Python for Azure Data Lake Analytics in Visual Studio Code](/azure/data-lake-analytics/data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode)
 
-- **Big data orchestration (Azure Data Factory)**:
-  - [Create a data factory and pipeline using Python](/azure/data-factory/quickstart-create-data-factory-python)
+- **Azure Data Factory**: A data integration service to orchestrate and automate data movement and transformation.
+  - [Quickstart: Create a data factory and pipeline using Python](/azure/data-factory/quickstart-create-data-factory-python)
   - [Transform data by running a Python activity in Azure Databricks](/azure/data-factory/transform-data-databricks-python)
 
-- **Big data streaming and event ingestion (Azure Event Hubs)**:
-  - [Send events to or receive events from event hubs by using Python](/azure/event-hubs/get-started-python-send-v2)
-  - [Event Hubs Capture walkthrough: Python](/azure/event-hubs/event-hubs-capture-python)
-  - [Capture Event Hubs data in Azure Storage and read it by using Python](/azure/event-hubs/get-started-capture-python-v2)
+- **Azure Event Hubs**: A hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events.
+  - [Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
+  - [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](/azure/event-hubs/event-hubs-capture-python)
 
-- **Hadoop (Azure HDInsights)**:
+- **HDInsight**: A fully managed cloud Hadoop and Spark service backed by 99.9% SLA for your enterprise
   - [Use Spark & Hive Tools for Visual Studio Code](/azure/hdinsight/hdinsight-for-vscode)
 
-- **Spark-based analytics (Azure Databricks)**:
-  - [Connect to Azure Databricks from Excel, Python, or R](/azure/azure-databricks/connect-databricks-excel-python-r)
-  - [Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+- **Azure Databricks**: A fully managed, fast, easy and collaborative Apache® Spark™ based analytics platform optimized for Azure.
+  - [Connect to Azure Databricks from Excel, Python, or R](/azure/databricks/scenarios/connect-databricks-excel-python-r)
+  - [Get Started with Azure Databricks](/azure/databricks/getting-started/)
   - [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
+
+- **Azure Synapse Analytics**: A limitless analytics service that brings together enterprise data warehousing and big data analytics.
+  - [Quickstart: Use Python to query a database](/azure/azure-sql/database/connect-query-python)

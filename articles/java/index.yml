@@ -122,9 +122,9 @@ conceptualContent:
 
     - title: Spring on Azure integration
       links:
-        - text: Spring Boot Starters
+        - text: What is Spring Cloud Azure?
           itemType: get-started
-          url: spring-framework/spring-boot-starters-for-azure.md
+          url: spring-framework/spring-cloud-azure-overview.md
         - text: Spring Data for Azure Cosmos DB
           itemType: how-to-guide
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md

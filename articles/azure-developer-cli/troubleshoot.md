@@ -33,6 +33,14 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 
 Run `azd login` to refresh the access token.
 
+## Cannot connect to the Docker daemon in Cloud Shell
+
+Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
+
+### Solution
+
+Use another host to perform tasks that require the docker daemon. One option is to use docker-machine, as described in the [Cloud Shell troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon) documentation.
+
 ## Azure Bicep CLI requirement
 
 `azd up` and `azd provision` require the latest release of Azure Bicep CLI. You might get the following error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
@@ -82,6 +90,10 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 ## `azd monitor` for development container
 
 `azd monitor` is currently not supported if you use a development container as your development environment.
+
+## Unable to authenticate in Codespaces environments
+
+If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
 
 ## Text-based browser support
 

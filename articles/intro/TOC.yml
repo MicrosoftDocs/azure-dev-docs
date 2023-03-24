@@ -16,6 +16,8 @@ items:
         href: azure-developer-key-concepts.md
       - name: Overview of Azure billing
         href: azure-developer-billing.md
+      - name: Versioning policy for Azure services, SDKs, and CLI tools
+        href: azure-service-sdk-tool-versioning.md
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
@@ -24,8 +26,10 @@ items:
         href: /azure/storage/common/multiple-identity-scenarios?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Delete passwords and migrate
         items:
-          - name: SQL
+          - name: Azure SQL Database
             href: ../java/spring-framework/migrate-sql-database-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Event Hubs with Kafka
+            href: ../java/spring-framework/migrate-kafka-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json            
           - name: MySQL
             href: ../java/spring-framework/migrate-mysql-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: PostgreSQL
@@ -34,8 +38,6 @@ items:
             href: /service-bus-messaging/service-bus-migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage
             href: /azure/storage/common/migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: Kafka
-            href: ../java/spring-framework/migrate-kafka-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Service Connector reference
         items:
           - name: SQL
@@ -54,6 +56,10 @@ items:
                 href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
+              - name: Azure SQL Database with EF Core
+                href: /azure/azure-sql/database/azure-sql-dotnet-entity-framework-core-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Azure SQL Database with SqlClient
+                href: /azure/azure-sql/database/azure-sql-dotnet-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Cosmos DB for NoSQL
                 href: /azure/cosmos-db/nosql/quickstart-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Event Hubs
@@ -92,6 +98,8 @@ items:
                 href: /azure/container-instances/container-instances-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Java
         items:
+          - name: Azure Service Bus JMS 2.0 developer guide
+            href: /azure/service-bus-messaging/jms-developer-guide?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Configure
             items:
               - name: JDBC
@@ -102,7 +110,7 @@ items:
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: PostgreSQL
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-                  - name: Oracle WebLogic Server with MySQL and PostgreSQL
+                  - name: Oracle WebLogic Server with MySQL, PostgreSQL, and Azure SQL
                     href: ../java/ee/how-to-configure-passwordless-datasource.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JPA
                 items:
@@ -116,11 +124,11 @@ items:
                 href: ../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Quickstarts
             items:
-              - name: JDBC with MySQL
-                href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: JDBC with PostgreSQL
-                href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-              - name: Kafka with Event Hubs
+              - name: Cosmos DB for NoSQL
+                href: /azure/cosmos-db/nosql/quickstart-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Event Hubs
+                href: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json                
+              - name: Event Hubs with Kafka
                 href: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Key Vault - Certificates
                 href: /azure/key-vault/certificates/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
@@ -128,6 +136,10 @@ items:
                 href: /azure/key-vault/keys/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Key Vault - Secrets
                 href: /azure/key-vault/secrets/quick-create-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: MySQL with JDBC
+                href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: PostgreSQL with JDBC
+                href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Blobs
                 href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Queues
@@ -150,8 +162,16 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Cosmos DB for NoSQL
+            href: /azure/cosmos-db/nosql/quickstart-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-node-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Certificates
+            href: /azure/key-vault/certificates/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Keys
+            href: /azure/key-vault/keys/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Secrets
+            href: /azure/key-vault/secrets/quick-create-node?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Topics
@@ -168,6 +188,12 @@ items:
             href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
             href: /azure/event-hubs/event-hubs-python-get-started-send?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Certificates
+            href: /azure/key-vault/certificates/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Keys
+            href: /azure/key-vault/keys/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Key Vault - Secrets
+            href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json            
           - name: Service Bus - Queues
             href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus - Topics

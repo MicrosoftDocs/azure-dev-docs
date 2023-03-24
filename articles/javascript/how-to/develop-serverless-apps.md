@@ -2,23 +2,25 @@
 title: Serverless Node.js code with Azure Functions
 description: Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints.
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
+ms.date: 01/25/2023
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2,engagement-fy23
 ---
 
-# Use Azure Functions to develop Node.js serverless code
+# Use Azure Functions to develop Node.js serverless solutions
 
-Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless code is composed of JavaScript or TypeScript code that  runs in response to various events. 
+Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless apps are composed of JavaScript or TypeScript code that runs in response to various events. 
 
-Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint. Functions also allow you to trigger another function so that a function work stream can replace existing hosted backend server functionality and remove the need to manage that server. 
+Functions provide you with:
+
+* Abstraction of web service - you focus on code, not infrastructure.
+* Integration with Azure services - trigger work into or out of an Azure service with events
+* Integrate with JavaScript packages - use your favorite npm packages with your serverless code
 
 * [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
 ## What is a Function resource?
 
-An Azure Function resource is a logical unit for all related functions in a single Azure geographic location. The resource can contain a single function or many functions, which can be independent of each other or related with input or output triggers. You can select from many common functions or create your own.
-
-:::image type="content" source="../media/howto-serverless/portal-screenshot-new-azure-function-type.png" alt-text="You can select from many common functions or create your own..":::
+An Azure Function resource is a logical unit for all related functions in a single Azure geographic location. The resource can contain a single function or many functions, which can be independent of each other or related with input or output bindings. You can select from many common functions or create your own.
 
 The function resource settings include typical serverless configurations including environment variables, authentication, logging, and CORS.  
 
@@ -31,17 +33,17 @@ The function resource settings include typical serverless configurations includi
 When developing a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
 
 ### Proxy from client app to the API
-If you intend to deploy your API with your Static web app, you do not need to use the npm `package.json` proxy property in your client application. The proxy will be established for you, including local and remote development.
+If you intend to deploy your API with your Static web app, you do not need to proxy your client application's API calls. The proxy will be established for you, including local and remote development.
 
-If you intend to deploy your API separately from its client, you may need to set and use the npm `package.json` proxy property in your client application. The proxy would be required to develop locally between a running client (like a React app) and your Function API. When deploying both to hosting platforms, review the requirements of use service to understand how to accommodate your proxy needs.
+When developing locally with a Static Web App and Azure Functions, the [Azure Static Web App CLI](https://github.com/Azure/static-web-apps-cli) provides the local proxy. 
 
 ## Common security settings you need to configure for your Azure Function
 
 The following common settings should be configured to keep your Azure Function secure:
 
 * Configuration settings
-  * Configuration settings - create Application settings for settings that don't impact security. For any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and pull in those settings from your Key Vault.
-  * Connection strings - store these in the **Connection strings** setting for your app. These values are encrypted at rest. 
+  * Configuration settings - create Application settings for settings that don't impact security. 
+  * Secrets and keys - for any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli).
   * FTP state on Platform settings - by default, all are allowed. You need to select **FTPS only** or disable FTP entirely to improve security. 
 * API CORS - configure your client domains. Do not use `*`, indicating all domains. 
 * TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you are ready. 
@@ -131,23 +133,12 @@ When you [create an Azure function using the Azure portal](https://ms.portal.azu
 
 The portal creates JavaScript functions only, not TypeScript. If you want to develop with TypeScript, either download the function or create the function locally in Visual Studio Code with the Function extension. 
 
-## Low-code or high-code functions
+## Integrate with other Azure services
 
 Serverless functions remove much of the server configuration and management so you can focus on just the code you need. 
 
 * Low-code functions: With Azure Functions, you can create functions that are triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
 * High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
-
-## Azure Cosmos DB integration
-
-Azure Cosmos DB currently provides the following integration for functions:
-
-|Type|API|Description|
-|--|--|--|
-|API & Binding|SQL|Connect to Azure Cosmos DB for NoSQL via either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/cosmos SDK](https://www.npmjs.com/package/@azure/cosmos).|
-|API only|MongoDB|Use any MongoDB npm package with the Azure Cosmos DB connection string provided in the Azure portal for your resource. Common MongoDB packages include [Mongoose](https://www.npmjs.com/package/mongoose) and [MongoDB](https://www.npmjs.com/package/mongodb).|
-
-
 
 ## Next steps
 
