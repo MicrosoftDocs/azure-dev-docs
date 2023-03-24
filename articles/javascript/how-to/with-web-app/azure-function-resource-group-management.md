@@ -12,13 +12,13 @@ In this article series, you'll create a local TypeScript Azure Function app with
 
 Features and functionality of this article series:
 
-* Create local Azure Function app project in Visual Studio Code
+* Create local TypeScript Azure Function app project in Visual Studio Code
 * Create function APIs boilerplate code in Visual Studio Code
-* Deploy to Azure Functions
-* Create service principal
-* Configure local and remote application settings
-* Use DefaultAzureCredential in both local and remote environments
-* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs
+* Deploy to Azure Functions from Visual Studio Code
+* Create service principal with Azure CLI
+* Configure local and remote application settings with Visual Studio Code
+* Use DefaultAzureCredential in both local and remote environments for passwordless connections
+* Use Azure Identity and Azure Resource Management SDKs to manage Azure resources
 * Use your local and cloud APIs to create, delete, and list resource groups in your subscription
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
