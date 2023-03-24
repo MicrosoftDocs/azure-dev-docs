@@ -36,7 +36,7 @@ items:
             href: ../java/spring-framework/migrate-postgresql-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Service Bus
             href: /service-bus-messaging/service-bus-migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: Storage
+          - name: Storage - Blobs
             href: /azure/storage/common/migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Service Connector reference
         items:
