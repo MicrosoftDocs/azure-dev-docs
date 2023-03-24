@@ -25,7 +25,7 @@ Features and functionality:
 
 ## Prerequisites
 
-- [Node.js and npm](https://nodejs.org/en/download) installed to your local machine.
+- [Node.js and npm](https://nodejs.org/en/download) installed to your local machine. Your local development environment version of Node.js should match one of the available [cloud versions]().
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
     - [Azure Function](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy a Function app to Azure.
 - [Azure CLI](/cli/azure/install-azure-cli) installed to your local machine.
@@ -88,7 +88,7 @@ An Azure service principal provides access to Azure without having to use your p
 1. In a bash terminal, get your subscriptions and find the subscription ID you want to use. The following query returns the subscription Id, subscription name, and tenant Id sort by subscription name.
 
     ```azurecli
-     az account list --query "sort_by([].{Name:name, SubscriptionId:id, TenantId:tenantId}, &Name)" --output table
+    az account list --query "sort_by([].{Name:name, SubscriptionId:id, TenantId:tenantId}, &Name)" --output table
     ```
 
 1. Copy the subscription Id to the previous temporary file. You will need this setting later. 
@@ -120,20 +120,16 @@ Use Visual Studio Code to create a local Function app.
 
     |Prompt|Value|
     |--|--|
-    |Create new project|Accept the default name, `typescript-function-resource-group-api`.|
+    |Select the folder that will contain your function project|Select the default (current) directory|
     |Select a language| Select **TypeScript**.|
+    |Select a Typescript programming model|Select model V3|
     |Select a template for your project's first function|Select **HTTP trigger**.|
-    |Create a new project|Select `Model v4 (Preview)`.|
     |Create new HTTP trigger|Enter the API name of `resource-groups`. |
+    |Authorization level|Select **anonymous**. If you continue with this project after this article, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 
 
-    The project boilerplate is created.
+    The project boilerplate is created and the dependencies are installed.
 
-1. In a Visual Studio Code **integrated bash terminal**, opened with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, install the project dependencies:
-
-    ```bash
-    npm install
-    ```
 
 #### Add service principal settings to local.settings.json file
 
@@ -141,7 +137,7 @@ Use Visual Studio Code to create a local Function app.
 
     :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="6-9":::
  
-1. Refer to your temporary copy of settings from the previous article to edit the _required_ environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
+1. Refer to your settings from the previous section to add the _required_ environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
    * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
@@ -210,7 +206,25 @@ npm install @azure/identity @azure/arm-resources
     curl http://localhost:7071/api/resource-groups > resource-groups.json
     ```
 
-    The response includes `status` and a `list` of all resource groups in your subscription.
+1. The response includes `status` and a `list` of all resource groups in your subscription.
+
+    ```json
+    {
+      "status": 200,
+      "list": [
+            {
+              "id": "/subscriptions/ABC123/resourceGroups/vmagelo-cloudshell",
+              "name": "jsmith-cloudshell",
+              "type": "Microsoft.Resources/resourceGroups",
+              "properties": {
+                "provisioningState": "Succeeded"
+              },
+              "location": "westeurope"
+            },
+            ... REMOVED FOR BREVITY ...
+        ]
+    }
+    ```
 
 #### Troubleshooting
 
@@ -222,44 +236,49 @@ If you couldn't complete this article, check the following table for issues. If 
 |The app started but you can't get a 200 response.|Make sure your curl command is requesting from the correct local route.|
 |The API returned a 200 response but returned no results.|Use the Visual Studio Code extension for Azure Resources to verify that your subscription has any resource groups. If you don't see any resource groups, don't worry. This tutorial adds an API to create and delete resource groups in your subscription. This API is added after the first deployment of the source code to Azure, so that you learn how to redeploy your code.|
 
+## 3. Create cloud-based Azure Function app
 
-## 3. Deploy resource manager function app
+1. In Visual Studio Code, select the Azure icon to open the **Azure Explorer**.    
+
+1. Select the **+** icon to create a new Azure Function app in the Azure cloud.
+
+    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-create-function-app-icon.png" alt-text="Visual Studio Code's Azure Explorer with the Azure Function app icon highlighted.":::
+
+1. Select **Create Function App in Azure**.
+1. Enter a **globally unique name** for the new function app. The name must be unique across all Azure functions. For example, `jsmith-rg-management`.
+1. Select the same **Node.js LTS runtime** your selected when you created your local function app. 
+1. Select a geographical **location** close to you such as **West US 3**. 
+1. Wait until the resource is created. You can watch the **Azure: Activity Log** for details.
+
+    :::image type="content" source="../../azure-function-resource-group-management/visual-studio-code-function-creation-activity-log.png" alt-text="Screenshot of Visual Studio Code's Azure activity log showing the resource creation status.":::
+
+## 4. Deploy resource manager function app
 
 Deploy an Azure Function app in Visual Studio Code to manage Azure resource groups. 
 
 #### Use Visual Studio Code extension to deploy to hosting environment
 
-1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the blue up arrow to deploy your app:
+1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the cloud icon to deploy your app.
 
-    ![Deploy to Azure Functions command](../../media/azure-function-resource-group-management/deploy-app.png)
+    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-deploy-app.png" alt-text="Screenshot of Visual Studio Code's local Workspace area with the cloud deployment icon highlighted.":::    
 
     Alternately, you can deploy by opening the **Command Palette** with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>p</kbd>, entering `deploy to function app`, and running the **Azure Functions: Deploy to Function App** command.
 
-1. Use the following table to complete the prompt to create a new Azure Function resource.
+1. Select **Deploy to Function app**.
 
-    |Prompt|Value|
-    |--|--|
-    |Selection Function App in Azure|Create new Function App in Azure ...Advanced|
-    |Enter a globally unique name for the new function app|Use your normal naming conventions for the resource. For example, use the name of the local directory, then postpend your email alias or name, such as `typescript-function-resource-group-api-johnsmith`.|
-    |Select a runtime stack.|Node.js - select one of the LTS versions of Node.js.|
-    |Select an OS|Linux|
-    |Select a resource group for new resources|Use your normal naming conventions for the resource group. For example, use the name of the local directory, then postpend your email alias or name, such as `resource-group-johnsmith`.|
-    |Select a location for new resources|Select a location geographically close to you, for example `West US 2`.|
-    |Select a hosting plan|Consumption|
-    |Select a storage account|Create a new storage account|
-    |Enter the name of the new storage account|Accept the default name|
-    |Select an Application Insights resource|Create a new Application Insights resource.|
-    |Enter the name of the new Application Insights resource.|Accept the default name|
-
-    The Application Insights resource is optional but important. This will help you to monitor your function app.
+1. Select the Function App name your created in the previous section.
+1. When asked if you are sure you want to deploy, select **Deploy**.
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress.  When deploying, the entire Functions application is deployed, so changes to all individual functions are deployed at once.
+
+    
 
 #### Configure your Azure app settings
 
 You need to configure your Azure app settings to connect to the Azure Function app. Locally, these settings are in your `local.settings.json` file. This process adds those values to your cloud app.
 
-1. In Visual Studio Code, in the Azure explorer, select your function app, the right-click on **Application Settings** and select **Add New Setting**.
+1. In Visual Studio Code, in the Azure explorer, in the **Resources** section, expand **Function App** then select your function app.
+1. Right-click on **Application Settings** and select **Add New Setting**.
 1. Add the four values from your `local.settings.json` with the exact same name and values.
 
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
