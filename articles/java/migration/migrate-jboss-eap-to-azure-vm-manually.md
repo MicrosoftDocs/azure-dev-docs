@@ -138,7 +138,7 @@ Create network security group rules by using [az network nsg rule create](/cli/a
 ```azurecli
 az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_APPGW --protocol Tcp --destination-port-ranges 65200-65535 --source-address-prefix GatewayManager --destination-address-prefix '*' --access Allow --priority 500 --direction Inbound
 
-az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_HTTP_ACCESS --protocol Tcp --destination-port-ranges 22 80 443 9990 --source-address-prefix Internet --destination-address-prefix '*' --access Allow --priority 510 --direction Inbound
+az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_HTTP_ACCESS --protocol Tcp --destination-port-ranges 22 80 443 9990 8080 --source-address-prefix Internet --destination-address-prefix '*' --access Allow --priority 510 --direction Inbound
 ```
 
 Associate the subnets created above to this network security group by using [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update).
@@ -382,7 +382,7 @@ az vm run-command invoke \
 
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
-Now, all three machines are ready. Next, you'll configure a WebLogic cluster.
+Now, all three machines are ready. Next, you'll configure a JBoss EAP cluster in managed domain mode.
 
 ### Configure managed domain and cluster
 
@@ -396,7 +396,7 @@ Use the following command to create a storage account and Blob container.
 
 ```azurecli
 # Define your storage account name
-STORAGE_ACCOUNT_NAME=azurepingstg0322
+STORAGE_ACCOUNT_NAME=azurepingstg1110
 
 # Create storage account
 az storage account create \
@@ -408,18 +408,18 @@ az storage account create \
   --access-tier Hot
 
 # Retrieve the storage account key
-STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+STORAGE_ACCESS_KEY=$(az storage account keys list \
   --account-name ${STORAGE_ACCOUNT_NAME} \
   --query "[0].value" --output tsv)
 
 # Define your Blob container name
-CONTAINER_NAME=azurepingcontainer0322
+CONTAINER_NAME=azurepingcontainer1110
 
 # Create blob container
 az storage container create \
   --name ${CONTAINER_NAME} \
   --account-name ${STORAGE_ACCOUNT_NAME} \
-  --account-key ${STORAGE_ACCOUNT_KEY}
+  --account-key ${STORAGE_ACCESS_KEY}
 ```
 
 #### Configure domain controller(admin node)
@@ -458,7 +458,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
 
 # Save a copy of the domain.xml, later we need to share it with all host controllers
-cp domain.xml /tmp/domain.xml
+cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
 
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
@@ -496,9 +496,6 @@ Select `Runtime` and then browser the `Topology` you should see that for now our
 
 #### Configure host controller(worker node)
 
-1. Retrieve the private IP of `adminVM`, we will use it to configure the connection between domain controller and host controllers.
-    1. Portal **Fill in steps**
-
 1. Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply domain configuration to `mspVM1`.
 
 Open a new command prompt, and use the following commands to connect to `mspVM1`:
@@ -525,8 +522,12 @@ JBOSS_EAP_PASSWORD=Secret123456
 sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
 
 # Fetch domain.xml from domain controller
-sudo -u jboss scp azureuser@<adminVM_private_IP>:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+```
 
+You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
+
+```bash
 # Setup host controller
 sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
@@ -565,7 +566,7 @@ Repeat the above steps on `mspVM2`, after two host controller are connected to `
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
-## Expose c with Azure Application Gateway
+## Expose JBoss EAP cluster with Azure Application Gateway
 
 Now that you've created the JBoss EAP cluster on Azure virtual machines, this section walks you through the process of exposing JBoss EAP to the internet with Azure Application Gateway.
 
@@ -629,8 +630,11 @@ After the application gateway is created, you can see these new features:
 - `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
 - `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
 
+
 > [!NOTE]
 > This example sets up simple access to the JBoss EAP servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+
+> This example exposes the host controllers at port 8080, we will deploy a sample application with database connection to the cluster in later steps.
 
 ## Connect Azure Database for PostgreSQL
 
@@ -643,151 +647,158 @@ This section shows you how to create a PostgreSQL instance on Azure and configur
 Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
 
 ```azurecli
-DB_SERVER_NAME="wlsdb$(date +%s)"
+DATA_BASE_USER=jboss
+DATA_BASE_PASSWORD=Secret123456
+
+DB_SERVER_NAME="jbossdb$(date +%s)"
 az postgres server create \
     --resource-group abc1110rg \
     --name ${DB_SERVER_NAME}  \
     --location eastus \
-    --admin-user weblogic \
+    --admin-user ${DATA_BASE_USER} \
     --ssl-enforcement Enabled \
-    --admin-password Secret123456 \
+    --admin-password ${DATA_BASE_PASSWORD} \
     --sku-name GP_Gen5_2
 ```
 
-Create a private endpoint for the PostgreSQL server in your Virtual Network:
+Allow access from Azure services:
 
 ```azurecli
-DB_RESOURCE_ID=$(az resource show \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME} \
-    --resource-type "Microsoft.DBforPostgreSQL/servers" \
-    --query "id" \
-    --output tsv)
-az network private-endpoint create \
-    --name myPrivateEndpoint \
-    --resource-group abc1110rg \
-    --vnet-name myVNet  \
-    --subnet mySubnet \
-    --private-connection-resource-id ${DB_RESOURCE_ID} \
-    --group-id postgresqlServer \
-    --connection-name myConnection
+# Write down the following names for later use
+fullyQualifiedDomainName=$(az postgres server show \
+    --resource-group abc1110rg --name ${DB_SERVER_NAME} \
+    --query "fullyQualifiedDomainName" -o tsv)
+name=$(az postgres server show \
+    --resource-group abc1110rg --name ${DB_SERVER_NAME} \
+    --query "name" -o tsv)
+
+az postgres server firewall-rule create \
+    --resource-group abc1110rg --server ${DB_SERVER_NAME} \
+    --name "AllowAllAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-This example will use the private IP address of the PostgreSQL server for the datasource connection. The FQDN in the customer DNS setting doesn't resolve to the private IP configured. If you want set up a DNS zone for the configured FQDN, follow the steps in [Configure the Private DNS Zone](/azure/postgresql/single-server/how-to-configure-privatelink-cli#configure-the-private-dns-zone).
-
-Run the following command to get private IP address of the PostgreSQL server:
-
+Create the database:
 ```azurecli
-DB_PRIVATE_IP=$(az network private-endpoint show \
-    --resource-group abc1110rg \
-    --name myPrivateEndpoint \
-    --query customDnsConfigs[0].ipAddresses[0] \
-    --output tsv)
-echo ${DB_PRIVATE_IP}
+az postgres db create --resource-group abc1110rg --server ${DB_SERVER_NAME} --name testdb
 ```
 
-### Configure the database connection for the WLS cluster
+### Configure the database connection for the JBoss cluster
 
-Now that you've started the database server and obtained the necessary resource ID, the steps in this section use the WebLogic Administration Console portal to configure a datasource connection with the PostgreSQL instance created previously.
+Now that you've started the database server and obtained the necessary resource ID, the steps in this section use the JBoss CLI to configure a datasource connection with the PostgreSQL instance created previously.
 
-1. Open a web browser.
-1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
-1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-1. Expand **Services**, then select **Data Sources**. Select **New**, then **Generic Data Source**.
+1. Open a terminal and SSH to the `adminVM` by running the following command:
 
-   1. For **JDBC Data Source Properties**, fill in **Name** with the value *CargoTrackerDB*, and **JNDI Name** with the value *jdbc/CargoTrackerDB*. For **Database Type**, select **PostgreSQL**. These values are specific to the sample application you'll deploy later. If you're deploying a different application, use the correct values for that application. Select **Next**.
-   1. For **Database Driver**, ensure that **PostgreSQL's Driver** is selected. There should be only one value matching that description. Select **Next**.
-   1. Under **Transaction Options**:
-      1. Leave **Supports Global Transactions** at its default value.
-      1. Select **Emulate Two-Phase Commit**. Select **Next**.
-   1. For **Connection Properties**, fill in **Database Name** with the value *postgres*. Fill in **Host Name** with the host name of the PostgreSQL instance. The value is `${DB_PRIVATE_IP}` in this example.
-   1. Leave **Port** at its default value.
-   1. Fill in **Database Username** with the user name of the PostgreSQL server. In this example, the value is `weblogic@${DB_SERVER_NAME}`.
-   1. For password, in this example, the value is *Secret123456*. Select **Next**.
-   1. Select **Test configuration**. You'll find a message saying "Connection test succeeded", as the following screenshot shows. If you don't see this message, troubleshoot and resolve the problem before continuing.
+```bash
+ssh azureuser@<adminvm_public_ip>
+```
 
-      :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection.png" alt-text="Screenshot of Oracle Configuration Wizard - Create Datasource." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection.png":::
+1. Create JDBC driver and module directory
+```bash
+jdbcDriverModuleDirectory=$EAP_HOME/wildfly/modules/com/postgresql/main
+sudo mkdir -p "$jdbcDriverModuleDirectory"
+```
 
-   1. Select **Finish**.
 
-1. You'll find that there's a datasource named **CargoTrackerDB** listed in **Summary of JDBC Data Sources**, **Configuration** page. Select **CargoTrackerDB** and **Targets**. Under **Clusters**, select `cluster1`, then select **Save**.
-1. Under the **Change Center**, if such a button exists, select **Activate Changes**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
+1. Download JDBC driver
+```bash
+jdbcDriverName=postgresql-42.5.2.jar
+sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
+```
 
-   :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection-activate-changes.png" alt-text="Screenshot of Oracle Configuration Wizard - Create JDBC Datasource - Activate Changes." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection-activate-changes.png":::
+1. Deploy JDBC driver
 
-1. You should see the message "All changes have been activated. No restarts are necessary.".
+```bash
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+"deploy ${jdbcDriverModuleDirectory}/${jdbcDriverName} --server-groups=main-server-group"
+```
 
-## Configure the JMS servers
+1. Create data source
 
-The steps in this section use the WebLogic Administration Console portal to configure JMS for the sample app. Follow these steps to add JMS Servers to the cluster.
+```bash
+JDBC_DATA_SOURCE_NAME=dataSource-postgresql
+JDBC_JNDI_NAME=jdbc/JavaEECafeDB
+DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database_full_qualified_domain_name>:5432/testdb
+DATA_BASE_USER=jboss@<database_server_name>
+DATA_BASE_PASSWORD=Secret123456
+JDBC_DRIVER_NAME=postgresql-42.5.2.jar
 
-1. Select the home of the administration console.
-1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button does not exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-1. Expand **Services** then **Messaging**. Select **JMS Servers**. Select **New**. Add the five JMS servers in the following table to `cluster1`. These values are specific to the sample application you'll deploy later. If you're deploying a different application, use the correct values for that application. For each server listed in the table, follow these steps:
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+"data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
+```
 
-   1. Enter the name and select **Next**.
-   1. Leave the **Persistent Store** at its default value. Select **Next**.
-   1. Set the **Target** to `cluster1`.
-   1. Select **Finish**.
+After the above steps, you've successfully configured a data source named `jdbc/JavaEECafeDB`.
 
-   Compelte this process for all rows in the following table. It is absolutely essential that there are no typos in the **Name** field.
+## Deploy Java EE Cafe sample application
 
-   | Name                                    | Persistent store | Target     |
-   |-----------------------------------------|------------------|------------|
-   | `CargoHandledQueue`                     | None             | `cluster1` |
-   | `DeliveredCargoQueue`                   | None             | `cluster1` |
-   | `HandlingEventRegistrationAttemptQueue` | None             | `cluster1` |
-   | `MisdirectedCargoQueue`                 | None             | `cluster1` |
-   | `RejectedRegistrationAttemptsQueue`     | None             | `cluster1` |
+This section shows how to deploy Java EE Cafe sample application to the JBoss EAP cluster.
 
-1. Under the **Change Center**, if such a button exists, select **Activate Changes**. If this button exists, you must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button does not exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**. To minimize the chance of error, compare your values with the following screenshot.
-
-   :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-jms-activate-changes.png" alt-text="Screenshot of Oracle Configuration Wizard - Create JMS Datasource - Activate Changes." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-jms-activate-changes.png":::
-
-1. You should see the message "All changes have been activated. No restarts are necessary.".
-
-## Deploy Eclipse Cargo Tracker
-
-This section shows how to deploy Eclipse Cargo Tracker to the WLS cluster. Eclipse Cargo Tracker is an applied Domain-Driven Design Blueprints for Jakarta EE.
-
-1. Following these instructions to build Eclipse Cargo Tracker:
+1. Following these instructions to build Java EE Cafe, assume you have a local environment with **Git** and **Maven** installed:
 
    Use the following command to clone the source code from GitHub:
 
    ```bash
-   git clone https://github.com/Azure-Samples/cargotracker-azure --branch=20221123
+   git clone https://github.com/Azure/rhel-jboss-templates.git
    ```
 
    Build the source code.
 
    ```bash
-   mvn -DskipTests clean install -PweblogicVmCluster --file cargotracker-azure/pom.xml
+   mvn clean install --file eap-coffee-app/pom.xml
    ```
 
-   This creates the file *cargotracker-azure/target/cargo-tracker.war*. You'll upload this file in the next step.
+   This creates the file *eap-coffee-app/target/javaee-cafe.war*. You'll upload this file in the next step.
 
-1. Use the following steps to deploy Eclipse Cargo Tracker:
+1. Open a web browser and go to the management console at `http://<adminVM_public_IP>:9990`, login with username `jbossadmin` and password `Secret123456`.
 
-   1. Open a web browser.
-   1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
-   1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button does not exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-   1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *cargo-tracker.war* built in the preceding step. Select **Next** then **Next**.
-   1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
-   1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, and then select **Next** then **Finish**.
-   1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button does not exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-   1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
-   1. Select **Yes**.
-   1. You'll find a message saying "Start requests have been sent to the selected deployments." The status of the application must be **Active**.
+1. From the Deployments tab of the JBoss EAP management console, deployments can be viewed and managed by:
+    * Content Repository
+        All managed and unmanaged deployments are listed in the **Content Repository** section. Deployments can be added and deployed to server groups here.
+    * Server Groups
+        Deployments that have been deployed to one or more server groups are listed in the **Server Groups** section. Deployments can be enabled and added directly to a server group here.
 
-## Test the WLS cluster configuration
+1. Add the Java EE Cafe application:
+    1. From **Content Repository**, select the **Add** button.
+    1. Choose to add an application by uploading the `javaee-cafe.war` file.
 
-You've now finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
+1. Deploy an Application to the `main-server-group`.
+    1. From **Content Repository**, select the `javaee-cafe.war` and select the **Deploy** button.
+    1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
+    1. Select **Deploy** to start the deployment.
+
+## Test the JBoss EAP cluster configuration
+
+You've now finished configuring the JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
 
 1. Open a web browser.
-1. Navigate to the application with the URL `http://<gateway-public-ip-address>/cargo-tracker/`.
-1. To explore the application, follow the steps in [Exploring the Application](https://github.com/Azure-Samples/cargotracker-azure#exploring-the-application).
+1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`.
+1. Try to add/remove coffees.
 
 ## Clean up resources
+
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the JBoss EAP cluster deployed on Azure VM, unregister the JBoss EAP servers and remove Azure resources.
+
+Run the following command to unregister the JBoss EAP servers and VMs from Red Hat subscription management.
+
+```azurecli
+# Unregister domain controller
+az vm run-command invoke\
+    --resource-group abc1110rg \
+    --name adminVM \
+    --command-id RunShellScript \
+    --scripts "sudo subscription-manager unregister"
+
+# Unregister host controllers
+az vm run-command invoke\
+    --resource-group abc1110rg \
+    --name mspVM1 \
+    --command-id RunShellScript \
+    --scripts "sudo subscription-manager unregister"
+az vm run-command invoke\
+    --resource-group abc1110rg \
+    --name mspVM2 \
+    --command-id RunShellScript \
+    --scripts "sudo subscription-manager unregister"
+```
 
 Delete `abc1110rg` with the following command:
 
@@ -797,7 +808,7 @@ az group delete --name abc1110rg --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run WLS on Azure.
+Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
-> [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
