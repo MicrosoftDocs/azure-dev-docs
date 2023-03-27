@@ -330,8 +330,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
         --scripts "sudo hostnamectl set-hostname mspVM1"
     ```
 
-When the command completes successfully, you'll see output similar to this:
-
+    When the command completes successfully, you'll see output similar to this:
     ```json
     {
         "value": [
@@ -348,8 +347,7 @@ When the command completes successfully, you'll see output similar to this:
 
 4. Use the same steps to create `mspVM2`.
 
-The steps to create `mspVM2` are the same as creating `mspVM1`.
-
+    The steps to create `mspVM2` are the same as creating `mspVM1`.
     ```azurecli
     #Create a new Managed Disks for mspVM2
     az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
