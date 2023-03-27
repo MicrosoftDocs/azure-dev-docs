@@ -183,202 +183,202 @@ az vm create \
 #### Install OpenJDK 11 and JBoss EAP 7.4
 
 1. Use the following command to get the public IP of `adminVM`
-
-```azurecli
-az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps
-```
+    
+    ```azurecli
+    az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps
+    ```
 
 2. Open a terminal and SSH to the `adminVM` by running the following command:
-
-```bash
-ssh azureuser@<adminvm_public_ip>
-```
+    
+    ```bash
+    ssh azureuser@<adminvm_public_ip>
+    ```
 
 Provide `Secret123456` as password.
 
 3. Configure firewall for ports by running:
-
-```bash
-sudo firewall-cmd --zone=public --add-port={9999/tcp,8443/tcp,8009/tcp,8080/tcp,9990/tcp,9993/tcp,45700/tcp,7600/tcp} --permanent
-sudo firewall-cmd --reload
-sudo iptables-save
-```
+    
+    ```bash
+    sudo firewall-cmd --zone=public --add-port={9999/tcp,8443/tcp,8009/tcp,8080/tcp,9990/tcp,9993/tcp,45700/tcp,7600/tcp} --permanent
+    sudo firewall-cmd --reload
+    sudo iptables-save
+    ```
 
 4. Register the admin host to your Red Hat Subscription Management(RHSM) account
-
-```bash
-RHSM_USER=<your rhsm username>
-RHSM_PASSWORD=<your rhsm password>
-EAP_POOL=<your rhsm pool id>
-
-sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
-```
+    
+    ```bash
+    RHSM_USER=<your rhsm username>
+    RHSM_PASSWORD=<your rhsm password>
+    EAP_POOL=<your rhsm pool id>
+    
+    sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
+    ```
 
 5. Attach the admin host to JBoss EAP pool
-
-```bash
-sudo subscription-manager attach --pool=${EAP_POOL}
-```
+    
+    ```bash
+    sudo subscription-manager attach --pool=${EAP_POOL}
+    ```
 
 6. Install OpenJDK 11
-
-```bash
-sudo yum install java-11-openjdk -y
-```
+    
+    ```bash
+    sudo yum install java-11-openjdk -y
+    ```
 
 7. Install JBoss EAP 7.4
 
-```bash
-sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
-sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
-sudo yum groupinstall -y jboss-eap7
-```
+    ```bash
+    sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
+    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
+    sudo yum groupinstall -y jboss-eap7
+    ```
 
 8. Permission and TCP configurations
 
-```bash
-sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-echo 'AllowTcpForwarding no' | sudo tee -a /etc/ssh/sshd_config
-sudo systemctl restart sshd
-```
+    ```bash
+    sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+    echo 'AllowTcpForwarding no' | sudo tee -a /etc/ssh/sshd_config
+    sudo systemctl restart sshd
+    ```
 
-9. Environment variables
+9. Configure the environment variables
 
-```bash
-echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
-echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
-source ~/.bash_profile
-sudo touch /etc/profile.d/eap_env.sh
-echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
-```
+    ```bash
+    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
+    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
+    source ~/.bash_profile
+    sudo touch /etc/profile.d/eap_env.sh
+    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+    ```
 
 ### Create machines for managed servers
 
-You've now installed OpenJDK 11, and JBoss EAP 7.4 on `adminVM`, which will run the domain controller server. You still need to prepare machines to run the two managed servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've now installed OpenJDK 11, and JBoss EAP 7.4 on `adminVM`, which will run as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then follow these steps:
 
 1. Use the following command to stop `adminVM`:
+    
+    ```azurecli
+    az vm stop --resource-group abc1110rg --name adminVM
+    ```
 
-```azurecli
-az vm stop --resource-group abc1110rg --name adminVM
-```
+2. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
-1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
+    ```azurecli
+    ADMIN_OS_DISK_ID=$(az vm show \
+        --resource-group abc1110rg \
+        --name adminVM \
+        --query storageProfile.osDisk.managedDisk.id \
+        --output tsv)
+    az snapshot create \
+        --resource-group abc1110rg \
+        --name myAdminOSDiskSnapshot \
+        --source ${ADMIN_OS_DISK_ID}
+    ```
 
-```azurecli
-ADMIN_OS_DISK_ID=$(az vm show \
-    --resource-group abc1110rg \
-    --name adminVM \
-    --query storageProfile.osDisk.managedDisk.id \
-    --output tsv)
-az snapshot create \
-    --resource-group abc1110rg \
-    --name myAdminOSDiskSnapshot \
-    --source ${ADMIN_OS_DISK_ID}
-```
+3. Use the following steps to create `mspVM1`.
 
-1. Create `mspVM1`.
+    First, create a managed disk for `mspVM1` with [az disk create](/cli/azure/disk#az-disk-create):
+    
+    ```azurecli
+    #Get the snapshot ID
+    SNAPSHOT_ID=$(az snapshot show \
+        --name myAdminOSDiskSnapshot \
+        --resource-group abc1110rg \
+        --query [id] \
+        --output tsv)
+    
+    #Create a new Managed Disks using the snapshot Id
+    #Note that managed disk will be created in the same location as the snapshot
+    az disk create \
+        --resource-group abc1110rg \
+        --name mspVM1_OsDisk_1 \
+        --source ${SNAPSHOT_ID}
+    ```
+    
+    Next, create VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
+    
+    ```azurecli
+    #Get the resource Id of the managed disk
+    MSPVM1_DISK_ID=$(az disk show \
+        --name mspVM1_OsDisk_1 \
+        --resource-group abc1110rg \
+        --query [id] \
+        --output tsv)
+    
+    #Create VM by attaching existing managed disks as OS
+    az vm create \
+        --resource-group abc1110rg \
+        --name mspVM1 \
+        --attach-os-disk ${MSPVM1_DISK_ID} \
+        --os-type linux \
+        --public-ip-sku Standard \
+        --nsg mynsg \
+        --vnet-name myVnet \
+        --subnet mySubnet
+    ```
 
-First, create a managed disk for `mspVM1` with [az disk create](/cli/azure/disk#az-disk-create):
+    You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
-```azurecli
-#Get the snapshot ID
-SNAPSHOT_ID=$(az snapshot show \
-    --name myAdminOSDiskSnapshot \
-    --resource-group abc1110rg \
-    --query [id] \
-    --output tsv)
-
-#Create a new Managed Disks using the snapshot Id
-#Note that managed disk will be created in the same location as the snapshot
-az disk create \
-    --resource-group abc1110rg \
-    --name mspVM1_OsDisk_1 \
-    --source ${SNAPSHOT_ID}
-```
-
-Next, create VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
-
-```azurecli
-#Get the resource Id of the managed disk
-MSPVM1_DISK_ID=$(az disk show \
-    --name mspVM1_OsDisk_1 \
-    --resource-group abc1110rg \
-    --query [id] \
-    --output tsv)
-
-#Create VM by attaching existing managed disks as OS
-az vm create \
-    --resource-group abc1110rg \
-    --name mspVM1 \
-    --attach-os-disk ${MSPVM1_DISK_ID} \
-    --os-type linux \
-    --public-ip-sku Standard \
-    --nsg mynsg \
-    --vnet-name myVnet \
-    --subnet mySubnet
-```
-
-You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
-
-```azurecli
-az vm run-command invoke \
-    --resource-group abc1110rg \
-    --name mspVM1 \
-    --command-id RunShellScript \
-    --scripts "sudo hostnamectl set-hostname mspVM1"
-```
+    ```azurecli
+    az vm run-command invoke \
+        --resource-group abc1110rg \
+        --name mspVM1 \
+        --command-id RunShellScript \
+        --scripts "sudo hostnamectl set-hostname mspVM1"
+    ```
 
 When the command completes successfully, you'll see output similar to this:
 
-```json
-{
-    "value": [
-        {
-        "code": "ProvisioningState/succeeded",
-        "displayStatus": "Provisioning succeeded",
-        "level": "Info",
-        "message": "Enable succeeded: \n[stdout]\n\n[stderr]\n",
-        "time": null
-        }
-    ]
-}
-```
+    ```json
+    {
+        "value": [
+            {
+            "code": "ProvisioningState/succeeded",
+            "displayStatus": "Provisioning succeeded",
+            "level": "Info",
+            "message": "Enable succeeded: \n[stdout]\n\n[stderr]\n",
+            "time": null
+            }
+        ]
+    }
+    ```
 
-1. Create `mspVM2`.
+4. Use the same steps to create `mspVM2`.
 
 The steps to create `mspVM2` are the same as creating `mspVM1`.
 
-```azurecli
-#Create a new Managed Disks for mspVM2
-az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
-
-#Get the resource Id of the managed disk
-MSPVM2_DISK_ID=$(az disk show \
---name mspVM2_OsDisk_1 \
---resource-group abc1110rg \
---query [id] \
---output tsv)
-
-#Create VM by attaching existing managed disks as OS
-az vm create \
+    ```azurecli
+    #Create a new Managed Disks for mspVM2
+    az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
+    
+    #Get the resource Id of the managed disk
+    MSPVM2_DISK_ID=$(az disk show \
+    --name mspVM2_OsDisk_1 \
     --resource-group abc1110rg \
-    --name mspVM2 \
-    --attach-os-disk ${MSPVM2_DISK_ID} \
-    --os-type linux \
-    --public-ip-sku Standard \
-    --nsg mynsg \
-    --vnet-name myVnet \
-    --subnet mySubnet
-
-#Set hostname
-az vm run-command invoke \
-    --resource-group abc1110rg \
-    --name mspVM2 \
-    --command-id RunShellScript \
-    --scripts "sudo hostnamectl set-hostname mspVM2"
-```
+    --query [id] \
+    --output tsv)
+    
+    #Create VM by attaching existing managed disks as OS
+    az vm create \
+        --resource-group abc1110rg \
+        --name mspVM2 \
+        --attach-os-disk ${MSPVM2_DISK_ID} \
+        --os-type linux \
+        --public-ip-sku Standard \
+        --nsg mynsg \
+        --vnet-name myVnet \
+        --subnet mySubnet
+    
+    #Set hostname
+    az vm run-command invoke \
+        --resource-group abc1110rg \
+        --name mspVM2 \
+        --command-id RunShellScript \
+        --scripts "sudo hostnamectl set-hostname mspVM2"
+    ```
 
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
@@ -392,11 +392,13 @@ To enable session replication we will use JBoss EAP High Availability for the cl
 
 #### Create Azure storage account and Blob container for AZURE_PING
 
-Use the following command to create a storage account and Blob container.
+Use the following command to create a storage account and Blob container:
 
 ```azurecli
 # Define your storage account name
 STORAGE_ACCOUNT_NAME=azurepingstg1110
+# Define your Blob container name
+CONTAINER_NAME=azurepingcontainer1110
 
 # Create storage account
 az storage account create \
@@ -407,14 +409,6 @@ az storage account create \
   --kind StorageV2 \
   --access-tier Hot
 
-# Retrieve the storage account key
-STORAGE_ACCESS_KEY=$(az storage account keys list \
-  --account-name ${STORAGE_ACCOUNT_NAME} \
-  --query "[0].value" --output tsv)
-
-# Define your Blob container name
-CONTAINER_NAME=azurepingcontainer1110
-
 # Create blob container
 az storage container create \
   --name ${CONTAINER_NAME} \
@@ -422,147 +416,150 @@ az storage container create \
   --account-key ${STORAGE_ACCESS_KEY}
 ```
 
+Then, retrieve the storage account key for later use by running the following command:
+```bash
+STORAGE_ACCESS_KEY=$(az storage account keys list \
+  --account-name ${STORAGE_ACCOUNT_NAME} \
+  --query "[0].value" --output tsv)
+```
+
 #### Configure domain controller(admin node)
 
 This tutorial uses the JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
-1. Setup the domain controller configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `azureuser` user.
+1. Setup the domain controller configuration on `adminVM` with the following steps, assuming you're now on `adminVM` and logged in with the `azureuser` user.
+    First, configure the HA profile and JGroups using **AZURE_PING** protocol.
+    ```bash
+    HOST_VM_IP=$(hostname -I)
+    
+    # Configure the HA profile and JGroups using AZURE_PING protocol
+    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+    'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
+    ':write-attribute(name=name,value=domain1)',\
+    '/profile=ha/subsystem=jgroups/stack=tcp:remove',\
+    '/profile=ha/subsystem=jgroups/stack=tcp:add()',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
+    "/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
+    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
+    '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
+    '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
+    '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
+    "/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+    "/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+    "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+    "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
+    
+    # Save a copy of the domain.xml, later we need to share it with all host controllers
+    cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+    ```
 
-```bash
-HOST_VM_IP=$(hostname -I)
+    Then, configure the JBoss server and setup EAP service.
+    ```bash
+    # Configure the JBoss server and setup EAP service
+    echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+    
+    # Configure JBoss EAP management user
+    JBOSS_EAP_USER=jbossadmin
+    JBOSS_EAP_PASSWORD=Secret123456
+    sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+    ```
 
-# Configure the HA profile and JGroups using AZURE_PING protocol
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
-'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
-':write-attribute(name=name,value=domain1)',\
-'/profile=ha/subsystem=jgroups/stack=tcp:remove',\
-'/profile=ha/subsystem=jgroups/stack=tcp:add()',\
-'/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
-"/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
-'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
-'/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
-'/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
-'/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
-"/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
-"/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-"/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
+    Finally, start the EAP service.
+    ```bash
+    # Start the JBoss server and setup EAP service
+    sudo systemctl enable eap7-domain.service
+    
+    # Edit eap7-domain.services
+    sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+    sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
+    
+    # Reload and restart EAP service
+    sudo systemctl daemon-reload
+    sudo systemctl restart eap7-domain.service
+    
+    # Check the status of EAP service
+    systemctl status eap7-domain.service 
+    ```
 
-# Save a copy of the domain.xml, later we need to share it with all host controllers
-cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
-
-# Configure the JBoss server and setup EAP service
-echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
-
-
-# Start the JBoss server and setup EAP service
-sudo systemctl enable eap7-domain.service
-
-# Edit eap7-domain.services
-sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
-sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
-
-# Reload and restart EAP service
-sudo systemctl daemon-reload
-sudo systemctl restart eap7-domain.service
-
-# Check the status of EAP service
-systemctl status eap7-domain.service 
-
-# Configure JBoss EAP management user
-JBOSS_EAP_USER=jbossadmin
-JBOSS_EAP_PASSWORD=Secret123456
-sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
-```
-
-After start the JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like:
+After start the JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like below:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
-Select `Runtime` and then browser the `Topology` you should see that for now our cluster only contains one domain controller:
+Select **Runtime** tab and then browser the **Topology** you should see that for now our cluster only contains one domain controller:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of cluster topology with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
 
+#### Configure host controllers(worker nodes)
 
+1. Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply host controller configuration to `mspVM1`.
 
-#### Configure host controller(worker node)
+    ```bash
+    # environment variables
+    DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
+    HOST_VM_NAME=$(hostname)
+    HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
+    HOST_VM_IP=$(hostname -I)
+    
+    JBOSS_EAP_USER=jbossadmin
+    JBOSS_EAP_PASSWORD=Secret123456
+    
+    # Save default domain configuration as backup
+    sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
+    
+    # Fetch domain.xml from domain controller
+    sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+    ```
 
-1. Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply domain configuration to `mspVM1`.
+    You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
 
-Open a new command prompt, and use the following commands to connect to `mspVM1`:
+    Apply host controller changes to `mspVM1`.
 
-```bash
-ssh azureuser@<mspVM1_public_ip>
-```
+    ```bash
+    # Setup host controller
+    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+    "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+    "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+    "/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+    ```
+    
+    Then, configure the JBoss server and setup EAP service.
+    ```bash
+    echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+    
+    # Enable the JBoss server and setup EAP service
+    sudo systemctl enable eap7-domain.service
+    
+    # Edit eap7-domain.services
+    sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+    sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
+    
+    # Reload and restart EAP service
+    sudo systemctl daemon-reload
+    sudo systemctl restart eap7-domain.service
+    
+    # Check the status of EAP service
+    systemctl status eap7-domain.service 
+    ```
 
-You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
-
-You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to fetch the domain configuration file `domain.xml` from `adminVM`.
-
-```bash
-# environment variables
-DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
-HOST_VM_NAME=$(hostname)
-HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
-HOST_VM_IP=$(hostname -I)
-
-JBOSS_EAP_USER=jbossadmin
-JBOSS_EAP_PASSWORD=Secret123456
-
-# Save default domain configuration as backup
-sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
-
-# Fetch domain.xml from domain controller
-sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
-```
-
-You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
-
-```bash
-# Setup host controller
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
-"embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
-"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
-"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
-
-# Configure the JBoss server and setup EAP service
-echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
-
-# Start the JBoss server and setup EAP service
-sudo systemctl enable eap7-domain.service
-
-# Edit eap7-domain.services
-sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
-sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
-
-# Reload and restart EAP service
-sudo systemctl daemon-reload
-sudo systemctl restart eap7-domain.service
-
-# Check the status of EAP service
-systemctl status eap7-domain.service 
-
-```
-
-Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
+    Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
@@ -630,7 +627,6 @@ After the application gateway is created, you can see these new features:
 - `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
 - `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
 
-
 > [!NOTE]
 > This example sets up simple access to the JBoss EAP servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
@@ -638,9 +634,7 @@ After the application gateway is created, you can see these new features:
 
 ## Connect Azure Database for PostgreSQL
 
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your JBoss EAP cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
-
-### Install driver
+This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your JBoss EAP cluster.
 
 ### Create an Azure Database for PostgreSQL instance
 
@@ -682,49 +676,52 @@ Create the database:
 az postgres db create --resource-group abc1110rg --server ${DB_SERVER_NAME} --name testdb
 ```
 
-### Configure the database connection for the JBoss cluster
+### Install driver
+We will be using JBoss management CLI to install the JDBC driver as Jar deployment. For more information about JDBC drivers on JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
 
-Now that you've started the database server and obtained the necessary resource ID, the steps in this section use the JBoss CLI to configure a datasource connection with the PostgreSQL instance created previously.
+1. SSH to the `adminVM` by running the following command, you can skip this step if you have connection opened.
+
+    ```bash
+    ssh azureuser@<adminvm_public_ip>
+    ```
+
+2. Download JDBC driver, here we use `postgresql-42.5.2.jar`. For more informations about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
+
+    ```bash
+    jdbcDriverName=postgresql-42.5.2.jar
+    sudo curl --retry 5 -Lo ~/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
+    ```
+
+3. Deploy JDBC driver use the following JBoss CLI command:
+
+    ```bash
+    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+    "deploy ~/${jdbcDriverName} --server-groups=main-server-group"
+    ```
+
+### Configure the database connection for the JBoss EAP cluster
+
+You've started the database server, obtained the necessary resource ID and installed the JDBC driver, the steps in this section use the JBoss CLI to configure a datasource connection with the PostgreSQL instance created previously.
 
 1. Open a terminal and SSH to the `adminVM` by running the following command:
 
-```bash
-ssh azureuser@<adminvm_public_ip>
-```
+    ```bash
+    ssh azureuser@<adminvm_public_ip>
+    ```
 
-1. Create JDBC driver and module directory
-```bash
-jdbcDriverModuleDirectory=$EAP_HOME/wildfly/modules/com/postgresql/main
-sudo mkdir -p "$jdbcDriverModuleDirectory"
-```
+2. Create data source use the following JBoss CLI command:
 
-
-1. Download JDBC driver
-```bash
-jdbcDriverName=postgresql-42.5.2.jar
-sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
-```
-
-1. Deploy JDBC driver
-
-```bash
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-"deploy ${jdbcDriverModuleDirectory}/${jdbcDriverName} --server-groups=main-server-group"
-```
-
-1. Create data source
-
-```bash
-JDBC_DATA_SOURCE_NAME=dataSource-postgresql
-JDBC_JNDI_NAME=jdbc/JavaEECafeDB
-DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database_full_qualified_domain_name>:5432/testdb
-DATA_BASE_USER=jboss@<database_server_name>
-DATA_BASE_PASSWORD=Secret123456
-JDBC_DRIVER_NAME=postgresql-42.5.2.jar
-
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-"data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
-```
+    ```bash
+    JDBC_DATA_SOURCE_NAME=dataSource-postgresql
+    JDBC_JNDI_NAME=jdbc/JavaEECafeDB
+    DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database_full_qualified_domain_name>:5432/testdb
+    DATA_BASE_USER=jboss@<database_server_name>
+    DATA_BASE_PASSWORD=Secret123456
+    JDBC_DRIVER_NAME=postgresql-42.5.2.jar
+    
+    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+    "data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
+    ```
 
 After the above steps, you've successfully configured a data source named `jdbc/JavaEECafeDB`.
 
@@ -750,17 +747,18 @@ This section shows how to deploy Java EE Cafe sample application to the JBoss EA
 
 1. Open a web browser and go to the management console at `http://<adminVM_public_IP>:9990`, login with username `jbossadmin` and password `Secret123456`.
 
-1. From the Deployments tab of the JBoss EAP management console, deployments can be viewed and managed by:
+2. From the Deployments tab of the JBoss EAP management console, deployments can be viewed and managed by:
     * Content Repository
         All managed and unmanaged deployments are listed in the **Content Repository** section. Deployments can be added and deployed to server groups here.
     * Server Groups
         Deployments that have been deployed to one or more server groups are listed in the **Server Groups** section. Deployments can be enabled and added directly to a server group here.
 
-1. Add the Java EE Cafe application:
+3. Add the Java EE Cafe application to content repository:
     1. From **Content Repository**, select the **Add** button.
     1. Choose to add an application by uploading the `javaee-cafe.war` file.
+    1. Follow the instructions on the page to finish.
 
-1. Deploy an Application to the `main-server-group`.
+4. Deploy an Application to the `main-server-group`.
     1. From **Content Repository**, select the `javaee-cafe.war` and select the **Deploy** button.
     1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
     1. Select **Deploy** to start the deployment.
