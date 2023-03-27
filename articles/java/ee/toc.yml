@@ -62,3 +62,5 @@
         href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs
         href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+      - name: JBoss EAP to Azure VMs manual guidance
+        href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
