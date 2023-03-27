@@ -56,7 +56,7 @@ In this section, you'll set up the infrastructure within which you'll install th
 
 ### Assumptions
 
-This tutorial will configure a JBoss EAP cluster in domain mode with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following 3 Azure VMs:
+This tutorial will configure a JBoss EAP cluster in domain mode with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs:
 
 - An admin VM (VM name `adminVM`) runs as the domain controller.
 - Two managed VMs (VM names `mspVM1` and `mspVM2`) run as host controller.
@@ -149,7 +149,7 @@ az network vnet subnet update --vnet-name myVNet --name mySubnet --network-secur
 az network vnet subnet update --vnet-name myVNet --name jbossVMGatewaySubnet --network-security-group mynsg --resource-group abc1110rg
 ```
 
-### Create an Red Hat Enterprise Linux machine for admin
+### Create a Red Hat Enterprise Linux machine for admin
 
 #### Create the admin VM
 
@@ -164,7 +164,7 @@ You'll create a basic VM, install all required tools on it, take a snapshot of i
 
 Create a VM using [az vm create](/cli/azure/vm). You'll run the Administration Server on this VM.
 
-The following example creates an Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
+The following example creates a Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
 
 ```azurecli
 az vm create \
