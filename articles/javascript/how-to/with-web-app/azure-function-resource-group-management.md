@@ -346,7 +346,7 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
     |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. Open the `./src/functions/resources.ts` and replace the entire file with the following source code.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resources.ts" id=snippet_resources":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resources.ts" id="snippet_resources":::
 
 1. Create the `./src/lib/azure-resource.ts` file and copy the following code into it to list the resources in a resource group.
 
