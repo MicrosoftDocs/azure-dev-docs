@@ -1,5 +1,5 @@
 ---
-title: Assess Spring Applications with Cloud Suitability Analyzer
+title: Assess Spring applications with Cloud Suitability Analyzer
 description: Shows you how to assess Spring applications with Cloud Suitability Analyzer to evaluate their readiness to migrate to the cloud.
 author: KarlErickson
 ms.author: yangtony
@@ -8,7 +8,7 @@ ms.date: 03/24/2023
 ms.custom: devx-track-java
 ---
 
-# Assess Spring Applications with Cloud Suitability Analyzer
+# Assess Spring applications with Cloud Suitability Analyzer
 
 This guide describes how to assess Spring applications with Cloud Suitability Analyzer (CSA) to evaluate their readiness to migrate to the cloud.
 

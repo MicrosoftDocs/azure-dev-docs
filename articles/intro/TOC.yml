@@ -24,6 +24,8 @@ items:
         href: passwordless-overview.md
       - name: Developer guide
         href: /azure/storage/common/multiple-identity-scenarios?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: Managed identity best practices
+        href: /azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Delete passwords and migrate
         items:
           - name: Azure SQL Database
