@@ -377,7 +377,6 @@ This section introduces an approach to prepare machines with the snapshot of `ad
         --command-id RunShellScript \
         --scripts "sudo hostnamectl set-hostname mspVM2"
     ```
-
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
 Now, all three machines are ready. Next, you'll configure a JBoss EAP cluster in managed domain mode.
@@ -425,68 +424,68 @@ STORAGE_ACCESS_KEY=$(az storage account keys list \
 
 This tutorial uses the JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
-1. Setup the domain controller configuration on `adminVM` with the following steps, assuming you're now on `adminVM` and logged in with the `azureuser` user.
-    First, configure the HA profile and JGroups using **AZURE_PING** protocol.
-    ```bash
-    HOST_VM_IP=$(hostname -I)
-    
-    # Configure the HA profile and JGroups using AZURE_PING protocol
-    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
-    'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
-    ':write-attribute(name=name,value=domain1)',\
-    '/profile=ha/subsystem=jgroups/stack=tcp:remove',\
-    '/profile=ha/subsystem=jgroups/stack=tcp:add()',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
-    "/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
-    '/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
-    '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
-    '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
-    '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-    "/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
-    "/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
-    "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-    "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
-    
-    # Save a copy of the domain.xml, later we need to share it with all host controllers
-    cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
-    ```
+Setup the domain controller configuration on `adminVM` with the following steps, assuming you're now on `adminVM` and logged in with the `azureuser` user.
+First, configure the HA profile and JGroups using **AZURE_PING** protocol.
+```bash
+HOST_VM_IP=$(hostname -I)
 
-    Then, configure the JBoss server and setup EAP service.
-    ```bash
-    # Configure the JBoss server and setup EAP service
-    echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
-    
-    # Configure JBoss EAP management user
-    JBOSS_EAP_USER=jbossadmin
-    JBOSS_EAP_PASSWORD=Secret123456
-    sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
-    ```
+# Configure the HA profile and JGroups using AZURE_PING protocol
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
+':write-attribute(name=name,value=domain1)',\
+'/profile=ha/subsystem=jgroups/stack=tcp:remove',\
+'/profile=ha/subsystem=jgroups/stack=tcp:add()',\
+'/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
+"/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
+'/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
+'/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
+'/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
+"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
 
-    Finally, start the EAP service.
-    ```bash
-    # Start the JBoss server and setup EAP service
-    sudo systemctl enable eap7-domain.service
-    
-    # Edit eap7-domain.services
-    sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
-    sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
-    
-    # Reload and restart EAP service
-    sudo systemctl daemon-reload
-    sudo systemctl restart eap7-domain.service
-    
-    # Check the status of EAP service
-    systemctl status eap7-domain.service 
-    ```
+# Save a copy of the domain.xml, later we need to share it with all host controllers
+cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+```
+
+Then, configure the JBoss server and setup EAP service.
+```bash
+# Configure the JBoss server and setup EAP service
+echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Configure JBoss EAP management user
+JBOSS_EAP_USER=jbossadmin
+JBOSS_EAP_PASSWORD=Secret123456
+sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+```
+
+Finally, start the EAP service.
+```bash
+# Start the JBoss server and setup EAP service
+sudo systemctl enable eap7-domain.service
+
+# Edit eap7-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap7-domain.service
+
+# Check the status of EAP service
+systemctl status eap7-domain.service 
+```
 
 After start the JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like below:
 
@@ -498,66 +497,66 @@ Select **Runtime** tab and then browser the **Topology** you should see that for
 
 #### Configure host controllers(worker nodes)
 
-1. Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply host controller configuration to `mspVM1`.
+Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply host controller configuration to `mspVM1`.
 
-    ```bash
-    # environment variables
-    DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
-    HOST_VM_NAME=$(hostname)
-    HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
-    HOST_VM_IP=$(hostname -I)
-    
-    JBOSS_EAP_USER=jbossadmin
-    JBOSS_EAP_PASSWORD=Secret123456
-    
-    # Save default domain configuration as backup
-    sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
-    
-    # Fetch domain.xml from domain controller
-    sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
-    ```
+```bash
+# environment variables
+DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
+HOST_VM_NAME=$(hostname)
+HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
+HOST_VM_IP=$(hostname -I)
 
-    You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
+JBOSS_EAP_USER=jbossadmin
+JBOSS_EAP_PASSWORD=Secret123456
 
-    Apply host controller changes to `mspVM1`.
+# Save default domain configuration as backup
+sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
 
-    ```bash
-    # Setup host controller
-    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
-    "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
-    "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-    "/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
-    ```
-    
-    Then, configure the JBoss server and setup EAP service.
-    ```bash
-    echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
-    
-    # Enable the JBoss server and setup EAP service
-    sudo systemctl enable eap7-domain.service
-    
-    # Edit eap7-domain.services
-    sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
-    sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
-    
-    # Reload and restart EAP service
-    sudo systemctl daemon-reload
-    sudo systemctl restart eap7-domain.service
-    
-    # Check the status of EAP service
-    systemctl status eap7-domain.service 
-    ```
+# Fetch domain.xml from domain controller
+sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+```
 
-    Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
+You'll be asked for the password for the connection. For this example, the password is *Secret123456*.
+
+Apply host controller changes to `mspVM1`.
+
+```bash
+# Setup host controller
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+"embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
+"/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+```
+
+Then, configure the JBoss server and setup EAP service.
+```bash
+echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Enable the JBoss server and setup EAP service
+sudo systemctl enable eap7-domain.service
+
+# Edit eap7-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap7-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap7-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap7-domain.service
+
+# Check the status of EAP service
+systemctl status eap7-domain.service 
+```
+
+Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
