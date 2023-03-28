@@ -39,8 +39,8 @@ The app provides the following API endpoints.
 
 |Method|URL|Description|
 |--|--|--|
-|POST,DELETE|http://localhost:7071/api/resource-group|Add, delete a resource group.|
-|GET| http://localhost:7071/api/resource-groups |List all resource groups in subscription.|
+|POST,DELETE|http://localhost:7071/api/resourcegroup|Add, delete a resource group.|
+|GET| http://localhost:7071/api/resourcegroups |List all resource groups in subscription.|
 |GET| http://localhost:7071/api/resources | List all resources in a subscription or resource group.|
 
 While these endpoints are public, you _should_ secure your API endpoints with authentication and authorization before deploying to your live environment. 
@@ -51,15 +51,30 @@ This app is limited to a subscription because that is what the DefaultAzureCrede
 
 You must prepare your local and cloud environments to use the Azure Identity SDK.
 
+#### Log in to Azure CLI
+
+In a bash terminal, [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli):
+
+```azurecli
+az login
+```
+
+#### Get your Azure subscription ID
+
+1. In a bash terminal, get your subscriptions and find the subscription ID you want to use. The following query returns the subscription Id, subscription name, and tenant Id sort by subscription name.
+
+    ```azurecli
+    az account list --query "sort_by([].{Name:name, SubscriptionId:id, TenantId:tenantId}, &Name)" --output table
+    ```
+
+1. Copy the subscription Id to the previous temporary file. You'll need this setting later. 
+
+
 #### Create an Azure service principal
 
 An Azure service principal provides access to Azure without having to use your personal user credentials. The service principal can be used both in your local and cloud environments. 
 
-1. In a bash terminal, [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli):
 
-    ```azurecli
-    az login
-    ```
 1. Determine a service principal name format so you can easily find your service principal later. For example, several format ideas are:
 
     * Your project and owner: `resource-management-john-smith`.
@@ -84,15 +99,6 @@ An Azure service principal provides access to Azure without having to use your p
     }
     ```
 
-#### Get your Azure subscription ID
-
-1. In a bash terminal, get your subscriptions and find the subscription ID you want to use. The following query returns the subscription Id, subscription name, and tenant Id sort by subscription name.
-
-    ```azurecli
-    az account list --query "sort_by([].{Name:name, SubscriptionId:id, TenantId:tenantId}, &Name)" --output table
-    ```
-
-1. Copy the subscription Id to the previous temporary file. You'll need this setting later. 
 
 
 ## 2. Create local Azure Function app in Visual Studio Code
@@ -106,7 +112,7 @@ Use Visual Studio Code to create a local Function app.
 1. In a bash terminal, create and change into a new directory:
 
     ```bash
-    mkdir typescript-function-resource-group-api && cd typescript-function-resource-group-api
+    mkdir my-function-app && cd my-function-app
     ```
 
 1. In a bash terminal, open Visual Studio Code:
@@ -133,7 +139,7 @@ Use Visual Studio Code to create a local Function app.
 
 #### Add service principal settings to local.settings.json file
 
-1. Open the `local.settings.json` file in the project root directory and add your **VALUES** section with the five following environment variables. 
+1. Open the `./local.settings.json` file in the project root directory and add your **VALUES** section with the five following environment variables. 
 
     :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="7-11":::
  
@@ -161,12 +167,12 @@ npm install @azure/identity @azure/arm-resources
 
 1. Open the `./src/functions/resourcegroups.ts` file and replace the contents with the following: 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" id="snippet_resourcegroup":::
 
     This file responds to API requests to `/api/resourcegroups` and returns a list of all resource groups in the subscription.
 
 1. Create a subdirectory in `src` named `lib` and create a new file in that directory named `azure-resource-groups.ts`.
-1. Copy the following code into the `azure-resource-groups.ts` file:
+1. Copy the following code into the `./src/lib/azure-resource-groups.ts` file:
 
     :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/lib/azure-resource-groups.ts":::
 
@@ -321,7 +327,7 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
     |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. Open the `./src/functions/resourcegroup.ts` and replace the entire file with the following source code.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" id="snippet_resourcegroup":::
 
 1. The `./src/lib/azure-resource-groups.ts` file already contains the code to add and delete resource groups.
 
@@ -340,7 +346,7 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
     |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. Open the `./src/functions/resources.ts` and replace the entire file with the following source code.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resources.ts":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resources.ts" id=snippet_resources":::
 
 1. Create the `./src/lib/azure-resource.ts` file and copy the following code into it to list the resources in a resource group.
 
