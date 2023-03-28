@@ -38,3 +38,4 @@ az webapp config appsettings set `
 * *$DBUSER* &rarr; Enter *webappuser*, the user you created for the managed identity in the previous article. The sample code constructs the correct Postgres username from `DBUSER` and `DBHOST`, so don't include the *@server* portion.
 * *$STORAGE_ACCOUNT_NAME* &rarr; The name of the storage account, which the sample code combines with *blob.core.windows.net* to create the storage URL endpoint.
 * *$STORAGE_CONTAINER_NAME* &rarr; The name of the container in the storage account, where photos are stored. For example, *photos*.
+* *SECRET_KEY* &rarr; Enter a secret key for the app. This key is used, for example, to encrypt the session cookie. You can generate a value with `python -c "import secrets; print(secrets.token_hex())"`.
