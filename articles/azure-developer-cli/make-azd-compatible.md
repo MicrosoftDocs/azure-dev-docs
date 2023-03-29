@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-bicep
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---

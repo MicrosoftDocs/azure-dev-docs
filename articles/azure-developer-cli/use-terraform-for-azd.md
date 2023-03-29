@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 12/19/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-terraform
 ---
 
 # Use Terraform as an infrastructure as code tool for Azure Developer CLI (preview)

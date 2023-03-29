@@ -3,7 +3,7 @@ title: Provisioning, accessing, and managing resources in Azure
 description: An overview of ways you can work with Azure resources, including Azure portal, VS Code, Azure CLI, Azure PowerShell, and Azure SDKs.
 ms.date: 11/28/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc, devx-track-azurepowershell
 ---
 
 # Provisioning, accessing, and managing resources on Azure
