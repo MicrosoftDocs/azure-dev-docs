@@ -3,7 +3,7 @@ title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK fo
 description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
 ms.date: 11/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python

@@ -6,7 +6,7 @@ ms.author: ushan
 ms.topic: reference
 ms.service: azure
 ms.date: 09/24/2021
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-arm-template
 ---
 
 
