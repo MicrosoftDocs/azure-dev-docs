@@ -69,6 +69,10 @@
       items:
         - name: Create a DPS instance
           href: /azure/iot-dps/quick-setup-auto-provision-terraform
+    - name: Search
+      items:
+        - name: Create an Azure Cognitive Search service
+          href: /azure/search/search-get-started-terraform
     - name: Virtual machines
       items:
       - name: Create a Linux VM
