@@ -397,11 +397,11 @@ If you couldn't complete this article, check the following table for issues. If 
 
 1. Select the **+** icon to create a new Azure Function app in the Azure cloud.
 
-    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-create-function-app-icon.png" alt-text="Visual Studio Code's Azure Explorer with the Azure Function app icon highlighted.":::
+    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-create-function-app-icon.png" alt-text="Screenshot of Visual Studio Code's Azure Explorer with the Azure Function app icon highlighted.":::
 
 1. Select **Create Function App in Azure**.
 1. Enter a **globally unique name** for the new function app. The name must be unique across all Azure functions. For example, `jsmith-rg-management`.
-1. Select the same **Node.js 18+ LTS runtime** your selected when you created your local function app. 
+1. Select the same **Node.js 18+ LTS runtime** you selected when you created your local function app. 
 1. Select a geographical **location** close to you such as **West US 3**. 
 1. Wait until the resource is created. You can watch the **Azure: Activity Log** for details.
 
@@ -728,7 +728,7 @@ Use the Azure portal to view and query your function logs.
 
 1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
 
-    :::image type="content" source="../../media/azure-function-resource-group-management/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**.":::
+    :::image type="content" source="../../media/azure-function-resource-group-management/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select Application Insights from the Settings, then select View Application Insights data.":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with VS Code.
 
