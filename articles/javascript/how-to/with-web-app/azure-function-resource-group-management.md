@@ -141,7 +141,21 @@ Use Visual Studio Code to create a local Function app.
 
 1. Open the `./local.settings.json` file in the project root directory and add your **VALUES** section with the five following environment variables. 
 
-    :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="7-11":::
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "node",
+        "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+        "AZURE_CLIENT_ID": "REPLACE-WITH-SERVICE-PRINCIPAL-APPID",
+        "AZURE_CLIENT_SECRET": "REPLACE-WITH-SERVICE-PRINCIPAL-PASSWORD",
+        "AZURE_SUBSCRIPTION_ID":"REPLACE-WITH-SUBSCRIPTION-ID",
+        "AZURE_TENANT_ID":"REPLACE-WITH-SERVICE-PRINCIPAL-TENANT",
+        "NODE_ENV":"development"
+      }
+    }
+    ```
  
 1. Refer to your settings from the previous section to add the values. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
@@ -167,14 +181,143 @@ npm install @azure/identity @azure/arm-resources
 
 1. Open the `./src/functions/resourcegroups.ts` file and replace the contents with the following: 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" id="snippet_resourcegroup":::
+    ```typescript
+    import { ResourceGroup } from '@azure/arm-resources';
+    import {
+      app,
+      HttpRequest,
+      HttpResponseInit,
+      InvocationContext
+    } from '@azure/functions';
+    import {
+      createResourceGroup,
+      deleteResourceGroup
+    } from '../lib/azure-resource-groups';
+    import { processError } from '../lib/error';
+    
+    export async function resourcegroup(
+      request: HttpRequest,
+      context: InvocationContext
+    ): Promise<HttpResponseInit> {
+      try {
+        console.log(JSON.stringify(request.query));
+        console.log(JSON.stringify(request.params));
+    
+        const name: string = request.query.get('name');
+        const location: string = request.query.get('location');
+        console.log(`name: ${name}`);
+        console.log(`location: ${location}`);
+    
+        switch (request.method) {
+          case 'POST': // wait for create to complete before returning
+            if (!name || !location) {
+              return { body: 'Missing required parameters.', status: 400 };
+            }
+    
+            if (request.headers.get('content-type') === 'application/json') {
+              // create with tags
+    
+              const body: Record<string, unknown> =
+                (await request.json()) as Record<string, string>;
+              const tags: Record<string, string> = body?.tags
+                ? (body?.tags as Record<string, string>)
+                : null;
+              const resourceGroup: ResourceGroup = await createResourceGroup(
+                name,
+                location,
+                tags
+              );
+              return { jsonBody: resourceGroup, status: 200 };
+            } else {
+              // create without tags
+    
+              const resourceGroup: ResourceGroup = await createResourceGroup(
+                name,
+                location,
+                null
+              );
+              return { jsonBody: resourceGroup, status: 200 };
+            }
+    
+          case 'DELETE': // wait for delete to complete before returning
+            if (!name) {
+              return { body: 'Missing required parameters.', status: 400 };
+            }
+            await deleteResourceGroup(name);
+            return { status: 204 };
+        }
+      } catch (err: unknown) {
+        return processError(err);
+      }
+    }
+    
+    app.http('resourcegroup', {
+      methods: ['DELETE', 'POST'],
+      authLevel: 'anonymous',
+      handler: resourcegroup
+    });
+    ```
 
     This file responds to API requests to `/api/resourcegroups` and returns a list of all resource groups in the subscription.
 
 1. Create a subdirectory in `src` named `lib` and create a new file in that directory named `azure-resource-groups.ts`.
 1. Copy the following code into the `./src/lib/azure-resource-groups.ts` file:
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/lib/azure-resource-groups.ts":::
+    ```TypeScript
+    import {
+      ResourceGroup, ResourceManagementClient
+    } from '@azure/arm-resources';
+    import { DefaultAzureCredential } from '@azure/identity';
+    import { getSubscriptionId } from './environment-vars';
+    
+    const subscriptionId = getSubscriptionId();
+    
+    // Create Azure authentication credentials
+    const credentials = new DefaultAzureCredential();
+    
+    // Create Azure SDK client for Resource Management such as resource groups
+    const resourceManagement = new ResourceManagementClient(
+      credentials,
+      subscriptionId
+    );
+    
+    // all resources groups in subscription
+    export const listResourceGroups = async (): Promise<{
+      list: ResourceGroup[];
+      subscriptionId: string;
+    }> => {
+      const list: ResourceGroup[] = [];
+      for await (const resourceGroup of resourceManagement.resourceGroups.list()) {
+        list.push(resourceGroup);
+      }
+      return {
+        subscriptionId,
+        list
+      };
+    };
+    export const createResourceGroup = async (
+      resourceGroupName: string,
+      location: string,
+      tags: { [propertyName: string]: string }
+    ): Promise<ResourceGroup> => {
+      const resourceGroupParameters = {
+        location: location,
+        tags
+      };
+    
+      return await resourceManagement.resourceGroups.createOrUpdate(
+        resourceGroupName,
+        resourceGroupParameters
+      );
+    };
+    export const deleteResourceGroup = async (
+      resourceGroupName: string
+    ): Promise<void> => {
+      return await resourceManagement.resourceGroups.beginDeleteAndWait(
+        resourceGroupName
+      );
+    };
+    ```
 
     This file completes the following:
     * Gets the subscription ID
@@ -184,13 +327,53 @@ npm install @azure/identity @azure/arm-resources
 
 1. Create a new file in the `./src/lib` directory named `environment-vars.ts` and copy the following code into that file. 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/lib/environment-vars.ts":::
+    ```typescript
+    export const checkAzureAuth = () => {
+      // The following code is only used to check you have environment
+      // variables configured. The DefaultAzureCredential reads your
+      // environment - it doesn't read these variables.
+      const tenantId = process.env['AZURE_TENANT_ID'];
+      if (!tenantId)
+        throw Error('AZURE_TENANT_ID is missing from environment variables.');
+      const clientId = process.env['AZURE_CLIENT_ID'];
+      if (!clientId)
+        throw Error('AZURE_CLIENT_ID is missing from environment variables.');
+      const secret = process.env['AZURE_CLIENT_SECRET'];
+      if (!secret)
+        throw Error('AZURE_CLIENT_SECRET is missing from environment variables.');
+    };
+    
+    export const getSubscriptionId = (): string => {
+      checkAzureAuth();
+    
+      // Get subscription from environment variables
+      const subscriptionId = process.env['AZURE_SUBSCRIPTION_ID'];
+      if (!subscriptionId)
+        throw Error('Azure Subscription is missing from environment variables.');
+      return subscriptionId;
+    };
+    ```
 
     This file checks the environment variables before returning the subscription ID.
 
 1. Create a new file in the `./src/lib` directory named `error.ts` and copy the following code into that file.   
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/lib/error.ts":::
+    ```typescript
+    export function processError(err: unknown): any {
+      if (typeof err === 'string') {
+        return { body: err.toUpperCase(), status: 500 };
+      } else if (
+        err['stack'] &&
+        process.env.NODE_ENV.toLowerCase() !== 'production'
+      ) {
+        return { jsonBody: { stack: err['stack'], message: err['message'] } };
+      } else if (err instanceof Error) {
+        return { body: err.message, status: 500 };
+      } else {
+        return { body: JSON.stringify(err) };
+      }
+    }
+    ```
 
     This file returns a 500 error with the error message. The stack is returned if the `NODE_ENV` variable isn't set to `production`.
 
@@ -327,7 +510,82 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
     |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. Open the `./src/functions/resourcegroup.ts` and replace the entire file with the following source code.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" id="snippet_resourcegroup":::
+    ```typescript
+    import { ResourceGroup } from '@azure/arm-resources';
+    import {
+      app,
+      HttpRequest,
+      HttpResponseInit,
+      InvocationContext
+    } from '@azure/functions';
+    import {
+      createResourceGroup,
+      deleteResourceGroup
+    } from '../lib/azure-resource-groups';
+    import { processError } from '../lib/error';
+    
+    export async function resourcegroup(
+      request: HttpRequest,
+      context: InvocationContext
+    ): Promise<HttpResponseInit> {
+      try {
+        console.log(JSON.stringify(request.query));
+        console.log(JSON.stringify(request.params));
+    
+        const name: string = request.query.get('name');
+        const location: string = request.query.get('location');
+        console.log(`name: ${name}`);
+        console.log(`location: ${location}`);
+    
+        switch (request.method) {
+          case 'POST': // wait for create to complete before returning
+            if (!name || !location) {
+              return { body: 'Missing required parameters.', status: 400 };
+            }
+    
+            if (request.headers.get('content-type') === 'application/json') {
+              // create with tags
+    
+              const body: Record<string, unknown> =
+                (await request.json()) as Record<string, string>;
+              const tags: Record<string, string> = body?.tags
+                ? (body?.tags as Record<string, string>)
+                : null;
+              const resourceGroup: ResourceGroup = await createResourceGroup(
+                name,
+                location,
+                tags
+              );
+              return { jsonBody: resourceGroup, status: 200 };
+            } else {
+              // create without tags
+    
+              const resourceGroup: ResourceGroup = await createResourceGroup(
+                name,
+                location,
+                null
+              );
+              return { jsonBody: resourceGroup, status: 200 };
+            }
+    
+          case 'DELETE': // wait for delete to complete before returning
+            if (!name) {
+              return { body: 'Missing required parameters.', status: 400 };
+            }
+            await deleteResourceGroup(name);
+            return { status: 204 };
+        }
+      } catch (err: unknown) {
+        return processError(err);
+      }
+    }
+    
+    app.http('resourcegroup', {
+      methods: ['DELETE', 'POST'],
+      authLevel: 'anonymous',
+      handler: resourcegroup
+    });
+    ```
 
 1. The `./src/lib/azure-resource-groups.ts` file already contains the code to add and delete resource groups.
 
@@ -346,11 +604,103 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
     |Authorization level|Select **anonymous**. If you continue with this project, change the authorization level to the function. Learn more about [Function-level authorization](/azure/azure-functions/security-concepts#function-access-keys).|
 1. Open the `./src/functions/resources.ts` and replace the entire file with the following source code.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/functions/resources.ts" id="snippet_resources":::
+    ```typescript
+    import {
+      app,
+      HttpRequest,
+      HttpResponseInit,
+      InvocationContext
+    } from '@azure/functions';
+    import {
+      listResourceByResourceGroup, listResourceBySubscription
+    } from '../lib/azure-resource';
+    import { processError } from '../lib/error';
+    
+    export async function resources(
+      request: HttpRequest,
+      context: InvocationContext
+    ): Promise<HttpResponseInit> {
+      try {
+        const resourceGroupName: string = request.query.get('resourceGroupName');
+        context.log(`resourceGroupName: '${resourceGroupName}'`);
+    
+        if (resourceGroupName) {
+          const resourcesByName = await listResourceByResourceGroup(
+            resourceGroupName
+          );
+          return { jsonBody: resourcesByName };
+        } else {
+          const resourcesBySubscription = await listResourceBySubscription();
+          return { jsonBody: resourcesBySubscription };
+        }
+      } catch (err: unknown) {
+        return processError(err);
+      }
+    }
+    app.http('resources', {
+      methods: ['GET'],
+      authLevel: 'anonymous',
+      handler: resources
+    });
+    ```
 
 1. Create the `./src/lib/azure-resource.ts` file and copy the following code into it to list the resources in a resource group.
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/src/lib/azure-resource.ts":::
+    ```typescript
+    import { Resource, ResourceManagementClient } from '@azure/arm-resources';
+    import { DefaultAzureCredential } from '@azure/identity';
+    import { getSubscriptionId } from './environment-vars';
+    
+    const subscriptionId = getSubscriptionId();
+    
+    // Create Azure authentication credentials
+    const credentials = new DefaultAzureCredential();
+    
+    // Create Azure SDK client for Resource Management such as resource groups
+    const resourceManagement = new ResourceManagementClient(
+      credentials,
+      subscriptionId
+    );
+    
+    // all resources groups in subscription
+    export const listResourceBySubscription = async (): Promise<{
+      list: Resource[];
+      subscriptionId: string;
+    }> => {
+      const list: Resource[] = [];
+    
+      for await (const resource of resourceManagement.resources.list()) {
+        list.push(resource);
+      }
+    
+      return {
+        subscriptionId,
+        list
+      };
+    };
+    // all resources groups in resource group
+    export const listResourceByResourceGroup = async (
+      resourceGroupName: string
+    ): Promise<{
+      list: Resource[];
+      subscriptionId: string;
+      resourceGroupName: string;
+    }> => {
+      const list: Resource[] = [];
+    
+      for await (const resource of resourceManagement.resources.listByResourceGroup(
+        resourceGroupName
+      )) {
+        list.push(resource);
+      }
+    
+      return {
+        subscriptionId,
+        resourceGroupName,
+        list
+      };
+    };
+    ```
 
 #### Start your local function app and test the new API
 
@@ -366,15 +716,26 @@ Use the Visual Studio Code extension for Azure Functions to add the TypeScript f
 
 1. Use the following curl commands in a different integrated bash terminal, to call your API, to add a resource group to your subscription. Change the name of the resource group to use your own naming conventions.
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" range="5-9":::
+    ```bash
+    curl -X POST 'http://localhost:7071/api/resourcegroup?name=my-test-1&location=westus'
+    
+    curl -X POST 'http://localhost:7071/api/resourcegroup?name=my-test-1&location=westus' \
+      -H 'content-type: application/json' \
+      -d '{"tags": {"a":"b"}}'
+    ```
 
 1. Use the following curl command to see the new resource group listed in your subscription.
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroups.ts" range="4":::
+    ```bash
+    curl http://localhost:7071/api/resource-groups
+    ```
 
 1. Use the following curl command to delete the resource group you just added. 
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/src/functions/resourcegroup.ts" range="14-15":::
+    ```bash
+    curl -X DELETE 'http://localhost:7071/api/resourcegroup?name=my-test-1' \
+      -H 'Content-Type: application/json'
+    ```
 
 #### Redeploy your function app with new APIs to Azure
 
@@ -414,6 +775,7 @@ Use the Azure portal to view and query your function logs.
 1. In the **Schema and Filter** pane, on the **Tables** tab, double-click the **traces** table. 
 
     This enters the [Kusto query](/azure/data-explorer/kusto/query/), `traces` into the query window. 
+
 1. Edit the query to search for API calls:
 
     ```kusto
