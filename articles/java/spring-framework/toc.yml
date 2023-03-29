@@ -58,6 +58,8 @@ items:
           href: configure-spring-cloud-stream-binder-java-app-with-service-bus.md
         - name: Use Spring Kafka with Azure Event Hubs for Kafka API
           href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+        - name: Use Azure Storage Queue in Spring applications
+          href: using-storage-queue-in-spring-applications.md
     - name: Database
       items:
       - name: NoSQL- Azure Cosmos DB
