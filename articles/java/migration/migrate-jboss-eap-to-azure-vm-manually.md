@@ -461,7 +461,17 @@ az storage account create \
   --sku Standard_LRS \
   --kind StorageV2 \
   --access-tier Hot
+```
 
+Then, retrieve the storage account key for later use by running the following command:
+
+```bash
+STORAGE_ACCESS_KEY=$(az storage account keys list \
+  --account-name ${STORAGE_ACCOUNT_NAME} \
+  --query "[0].value" --output tsv)
+```
+
+```bash
 # Create blob container
 az storage container create \
   --name ${CONTAINER_NAME} \
@@ -469,12 +479,14 @@ az storage container create \
   --account-key ${STORAGE_ACCESS_KEY}
 ```
 
-Then, retrieve the storage account key for later use by running the following command:
+You should see the following output.
+
 ```bash
-STORAGE_ACCESS_KEY=$(az storage account keys list \
-  --account-name ${STORAGE_ACCOUNT_NAME} \
-  --query "'[0]'.value" --output tsv)
+{
+  "created": true
+}
 ```
+
 
 #### Configure domain controller(admin node)
 
