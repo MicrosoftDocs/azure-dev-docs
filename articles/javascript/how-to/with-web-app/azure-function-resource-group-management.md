@@ -2,8 +2,8 @@
 title: JavaScript Resource group management API
 description: Learn how to build a TypeScript Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 03/24/2023
-ms.custom: devx-track-ts
+ms.date: 03/29/2023
+ms.custom: devx-track-ts, engagement-fy23
 ---
 
 # Manage Azure resource groups with TypeScript Function API
