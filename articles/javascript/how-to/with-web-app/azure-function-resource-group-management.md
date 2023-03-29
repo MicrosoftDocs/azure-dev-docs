@@ -405,7 +405,7 @@ If you couldn't complete this article, check the following table for issues. If 
 1. Select a geographical **location** close to you such as **West US 3**. 
 1. Wait until the resource is created. You can watch the **Azure: Activity Log** for details.
 
-    :::image type="content" source="../../azure-function-resource-group-management/visual-studio-code-function-creation-activity-log.png" alt-text="Screenshot of Visual Studio Code's Azure activity log showing the resource creation status.":::
+    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-function-creation-activity-log.png" alt-text="Screenshot of Visual Studio Code's Azure activity log showing the resource creation status.":::
 
 ## 4. Configure cloud-based Azure Function app
 
