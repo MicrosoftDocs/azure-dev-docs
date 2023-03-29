@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Install JBoss EAP on Azure Virtual Machines manually"
-description: Provides step-by-step guidance to install JBoss EAP on Azure VMs and form a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
+title: "Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually"
+description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azure VMs and form a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
 author: KarlErickson
 ms.author: zhengchang
 ms.topic: how-to
@@ -9,17 +9,17 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli
 ---
 
-# Tutorial: Install JBoss EAP on Azure Virtual Machines manually
+# Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually
 
-This tutorial shows the steps to install JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux(RHEL).
+This tutorial shows the steps to install Red Hat JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux(RHEL).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a custom virtual network and create the VMs within the network.
-> - Install the desired JDK and JBoss EAP on the VMs by using the command-line manually.
-> - Configure a JBoss EAP cluster in domain mode using the command-line interface(CLI).
+> - Install the desired JDK and Red Hat JBoss EAP on the VMs by using the command-line manually.
+> - Configure a Red Hat JBoss EAP cluster in domain mode using the command-line interface(CLI).
 > - Configure a PostgreSQL datasource connection in the cluster.
 > - Deploy and run a sample Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
@@ -33,7 +33,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 - [Install Azure CLI version 2.37.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let the Azure portal install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement will let the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which will be used as the *RHSM username* and *RHSM password* in the next section.
 - After you're registered, you can find the necessary credentials (*Pool IDs*) by following steps below. The *Pool IDs* will also be used as the *RHSM Pool ID with EAP entitlement* later.
@@ -52,18 +52,14 @@ If you prefer a fully automated solution that does all of these steps on your be
 
 ## Prepare the environment
 
-In this section, you'll set up the infrastructure within which you'll install the JDK, JBoss EAP, and the PostgreSQL JDBC driver.
+In this section, you'll set up the infrastructure within which you'll install the JDK, Red Hat JBoss EAP, and the PostgreSQL JDBC driver.
 
 ### Assumptions
 
-This tutorial will configure a JBoss EAP cluster in domain mode with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs:
+This tutorial will configure a Red Hat JBoss EAP cluster in domain mode with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs:
 
 - An admin VM (VM name `adminVM`) runs as the domain controller.
 - Two managed VMs (VM names `mspVM1` and `mspVM2`) run as host controller.
-
-The topology of the cluster will look like: 
-
-**Add image here**
 
 ### Sign in to Azure
 
@@ -88,7 +84,7 @@ az group create \
 
 ### Create a virtual network
 
-The resources comprising your JBoss EAP cluster must communicate with each other, and the public internet, using a virtual network. For a complete guide to planning your virtual network, see the Cloud Adoption Framework for Azure guide [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). For more information, see [Azure Virtual Network frequently asked questions](/azure/virtual-network/virtual-networks-faq).
+The resources comprising your Red Hat JBoss EAP cluster must communicate with each other, and the public internet, using a virtual network. For a complete guide to planning your virtual network, see the Cloud Adoption Framework for Azure guide [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). For more information, see [Azure Virtual Network frequently asked questions](/azure/virtual-network/virtual-networks-faq).
 
 The example in this section creates a virtual network with address space `192.168.0.0/16` and creates a subnet used for VMs.
 
@@ -101,7 +97,7 @@ az network vnet create \
     --address-prefixes 192.168.0.0/24
 ```
 
-Create a subnet for the JBoss EAP cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
+Create a subnet for the Red Hat JBoss EAP cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet subnet create \
@@ -123,7 +119,7 @@ az network vnet subnet create \
 
 ### Create a Network Security Group(NSG) and assign subnets to it
 
-Before we create VMs with public IPs, to secure the virtual network and subnets created above, let create a network security group.
+Before we create VMs with public IPs, to secure the virtual network and subnets created above, let's create a network security group.
 
 Create a network security group by using [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create). The following example creates a network security group named `mynsg`:
 
@@ -133,7 +129,7 @@ az network nsg create \
     --name mynsg
 ```
 
-Create network security group rules by using [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create). The following example creates network security group rules named `ALLOW_APPGW` and `ALLOW_HTTP_ACCESS`:
+Create network security group rules by using [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create). The following example creates network security group rules named `ALLOW_APPGW` and `ALLOW_HTTP_ACCESS`. These rules allow App Gateway to accept inbound traffic on the HTTP ports used by Red Hat JBoss EAP:
 
 ```azurecli
 az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_APPGW --protocol Tcp --destination-port-ranges 65200-65535 --source-address-prefix GatewayManager --destination-address-prefix '*' --access Allow --priority 500 --direction Inbound
@@ -153,7 +149,7 @@ az network vnet subnet update --vnet-name myVNet --name jbossVMGatewaySubnet --n
 
 #### Create the admin VM
 
-The Marketplace image that you use to create the VMs is `RedHat:RHEL:8_6:latest`.
+The Marketplace image that you use to create the VMs is `RedHat:RHEL:8_6:latest`. For other images, please see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
 
 > [!NOTE]
 > You can query all the available Red Hat Enterprise Linux images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
@@ -180,18 +176,18 @@ az vm create \
     --subnet mySubnet
 ```
 
-#### Install OpenJDK 11 and JBoss EAP 7.4
+#### Install OpenJDK 11 and Red Hat JBoss EAP 7.4
 
 1. Use the following command to get the public IP of `adminVM`
     
     ```azurecli
-    az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps
+    ADMIN_VM_PUBLIC_IP=$(az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps)
     ```
 
 2. Open a terminal and SSH to the `adminVM` by running the following command:
     
     ```bash
-    ssh azureuser@<adminvm_public_ip>
+    ssh azureuser@$ADMIN_VM_PUBLIC_IP
     ```
 
 Provide `Secret123456` as password.
@@ -203,18 +199,72 @@ Provide `Secret123456` as password.
     sudo firewall-cmd --reload
     sudo iptables-save
     ```
+    
+    You should see the word `success` after the first two commands. You should see output similar to the following after the third command.
+    
+    ```bash
+    # Generated by iptables-save v1.8.4 on Wed Mar 29 22:39:23 2023
+    *filter
+    :INPUT ACCEPT [20:3546]
+    :FORWARD ACCEPT [0:0]
+    :OUTPUT ACCEPT [24:5446]
+    COMMIT
+    # Completed on Wed Mar 29 22:39:23 2023
+    # Generated by iptables-save v1.8.4 on Wed Mar 29 22:39:23 2023
+    *security
+    :INPUT ACCEPT [19:3506]
+    :FORWARD ACCEPT [0:0]
+    :OUTPUT ACCEPT [5:492]
+    -A OUTPUT -d 168.63.129.16/32 -p tcp -m tcp --dport 53 -j ACCEPT
+    -A OUTPUT -d 168.63.129.16/32 -p tcp -m tcp --dport 53 -j ACCEPT
+    -A OUTPUT -d 168.63.129.16/32 -p tcp -m owner --uid-owner 0 -j ACCEPT
+    -A OUTPUT -d 168.63.129.16/32 -p tcp -m conntrack --ctstate INVALID,NEW -j DROP
+    COMMIT
+    # Completed on Wed Mar 29 22:39:23 2023
+    # Generated by iptables-save v1.8.4 on Wed Mar 29 22:39:23 2023
+    *raw
+    :PREROUTING ACCEPT [20:3546]
+    :OUTPUT ACCEPT [24:5446]
+    COMMIT
+    # Completed on Wed Mar 29 22:39:23 2023
+    # Generated by iptables-save v1.8.4 on Wed Mar 29 22:39:23 2023
+    *mangle
+    :PREROUTING ACCEPT [20:3546]
+    :INPUT ACCEPT [20:3546]
+    :FORWARD ACCEPT [0:0]
+    :OUTPUT ACCEPT [24:5446]
+    :POSTROUTING ACCEPT [24:5446]
+    COMMIT
+    # Completed on Wed Mar 29 22:39:23 2023
+    # Generated by iptables-save v1.8.4 on Wed Mar 29 22:39:23 2023
+    *nat
+    :PREROUTING ACCEPT [1:40]
+    :INPUT ACCEPT [0:0]
+    :POSTROUTING ACCEPT [4:240]
+    :OUTPUT ACCEPT [4:240]
+    COMMIT
+    # Completed on Wed Mar 29 22:39:23 2023
+    ```
 
 4. Register the admin host to your Red Hat Subscription Management(RHSM) account
     
     ```bash
     RHSM_USER=<your rhsm username>
-    RHSM_PASSWORD=<your rhsm password>
+    RHSM_PASSWORD="<your rhsm password>"
     EAP_POOL=<your rhsm pool id>
     
     sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
     ```
+    
+    You should see output similar to the following.
+    
+    ```bash
+    Registering to: subscription.rhsm.redhat.com:443/subscription
+    The system has been registered with ID: redacted
+    The registered system name is: adminVM
+    ```
 
-5. Attach the admin host to JBoss EAP pool
+5. Attach the admin host to Red Hat JBoss EAP pool
     
     ```bash
     sudo subscription-manager attach --pool=${EAP_POOL}
@@ -225,8 +275,10 @@ Provide `Secret123456` as password.
     ```bash
     sudo yum install java-11-openjdk -y
     ```
+    
+    You should see many lines of output, ending with `Complete!`.
 
-7. Install JBoss EAP 7.4
+7. Install Red Hat JBoss EAP 7.4
 
     ```bash
     sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
@@ -234,7 +286,9 @@ Provide `Secret123456` as password.
     sudo yum groupinstall -y jboss-eap7
     ```
 
-8. Permission and TCP configurations
+    For the second and third commands, you should see many lines of output, ending with `Complete!`.
+
+8. Set permission and TCP configurations
 
     ```bash
     sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
@@ -251,10 +305,12 @@ Provide `Secret123456` as password.
     sudo touch /etc/profile.d/eap_env.sh
     echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
     ```
+    
+Exit from the ssh connection by typing `exit`.
 
 ### Create machines for managed servers
 
-You've now installed OpenJDK 11, and JBoss EAP 7.4 on `adminVM`, which will run as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've installed OpenJDK 11, and Red Hat JBoss EAP 7.4 on `adminVM`, which will run as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you'll create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then follow these steps:
 
@@ -287,7 +343,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
     SNAPSHOT_ID=$(az snapshot show \
         --name myAdminOSDiskSnapshot \
         --resource-group abc1110rg \
-        --query [id] \
+        --query '[id]' \
         --output tsv)
     
     #Create a new Managed Disks using the snapshot Id
@@ -305,7 +361,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
     MSPVM1_DISK_ID=$(az disk show \
         --name mspVM1_OsDisk_1 \
         --resource-group abc1110rg \
-        --query [id] \
+        --query '[id]' \
         --output tsv)
     
     #Create VM by attaching existing managed disks as OS
@@ -320,7 +376,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
         --subnet mySubnet
     ```
 
-    You've now created `mspVM1` with OpenJDK 11 and JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+    You've created `mspVM1` with OpenJDK 11 and Red Hat JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
     ```azurecli
     az vm run-command invoke \
@@ -356,7 +412,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
     MSPVM2_DISK_ID=$(az disk show \
     --name mspVM2_OsDisk_1 \
     --resource-group abc1110rg \
-    --query [id] \
+    --query '[id]' \
     --output tsv)
     
     #Create VM by attaching existing managed disks as OS
@@ -379,13 +435,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
     ```
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
-Now, all three machines are ready. Next, you'll configure a JBoss EAP cluster in managed domain mode.
+Now, all three machines are ready. Next, you'll configure a Red Hat JBoss EAP cluster in managed domain mode.
 
 ### Configure managed domain and cluster
 
-In the documentation we will configure a cluster with session replication enabled. For more information, see [Session Replication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/development_guide/clustering_in_web_applications#session_replication). 
+Configure the cluster with session replication enabled. For more information, see [Session Replication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/development_guide/clustering_in_web_applications#session_replication). 
 
-To enable session replication we will use JBoss EAP High Availability for the cluster. Microsoft Azure does not support JGroups discovery protocols that are based on UDP multicast. Although you may use other JGroups discovery protocols (such as a static configuration (`TCPPING`), a shared database (`JDBC_PING`), shared file system-based ping (`FILE_PING`), or `TCPGOSSIP`), we strongly recommend that you use the shared file discovery protocol specifically developed for Azure: `AZURE_PING`. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper) 
+To enable session replication we will use Red Hat JBoss EAP High Availability for the cluster. Microsoft Azure does not support JGroups discovery protocols that are based on UDP multicast. Although you may use other JGroups discovery protocols (such as a static configuration (`TCPPING`), a shared database (`JDBC_PING`), shared file system-based ping (`FILE_PING`), or `TCPGOSSIP`), we strongly recommend that you use the shared file discovery protocol specifically developed for Azure: `AZURE_PING`. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper) 
 
 #### Create Azure storage account and Blob container for AZURE_PING
 
@@ -393,9 +449,9 @@ Use the following command to create a storage account and Blob container:
 
 ```azurecli
 # Define your storage account name
-STORAGE_ACCOUNT_NAME=azurepingstg1110
+STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
 # Define your Blob container name
-CONTAINER_NAME=azurepingcontainer1110
+CONTAINER_NAME=azurepingcontainerabc1110rg
 
 # Create storage account
 az storage account create \
@@ -417,12 +473,12 @@ Then, retrieve the storage account key for later use by running the following co
 ```bash
 STORAGE_ACCESS_KEY=$(az storage account keys list \
   --account-name ${STORAGE_ACCOUNT_NAME} \
-  --query "[0].value" --output tsv)
+  --query "'[0]'.value" --output tsv)
 ```
 
 #### Configure domain controller(admin node)
 
-This tutorial uses the JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
+This tutorial uses the Red Hat JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
 Setup the domain controller configuration on `adminVM` with the following steps, assuming you're now on `adminVM` and logged in with the `azureuser` user.
 First, configure the HA profile and JGroups using **AZURE_PING** protocol.
@@ -450,7 +506,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
 '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
 '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value='[{mechanism-name=DIGEST,mechanism-realm-configurations='[{realm-name=ManagementRealm}]'}]')",\
 "/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
 "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
@@ -487,7 +543,7 @@ sudo systemctl restart eap7-domain.service
 systemctl status eap7-domain.service 
 ```
 
-After start the JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like below:
+After start the Red Hat JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like below:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
@@ -528,7 +584,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
 "/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
 "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules='[{authentication-configuration=slave}]')",\
 "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
 "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
 "/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
@@ -560,13 +616,13 @@ Repeat the above steps on `mspVM2`, after two host controller are connected to `
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
-## Expose JBoss EAP cluster with Azure Application Gateway
+## Expose Red Hat JBoss EAP cluster with Azure Application Gateway
 
-Now that you've created the JBoss EAP cluster on Azure virtual machines, this section walks you through the process of exposing JBoss EAP to the internet with Azure Application Gateway.
+Now that you've created the Red Hat JBoss EAP cluster on Azure virtual machines, this section walks you through the process of exposing Red Hat JBoss EAP to the internet with Azure Application Gateway.
 
 ### Create the Azure Application Gateway
 
-To expose JBoss EAP to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
+To expose Red Hat JBoss EAP to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
 
 ```azurecli
 az network public-ip create \
@@ -582,20 +638,20 @@ You'll add the backend servers to Application Gateway backend pool. Query backen
 MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
-    --query networkProfile.networkInterfaces[0].id \
+    --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
 MSPVM1_IP=$(az network nic show \
     --ids ${MSPVM1_NIC_ID} \
-    --query ipConfigurations[0].privateIPAddress \
+    --query ipConfigurations'[0]'.privateIPAddress \
     --output tsv)
 MSPVM2_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM2 \
-    --query networkProfile.networkInterfaces[0].id \
+    --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
 MSPVM2_IP=$(az network nic show \
     --ids ${MSPVM2_NIC_ID} \
-    --query ipConfigurations[0].privateIPAddress \
+    --query ipConfigurations'[0]'.privateIPAddress \
     --output tsv)
 ```
 
@@ -625,13 +681,13 @@ After the application gateway is created, you can see these new features:
 - `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
 
 > [!NOTE]
-> This example sets up simple access to the JBoss EAP servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+> This example sets up simple access to the Red Hat JBoss EAP servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
 > This example exposes the host controllers at port 8080, we will deploy a sample application with database connection to the cluster in later steps.
 
 ## Connect Azure Database for PostgreSQL
 
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your JBoss EAP cluster.
+This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your Red Hat JBoss EAP cluster.
 
 ### Create an Azure Database for PostgreSQL instance
 
@@ -674,7 +730,7 @@ az postgres db create --resource-group abc1110rg --server ${DB_SERVER_NAME} --na
 ```
 
 ### Install driver
-We will be using JBoss management CLI to install the JDBC driver as Jar deployment. For more information about JDBC drivers on JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
+We will be using JBoss management CLI to install the JDBC driver as Jar deployment. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
 
 1. SSH to the `adminVM` by running the following command, you can skip this step if you have connection opened.
 
@@ -696,7 +752,7 @@ We will be using JBoss management CLI to install the JDBC driver as Jar deployme
     "deploy ~/${jdbcDriverName} --server-groups=main-server-group"
     ```
 
-### Configure the database connection for the JBoss EAP cluster
+### Configure the database connection for the Red Hat JBoss EAP cluster
 
 You've started the database server, obtained the necessary resource ID and installed the JDBC driver, the steps in this section use the JBoss CLI to configure a datasource connection with the PostgreSQL instance created previously.
 
@@ -724,7 +780,7 @@ After the above steps, you've successfully configured a data source named `jdbc/
 
 ## Deploy Java EE Cafe sample application
 
-This section shows how to deploy Java EE Cafe sample application to the JBoss EAP cluster.
+This section shows how to deploy Java EE Cafe sample application to the Red Hat JBoss EAP cluster.
 
 1. Following these instructions to build Java EE Cafe, assume you have a local environment with **Git** and **Maven** installed:
 
@@ -744,7 +800,7 @@ This section shows how to deploy Java EE Cafe sample application to the JBoss EA
 
 1. Open a web browser and go to the management console at `http://<adminVM_public_IP>:9990`, login with username `jbossadmin` and password `Secret123456`.
 
-2. From the Deployments tab of the JBoss EAP management console, deployments can be viewed and managed by:
+2. From the Deployments tab of the Red Hat JBoss EAP management console, deployments can be viewed and managed by:
     * Content Repository
         All managed and unmanaged deployments are listed in the **Content Repository** section. Deployments can be added and deployed to server groups here.
     * Server Groups
@@ -760,9 +816,9 @@ This section shows how to deploy Java EE Cafe sample application to the JBoss EA
     1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
     1. Select **Deploy** to start the deployment.
 
-## Test the JBoss EAP cluster configuration
+## Test the Red Hat JBoss EAP cluster configuration
 
-You've now finished configuring the JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
+You've now finished configuring the Red Hat JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`.
@@ -770,9 +826,9 @@ You've now finished configuring the JBoss EAP cluster and deploying the Java EE 
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the JBoss EAP cluster deployed on Azure VM, unregister the JBoss EAP servers and remove Azure resources.
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the Red Hat JBoss EAP cluster deployed on Azure VM, unregister the Red Hat JBoss EAP servers and remove Azure resources.
 
-Run the following command to unregister the JBoss EAP servers and VMs from Red Hat subscription management.
+Run the following command to unregister the Red Hat JBoss EAP servers and VMs from Red Hat subscription management.
 
 ```azurecli
 # Unregister domain controller
@@ -803,7 +859,7 @@ az group delete --name abc1110rg --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run JBoss EAP on Azure.
+Continue to explore options to run Red Hat JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
 > [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
