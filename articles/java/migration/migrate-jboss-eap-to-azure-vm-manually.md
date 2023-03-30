@@ -492,8 +492,10 @@ You should see the following output.
 
 This tutorial uses the Red Hat JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
-Setup the domain controller configuration on `adminVM` with the following steps, assuming you're now on `adminVM` and logged in with the `azureuser` user.
+The following steps set up the domain controller configuration on `adminVM`. Use ssh to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of the adminVM was captured above into the `ADMIN_VM_PUBLIC_IP` environment variable.
+
 First, configure the HA profile and JGroups using **AZURE_PING** protocol.
+
 ```bash
 HOST_VM_IP=$(hostname -I)
 
@@ -518,7 +520,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
 '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
 '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value='[{mechanism-name=DIGEST,mechanism-realm-configurations='[{realm-name=ManagementRealm}]'}]')",\
+"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
 "/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
 "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
@@ -527,7 +529,21 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
 ```
 
-Then, configure the JBoss server and setup EAP service.
+The last stanza of output should look similar to the following. If it does not, troubleshoot and resolve the problem before continuing.
+
+```bash
+[domain@embedded /] /host=master/interface=public:add(inet-address=192.168.0.4 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+02:05:55,019 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 28ms
+```
+
+Then, configure the JBoss server and setup the EAP service.
+
 ```bash
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
@@ -538,7 +554,17 @@ JBOSS_EAP_PASSWORD=Secret123456
 sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
 ```
 
+The output should look similar to the following.
+
+```bash
+Added user 'jbossadmin' to file '/etc/opt/rh/eap7/wildfly/standalone/mgmt-users.properties'
+Added user 'jbossadmin' to file '/etc/opt/rh/eap7/wildfly/domain/mgmt-users.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap7/wildfly/standalone/mgmt-groups.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap7/wildfly/domain/mgmt-groups.properties'
+```
+
 Finally, start the EAP service.
+
 ```bash
 # Start the JBoss server and setup EAP service
 sudo systemctl enable eap7-domain.service
@@ -555,17 +581,45 @@ sudo systemctl restart eap7-domain.service
 systemctl status eap7-domain.service 
 ```
 
-After start the Red Hat JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser, after login with the configured username: `jbossadmin` and password `Secret123456` you should be able to see the management console like below:
+The output should look similar to the following.
+
+```bash
+● eap7-domain.service - JBoss EAP (domain mode)
+   Loaded: loaded (/usr/lib/systemd/system/eap7-domain.service; enabled; vendor>
+   Active: active (running) since Thu 2023-03-30 02:11:44 UTC; 5s ago
+ Main PID: 3855 (scl)
+    Tasks: 82 (limit: 20612)
+   Memory: 232.4M
+   CGroup: /system.slice/eap7-domain.service
+           ├─3855 /usr/bin/scl enable eap7 -- /opt/rh/eap7/root/usr/share/wildf>
+           ├─3856 /bin/bash /var/tmp/sclfYu7yW
+           ├─3858 /bin/sh /opt/rh/eap7/root/usr/share/wildfly/bin/launch.sh /us>
+           ├─3862 /bin/sh /opt/rh/eap7/root/usr/share/wildfly/bin/domain.sh --h>
+           ├─3955 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
+           └─3967 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+
+Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type **q** to exit the pager.
+
+After starting the Red Hat JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser.  Sign in with the configured username: `jbossadmin` and password `Secret123456`.
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
-Select **Runtime** tab and then browser the **Topology** you should see that for now our cluster only contains one domain controller:
+Select **Runtime** tab. In the left navigation pane, select **Topology**. You should see that for now our cluster only contains one domain controller:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of cluster topology with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
 
 #### Configure host controllers(worker nodes)
 
-Assuming you're on `mspVM1` and logged in with the `azureuser` user, follow the instructions to apply host controller configuration to `mspVM1`.
+Use ssh to connect to the `mspVM1` as the `azureuser` user. Get the public IP address of the VM with this command.
+
+```bash
+az vm show --resource-group abc1110rg --name mspVM1 --show-details --query publicIps
+```
+
+These steps set up the host controller on `mspVM1`.
 
 ```bash
 # environment variables
@@ -596,13 +650,26 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
 "/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
 "/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules='[{authentication-configuration=slave}]')",\
+"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
 "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
 "/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
 "/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
 "/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
 "/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
 "/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+```
+
+The last stanza of output should look similar to the following. If it does not, troubleshoot and resolve the problem before continuing.
+
+```bash
+[domain@embedded /] /host=mspvm1/interface=public:write-attribute(name=inet-address, value=192.168.0.5 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+02:58:59,388 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 58ms
 ```
 
 Then, configure the JBoss server and setup EAP service.
@@ -624,7 +691,39 @@ sudo systemctl restart eap7-domain.service
 systemctl status eap7-domain.service 
 ```
 
-Repeat the above steps on `mspVM2`, after two host controller are connected to `adminVM`, you should be able to see the cluster topology:
+The output should look similar to the following.
+
+```bash
+● eap7-domain.service - JBoss EAP (domain mode)
+   Loaded: loaded (/usr/lib/systemd/system/eap7-domain.service; enabled; vendor>
+   Active: active (running) since Thu 2023-03-30 03:02:15 UTC; 7s ago
+ Main PID: 9699 (scl)
+    Tasks: 51 (limit: 20612)
+   Memory: 267.6M
+   CGroup: /system.slice/eap7-domain.service
+           ├─9699 /usr/bin/scl enable eap7 -- /opt/rh/eap7/root/usr/share/wildf>
+           ├─9700 /bin/bash /var/tmp/sclgJ1hRD
+           ├─9702 /bin/sh /opt/rh/eap7/root/usr/share/wildfly/bin/launch.sh /us>
+           ├─9706 /bin/sh /opt/rh/eap7/root/usr/share/wildfly/bin/domain.sh --h>
+           ├─9799 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
+           └─9811 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+
+Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type **q** to exit the pager.
+
+Exit from the ssh connection by typing `exit`.
+
+Use ssh to connect to the `mspVM2` as the `azureuser` user. Get the public IP address of the VM with this command.
+
+```bash
+az vm show --resource-group abc1110rg --name mspVM2 --show-details --query publicIps
+```
+
+Repeat the above steps on `mspVM2`, and then exit the ssh connection by typing `exit`.
+
+After two host controller are connected to `adminVM`, you should be able to see the cluster topology:
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
