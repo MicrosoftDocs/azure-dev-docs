@@ -75,8 +75,8 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
     spring.cloud.azure.eventhubs.namespace=${AZURE_EVENTHUBS_NAMESPACE}
-    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=${AZURE_STORAGE_CONTAINER_NAME}
-    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=${AZURE_STORAGE_ACCOUNT_NAME}
+    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=${AZURE_STORAGE_ACCOUNT_NAME}
+    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=${AZURE_STORAGE_CONTAINER_NAME}
     spring.cloud.stream.bindings.consume-in-0.destination=${AZURE_EVENTHUB_NAME}
     spring.cloud.stream.bindings.consume-in-0.group=${AZURE_EVENTHUB_CONSUMER_GROUP}
     spring.cloud.stream.bindings.supply-out-0.destination=${AZURE_EVENTHUB_NAME}
