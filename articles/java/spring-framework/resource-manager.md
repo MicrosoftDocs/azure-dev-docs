@@ -5,7 +5,7 @@ ms.date: 01/18/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-arm-template
 ---
 
 # Spring Cloud Azure Resource Manager
