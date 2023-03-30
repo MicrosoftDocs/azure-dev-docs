@@ -181,7 +181,7 @@ az vm create \
 1. Use the following command to get the public IP of `adminVM`
     
     ```azurecli
-    ADMIN_VM_PUBLIC_IP=$(az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps)
+    ADMIN_VM_PUBLIC_IP=$(az vm show --resource-group abc1110rg --name adminVM --show-details --query publicIps | tr -d '"')
     ```
 
 2. Open a terminal and SSH to the `adminVM` by running the following command:
@@ -498,6 +498,10 @@ First, configure the HA profile and JGroups using **AZURE_PING** protocol.
 
 ```bash
 HOST_VM_IP=$(hostname -I)
+STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
+CONTAINER_NAME=azurepingcontainerabc1110rg
+STORAGE_ACCESS_KEY=<the value from before you connected with ssh>
+
 
 # Configure the HA profile and JGroups using AZURE_PING protocol
 sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
@@ -601,7 +605,7 @@ The output should look similar to the following.
 Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type **q** to exit the pager.
+Type **q** to exit the pager. Exit from the ssh connection by typing `exit`.
 
 After starting the Red Hat JBoss EAP service, you will be able to access the management console via: `http://<adminVM_public_IP>:9990` in your web browser.  Sign in with the configured username: `jbossadmin` and password `Secret123456`.
 
@@ -625,7 +629,7 @@ These steps set up the host controller on `mspVM1`.
 # environment variables
 DOMAIN_CONTROLLER_PRIVATE_IP=<adminVM_private_IP>
 HOST_VM_NAME=$(hostname)
-HOST_VM_NAME_LOWERCASES=$(echo "${HOST_VM_NAME,,}")
+HOST_VM_NAME_LOWERCASE=$(echo "${HOST_VM_NAME,,}")
 HOST_VM_IP=$(hostname -I)
 
 JBOSS_EAP_USER=jbossadmin
@@ -646,17 +650,17 @@ Apply host controller changes to `mspVM1`.
 # Setup host controller
 sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-one:remove",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=server-two:remove",\
-"/host=${HOST_VM_NAME_LOWERCASES}/server-config=${HOST_VM_NAME_LOWERCASES}-server0:add(group=main-server-group)",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
-"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
-"/host=${HOST_VM_NAME_LOWERCASES}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-"/host=${HOST_VM_NAME_LOWERCASES}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-one:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-two:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=${HOST_VM_NAME_LOWERCASE}-server0:add(group=main-server-group)",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
 ```
 
 The last stanza of output should look similar to the following. If it does not, troubleshoot and resolve the problem before continuing.
@@ -673,6 +677,7 @@ The last stanza of output should look similar to the following. If it does not, 
 ```
 
 Then, configure the JBoss server and setup EAP service.
+
 ```bash
 echo 'WILDFLY_HOST_CONFIG=host-slave.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
 
@@ -711,9 +716,7 @@ The output should look similar to the following.
 Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type **q** to exit the pager.
-
-Exit from the ssh connection by typing `exit`.
+Type **q** to exit the pager. Exit from the ssh connection by typing `exit`.
 
 Use ssh to connect to the `mspVM2` as the `azureuser` user. Get the public IP address of the VM with this command.
 
@@ -841,27 +844,30 @@ az postgres db create --resource-group abc1110rg --server ${DB_SERVER_NAME} --na
 ```
 
 ### Install driver
-We will be using JBoss management CLI to install the JDBC driver as Jar deployment. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
+
+We will be using JBoss management CLI to install the JDBC driver. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
 
 1. SSH to the `adminVM` by running the following command, you can skip this step if you have connection opened.
 
     ```bash
-    ssh azureuser@<adminvm_public_ip>
+    ssh azureuser@$ADMIN_VM_PUBLIC_IP
     ```
 
 2. Download JDBC driver, here we use `postgresql-42.5.2.jar`. For more informations about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
 
     ```bash
     jdbcDriverName=postgresql-42.5.2.jar
-    sudo curl --retry 5 -Lo ~/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
+    sudo curl --retry 5 -Lo /tmp/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
     ```
 
 3. Deploy JDBC driver use the following JBoss CLI command:
 
     ```bash
     sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-    "deploy ~/${jdbcDriverName} --server-groups=main-server-group"
+    "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
     ```
+    
+    The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap7/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
@@ -870,7 +876,7 @@ You've started the database server, obtained the necessary resource ID and insta
 1. Open a terminal and SSH to the `adminVM` by running the following command:
 
     ```bash
-    ssh azureuser@<adminvm_public_ip>
+    ssh azureuser@$ADMIN_VM_PUBLIC_IP
     ```
 
 2. Create data source use the following JBoss CLI command:
