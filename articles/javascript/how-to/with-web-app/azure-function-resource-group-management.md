@@ -313,7 +313,7 @@ Deploy an Azure Function app in Visual Studio Code to manage Azure resource grou
 Add the following APIs then redeploy your Azure Function app in Visual Studio Code:
 
 * Add and delete resource groups
-* List resources in resource group or subscription, . 
+* List resources in resource group or subscription. 
 
 At this point in the tutorial, you created a local function app with one API to list your subscription's resource groups and you deployed that app to Azure. As an Azure developer, you may want to create or delete resource groups as part of your process automation pipeline. 
 
