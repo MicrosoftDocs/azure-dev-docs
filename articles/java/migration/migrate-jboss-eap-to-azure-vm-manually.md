@@ -917,28 +917,33 @@ This section shows how to deploy Java EE Cafe sample application to the Red Hat 
 
 1. Open a web browser and go to the management console at `http://<adminVM_public_IP>:9990`, login with username `jbossadmin` and password `Secret123456`.
 
-2. From the Deployments tab of the Red Hat JBoss EAP management console, deployments can be viewed and managed by:
-    * Content Repository
-        All managed and unmanaged deployments are listed in the **Content Repository** section. Deployments can be added and deployed to server groups here.
-    * Server Groups
-        Deployments that have been deployed to one or more server groups are listed in the **Server Groups** section. Deployments can be enabled and added directly to a server group here.
+2. Upload the *javaee-cafe.war* to the **Content Repository**.
 
-3. Add the Java EE Cafe application to content repository:
-    1. From **Content Repository**, select the **Add** button.
-    1. Choose to add an application by uploading the `javaee-cafe.war` file.
-    1. Follow the instructions on the page to finish.
+   1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the left navigation panel.
+   1. Select the **Add** button and select **Upload Content**.
+   :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload_content.png" alt-text="Screenshot of Upload Content." lightbox="media/migrate-jboss-eap-to-vm-manually/upload_content.png":::
+   1. Use the browser file chooser to select the *javaee-cafe.war* file.
+   1. Select **Next**.
+   1. Accept the defaults on the next screen and select **Finish**.
+   1. Select **View content**.
 
 4. Deploy an Application to the `main-server-group`.
-    1. From **Content Repository**, select the `javaee-cafe.war` and select the **Deploy** button.
+    1. From **Content Repository**, select the `javaee-cafe.war`.
+    1. Drop down the menue and and select the **Deploy** button.
     1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
-    1. Select **Deploy** to start the deployment.
+    1. Select **Deploy** to start the deployment. You should see a notice as shown here.
+   :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of Upload Content." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
 You've now finished configuring the Red Hat JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
 
+1. Obtain the public IP address of the Azure Application Gateway
+```bash
+az network public-ip show --resource-group abc1110rg --name myAGPublicIPAddress --query '[ipAddress]' --output tsv
+```
 1. Open a web browser.
-1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`.
+1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`.  Don't forget the trailing slash.
 1. Try to add/remove coffees.
 
 ## Clean up resources
@@ -949,23 +954,11 @@ Run the following command to unregister the Red Hat JBoss EAP servers and VMs fr
 
 ```azurecli
 # Unregister domain controller
-az vm run-command invoke\
-    --resource-group abc1110rg \
-    --name adminVM \
-    --command-id RunShellScript \
-    --scripts "sudo subscription-manager unregister"
+az vm run-command invoke    --resource-group ejb010329r     --name adminVM     --command-id RunShellScript     --scripts "sudo subscription-manager unregister"
 
 # Unregister host controllers
-az vm run-command invoke\
-    --resource-group abc1110rg \
-    --name mspVM1 \
-    --command-id RunShellScript \
-    --scripts "sudo subscription-manager unregister"
-az vm run-command invoke\
-    --resource-group abc1110rg \
-    --name mspVM2 \
-    --command-id RunShellScript \
-    --scripts "sudo subscription-manager unregister"
+az vm run-command invoke    --resource-group ejb010329r     --name mspVM1     --command-id RunShellScript     --scripts "sudo subscription-manager unregister"
+az vm run-command invoke    --resource-group ejb010329r     --name mspVM2     --command-id RunShellScript     --scripts "sudo subscription-manager unregister"
 ```
 
 Delete `abc1110rg` with the following command:
