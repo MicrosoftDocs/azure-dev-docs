@@ -883,7 +883,7 @@ You've started the database server, obtained the necessary resource ID and insta
 
     ```bash
     JDBC_DATA_SOURCE_NAME=dataSource-postgresql
-    JDBC_JNDI_NAME=jdbc/JavaEECafeDB
+    JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
     DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database_full_qualified_domain_name>:5432/testdb
     DATA_BASE_USER=jboss@<database_server_name>
     DATA_BASE_PASSWORD=Secret123456
@@ -893,7 +893,7 @@ You've started the database server, obtained the necessary resource ID and insta
     "data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
     ```
 
-After the above steps, you've successfully configured a data source named `jdbc/JavaEECafeDB`.
+After the above steps, you've successfully configured a data source named `java:jboss/datasources/JavaEECafeDB`.
 
 ## Deploy Java EE Cafe sample application
 
