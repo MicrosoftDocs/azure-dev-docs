@@ -444,7 +444,7 @@ feature-management:
 ```
 
 * `feature-t` is set to false, this setting always return the Feature Flag's value. 
-* `feature-u` is used with Feature Filters. These Filters are defined under the `enabled-for` property.  In this case, `feature-u` has one Feature Filter called `Random`, which does not require any configuration, so only the name property is required. 
+* `feature-u` is used with Feature Filters. These Filters are defined under the `enabled-for` property.  In this case, `feature-u` has one Feature Filter called `Random`, which doesn't require any configuration, so only the name property is required. 
 * `feature-v` specifies a Feature Filter named `TimeWindowFilter`. This Feature Filter can be passed parameters to use as configuration. In this case, a `TimeWindowFilter`, pass in the start and end times for which the feature will be active.
 * `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the Feature Filters, and results in the Feature Filter always return `false`.
 
@@ -470,7 +470,7 @@ if(featureManager.isEnabled("feature-t")) {
 > [!NOTE]
 > `FeatureManger` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
 
-If Feature Management has not been configured or the Feature Flag doesn't exist, `isEnabled` always return false. If an existing Feature Flag is configured with an unknown Feature Filter, then a `FilterNotFoundException` is thrown. This can be changed to return false by configuring `fail-fast` to false.
+If Feature Management hasn't been configured or the Feature Flag doesn't exist, `isEnabled` always return false. If an existing Feature Flag is configured with an unknown Feature Filter, then a `FilterNotFoundException` is thrown. This can be changed to return false by configuring `fail-fast` to false.
 
 | Name | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -531,7 +531,7 @@ public String oldEndpoint() {
 
 ### Built-In Feature Filters
 
-There are a few Feature Filters that come with the `spring-cloud-azure-feature-management` package. These Feature Filters are not added automatically, but can be set up in an `@Configuration` for use.
+There are a few Feature Filters that come with the `spring-cloud-azure-feature-management` package. These Feature Filters aren't added automatically, but can be set up in an `@Configuration` for use.
 
 #### AlwaysOnFilter
 
@@ -539,7 +539,7 @@ This filter always returns true. Usage can be see in the [Feature Flag Declarati
 
 #### PercentageFilter
 
-Each evaluation of `PercentageFilter` can return a different result, which are not consistent among one user's requests. This can be circumvented using the `FeatureManagementSnapshot`, which caches the result of the Feature Flag per user. This ensures a User has a consistent experience even if they have to resend the request.
+Each evaluation of `PercentageFilter` can return a different result, which aren't consistent among one user's requests. This can be circumvented using the `FeatureManagementSnapshot`, which caches the result of the Feature Flag per user. This ensures a User has a consistent experience even if they have to resend the request.
 
 ```yaml
 feature-management:
@@ -611,7 +611,7 @@ public class Random implements FeatureFilter {
 
 #### Parameterized Feature Filters
 
-Some Feature Filters require parameters to decide whether a feature should be turned on or not. For example, a browser Feature Filter may turn on a feature for a certain set of browsers. It may be desired that Microsoft Edge and Chrome browsers enable a feature, while Firefox does not. To do this, a Feature Filter can be designed to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `HashMap<String, Object>`.
+Some Feature Filters require parameters to decide whether a feature should be turned on or not. For example, a browser Feature Filter may turn on a feature for a certain set of browsers. It may be desired that Microsoft Edge and Chrome browsers enable a feature, while Firefox doesn't. To do this, a Feature Filter can be designed to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `HashMap<String, Object>`.
 
 ### Targeting
 
@@ -735,7 +735,7 @@ To "Confirm Selection" sends a setup notification to the given URI and it expect
 > [!NOTE]
 > This validation only happens on the creation/modification of the endpoint.
 
-It is highly recommended that filters are set up as otherwise a refresh will be triggered after every key creation and modification.
+It's highly recommended that filters are set up as otherwise a refresh will be triggered after every key creation and modification.
 
 ### Forced Client Refresh
 
