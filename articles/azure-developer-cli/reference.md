@@ -745,26 +745,24 @@ azd monitor [flags]
 
 ## azd package
 
-Package an app for deployment.
+Packages the application's code to be deployed to Azure.
 
 ### Synopsis
 
-Package an app for deployment.
+Packages the application's code to be deployed to Azure.
 
 Examples:
 
 ```azdeveloper
-	azd package
+	azd package <service> [flags]
 ```
 
 ### Options
 
 ```azdeveloper
+      --all                  Deploys all services that are listed in `azure.yaml`.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for monitor.
-      --live                 Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for Python apps.
-      --logs                 Open a browser to Application Insights Logs.
-      --overview             Open a browser to Application Insights Overview Dashboard.
 ```
 
 ### Options inherited from parent commands

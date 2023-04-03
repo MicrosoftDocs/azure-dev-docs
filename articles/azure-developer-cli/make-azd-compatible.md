@@ -66,7 +66,7 @@ Learn more about:
 
 ## Initialize a new environment
 
-1. Run the following command to initialize the project. 
+1. Run the following command to initialize the project.
 
     ```azdeveloper
     azd init
