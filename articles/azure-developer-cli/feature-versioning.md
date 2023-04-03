@@ -54,7 +54,7 @@ The goal of this phase is to iron out the rough edges and advance beyond proof o
 * The feature is functionally complete and has been stabilized.
 * Feature has been thoroughly manually tested and has sufficient unit and integration tests to catch regressions and bugs.
 * Any remaining bugs are acceptable and non-blocking for users (e.g., UX improvements).
-* We’ve received signal that the UX is successful via sufficient user feedback (via external feedback; depends on feature).
+* We’ve received signal that the UX is successful via sufficient user feedback.
 * We believe that the feature is truly adding value to the end-to-end UX.
 
 ## Stable Features
