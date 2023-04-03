@@ -146,7 +146,7 @@ spring.cloud.azure.appconfiguration.stores[1].connection-string=[second-store-co
 In the example, if both the first and second stores have the same configuration, the configuration in the second store has the highest priority, last one wins.
 
 > [!NOTE]
-> Azure App Configuration settings can be used link any other Spring Configuration. See [Spring Boot Docs](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html) or [Azure App Configuration Quick Start](https://docs.microsoft.com/azure/azure-app-configuration/quickstart-java-spring-app).
+> Azure App Configuration settings can be used link any other Spring Configuration. See [Spring Boot Docs](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html) or [Azure App Configuration Quick Start](/azure/azure-app-configuration/quickstart-java-spring-app).
 
 ### Selecting Configurations
 
@@ -232,7 +232,7 @@ The connection string can be then set to the property `spring.cloud.azure.appcon
 
 ### Spring Cloud Azure configuration
 
-[Spring Cloud Azure configuration](https://learn.microsoft.com/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The following properties can be used to configure the client library:
+[Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The following properties can be used to configure the client library:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI of your Configuration Store>
@@ -365,7 +365,7 @@ Though the CLI any secret-identifier with the format of `{vault}/{collection}/{n
 
 #### Using Key Vault References
 
-[Spring Cloud Azure configuration](https://learn.microsoft.com/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The same credential use to connect to App Configuration can be used to connect to Azure Key Vault.
+[Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The same credential use to connect to App Configuration can be used to connect to Azure Key Vault.
 
 #### Resolve Non-Key Vault Secrets
 
@@ -730,7 +730,7 @@ To setup a Web Hook, open your Azure App Configuration store and select the even
 https://www.myaplication.com/actuator/appconfiguration-refresh?myTokenName=mySecret
 ```
 
-To "Confirm Selection" sends a setup notification to the given URI and it expects a response. If no response is returned, it fails. The `azure-spring-cloud-appconfiguration-web` library if setup for endpoints returns the correct response if the Azure App Configuration store is configured for the application. This confirmation can be sent in other ways. For more information about Web Hook Delivery, see [Event Grid Web Hook Delivery](https://docs.microsoft.com/azure/event-grid/webhook-event-delivery) for more information on Web Hook validation.
+To "Confirm Selection" sends a setup notification to the given URI and it expects a response. If no response is returned, it fails. The `azure-spring-cloud-appconfiguration-web` library if setup for endpoints returns the correct response if the Azure App Configuration store is configured for the application. This confirmation can be sent in other ways. For more information about Web Hook Delivery, see [Event Grid Web Hook Delivery](/azure/event-grid/webhook-event-delivery) for more information on Web Hook validation.
 
 > [!NOTE]
 > This validation only happens on the creation/modification of the endpoint.
@@ -786,7 +786,7 @@ These interfaces allow for customization of the http client and its configuratio
 > [!NOTE]
 > The `ConfigurationClientBuilder` and `SecretClientBuilder` are already setup for use when passed into `customize`. Any changes to the clients, including the credentials and retry policy will override those already in place.
 >
-> This can also be done by using [Spring Cloud Azure configuration](https://learn.microsoft.com/azure/developer/java/spring-framework/configuration).
+> This can also be done by using [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration).
 
 ```java
 public class CustomClient implements ConfigurationClientCustomizer, SecretClientCustomizer {
