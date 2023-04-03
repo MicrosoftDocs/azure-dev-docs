@@ -208,6 +208,6 @@ sections:
     questions: 
       - question: Why am I unable to locally run the container app that I am building? 
         answer: | 
-          When building container applications locally, you'll need to run `azd login` in the container for the application to work 
+          When building container applications locally, you'll need to run `azd auth login` in the container for the application to work 
           with the `AzureDeveloperCliCredential`. Alternatively, you could configure your application to use a service principal 
           instead of the `AzureDeveloperCliCredential`.

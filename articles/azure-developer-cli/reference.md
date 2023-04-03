@@ -52,11 +52,11 @@ For more information, visit the Azure Developer CLI Dev Hub: [https://aka.ms/azu
 * [azd deploy](#azd-deploy): Deploy the app's code to Azure.
 * [azd down](#azd-down): Delete Azure resources for an app.
 * [azd env](#azd-env): Manage environments.
-* [azd infra](#azd-infra): Manage Azure resources.
 * [azd init](#azd-init): Initialize a new app.
-* [azd login](#azd-login): Log in to Azure.
-* [azd logout](#azd-logout): Log out of Azure
+* [azd auth login](#azd-auth-login): Log in to Azure.
+* [azd auth logout](#azd-auth-logout): Log out of Azure
 * [azd monitor](#azd-monitor): Monitor a deployed app.
+* [azd package](#azd-package): Create a deployable package for an app.
 * [azd pipeline](#azd-pipeline): Manage GitHub Actions or Azure Pipelines.
 * [azd provision](#azd-provision): Provision the Azure resources for an app.
 * [azd restore](#azd-restore): Restore app dependencies.
@@ -312,15 +312,12 @@ Deploy the app's code to Azure.
 
 ### Synopsis
 
-Deploy the app's code to Azure.
-When no `--service` value is specified, all services in the `azure.yaml` file (found in the root of your project) are deployed.
+Deploy the app's code to Azure. This command is sensitive to the current working directory. Run `azd deploy` at the project root to deploy all services, or run the command from a service directory to deploy that specific service.
 
 Examples:
 
 ```azdeveloper
 	azd deploy
-	azd deploy --service api
-	azd deploy --service web
 ```
 	
 After the deployment is complete, the endpoint is printed. To start the service, select the endpoint or paste it in a browser.
@@ -332,10 +329,11 @@ azd deploy [flags]
 ### Options
 
 ```azdeveloper
+  -a, --all                  Deploys all services, regardless of the current working directory.
+  -s, --service              Deploys a specific service by name.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for deploy.
   -o, --output string        The output format (the supported formats are json, none). (default "none")
-      --service string       Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
 ```
 
 ### Options inherited from parent commands
@@ -586,90 +584,6 @@ azd env set <key> <value> [flags]
 * [azd env](#azd-env): Manage environments.
 * [Back to top](#azd)
 
-## azd infra
-
-Manage Azure resources.
-
-### Options
-
-```azdeveloper
-  -h, --help   Gets help for infra.
-```
-
-### Options inherited from parent commands
-
-```azdeveloper
-  -C, --cwd string   Sets the current working directory.
-      --debug        Enables debugging and diagnostics logging.
-      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
-```
-
-### See also
-
-* [azd infra create](#azd-infra-create): Create Azure resources for an app.
-* [azd infra delete](#azd-infra-delete): Delete Azure resources for an app.
-* [Back to top](#azd)
-
-## azd infra create
-
-Create Azure resources for an app.
-
-```azdeveloper
-azd infra create [flags]
-```
-
-### Options
-
-```azdeveloper
-  -e, --environment string   The name of the environment to use.
-  -h, --help                 Gets help for create.
-      --no-progress          Suppresses progress information.
-  -o, --output string        The output format (the supported formats are json, none). (default "none")
-```
-
-### Options inherited from parent commands
-
-```azdeveloper
-  -C, --cwd string   Sets the current working directory.
-      --debug        Enables debugging and diagnostics logging.
-      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
-```
-
-### See also
-
-* [azd infra](#azd-infra): Manage Azure resources.
-* [Back to top](#azd)
-
-## azd infra delete
-
-Delete Azure resources for an app.
-
-```azdeveloper
-azd infra delete [flags]
-```
-
-### Options
-
-```azdeveloper
-  -e, --environment string   The name of the environment to use.
-      --force                Does not require confirmation before it deletes resources.
-  -h, --help                 Gets help for delete.
-      --purge                Does not require confirmation before it permanently deletes resources that are soft-deleted by default (for example, key vaults).
-```
-
-### Options inherited from parent commands
-
-```azdeveloper
-  -C, --cwd string   Sets the current working directory.
-      --debug        Enables debugging and diagnostics logging.
-      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
-```
-
-### See also
-
-* [azd infra](#azd-infra): Manage Azure resources.
-* [Back to top](#azd)
-
 ## azd init
 
 Initialize a new app.
@@ -709,7 +623,7 @@ azd init [flags]
 
 * [Back to top](#azd)
 
-## azd login
+## azd auth login
 
 Log in to Azure.
 
@@ -724,7 +638,7 @@ To log in as a service principal, pass --client-id and --tenant-id as well as on
 --client-certificate, --client-credential or --client-credential-provider.
 
 ```azdeveloper
-azd login [flags]
+azd auth login [flags]
 ```
 
 ### Options
@@ -755,7 +669,7 @@ azd login [flags]
 
 * [Back to top](#azd)
 
-## azd logout
+## azd auth logout
 
 Log out of Azure
 
@@ -764,7 +678,7 @@ Log out of Azure
 Log out of Azure
 
 ```azdeveloper
-azd logout [flags]
+azd auth logout [flags]
 ```
 
 ### Options
@@ -805,6 +719,42 @@ For more information, go to [https://aka.ms/azure-dev/monitor](https://aka.ms/az
 
 ```azdeveloper
 azd monitor [flags]
+```
+
+### Options
+
+```azdeveloper
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for monitor.
+      --live                 Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for Python apps.
+      --logs                 Open a browser to Application Insights Logs.
+      --overview             Open a browser to Application Insights Overview Dashboard.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [Back to top](#azd)
+
+## azd package
+
+Package an app for deployment.
+
+### Synopsis
+
+Package an app for deployment.
+
+Examples:
+
+```azdeveloper
+	azd package
 ```
 
 ### Options
@@ -923,7 +873,6 @@ azd provision [flags]
 ```azdeveloper
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
-      --no-progress          Suppresses progress information.
   -o, --output string        The output format (the supported formats are json, none). (default "none")
 ```
 
@@ -941,7 +890,7 @@ azd provision [flags]
 
 ## azd restore
 
-Restore app dependencies.
+Restore app dependencies. This command is sensitive to the current working directory. Run `azd restore` at the project root to restore dependencies for all services, or run the command from a service directory to restore only those service dependencies.
 
 ### Synopsis
 
@@ -960,7 +909,6 @@ azd restore [flags]
 ```azdeveloper
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for restore.
-      --service string       Restores a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are restored).
 ```
 
 ### Options inherited from parent commands
@@ -1080,15 +1028,9 @@ azd up [flags]
 ### Options
 
 ```azdeveloper
-  -b, --branch string         The template branch to initialize from.
   -e, --environment string    The name of the environment to use.
   -h, --help                  Gets help for up.
-  -l, --location string       Azure location for the new environment
-      --no-progress           Suppresses progress information.
   -o, --output string         The output format (the supported formats are json, none). (default "none")
-      --service string        Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
-      --subscription string   Name or ID of an Azure subscription to use for the new environment
-  -t, --template string       The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
 ```
 
 ### Options inherited from parent commands
