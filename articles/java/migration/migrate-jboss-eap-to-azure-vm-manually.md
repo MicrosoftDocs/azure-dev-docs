@@ -121,7 +121,7 @@ az network vnet subnet create \
 
 Before we create VMs with public IPs, to secure the virtual network and subnets created above, let's create a network security group.
 
-Create a network security group by using [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create). The following example creates a network security group named `mynsg`:
+Create a network security group by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The following example creates a network security group named `mynsg`:
 
 ```azurecli
 az network nsg create \
@@ -129,7 +129,7 @@ az network nsg create \
     --name mynsg
 ```
 
-Create network security group rules by using [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create). The following example creates network security group rules named `ALLOW_APPGW` and `ALLOW_HTTP_ACCESS`. These rules allow App Gateway to accept inbound traffic on the HTTP ports used by Red Hat JBoss EAP:
+Create network security group rules by using [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create). The following example creates network security group rules named `ALLOW_APPGW` and `ALLOW_HTTP_ACCESS`. These rules allow App Gateway to accept inbound traffic on the HTTP ports used by Red Hat JBoss EAP:
 
 ```azurecli
 az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_APPGW --protocol Tcp --destination-port-ranges 65200-65535 --source-address-prefix GatewayManager --destination-address-prefix '*' --access Allow --priority 500 --direction Inbound
@@ -137,7 +137,7 @@ az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name AL
 az network nsg rule create --resource-group abc1110rg --nsg-name mynsg --name ALLOW_HTTP_ACCESS --protocol Tcp --destination-port-ranges 22 80 443 9990 8080 --source-address-prefix Internet --destination-address-prefix '*' --access Allow --priority 510 --direction Inbound
 ```
 
-Associate the subnets created above to this network security group by using [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update).
+Associate the subnets created above to this network security group by using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli
 az network vnet subnet update --vnet-name myVNet --name mySubnet --network-security-group mynsg --resource-group abc1110rg
@@ -932,7 +932,7 @@ This section shows how to deploy Java EE Cafe sample application to the Red Hat 
     1. Drop down the menue and and select the **Deploy** button.
     1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
     1. Select **Deploy** to start the deployment. You should see a notice as shown here.
-   :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of Upload Content." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
+   :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
