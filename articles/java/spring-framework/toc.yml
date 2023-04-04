@@ -134,8 +134,8 @@ items:
       href: resource-handling.md
     - name: Secret management
       href: secret-management.md
-    - name: Spring Cloud Azure App Configuration Config
-      href: spring-cloud-azure-appconfiguration-config.md
+    - name: App Configuration Support
+      href: app-configuration-support.md
     - name: Spring Data support
       href: spring-data-support.md
     - name: Spring Security support
