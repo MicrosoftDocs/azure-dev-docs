@@ -69,7 +69,7 @@ After you provide these values, the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
@@ -96,7 +96,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 ### Run `up` command
 
-Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
+Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
 :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
@@ -117,7 +117,7 @@ This process may take some time to complete, as the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
 
@@ -189,7 +189,7 @@ The `azd up` command may take some time to run as it completes the following ste
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
 
@@ -265,7 +265,7 @@ After you provide these values, the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
@@ -292,7 +292,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 ### Run `up` command
 
-Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
+Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
 :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
@@ -313,7 +313,7 @@ This process may take some time to complete, as the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
 
@@ -385,7 +385,7 @@ The `azd up` command may take some time to run as it completes the following ste
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
 
@@ -456,7 +456,7 @@ After you provide these values, the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
@@ -483,7 +483,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 ### Run `up` command
 
-Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
+Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
 :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
@@ -504,7 +504,7 @@ This process may take some time to complete, as the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
 
@@ -576,7 +576,7 @@ The `azd up` command may take some time to run as it completes the following ste
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
 
@@ -647,7 +647,7 @@ After you provide these values, the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
@@ -674,7 +674,7 @@ With Codespaces, all pre-requisites are installed for you, including the [`azd` 
 
 ### Run `up` command
 
-Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (initialize application, provision resources, and deploy)**.
+Once your codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
 :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
@@ -695,7 +695,7 @@ This process may take some time to complete, as the `azd up` command:
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
 
@@ -767,7 +767,7 @@ The `azd up` command may take some time to run as it completes the following ste
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
-- Deploys the code (`azd deploy`)
+- Packages and deploys the code (`azd deploy`)
 
 Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
 

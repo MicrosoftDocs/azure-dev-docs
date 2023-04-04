@@ -25,33 +25,32 @@ All features start as alpha features (e.g., experimental). In this phase, the go
 * These features are under active development.
 * Features are hidden behind a feature flag which interested users must explicitly opt into.
 * There are no guarantees about the long-term stability or support of experimental features.
-* No commitment by the team that the feature is something we plan to advance to preview or stable stage (it’s an experiment).
-* A reasonable outcome of an experiment is “it didn’t work” and we rip out the code.
+* No commitment that the feature is something we plan to advance to preview or stable stage (it’s an experiment).
 * Recommended for non-business-critical uses because of potential for incompatible changes in subsequent releases.
 
-### Advancement criteria (how to reach preview)
+### Advancement criteria (how to reach beta)
 
-* The feature has been properly spec’d (initial draft) and approved by the product team.
-* The product team has had a formal review meeting to sign off on feature advancement to next phase.
+* The feature has been properly spec’d and approved by the product team.
+* The product team has formally signed off on advancing the feature to next phase.
 * The feature is documented and help text is available in the product.
 * Confirmation that the UX is successful via sufficient user feedback.
 
-## Beta/Preview Features
+## Beta Features
 
-The goal of this phase is to iron out the rough edges and advance beyond proof of concept.  
+The goal of this phase is improve the feature experience and advance beyond proof of concept.  
 
 ### Definition
 
-* Unlike beta features, a user does not need to take explicit action to use a preview feature.
-* Reduced number of breaking changes across releases for preview features as functionality matures and we work with customers.
-* We invest more time in documentation of breaking changes for preview features and explain to customers how to digest these breaks.
+* Unlike alpha features, a user does not need to take explicit action to use a beta feature.
+* Reduced number of breaking changes across releases for beta features as functionality matures and we work with customers.
+* Breaking changes are documented with explanations regarding how to digest these breaks.
 * Use for non-business-critical scenarios with caution as there is a small chance of incompatible changes in subsequent releases leading up to stable.
-* If a command is in beta, we denote it as such in azd help in product.
+* Beta commands are denoted as such in azd product help.
 
 ### Advancement criteria (how to reach stable)
 
-* Product team has had a formal review meeting to sign off on feature advancement to next phase.
-* The feature is functionally complete and has been stabilized.
+* Product team has formally reviewed and signed off on feature advancement to next phase.
+* The feature is functionally complete and stable.
 * Feature has been thoroughly manually tested and has sufficient unit and integration tests to catch regressions and bugs.
 * Any remaining bugs are acceptable and non-blocking for users (e.g., UX improvements).
 * We’ve received signal that the UX is successful via sufficient user feedback.
