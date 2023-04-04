@@ -25,24 +25,24 @@ Embedding passwords in an application itself presents a huge security risk for m
 The following code example demonstrates how to connect to Azure Storage using a storage account key. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past, even though it is not an ideal solution. If your application currently uses access keys, consider migrating to passwordless connections.
 
 ```csharp
+// Connection using secret access keys
+// TODO: Migrate to passwordless connections
 var blobServiceClient = new BlobServiceClient(
     new Uri("https://<storage-account-name>.blob.core.windows.net"),
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
 ```
 
-Developers must be diligent to never expose these types of keys or secrets in an unsecure location. Anyone who gains access to the key is able to authenticate. Many companies have strict security requirements to connect to Azure services without exposing passwords to developers, operators, or anyone else. They often use a vault to store and load passwords into applications, and they further reduce the risk by adding password-rotation requirements and procedures. This approach, in turn, increases the operational complexity and, at times, leads to application connection outages.
+Developers must be diligent to never expose these types of keys or secrets in an unsecure location. Many companies have strict security requirements to connect to Azure services without exposing passwords to developers, operators, or anyone else. They often use a vault to store and load passwords into applications, and further reduce the risk by adding password-rotation requirements and procedures. This approach, in turn, increases the operational complexity and, at times, leads to application connection outages.
 
 ## Passwordless connections and Zero Trust
 
-You can now use passwordless connections in your apps to connect to Azure-based services without any need to rotate passwords. All you need is configuration - no new code is required.
-
-Zero Trust uses the principle of "never trust, always verify, and credential-free". This means securing all communications by trusting machines or users only after verifying identity and prior to granting them access to backend services.
+You can now use passwordless connections in your apps to connect to Azure-based services without any need to rotate passwords. All you need is configuration - no new code is required. Zero Trust uses the principle of "never trust, always verify, and credential-free". This means securing all communications by trusting machines or users only after verifying identity and prior to granting them access to backend services.
 
 The recommended authentication option for secure, passwordless connections is to use managed identities and Azure role-based access control (RBAC) in combination. With this approach, you don't have to manually track and manage many different secrets for managed identities because these tasks are securely handled internally by Azure.
 
-You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. Service Connector enables managed identities in app hosting services like Azure Spring Apps, App Service, and Azure Container Apps. Service Connector configures backend services with passwordless connections using managed identities and Azure RBAC, and hydrates applications with necessary connection information.
+You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. Service Connector enables managed identities in app hosting services like Azure Spring Apps, App Service, and Azure Container Apps. Service Connector also configures backend services with passwordless connections using managed identities and Azure RBAC, and hydrates applications with necessary connection information.
 
-If you inspect the running environment of an application configured for passwordless connections, you can see the full connection string. The connection string carries, for example, a database server address, a database name, and an instruction to delegate authentication to a Microsoft Azure authentication plugin.
+If you inspect the running environment of an application configured for passwordless connections, you can see the full connection string. The connection string carries, for example, a database server address, a database name, and an instruction to delegate authentication to a Microsoft Azure authentication plugin, but it does not contain any passwords or secrets.
 
 The following video illustrates passwordless connections from apps to Azure services, using Java applications as an example. Similar coverage for other languages is forthcoming.
 
