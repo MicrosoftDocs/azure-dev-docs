@@ -14,7 +14,7 @@ zone_pivot_groups: azd-languages-set
 
 # Azure Developer CLI feature versioning and release strategy
 
-Azure Developer CLI (azd) features are introduced and supported using a phased approach. Features generally begin in the **alpha** stage and then advance to **beta** and **stable** after meeting various criteria. This article describes the definitions, expectations and advancement requirements for each phase.
+Azure Developer CLI (azd) features are introduced and supported using a phased approach. Features begin in the **alpha** stage and then advance to **beta** and **stable** after meeting various criteria. This article describes the definitions, expectations and advancement requirements for each phase.
 
 ## Alpha Features
 
@@ -23,8 +23,8 @@ All features start as alpha features (e.g., experimental). In this phase, the go
 ### Definition
 
 * These features are under active development.
-* Hidden behind a feature flag which interested users must explicitly opt into.
-* There are no guarantees about the long-term stability or supportability of experimental features.
+* Features are hidden behind a feature flag which interested users must explicitly opt into.
+* There are no guarantees about the long-term stability or support of experimental features.
 * No commitment by the team that the feature is something we plan to advance to preview or stable stage (it’s an experiment).
 * A reasonable outcome of an experiment is “it didn’t work” and we rip out the code.
 * Recommended for non-business-critical uses because of potential for incompatible changes in subsequent releases.
@@ -34,7 +34,7 @@ All features start as alpha features (e.g., experimental). In this phase, the go
 * The feature has been properly spec’d (initial draft) and approved by the product team.
 * The product team has had a formal review meeting to sign off on feature advancement to next phase.
 * The feature is documented and help text is available in the product.
-* We’ve received signal that the UX is successful via sufficient user feedback.
+* Confirmation that the UX is successful via sufficient user feedback.
 
 ## Beta/Preview Features
 
@@ -43,7 +43,7 @@ The goal of this phase is to iron out the rough edges and advance beyond proof o
 ### Definition
 
 * Unlike beta features, a user does not need to take explicit action to use a preview feature.
-* We do expect breaking changes across releases for preview features as we work with customers, but we expect the number of breaks to be smaller as the feature matures.
+* Reduced number of breaking changes across releases for preview features as functionality matures and we work with customers.
 * We invest more time in documentation of breaking changes for preview features and explain to customers how to digest these breaks.
 * Use for non-business-critical scenarios with caution as there is a small chance of incompatible changes in subsequent releases leading up to stable.
 * If a command is in beta, we denote it as such in azd help in product.
