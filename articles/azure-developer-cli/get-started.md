@@ -232,49 +232,50 @@ Select your preferred environment to continue:
 
 In this guide, the app uses Python Virtual Environments to isolate Python package installations. Start by [creating and activating a virtual environment](https://docs.python.org/3/library/venv.html).
 
-### Run `up` command
+### Initialize the project
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
-1. Run the following command:
+1. Run the `azd init` command and specify the template you want to use as a parameter:
 
 ```azdeveloper
-azd up --template todo-python-mongo
+azd init --template todo-python-mongo
 ```
 
-### Provide parameters
+1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
-When you run the `azd up` command, you'll be prompted to provide the following information:
+After you specify the environment, `azd` clones the template project to your machine and initializes the project.
+
+### Provision and deploy the app resources
+
+1. Run the `azd up` command:
+
+```azdeveloper
+azd up
+```
+
+1. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.
+
+1. Once you are signed-in to Azure, you will be prompted for the following information:
 
 | Parameter | Description |
 | --------- | ----------- |
-| `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
 | `Azure Location`   | The Azure location where your resources will be deployed. |
 | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-This process may take some time to complete, as the `azd up` command:
+After you provide these values, the `azd up` command:
 
-- Downloads code
-- Initializes your project (`azd init`)
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
 - Deploys the code (`azd deploy`)
 
-Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
+When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
 - ToDo API app
 - ToDo web app frontend
 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-### What happened?
-
-Upon successful completion of the `azd up` command:
-
-- The repo referenced by the [Python `azd` template](https://github.com/azure-samples/todo-python-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
-- The [Azure resources referenced in the template's `README.md` file](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
-- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 > [!NOTE]
 > You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
@@ -425,49 +426,50 @@ Select your preferred environment to continue:
 - [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [Review the architecture diagram and the Azure resources you'll deploy in the C# template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
-### Run `up` command
+### Initialize the project
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
-1. Run the following command:
+1. Run the `azd init` command and specify the template you want to use as a parameter:
 
 ```azdeveloper
-azd up --template todo-csharp-cosmos-sql
+azd init --template todo-csharp-cosmos-sql
 ```
 
-### Provide parameters
+1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
-When you run the `azd up` command, you'll be prompted to provide the following information:
+After you specify the environment, `azd` clones the template project to your machine and initializes the project.
+
+### Provision and deploy the app resources
+
+1. Run the `azd up` command:
+
+```azdeveloper
+azd up
+```
+
+1. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.
+
+1. Once you are signed-in to Azure, you will be prompted for the following information:
 
 | Parameter | Description |
 | --------- | ----------- |
-| `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
 | `Azure Location`   | The Azure location where your resources will be deployed. |
 | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-This process may take some time to complete, as the `azd up` command:
+After you provide these values, the `azd up` command:
 
-- Downloads code
-- Initializes your project (`azd init`)
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
 - Deploys the code (`azd deploy`)
 
-Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
+When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
 - ToDo API app
 - ToDo web app frontend
 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-### What happened?
-
-Upon successful completion of the `azd up` command:
-
-- The repo referenced by the [C# `azd` template](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
-- The [Azure resources referenced in the template's `README.md` file](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
-- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 > [!NOTE]
 > You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
@@ -618,49 +620,50 @@ Select your preferred environment to continue:
 - [OpenJDK 17](/java/openjdk/download#openjdk-17)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
 
-### Run `up` command
+### Initialize the project
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
-1. Run the following command:
+1. Run the `azd init` command and specify the template you want to use as a parameter:
 
 ```azdeveloper
-azd up --template todo-java-mongo
+azd init --template todo-java-mongo
 ```
 
-### Provide parameters
+1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
-When you run the `azd up` command, you'll be prompted to provide the following information:
+After you specify the environment, `azd` clones the template project to your machine and initializes the project.
+
+### Provision and deploy the app resources
+
+1. Run the `azd up` command:
+
+```azdeveloper
+azd up
+```
+
+1. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.
+
+1. Once you are signed-in to Azure, you will be prompted for the following information:
 
 | Parameter | Description |
 | --------- | ----------- |
-| `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
 | `Azure Location`   | The Azure location where your resources will be deployed. |
 | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-This process may take some time to complete, as the `azd up` command:
+After you provide these values, the `azd up` command:
 
-- Downloads code
-- Initializes your project (`azd init`)
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account
   - Service-to-service communication with Managed Identities
 - Deploys the code (`azd deploy`)
 
-Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
+When the `azd up` command completes successfully, the CLI displays two links to view resources created:
 
 - ToDo API app
 - ToDo web app frontend
 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-### What happened?
-
-Upon successful completion of the `azd up` command:
-
-- The repo referenced by the [Java `azd` template](https://github.com/azure-samples/todo-java-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
-- The [Azure resources referenced in the template's `README.md` file](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
-- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 > [!NOTE]
 > You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
