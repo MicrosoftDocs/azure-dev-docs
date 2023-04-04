@@ -10,18 +10,16 @@ This guide describes how to discover and assess any type of Java applications wi
 It helps large-scale Java application modernization and migration projects across a broad range of transformations and use cases.
 It discovers applications through static code analysis, supports effort estimation, accelerates code migration, helping you move applications to Azure.
 
-Created in 2013 by RedHat, WindUp is an open-source project (Eclipse Public License) that bundles a set of rules to transform Java applications to different targets: Azure, JBoss EAP, Camel, Spring, SpringBoot, Quarkus or OpenShift.
+Created in 2013 by RedHat, WindUp is an open-source project (Eclipse Public License) that bundles a set of rules to transform Java applications to different Azure targets: Azure App Service, AKS and Azure Container Apps as well as to JBoss EAP, Camel, Spring, SpringBoot, Quarkus or OpenShift.
 
 Windup is designed to help organizations modernize their applications in a way that reduces costs and enables faster innovation.
 The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
-
-WindUp is part of a broader set of migration tools that live under the umbrella project called [Konveyor](https://www.konveyor.io/).
 
 ### Discovering Java applications
 
 Discovery and assessment are the first stages of application migration and modernization when using a tool like Windup.
 During the _discovery_ phase, the WindUp scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies.
-This information is used to create a detailed inventory of the application and its components, which serves as the basis for further analysis and planning.
+This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
 
 ![Discovery target](./media/windup/target-discovery.png)
 
@@ -79,6 +77,9 @@ The assessment report gives an overview of the transformation issues that would 
 These "_Issues_", also called "_Incidents_", have a severity (_Mandatory_, _Optional_, _Potential_, _Information_), a level of effort and the number of story points (number of incidents x the effort).
 
 ![Assessment report](./media/windup/report-assessment.png)
+
+> [!NOTE]
+> _Cloud Mandatory_ issues are related to the Azure targets, whereas _Migration Mandatory_ issues are related to the other targets (JBoss EAP, SpringBoot, Quarkus, etc.).
 
 ### Detail information for a specific issue
 
