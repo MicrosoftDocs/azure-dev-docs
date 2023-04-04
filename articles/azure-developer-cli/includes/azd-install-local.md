@@ -90,6 +90,36 @@ winget install microsoft.azd
 choco install azd
 ```
 
+---
+
+### Install DEB/RPM Packages
+
+The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:
+
+### [.deb package](#tab/deb)
+
+You can install the `.deb` package using `apt-get`:
+
+```bash 
+curl -fSL https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_<version>/azd_<version>_amd64.deb -o azd_<version>_amd64.deb
+apt update 
+apt install ./azd_<version>_amd64.deb -y
+```
+
+> [!NOTE]
+> You may need to use `sudo` when running `apt`.
+
+### [.rpm package](#tab/rpm)
+
+You can install the `.rpm` package using `yum install`:
+
+```bash 
+curl -fSL https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_<version>/azd-<version>-1.x86_64.rpm -o azd-<version>-1.x86_64.rpm
+yum install -y azd-<version>-1.x86_64.rpm 
+```
+
+> [!NOTE]
+> You may need to use `sudo` when running `yum`.
 
 ---
 
