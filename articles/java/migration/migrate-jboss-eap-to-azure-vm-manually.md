@@ -913,7 +913,7 @@ This section shows how to deploy Java EE Cafe sample application to the Red Hat 
    Build the source code.
 
    ```bash
-   mvn clean install --file eap-coffee-app/pom.xml
+   mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
    ```
 
    This creates the file *eap-coffee-app/target/javaee-cafe.war*. You'll upload this file in the next step.
