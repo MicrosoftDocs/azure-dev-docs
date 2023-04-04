@@ -184,7 +184,7 @@ If you installed the Azure Developer CLI using `.deb` or `.rpm` packages, you ca
 Uninstall the `.deb` package using `dpkg`:
 
 ```bash 
-dpkg -r azd
+apt remove -y azd
 ```
 
 > [!NOTE]
