@@ -18,7 +18,7 @@ This article describes the security challenges with passwords and introduces pas
 
 ## Security challenges with passwords and secrets
 
-Passwords and secret keys should be used with caution, and developers must never place passwords in an unsecure location. Many applications connect to backend data, cache, messaging, and eventing services using usernames, passwords and access keys. If exposed, these credentials could be used to gain unauthorized access to sensitive information such as a sales catalog that you built for an upcoming campaign, or customer data that must be private.
+Passwords and secret keys should be used with caution, and developers must never place them in an unsecure location. Many apps connect to backend database, cache, messaging, and eventing services using usernames, passwords, and access keys. If exposed, these credentials could be used to gain unauthorized access to sensitive information such as a sales catalog that you built for an upcoming campaign, or customer data that must be private.
 
 Embedding passwords in an application itself presents a huge security risk for many reasons, including discovery through a code repository. Many developers externalize such passwords using environment variables so that applications can load them from different environments. However, this only shifts the risk from the code itself to an execution environment. Anyone who gains access to the environment can steal passwords, which in turn, increases your data exfiltration risk.
 
@@ -26,7 +26,6 @@ The following code example demonstrates how to connect to Azure Storage using a 
 
 ```csharp
 // Connection using secret access keys
-// TODO: Migrate to passwordless connections
 var blobServiceClient = new BlobServiceClient(
     new Uri("https://<storage-account-name>.blob.core.windows.net"),
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
@@ -36,13 +35,13 @@ Developers must be diligent to never expose these types of keys or secrets in an
 
 ## Passwordless connections and Zero Trust
 
-You can now use passwordless connections in your apps to connect to Azure-based services without any need to rotate passwords. All you need is configuration - no new code is required. Zero Trust uses the principle of "never trust, always verify, and credential-free". This means securing all communications by trusting machines or users only after verifying identity and prior to granting them access to backend services.
+You can now use passwordless connections in your apps to connect to Azure-based services without any need to rotate passwords. In some cases, all you need is configuration&mdash;no new code is required. Zero Trust uses the principle of "never trust, always verify, and credential-free". This means securing all communications by trusting machines or users only after verifying identity and prior to granting them access to backend services.
 
 The recommended authentication option for secure, passwordless connections is to use managed identities and Azure role-based access control (RBAC) in combination. With this approach, you don't have to manually track and manage many different secrets for managed identities because these tasks are securely handled internally by Azure.
 
-You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. Service Connector enables managed identities in app hosting services like Azure Spring Apps, App Service, and Azure Container Apps. Service Connector also configures backend services with passwordless connections using managed identities and Azure RBAC, and hydrates applications with necessary connection information.
+You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures backend services with passwordless connections using managed identities and Azure RBAC, and hydrates applications with necessary connection information.
 
-If you inspect the running environment of an application configured for passwordless connections, you can see the full connection string. The connection string carries, for example, a database server address, a database name, and an instruction to delegate authentication to a Microsoft Azure authentication plugin, but it does not contain any passwords or secrets.
+If you inspect the running environment of an application configured for passwordless connections, you can see the full connection string. The connection string carries, for example, a database server address, a database name, and an instruction to delegate authentication to an Azure authentication plugin, but it doesn't contain any passwords or secrets.
 
 The following video illustrates passwordless connections from apps to Azure services, using Java applications as an example. Similar coverage for other languages is forthcoming.
 
@@ -59,12 +58,27 @@ Passwordless connections to Azure services through Azure AD and Role Based Acces
 
 `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
+<<<<<<< HEAD
 The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, Azure CLI, or Azure PowerShell. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) of the associated hosting service, such as Azure App Service. No code changes are required for this transition.
 
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
+=======
+The order and locations in which `DefaultAzureCredential` searches for credentials varies between languages:
 
-The following code example demonstrates how to connect to Service Bus using passwordless connections. Other documentation describes how to migrate to this setup for a specific service in more detail. A .NET Core application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
+- [.NET](/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
+- [Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
+- [JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
+- [Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#defaultazurecredential)
+
+For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, Azure CLI, or Azure PowerShell. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use the [managed identity](../../../articles/active-directory/managed-identities-azure-resources/overview.md) of the associated hosting service, such as Azure App Service. No code changes are required for this transition.
+
+> [!NOTE]
+> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and doesn't require you to provision or rotate secrets. You can read more about managed identities in the [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md) documentation.
+>>>>>>> 8b3432282e5d14e83547d9ac93ec8eac2bb28cd2
+
+The following code example demonstrates how to connect to Service Bus using passwordless connections. Other documentation describes how to migrate to this setup for a specific service in more detail. A .NET app can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
 var serviceBusClient = new ServiceBusClient(
