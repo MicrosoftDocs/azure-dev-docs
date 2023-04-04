@@ -173,6 +173,33 @@ winget uninstall microsoft.azd
 choco uninstall azd
 ```
 
+### Uninstall DEB/RPM Packages
+
+If you installed the Azure Developer CLI using `.deb` or `.rpm` packages, you can also uninstall it using the following commands:
+
+### [.deb package](#tab/deb)
+
+Uninstall the `.deb` package using `dpkg`:
+
+```bash 
+dpkg -r azd
+```
+
+> [!NOTE]
+> You may need to use `sudo` when running `dpkg`.
+
+### [.rpm package](#tab/rpm)
+
+Uninstall the `.rpm` package using `yum remove`:
+
+```bash 
+yum remove -y azd
+```
+
+> [!NOTE]
+> You may need to use `sudo` when running `yum`.
+
+---
 
 ---
 
