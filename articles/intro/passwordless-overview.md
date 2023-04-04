@@ -58,12 +58,6 @@ Passwordless connections to Azure services through Azure AD and Role Based Acces
 
 `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
-<<<<<<< HEAD
-The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, Azure CLI, or Azure PowerShell. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) of the associated hosting service, such as Azure App Service. No code changes are required for this transition.
-
-> [!NOTE]
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
-=======
 The order and locations in which `DefaultAzureCredential` searches for credentials varies between languages:
 
 - [.NET](/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
@@ -72,11 +66,10 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 - [JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
 - [Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#defaultazurecredential)
 
-For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, Azure CLI, or Azure PowerShell. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use the [managed identity](../../../articles/active-directory/managed-identities-azure-resources/overview.md) of the associated hosting service, such as Azure App Service. No code changes are required for this transition.
+For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, Azure CLI, or Azure PowerShell. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) of the associated hosting service, such as Azure App Service. No code changes are required for this transition.
 
 > [!NOTE]
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and doesn't require you to provision or rotate secrets. You can read more about managed identities in the [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md) documentation.
->>>>>>> 8b3432282e5d14e83547d9ac93ec8eac2bb28cd2
+> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and doesn't require you to provision or rotate secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
 
 The following code example demonstrates how to connect to Service Bus using passwordless connections. Other documentation describes how to migrate to this setup for a specific service in more detail. A .NET app can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
