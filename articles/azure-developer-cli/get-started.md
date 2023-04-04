@@ -79,7 +79,7 @@ When the `azd up` command completes successfully, the CLI displays two links to 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+> You can call `azd up` as many times as you like to both provision and deploy updates to your solution.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -275,7 +275,7 @@ When the `azd up` command completes successfully, the CLI displays two links to 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+> You can call `azd up` as many times as you like to both provision and deploy updates to your solution.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -466,7 +466,7 @@ When the `azd up` command completes successfully, the CLI displays two links to 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+> You can call `azd up` as many times as you like to both provision and deploy updates to your solution.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -657,7 +657,7 @@ When the `azd up` command completes successfully, the CLI displays two links to 
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+> You can call `azd up` as many times as you like to both provision and deploy updates to your solution.
 
 ## [Codespaces](#tab/codespaces)
 
