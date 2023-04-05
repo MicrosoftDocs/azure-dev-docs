@@ -47,7 +47,7 @@ The goal of this phase is improve the feature experience and advance beyond proo
 ### Definition
 
 * Unlike **alpha** features, a user does not need to take explicit action to use a **beta** feature.
-* Reduced number of breaking changes across releases for **beta** features as functionality matures and we work with customers.
+* Reduced number of breaking changes across releases for **beta** features as functionality matures updates are made based on customer feedback.
 * Breaking changes are documented with explanations regarding how to digest these breaks.
 * Beta commands are denoted as such (Beta) in azd product help.
 
