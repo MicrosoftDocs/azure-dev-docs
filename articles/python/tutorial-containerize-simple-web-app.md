@@ -124,7 +124,7 @@ docker run --detach --publish 80:80 --name fastapi-demo
 
 ---
 
-### Deploy to web app Azure Container Apps
+## Deploy to web app Azure Container Apps
 
 To deploy the image, use the [az containerapp up][6] command. The command creates a resource group, Azure Container Registry, and Azure Container Apps instance. The command also deploys the image to Azure Container Apps.
 
@@ -144,7 +144,7 @@ az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress extern
 
 At this point, you have a resource group with the following resources: an Azure Container Registry, a container app, a Container Apps Environment, and a Log Analytics workspace.
 
-### Make updates and rebuild
+## Make updates and rebuild
 
 You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
 
@@ -160,7 +160,7 @@ az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:l
 az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-fastapi-aca-app .
 ```
 
-### Clean up
+## Clean up
 
 In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
