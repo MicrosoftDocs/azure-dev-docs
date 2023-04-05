@@ -18,7 +18,7 @@ For Python container development, some typical workflows for moving from code to
 
 |Scenario|Description|Workflow|
 |--------|-----------|-----|
-|**Dev**|Build Python Docker images in your dev environment.|Code: git clone code to dev environment (with Docker installed). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). Described in section [Working with Python Docker images and containers](#working-with-python-docker-images-and-containers). <br><br> Run: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
+|**Dev**|Build Python Docker images in your dev environment.|Code: git clone code to dev environment (with Docker installed). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). Described in section [Working with Python Docker images and containers](#working-with-python-docker-images-and-containers). <br><br> Test: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
 |**Hybrid**|From your dev environment, build Python Docker images in Azure.|Code: git clone code to dev environment (not necessary for Docker to be installed).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
 |**Azure**|All in the cloud; use Azure Cloud Shell to build Python Docker images code from GitHub repo.| Code: git clone GitHub repo to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
@@ -49,7 +49,7 @@ When you're running a Python project in a dev environment, using a virtual envir
 > [!TIP]
 > With containers, virtual environments aren't needed unless you're using them for testing or other reasons. If you use virtual environments, don't copy them into the Docker image. Use the *\.dockerignore* file to exclude them.
 
-You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability. Docker container can be run anywhere containers can be run, regardless of OS.
+You can think of Docker containers as providing similar capabilities as virtual environments, but with further advantages in reproducibility and portability. Docker container can be run anywhere containers can be run, regardless of OS.
 
 A Docker container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create container, a runnable instance of that image.
 
