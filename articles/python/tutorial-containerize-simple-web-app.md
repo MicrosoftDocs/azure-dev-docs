@@ -16,9 +16,9 @@ In this tutorial, you use the [Azure CLI][17] to create and deploy a web app to 
 
 To complete this tutorial, you need:
 
-* An Azure account where you can use [Azure Container Registry][11] and [Azure Container Apps][1]
+* An Azure account where you can deploy a web app to [Azure Container Apps][1]. (An [Azure Container Registry][11] and [Log Analytics workspace][12] are created for you in the process.)
 
-* [Azure CLI][17] and [Docker][4] installed locally.
+* [Azure CLI][17] and [Docker][4] installed in your local environment.
 
 ## Get sample code
 
@@ -47,7 +47,7 @@ Add a Dockerfile to instruct Docker how to build the image.
 ```Dockefile
 # syntax=docker/dockerfile:1
 
-FROM python:3.9.13
+FROM python:3.11
 
 WORKDIR /code
 
@@ -179,4 +179,5 @@ You can also remove the group in the [Azure portal][2] or in [Visual Studio Code
 [9]: https://flask.palletsprojects.com/en/2.1.x/
 [10]: https://fastapi.tiangolo.com/
 [11]: https://azure.microsoft.com/services/container-registry/
+[12]: /azure/azure-monitor/logs/log-analytics-workspace-overview
 [17]: /cli/azure/what-is-azure-cli
