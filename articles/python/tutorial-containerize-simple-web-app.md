@@ -163,7 +163,7 @@ You can also remove the group in the [Azure portal][2] or in [Visual Studio Code
 [3]: https://code.visualstudio.com/
 [4]: https://www.docker.com/
 [5]: https://code.visualstudio.com/docs/azure/extensions
-[6]: /cli/azure/containerapp?view=azure-cli-latest#az_containerapp_up
+[6]: /cli/azure/containerapp#az_containerapp_up
 [9]: https://flask.palletsprojects.com/en/2.1.x/
 [10]: https://fastapi.tiangolo.com/
 [11]: https://azure.microsoft.com/services/container-registry/
