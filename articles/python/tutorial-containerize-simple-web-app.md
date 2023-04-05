@@ -34,7 +34,7 @@ In your local environment, get the code.
 git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart.git
 ```
 
-### [FastAPI(#tab/web-app-fastapi))]
+### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart.git
@@ -66,7 +66,7 @@ EXPOSE 5000
 ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
 ```
 
-### [FastAPI(#tab/web-app-fastapi))]
+### [FastAPI](#tab/web-app-fastapi)
 
 ```dockerfile
 FROM python:3.11
@@ -103,7 +103,8 @@ Build the image locally.
 ```bash
 docker build --tag flask-demo .
 ```
-### [FastAPI(#tab/web-app-fastapi))]
+
+### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 docker build --tag fastapi-demo .
@@ -119,7 +120,7 @@ Run the image locally with Docker.
 docker run --detach --publish 5000:5000 flask-demo
 ```
 
-### [FastAPI(#tab/web-app-fastapi))]
+### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 docker run --detach --publish 80:80 --name fastapi-demo
@@ -132,7 +133,6 @@ docker run --detach --publish 80:80 --name fastapi-demo
 ### Make updates and rebuild
 
 ### Clean up
-
 
 [1]: /azure/container-apps/overview
 [4]: https://www.docker.com/
