@@ -36,7 +36,7 @@ psql "host=postgresqlflexibletest.postgres.database.azure.com user=<your_postgre
 ```
 
 > [!TIP]
-> to se Azure AD authentication to connect to Azure Database for PostgreSQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+> to use Azure AD authentication to connect to Azure Database for PostgreSQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 
 ### [Password](#tab/password)
 
