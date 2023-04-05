@@ -20,7 +20,7 @@ To complete this tutorial, you need:
 
 * [Azure CLI][17], [Docker][4], and the [Docker CLI][7] installed in your local environment.
 
-## Get sample code
+## Get the sample code
 
 In your local environment, get the code.
 
@@ -124,9 +124,9 @@ docker run --detach --publish 80:80 --name fastapi-demo
 
 ---
 
-## Deploy to web app Azure Container Apps
+## Deploy to web app to Azure
 
-To deploy the image, use the [az containerapp up][6] command.
+To deploy the docker image to Azure Container Apps, use the [az containerapp up][6] command.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -144,7 +144,7 @@ az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress extern
 
 At this point, you have a resource group with the following resources inside of it: an Azure Container Registry, a Container Apps Environment, a container app with the web app image, and a Log Analytics workspace.
 
-## Make updates and rebuild
+## Make updates and redeploy
 
 If you need to make updates, you can rebuild the image and redeploy it to Azure Container Apps. You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
 
