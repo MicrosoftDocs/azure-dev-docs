@@ -8,9 +8,9 @@ ms.custom: devx-track-python
 
 # Deploy a Flask or FastPI web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python Flask or FastAPI web app and deploy it to Azure. The single container web app is hosted in [Azure Container Apps][1]. Azure Container Apps uses [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, you'll build an image from Python code and deploy it to Azure Container Apps. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial shows you how to containerize a Python [Flask][9] or [FastAPI][10] web app and deploy it to Azure. The single container web app is hosted in [Azure Container Apps][1]. Azure Container Apps uses [Docker][4] container technology to host both built-in images and custom images. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
-In this tutorial, you use the [Azure CLI][17] to create and deploy a web app to Azure Container Apps. You can also create and deploy with [Visual Studio Code][3] and the [Azure Tools Extension][5].
+In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][17] to create a Docker image and deploy it to Azure Container Apps. You can also deploy with [Visual Studio Code][3] and the [Azure Tools Extension][5].
 
 ## Prerequisites
 
@@ -18,11 +18,11 @@ To complete this tutorial, you need:
 
 * An Azure account where you can deploy a web app to [Azure Container Apps][1]. (An [Azure Container Registry][11] and [Log Analytics workspace][12] are created for you in the process.)
 
-* [Azure CLI][17] and [Docker][4] installed in your local environment.
+* [Azure CLI][17], [Docker][4], and the [Docker CLI][7] installed in your local environment.
 
 ## Get sample code
 
-In your local environment, get the [Flask][9] or [FastAPI][10] code.
+In your local environment, get the code.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -160,6 +160,8 @@ az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:l
 az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-fastapi-aca-app .
 ```
 
+---
+
 ## Clean up
 
 All the Azure resources created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
@@ -176,6 +178,7 @@ You can also remove the group in the [Azure portal][2] or in [Visual Studio Code
 [4]: https://www.docker.com/
 [5]: https://code.visualstudio.com/docs/azure/extensions
 [6]: /cli/azure/containerapp#az_containerapp_up
+[7]: https://docs.docker.com/engine/reference/commandline/cli/
 [9]: https://flask.palletsprojects.com/en/2.1.x/
 [10]: https://fastapi.tiangolo.com/
 [11]: https://azure.microsoft.com/services/container-registry/
