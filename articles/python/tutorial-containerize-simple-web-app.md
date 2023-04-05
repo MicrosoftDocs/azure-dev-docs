@@ -22,7 +22,7 @@ To complete this tutorial, you need:
 
 ## Get sample code
 
-In your local environment, get the code.
+In your local environment, get the [Flask][9] or [FastAPI][10] code.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -171,7 +171,7 @@ az containerapp delete --name <app-name> --resource-group <resource-group>
 You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
 
 [1]: /azure/container-apps/overview
-[2]: https://portal.azure.com/
+[2]: /azure/azure-resource-manager/management/delete-resource-group
 [3]: https://code.visualstudio.com/
 [4]: https://www.docker.com/
 [5]: https://code.visualstudio.com/docs/azure/extensions
