@@ -1,7 +1,7 @@
 ---
 title: Spring JMS troubleshooting guide
 description: Describes how to troubleshoot known issues and common errors when using Spring JMS.
-ms.date: 02/15/2023
+ms.date: 04/05/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
@@ -17,9 +17,9 @@ This article describes how to troubleshoot known issues and common errors when u
 
 #### Problem description
 
-When using `JmsTemplate` sending messages, `JmsTemplate` becomes unavailable during an idle interval between 10 to 15 minutes. Sending messages in that interval can get the following exceptions:
+When using `JmsTemplate` to send messages, `JmsTemplate` becomes unavailable during an idle interval between 10 to 15 minutes. Sending messages in that interval can get the exceptions shown in the following example output:
 
-```shell
+```output
 2022-11-06 11:12:05.762  INFO 25944 --- [   scheduling-1] c.e.demo.ServiceBusJMSMessageProducer    : Sending message: 2022-11-06T11:12:05.762072 message 1
 2022-11-06 11:12:05.772 ERROR 25944 --- [   scheduling-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
 
@@ -33,15 +33,15 @@ Caused by: org.apache.qpid.jms.provider.ProviderException: The link 'G0:36906660
 
 #### Cause analysis
 
-For [Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot) , when the AMQP connection and link are active but no calls (for example, send or receive) are made using the link for 10 minutes. So, the link is closed. And when all links in the connection have been closed because there was no activity (idle) and a new link hasn't been created in 5 minutes, the connection is closed.
+The exceptions occur for [Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot) when the AMQP connection and link are active but no calls (for example, send or receive calls) are made using the link for 10 minutes. In this case, the link is closed. And when all links in the connection have been closed because there was no activity (idle) and a new link hasn't been created in 5 minutes, the connection is closed.
 
-For the Service Bus JMS starter, the [CachingConnectionFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/connection/CachingConnectionFactory.html)  is used by default, which caches the session, producer and consumer. And when the JmsProducer is idle more than 10 minutes but less than 15, the link that the cached producer is occupied has been closed. So messages  can't be sent out during this interval. Then after another 5 minute idle, the whole connection is closed. Thus, any sending operation after 15-minute-idle interval causes the CachingConnectionFactory create a new connection to send. So the sending operation becomes available after 15 minutes.
+For the Service Bus JMS starter, the [CachingConnectionFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/connection/CachingConnectionFactory.html) is used by default, which caches the session, producer, and consumer. When the `JmsProducer` is idle for more than 10 minutes but less than 15, the link that the cached producer is occupying has been closed. Messages can't be sent out during this interval. Then, after another 5 minutes idle, the whole connection is closed. Thus, any sending operation after the 15 minute idle interval causes the `CachingConnectionFactory` to create a new connection to send. The sending operation becomes available after 15 minutes.
 
 #### Workaround
 
-Currently the starter provides a workaround towards the link-detach issue by applying the JmsPoolConnectionFactory  which pools Connection, Session and MessageProducer and manages the lifecycle of the pooled instances. This can ensure a producer being evicted after being unavailable and hence all sending operations are performed on active producers.
+Currently, the starter provides a workaround for the link-detach issue by applying the `JmsPoolConnectionFactory`, which pools `Connection`, `Session`, and `MessageProducer`, and manages the lifecycle of the pooled instances. This workaround can ensure that a producer is evicted after being unavailable and hence all sending operations are performed on active producers.
 
-To use it, users should add the following configuration:
+To use this workaround, add the following configuration:
 
 ```yaml
 spring:
@@ -54,11 +54,9 @@ spring:
 
 ### Usage of spring.jms.servicebus.idle-timeout
 
-The idle-timeout properties are to configure the [idle timeout](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-doc-idle-time-out) of an AMQP connection. From AMQP spec,
+The idle-timeout properties configure the [idle timeout](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-doc-idle-time-out) of an AMQP connection. The AMQP spec provides the following description:
 
-```shell
-Connections are subject to an idle timeout threshold. The timeout is triggered by a local peer when no frames are received after a threshold value is exceeded. The idle timeout is measured in milliseconds, and starts from the time the last frame is received. If the threshold is exceeded, then a peer SHOULD try to gracefully close the connection using a close frame with an error explaining why. If the remote peer does not respond gracefully within a threshold to this, then the peer MAY close the TCP socket.
-```
+> Connections are subject to an idle timeout threshold. The timeout is triggered by a local peer when no frames are received after a threshold value is exceeded. The idle timeout is measured in milliseconds, and starts from the time the last frame is received. If the threshold is exceeded, then a peer SHOULD try to gracefully close the connection using a close frame with an error explaining why. If the remote peer does not respond gracefully within a threshold to this, then the peer MAY close the TCP socket.
 
 For a JMS client, to configure this property is to control the server side that how long it expects the server to send an empty frame to keep a connection alive when no messages delivered. This property is to control the remote peer's behavior and each peer could have its own isolated value.
 
@@ -249,7 +247,7 @@ So, to manually complete/abandon/dead-letter/defer/release a message in `JmsList
 
 For some users, they import some Spring Cloud Azure Starter for the autoconfiguration of a certain Azure service rather than Service Bus JMS. And they also use Spring JMS framework without the need of Service Bus JMS. So when the application tries to start, there are following exceptions thrown out:
 
-```shell
+```output
 Caused by: java.lang.IllegalArgumentException: 'spring.jms.servicebus.connection-string' should be provided
     at com.azure.spring.cloud.autoconfigure.jms.properties.AzureServiceBusJmsProperties.afterPropertiesSet(AzureServiceBusJmsProperties.java:210)
     at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)

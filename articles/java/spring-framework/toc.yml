@@ -144,7 +144,7 @@ items:
       href: spring-cloud-stream-support.md
     - name: Spring JMS support
       items:
-      - name: Use Azure Service Bus by JMS
+      - name: Use Azure Service Bus with JMS
         href: spring-jms-support.md
       - name: Troubleshooting guide
         href: spring-jms-troubleshooting-guide.md
