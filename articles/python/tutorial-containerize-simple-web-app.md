@@ -146,7 +146,19 @@ At this point, you have a resource group with the following resources: an Azure 
 
 ### Make updates and rebuild
 
-You can get the registry name from the output of the `az containerapp up` command.
+You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
+
+### [Flask](#tab/web-app-flask)
+
+```azurecli
+az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-flask-aca-app .
+```
+
+### [FastAPI](#tab/web-app-fastapi)
+
+```azurecli
+az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-fastapi-aca-app .
+```
 
 ### Clean up
 
