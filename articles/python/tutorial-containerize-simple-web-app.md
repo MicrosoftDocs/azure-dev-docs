@@ -1,12 +1,12 @@
 ---
-title: Deploy a simple Flask or FastAPI web app as a container in Azure Container Apps
+title: Deploy a Flask or FastAPI web app as a container in Azure Container Apps
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure Container Apps.
 ms.topic: conceptual
-ms.date: 04/05/2024
+ms.date: 04/05/2023
 ms.custom: devx-track-python
 ---
 
-# Deploy a simple Flask or FastPI web app on Azure Container Apps
+# Deploy a Flask or FastPI web app on Azure Container Apps
 
 This tutorial shows you how to containerize a Python Flask or FastAPI web app and deploy it to Azure. The single container web app is hosted in [Azure Container Apps][1].
 
@@ -14,7 +14,7 @@ For more information about using containers in Azure, see [Comparing Azure conta
 
 ## Prerequisites
 
-To complete this tutorial, you'll need:
+To complete this tutorial, you need:
 
 * An Azure account where you can use [Azure Container Registry][11] and [Azure Container Apps][1]
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ---
 
-## Add Dockerfile and .dockerignore files
+## Add Dockerfile and \.dockerignore files
 
 Add a Dockerfile to instruct Docker how to build the image.
 
@@ -86,7 +86,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-header
 
 ---
 
-Add a .dockerignore file to exclude files from the image.
+Add a \.dockerignore file to exclude files from the image.
 
 ```dockerignore
 .git*
