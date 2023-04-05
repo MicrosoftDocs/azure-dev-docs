@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a Dockerfile to instruct Docker how to build the image.
+Add a *Dockerfile* to instruct Docker how to build the image.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -82,7 +82,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-header
 
 ---
 
-Add a \.dockerignore file to exclude files from the image.
+Add a *\.dockerignore* file to exclude files from the image.
 
 ```dockerignore
 .git*
@@ -108,7 +108,7 @@ docker build --tag fastapi-demo .
 
 ---
 
-Run the image locally with Docker.
+Run the image locally in a Docker container.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -126,7 +126,7 @@ docker run --detach --publish 80:80 --name fastapi-demo
 
 ## Deploy to web app Azure Container Apps
 
-To deploy the image, use the [az containerapp up][6] command. The command creates a resource group, Azure Container Registry, and Azure Container Apps instance. The command also deploys the image to Azure Container Apps.
+To deploy the image, use the [az containerapp up][6] command.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -142,11 +142,11 @@ az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress extern
 
 ---
 
-At this point, you have a resource group with the following resources: an Azure Container Registry, a container app, a Container Apps Environment, and a Log Analytics workspace.
+At this point, you have a resource group with the following resources inside of it: an Azure Container Registry, a Container Apps Environment, a container app with the web app image, and a Log Analytics workspace.
 
 ## Make updates and rebuild
 
-You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
+If you need to make updates, you can rebuild the image and redeploy it to Azure Container Apps. You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -162,7 +162,7 @@ az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:l
 
 ## Clean up
 
-In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+All the Azure resources created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
 ```azurecli
 az containerapp delete --name <app-name> --resource-group <resource-group>
