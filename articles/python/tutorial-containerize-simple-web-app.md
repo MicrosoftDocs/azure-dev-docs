@@ -18,11 +18,7 @@ To complete this tutorial, you need:
 
 * An Azure account where you can use [Azure Container Registry][11] and [Azure Container Apps][1]
 
-* [Azure CLI][17]
-
-* [Flask][9] or [FastAPI][10] web framework.
-
-* [Docker][4]
+* [Azure CLI][17] and [Docker][4] installed locally.
 
 ## Get sample code
 
