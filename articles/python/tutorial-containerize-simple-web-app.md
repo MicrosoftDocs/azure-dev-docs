@@ -94,7 +94,7 @@ Add a \.dockerignore file to exclude files from the image.
 .venv/
 ```
 
-## Build image the image locally and run it
+## Build and run the image locally
 
 Build the image locally.
 
