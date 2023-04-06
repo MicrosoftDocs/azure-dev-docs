@@ -4,7 +4,7 @@ description: This article demonstrates how to use Spring Cloud Stream Binder to 
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
 ---
@@ -49,7 +49,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

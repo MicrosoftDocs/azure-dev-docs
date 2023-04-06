@@ -1,7 +1,7 @@
 ---
 title: Secure your REST API using Spring Cloud Azure
 description: Shows you how to secure REST API by Azure AD.
-ms.date: 02/09/2023
+ms.date: 04/06/2023
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
@@ -93,7 +93,7 @@ To install the Spring Cloud Azure Starter Azure Active Directory module, add the
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

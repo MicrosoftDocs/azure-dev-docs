@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use the Spring JMS Starter to sen
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure
 ---
@@ -54,7 +54,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

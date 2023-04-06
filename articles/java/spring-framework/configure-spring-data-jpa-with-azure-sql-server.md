@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL Database.
 documentationcenter: java
-ms.date: 02/22/2023
+ms.date: 04/06/2023
 ms.author: bbenz
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
@@ -54,7 +54,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
