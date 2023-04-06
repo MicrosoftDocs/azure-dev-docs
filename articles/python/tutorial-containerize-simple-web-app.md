@@ -64,8 +64,6 @@ ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
 
 Check the *requirements.txt* file to make sure it contains `guincorn`, and add it if necessary.
 
-```text
-
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```dockerfile
