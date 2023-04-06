@@ -152,11 +152,11 @@ az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress extern
 
 ---
 
-At this point, you have a resource group with the following resources inside of it: an Azure Container Registry, a Container Apps Environment, a container app with the web app image, and a Log Analytics workspace.
+When deployment completes, you have a resource group with the following resources inside of it: an Azure Container Registry, a Container Apps Environment, a container app running the web app image, and a Log Analytics workspace.
 
 ## Make updates and redeploy
 
-If you need to make updates, you can rebuild the image and redeploy it to Azure Container Apps. You can get the registry name `<registry-name>` from the output of the `az containerapp up` command.
+If you need to make code updates, you can rebuild the image and redeploy it to Azure Container Apps. You need the name of the Azure Container Registry. You can find that from the from the output of the `az containerapp up` command. You can also find it in the [Azure portal][15] or running with the Azure CLI command `az resource list  --resource-group <resource-group-name>`.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -205,4 +205,5 @@ For more information, see the following resources:
 [12]: /azure/azure-monitor/logs/log-analytics-workspace-overview
 [13]: /azure/container-apps/deploy-visual-studio-code
 [14]: /azure/container-apps/managed-identity-image-pull
+[15]: https://portal.azure.com/
 [17]: /cli/azure/what-is-azure-cli
