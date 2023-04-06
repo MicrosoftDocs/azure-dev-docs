@@ -44,7 +44,7 @@ Add a *Dockerfile* to instruct Docker how to build the image.
 
 ### [Flask](#tab/web-app-flask)
 
-```Dockefile
+```dockerfile
 # syntax=docker/dockerfile:1
 
 FROM python:3.11
@@ -61,6 +61,10 @@ EXPOSE 5000
 
 ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
 ```
+
+Check the *requirements.txt* file to make sure it contains `guincorn`, and add it if necessary.
+
+```text
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -80,9 +84,11 @@ EXPOSE 80
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-headers"]
 ```
 
+Check the *requirements.txt* file to make sure it contains `uvicorn`, and add it if necessary.
+
 ---
 
-Add a *\.dockerignore* file to exclude files from the image.
+Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ```dockerignore
 .git*
