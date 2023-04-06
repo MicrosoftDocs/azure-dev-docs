@@ -69,6 +69,8 @@ Check the *requirements.txt* file to make sure it contains `guincorn`, and add i
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```dockerfile
+# syntax=docker/dockerfile:1
+
 FROM python:3.11
 
 WORKDIR /code
@@ -178,6 +180,14 @@ az containerapp delete --name <app-name> --resource-group <resource-group>
 
 You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
 
+## Next steps
+
+For more information, see the following resources:
+
+* [Deploy Azure Container Apps with the az containerapp up command][8]
+* [Quickstart: Deploy to Azure Container Apps using Visual Studio Code][13]
+
+
 [1]: /azure/container-apps/overview
 [2]: /azure/azure-resource-manager/management/delete-resource-group
 [3]: https://code.visualstudio.com/
@@ -185,8 +195,10 @@ You can also remove the group in the [Azure portal][2] or in [Visual Studio Code
 [5]: https://code.visualstudio.com/docs/azure/extensions
 [6]: /cli/azure/containerapp#az_containerapp_up
 [7]: https://docs.docker.com/engine/reference/commandline/cli/
+[8]: /azure/container-apps/containerapp-up
 [9]: https://flask.palletsprojects.com/en/2.1.x/
 [10]: https://fastapi.tiangolo.com/
 [11]: https://azure.microsoft.com/services/container-registry/
 [12]: /azure/azure-monitor/logs/log-analytics-workspace-overview
+[13]: /azure/container-apps/deploy-visual-studio-code
 [17]: /cli/azure/what-is-azure-cli
