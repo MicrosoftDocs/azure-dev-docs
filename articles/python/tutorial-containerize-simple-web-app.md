@@ -182,8 +182,10 @@ az containerapp update --name web-fastapi-aca-app --resource-group web-fastapi-a
 
 All the Azure resources created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
+To remove resources use the [az group delete][20] command.
+
 ```azurecli
-az containerapp delete --name <app-name> --resource-group <resource-group>
+az group delete --name <resource-group>
 ```
 
 You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
@@ -215,3 +217,4 @@ For more information, see the following resources:
 [17]: /cli/azure/what-is-azure-cli
 [18]: /cli/azure/acr#az-acr-build
 [19]: /cli/azure/containerapp#az_containerapp_update
+[20]: /cli/azure/group#az-group-delete
