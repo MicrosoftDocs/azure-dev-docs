@@ -1,7 +1,7 @@
 ---
 title: Spring JMS troubleshooting guide
 description: Describes how to troubleshoot known issues and common errors when using Spring JMS.
-ms.date: 04/05/2023
+ms.date: 04/07/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
