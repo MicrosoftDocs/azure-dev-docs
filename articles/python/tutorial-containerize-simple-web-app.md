@@ -106,11 +106,15 @@ Build the image locally.
 docker build --tag flask-demo .
 ```
 
+Open the [http://localhost:5000](http://localhost:5000) URL in your browser to see the web app running locally.
+
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 docker build --tag fastapi-demo .
 ```
+
+Open the [http://localhost:80](http://localhost:80) URL in your browser to see the web app running locally.
 
 ---
 
