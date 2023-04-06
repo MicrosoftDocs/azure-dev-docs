@@ -14,7 +14,7 @@ This quickstart shows you how to export your first Azure resources into Terrafor
 >
 > **This example uses a virtual machine resource group from the virtual machine documentation tutorial. You do not have to export a virtual machine resource group, but can pick one of your own choosing.**
 >
-> If you wish to setup this example, please create a Linux or Windows virtual machine from one of the non-Terraform quickstarts on the [Virtual Machines documentation page](https://learn.microsoft.com/azure/virtual-machines/). You do not have to complete any steps after creating the virtual machine in any tutorial to complete this quickstart.
+> If you wish to setup this example, please create a Linux or Windows virtual machine from one of the non-Terraform quickstarts on the [Virtual Machines documentation page](/azure/virtual-machines/). You do not have to complete any steps after creating the virtual machine in any tutorial to complete this quickstart.
 >
 > If using your own resource group, replace *myResourceGroup* with your resource group name for the below commands.
 
