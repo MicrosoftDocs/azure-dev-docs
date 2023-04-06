@@ -156,18 +156,22 @@ When deployment completes, you have a resource group with the following resource
 
 ## Make updates and redeploy
 
-If you need to make code updates, you can rebuild the image and redeploy it to Azure Container Apps. You need the name of the Azure Container Registry. You can find that from the from the output of the `az containerapp up` command. You can also find it in the [Azure portal][15] or running with the Azure CLI command `az resource list  --resource-group <resource-group-name>`.
+If you need to make code updates, you can rebuild the image and redeploy it to Azure Container Apps with the [az acr build][18] command.
+
+You need the name of the Azure Container Registry. You can find that from the from the output of the `az containerapp up` command. You can also find it in the [Azure portal][15] or running with the [az resource list][16] command. For example, `az resource list  --resource-group <resource-group-name>`.
+
+Fill in the `<registry-name>` placeholder in two spots in the following commands with the name of your Azure Container Registry.
 
 ### [Flask](#tab/web-app-flask)
 
 ```azurecli
-az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-flask-aca-app .
+az acr build --platform linux/amd64 --image <registry-name>.azurecr.io/web-flask-aca-app:latest --registry <registry-name> .
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```azurecli
-az acr build --platform linux/amd64 \ -t <registry-name>.azurecr.io/flask-demo:latest \ -r web-fastapi-aca-app .
+az acr build --platform linux/amd64 --image <registry-name>.azurecr.io/web-fastapi-aca-app:latest --registry <registry-name> .
 ```
 
 ---
@@ -190,7 +194,6 @@ For more information, see the following resources:
 * [Quickstart: Deploy to Azure Container Apps using Visual Studio Code][13]
 * [Azure Container Apps image pull with managed identity][14]
 
-
 [1]: /azure/container-apps/overview
 [2]: /azure/azure-resource-manager/management/delete-resource-group
 [3]: https://code.visualstudio.com/
@@ -206,4 +209,6 @@ For more information, see the following resources:
 [13]: /azure/container-apps/deploy-visual-studio-code
 [14]: /azure/container-apps/managed-identity-image-pull
 [15]: https://portal.azure.com/
+[16]: /cli/azure/resource#az-resource-list
 [17]: /cli/azure/what-is-azure-cli
+[18]: /cli/azure/acr#az-acr-build
