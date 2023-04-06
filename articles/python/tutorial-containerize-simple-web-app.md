@@ -184,6 +184,7 @@ For more information, see the following resources:
 
 * [Deploy Azure Container Apps with the az containerapp up command][8]
 * [Quickstart: Deploy to Azure Container Apps using Visual Studio Code][13]
+* [Azure Container Apps image pull with managed identity][14]
 
 
 [1]: /azure/container-apps/overview
@@ -199,4 +200,5 @@ For more information, see the following resources:
 [11]: https://azure.microsoft.com/services/container-registry/
 [12]: /azure/azure-monitor/logs/log-analytics-workspace-overview
 [13]: /azure/container-apps/deploy-visual-studio-code
+[14]: /azure/container-apps/managed-identity-image-pull
 [17]: /cli/azure/what-is-azure-cli
