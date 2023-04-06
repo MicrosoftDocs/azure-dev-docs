@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-azurecli
 ---
 
 # What is the Azure Developer CLI (preview)?

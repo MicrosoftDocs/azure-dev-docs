@@ -2,7 +2,7 @@
 ms.author: tarcher
 ms.topic: conceptual
 ms.date: 04/27/2022
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-bicep
 ---
 
 Today's organizations face dynamic challenges that require a great deal of flexibility and agility. Public cloud environments meet these needs through automation - especially via infrastructure as code (IaC). Two leading IaC options are Hashicorp Terraform and Bicep. Terraform is an open-source tool that helps DevOps professionals manage on-premises and cloud services using declarative code. Microsoft Bicep utilizes declarative syntax to simplify the deployment of Azure resources.

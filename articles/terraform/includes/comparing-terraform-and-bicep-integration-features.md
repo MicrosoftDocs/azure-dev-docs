@@ -2,7 +2,7 @@
 ms.author: tarcher
 ms.topic: conceptual
 ms.date: 04/27/2022
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-bicep
 ---
 
 To achieve scale, DevOps teams are always looking for ways to quickly deploy code with a trusted and repeatable process. When it comes to the cloud and infrastructure, this process is increasingly accomplished with infrastructure-as-code (IaC). IaC tools range from general-purpose tools to tools intended for specific environments. Terraform is an example of the former, while Bicep is designed to handle Azure-related tasks.
