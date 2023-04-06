@@ -69,7 +69,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 | -------------- | ---- |
 | [Django][35] | 8000 |
 | [Flask][36] | 5000 or 5002 |
-| [FastAPI][37] ([uvicorn][13]) | 8000 |
+| [FastAPI][37] ([uvicorn][13]) | 8000 or 80 |
 
 The following table shows how to set the port for difference Azure container solutions.
 
