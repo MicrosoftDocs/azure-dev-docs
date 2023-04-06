@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 This article describes how to go from Python project code (for example, a web app) to a deployed Docker container in Azure. Discussed are the general process of containerization, deployment options for containers in Azure, and Python-specific configuration of containers in Azure.
 
-The nature of Docker containers is that creating a Python Docker image from code and deploying that image to a container in Azure is similar across programming languages. The language-specific considerations - Python in this case - are in the configuration during the containerization process in Azure, in particular the Dockerfile structure and configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
+The nature of Docker containers is that creating a Docker image from code and deploying that image to a container in Azure is similar across programming languages. The language-specific considerations - Python in this case - are in the configuration during the containerization process in Azure, in particular the Dockerfile structure and configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
 
 ## Container workflow scenarios
 
@@ -69,7 +69,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 | -------------- | ---- |
 | [Django][35] | 8000 |
 | [Flask][36] | 5000 or 5002 |
-| [FastAPI][37] ([uvicorn][13]) | 8000 |
+| [FastAPI][37] ([uvicorn][13]) | 8000 or 80 |
 
 The following table shows how to set the port for difference Azure container solutions.
 
