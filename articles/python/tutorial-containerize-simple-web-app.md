@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Deploy a Flask or FastPI web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python [Flask][9] or [FastAPI][10] web app and deploy it to Azure. The single container web app is hosted in [Azure Container Apps][1]. Azure Container Apps uses [Docker][4] container technology to host both built-in images and custom images. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial shows you how to containerize a Python [Flask][9] or [FastAPI][10] web app and deploy it to [Azure Container Apps][1]. Azure Container Apps uses [Docker][4] container technology to host both built-in images and custom images. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][17] to create a Docker image and deploy it to Azure Container Apps. You can also deploy with [Visual Studio Code][3] and the [Azure Tools Extension][5].
 
