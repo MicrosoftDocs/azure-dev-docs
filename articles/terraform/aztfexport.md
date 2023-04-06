@@ -1,3 +1,12 @@
+---
+title: Overview of Azure Export for Terraform
+description: Learn the benefits and uses of Azure Export for Terraform
+keywords: azure export terraform
+ms.topic: overview
+ms.date: 04/05/2023
+ms.author: stema
+ms.custom: devx-track-terraform
+---
 # Overview of Azure Export for Terraform
 Azure Export for Terraform is a tool designed to help reduce friction in translation between Azure and Terraform concepts.
 ## Benefits
@@ -38,12 +47,12 @@ Visit [this tutorial] to see how to use the query mode to export resources with 
 First read [this article] to understand the workflows of Azure Export for Terraform and also its best practices and design limitations.  
 Then, try running the tool with one of our quickstart guides:
 
-- [Export your first resource group]
-- [Export resources into HCL code]
+- [Export your first resource group](aztfexport-qs1.md)
+- [Export resources into HCL code](aztfexport-qs2.md)
 
 These how-to's explain more complex scenarios:
-- [Exploring customized resource filters and names]
-- [Using the tool in more advanced scenarios] (i.e. remote backends, appending to preexisting environments)
+- [Exploring customized resource filters and names](aztfexport-ht1.md)
+- [Using the tool in more advanced scenarios](aztfexport-ht2.md) (i.e. remote backends, appending to preexisting environments)
 
 > [!NOTE]
 > Data Collection

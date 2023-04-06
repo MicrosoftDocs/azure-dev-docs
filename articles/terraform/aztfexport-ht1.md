@@ -1,5 +1,14 @@
-# Exploring customized resource selection and naming
-Azure Export for Terraform provides a variety of options to customize which resources you export:
+---
+title: Exploring Customized Resource Selection and Naming
+description: Understand how to customize resource selection and filtering, as well as when to use various methods with Azure Export for Terraform.
+keywords: azure export terraform filtering selection resource naming
+ms.topic: how-to
+ms.date: 04/05/2023
+ms.author: stema
+ms.custom: devx-track-terraform
+---
+# Exploring Customized Resource Selection and Naming
+Azure Export for Terraform provides various options to customize which resources you export:
 
 - Using the UI
 - Using Query Mode
@@ -8,7 +17,7 @@ Azure Export for Terraform provides a variety of options to customize which reso
 This guide provides quickstarts along with pros and cons for each option.
 
 ## Using the UI
-Simply use the arrow keys while in the UI to navigate to a resource, then press delete to skip the resource. Then, you can import as normal. To undo this, press delete again.
+Simply use the arrow keys while in the UI to navigate to a resource, then press delete to skip the resource. Then, you can import as normal. To undo, press delete again.
 
 Pros:
 -	Easy and simple; one Delete button is all you need
