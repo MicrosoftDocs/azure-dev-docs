@@ -30,7 +30,7 @@ To export HCL only for a resource group non-interactively:
 ```console
 aztfexport rg -n --hcl-only myResourceGroup
 ```
-To then export the resource group to an existing set of resources (i.e. production environment), follow [this tutorial](aztfexport-ht2.md/#export-azure-resources-to-an-existing-terraform-environment).
+To then export the resource group to an existing set of resources (i.e. production environment), follow [this tutorial](aztfexport-ht2.md#export-azure-resources-to-an-existing-terraform-environment).
 
 ## Summary
 In this tutorial, you learned how to export resources using the `--hcl-only` flag, as well as when you should use the flag.
