@@ -2,7 +2,7 @@
 title: Use Spring Kafka with Azure Event Hubs for Kafka API
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs. 
 services: event-hubs
-ms.date: 11/16/2022
+ms.date: 04/06/2023
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-azurecli
@@ -71,19 +71,23 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
-   ```xml
-   <dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>com.azure.spring</groupId>
-          <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.5.0</version>
-          <type>pom</type>
-          <scope>import</scope>
-          </dependency>
-      </dependencies>
-    </dependencyManagement>
-   ```
+  ```xml
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.7.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  ```
+
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
 
