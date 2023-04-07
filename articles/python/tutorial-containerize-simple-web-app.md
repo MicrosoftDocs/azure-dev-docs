@@ -62,7 +62,7 @@ EXPOSE 5000
 ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `guincorn`, and add it if necessary.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -134,9 +134,11 @@ docker run --detach --publish 80:80 --name fastapi-demo
 
 ---
 
+The `--detach` option runs the container in the background. The `--publish` option maps the container port to a port on the host. The host port (external) if first in the pair, and the container port (internal) is second. For more information, see [Docker run reference][21].
+
 ## Deploy to web app to Azure
 
-To deploy the docker image to Azure Container Apps, use the [az containerapp up][6] command.
+To deploy the Docker image to Azure Container Apps, use the [az containerapp up][6] command.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -218,3 +220,4 @@ For more information, see the following resources:
 [18]: /cli/azure/acr#az-acr-build
 [19]: /cli/azure/containerapp#az_containerapp_update
 [20]: /cli/azure/group#az-group-delete
+[21]: https://docs.docker.com/engine/reference/run/
