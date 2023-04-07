@@ -52,7 +52,7 @@ In Maven projects, the Spring Cloud version is typically set in the `spring-clou
 ```xml
   <properties>
     <java.version>1.8</java.version>
-    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+    <spring-cloud.version>2021.0.6/spring-cloud.version>
   </properties>
 ```
 
@@ -62,7 +62,7 @@ In Gradle projects, the Spring Cloud version is typically set in the "extra prop
 
 ```gradle
 ext {
-  set('springCloudVersion', "Hoxton.SR3")
+  set('springCloudVersion', "2021.0.6")
 }
 ```
 
@@ -72,7 +72,7 @@ You'll need to update all applications to use supported versions of Spring Cloud
 
 #### Identify Zipkin dependencies
 
-Determine whether your application has explicit dependencies on Zipkin. Look for dependencies on the `io.zipkin.java` group in your Maven or Gradle dependencies.
+Determine whether your application has dependencies on Zipkin. Update the application to use Application Insights instead. For information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-apps/how-to-application-insights) and the [Post-migration](#post-migration) section.
 
 ### Inventory external resources
 
@@ -217,10 +217,6 @@ Azure Spring Apps doesn't provide access to the JRE keystore, so you must migrat
 ### Remove application performance management (APM) integrations
 
 Eliminate any integrations with APM tools/agents. For information on configuring performance management with Azure Monitor, see the [Post-migration](#post-migration) section.
-
-### Replace explicit Zipkin dependencies with Spring Cloud Starters
-
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters. For information on Azure Application Insights, see the [Post-migration](#post-migration) section.
 
 ### Disable metrics clients and endpoints in your applications
 
