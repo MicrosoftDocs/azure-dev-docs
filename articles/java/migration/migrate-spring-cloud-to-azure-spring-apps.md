@@ -72,8 +72,7 @@ You'll need to update all applications to use supported versions of Spring Cloud
 
 #### Identify Zipkin dependencies
 
-Determine whether your application has dependencies on Zipkin. Update the application to use [Application Insights](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-application-insights) instead. For information on Azure Application Insights, see the [Post-migration](#post-migration) section.
-
+Determine whether your application has dependencies on Zipkin. Update the application to use Application Insights instead. For information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-apps/how-to-application-insights) and the [Post-migration](#post-migration) section.
 
 ### Inventory external resources
 
