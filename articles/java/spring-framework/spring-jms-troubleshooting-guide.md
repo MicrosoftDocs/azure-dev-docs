@@ -58,13 +58,13 @@ The idle-timeout properties configure the [idle timeout](http://docs.oasis-open.
 
 > Connections are subject to an idle timeout threshold. The timeout is triggered by a local peer when no frames are received after a threshold value is exceeded. The idle timeout is measured in milliseconds, and starts from the time the last frame is received. If the threshold is exceeded, then a peer SHOULD try to gracefully close the connection using a close frame with an error explaining why. If the remote peer does not respond gracefully within a threshold to this, then the peer MAY close the TCP socket.
 
-For a JMS client, to configure this property is to control the server side that how long it expects the server to send an empty frame to keep a connection alive when no messages delivered. This property is to control the remote peer's behavior and each peer could have its own isolated value.
+For a JMS client, when you configure this property, you control on the server side how long it expects the server to send an empty frame to keep a connection alive when no messages are delivered. This property controls the remote peer's behavior, and each peer can have its own, isolated value.
 
 ## JmsTemplate issues
 
 ### Scheduled messages
 
-Azure Service Bus supports [message to be delayed processing](/azure/service-bus-messaging/message-sequencing#scheduled-messages) . For JMS, to schedule a message, users can set the ScheduledEnqueueTimeUtc property by the message annotation header `x-opt-scheduled-enqueue-time`.
+Azure Service Bus supports delayed message processing. For more information see the [Scheduled messages](/azure/service-bus-messaging/message-sequencing#scheduled-messages) section of [Message sequencing and timestamps](/azure/service-bus-messaging/message-sequencing). For JMS, to schedule a message, you can set the `ScheduledEnqueueTimeUtc` property by using the message annotation header `x-opt-scheduled-enqueue-time`.
 
 ## JmsListener issues
 
@@ -72,11 +72,11 @@ Azure Service Bus supports [message to be delayed processing](/azure/service-bus
 
 #### Problem description
 
-When using `@JmsListener` API, in some cases can customers observe in Azure portal that, there are ongoing values of incoming requests sending to their queue or topics even there are no messages in the server to receive.
+When using the `@JmsListener` API, in some cases you can see in the Azure portal that there are ongoing values for incoming requests sending to their queue or topics even if there are no messages in the server to receive.
 
 #### Cause analysis
 
-`@JmsListener` essentially is a [polling listener](https://github.com/spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45) which is built for repeated polling attempts.
+`@JmsListener` is essentially a [polling listener](https://github.com    /spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45), which is built for repeated polling attempts.
 
 The listener sits on an ongoing loop of polling, each invoking the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134) to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties including receiveTimeout, prefetchSize and `receiveLocalOnly` or `receiveNoWaitLocalOnly`(the latter one used only when the receive timeout is set as negative).
 
@@ -199,45 +199,45 @@ So, to manually complete/abandon/dead-letter/defer/release a message in `JmsList
 
    To accomplish this, you can choose either declaring your own [JmsListenerContainerFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/config/JmsListenerContainerFactory.html) bean and then set the properties or post process the JmsListenerContainerFactory defined in the [starter](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsContainerConfiguration.java#L47) . Here we take the example of declaring another bean:
 
-    ```java
-    @Configuration(proxyBeanMethods = false)
-    public class CustomJmsConfiguration {
-    
-        @Bean
-        public JmsListenerContainerFactory<?> customQueueJmsListenerContainerFactory(
-                DefaultJmsListenerContainerFactoryConfigurer configurer, ConnectionFactory connectionFactory) {
-            DefaultJmsListenerContainerFactory jmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
-            configurer.configure(jmsListenerContainerFactory, connectionFactory);
-            jmsListenerContainerFactory.setPubSubDomain(Boolean.FALSE);
-            jmsListenerContainerFactory.setSessionTransacted(Boolean.FALSE);
-            jmsListenerContainerFactory.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
-            return jmsListenerContainerFactory;
-        }
-    }
-    ```
+   ```java
+   @Configuration(proxyBeanMethods = false)
+   public class CustomJmsConfiguration {
+   
+       @Bean
+       public JmsListenerContainerFactory<?> customQueueJmsListenerContainerFactory(
+               DefaultJmsListenerContainerFactoryConfigurer configurer, ConnectionFactory connectionFactory) {
+           DefaultJmsListenerContainerFactory jmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
+           configurer.configure(jmsListenerContainerFactory, connectionFactory);
+           jmsListenerContainerFactory.setPubSubDomain(Boolean.FALSE);
+           jmsListenerContainerFactory.setSessionTransacted(Boolean.FALSE);
+           jmsListenerContainerFactory.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
+           return jmsListenerContainerFactory;
+       }
+   }
+   ```
 
 1. In your message handler, explicitly complete or abandon messages.
 
-    ```java
-    @JmsListener(destination = "QUEUE_NAME", containerFactory = "customQueueJmsListenerContainerFactory")
-    public void receiveMessage(JmsTextMessage message) throws Exception {
-        String event = message.getBody(String.class);
-        try {
-            logger.info("Received event: {}", event);
-            logger.info("Received message: {}", message);
-            // by default complete the message
-            message.acknowledge();
-        } catch (Exception e) {
-            logger.error("Exception while processing re-source event: " + event, e);
-            JmsAcknowledgeCallback acknowledgeCallback = message.getAcknowledgeCallback();
-            // explicitly abandon the message
-            acknowledgeCallback.setAckType(MODIFIED_FAILED);
-            message.setAcknowledgeCallback(acknowledgeCallback);
-            message.acknowledge();
-            throw e;
-        }
-    }
-    ```
+   ```java
+   @JmsListener(destination = "QUEUE_NAME", containerFactory = "customQueueJmsListenerContainerFactory")
+   public void receiveMessage(JmsTextMessage message) throws Exception {
+       String event = message.getBody(String.class);
+       try {
+           logger.info("Received event: {}", event);
+           logger.info("Received message: {}", message);
+           // by default complete the message
+           message.acknowledge();
+       } catch (Exception e) {
+           logger.error("Exception while processing re-source event: " + event, e);
+           JmsAcknowledgeCallback acknowledgeCallback = message.getAcknowledgeCallback();
+           // explicitly abandon the message
+           acknowledgeCallback.setAckType(MODIFIED_FAILED);
+           message.setAcknowledgeCallback(acknowledgeCallback);
+           message.acknowledge();
+           throw e;
+       }
+   }
+   ```
 
 ## Configuration issues
 
