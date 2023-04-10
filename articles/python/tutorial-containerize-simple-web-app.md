@@ -62,7 +62,7 @@ EXPOSE 50500
 ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:50500", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the container (internal) port number to avoid conflicts with other web apps running on the same host. You can use any port number you want.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
