@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image. Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary.
+Add a *Dockerfile* to instruct Docker how to build the image. 
 
 ### [Flask](#tab/web-app-flask)
 
@@ -62,7 +62,7 @@ EXPOSE 50500
 ENTRYPOINT ["gunicorn", "app:app"]
 ```
 
-50505 is used for the container port (internal) in this example.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. Note that 50505 is used for the container port (internal) in this example, but you can use any free port.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -84,7 +84,7 @@ EXPOSE 3100
 CMD ["gunicorn", "main:app"]
 ```
 
-3100 is used for the container port (internal) in this tutorial.
+Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`, and add them if necessary. Note that 3100 is used for the container port (internal) in this example, but you can use any free port.
 
 ---
 
@@ -98,7 +98,7 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction in the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
 
 ### [Flask](#tab/web-app-flask)
 
@@ -135,6 +135,8 @@ bind = "0.0.0.0:3100"
 worker_class = "uvicorn.workers.UvicornWorker"
 workers = (multiprocessing.cpu_count() * 2) + 1
 ```
+
+With the `uvicorn.workers.UvicornWorker` worker class, you can use `gunicorn` to run `FastAPI` apps. For more information, see [Running uvicorn with gunicorn][25].
 
 ---
 
@@ -248,3 +250,4 @@ For more information, see the following resources:
 [22]: https://docs.gunicorn.org/en/stable/settings.html#config-file
 [23]: https://docs.gunicorn.org/en/stable/configure.html#configuration-file
 [24]: https://docs.gunicorn.org/en/stable/index.html
+[25]: https://www.uvicorn.org/#running-with-gunicorn
