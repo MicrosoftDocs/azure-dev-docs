@@ -799,7 +799,7 @@ Examples:
 ### Options
 
 ```azdeveloper
-      --all                  Deploys all services that are listed in `azure.yaml`.
+      --all                  Packages all services that are listed in `azure.yaml`.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for monitor.
 ```
