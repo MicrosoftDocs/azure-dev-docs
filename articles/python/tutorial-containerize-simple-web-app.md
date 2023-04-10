@@ -62,7 +62,7 @@ EXPOSE 50500
 ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:50500", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the port number to avoid conflicts with other web apps running on the same host. You can use any port number you want.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the container (internal) port number to avoid conflicts with other web apps running on the same host. You can use any port number you want.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -123,7 +123,7 @@ Run the image locally in a Docker container.
 ### [Flask](#tab/web-app-flask)
 
 ```bash
-docker run --detach --publish 50500:50500 flask-demo
+docker run --detach --publish 5000:50500 flask-demo
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
