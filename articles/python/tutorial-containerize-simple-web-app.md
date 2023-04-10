@@ -202,9 +202,9 @@ When deployment completes, you have a resource group with the following resource
 
 ## Make updates and redeploy
 
-If you need to make code updates, run the previous `az containerapp up` command again, which rebuilds the image and redeploy it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
+If you need to make code updates, run the previous `az containerapp up` command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
 
-In more complex update/redeploy scenarios, you can use the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
+In more complex update scenarios, you can redeploy with the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
 
 ## Clean up
 
