@@ -98,7 +98,7 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction in the *Dockerfile*. For more information about specifying the the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction in the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
 
 ### [Flask](#tab/web-app-flask)
 
@@ -200,7 +200,7 @@ When deployment completes, you have a resource group with the following resource
 
 ## Make updates and redeploy
 
-If you need to make code updates, run the previous `az containerapp up` command again. The command will rebuild the image and redeploy it to Azure Container Apps. Running the command again will take in account that the resource group and app already exist, and will update just the container app.
+If you need to make code updates, run the previous `az containerapp up` command again, which rebuilds the image and redeploy it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
 
 In more complex update/redeploy scenarios, you can use the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
 
@@ -208,7 +208,7 @@ In more complex update/redeploy scenarios, you can use the [az acr build][18] an
 
 All the Azure resources created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
-To remove resources use the [az group delete][20] command.
+To remove resources, use the [az group delete][20] command.
 
 ```azurecli
 az group delete --name <resource-group>
