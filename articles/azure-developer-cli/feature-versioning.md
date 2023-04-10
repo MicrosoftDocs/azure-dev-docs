@@ -18,7 +18,7 @@ Azure Developer CLI (`azd`) features are introduced and supported using a phased
 
 ## Alpha Features
 
-All features start as **alpha** features (e.g., experimental). In this phase, the goal is to receive sufficient usage to get meaningful feedback around the feature’s design, functionality and user experience.
+All features start as **alpha** features (e.g., experimental). In this phase, the goal is to receive sufficient usage to get meaningful feedback around the feature’s design, functionality and user experience. Alpha features can be enabled and managed using the [`azd config`](reference.md) command.
 
 > [!IMPORTANT]
 > **Alpha** features are only recommended for non-business-critical scenarios with caution as there is a small chance of incompatible changes in subsequent releases leading up to stable.

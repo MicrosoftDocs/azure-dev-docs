@@ -101,6 +101,7 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 
 * [azd config get](#azd-config-get): Gets a configuration
 * [azd config list](#azd-config-list): Lists all configuration values
+* [azd config list-alpha](#azd-list-alpha): List all alpha stage features
 * [azd config reset](#azd-config-reset): Resets configuration to default
 * [azd config set](#azd-config-set): Sets a configuration
 * [azd config unset](#azd-config-unset): Unsets a configuration
@@ -182,6 +183,38 @@ azd config list [flags]
 * [azd config](#azd-config): Manage the Azure Developer CLI user configuration.
 * [Back to top](#azd)
 
+## azd config list-alpha
+
+Lists all alpha stage features.
+
+### Synopsis
+
+Lists all alpha stage features.
+
+```azdeveloper
+azd config list-alpha [flags]
+```
+
+### Options
+
+```azdeveloper
+  -h, --help            Gets help for list.
+  -o, --output string   The output format (the supported formats are json). (default "json")
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd config](#azd-config): Manage the Azure Developer CLI user configuration.
+* [Back to top](#azd)
+
 ## azd config reset
 
 Resets configuration to default
@@ -225,7 +258,7 @@ Sets a configuration
 
 ### Synopsis
 
-Sets a configuration in the configuration path.
+Sets a configuration in the configuration path, such as enabling default values or enabling **alpha** features.
 
 The default value of the config directory is:
 * `$HOME/.azd` on Linux and macOS
@@ -242,6 +275,9 @@ azd config set <path> <value> [flags]
 ```azdeveloper
 azd config set defaults.subscription <yourSubscriptionID>
 azd config set defaults.location eastus
+
+azd config set alpha.<feature_name> on
+azd config set alpha.all on
 ```
 
 ### Options
@@ -269,7 +305,7 @@ Unsets a configuration
 
 ### Synopsis
 
-Removes a configuration in the configuration path.
+Removes a configuration in the configuration path, such as deleting default values or disabling **alpha** features.
 
 The default value of the config directory is:
 * `$HOME/.azd` on Linux and macOS
@@ -285,6 +321,9 @@ azd config unset <path> [flags]
 
 ```azdeveloper
 azd config unset defaults.location
+
+azd config unset alpha.<feature_name> on
+azd config unset alpha.all on
 ```
 
 ### Options
