@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image.
+Add a *Dockerfile* to instruct Docker how to build the image. Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -59,10 +59,10 @@ COPY . .
 
 EXPOSE 50500
 
-ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:50500", "app:app"]
+ENTRYPOINT ["gunicorn", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
+50505 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -79,12 +79,12 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 3100
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-headers"]
+CMD ["gunicorn", "main:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `uvicorn`, and add it if necessary.
+3100 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
 
 ---
 
@@ -96,6 +96,48 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 .venv/
 ```
 
+## Configure gunicorn
+
+[Gunicorn][24] forwards requests to the Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory as the *Dockerfile*, you don't need to specify its location in the command in the *Dockerfile*. For more information about specifying the the configuration file in the *DockerFile* `ENTRYPOINT` instructions, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+
+### [Flask](#tab/web-app-flask)
+
+```text
+# Gunicorn configuration file
+import multiprocessing
+
+max_requests = 1000
+max_requests_jitter = 50
+
+log_file = "-"
+
+bind = "0.0.0.0:50500"
+
+workers = (multiprocessing.cpu_count() * 2) + 1
+threads = workers
+
+timeout = 120
+```
+
+### [FastAPI](#tab/web-app-fastapi)
+
+```text
+# Gunicorn configuration file
+import multiprocessing
+
+max_requests = 1000
+max_requests_jitter = 50
+
+log_file = "-"
+
+bind = "0.0.0.0:3100"
+
+worker_class = "uvicorn.workers.UvicornWorker"
+workers = (multiprocessing.cpu_count() * 2) + 1
+```
+
+---
+
 ## Build and run the image locally
 
 Build the image locally.
@@ -106,7 +148,7 @@ Build the image locally.
 docker build --tag flask-demo .
 ```
 
-Open the [http://localhost:50500](http://localhost:50500) URL in your browser to see the web app running locally.
+Open the [http://localhost:5000](http://localhost:5000) URL in your browser to see the web app running locally.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -129,7 +171,7 @@ docker run --detach --publish 5000:50500 flask-demo
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
-docker run --detach --publish 80:80 --name fastapi-demo
+docker run --detach --publish 3100:3100 fastapi-demo
 ```
 
 ---
@@ -203,3 +245,6 @@ For more information, see the following resources:
 [19]: /cli/azure/containerapp#az_containerapp_update
 [20]: /cli/azure/group#az-group-delete
 [21]: https://docs.docker.com/engine/reference/run/
+[22]: https://docs.gunicorn.org/en/stable/settings.html#config-file
+[23]: https://docs.gunicorn.org/en/stable/configure.html#configuration-file
+[24]: https://docs.gunicorn.org/en/stable/index.html
