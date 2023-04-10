@@ -176,7 +176,7 @@ docker run --detach --publish 3100:3100 fastapi-demo
 
 ---
 
-The `--detach` option runs the container in the background. The `--publish` option maps the container port to a port on the host. The host port (external) if first in the pair, and the container port (internal) is second. For more information, see [Docker run reference][21].
+The `--detach` option runs the container in the background. The `--publish` option maps the container port to a port on the host. The host port (external) is first in the pair, and the container port (internal) is second. For more information, see [Docker run reference][21].
 
 ## Deploy to web app to Azure
 
