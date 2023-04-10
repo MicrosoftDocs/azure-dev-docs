@@ -62,7 +62,7 @@ EXPOSE 50500
 ENTRYPOINT ["gunicorn", "app:app"]
 ```
 
-50505 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
+50505 is used for the container port (internal) in this example.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -84,7 +84,7 @@ EXPOSE 3100
 CMD ["gunicorn", "main:app"]
 ```
 
-3100 is used for the container port (internal) number to avoid conflicts with other web apps running on the same host. You can use any free port number you want.
+3100 is used for the container port (internal) in this tutorial.
 
 ---
 
