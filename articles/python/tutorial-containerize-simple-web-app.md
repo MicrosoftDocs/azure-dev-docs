@@ -98,7 +98,7 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-[Gunicorn][24] forwards requests to the Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory as the *Dockerfile*, you don't need to specify its location in the command in the *Dockerfile*. For more information about specifying the the configuration file in the *DockerFile* `ENTRYPOINT` instructions, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction in the *Dockerfile*. For more information about specifying the the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
 
 ### [Flask](#tab/web-app-flask)
 
