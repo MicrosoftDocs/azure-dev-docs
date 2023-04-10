@@ -57,12 +57,12 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 50500
 
-ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:50500", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. In this tutorial, 50505 is used for the port number to avoid conflicts with other web apps running on the same host. You can use any port number you want.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -106,7 +106,7 @@ Build the image locally.
 docker build --tag flask-demo .
 ```
 
-Open the [http://localhost:5000](http://localhost:5000) URL in your browser to see the web app running locally.
+Open the [http://localhost:50500](http://localhost:50500) URL in your browser to see the web app running locally.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -123,7 +123,7 @@ Run the image locally in a Docker container.
 ### [Flask](#tab/web-app-flask)
 
 ```bash
-docker run --detach --publish 5000:5000 flask-demo
+docker run --detach --publish 50500:50500 flask-demo
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
@@ -143,7 +143,7 @@ To deploy the Docker image to Azure Container Apps, use the [az containerapp up]
 ### [Flask](#tab/web-app-flask)
 
 ```azurecli
-az containerapp up -g web-flask-aca-rg -n web-flask-aca-app --ingress external --target-port 5000 --source .
+az containerapp up -g web-flask-aca-rg -n web-flask-aca-app --ingress external --target-port 50500 --source .
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
@@ -160,7 +160,7 @@ When deployment completes, you have a resource group with the following resource
 
 If you need to make code updates, run the previous `az containerapp up` command again. The command will rebuild the image and redeploy it to Azure Container Apps. Running the command again will take in account that the resource group and app already exist, and will update just the container app.
 
-In more complex update/redeploy scenarios, you can use the [az acr build][18] and [az containerapp update][19] commands together to update container app.
+In more complex update/redeploy scenarios, you can use the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
 
 ## Clean up
 
