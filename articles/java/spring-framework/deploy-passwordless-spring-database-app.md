@@ -119,7 +119,7 @@ Use the following steps to provision an Azure Database instance.
 1. Create an Azure Database for PostgreSQL server by using the following command:
 
    ```azurecli
-   az postgres flexible-server db create \
+   az postgres flexible-server create \
        --resource-group $AZ_RESOURCE_GROUP \
        --name $AZ_DATABASE_SERVER_NAME \
        --location $AZ_LOCATION \
