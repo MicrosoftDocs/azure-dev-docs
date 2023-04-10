@@ -158,27 +158,9 @@ When deployment completes, you have a resource group with the following resource
 
 ## Make updates and redeploy
 
-If you need to make code updates, you can rebuild the image and redeploy it to Azure Container Apps with the [az acr build][18] and [az containerapp update][19] commands.
+If you need to make code updates, run the previous `az containerapp up` command again. The command will rebuild the image and redeploy it to Azure Container Apps. Running the command again will take in account that the resource group and app already exist, and will update just the container app.
 
-You need the name of the Azure Container Registry. You can find that from the from the output of the `az containerapp up` command. You can also find it in the [Azure portal][15] or running with the [az resource list][16] command. For example, `az resource list  --resource-group <resource-group-name>`.
-
-Fill in the `<registry-name>` placeholder in three spots in the following commands with the name of your Azure Container Registry.
-
-### [Flask](#tab/web-app-flask)
-
-```azurecli
-az acr build --platform linux/amd64 --image <registry-name>.azurecr.io/web-flask-aca-app:latest --registry <registry-name> .
-az containerapp update --name web-flask-aca-app --resource-group web-flask-aca-rg --image <registry-name>.azurecr.io/web-flask-aca-app:latest 
-```
-
-### [FastAPI](#tab/web-app-fastapi)
-
-```azurecli
-az acr build --platform linux/amd64 --image <registry-name>.azurecr.io/web-fastapi-aca-app:latest --registry <registry-name> .
-az containerapp update --name web-fastapi-aca-app --resource-group web-fastapi-aca-rg --image <registry-name>.azurecr.io/web-fastapi-aca-app:latest 
-```
-
----
+In more complex update/redeploy scenarios, you can use the [az acr build][18] and [az containerapp update][19] commands together to update container app.
 
 ## Clean up
 
