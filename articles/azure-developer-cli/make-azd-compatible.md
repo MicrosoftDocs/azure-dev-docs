@@ -66,7 +66,7 @@ Learn more about:
 
 ## Initialize a new environment
 
-1. Run the following command to initialize the project. 
+1. Run the following command to initialize the project:
 
     ```azdeveloper
     azd init
@@ -206,7 +206,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
   
     In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
-1. Run the following command to provision the Azure resources.
+1. Run the following command to provision the Azure resources:
 
     ```azdeveloper
     azd provision
