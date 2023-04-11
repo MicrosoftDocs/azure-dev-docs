@@ -8,8 +8,6 @@ ms.date: 4/03/2023
 ms.topic: conceptual
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
-zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: azd-languages-set
 ---
 
 # Azure Developer CLI feature versioning and release strategy
