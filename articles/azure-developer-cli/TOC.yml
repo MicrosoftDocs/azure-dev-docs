@@ -27,7 +27,7 @@
       href: make-azd-compatible.md
   - name: Troubleshoot
     href: troubleshoot.md
-  - name: Feature and release versioning
+  - name: Feature versioning and release strategy
     href: feature-versioning.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
