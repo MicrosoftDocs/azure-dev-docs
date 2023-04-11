@@ -21,10 +21,9 @@ The new `azd` builds upon the experience and foundations of the [Azure CLI](#azu
 
 Once you've [installed Azure Developer CLI](./install-azd.md), the following steps are the typical workflow to using `azd`:
 
-:::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
-
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
-1. Get the code and deploy the template by [running `azd up`](./get-started.md).
+1. Get the code and initialize the project by [running `azd init`](./get-started.md)
+1. Deploy the template by [running `azd up`](./get-started.md).
 1. Customize the app to meet your needs.
 
 ## Introductory video

@@ -18,7 +18,7 @@ Start by selecting your development environment. For more information about the 
 
 ## [Local install](#tab/localinstall)
 
-[!INCLUDE [azd-install-bare-metal](includes/azd-install-bare-metal.md)]
+[!INCLUDE [azd-install-local](includes/azd-install-local.md)]
 
 ## [DevContainer](#tab/devcontainer)
 
