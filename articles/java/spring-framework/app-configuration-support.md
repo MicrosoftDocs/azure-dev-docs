@@ -208,7 +208,7 @@ If an error resulting in a `RuntimeException` happens during a refresh check or 
 
 ## Authentication
 
-The client library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). Authentication can be done through configuration for connection strings and managed identity. All other forms of Identity can be done by using the `TokenCredentialProvider`.
+The client library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). Authentication can be done through configuration for connection strings and managed identity. All other forms of identity can be done by using the `TokenCredentialProvider`.
 
 ### Connection string
 
@@ -218,7 +218,7 @@ Authentication through connection string is the simplest form to set up. You can
 az appconfig credential list --name <name-of-your-store>
 ```
 
-The connection string can be set to the property `spring.cloud.azure.appconfiguration.stores[0].connection-string`. It's highly recommended that the connection string in the local configuration file should be a placeholder value, which should map to an environment variable to avoid having it added to source control.
+The connection string can then be set to the property `spring.cloud.azure.appconfiguration.stores[0].connection-string`. It's highly recommended that the connection string in the local configuration file should be a placeholder value, which should map to an environment variable to avoid having it added to source control.
 
 ### Spring Cloud Azure configuration
 
@@ -237,18 +237,18 @@ When only the endpoint is set, the client library uses the [`DefaultAzureCredent
 * Azure CLI credential
 * Azure PowerShell credential
 
-You need to assign an identity such as system assigned identity to read configurations.
+You need to assign an identity such as a system assigned identity to read configurations.
 
 ```azurecli
 az role assignment  create --role "App Configuration Data Reader" --assignee <your client id> --scope /subscriptions/<your subscription>/resourceGroups/<your stores resource group>/providers/Microsoft.AppConfiguration/configurationStores/<name of your Configuration Store>
 ```
 
 > [!NOTE]
-> Only 1 authentication method can be defined per endpoint; connection string, user assigned identity, token credential. If you need to mix and match you can have use `ConfigurationClientCustomizer` to modify stores that use a different method.
+> Only 1 authentication method can be defined per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match you can have use `ConfigurationClientCustomizer` to modify stores that use a different method.
 
 ## Geo-replication
 
-The library supports the Geo-replication feature of Azure App Configuration. This feature allows you to replicate your data to additional location(s). This feature is useful for high availability and disaster recovery.
+The library supports the geo-replication feature of Azure App Configuration. This feature allows you to replicate your data to additional location(s). This feature is useful for high availability and disaster recovery.
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
@@ -266,7 +266,7 @@ To create a replica of your configuration store, you can use the Azure CLI or th
 az appconfig replica create --location --name --store-name [--resource-group]
 ```
 
-### Using the Configuration Store Replica
+### Using the configuration store replica
 
 Once you've created a replica, you can use it in your application. Like the origin store, you can connect to your replica using Azure Active Directory (Azure AD) or a connection string.
 
