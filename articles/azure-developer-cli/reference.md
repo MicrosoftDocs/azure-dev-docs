@@ -101,7 +101,7 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 
 * [azd config get](#azd-config-get): Gets a configuration
 * [azd config list](#azd-config-list): Lists all configuration values
-* [azd config list-alpha](#azd-list-alpha): List all alpha stage features
+* [azd config list-alpha](#azd-config-list-alpha): List all alpha stage features
 * [azd config reset](#azd-config-reset): Resets configuration to default
 * [azd config set](#azd-config-set): Sets a configuration
 * [azd config unset](#azd-config-unset): Unsets a configuration
