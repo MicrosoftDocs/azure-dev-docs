@@ -198,11 +198,16 @@ az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress extern
 
 ---
 
-When deployment completes, you have a resource group with the following resources inside of it: an Azure Container Registry, a Container Apps Environment, a Container App running the web app image, and a Log Analytics workspace.
+When deployment completes, you have a resource group with the following resources inside of it:
+
+* An Azure Container Registry
+* A Container Apps Environment
+* A Container App running the web app image
+* A Log Analytics workspace
 
 ## Make updates and redeploy
 
-If you need to make code updates, run the previous `az containerapp up` command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
+After you make code updates, you can run the previous `az containerapp up` command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
 
 In more complex update scenarios, you can redeploy with the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
 
