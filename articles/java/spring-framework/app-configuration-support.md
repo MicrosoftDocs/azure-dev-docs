@@ -244,7 +244,7 @@ az role assignment  create --role "App Configuration Data Reader" --assignee <yo
 ```
 
 > [!NOTE]
-> Only 1 authentication method can be defined per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match you can have use `ConfigurationClientCustomizer` to modify stores that use a different method.
+> Only 1 authentication method can be defined per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match you can use `ConfigurationClientCustomizer` to modify stores that use a different method.
 
 ## Geo-replication
 
