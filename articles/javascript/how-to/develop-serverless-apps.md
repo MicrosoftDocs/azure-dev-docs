@@ -51,7 +51,7 @@ The following common settings should be configured to keep your Azure Function s
 
 ## A simple JavaScript function for HTTP requests
 
-A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. image.png
+A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. 
 
 #### [v4 (preview)](#tab/v4)
 
