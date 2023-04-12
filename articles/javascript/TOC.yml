@@ -149,10 +149,8 @@
     - name: Add easy authentication
       href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
     - name: Use Microsoft Identity provider (MSAL.js)
-      href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md             
-  - name: Container web apps
-    items:
-    - name: "Express.js with VS Code"
+      href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+    - name: Express.js in container
       items:
         - name: Introduction and prerequisites
           href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
@@ -169,7 +167,15 @@
         - name: Stream logs
           href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
         - name: Clean up resources
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md                   
+  - name: Container Apps
+    items:
+    - name: Backend microservice app
+      href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote
+    - name: Frontend microservice app
+      href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote
+    - name: Microservice with DAPR
+      href: /azure/container-apps/microservices-dapr?tabs=bash
     - name: Create container registry
       href: how-to/with-azure-cli/create-container-registry-resource.md
     - name: Create container from local project
