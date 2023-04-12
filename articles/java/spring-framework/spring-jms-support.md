@@ -82,53 +82,6 @@ spring:
 > [!NOTE]
 > The default enabled `ConnectionFactory` is the `CachingConnectionFactory`, which adds `Session` caching as well as `MessageProducer` caching. If you want to activate the connection pooling feature of `JmsPoolConnectionFactory`, set `spring.jms.servicebus.pool.enabled` to `true`. You can find other pooling configuration options (properties with prefix `spring.jms.servicebus.pool.`) in the [Configuration](#configuration) section.
 
-### Optional Service Bus functionality
-
-You can use a customized `MessageConverter` bean to convert between Java objects and JMS messages.
-
-#### Set the content-type of messages
-
-The following code example sets the `BytesMessage` content-type to `application/json`. For more information, see [Messages, payloads, and serialization](/azure/service-bus-messaging/service-bus-messages-payloads).
-
-```java
-import com.fasterxml.jackson.databind.ObjectWriter;
-import org.apache.qpid.jms.message.JmsBytesMessage;
-import org.apache.qpid.jms.provider.amqp.message.AmqpJmsMessageFacade;
-import org.apache.qpid.proton.amqp.Symbol;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
-import org.springframework.stereotype.Component;
-
-import javax.jms.BytesMessage;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import java.io.IOException;
-
-@Component
-public class CustomMessageConverter extends MappingJackson2MessageConverter {
-
-    private static final String TYPE_ID_PROPERTY = "_type";
-    private static final Symbol CONTENT_TYPE = Symbol.valueOf("application/json");
-
-    public CustomMessageConverter() {
-        this.setTargetType(MessageType.BYTES);
-        this.setTypeIdPropertyName(TYPE_ID_PROPERTY);
-    }
-
-    @Override
-    protected BytesMessage mapToBytesMessage(Object object, Session session, ObjectWriter objectWriter)
-        throws JMSException, IOException {
-        final BytesMessage bytesMessage = super.mapToBytesMessage(object, session, objectWriter);
-        JmsBytesMessage jmsBytesMessage = (JmsBytesMessage) bytesMessage;
-        AmqpJmsMessageFacade facade = (AmqpJmsMessageFacade) jmsBytesMessage.getFacade();
-        facade.setContentType(CONTENT_TYPE);
-        return jmsBytesMessage;
-    }
-}
-```
-
-For more information about `MessageConverter`, see the official [Spring JMS guide](https://spring.io/guides/gs/messaging-jms/).
-
 ## Samples
 
 For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

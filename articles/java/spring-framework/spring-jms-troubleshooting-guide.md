@@ -58,59 +58,59 @@ The idle-timeout properties configure the [idle timeout](http://docs.oasis-open.
 
 > Connections are subject to an idle timeout threshold. The timeout is triggered by a local peer when no frames are received after a threshold value is exceeded. The idle timeout is measured in milliseconds, and starts from the time the last frame is received. If the threshold is exceeded, then a peer SHOULD try to gracefully close the connection using a close frame with an error explaining why. If the remote peer does not respond gracefully within a threshold to this, then the peer MAY close the TCP socket.
 
-For a JMS client, when you configure this property, you control on the server side how long it expects the server to send an empty frame to keep a connection alive when no messages are delivered. This property controls the remote peer's behavior, and each peer can have its own, isolated value.
+For a JMS client, when you configure this property, you control on the server side how long you expect the server to send an empty frame to keep a connection alive when no messages are delivered. This property controls the remote peer's behavior, and each peer can have its own, isolated value.
 
 ## JmsTemplate issues
 
 ### Scheduled messages
 
-Azure Service Bus supports delayed message processing. For more information see the [Scheduled messages](/azure/service-bus-messaging/message-sequencing#scheduled-messages) section of [Message sequencing and timestamps](/azure/service-bus-messaging/message-sequencing). For JMS, to schedule a message, you can set the `ScheduledEnqueueTimeUtc` property by using the message annotation header `x-opt-scheduled-enqueue-time`.
+Azure Service Bus supports delayed message processing. For more information, see the [Scheduled messages](/azure/service-bus-messaging/message-sequencing#scheduled-messages) section of [Message sequencing and timestamps](/azure/service-bus-messaging/message-sequencing). For JMS, to schedule a message, set the `ScheduledEnqueueTimeUtc` property by using the message annotation header `x-opt-scheduled-enqueue-time`.
 
 ## JmsListener issues
 
-### Too many requests sending to Service Bus even there are no messages in the server
+### Too many requests are sent to Service Bus even though there are no messages in the server
 
 #### Problem description
 
-When using the `@JmsListener` API, in some cases you can see in the Azure portal that there are ongoing values for incoming requests sending to their queue or topics even if there are no messages in the server to receive.
+When using the `@JmsListener` API, in some cases you can see in the Azure portal that there are ongoing values for incoming requests sent to their queue or topics even if there are no messages in the server to receive.
 
 #### Cause analysis
 
-`@JmsListener` is essentially a [polling listener](https://github.com    /spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45), which is built for repeated polling attempts.
+`@JmsListener` is a [polling listener](https://github.com/spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45), which is built for repeated polling attempts.
 
-The listener sits on an ongoing loop of polling, each invoking the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134) to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties including receiveTimeout, prefetchSize and `receiveLocalOnly` or `receiveNoWaitLocalOnly`(the latter one used only when the receive timeout is set as negative).
+The listener sits on an ongoing polling loop. Each loop calls the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134) method to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties, including `receiveTimeout`, `prefetchSize`, and `receiveLocalOnly` or `receiveNoWaitLocalOnly`. The `receiveNoWaitLocalOnly` method is used only when you set `receiveTimeout` to a negative value.
 
-So when this happens to your application.
+When this problem happens to your application, check the following configuration settings:
 
-- check your prefetch policy is 0, which is also the default option. 0-prefetch means a pull consumer that for each poll, it sends pull requests to Service Bus.
+- Determine whether your prefetch policy is 0, which is also the default option. 0-prefetch means a pull consumer that sends pull requests to the Service Bus for each poll.
 
-- if you have configured non-zero prefetch, check your `receiveLocalOnly` or `receiveNoWaitLocalOnly` is false, which is the default option. False value here still results in sending pull requests to the server as it doesn't only poll the local consumer.
+- If you've configured non-zero prefetch, determine whether your `receiveLocalOnly` or `receiveNoWaitLocalOnly` property is set to `false`, which is the default option. A `false` value here still results in sending pull requests to the server because it doesn't only poll the local consumer.
 
-- the configuration of receiveTimeout decides how long it blocks for each pull request, so it can affects the frequency of pull requests sending to the server. The default value is 1 second.
+- The `receiveTimeout` configuration determines how long it blocks for each pull request, so it can affect the frequency of pull requests sending to the server. The default value is 1 second.
 
-For complete analysis, see the [issue](https://github.com/Azure/azure-sdk-for-java/issues/30192#issuecomment-1362458734).
+For a complete analysis, see the [discussion in the GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues/30192#issuecomment-1362458734).
 
 #### Solutions
 
 The following sections describe two solutions for dealing with this issue
 
-##### Solution 1. Change to push consumer and local-check only.
+##### Solution 1. Change to push consumer and local-check only
 
-By changing the mode as `push`, the consumer is now an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576) consumer that it doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As Service Bus(sender) pushes messages, the sender’s link-credit decreases and when the sender’s link-credit falls below a threshold, the client(receiver) sends a request to the server to increase the sender’s link-credit back to the desired target amount.
+By changing the mode to `push`, the consumer becomes an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576) consumer that doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As the Service Bus (sender) pushes messages, the sender’s link-credit decreases, and when the sender’s link-credit falls below a threshold, the client (receiver) sends a request to the server to increase the sender’s link-credit back to the desired target amount.
 
-To accomplish it, users can add the following configuration:
+To accomplish this solution, add the following configuration:
 
-First, configure the `prefetch` number as non-zero, which configures the consumer as non-pull, there are several prefetch properties each controls different Service Bus entities, users should choose one(s) that applies with their cases:
+First, configure the `prefetch` number as non-zero, which configures the consumer as non-pull. The following table shows several prefetch properties, each of which controls different Service Bus entities. Set the properties that apply to your case.
 
-```properties
-spring.jms.servicebus.prefetch.all=<Fallback value for prefetch option in this Service Bus namespace>
-spring.jms.servicebus.prefetch.queue-prefetch=<The number of prefetch for queue.>
-spring.jms.servicebus.prefetch.queue-browser-prefetch=<The number of prefetch for queue browser.>
-spring.jms.servicebus.prefetch.topic-prefetch=<The number of prefetch for topic.>
-spring.jms.servicebus.prefetch.durable-topic-prefetch=<The number of prefetch for durable topic.>
-```
+| Property                                                | Description                                                              |
+|---------------------------------------------------------|--------------------------------------------------------------------------|
+| `spring.jms.servicebus.prefetch.all`                    | The fallback value for the prefetch option in this Service Bus namespace |
+| `spring.jms.servicebus.prefetch.queue-prefetch`         | The prefetch number for the queue.                                       |
+| `spring.jms.servicebus.prefetch.queue-browser-prefetch` | The prefetch number for the queue browser.                               |
+| `spring.jms.servicebus.prefetch.topic-prefetch`         | The prefetch number for the topic.                                       |
+| `spring.jms.servicebus.prefetch.durable-topic-prefetch` | The prefetch number for the durable topic.                               |
 
-Second, configure the `non-local-check` by adding a configuration class of the factory customizer:
+Second, configure the `non-local-check` by adding a configuration class for the factory customizer, as shown in the following example:
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -128,11 +128,9 @@ public class CustomJmsConfiguration {
 }
 ```
 
-The value of prefetch can affect how fast messages are dispatched to the consumer's local buffer. Users should adjust the value according to their consuming performance and message volumes. Suitable value can speed up the consuming process, while a too large prefetch can cause the locally buffered messages are outdated and be dispatched again. For low message volumes, where each message takes a long time to process, the prefetch should be set to 1. This ensures that a consumer is only processing one message at a time.
+The prefetch value can affect how fast messages are dispatched to the consumer's local buffer. You should adjust the value according to your consuming performance and message volumes. A suitable value can speed up the consuming process, while a value that's too large can cause the locally buffered messages to become outdated and dispatched again. For low message volumes, where each message takes a long time to process, set the prefetch to 1. This value ensures that a consumer is only processing one message at a time.
 
-For more details about prefetch, see [prefetch issue section](https://dev.azure.com/SpringOnAzure/Spring%20on%20Azure/_wiki/wikis/spring-integration-private.wiki/425/Troubleshoot-Spring-Cloud-Azure-Service-Bus-JMS-Starter-issues?anchor=jmstemplate-issues#prefetch-issue).
-
-##### Solution 2. Increase the receive timeout to decrease the pull frequency.
+##### Solution 2. Increase the receive timeout to decrease the pull frequency
 
 The receive timeout property decides the strategy of how long the consumer blocks there to wait for a pull result. So, by extending the timeout, it can reduce the pulling frequency then reduce the number of pull requests when users choose pull mode still. And in an extreme case, users can set the strategy to be infinitely waiting until a message arrives, which means the consumer only pulls after consuming a message, so when there are no messages in the server, it will block for waiting.
 
@@ -179,25 +177,25 @@ For more details, check the doc [Why is Prefetch not the default option](/azure/
 
 Configuration of the prefetch should be careful and fits with the consuming capability. The maximum prefetch count and the lock duration configured on the queue or subscription need to be balanced such that the lock timeout at least exceeds the cumulative expected message processing time for the maximum size of the prefetch buffer, plus one message. At the same time, the lock timeout shouldn't be so long that messages can exceed their maximum time to live when they're accidentally dropped, and so requiring their lock to expire before being redelivered.
 
-To configure the prefetch attribute(default as zero), you can use one(s) of the below properties:
+To configure the prefetch attribute(default as zero), use one(s) of the below properties:
 
-```properties
-spring.jms.servicebus.prefetch.all=<Fallback value for prefetch option in this Service Bus namespace.>
-spring.jms.servicebus.prefetch.queue-prefetch=<The number of prefetch for queue.>
-spring.jms.servicebus.prefetch.queue-browser-prefetch=<The number of prefetch for queue browser.>
-spring.jms.servicebus.prefetch.topic-prefetch=<The number of prefetch for topic.>
-spring.jms.servicebus.prefetch.durable-topic-prefetch=<The number of prefetch for durable topic.>
-```
+| Property                                                | Description                                                               |
+|---------------------------------------------------------|---------------------------------------------------------------------------|
+| `spring.jms.servicebus.prefetch.all`                    | The fallback value for the prefetch option in this Service Bus namespace. |
+| `spring.jms.servicebus.prefetch.queue-prefetch`         | The prefetch number for the queue.                                        |
+| `spring.jms.servicebus.prefetch.queue-browser-prefetch` | The prefetch number for the queue browser.                                |
+| `spring.jms.servicebus.prefetch.topic-prefetch`         | The prefetch number for the topic.                                        |
+| `spring.jms.servicebus.prefetch.durable-topic-prefetch` | The prefetch number for the durable topic.                                |
 
 ### How to perform AMQP disposition to Service Bus?
 
 JMS supports five AMQP disposition types when acknowledging messages to the messaging broker, which are `ACCEPTED`, `REJECTED`, `RELEASED`, `MODIFIED_FAILED` and `MODIFIED_FAILED_UNDELIVERABLE`. The mapping relationship between AMQP disposition and Service Bus operations can be referred to [here](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#amqp-disposition-and-service-bus-operation-mapping).
 
-So, to manually complete/abandon/dead-letter/defer/release a message in `JmsListener`, you can refer to the following steps:
+So, to manually complete/abandon/dead-letter/defer/release a message in `JmsListener`, use the following steps:
 
 1. Disable session-transacted and use CLIENT ack mode.
 
-   To accomplish this, you can choose either declaring your own [JmsListenerContainerFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/config/JmsListenerContainerFactory.html) bean and then set the properties or post process the JmsListenerContainerFactory defined in the [starter](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsContainerConfiguration.java#L47) . Here we take the example of declaring another bean:
+   To accomplish this, either declare your own [JmsListenerContainerFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/config/JmsListenerContainerFactory.html) bean and then set the properties or post process the `JmsListenerContainerFactory` defined in the [starter](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsContainerConfiguration.java#L47). Here we take the example of declaring another bean:
 
    ```java
    @Configuration(proxyBeanMethods = false)
