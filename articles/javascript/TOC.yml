@@ -49,6 +49,20 @@
               href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md                                    
             - name: 8. Clean up resources
               href: how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md                                    
+        - name: Add custom domain
+          href: /azure/static-web-apps/custom-domain
+        - name: Connect to database
+          items: 
+          - name: with Data API builder
+            href: /azure/static-web-apps/database-overview
+          - name: Azure Cosmos DB
+            href: /azure/static-web-apps/database-azure-cosmos-db
+          - name: Azure SQL
+            href: /azure/static-web-apps/database-azure-sql
+          - name: Azure Database for MySQL
+            href: /azure/static-web-apps/database-mysql
+          - name: Azure Database for PostgreSQL
+            href: /azure/static-web-apps/database-postgresql
         - name: Add search to website
           href: /azure/search/tutorial-javascript-overview
         - name: "Upload image to Storage"
