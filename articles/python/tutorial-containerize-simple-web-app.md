@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image. 
+Add a *Dockerfile* to instruct Docker how to build the image. In this tutorial, you use [Gunicorn][24] a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT command instructs Gunicorn to handle requests for the app object.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -98,7 +98,7 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-[Gunicorn][24] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
 
 ### [Flask](#tab/web-app-flask)
 
@@ -187,13 +187,17 @@ To deploy the Docker image to Azure Container Apps, use the [az containerapp up]
 ### [Flask](#tab/web-app-flask)
 
 ```azurecli
-az containerapp up -g web-flask-aca-rg -n web-flask-aca-app --ingress external --target-port 50500 --source .
+az containerapp up \
+  --resource-group web-flask-aca-rg --name web-flask-aca-app \
+  --ingress external --target-port 50500 --source .
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```azurecli
-az containerapp up -g web-fastapi-aca-rg -n web-fastapi-aca-app --ingress external --target-port 80 --source .
+az containerapp up \
+  --resource-group web-fastapi-aca-rg --name web-fastapi-aca-app \ 
+  --ingress external --target-port 80 --source .
 ```
 
 ---
