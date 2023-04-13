@@ -106,16 +106,20 @@
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
       items:
-        - name: 1. Overview
-          href: tutorial-containerize-deploy-python-web-app-azure-01.md
-        - name: 2. Build and test container locally
-          href: tutorial-containerize-deploy-python-web-app-azure-02.md
-        - name: 3. Build container in Azure
-          href: tutorial-containerize-deploy-python-web-app-azure-03.md
-        - name: 4. Deploy container App Service
-          href: tutorial-containerize-deploy-python-web-app-azure-04.md
-        - name: 5. Clean up resources
-          href: tutorial-containerize-deploy-python-web-app-azure-05.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-python-web-app-azure.md
+        - name: Web App + MongoDB
+          items:
+            - name: 1. Overview
+              href: tutorial-containerize-deploy-python-web-app-azure-01.md
+            - name: 2. Build and test container locally
+              href: tutorial-containerize-deploy-python-web-app-azure-02.md
+            - name: 3. Build container in Azure
+              href: tutorial-containerize-deploy-python-web-app-azure-03.md
+            - name: 4. Deploy container App Service
+              href: tutorial-containerize-deploy-python-web-app-azure-04.md
+            - name: 5. Clean up resources
+              href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy to Container Apps
       items:
         - name: Overview
