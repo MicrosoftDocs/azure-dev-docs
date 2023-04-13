@@ -52,7 +52,7 @@ In Maven projects, the Spring Cloud version is typically set in the `spring-clou
 ```xml
   <properties>
     <java.version>1.8</java.version>
-    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+    <spring-cloud.version>2021.0.6/spring-cloud.version>
   </properties>
 ```
 
@@ -62,24 +62,24 @@ In Gradle projects, the Spring Cloud version is typically set in the "extra prop
 
 ```gradle
 ext {
-  set('springCloudVersion', "Hoxton.SR3")
+  set('springCloudVersion', "2021.0.6")
 }
 ```
 
-You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
+You need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
 
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-apps.md](includes/identify-logs-metrics-apm-azure-spring-apps.md)]
 
 #### Identify Zipkin dependencies
 
-Determine whether your application has explicit dependencies on Zipkin. Look for dependencies on the `io.zipkin.java` group in your Maven or Gradle dependencies.
+Determine whether your application has dependencies on Zipkin. Update the application to use Application Insights instead. For information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-apps/how-to-application-insights) and the [Post-migration](#post-migration) section.
 
 ### Inventory external resources
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Cloud applications, you can typically find the configuration for such resources in one of the following locations:
 
 * In the *src/main/directory* folder, in a file typically called *application.properties* or *application.yml*.
-* In the Spring Cloud Config repository identified in the previous step.
+* In the Spring Cloud Config repository that you identified in the previous step.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
@@ -93,7 +93,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 #### Identity providers
 
-Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
+Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how you can configure identity providers, see the following resources:
 
 * For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://spring.io/projects/spring-cloud-security).
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
@@ -140,7 +140,7 @@ eureka:
       defaultZone: http://myusername:mysecretpassword@localhost:8761/eureka/
 ```
 
-If a setting like this appears in your application configuration, remove it. Azure Spring Apps will automatically inject the connection information of its configuration server.
+If a setting like this appears in your application configuration, remove it. Azure Spring Apps automatically injects the connection information of its configuration server.
 
 ### Create an Azure Spring Apps instance and apps
 
@@ -153,7 +153,7 @@ Provision an Azure Spring Apps instance in your Azure subscription. Then, provis
 Configure the configuration server in your Azure Spring Apps instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-apps/how-to-config-server).
 
 > [!NOTE]
-> If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
+> If your current Spring Cloud Config repository is on the local file system or on premises, you first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps.md)]
 
@@ -169,7 +169,7 @@ In Enterprise tier, Application Configuration Service for VMware Tanzu® is prov
 
 #### Application Configuration Service for Tanzu
 
-[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service)
 
@@ -180,20 +180,20 @@ To use Application Configuration Service for Tanzu, do the following steps for e
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
 
-1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-apps/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service).
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app uses. For more information, see the [Pattern](/azure/spring-apps/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service).
 
    Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
 
    ```azurecli
-      az spring app deploy \
-          --name <app-name> \
-          --artifact-path <path-to-your-JAR-file> \
-          --config-file-pattern <config-file-pattern>
+   az spring app deploy \
+       --name <app-name> \
+       --artifact-path <path-to-your-JAR-file> \
+       --config-file-pattern <config-file-pattern>
    ```
 
 Application Configuration Service for Tanzu runs on Kubernetes. To help enable a transparent local development experience, we provide the following suggestions.
 
-* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it will clone the Git repository and provide the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
+* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it clones the Git repository and provides the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
 
 * If you don't have a Git repository or you don't want to set up Config Server locally, you can use the configuration file directly in your project. We recommend that you use a profile to isolate the configuration file so that it's used only in your development environment. For example, use `dev` as the profile. Then, you can create an *application-dev.yml* file in the *src/main/resource* folder to store the configuration. To get your app to use this configuration, start the app locally with `--spring.profiles.active=dev`.
 
@@ -214,13 +214,17 @@ You can inject secrets directly into applications through Spring by using the Az
 
 Azure Spring Apps doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
 
-### Remove application performance management (APM) integrations
+### Configure application performance management (APM) integrations
 
-Eliminate any integrations with APM tools/agents. For information on configuring performance management with Azure Monitor, see the [Post-migration](#post-migration) section.
+Azure Spring Apps offers the following APM integrations. Follow the links to enable the APM you need:
 
-### Replace explicit Zipkin dependencies with Spring Cloud Starters
+* [Application Insights Java In-Process Agent](/azure/spring-apps/how-to-application-insights)
+* [Elastic APM Java Agent](/azure/spring-apps/how-to-elastic-apm-java-agent-monitor)
+* [Dynatrace Java OneAgent](/azure/spring-apps/how-to-dynatrace-one-agent-monitor)
+* [AppDynamics Java Agent](/azure/spring-apps/how-to-appdynamics-java-agent-monitor)
+* [New Relic Java agent](/azure/spring-apps/how-to-new-relic-monitor)
 
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters. For information on Azure Application Insights, see the [Post-migration](#post-migration) section.
+If your application isn't using a supported APM, consider using Application Insights instead. Azure Spring Apps offers deep integration with Application Insights for performance management and real-time response to aberrations.
 
 ### Disable metrics clients and endpoints in your applications
 

@@ -37,6 +37,8 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [switch-to-a-supported-platform-azure-spring-apps](includes/switch-to-a-supported-platform-azure-spring-apps.md)]
 
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps.md)]
+
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
 For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
