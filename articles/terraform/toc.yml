@@ -49,6 +49,10 @@
       items:
         - name: Create a resource
           href: /azure/cognitive-services/create-account-terraform
+    - name: Azure CDN
+      items:
+        - name: Create a profile and endpoint
+          href: /azure/cdn/create-profile-endpoint-terraform
     - name: Containers
       items:
         - name: Azure Container Instances
