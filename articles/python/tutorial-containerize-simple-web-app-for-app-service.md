@@ -222,8 +222,6 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 Create a plan with the [az appservice plan][22] command and create the web app with the [az webapp create][23] command.
 
 ```azurecli
-
-```azurecli
 az appservice plan create \
 --name webplan \
 --resource-group web-app-simple-rg \
