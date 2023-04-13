@@ -73,6 +73,10 @@
       items:
         - name: Create a Windows Server VM in a lab
           href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+    - name: Azure DDoS
+      items:
+        - name: Create protection plan
+          href: /azure/ddos-protection/manage-ddos-protection-terraform
     - name: DNS
       items:
         - name: Create an Azure DNS zone and record
