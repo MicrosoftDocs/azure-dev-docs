@@ -41,6 +41,14 @@
       items:
         - name: Create a service
           href: /azure/api-management/quickstart-terraform?tabs=azure-cli
+    - name: Azure Batch
+      items:
+        - name: Create an account
+          href: /azure/batch/quick-create-terraform
+    - name: Azure Cognitive Services
+      items:
+        - name: Create a resource
+          href: /azure/cognitive-services/create-account-terraform
     - name: Containers
       items:
         - name: Azure Container Instances
