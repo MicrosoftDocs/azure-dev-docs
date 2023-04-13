@@ -241,9 +241,7 @@ az webapp create \
 
 ## Make updates and redeploy
 
-After you make code updates, you can run [az webapp update][XXX] command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
-
-In more complex update scenarios, you can redeploy with the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
+After you make code updates, you can redeploy with the [az acr build][18] and [az webapp update][19] commands together to update the App Service web app.
 
 ## Clean up
 
@@ -290,3 +288,5 @@ For more information, see the following resources:
 [24]: /cli/azure/group#az-group-delete
 [25]: https://portal.azure.com/
 [26]: /azure/app-service/quickstart-python
+[27]: /cli/azure/webapp#az-webapp-update
+
