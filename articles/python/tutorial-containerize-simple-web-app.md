@@ -98,7 +98,9 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
+
+In this tutorial, the suggested configuration file configures GUnicorn to increase its number of workers based on the number of CPU cores available. For more information about gunicorn.conf.py file settings, see [Gunicorn configuration][23].
 
 ### [Flask](#tab/web-app-flask)
 
