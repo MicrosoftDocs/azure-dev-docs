@@ -41,15 +41,15 @@
       items:
         - name: Create a service
           href: /azure/api-management/quickstart-terraform?tabs=azure-cli
-    - name: Azure Batch
+    - name: Batch
       items:
         - name: Create an account
           href: /azure/batch/quick-create-terraform
-    - name: Azure Cognitive Services
+    - name: Cognitive Services
       items:
         - name: Create a resource
           href: /azure/cognitive-services/create-account-terraform
-    - name: Azure CDN
+    - name: CDN
       items:
         - name: Create a profile and endpoint
           href: /azure/cdn/create-profile-endpoint-terraform
@@ -73,7 +73,7 @@
       items:
         - name: Create a Windows Server VM in a lab
           href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
-    - name: Azure DDoS
+    - name: DDoS
       items:
         - name: Create protection plan
           href: /azure/ddos-protection/manage-ddos-protection-terraform
