@@ -107,7 +107,7 @@
     - name: Deploy to App Service
       items:
         - name: Simple web app
-          href: tutorial-containerize-simple-python-web-app-azure.md
+          href: tutorial-containerize-simple-web-app-for-app-service.md
         - name: Web App + MongoDB
           items:
             - name: 1. Overview
