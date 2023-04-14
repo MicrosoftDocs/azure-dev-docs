@@ -142,6 +142,10 @@ items:
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: PostgreSQL with JDBC
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus - Queues
+                href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus - Topics
+                href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?tabs=passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Blobs
                 href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Queues
