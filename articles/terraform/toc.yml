@@ -41,14 +41,18 @@
       items:
         - name: Create a service
           href: /azure/api-management/quickstart-terraform?tabs=azure-cli
-    - name: Azure Batch
+    - name: Batch
       items:
         - name: Create an account
           href: /azure/batch/quick-create-terraform
-    - name: Azure Cognitive Services
+    - name: Cognitive Services
       items:
         - name: Create a resource
           href: /azure/cognitive-services/create-account-terraform
+    - name: CDN
+      items:
+        - name: Create a profile and endpoint
+          href: /azure/cdn/create-profile-endpoint-terraform
     - name: Containers
       items:
         - name: Azure Container Instances
@@ -69,6 +73,10 @@
       items:
         - name: Create a Windows Server VM in a lab
           href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+    - name: DDoS
+      items:
+        - name: Create protection plan
+          href: /azure/ddos-protection/manage-ddos-protection-terraform
     - name: DNS
       items:
         - name: Create an Azure DNS zone and record
@@ -77,6 +85,14 @@
       items:
         - name: Create a DPS instance
           href: /azure/iot-dps/quick-setup-auto-provision-terraform
+    - name: Key Vault
+      items:
+        - name: Create a key vault and key
+          href: /azure/key-vault/keys/quick-create-terraform
+    - name: Notification Hubs
+      items:
+        - name: Create a namespace and hub
+          href: /azure/notification-hubs/create-notification-hub-terraform
     - name: Search
       items:
         - name: Create an Azure Cognitive Search service
