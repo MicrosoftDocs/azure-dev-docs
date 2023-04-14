@@ -42,7 +42,7 @@
       - name: API Management
         items:
           - name: Create a service
-            href: /azure/api-management/quickstart-terraform?tabs=azure-cli
+            href: /azure/api-management/quickstart-terraform
       - name: Batch
         items:
           - name: Create an account
