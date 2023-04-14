@@ -12,9 +12,9 @@ This tutorial shows you how to deploy a Python Python [Flask][5] or [FastAPI][6]
 
 In this tutorial, you use the Azure CLI to build and create a Docker image in Azure and deploy it to Azure App Service. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Python web app on Azure Container Apps][4].
 
-Note: This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
-
 In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][8] to create a Docker image and deploy it to Azure Container Apps. You can also deploy with [Visual Studio Code][9] and the [Azure Tools Extension][10].
+
+> [!NOTE]: This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image. 
+Add a *Dockerfile* to instruct Docker how to build the image. The *Dockerfile* specifies the use of [Gunicorn][13], a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT and CMD commands instruct Gunicorn to handle requests for the app object.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -102,7 +102,9 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 ## Configure gunicorn
 
-[Gunicorn][13] forwards web requests to Flask and FastAPI. Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the `ENTRYPOINT` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][14]. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][15].
+Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
+
+In this tutorial, the suggested configuration file configures GUnicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][15].
 
 ### [Flask](#tab/web-app-flask)
 
