@@ -55,7 +55,7 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * More details on how App Service runs a Python app, see [Configure Python app](/azure/app-service/configure-language-python).
 
-* Review PostgresSQL best practices, see [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices).
+* Review PostgreSQL best practices, see [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices).
 
 * Learn more about security for Blob storage, see [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations).
 
