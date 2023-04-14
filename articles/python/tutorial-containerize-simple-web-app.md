@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image. In this tutorial, you use [Gunicorn][24] a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT command instructs Gunicorn to handle requests for the app object.
+Add a *Dockerfile* to instruct Docker how to build the image. The *Dockerfile* specifies the use of [Gunicorn][24], a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT and CMD commands instruct Gunicorn to handle requests for the app object.
 
 ### [Flask](#tab/web-app-flask)
 
