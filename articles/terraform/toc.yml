@@ -33,74 +33,76 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
-    - name: Analysis Services
+    - name: Terraform Quickstarts for Azure services
       items:
-        - name: Create a server
-          href: /azure/analysis-services/analysis-services-create-terraform
-    - name: API Management
-      items:
-        - name: Create a service
-          href: /azure/api-management/quickstart-terraform?tabs=azure-cli
-    - name: Batch
-      items:
-        - name: Create an account
-          href: /azure/batch/quick-create-terraform
-    - name: Cognitive Services
-      items:
-        - name: Create a resource
-          href: /azure/cognitive-services/create-account-terraform
-    - name: CDN
-      items:
-        - name: Create a profile and endpoint
-          href: /azure/cdn/create-profile-endpoint-terraform
-    - name: Containers
-      items:
-        - name: Azure Container Instances
-          items:
-            - name: Create an instance with a public IP address
-              href: /azure/container-instances/container-instances-quickstart-terraform
-        - name: Azure Kubernetes Service
-          items:
-            - name: Create a cluster
-              href: create-k8s-cluster-with-tf-and-aks.md
-    - name: Database
-      items:
-        - name: MySQL Flexible Server
-          items:
-            - name: Create a MySQL Flexible Server instance
-              href: /azure/mysql/flexible-server/quickstart-create-terraform
-    - name: DevTest Labs
-      items:
-        - name: Create a Windows Server VM in a lab
-          href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
-    - name: DDoS
-      items:
-        - name: Create protection plan
-          href: /azure/ddos-protection/manage-ddos-protection-terraform
-    - name: DNS
-      items:
-        - name: Create an Azure DNS zone and record
-          href: /azure/dns/dns-get-started-terraform
-    - name: IoT Device Provisioning Service
-      items:
-        - name: Create a DPS instance
-          href: /azure/iot-dps/quick-setup-auto-provision-terraform
-    - name: Key Vault
-      items:
-        - name: Create a key vault and key
-          href: /azure/key-vault/keys/quick-create-terraform
-    - name: Notification Hubs
-      items:
-        - name: Create a namespace and hub
-          href: /azure/notification-hubs/create-notification-hub-terraform
-    - name: Search
-      items:
-        - name: Create an Azure Cognitive Search service
-          href: /azure/search/search-get-started-terraform
-    - name: Virtual machines
-      items:
-      - name: Create a Linux VM
-        href: /azure/virtual-machines/linux/quick-create-terraform
+      - name: Analysis Services
+        items:
+          - name: Create a server
+            href: /azure/analysis-services/analysis-services-create-terraform
+      - name: API Management
+        items:
+          - name: Create a service
+            href: /azure/api-management/quickstart-terraform?tabs=azure-cli
+      - name: Batch
+        items:
+          - name: Create an account
+            href: /azure/batch/quick-create-terraform
+      - name: Cognitive Services
+        items:
+          - name: Create a resource
+            href: /azure/cognitive-services/create-account-terraform
+      - name: CDN
+        items:
+          - name: Create a profile and endpoint
+            href: /azure/cdn/create-profile-endpoint-terraform
+      - name: Containers
+        items:
+          - name: Azure Container Instances
+            items:
+              - name: Create an instance with a public IP address
+                href: /azure/container-instances/container-instances-quickstart-terraform
+          - name: Azure Kubernetes Service
+            items:
+              - name: Create a cluster
+                href: create-k8s-cluster-with-tf-and-aks.md
+      - name: Database
+        items:
+          - name: MySQL Flexible Server
+            items:
+              - name: Create a MySQL Flexible Server instance
+                href: /azure/mysql/flexible-server/quickstart-create-terraform
+      - name: DevTest Labs
+        items:
+          - name: Create a Windows Server VM in a lab
+            href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+      - name: DDoS
+        items:
+          - name: Create protection plan
+            href: /azure/ddos-protection/manage-ddos-protection-terraform
+      - name: DNS
+        items:
+          - name: Create an Azure DNS zone and record
+            href: /azure/dns/dns-get-started-terraform
+      - name: IoT Device Provisioning Service
+        items:
+          - name: Create a DPS instance
+            href: /azure/iot-dps/quick-setup-auto-provision-terraform
+      - name: Key Vault
+        items:
+          - name: Create a key vault and key
+            href: /azure/key-vault/keys/quick-create-terraform
+      - name: Notification Hubs
+        items:
+          - name: Create a namespace and hub
+            href: /azure/notification-hubs/create-notification-hub-terraform
+      - name: Search
+        items:
+          - name: Create an Azure Cognitive Search service
+            href: /azure/search/search-get-started-terraform
+      - name: Virtual machines
+        items:
+        - name: Create a Linux VM
+          href: /azure/virtual-machines/linux/quick-create-terraform
 - name: Samples
   items:
     - name: Configuration templates
