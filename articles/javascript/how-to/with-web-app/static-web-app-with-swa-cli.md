@@ -1,14 +1,14 @@
 ---
-title: "Intro: Create Static Web Apps using CLI"
+title: "Create Static Web App with serverless API"
 description: Create a static web app (React and API) and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
-# 1. Create a static web app using CLI
+# Create a Static web app with a serverless API 
 
-In this article series, learn how to:
+Learn how to:
 
 * Create a [static web app](/azure/static-web-apps/) (SWA)
 * Locally develop your static web app using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). 
@@ -113,7 +113,7 @@ Configure the local directory to connect to the remote GitHub repository.
 
    The name `origin` refers to your connection to this local repo and your specific remote repo.
 
-1. Pull the remote files to your local repo:
+1. Pull the remote readme.md, .gitignore and license files (created in a previous section) to your local repo:
    
    ```bash
    git pull origin main 
