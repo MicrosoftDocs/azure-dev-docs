@@ -68,9 +68,9 @@ In this article, create a new GitHub repository (repo), then prepare your local 
 
 ### Default branch names
 
-Because you will be pushing and pulling between your local and remote repos, it is important that both use the same `default` branch name. 
+Because you'll be pushing and pulling between your local and remote repos, it's important that both use the same `default` branch name. 
 
-If you are new to Git and GitHub, both branches are `main`. If both default branches are not `main`, you need to configure both branches to be the same name and anytime you see `main` referenced in this document series, use your own default branch name instead. 
+If you're new to Git and GitHub, both branches are `main`. If both default branches aren't `main`, you need to configure both branches to be the same name and anytime you see `main` referenced in this document series, use your own default branch name instead. 
 
 ### Create remote GitHub repository
 
@@ -149,7 +149,7 @@ The React app will be the user interface for this simple app. All of the code is
     "noImplicitAny": false
     ```
 
-    This specific step is to bypass any issues with create-react-app. In your professional projects, once you are comfortable with your build and deployment of the app, return to this setting and set it to `true`. Resolve any compile-time errors for TypeScript before committing these changes to source control. 
+    This specific step is to bypass any issues with create-react-app. In your professional projects, once you're comfortable with your build and deployment of the app, return to this setting and set it to `true`. Resolve any compile-time errors for TypeScript before committing these changes to source control. 
 
 ### Build and run local React app
 
@@ -159,7 +159,7 @@ The React app will be the user interface for this simple app. All of the code is
     npm run build
     ```
 
-    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It is important to know that your project successfully builds locally before moving deployment to Azure Static Web Apps.
+    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It's important to know that your project successfully builds locally before moving deployment to Azure Static Web Apps.
 
 1. Run the project, which should open the project in a browser to `http://localhost:3000/`:
    
@@ -175,7 +175,7 @@ The React app will be the user interface for this simple app. All of the code is
     cd ..
     ```
 
-1. Leave this bash terminal open, you will return to it in a later step. 
+1. Leave this bash terminal open, you'll return to it in a later step. 
 
 ### Commit app changes to source control
 
@@ -255,12 +255,12 @@ az staticwebapp create \
     Exiting
     ```
 
-1. Do not continue with the remaining steps of this article series until the Action builds and deploys successfully.
+1. Don't continue with the remaining steps of this article series until the Action builds and deploys successfully.
 
 ### Troubleshooting GitHub Actions for Static Web apps
 
 If your app didn't build successfully, there are usually a few top issues:
- * Your locations for your assets inside your project, app location of `app` and build output directory such as `build`, are not correct. 
+ * Your locations for your assets inside your project, app location of `app` and build output directory such as `build`, aren't correct. 
  * Your build environment doesn't match your local development environment and that difference is causing a problem.
  * Your project size, with dependencies, exceeds the size limitation [quota](/azure/static-web-apps/quotas) for Static Web apps. 
  * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.
