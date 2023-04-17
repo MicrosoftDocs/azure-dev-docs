@@ -57,7 +57,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-EXPOSE 50500
+EXPOSE 50505
 
 ENTRYPOINT ["gunicorn", "app:app"]
 ```
@@ -113,7 +113,7 @@ max_requests_jitter = 50
 
 log_file = "-"
 
-bind = "0.0.0.0:50500"
+bind = "0.0.0.0:50505"
 
 workers = (multiprocessing.cpu_count() * 2) + 1
 threads = workers
@@ -152,15 +152,11 @@ Build the image locally.
 docker build --tag flask-demo .
 ```
 
-Open the [http://localhost:5000](http://localhost:5000) URL in your browser to see the web app running locally.
-
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 docker build --tag fastapi-demo .
 ```
-
-Open the [http://localhost:80](http://localhost:80) URL in your browser to see the web app running locally.
 
 ---
 
@@ -169,14 +165,18 @@ Run the image locally in a Docker container.
 ### [Flask](#tab/web-app-flask)
 
 ```bash
-docker run --detach --publish 5000:50500 flask-demo
+docker run --detach --publish 5000:50505 flask-demo
 ```
+
+Open the [http://localhost:5000](http://localhost:5000) URL in your browser to see the web app running locally.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 docker run --detach --publish 3100:3100 fastapi-demo
 ```
+
+Open the [http://localhost:80](http://localhost:80) URL in your browser to see the web app running locally.
 
 ---
 
@@ -191,7 +191,7 @@ To deploy the Docker image to Azure Container Apps, use the [az containerapp up]
 ```azurecli
 az containerapp up \
   --resource-group web-flask-aca-rg --name web-flask-aca-app \
-  --ingress external --target-port 50500 --source .
+  --ingress external --target-port 50505 --source .
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
