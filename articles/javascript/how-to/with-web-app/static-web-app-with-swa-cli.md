@@ -1,5 +1,5 @@
 ---
-title: "Create Static Web App with serverless API"
+title: "Create static web app with serverless app"
 description: Create a static web app (React and API) and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
 ms.topic: how-to
 ms.date: 10/19/2021
@@ -37,7 +37,7 @@ The authentication in this sample provides:
     * Public and private routes based on user's authentication status
     * Private route has access to API, `await fetch(`/api/hello?name=${name}`)`
 
-This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO))](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
+This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO)](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
 
 ## Prepare your development environment
 
@@ -50,7 +50,7 @@ Install the following:
 * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#install-the-azure-functions-core-tools) - v3.0.3477+
 
 
-### 1. Sign in to Azure CLI
+## 1. Sign in to Azure CLI
 
 1. In VS Code, in an integrated bash terminal, sign in to the Azure CLI:
 
@@ -553,7 +553,7 @@ Create a navigation component, which provides login and logout functionality.
 1. Allow the local app to rebuild and refresh the entire app in the browser, `http://localhost:4280`. 
    
 
-    :::image type="content" source="../../media/static-web-app-with-swa-cli/static-web-app-with-auth-providers.png" alt-text="Browser screenshot showing the app with authentication provider choices of Twitter, GitHub, and AAD. ":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/static-web-app-with-auth-providers.png" alt-text="Browser screenshot showing the app with authentication provider choices of Twitter, GitHub, and Azure AD. ":::
 
 1. Select the GitHub authentication provider.
 1. The local SWA CLI provides an authentication form to use.
@@ -628,7 +628,7 @@ Purge your authentication from your providers, using the following links:
 
 * [Twitter](https://identity.azurestaticapps.net/.auth/purge/twitter)
 * [GitHub](https://identity.azurestaticapps.net/.auth/purge/github)
-* [AAD](https://identity.azurestaticapps.net/.auth/purge/aad)
+* [Azure AD](https://identity.azurestaticapps.net/.auth/purge/aad)
 
 ## Next steps
 
