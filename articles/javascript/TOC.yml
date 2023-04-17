@@ -32,7 +32,7 @@
     - name: Getting started
       href: how-to/create-static-web-app.md
     - name: Create Static web app
-      href: static-web-app-with-swa-cli.md
+      href: how-to/with-web-app/static-web-app-with-swa-cli.md
     - name: Add custom domain
       href: /azure/static-web-apps/custom-domain
     - name: Connect to database

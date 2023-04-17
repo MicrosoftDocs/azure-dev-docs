@@ -189,7 +189,7 @@ git add . && \
 
 ## 4. Create a new Azure Static Web app
 
-Create a Static Web app. This creation process deploys your GitHub repo to Azure. If you haven't finished pushing your React app to GitHub, complete [that step](create-react-app.md#commit-app-changes-to-source-control) before continuing.
+Create a Static Web app. This creation process deploys your GitHub repo to Azure. If you haven't finished pushing your React app to GitHub, complete [that step](#commit-app-changes-to-source-control) before continuing.
 
 ### Create Static Web app
 
@@ -402,11 +402,11 @@ Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kb
 
 1. In VS Code, verify the successful build pushed to your Azure Static Web Apps resource. Look at the functions node in your Azure explorer for Static Web Apps. 
 
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps `functions` node with `hello` displayed.":::
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps `functions` node with `hello` displayed.":::
 
     You may need to refresh using the Azure explorer's Static Web app bar in VS Code.
 
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-swa-refresh.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps command bar with the refresh icon highlighted.":::
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/visual-studio-code-swa-refresh.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps command bar with the refresh icon highlighted.":::
 
 1. In the bash terminal, move back to the root of the project:
 
@@ -470,7 +470,7 @@ The React client and the Azure Function API have separate local development serv
 
     When both the React app and the Function API have started correctly, continue to the next step. 
 
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png":::
 
 1. In one of the VS Code instances (it doesn't matter which instance), open a second integrated terminal, change to the root directory and start the proxy:
    
@@ -492,11 +492,11 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
 
 1. Return to the web browser for the React app, and use the new form to enter your name and pass that name to the Function API.
    
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form.":::
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form.":::
 
 1. The React app responds with the success message:
    
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form and API response.":::
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form and API response.":::
 
 ### Commit changes to source control
 
@@ -553,18 +553,18 @@ Create a navigation component, which provides login and logout functionality.
 1. Allow the local app to rebuild and refresh the entire app in the browser, `http://localhost:4280`. 
    
 
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/static-web-app-with-auth-providers.png" alt-text="Browser screenshot showing the app with authentication provider choices of Twitter, GitHub, and AAD. ":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/static-web-app-with-auth-providers.png" alt-text="Browser screenshot showing the app with authentication provider choices of Twitter, GitHub, and AAD. ":::
 
 1. Select the GitHub authentication provider.
 1. The local SWA CLI provides an authentication form to use.
    
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/local-browser-swa-cli-authentication-form.png" alt-text="Browser screenshot showing the app with authentication form provided with SWA CLI. ":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/local-browser-swa-cli-authentication-form.png" alt-text="Browser screenshot showing the app with authentication form provided with SWA CLI. ":::
 
     This form simulates the authentication process for your local development environment. It doesn't call the real authentication providers.
 
 1. Enter a name and select **Login** to finish the local authentication process. Control is then returned back to your app and the PrivateHome component is displayed. 
 
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/local-browser-swa-cli-authentication-form-private-home-component-with-navbar.png" alt-text="Browser screenshot showing the PrivateHome component because authentication has been provided. ":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/local-browser-swa-cli-authentication-form-private-home-component-with-navbar.png" alt-text="Browser screenshot showing the PrivateHome component because authentication has been provided. ":::
 
     Both the NavBar and PrivateHome HTML form display the authenticated user name, which is returned from the authentication process.
 
