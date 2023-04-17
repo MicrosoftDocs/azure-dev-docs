@@ -6,7 +6,7 @@ ms.date: 4/15/2020
 
 #### Identify log aggregation solutions
 
-Identify any log aggregation solutions in use by the applications you're migrating.
+Identify any log aggregation solutions in use by the applications you're migrating. You need to configure diagnostic settings in migration to make logged events available for consumption. For more information, see the [Ensure console logging and configure diagnostic settings](#ensure-console-logging-and-configure-diagnostic-settings) section.
 
 #### Identify application performance management (APM) agents
 

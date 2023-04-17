@@ -127,20 +127,20 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ## Migration
 
-### Remove explicit configuration server settings
+### Remove restricted configurations
 
-In the services you're migrating, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in *application.properties* or *application.yml* files:
+In the services you’re migrating, find and remove any explicit assignments of the following restricted settings. These properties are automatically injected into your application environment to access Config Server and Service Discovery. If these properties are in your Config Server application files, you might experience conflicts and unexpected behavior. For more information, see the [Restriction](/azure/spring-apps/how-to-config-server#restriction) section of [Configure a managed Spring Cloud Config Server in Azure Spring Apps](/azure/spring-apps/how-to-config-server)
 
-**application.yml**
-
-```yaml
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://myusername:mysecretpassword@localhost:8761/eureka/
-```
-
-If a setting like this appears in your application configuration, remove it. Azure Spring Apps automatically injects the connection information of its configuration server.
+* `eureka.client.service-url.defaultZone`
+* `eureka.client.tls.keystore`
+* `eureka.instance.preferIpAddress`
+* `eureka.instance.instance-id`
+* `server.port`
+* `spring.cloud.config.tls.keystore`
+* `spring.config.import`
+* `spring.application.name`
+* `spring.jmx.enabled`
+* `management.endpoints.jmx.exposure.include`
 
 ### Create an Azure Spring Apps instance and apps
 
