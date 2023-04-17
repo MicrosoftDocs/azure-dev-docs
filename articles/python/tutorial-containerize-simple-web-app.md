@@ -190,7 +190,7 @@ To deploy the Docker image to Azure Container Apps, use the [az containerapp up]
 
 ```azurecli
 az containerapp up \
-  --resource-group web-flask-aca-rg --name web-flask-aca-app \
+  --resource-group web-flask-aca-rg --name web-aca-app \
   --ingress external --target-port 50505 --source .
 ```
 
@@ -198,7 +198,7 @@ az containerapp up \
 
 ```azurecli
 az containerapp up \
-  --resource-group web-fastapi-aca-rg --name web-fastapi-aca-app \ 
+  --resource-group web-fastapi-aca-rg --name web-aca-app \ 
   --ingress external --target-port 80 --source .
 ```
 
@@ -224,7 +224,7 @@ All the Azure resources created in this tutorial are in the same resource group.
 To remove resources, use the [az group delete][20] command.
 
 ```azurecli
-az group delete --name <resource-group>
+az group delete --name web-aca-app
 ```
 
 You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
