@@ -62,7 +62,7 @@ EXPOSE 50500
 ENTRYPOINT ["gunicorn", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. Note that 50505 is used for the container port (internal) in this example, but you can use any free port.
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. `50505` is used for the container port (internal) in this example, but you can use any free port.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -84,7 +84,7 @@ EXPOSE 3100
 CMD ["gunicorn", "main:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`, and add them if necessary. Note that 3100 is used for the container port (internal) in this example, but you can use any free port.
+Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`, and add them if necessary. `3100` is used for the container port (internal) in this example, but you can use any free port.
 
 ---
 
