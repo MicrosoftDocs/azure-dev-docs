@@ -113,7 +113,7 @@ Add a *\.dockerignore* file to exclude unnecessary files from the image.
 
 Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where gunicorn is run, you don't need to specify its location in the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
 
-In this tutorial, the suggested configuration file configures GUnicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][15].
+In this tutorial, the suggested configuration file configures gunicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][15].
 
 ### [Flask](#tab/web-app-flask)
 
@@ -216,7 +216,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
     --output tsv)
     ```
 
-    You can also get the password from the Azure portal by going to the registry, selecting **Access keys**, and copying the password.
+    You can also get the password from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
 
 ## Build the image in Azure Container Registry
 
