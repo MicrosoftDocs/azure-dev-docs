@@ -22,6 +22,3 @@ source .venv/bin/activate
 ```
 
 ---
-
-> [!NOTE]
-> If you're using [Git Bash in Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_git-bash-on-windows) on Windows, use the virtual environment create command for macOS/Linux.
