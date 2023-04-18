@@ -126,6 +126,20 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         }
     }
     ```
+    **Additional tips:**
+    - You can override the default azd resource naming conventions by providing values here. For example, to use "rg-myGroupName" as your resource group name, add:
+
+      ```json
+      "resourceGroupName": {
+           "value": "rg-myGroupName"
+      }
+      ```
+    - You can use the azd `secretOrRandomPassword` function to retrieve a secret from Azure Key Vault if parameters for the key vault name and secret are provided. For example:
+      ```json
+      "sqlAdminPassword": {
+           "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
+      }
+      ```
 
 1. Create a file named `main.bicep` as the main entry point. Declare the parameters you included in `main.parameters.json`. 
 
