@@ -206,7 +206,8 @@ The `--detach` option runs the container in the background. The `--publish` opti
 1. Create an Azure Container Registry with the [az acr create][19] command. An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
 
     ```azurecli
-    az acr create --resource-group web-app-simple-rg --name webappacr123 --sku Basic
+    az acr create --resource-group web-app-simple-rg \
+    --name webappacr123 --sku Basic --admin-enabled true
     
     ACR_PASSWORD=$(az acr credential show \
     --resource-group web-app-simple-rg \
