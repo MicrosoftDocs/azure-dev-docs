@@ -215,6 +215,8 @@ The `--detach` option runs the container in the background. The `--publish` opti
     --output tsv)
     ```
 
+    You can also get the password from the Azure portal by going to the registry, selecting **Access keys**, and copying the password.
+
 ## Build the image in Azure Container Registry
 
 Build the Docker image in Azure with the [az acr build][21] command. The command uses the Dockerfile in the current directory, and pushes the image to the registry. 
