@@ -108,7 +108,7 @@
       items:
         - name: Simple web app
           href: tutorial-containerize-simple-web-app-for-app-service.md
-        - name: Web App + MongoDB
+        - name: Web app + MongoDB
           items:
             - name: 1. Overview
               href: tutorial-containerize-deploy-python-web-app-azure-01.md
@@ -122,12 +122,16 @@
               href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy to Container Apps
       items:
-        - name: Overview
-          href: tutorial-deploy-python-web-app-azure-container-apps-01.md
-        - name: Build and deploy a container app
-          href: tutorial-deploy-python-web-app-azure-container-apps-02.md
-        - name: Configure CI/CD
-          href: tutorial-deploy-python-web-app-azure-container-apps-03.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-web-app.md
+        - name: Web app + PostgreSQL
+          items:
+            - name: Overview
+              href: tutorial-deploy-python-web-app-azure-container-apps-01.md
+            - name: Build and deploy a container app
+              href: tutorial-deploy-python-web-app-azure-container-apps-02.md
+            - name: Configure CI/CD
+              href: tutorial-deploy-python-web-app-azure-container-apps-03.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
