@@ -106,7 +106,7 @@
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
       items:
-        - name: Web App + MongoDB
+        - name: Web app + MongoDB
           items:
             - name: 1. Overview
               href: tutorial-containerize-deploy-python-web-app-azure-01.md
@@ -120,9 +120,9 @@
               href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy to Container Apps
       items:
-        - name: Simple Web App
+        - name: Simple web app
           href: tutorial-containerize-simple-web-app.md
-        - name: Web App + PostgreSQL
+        - name: Web app + PostgreSQL
           items:
             - name: Overview
               href: tutorial-deploy-python-web-app-azure-container-apps-01.md
