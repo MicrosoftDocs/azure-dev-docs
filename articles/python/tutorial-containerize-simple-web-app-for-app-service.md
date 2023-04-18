@@ -14,7 +14,8 @@ In this tutorial, you use the Azure CLI to build and create a Docker image in Az
 
 In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][8] to create a Docker image and deploy it to Azure Container Apps. You can also deploy with [Visual Studio Code][9] and the [Azure Tools Extension][10].
 
->[!NOTE]: This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
+> [!NOTE]
+> This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
 
 ## Prerequisites
 
