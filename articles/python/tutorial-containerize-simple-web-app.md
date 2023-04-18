@@ -62,7 +62,11 @@ EXPOSE 50505
 ENTRYPOINT ["gunicorn", "app:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary. `50505` is used for the container port (internal) in this example, but you can use any free port.
+`50505` is used for the container port (internal) in this example, but you can use any free port.
+
+Check the *requirements.txt* file to make sure it contains `gunicorn`, and add it if necessary.
+
+:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/requirements.txt" highlight="2":::
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -84,7 +88,11 @@ EXPOSE 3100
 CMD ["gunicorn", "main:app"]
 ```
 
-Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`, and add them if necessary. `3100` is used for the container port (internal) in this example, but you can use any free port.
+`3100` is used for the container port (internal) in this example, but you can use any free port.
+
+Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`, and add them if necessary. 
+
+:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2,3":::
 
 ---
 
