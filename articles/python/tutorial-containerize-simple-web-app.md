@@ -66,7 +66,7 @@ ENTRYPOINT ["gunicorn", "app:app"]
 
 Check the *requirements.txt* file to make sure it contains `gunicorn`.
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/requirements.txt" highlight="2":::
+:::code language="txt" source="~/../msdocs-python-flask-webapp-quickstart/requirements.txt" highlight="2":::
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -92,7 +92,7 @@ CMD ["gunicorn", "main:app"]
 
 Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`.
 
-:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2,3":::
+:::code language="txt" source="~/../msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2,3":::
 
 ---
 
