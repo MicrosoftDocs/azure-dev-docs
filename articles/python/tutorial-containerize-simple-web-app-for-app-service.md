@@ -263,7 +263,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * The web app name must be unique in Azure. If you run into an error, try a different name.
 
-    * It can take a few minutes for the web app to be created. You can check the status with the [az webapp show][27] command. For example, `az webapp show --resource-group web-app-simple-rg --name webappsimple123`. Look for the `state` property in the JSON output. If the site is running, the value is `Running`.
+    * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
     * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, [http://webappsimple123.azurewebsites.net](http://webappsimple123.azurewebsites.net).
 
@@ -316,4 +316,4 @@ For more information, see the following resources:
 [24]: /cli/azure/group#az-group-delete
 [25]: https://portal.azure.com/
 [26]: /azure/app-service/quickstart-python
-[27]: /cli/azure/webapp#az-webapp-show
+[27]: /cli/azure/webapp/log#az-webapp-log-tail
