@@ -259,6 +259,8 @@ For more information, see the following resources:
 [12]: /azure/azure-monitor/logs/log-analytics-workspace-overview
 [13]: /azure/container-apps/deploy-visual-studio-code
 [14]: /azure/container-apps/managed-identity-image-pull
+[15]: https://portal.azure.com/
+[16]: /cli/azure/resource#az-resource-list
 [17]: /cli/azure/what-is-azure-cli
 [18]: /cli/azure/acr#az-acr-build
 [19]: /cli/azure/containerapp#az_containerapp_update
