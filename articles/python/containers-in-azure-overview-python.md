@@ -32,7 +32,7 @@ Python container apps are supported in the following services.
 
 [Web App for Containers][3] provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. Containerized web apps on Azure App Service can scale as needed and use streamlined CI/CD workflows with Docker Hub, Azure Container Registry, and GitHub. For an example, see [Containerized Python web app on Azure App Service][4].
 
-[Azure Container Apps (ACA)][5] is a fully managed serverless container service for containers. Container Apps provides many application-specific concepts on top of containers, including certificates, revisions, scale, and environments. Container Apps are a good for web applications including web sites and web APIs. For an example, see …
+[Azure Container Apps (ACA)][5] is a fully managed serverless container service for containers. Container Apps provides many application-specific concepts on top of containers, including certificates, revisions, scale, and environments. Container Apps are a good for web applications including web sites and web APIs. For an example, see [Deploy a Flask or FastPI web app on Azure Container Apps][52].
 
 [Azure Container Instances (ACI)][6] is a serverless offering, billed on consumption rather than provisioned resources. Concepts like scale, load balancing, and certificates aren't provided with ACI containers, and ACI is a lower-level "building block" option compared to ACA. For an example, see the tutorial [Create a container image for deployment to Azure Container Instances][7]. The tutorial isn't Python-specific, but the concepts show apply to all languages.
 
@@ -325,3 +325,4 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 [49]: /cli/azure/container#az-container-logs
 [50]: /cli/azure/acr#az-acr-build
 [51]: https://docs.docker.com/engine/reference/commandline/image_inspect/
+[52]: ./tutorial-containerize-simple-web-app.md
