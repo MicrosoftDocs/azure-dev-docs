@@ -10,9 +10,7 @@ ms.custom: devx-track-python
 
 This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
-In this tutorial, you use the Azure CLI to build and create a Docker image in Azure and deploy it to Azure App Service. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
-
-In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][8] to create a Docker image and deploy it to Azure App Service. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed.
+In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. And, you use the [Azure CLI][8] to create a Docker image in Azure and deploy it to Azure App Service. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
 > [!NOTE]
 > This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
@@ -23,7 +21,7 @@ To complete this tutorial, you need:
 
 * An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry][11].
 
-* [Azure CLI][8], [Docker][12], and the [Docker CLI][7] installed in your local environment.
+* [Azure CLI][8] to create a Docker image and deploy it to App Service. And optionally, [Docker][12]and the [Docker CLI][7] to create a Docker and test it in your local environment.
 
 ## Get the sample code
 
@@ -218,7 +216,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
     The commands for creating the registry and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
 
-    You can also get the password from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
+    You can also get the password (`ACR_PASSWORD`) from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
 
 ## Build the image in Azure Container Registry
 
