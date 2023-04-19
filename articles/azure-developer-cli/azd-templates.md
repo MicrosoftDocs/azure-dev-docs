@@ -107,4 +107,4 @@ You can also open an issue on [our GitHub repository](https://github.com/Azure/a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run azd up with an azd template](./get-started.md)
+> [Run azd init with an azd template](./get-started.md)
