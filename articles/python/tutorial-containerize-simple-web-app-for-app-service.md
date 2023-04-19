@@ -237,25 +237,29 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
 ## Deploy to web app to Azure
 
-Create a plan with the [az appservice plan][22] command and create the web app with the [az webapp create][23] command.
+1. Create a App Service plan with the [az appservice plan][22] command.
 
-```azurecli
-az appservice plan create \
---name webplan \
---resource-group web-app-simple-rg \
---sku B1 \
---is-linux
+    ```azurecli
+    az appservice plan create \
+    --name webplan \
+    --resource-group web-app-simple-rg \
+    --sku B1 \
+    --is-linux
+    ```
 
-az webapp create \
---resource-group web-app-simple-rg \
---plan webplan --name webappsimple123 \
---docker-registry-server-password $ACR_PASSWORD \
---docker-registry-server-user webappacr123 \
---role acrpull \
---deployment-container-image-name webappacr123.azurecr.io/webappsimple:latest 
-```
+1. Create the web app with the [az webapp create][23] command.
 
- The `--docker-registry-server-user` option specifies the registry username, and the `--docker-registry-server-password` option specifies the registry password. The `--deployment-container-image-name` option specifies the image name in the format `registry.azurecr.io/repository:tag`.
+    ```azurecli
+    az webapp create \
+    --resource-group web-app-simple-rg \
+    --plan webplan --name webappsimple123 \
+    --docker-registry-server-password $ACR_PASSWORD \
+    --docker-registry-server-user webappacr123 \
+    --role acrpull \
+    --deployment-container-image-name webappacr123.azurecr.io/webappsimple:latest 
+    ```
+
+    The `--docker-registry-server-user` option specifies the registry username, and the `--docker-registry-server-password` option specifies the registry password. The `--deployment-container-image-name` option specifies the image name in the format `registry.azurecr.io/repository:tag`.
 
 ## Make updates and redeploy
 
