@@ -192,7 +192,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
 ## Deploy to web app to Azure
 
-To deploy the Docker image to Azure Container Apps, use the [az containerapp up][6] command.
+To deploy the Docker image to Azure Container Apps, use the [az containerapp up][6] command. (The following commands are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.)
 
 ### [Flask](#tab/web-app-flask)
 

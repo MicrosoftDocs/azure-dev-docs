@@ -27,6 +27,8 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility).
 
+- [ODBC Driver](/sql/connect/odbc/download-odbc-driver-for-sql-server) 17 or 18.
+
 - If you don't have one, create an Azure SQL Server instance named `sqlservertest` and a database named `demo`. For instructions, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 - If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **MS SQL Server Driver** dependencies, and then select Java version 8 or higher.

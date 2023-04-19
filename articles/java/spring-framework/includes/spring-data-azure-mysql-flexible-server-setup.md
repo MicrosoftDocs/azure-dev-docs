@@ -18,30 +18,9 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-> [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For more information, see the [Configure the Azure AD Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+You can use the following method to create a non-admin user that uses a passwordless connection.
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
-
-```bash
-AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id -o tsv)
-
-cat << EOF > create_ad_user.sql
-SET aad_auth_validate_oids_in_tenant = OFF;
-CREATE AADUSER '<your_mysql_ad_non_admin_username>' IDENTIFIED BY '$AZ_MYSQL_AD_NON_ADMIN_USERID';
-GRANT ALL PRIVILEGES ON demo.* TO '<your_mysql_ad_non_admin_username>'@'%';
-FLUSH privileges;
-EOF
-```
-
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
-
-```bash
-mysql -h mysqlflexibletest.mysql.database.azure.com --user <your_mysql_ad_admin_username> --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
-```
-
-> [!TIP]
-> To use Azure AD authentication to connect to Azure Database for MySQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+[!INCLUDE [create-mysql-flexible-server-non-admin-user.md](create-mysql-flexible-server-non-admin-user.md)]
 
 ### [Password](#tab/password)
 
