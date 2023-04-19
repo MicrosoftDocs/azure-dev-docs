@@ -1,8 +1,8 @@
 --- 
 title: Connect GitHub and Azure
 description: Resources to connect to GitHub from Azure and other services  
-author: N-Usha 
-ms.author: ushan 
+author: MoChilia 
+ms.author: shiyingchen 
 ms.topic: reference
 ms.service: azure 
 ms.date: 10/25/2022
@@ -28,7 +28,7 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
 * An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
-* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs. [Workload identity federation](/azure/active-directory/develop/workload-identity-federation) is in public preview
+* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
 
 ### Create an Azure Active Directory application and service principal
@@ -102,7 +102,7 @@ You'll need to create an Azure Active Directory application and service principa
     ```
 
 ---
-### Add federated credentials (preview)
+### Add federated credentials
 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 
@@ -124,9 +124,10 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 |Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Azure Active Directory application.
+Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Azure Active Directory application.
 
 * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Azure Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
@@ -136,14 +137,24 @@ Run the following command to [create a new federated identity credential](/graph
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
 
 ```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
+("credential.json" contains the following content)
+{
+    "name": "<CREDENTIAL-NAME>",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:octo-org/octo-repo:environment:Production",
+    "description": "Testing",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}
 ```
 
-For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+For a more detailed overview, see [Configure an app to trust an external identity provider](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 
 ### [Azure PowerShell](#tab/azure-powershell) 
 
-Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Azure Active Directory application.
+Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity credential for your Azure Active Directory application.
 
 * Replace `APPLICATION-OBJECT-ID` with the **Id (generated while creating app)** for your Azure Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
@@ -153,10 +164,10 @@ Run the following command to [create a new federated identity credential](/graph
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
 
 ```azurepowershell
-Invoke-AzRestMethod -Method POST -Uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' -Payload  '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+New-AzADAppFederatedCredential -ApplicationObjectId APPLICATION-OBJECT-ID -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
 ```
 
-For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-powershell).
 
 ---
 
