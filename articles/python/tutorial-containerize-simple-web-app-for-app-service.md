@@ -195,13 +195,15 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
 ## Create a resource group and Azure Container Registry
 
-1. Create a group with the [az group create][18] command. An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location, such as *eastus*.
+1. Create a group with the [az group create][18] command.
 
     ```azurecli
     az group create --name web-app-simple-rg --location eastus
     ```
 
-1. Create an Azure Container Registry with the [az acr create][19] command. An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
+    An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location, such as *eastus*.
+
+1. Create an Azure Container Registry with the [az acr create][19] command.
 
     ```azurecli
     az acr create --resource-group web-app-simple-rg \
@@ -214,13 +216,15 @@ The `--detach` option runs the container in the background. The `--publish` opti
     --output tsv)
     ```
 
+    An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
+
     The commands for creating the registry and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
 
     You can also get the password (`ACR_PASSWORD`) from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
 
 ## Build the image in Azure Container Registry
 
-Build the Docker image in Azure with the [az acr build][21] command. The command uses the Dockerfile in the current directory, and pushes the image to the registry. 
+Build the Docker image in Azure with the [az acr build][21] command. The command uses the Dockerfile in the current directory, and pushes the image to the registry.
 
 ```azurecli
 az acr build \
