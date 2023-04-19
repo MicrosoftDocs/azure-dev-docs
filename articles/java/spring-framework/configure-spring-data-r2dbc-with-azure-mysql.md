@@ -177,12 +177,11 @@ Open the *src/main/resources/application.properties* file, and add:
 logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:pool:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?tlsVersion=TLSv1.2
-spring.r2dbc.username=$AZ_MYSQL_NON_ADMIN_USERNAME
+spring.r2dbc.username=spring-non-admin
 spring.r2dbc.password=$AZ_MYSQL_NON_ADMIN_PASSWORD
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+Replace the `$AZ_DATABASE_NAME` and `$AZ_MYSQL_NON_ADMIN_PASSWORD` variables with the values that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).

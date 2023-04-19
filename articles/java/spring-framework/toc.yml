@@ -80,7 +80,7 @@ items:
           href: configure-spring-data-jdbc-with-azure-mysql.md
         - name: JDBC with Azure PostgreSQL
           href: configure-spring-data-jdbc-with-azure-postgresql.md
-        - name: JDBC with Azure SQL Server
+        - name: JDBC with Azure SQL Database
           href: configure-spring-data-jdbc-with-azure-sql-server.md
       - name: JPA
         items:
