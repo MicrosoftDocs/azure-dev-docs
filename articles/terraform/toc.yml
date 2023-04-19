@@ -91,10 +91,6 @@
         items:
           - name: Create a key vault and key
             href: /azure/key-vault/keys/quick-create-terraform
-      - name: Traffic Manager
-        items:
-          - name: Create a profile and endpoints
-            href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform.md
       - name: Notification Hubs
         items:
           - name: Create a namespace and hub
@@ -103,6 +99,10 @@
         items:
           - name: Create an Azure Cognitive Search service
             href: /azure/search/search-get-started-terraform
+      - name: Traffic Manager
+        items:
+          - name: Create a profile and endpoints
+            href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
       - name: Virtual machines
         items:
         - name: Create a Linux VM
