@@ -216,7 +216,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
     --output tsv)
     ```
 
-    The commands above and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
+    The commands for creating the registry and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
 
     You can also get the password from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
 
