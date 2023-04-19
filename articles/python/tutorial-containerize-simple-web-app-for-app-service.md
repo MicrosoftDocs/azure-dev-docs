@@ -263,7 +263,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * The web app name must be unique in Azure. If you run into an error, try a different name.
 
-    * It can take a few minutes for the web app to be created. You can check the status with the [az webapp show][27] command. For example, `az webapp show --resource-group web-app-simple-rg --name webappsimple123`. Look for the `state` property in the JSON output.
+    * It can take a few minutes for the web app to be created. You can check the status with the [az webapp show][27] command. For example, `az webapp show --resource-group web-app-simple-rg --name webappsimple123`. Look for the `state` property in the JSON output. If the site is running, the value is `Running`.
 
     * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, [http://webappsimple123.azurewebsites.net](http://webappsimple123.azurewebsites.net).
 
