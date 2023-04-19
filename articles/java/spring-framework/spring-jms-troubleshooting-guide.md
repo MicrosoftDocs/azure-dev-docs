@@ -132,26 +132,18 @@ The prefetch value can affect how fast messages are dispatched to the consumer's
 
 ##### Solution 2. Increase the receive timeout to decrease the pull frequency
 
-The receive timeout property decides the strategy of how long the consumer blocks there to wait for a pull result. So, by extending the timeout, it can reduce the pulling frequency then reduce the number of pull requests when users choose pull mode still. And in an extreme case, users can set the strategy to be infinitely waiting until a message arrives, which means the consumer only pulls after consuming a message, so when there are no messages in the server, it will block for waiting.
+The receive timeout property determines the strategy for how long the consumer blocks to wait for a pull result. So, by extending the timeout, you can reduce the pulling frequency, then reduce the number of pull requests when you choose pull mode. In extreme cases, you can set the strategy for waiting indefinitely until a message arrives, which means the consumer only pulls after consuming a message. In this case, when there are no messages in the server, it will block for waiting.
 
-To accomplish this, users can configure the below property, which is of `java.time.Duration` type and the default value is 1 second.
+To accomplish this solution, configure the `spring.jms.listener.receive-timeout` property. This property is of type `java.time.Duration` and has a default value of 1 second. The following list explains the effect of various values:
 
-```properties
-spring.jms.listener.receive-timeout=
-```
-
-The following sections explain what this value means.
-
-- Setting the receive-timeout as 0, means the pull blocks infinitely till a message is dispatched.
-
-- Setting the receive-timeout as positive value, means the pull blocks up to timeout amount of time.
-
-- Setting the receive-timeout as negative value, means the pull is a no-wait receive , it returns a message immediately or null if none available.
+- Setting the receive-timeout to 0 means that the pull blocks indefinite until a message is dispatched.
+- Setting the receive-timeout to a positive value means that the pull blocks up to the timeout amount of time.
+- Setting the receive-timeout to a negative value means that the pull is a no-wait receive, which means it returns a message immediately, or `null` if no messages are available.
 
 > [!NOTE]
-> A high timeout value can bring some side effects: it will also extend the time when the main thread is in a block status, which means the container will be less responsive to stop() calls - the container can only stop between receive().
+> A high timeout value can bring some side effects. For example, a high timeout value will also extend the time that the main thread is in a block status. This status means the container will be less responsive to `stop()` calls, and can only stop between `receive()` calls.
 
-Besides, since the container can only send requests after the receive-timeout, so if the interval is longer than 10 minutes, Service Bus will close the [link](/azure/service-bus-messaging/service-bus-amqp-troubleshoot#link-is-closed) and cause the listener, which by default uses a [CachingConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L51) can't send/receive anymore. So if you require a high receive-timeout, please use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L71) alongside.
+Also, the container can only send requests after the `receive-timeout` interval has passed, so if the interval is longer than 10 minutes, Service Bus will close the [link](/azure/service-bus-messaging/service-bus-amqp-troubleshoot#link-is-closed) and cause the listener, which by default uses a [CachingConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L51) can't send/receive anymore. So if you require a high receive-timeout, please use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L71) alongside.
 
 For details about the link-close issue and how to use `JmsPoolConnectionFactory`, see this [section](https://dev.azure.com/SpringOnAzure/Spring%20on%20Azure/_wiki/wikis/spring-integration-private.wiki/425/Troubleshoot-Spring-Cloud-Azure-Service-Bus-JMS-Starter-issues?anchor=jmstemplate-issues#the-messageproducer-was-closed-due-to-an-unrecoverable-error).
 
