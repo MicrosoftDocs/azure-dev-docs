@@ -150,4 +150,4 @@ pipeline:
 ## Next steps
 
 - [Learn more about Azure Developer CLI](./overview.md)
-- [Get started with `azd up`](./get-started.md)
+- [Get started with `azd init` and `azd up`](./get-started.md)

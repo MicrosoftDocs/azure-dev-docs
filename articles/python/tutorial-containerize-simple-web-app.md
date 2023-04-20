@@ -184,7 +184,7 @@ Open the [http://localhost:5000](http://localhost:5000) URL in your browser to s
 docker run --detach --publish 3100:3100 fastapi-demo
 ```
 
-Open the [http://localhost:80](http://localhost:80) URL in your browser to see the web app running locally.
+Open the [http://localhost:3100](http://localhost:3100) URL in your browser to see the web app running locally.
 
 ---
 
@@ -218,6 +218,8 @@ When deployment completes, you have a resource group with the following resource
 * A Container Apps Environment
 * A Container App running the web app image
 * A Log Analytics workspace
+
+The URL for the deployed app is in the output of the `az containerapp up` command. Open the URL in your browser to see the web app running in Azure. The form of the URL will look like the following `https://web-aca-app.<generated-text>.<location-info>.azurecontainerapps.io`, where the `<generated-text>` and `<location-info>` are unique to your deployment.
 
 ## Make updates and redeploy
 
