@@ -219,6 +219,8 @@ When deployment completes, you have a resource group with the following resource
 * A Container App running the web app image
 * A Log Analytics workspace
 
+The URL for the deployed app is in the output of the `az containerapp up` command. Open the URL in your browser to see the web app running in Azure. The form of the URL will look like the following `https://web-aca-app.<generated-text>.<location-info>.azurecontainerapps.io`, where the `<generated-text>` and `<location-info>` are unique to your deployment.
+
 ## Make updates and redeploy
 
 After you make code updates, you can run the previous `az containerapp up` command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
