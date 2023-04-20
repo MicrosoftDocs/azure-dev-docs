@@ -19,13 +19,19 @@ Azure Developer CLI (`azd`) is a command-line interface for developers who build
 
 ### Synopsis
 
-To begin working with Azure Developer CLI, run the `azd up` command by supplying a sample template in an empty directory:
+To begin working with Azure Developer CLI, run the `azd init` command along with a sample template name in an empty directory. For example:
 
 ```azdeveloper
-	azd up –-template todo-nodejs-mongo
+	azd init –-template todo-nodejs-mongo
 ```
 
-You can pick a template by running `azd template list` and then supplying the repo name as a value to `--template`.
+You can view a list of template names by running `azd template list`. You can then supplying one of those template names as a value to `--template`.
+
+After initializing your project with `azd init`, you are ready to provision and deploy with `azd up`:
+
+```azdeveloper
+	azd up
+```
 
 The most common next commands are:
 
@@ -36,6 +42,9 @@ The most common next commands are:
 ```
 
 For more information, visit the Azure Developer CLI Dev Hub: [https://aka.ms/azure-dev/devhub](https://aka.ms/azure-dev/devhub).
+
+> [!NOTE]
+> In `azd` versions prior to `0.8.0-beta.1`, you could initialize, provision, and deploy your app with a sample template by running `azd up --template [template-name]`. This behavior is no longer supported. Check out this [release blog post](https://aka.ms/azd-april-2023) for more information.
 
 ### Options
 
@@ -61,7 +70,7 @@ For more information, visit the Azure Developer CLI Dev Hub: [https://aka.ms/azu
 * [azd provision](#azd-provision): Provision the Azure resources for an app.
 * [azd restore](#azd-restore): Restore app dependencies.
 * [azd template](#azd-template): Manage templates.
-* [azd up](#azd-up): Initialize the app, provision Azure resources, and deploy your project with a single command.
+* [azd up](#azd-up): Provision Azure resources and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
 
 ## azd config
@@ -1042,21 +1051,20 @@ azd template show <template> [flags]
 
 ## azd up
 
-Initialize the app, provision Azure resources, and deploy your project with a single command.
+Provision Azure resources and deploy your project with a single command.
 
 ### Synopsis
 
-Initialize the project (if the project folder has not been initialized or cloned from a template), provision Azure resources, and deploy your project with a single command.
+Provision Azure resources and deploy your project with a single command.
 
 This command executes the following in one step:
 
 ```azdeveloper
-	azd init
 	azd provision
 	azd deploy
 ```
 
-When no template is supplied, you can optionally select an Azure Developer CLI template for cloning. Otherwise, running `azd up` initializes the current directory so that your project is compatible with Azure Developer CLI.
+Before running this command for the first time, run [`azd init`](#azd-init). 
 
 ```azdeveloper
 azd up [flags]

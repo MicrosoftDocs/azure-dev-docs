@@ -18,7 +18,7 @@ While we use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB]
 ## Prerequisites
 
 - [Install the Azure Developer CLI](./install-azd.md)
-- [Run `azd up` for the Node.js template](./get-started.md)
+- [Run `azd init` and `azd up` for the Node.js template](./get-started.md)
 
 ## Configure your environment
 
