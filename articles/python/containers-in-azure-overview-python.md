@@ -272,7 +272,7 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 ## Next steps
 
 * [Containerized Python web app on Azure with MongoDB](./tutorial-containerize-deploy-python-web-app-azure-01.md)
-* [Deploy a Python web app on Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
+* [Deploy a Python web app on Azure Container Apps with PostgreSQL](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
