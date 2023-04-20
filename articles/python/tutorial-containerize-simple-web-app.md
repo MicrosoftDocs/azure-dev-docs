@@ -184,7 +184,7 @@ Open the [http://localhost:5000](http://localhost:5000) URL in your browser to s
 docker run --detach --publish 3100:3100 fastapi-demo
 ```
 
-Open the [http://localhost:80](http://localhost:80) URL in your browser to see the web app running locally.
+Open the [http://localhost:3100](http://localhost:3100) URL in your browser to see the web app running locally.
 
 ---
 
