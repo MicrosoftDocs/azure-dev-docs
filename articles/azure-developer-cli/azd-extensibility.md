@@ -55,7 +55,7 @@ The following examples demonstrate different types of hook registrations and con
 
 Hooks can be configured to run for specific `azd` commands at the root of your `azure.yaml` file.
 
-The project directory (where the `azure.yaml` file is located) is the default `cwd` for command hooks.
+The project directory (where the `azure.yaml` file is located) is the default current working directory (`cwd`) for command hooks.
 
 ```yml
 name: todo-nodejs-mongo
