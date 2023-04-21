@@ -8,6 +8,8 @@ ms.custom: devx-track-js
 ---
 # Create a Static web app with a serverless API 
 
+Learn how to locally run then deploy a static web app with a serverless API to Azure. This tutorial uses the **preview version of the latest Azure Functions Node.js programming model**.
+
 Learn how to:
 
 * Create a [static web app](/azure/static-web-apps/) (SWA)
@@ -15,27 +17,21 @@ Learn how to:
 * Run the same code remotely without changes.
 
 Your static web app consists of:
-* A client React app in the `app` directory, served from `http://localhost:3000`
-* An Azure Function API in the `api` directory served from `http://localhost:7071`
+* Use front-end, served from `http://localhost:4280`
+* Proxy requests to Azure Function API in the `api` directory served from `http://localhost:7071`
 
-The local static web app CLI provides:
-* A proxy local between from the React app to the Function API. The URL in the React looks like `/api/hello`, without specifying the server or port number for the API. Requests using this URL are successful locally because the SWA CLI manages the proxy for you.  
+
+The proxy between the front-end and APIs is provided by the Static web app CLI provides:
+* The URL in React, `/api/hello`, doesn't specify the server or port number for the API. Requests using this URL are successful locally because the SWA CLI manages the proxy for you.  
 * A local authentication emulator when accessing `/.auth/login/<provider>`
 * Route management and authorization 
-
-Complete sample code provided:
-
-* Sample [basic app](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/1-basic-app-with-api) - on branch named `1-basic-app-with-api`
-* Sample [basic app with auth](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/2-basic-app-with-api-and-auth) - on branch named `2-basic-app-with-api-and-auth`
-
 
 ## Authentication in this sample
 
 The authentication in this sample provides:
 * React client provides:
     * Login/Logout
-    * Public and private routes based on user's authentication status
-    * Private route has access to API, `await fetch(`/api/hello?name=${name}`)`
+    * Public and private content
 
 This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO)](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
 
@@ -43,115 +39,46 @@ This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO)](/
 
 Install the following:
 
-* [GitHub account](https://github.com/)
-* [Azure CLI](/cli/azure/install-azure-cli) - v2.27.2
-* [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
-* [Node.js](https://nodejs.org/en/download/) - this create-react-app was developed with Node.js v14.17.1. 
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#install-the-azure-functions-core-tools) - v3.0.3477+
+- [GitHub account](https://github.com/) - You need a GitHub account to deploy Azure Static web apps.
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure Static Web Apps (SWA) CLI](https://azure.github.io/static-web-apps-cli/docs/use/install)
+- [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.9+
+- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [TypeScript](https://www.typescriptlang.org/) v4+
+- [Azure Functions Runtime](./functions-versions.md) v4.16+
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
 
 
-## 1. Sign in to Azure CLI
+## Fork and clone the sample repository
 
-1. In VS Code, in an integrated bash terminal, sign in to the Azure CLI:
-
-    ```azurecli
-    az login
-    ```
-
-    This opens a browser for you to continue your authentication. 
-
-1. When authentication is complete, close the browser and return to VS Code. 
-
-## 2. Create a new GitHub repo for source control
-
-In this article, create a new GitHub repository (repo), then prepare your local development environment to use the repo for source control.
-
-### Default branch names
-
-Because you'll be pushing and pulling between your local and remote repos, it's important that both use the same `default` branch name. 
-
-If you're new to Git and GitHub, both branches are `main`. If both default branches aren't `main`, you need to configure both branches to be the same name and anytime you see `main` referenced in this document series, use your own default branch name instead. 
-
-### Create remote GitHub repository
-
-1. Use [this link](https://github.com/new) to go to your GitHub account to create a new repo. Use the following table to create the repo:
-   
-   |Property|Value|
-   |--|--|
-   |Repository name|`staticwebapp-with-api`|
-   |Public or private|Public|
-   |Readme|Check|
-   |.gitignore|Check, select `Node`.|
-   |License|Yes, select `MIT license`.|
-   
-1. After you create the remote repo, copy the repo URL to use later, such as `https://github.com/YOUR-ACCOUNT/staticwebapp-with-api`.
-
-### Create remote personal access token for GitHub
-
-If you intend to create your Azure Static Web Apps resource using the Azure CLI (your choices are with the Azure CLI or with VS Code), you need to create a personal access token (PAT). 
-
-1. In a web browser on GitHub, create a **Personal Access Token** (PAT) for this repo using [GitHub documentation found here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
-
-1. Copy this PAT for that later step.
-
-### Initialize local source control
-
-Configure the local directory to connect to the remote GitHub repository. 
-
-1. Open VS Code to your local directory. 
-1. Open an integrated bash window. 
-1. Initialize Git:
+1. Fork the [sample repository](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/).
+1. In a base terminal, clone your forked repository to your local computer.
 
     ```bash
-    git init
+    git clone YOUR-FORKED-REPO-URL
     ```
-1. Connect your local repo to your remote. Change the following command to use your account and repo name. 
-   
-   ```bash
-   git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
-   ```
 
-   The name `origin` refers to your connection to this local repo and your specific remote repo.
-
-1. Pull the remote readme.md, .gitignore and license files (created in a previous section) to your local repo:
-   
-   ```bash
-   git pull origin main 
-   ```
-
-   This pulls the README.md, license, and .gitignore files to your local computer. If you miss this step, following steps will fail until you complete it.
-
-## 3. Create a React app for your web site
-
-The React app will be the user interface for this simple app. All of the code is provided for you:
-* Sample [basic app](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/1-basic-app-with-api) - on branch named `1-basic-app-with-api`
-
-### Create React app with npm targeting TypeScript
-
-1. Open VS Code in the directory, which will become the root of the project. 
-1. In VS Code, open an integrated **bash** terminal. All remaining terminal commands should be run from the same terminal unless otherwise specified. 
-
-1. In the root of the project, create a _create-react-app_ in `/app` directory with the following command:
+1. Install dependencies for SWA CLI.
 
     ```bash
-    npx create-react-app app --template typescript
+    cd js-e2e-static-web-app-with-cli && npm install
     ```
 
-1. Install dependencies for the local React app:
+1. Install dependencies for the local front-end app:
 
     ```bash
-    cd app && npm install typescript --save-dev && npm install 
+    cd app && npm install 
     ```
 
-1. Change `./app/tsconfig.json` to ignore compile errors for any variables without a specified type:
+1. Install dependencies for the local back-end app:
 
-    ```json
-    "noImplicitAny": false
+    ```bash
+    cd ../api && npm install && cd ..
     ```
 
-    This specific step is to bypass any issues with create-react-app. In your professional projects, once you're comfortable with your build and deployment of the app, return to this setting and set it to `true`. Resolve any compile-time errors for TypeScript before committing these changes to source control. 
 
-### Build and run local React app
+### Build and run local app
 
 1. Verify local React app builds successfully by running the following command from the `./app` directory:
 
@@ -161,31 +88,32 @@ The React app will be the user interface for this simple app. All of the code is
 
     If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It's important to know that your project successfully builds locally before moving deployment to Azure Static Web Apps.
 
-1. Run the project, which should open the project in a browser to `http://localhost:3000/`:
+1. Start the project from the root directory. This command uses the SWA CLI to start the front-end and back-end apps locally with a proxy between them.
    
     ```bash 
     npm start
     ```
 
-1. When you see the project successfully loaded in the browser, go back to bash terminal and stop the runtime with <kbd>Ctrl</kbd> + <kbd>c</kbd>.
-   
-1. In the bash terminal, move back to the root of the project:
+1. When you see the following lines in the bash terminal, the project successfully started. 
 
-    ```bash 
-    cd ..
+    ```bash
+    [swa] Serving static content:
+    [swa]   /workspaces/js-e2e-static-web-app-with-cli/v2/app/dist
+    [swa] 
+    [swa] Serving API:
+    [swa]   /workspaces/js-e2e-static-web-app-with-cli/v2/api
+    [swa] 
+    [swa] Azure Static Web Apps emulator started at http://0.0.0.0:4280. Press CTRL+C to exit.
     ```
 
-1. Leave this bash terminal open, you'll return to it in a later step. 
+1. Open a web browser to the proxied URL, `http://localhost:4280`. You should see the following page:
+   
+    :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-### Commit app changes to source control
+1. You can sign in using authentication provided by the SWA CLI using on of the listed providers. The process mocks authectication in Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Once a user is authenticated, the front-end displays _private_ information such as the API's environment variables.
 
-In the VS Code integrated bash terminal, commit the source control to the remote repo:
+    :::code language="{language}" source="{source}" range="{range}":::
 
-```bash
-git add . && \
-    git commit -m "react app" && \
-    git push origin main
-```
 
 ## 4. Create a new Azure Static Web app
 
