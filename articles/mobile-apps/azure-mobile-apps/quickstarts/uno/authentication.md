@@ -12,6 +12,9 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
+> [!NOTE]
+> This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered in this tutorial.
+
 > [!TIP]
 > Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
@@ -25,7 +28,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL]([/azure/active-directory/develop/msal-overview](https://platform.uno/docs/articles/interop/MSAL.html) to each of the `TodoApp.Uno` projects:
+Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL](https://platform.uno/docs/articles/interop/MSAL.html) to each of the `TodoApp.Uno` projects:
 
 1. Right-click on the solution, then select **Manage NuGet Packages...**.
 2. Select the **Browse** tab.
@@ -33,10 +36,24 @@ Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL]([/azu
 4. Select the `Uno.WinUI.MSAL` result.
 5. In the right hand panel, select each of the `TodoApp.Uno` projects.
 6. Select **Install**.
-   
-   ![Screenshot of selecting the Uno M S A L NuGet in Visual Studio.](./media/select-msal-nuget.png)
+
+   ![Screenshot of selecting the Uno M S A L NuGet in Visual Studio.](./media/select-uno-msal-nuget.png)
 
 7. Accept the license agreement to continue the installation.
+
+Use the same technique to add the [Microsoft.Identity.Client]() library to each of the `TodoApp.Uno` projects:
+
+1. Enter `Microsoft.Identity.Client` in the search box, then press EWnter.
+2. Select the `Microsoft.Identity.Client` result.
+3. In the right hand panel, select each of the `TodoApp.Uno` projects.
+4. Select **Install**.
+
+   ![Screenshot of selecting the M S A L NuGet in Visual Studio.](./media/select-msal-nuget.png)
+
+5. Accept the license agreement to continue the installation.
+
+> [!NOTE]
+> Ensure you install the latest versions of these two libraries.
 
 Add the native client ID and backend scope to the configuration.
 
@@ -67,8 +84,6 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
 
 Replace the `<client-id>` with the _Native Client Application ID_ you received when registering the client application in Azure Active Directory, and the `<scope>` with the _Web API Scope_ you copied when you used **Expose an API** while registering the service application.
 
-Ensure you add the Microsoft Identity Library (MSAL) to all the `TodoApp.Uno` projects, including `TodoApp.Uno.Mobile`.  Repeat this proce
-
 Open the `MainPage.xaml.cs` file in the top folder of the `TodoApp.Uno` project.  
 
 Add the following `using` statements to the top of the file:
@@ -91,17 +106,29 @@ Remove the `TodoService` property and replace it with the following code:
     public MainPage() {
         this.InitializeComponent();
 
-#if ANDROID || IOS
-        string redirectUri = $"msal{Constants.ApplicationId}://auth";
-#else
-        string redirectUri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-#endif
+#if __ANDROID__
         _identityClient = PublicClientApplicationBuilder
             .Create(Constants.ApplicationId)
             .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-            .WithRedirectUri(redirectUri)
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
             .WithUnoHelpers()
             .Build();
+#elif __IOS__
+        _identityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .WithUnoHelpers()
+            .Build();
+#else
+        _identityClient = PublicClientApplicationBuilder
+            .Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+            .WithUnoHelpers()
+            .Build();
+#endif
         _service = new RemoteTodoService();
         _viewModel = new TodoListViewModel(this, _service);
         mainContainer.DataContext = _viewModel;
@@ -163,6 +190,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 Open the `TodoApp.Uno.Mobile` project and expand the `Android` folder.  Edit the `AndroidManifest.xml` file with the following contents:
 
+<!-- TODO FOR NICK: The instructions you sent included a MAUI reference - is this ok? -->
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -181,13 +209,17 @@ Open the `TodoApp.Uno.Mobile` project and expand the `Android` folder.  Edit the
 
 Replace `{Native Application ID}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
-Edit the `MainActivity.Android.cs` class, and add the following method:
+Edit the `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MainActivity.Android.cs` class; adjust the constructor:
 
+<!-- TODO FOR NICK: Replace this code with the code I can't read in the comment -->
 ``` csharp
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+    [Activity(
+        MainLauncher = true,
+        ConfigurationChanges = global::Uno.UI.ActivityHelper.AllConfigChanges,
+        WindowSoftInputMode = SoftInput.AdjustNothing | SoftInput.StateHidden
+    )]
+    public class MainActivity : Microsoft.UI.Xaml.ApplicationActivity
     {
-            base.OnActivityResult(requestCode, resultCode, data);
-            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
     }
 ```
 
