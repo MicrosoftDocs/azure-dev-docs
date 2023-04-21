@@ -11,7 +11,7 @@ ms.custom: devx-track-python
 
 In this tutorial, you deploy a Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL](/azure/postgresql) resources.
 
-You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](Passwordless connections for Azure services).
+You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
 This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the command in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com).
 
