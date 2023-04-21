@@ -13,7 +13,7 @@ In this tutorial, you deploy a Python **[Flask](https://flask.palletsprojects.co
 
 You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](Passwordless connections for Azure services).
 
-This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the command in any environment with the CLI installd, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com).
+This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the command in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Get the sample app
 
