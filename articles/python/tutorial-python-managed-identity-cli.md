@@ -50,7 +50,7 @@ A sample Python application using the Flask framework are available to help you 
     > [!IMPORTANT]
     >The `ADMIN_PW` must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and nonalphanumeric characters. When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
-1. Create a PostgreSQL server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command.
+1. Create a PostgreSQL server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. (This and subsequent commands use the line continuation character for Bash Shell ('\'). Change the line continuation character for your shell if needed.)
 
     ```azurecli
     az postgres flexible-server create \
