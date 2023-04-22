@@ -1,7 +1,7 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 08/29/2022
+ms.date: 04/22/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -13,6 +13,6 @@ terraform apply main.tfplan
 
 **Key points:**
 
-- The `terraform apply` command above assumes you previously ran `terraform plan -out main.tfplan`.
+- The example `terraform apply` command assumes you previously ran `terraform plan -out main.tfplan`.
 - If you specified a different filename for the `-out` parameter, use that same filename in the call to `terraform apply`.
 - If you didn't use the `-out` parameter, call `terraform apply` without any parameters.
