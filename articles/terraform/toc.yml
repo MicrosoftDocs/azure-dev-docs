@@ -6,8 +6,10 @@
       href: overview.md
     - name: Terraform AzAPI provider
       href: overview-azapi-provider.md
-    - name: Azure Export for Terraform
-      href: ./azure-export-for-terraform/export-terraform-overview.md
+    - name: Terraform Azure provider versions
+      items:
+        - name: AzureRM provider versions
+          href: provider-version-history-azurerm.md
 - name: Install and Configure
   items:
     - name: Install and configure Terraform
@@ -16,22 +18,8 @@
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
-    - name: Create a Terraform base template using Yeoman
-      href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
       href: store-state-in-azure-storage.md
-    - name: Test Terraform projects
-      items:
-        - name: Compliance testing
-          href: best-practices-compliance-testing.md
-        - name: End-to-end testing
-          href: best-practices-end-to-end-testing.md
-        - name: Integration testing
-          href: best-practices-integration-testing.md
-    - name: Troubleshoot Terraform projects
-      items:
-        - name: Troubleshoot common problems
-          href: troubleshoot.md
 - name: Quickstarts
   expanded: true
   items:
@@ -45,12 +33,6 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
-    - name: Azure Export for Terraform
-      items:
-        - name: Export your first resources
-          href: ./azure-export-for-terraform/export-first-resources.md
-        - name: Export resources to HCL code
-          href: ./azure-export-for-terraform/export-resources-hcl.md
     - name: Terraform Quickstarts for Azure services
       items:
       - name: Analysis Services
@@ -117,10 +99,6 @@
         items:
           - name: Create an Azure Cognitive Search service
             href: /azure/search/search-get-started-terraform
-      - name: Security
-        items:
-          - name: Azure Attestation
-            href: create-attestation-provider.md
       - name: Traffic Manager
         items:
           - name: Create a profile and endpoints
@@ -131,8 +109,6 @@
           href: /azure/virtual-machines/linux/quick-create-terraform
 - name: Samples
   items:
-    - name: Terraform samples
-      href: https://github.com/azure/terraform
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Concepts
@@ -141,54 +117,66 @@
       href: best-practices-testing-overview.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
+- name: Tutorials
+  items:
+    - name: Security
+      items:
+        - name: Azure Attestation
+          href: create-attestation-provider.md
 - name: How-to guides
   items:
-      - name: Azure Export for Terraform
-        items:
-          - name: Advanced scenarios
-            item: ./azure-export-for-terraform/export-advanced-scenarios.md
-          - name: Export resources to HCL
-            item: ./azure-export-for-terraform/export-resources-hcl.md
-          - name: Select custom resources
-            item: ./azure-export-for-terraform/select-custom-resources.md
-    - name: Terraform how-to guides for Azure services
+    - name: Test Terraform projects
       items:
-      - name: App Service
+        - name: Compliance testing
+          href: best-practices-compliance-testing.md
+        - name: End-to-end testing
+          href: best-practices-end-to-end-testing.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot common problems
+          href: troubleshoot.md
+    - name: App Service
+      items:
+        - name: Terraform and Azure provider deployment slots
+          href: provision-infrastructure-using-azure-deployment-slots.md
+    - name: Containers
+      items:
+        - name: Application Gateway ingress controller in AKS
+          href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Database
+      items:
+        - name: Azure Cosmos DB
+          href: deploy-azure-cosmos-db-to-azure-container-instances.md
+        - name: PostgreSQL Flexible Server Database
+          href: deploy-postgresql-flexible-server-database.md
+    - name: Networks
+      items:
+      - name: Azure Network Watcher
+        href: create-network-watcher-nsg-flow-logs.md
+      - name: Azure Firewall Premium
+        href: firewall-upgrade-premium.md
+      - name: Deploy Azure Application Gateway v2
+        href: deploy-application-gateway-v2.md
+      - name: Hub and spoke topology
         items:
-          - name: Terraform and Azure provider deployment slots
-            href: provision-infrastructure-using-azure-deployment-slots.md
-      - name: Containers
-        items:
-          - name: Application Gateway ingress controller in AKS
-            href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
-      - name: Database
-        items:
-          - name: Azure Cosmos DB
-            href: deploy-azure-cosmos-db-to-azure-container-instances.md
-          - name: PostgreSQL Flexible Server Database
-            href: deploy-postgresql-flexible-server-database.md
-      - name: Networks
-        items:
-        - name: Azure Network Watcher
-          href: create-network-watcher-nsg-flow-logs.md
-        - name: Azure Firewall Premium
-          href: firewall-upgrade-premium.md
-        - name: Deploy Azure Application Gateway v2
-          href: deploy-application-gateway-v2.md
-        - name: Hub and spoke topology
-          items:
-            - name: 1. Create hub and spoke topology
-              href: hub-spoke-introduction.md
-            - name: 2. Create on-premises virtual network
-              href: hub-spoke-on-prem.md
-            - name: 3. Create hub virtual network
-              href: hub-spoke-hub-network.md
-            - name: 4. Create hub virtual network appliance
-              href: hub-spoke-hub-nva.md
-            - name: 5. Create spoke network
-              href: hub-spoke-spoke-network.md
-            - name: 6. Validate network topology connectivity 
-              href: hub-spoke-validation.md
+          - name: 1. Create hub and spoke topology
+            href: hub-spoke-introduction.md
+          - name: 2. Create on-premises virtual network
+            href: hub-spoke-on-prem.md
+          - name: 3. Create hub virtual network
+            href: hub-spoke-hub-network.md
+          - name: 4. Create hub virtual network appliance
+            href: hub-spoke-hub-nva.md
+          - name: 5. Create spoke network
+            href: hub-spoke-spoke-network.md
+          - name: 6. Validate network topology connectivity 
+            href: hub-spoke-validation.md
+    - name: Tools
+      items:
+        - name: Create a Terraform base template using Yeoman
+          href: create-base-template-using-yeoman.md
     - name: Azure Virtual Desktop
       items:
         - name: Configure an Azure Virtual Desktop
@@ -217,10 +205,6 @@
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Reference
   items:
-    - name: Terraform Azure provider versions
-      items:
-        - name: AzureRM provider versions
-          href: provider-version-history-azurerm.md
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider
