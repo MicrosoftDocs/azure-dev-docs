@@ -1,7 +1,6 @@
 ---
 title: Overview of Azure Export for Terraform
 description: Learn the benefits and uses of Azure Export for Terraform
-keywords: azure export terraform
 ms.topic: overview
 ms.date: 04/22/2023
 ms.author: stema

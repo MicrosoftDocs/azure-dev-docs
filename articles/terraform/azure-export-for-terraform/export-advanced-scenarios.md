@@ -1,7 +1,6 @@
 ---
 title: Using Azure Export for Terraform in advanced scenarios
 description: Learn how to append resources and use remote backends 
-keywords: azure export terraform backend append existing
 ms.topic: how-to
 ms.date: 04/23/2023
 ms.author: stema
@@ -24,7 +23,7 @@ By default, Azure Export for Terraform ensures the output directory is empty to 
 aztfexport [command] --append <scope>
 ```
 
-When the `--append` flag is specified, Azure Export for Terraform verifies if there's a preexisting `provider` or `terraform` block in any of the files in the current directory. If not, the tool create a file for each block and then proceeds with exporting. If the output directory has a state file, any exported resources will be imported into the state file. 
+When the `--append` flag is specified, Azure Export for Terraform verifies if there's a pre-existing `provider` or `terraform` block in any of the files in the current directory. If not, the tool creates a file for each block and then proceeds with exporting. If the output directory has a state file, any exported resources are imported into the state file.
 
 Additionally, the file generated has a `.aztfexport` suffix before the extension - such as `main.aztfexport.tf` - to avoid potential file name conflicts.
 
@@ -128,7 +127,7 @@ Now, let's put it all together! Imagine new resources have been created outside 
     - The  `-o` flag specifies to create the directory if it doesn't exist.
     - The `--hcl-only` flag specifies to export the configured resources to HCL
     
-1. After inspecting that the resource can be appended, utilize the generated mapping file and the `--append` flag to ensure Azure Export respects the preexisting remote state and provider versions within our existing environment:
+1. After inspecting that the resource can be appended, utilize the generated mapping file and the `--append` flag to ensure Azure Export respects the pre-existing remote state and provider versions within our existing environment:
 
     ```console
     aztfexport map --append `./tempdir/aztfexportResourceMapping.json`

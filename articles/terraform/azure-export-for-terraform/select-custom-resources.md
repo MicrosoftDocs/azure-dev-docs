@@ -1,7 +1,6 @@
 ---
 title: Customized resource selection and naming using Azure Export for Terraform
-description: Understand how to customize resource selection and filtering, as well as when to use various methods with Azure Export for Terraform.
-keywords: azure export terraform filtering selection resource naming
+description: Understand how to customize resource selection and filtering with Azure Export for Terraform.
 ms.topic: how-to
 ms.author: stema
 ms.custom: devx-track-terraform
@@ -21,7 +20,7 @@ In this article, you learn pros and cons for each option.
 
 ## Using the user interface
 
-When you run Azure Export for Terraform in interactive mode, the specified resources (via the parameters you specify when running) display. By default, all of the resources will be exported.
+When you run Azure Export for Terraform in interactive mode, the specified resources (via the parameters you specify when running) display. By default, all of the resources are exported.
 
 The <kbd>Delete</kbd> acts as a toggle in skipping or including resources. To remove resources from being exported, use the arrow keys to select the desired resource and press <kbd>Delete</kbd>. The resource is updated to display "Skip".
 
@@ -88,7 +87,7 @@ For example, let's say you run the following command for a resource group that c
 aztfexport rg --generate-mapping-file --non-interactive myResourceGroup
 ```
 
-The results will be a mapping file similar to the following truncated list:
+The results are similar to the following JSON file:
 
 ```JSON
 {
@@ -145,7 +144,7 @@ The results will be a mapping file similar to the following truncated list:
 }
 ```
 
-Note that only the object value in the mapping file has significance. The key (defaults to the Azure `resource_id`) is just an identifier in this mode.
+Only the object value in the mapping file has significance. The key (defaults to the Azure `resource_id`) is just an identifier in this mode.
 
 Now, let's say we want to keep the resource group and any compute-related resources, and modify the `resource_name` value.
 
@@ -184,9 +183,9 @@ aztfexport map -n "aztfexportResourceMapping.json"
 
 **Pros:**
 
-- JSON output enables unique functionality (i.e. scripting to filter).
-- Can rename resources to match your naming standards.
 - Since you're editing a file, you can use an editor to find and replace what you need to remove or edit.
+- JSON output enables unique functionality - such as scripting to filter.
+- Can rename resources to match your naming standards.
 - Can refactor JSON into multiple mapping files.
 - Handles large amounts of resources well.
 

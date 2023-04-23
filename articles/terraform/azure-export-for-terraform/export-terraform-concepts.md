@@ -1,7 +1,6 @@
 ---
 title: Azure Export for Terraform concepts
 description: Learn how Azure Export for Terraform works, best practices, and limitations around the tool.
-keywords: azure export terraform limitation
 ms.topic: conceptual
 ms.date: 04/22/2023
 ms.author: stema
