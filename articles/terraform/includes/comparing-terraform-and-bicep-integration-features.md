@@ -55,7 +55,7 @@ The Azure authentication features vary between Bicep and Terraform. With Bicep, 
 
 ## Azure integrations
 
-You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each interacts with other tools and languages. Bicep's preflight validation features can determine before a deployment if a resource will be denied by policy and fail. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, will fail when a resource is deployed that is disallowed by policy.
+You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each interacts with other tools and languages. Bicep's preflight validation features can determine before a deployment if a resource will be denied due to policy. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, will fail when a resource is deployed that is disallowed due to policy.
 
 ## Portal integration
 

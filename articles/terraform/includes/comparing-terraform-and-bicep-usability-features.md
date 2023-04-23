@@ -71,7 +71,7 @@ For Bicep support, where you go for help depends on the nature of the issue:
 For Terraform support, where you go for help depends on the nature of the issue:
 
 - **Documentation bugs**: For issues with [Terraform documentation on Microsoft Learn](../index.yml), each article has a Feedback section.
-- **Provider source code and filing bugs**: Microsoft has GitHub repos that allow you to contribute to the open-source Terraform Azure providers and file bugs. To list the available providers, browse to the [Azure GitHub organization](https://github.com/Azure/), and enter `terraform-provider-` into the **Find a repository...** field.
+- **Provider source code and filing bugs**: Microsoft has GitHub repos where you can file bugs and contribute to the open-source Terraform Azure providers. To list the available providers, browse to the [Azure GitHub organization](https://github.com/Azure/), and enter `terraform-provider-` into the **Find a repository...** field.
 - **Terraform core questions**: Visit the [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core).
 - **Terraform provider-related questions**: Visit the [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers).
 
