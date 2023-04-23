@@ -52,7 +52,7 @@ aztfexport query -n "resourceGroup =~ 'myResourceGroup' and type contains 'Micro
 Pros:
 
 - Single command with no manual editing required.
-- Supports an unlimited amount of filters.
+- Supports an unlimited number of filters.
 - Handles large amount of resources efficiently.
 
 Cons:

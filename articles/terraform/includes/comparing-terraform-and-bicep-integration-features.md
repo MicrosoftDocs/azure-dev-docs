@@ -55,11 +55,11 @@ The Azure authentication features vary between Bicep and Terraform. With Bicep, 
 
 ## Azure integrations
 
-You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each interacts with other tools and languages. Bicep's preflight validation features can determine whether a resource will be denied by policy and fail before a deployment. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, will fail when a resource is deployed that is disallowed by policy.
+You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each interacts with other tools and languages. Bicep's preflight validation features can determine before a deployment if a resource will be denied by policy and fail. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, will fail when a resource is deployed that is disallowed by policy.
 
 ## Portal integration
 
-One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. But note that you'll need to decompile the exported ARM template until Bicep templates are supported.
+One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. Until Bicep templates are supported, you need to decompile the exported ARM template.
 
 Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Export for Terraform](https://github.com/Azure/aztfexport). (Azure Export for Terraform is an open-source tool owned and maintained by Microsoft.)
 
@@ -67,7 +67,7 @@ Although Terraform doesn't provide the same portal integrations as Bicep, existi
 
 Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a virtual machine scale set using Bicep or Terraform. If you change that virtual machine scale set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
 
-If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes won't block the deployment.
+If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes don't block the deployment.
 
 If you're using Terraform, you need to import the out-of-band changes into the Terraform state and update the HCL.
 
@@ -79,4 +79,4 @@ The [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) is a coll
 
 ## Summary
 
-Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it's important to consider whether you'll be deploying to more than one cloud or whether your infrastructure consists of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.
+Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it's important to consider if you're deploying to more than one cloud or whether your infrastructure consists of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.
