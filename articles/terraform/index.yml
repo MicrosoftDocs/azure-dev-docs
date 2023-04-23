@@ -71,7 +71,7 @@ landingContent:
             url: ./azure-export-for-terraform/select-custom-resources.md
       - linkListType: concept
         links:
-          - text: Customized resource selection and naming
+          - text: Azure Export for Terraform concepts
             url: ./azure-export-for-terraform/export-terraform-concepts.md
             
   # Card

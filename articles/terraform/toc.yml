@@ -54,8 +54,8 @@
               item: ./azure-export-for-terraform/select-custom-resources.md
         - name: Concepts
           items:
-            - name: Customized resource selection and naming
-              item: ./azure-export-for-terraform/select-custom-resources.md
+            - name: Azure Export for Terraform concepts
+              item: ./azure-export-for-terraform/export-terraform-concepts.md
 - name: Quickstarts
   expanded: true
   items:
