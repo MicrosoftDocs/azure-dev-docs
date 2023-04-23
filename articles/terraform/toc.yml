@@ -6,10 +6,8 @@
       href: overview.md
     - name: Terraform AzAPI provider
       href: overview-azapi-provider.md
-    - name: Terraform Azure provider versions
-      items:
-        - name: AzureRM provider versions
-          href: provider-version-history-azurerm.md
+    - name: Azure Export for Terraform
+      href: ./azure-export-for-terraform/export-terraform-overview.md
 - name: Install and Configure
   items:
     - name: Install and configure Terraform
@@ -18,8 +16,22 @@
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
+    - name: Create a Terraform base template using Yeoman
+      href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
       href: store-state-in-azure-storage.md
+    - name: Test Terraform projects
+      items:
+        - name: Compliance testing
+          href: best-practices-compliance-testing.md
+        - name: End-to-end testing
+          href: best-practices-end-to-end-testing.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
+    - name: Troubleshoot Terraform projects
+      items:
+        - name: Troubleshoot common problems
+          href: troubleshoot.md
 - name: Quickstarts
   expanded: true
   items:
