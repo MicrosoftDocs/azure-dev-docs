@@ -1,5 +1,5 @@
 ---
-title: Exploring customized resource selection and naming using Azure Export for Terraform
+title: Customized resource selection and naming using Azure Export for Terraform
 description: Understand how to customize resource selection and filtering, as well as when to use various methods with Azure Export for Terraform.
 keywords: azure export terraform filtering selection resource naming
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 04/05/2023
 ms.author: stema
 ms.custom: devx-track-terraform
 ---
-# Exploring Customized Resource Selection and Naming
+# Customized resource selection and naming using Azure Export for Terraform
 
 Azure Export for Terraform provides various options to customize which resources you export:
 

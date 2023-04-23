@@ -6,8 +6,6 @@
       href: overview.md
     - name: Terraform AzAPI provider
       href: overview-azapi-provider.md
-    - name: Azure Export for Terraform
-      href: ./azure-export-for-terraform/export-terraform-overview.md
 - name: Install and Configure
   items:
     - name: Install and configure Terraform
@@ -32,6 +30,31 @@
       items:
         - name: Troubleshoot common problems
           href: troubleshoot.md
+- name: Tools for Terraform
+  items:
+    - name: Azure Export for Terraform
+      items:
+        - name: Overview
+          items:
+            - name: Azure Export for Terraform
+              href: ./azure-export-for-terraform/export-terraform-overview.md
+        - name: Quickstarts
+          expanded: true
+          items:
+            - name: Export your first resources
+              href: ./azure-export-for-terraform/export-first-resources.md
+            - name: Export resources to HCL code
+              href: ./azure-export-for-terraform/export-resources-hcl.md
+        - name: How-to guides
+          items:
+            - name: Advanced scenarios
+              item: ./azure-export-for-terraform/export-advanced-scenarios.md
+            - name: Select custom resources
+              item: ./azure-export-for-terraform/select-custom-resources.md
+        - name: Concepts
+          items:
+            - name: Customized resource selection and naming
+              item: ./azure-export-for-terraform/select-custom-resources.md
 - name: Quickstarts
   expanded: true
   items:
@@ -45,12 +68,6 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
-    - name: Azure Export for Terraform
-      items:
-        - name: Export your first resources
-          href: ./azure-export-for-terraform/export-first-resources.md
-        - name: Export resources to HCL code
-          href: ./azure-export-for-terraform/export-resources-hcl.md
     - name: Terraform Quickstarts for Azure services
       items:
       - name: Analysis Services
@@ -143,12 +160,6 @@
       href: comparing-terraform-and-bicep.md
 - name: How-to guides
   items:
-    - name: Azure Export for Terraform
-      items:
-        - name: Advanced scenarios
-          item: ./azure-export-for-terraform/export-advanced-scenarios.md
-        - name: Select custom resources
-          item: ./azure-export-for-terraform/select-custom-resources.md
     - name: Terraform how-to guides for Azure services
       items:
       - name: App Service
