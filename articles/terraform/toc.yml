@@ -45,6 +45,12 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
+    - name: Azure Export for Terraform
+      items:
+        - name: Export your first resources
+          href: ./azure-export-for-terraform/export-first-resources.md
+        - name: Export resources to HCL code
+          href: ./azure-export-for-terraform/export-resources-hcl.md
     - name: Terraform Quickstarts for Azure services
       items:
       - name: Analysis Services
@@ -111,6 +117,10 @@
         items:
           - name: Create an Azure Cognitive Search service
             href: /azure/search/search-get-started-terraform
+      - name: Security
+        items:
+          - name: Azure Attestation
+            href: create-attestation-provider.md
       - name: Traffic Manager
         items:
           - name: Create a profile and endpoints
