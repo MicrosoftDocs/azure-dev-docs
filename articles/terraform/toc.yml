@@ -38,14 +38,14 @@
         - name: Overview
           items:
             - name: Azure Export for Terraform
-              href: /azure/developer/azure-export-for-terraform/export-terraform-overview
+              href: ./azure-export-for-terraform/export-terraform-overview
         - name: Quickstarts
           expanded: true
           items:
             - name: Export your first resources
-              href: /azure/developer/azure-export-for-terraform/export-first-resources
+              href: ./azure-export-for-terraform/export-first-resources.md
             - name: Export resources to HCL code
-              href: /azure/developer/azure-export-for-terraform/export-resources-hcl
+              href: azure-export-for-terraform/export-resources-hcl.md
         - name: How-to guides
           items:
             - name: Advanced scenarios
