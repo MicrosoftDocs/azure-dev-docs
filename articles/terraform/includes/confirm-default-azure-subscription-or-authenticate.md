@@ -15,4 +15,4 @@ Run [az account show](/cli/azure/account?#az-account-show) to verify the current
 az account show
 ```
 
-Any changes you make via Terraform will be against the displayed Azure subscription. If that's what you want, skip the rest of this article.
+Any changes you make via Terraform are on the displayed Azure subscription. If that's what you want, skip the rest of this article.
