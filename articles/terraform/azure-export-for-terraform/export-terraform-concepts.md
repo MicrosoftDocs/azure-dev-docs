@@ -16,29 +16,29 @@ This article introduces you to the [Azure Export for Terraform](./export-terrafo
 
 By default, Azure Export for Terraform runs in interactive mode. When you run in interactive mode, the available keyboard shortcuts are listed at the bottom of the display.
 
-| Task                                                                                                    | Keyboard shortcut(s)                |
-|---------------------------------------------------------------------------------------------------------|-------------------------------------|
-| **Navigation**                                                                                          |                                     |
-| Select previous item in the resource list.                                                              | **↑** -or- **k**                    |
-| Select next item in the resource list.                                                                  | **↓** -or- **j**                    |
-| Move to previous page in the resource list.                                                             | **←** -or- **h** -or- **Page Up**   |
-| Move to next page in the resource list.                                                                 | **→** -or- **l** -or- **Page Down** |
-| Jump to the start of the resource list.                                                                 | <kbd>g</kbd> -or- **Home**          |
-| Jump to the end of the resource list.                                                                   | **G** -or- **End**                  |
-| **Selecting resources to skip**                                                                         |                                     |
-| Skip resource (or unskip if marked as "Skip")                                                           | **Delete**                          |
-| **Filter operations**                                                                                   |                                     |
-| Define a filter by text on the resource list.                                                           | **/**                               |
-| Clear any current filter                                                                                | **Esc**                             |
-| **Save operations**                                                                                     |                                     |
-| Save a mapping file of the resource list. The output file is affected by skipping (but not filtering).  | **s**                               |
-| Export resources to state (if `--hcl-only` isn't specified) and generates the config.                   | **w**                               |
-| **User experience**                                                                                     |                                     |
-| Display recommendations for current resource.                                                           | **r**                               |
-| Show resource export errors (if any).                                                                   | **e**                               |
-| Display help.                                                                                           | **?**                               |
-| **Quit**                                                                                                |                                     |
-| Quit interactive mode.                                                                                  | **q**                               |
+| Task                                                                                                    | Keyboard shortcut(s)                                     |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| **Navigation**                                                                                          |                                                          |
+| Select previous item in the resource list.                                                              | <kbd>↑</kbd> -or- <kbd>k</kbd>                           |
+| Select next item in the resource list.                                                                  | <kbd>↓</kbd> -or- <kbd>j</kbd>                           |
+| Move to previous page in the resource list.                                                             | <kbd>←</kbd> -or- <kbd>h</kbd> -or- <kbd>Page Up</kbd>   |
+| Move to next page in the resource list.                                                                 | <kbd>→</kbd> -or- <kbd>l</kbd> -or- <kbd>Page Down</kbd> |
+| Jump to the start of the resource list.                                                                 | <kbd>g</kbd> -or- <kbd>Home</kbd>                        |
+| Jump to the end of the resource list.                                                                   | <kbd>G</kbd> -or- <kbd>End</kbd>                         |
+| **Selecting resources to skip**                                                                         |                                                          |
+| Skip resource (or unskip if marked as "Skip")                                                           | <kbd>Delete</kbd>                                        |
+| **Filter operations**                                                                                   |                                                          |
+| Define a filter by text on the resource list.                                                           | <kbd>/</kbd>                                             |
+| Clear any current filter                                                                                | <kbd>Esc</kbd>                                           |
+| **Save operations**                                                                                     |                                                          |
+| Save a mapping file of the resource list. The output file is affected by skipping (but not filtering).  | <kbd>s</kbd>                                             |
+| Export resources to state (if `--hcl-only` isn't specified) and generates the config.                   | <kbd>w</kbd>                                             |
+| **User experience**                                                                                     |                                                          |
+| Display recommendations for current resource.                                                           | <kbd>r</kbd>                                             |
+| Show resource export errors (if any).                                                                   | <kbd>e</kbd>                                             |
+| Display help.                                                                                           | <kbd>?</kbd>                                             |
+| **Quit**                                                                                                |                                                          |
+| Quit interactive mode.                                                                                  | <kbd>q</kbd>                                             |
 
 For each resource, Azure Export for Terraform tries to recognize the corresponding Terraform resource type. If it finds a match, the line is marked with the following indicator: 💡.
 
