@@ -23,10 +23,10 @@ By default, Azure Export for Terraform runs in interactive mode. When you run in
 | Select next item in the resource list.                                                                  | **↓** -or- **j**                    |
 | Move to previous page in the resource list.                                                             | **←** -or- **h** -or- **Page Up**   |
 | Move to next page in the resource list.                                                                 | **→** -or- **l** -or- **Page Down** |
-| Jump to the start of the resource list.                                                                 | **g** -or- **Home**                 |
+| Jump to the start of the resource list.                                                                 | <kbd>g</kbd> -or- **Home**          |
 | Jump to the end of the resource list.                                                                   | **G** -or- **End**                  |
 | **Selecting resources to skip**                                                                         |                                     |
-| Skip resource (or unskip if marked as "Skip")                                                           | DEL                                 |
+| Skip resource (or unskip if marked as "Skip")                                                           | **Delete**                          |
 | **Filter operations**                                                                                   |                                     |
 | Define a filter by text on the resource list.                                                           | **/**                               |
 | Clear any current filter                                                                                | **Esc**                             |
