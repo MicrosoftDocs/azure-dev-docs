@@ -31,6 +31,7 @@
         - name: Troubleshoot common problems
           href: troubleshoot.md
 - name: Tools for Terraform
+  expanded: true
   items:
     - name: Azure Export for Terraform
       items:
