@@ -131,6 +131,8 @@
           href: /azure/virtual-machines/linux/quick-create-terraform
 - name: Samples
   items:
+    - name: Terraform samples
+      href: https://github.com/azure/terraform
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Concepts
@@ -139,12 +141,6 @@
       href: best-practices-testing-overview.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
-- name: Tutorials
-  items:
-    - name: Security
-      items:
-        - name: Azure Attestation
-          href: create-attestation-provider.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
