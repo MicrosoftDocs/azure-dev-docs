@@ -199,32 +199,32 @@
                 href: hub-spoke-spoke-network.md
               - name: 6. Validate network topology connectivity 
                 href: hub-spoke-validation.md
-    - name: Azure Virtual Desktop
-      items:
-        - name: Configure an Azure Virtual Desktop
-          href: configure-azure-virtual-desktop.md
-        - name: Create a Session Host
-          href: create-avd-session-host.md
-        - name: Configure RBAC permissions
-          href: configure-avd-rbac.md
-        - name: Configure Network Settings
-          href: configure-avd-network-settings.md
-        - name: Create Azure Files Storage
-          href: create-avd-azure-files-storage.md
-        - name: Create Azure Compute Gallery
-          href: create-avd-azure-compute-image-gallery.md
-        - name: Create Log Analytics Workspace
-          href: create-avd-log-analytics-workspace.md
-    - name: Virtual machines
-      items:
-        - name: Configure a virtual machine cluster
-          href: create-vm-cluster-module.md
-        - name: Virtual Machine cluster with Terraform and HCL
-          href: create-vm-cluster-with-infrastructure.md
-        - name: Virtual Machine Scale Set with infrastructure
-          href: create-vm-scaleset-network-disks-hcl.md
-        - name: Virtual Machine Scale Set from Packer image
-          href: create-vm-scaleset-network-disks-using-packer-hcl.md
+          - name: Azure Virtual Desktop
+            items:
+              - name: Configure an Azure Virtual Desktop
+                href: configure-azure-virtual-desktop.md
+              - name: Create a Session Host
+                href: create-avd-session-host.md
+              - name: Configure RBAC permissions
+                href: configure-avd-rbac.md
+              - name: Configure Network Settings
+                href: configure-avd-network-settings.md
+              - name: Create Azure Files Storage
+                href: create-avd-azure-files-storage.md
+              - name: Create Azure Compute Gallery
+                href: create-avd-azure-compute-image-gallery.md
+              - name: Create Log Analytics Workspace
+                href: create-avd-log-analytics-workspace.md
+          - name: Virtual machines
+            items:
+              - name: Configure a virtual machine cluster
+                href: create-vm-cluster-module.md
+              - name: Virtual Machine cluster with Terraform and HCL
+                href: create-vm-cluster-with-infrastructure.md
+              - name: Virtual Machine Scale Set with infrastructure
+                href: create-vm-scaleset-network-disks-hcl.md
+              - name: Virtual Machine Scale Set from Packer image
+                href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Reference
   items:
     - name: Terraform Azure provider versions
