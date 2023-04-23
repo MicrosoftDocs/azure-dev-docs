@@ -72,7 +72,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Customized resource selection and naming
-            url: ./azure-export-for-terraform/select-custom-resources.md
+            url: ./azure-export-for-terraform/export-terraform-concepts.md
             
   # Card
   - title: Testing Terraform projects
