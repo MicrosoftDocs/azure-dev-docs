@@ -76,9 +76,9 @@ When using the `@JmsListener` API, in some cases you can see in the Azure portal
 
 #### Cause analysis
 
-`@JmsListener` is a [polling listener](https://github.com/spring-projects/spring-framework/blob/v5.3.24/spring-jms/src/main/java/org/springframework/jms/listener/AbstractPollingMessageListenerContainer.java#L45), which is built for repeated polling attempts.
+`@JmsListener` is a `polling listener`, which is built for repeated polling attempts.
 
-The listener sits on an ongoing polling loop. Each loop calls the JMS [MessageConsumer.receive()](https://github.com/javaee/jms-spec/blob/master/jms1.0.1a/src/share/javax/jms/MessageConsumer.java#L134) method to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties, including `receiveTimeout`, `prefetchSize`, and `receiveLocalOnly` or `receiveNoWaitLocalOnly`. The `receiveNoWaitLocalOnly` method is used only when you set `receiveTimeout` to a negative value.
+The listener sits on an ongoing polling loop. Each loop calls the JMS `MessageConsumer.receive()` method to poll the local consumer for messages to consume. By default, for each poll operation, the local consumer sends pull requests to the message broker to ask for messages and then blocks for a certain period of time. The concrete polling process is decided by several properties, including `receiveTimeout`, `prefetchSize`, and `receiveLocalOnly` or `receiveNoWaitLocalOnly`. The `receiveNoWaitLocalOnly` method is used only when you set `receiveTimeout` to a negative value.
 
 When this problem happens to your application, check the following configuration settings:
 
@@ -145,9 +145,9 @@ To accomplish this solution, configure the `spring.jms.listener.receive-timeout`
 
 Also, the container can only send requests after the `receive-timeout` interval has passed. If the interval is longer than 10 minutes, Service Bus will close the link and prevent the listener from sending or receiving. For more information, see the [Link is closed](/azure/service-bus-messaging/service-bus-amqp-troubleshoot#link-is-closed) section of [AMQP errors in Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot). By default, the listener uses a [CachingConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L51).
 
-If you require a high receive-timeout, be sure to use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryConfiguration.java#L71).
+If you require a high receive-timeout, be sure to use the [JmsPoolConnectionFactory](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsConnectionFactoryConfiguration.java).
 
-For more information about the link-close issue and how to use `JmsPoolConnectionFactory`, see this [section](https://dev.azure.com/SpringOnAzure/Spring%20on%20Azure/_wiki/wikis/spring-integration-private.wiki/425/Troubleshoot-Spring-Cloud-Azure-Service-Bus-JMS-Starter-issues?anchor=jmstemplate-issues#the-messageproducer-was-closed-due-to-an-unrecoverable-error).
+For more information about the link-close issue and how to use `JmsPoolConnectionFactory`, see this [section](#the-messageproducer-was-closed-due-to-an-unrecoverable-error).
 
 ### Prefetch issue
 
@@ -188,7 +188,7 @@ So, to manually complete/abandon/dead-letter/defer/release a message in `JmsList
 
 1. Disable session-transacted and use CLIENT ack mode.
 
-   To accomplish this, either declare your own [JmsListenerContainerFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/config/JmsListenerContainerFactory.html) bean and then set the properties or post process the `JmsListenerContainerFactory` defined in the [starter](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsContainerConfiguration.java#L47). Here we take the example of declaring another bean:
+   To accomplish this, either declare your own [JmsListenerContainerFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/config/JmsListenerContainerFactory.html) bean and then set the properties or post process the `JmsListenerContainerFactory` defined in the [starter](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsContainerConfiguration.java). Here we take the example of declaring another bean:
 
    ```java
    @Configuration(proxyBeanMethods = false)
@@ -248,7 +248,7 @@ Caused by: java.lang.IllegalArgumentException: 'spring.jms.servicebus.connection
 
 #### Cause analysis
 
-This is because all of the Spring Cloud Azure autoconfiguration classes are placed into the same module so that any Spring Cloud Azure Starter actually imports all of those autoconfiguration, which also includes Service Bus JMS. And when the application uses Spring JMS api, it meets the condition of [Service Bus JMS autoconfiguration](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsAutoConfiguration.java#L48) and triggers it. Then for users who don't intend to use `spring-cloud-azure-starter-servicebus-jms`, the property conditions won't be met since there's no reason for them to configure Service Bus for JMS. Then the above exceptions are thrown out.
+This is because all of the Spring Cloud Azure autoconfiguration classes are placed into the same module so that any Spring Cloud Azure Starter actually imports all of those autoconfiguration, which also includes Service Bus JMS. And when the application uses Spring JMS api, it meets the condition of [Service Bus JMS autoconfiguration](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure-starter-servicebus-jms_4.5.0/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/ServiceBusJmsAutoConfiguration.java) and triggers it. Then for users who don't intend to use `spring-cloud-azure-starter-servicebus-jms`, the property conditions won't be met since there's no reason for them to configure Service Bus for JMS. Then the above exceptions are thrown out.
 
 #### Solution
 
