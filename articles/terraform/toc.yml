@@ -48,10 +48,10 @@
               href: ./azure-export-for-terraform/export-resources-hcl.md
         - name: How-to guides
           items:
-            - name: Advanced scenarios
-              href: ./azure-export-for-terraform/export-advanced-scenarios.md
             - name: Select custom resources
               href: ./azure-export-for-terraform/select-custom-resources.md
+            - name: Advanced scenarios
+              href: ./azure-export-for-terraform/export-advanced-scenarios.md
         - name: Concepts
           items:
             - name: Azure Export for Terraform concepts

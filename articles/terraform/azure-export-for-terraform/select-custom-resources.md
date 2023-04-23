@@ -10,13 +10,14 @@ ms.date: 04/23/2023
 
 # Customized resource selection and naming using Azure Export for Terraform
 
-Azure Export for Terraform provides various options to customize which resources you export:
-
-- Using the UI
-- Using Query Mode
-- Using a Mapping File
+Azure Export for Terraform provides various options to customize which resources you export.
 
 In this article, you learn pros and cons for each option.
+
+> [!div class="checklist"]
+> * Using the UI
+> * Using Query Mode
+> * Using a Mapping File
 
 ## Using the user interface
 

@@ -12,6 +12,12 @@ ms.custom: devx-track-terraform
 
 In the article, [Export your first resources using Azure Export for Terraform](export-first-resources.md), you learn how to export Azure resources into local state files using [Azure Export for Terraform](export-terraform-overview.md). In this article, you learn how to generate the Terraform configuration files from your Azure resources.
 
+> [!div class="checklist"]
+> * Create a test Azure resource group using Azure CLI or Azure PowerShell.
+> * Create a test Linux virtual machine using Azure CLI or Azure PowerShell.
+> * Export the resource group and virtual machine from Azure to HCL files.
+> * Test that the local state matches the state of the resources in Azure.
+
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)

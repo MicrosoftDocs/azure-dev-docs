@@ -65,10 +65,10 @@ landingContent:
             url: ./azure-export-for-terraform/export-resources-hcl.md
       - linkListType: how-to-guide
         links:
-          - text: Advanced scenarios
-            url: ./azure-export-for-terraform/export-advanced-scenarios.md
           - text: Select custom resources
             url: ./azure-export-for-terraform/select-custom-resources.md
+          - text: Advanced scenarios
+            url: ./azure-export-for-terraform/export-advanced-scenarios.md
       - linkListType: concept
         links:
           - text: Azure Export for Terraform concepts
