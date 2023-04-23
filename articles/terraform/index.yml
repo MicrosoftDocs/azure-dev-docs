@@ -51,6 +51,30 @@ landingContent:
             url: store-state-in-azure-storage.md
 
   # Card
+  - title: Azure Export for Terraform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Export for Terraform overview
+            url: ./azure-export-for-terraform/export-terraform-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Export your first resources
+            url: ./azure-export-for-terraform/export-first-resources.md
+          - text: Export resources to HCL code
+            url: ./azure-export-for-terraform/export-resources-hcl.md
+      - linkListType: how-to-guide
+        links:
+          - text: Advanced scenarios
+            url: ./azure-export-for-terraform/export-advanced-scenarios.md
+          - text: Select custom resources
+            url: ./azure-export-for-terraform/select-custom-resources.md
+      - linkListType: concept
+        links:
+          - text: Customized resource selection and naming
+            url: ./azure-export-for-terraform/select-custom-resources.md
+            
+  # Card
   - title: Testing Terraform projects
     linkLists:
       - linkListType: concept
