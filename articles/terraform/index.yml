@@ -57,6 +57,10 @@ landingContent:
         links:
           - text: Azure Export for Terraform overview
             url: ./azure-export-for-terraform/export-terraform-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Export for Terraform concepts
+            url: ./azure-export-for-terraform/export-terraform-concepts.md
       - linkListType: quickstart
         links:
           - text: Export your first resources
@@ -69,10 +73,6 @@ landingContent:
             url: ./azure-export-for-terraform/select-custom-resources.md
           - text: Advanced scenarios
             url: ./azure-export-for-terraform/export-advanced-scenarios.md
-      - linkListType: concept
-        links:
-          - text: Azure Export for Terraform concepts
-            url: ./azure-export-for-terraform/export-terraform-concepts.md
             
   # Card
   - title: Testing Terraform projects
