@@ -61,7 +61,7 @@ You should also consider your use of Azure features such as [Azure Policy](/azur
 
 One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. Until Bicep templates are supported, you need to decompile the exported ARM template.
 
-Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Export for Terraform](https://github.com/Azure/aztfexport). (Azure Export for Terraform is an open-source tool owned and maintained by Microsoft.)
+Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Export for Terraform](./azure-export-for-terraform/export-terraform-overview.md). (Azure Export for Terraform is an open-source tool owned and maintained by Microsoft.)
 
 ## Out-of-band changes
 
