@@ -3,10 +3,11 @@ title: Customized resource selection and naming using Azure Export for Terraform
 description: Understand how to customize resource selection and filtering, as well as when to use various methods with Azure Export for Terraform.
 keywords: azure export terraform filtering selection resource naming
 ms.topic: how-to
-ms.date: 04/05/2023
 ms.author: stema
 ms.custom: devx-track-terraform
+ms.date: 04/23/2023
 ---
+
 # Customized resource selection and naming using Azure Export for Terraform
 
 Azure Export for Terraform provides various options to customize which resources you export:
@@ -15,18 +16,24 @@ Azure Export for Terraform provides various options to customize which resources
 - Using Query Mode
 - Using a Mapping File
 
-This guide provides quickstarts along with pros and cons for each option.
+In this article, you learn pros and cons for each option.
 
 ## Using the user interface
 
-Simply use the arrow keys while in the UI to navigate to a resource, then press delete to skip the resource. Then, you can import as normal. To undo, press delete again.
+When you run Azure Export for Terraform in interactive mode, the specified resources (via the parameters you specify when running) display. By default, all of the resources will be exported.
 
-Pros:
--	Easy and simple; one Delete button is all you need
--	Don’t need to know the resources you want before running the command
+The <kbd>Del</kbd> acts as a toggle in skipping or including resources. To remove resources from being exported, use the arrow keys to select the desired resource and press <kbd>Del</kbd>. The resource is updated to display "Skip".
 
-Cons:
--	Time consuming for lots of resources
+To undo the skip action, verify the skipped resource is selected, and press <kbd>Del</kbd> again.
+
+**Pros:**
+
+- Requires the use of a single toggle button.
+- Don’t need to know the resources you want before running the command
+
+**Cons:**
+
+- Action can be time consuming if you have many resources to scroll through and skip.
 
 ## Using query mode
 

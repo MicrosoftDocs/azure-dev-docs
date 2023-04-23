@@ -3,7 +3,7 @@ title: 'Quickstart: Export Azure resources to HCL code using Azure Export for Te
 description: Learn how to use the Azure Export for Terraform tool to export Azure resources to HCL code.
 author: stemamsft
 ms.topic: quickstart
-ms.date: 04/19/2023
+ms.date: 04/22/2023
 ms.author: stema
 ms.custom: devx-track-terraform
 ---
