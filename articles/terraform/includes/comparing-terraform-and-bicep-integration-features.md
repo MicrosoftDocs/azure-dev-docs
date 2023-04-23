@@ -25,7 +25,7 @@ Bicep is Azure-specific and not designed to work with other cloud services.
 If your goal is to automate deployments to any of the following environments, Terraform is likely the better option:
 
 - Virtualization environments
-- Multi-cloud scenarios - such as Azure and other cloud(s)
+- Multicloud scenarios - such as Azure and other cloud(s)
 - On-premises workloads
 
 Terraform interacts with other cloud providers or APIs using plugins called *providers*. There are several [Terraform Azure providers](../overview.md#terraform-providers-for-azure-infrastructure) that enable the management of Azure infrastructure. When coding a Terraform configuration, you specify the required providers you're using. When you run [terraform init](https://www.terraform.io/docs/commands/init.html), the specified provider is installed and usable from your code.
@@ -65,7 +65,7 @@ Although Terraform doesn't provide the same portal integrations as Bicep, existi
 
 ## Out-of-band changes
 
-Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a virtual machine scale set using Bicep or Terraform. If you change that virtual machine scale set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
+Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a Virtual Machine Scale Set using Bicep or Terraform. If you change that Virtual Machine Scale Set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
 
 If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes don't block the deployment.
 
