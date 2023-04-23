@@ -49,13 +49,13 @@
         - name: How-to guides
           items:
             - name: Advanced scenarios
-              item: ./azure-export-for-terraform/export-advanced-scenarios.md
+              href: ./azure-export-for-terraform/export-advanced-scenarios.md
             - name: Select custom resources
-              item: ./azure-export-for-terraform/select-custom-resources.md
+              href: ./azure-export-for-terraform/select-custom-resources.md
         - name: Concepts
           items:
             - name: Azure Export for Terraform concepts
-              item: ./azure-export-for-terraform/export-terraform-concepts.md
+              href: ./azure-export-for-terraform/export-terraform-concepts.md
 - name: Quickstarts
   expanded: true
   items:
