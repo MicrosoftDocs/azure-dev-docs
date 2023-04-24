@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 
 # Create and deploy a Flask Python web app to Azure with managed identity
 
-In this tutorial you deploy Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL](/azure/postgresql) resources.
+In this tutorial you deploy Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL](/azure/postgresql) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class, which automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
 You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
@@ -99,6 +99,8 @@ A sample Python application using the Flask framework are available to help you 
     ```
 
 ## Create passwordless connectors to Azure resources
+
+Service Connector configures Azure Storage and Azure Database for PostgreSQL resources using managed identities and Azure RBAC, and puts the necessary connection information as app settings in App Service. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
 1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
