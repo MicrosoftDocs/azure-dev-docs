@@ -60,6 +60,8 @@ items:
           href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
         - name: Use Azure Storage Queue in Spring applications
           href: using-storage-queue-in-spring-applications.md
+        - name: Use Azure Service Bus in Spring applications
+          href: using-service-bus-in-spring-applications.md
     - name: Database
       items:
       - name: NoSQL- Azure Cosmos DB
@@ -128,7 +130,7 @@ items:
       href: authentication.md
     - name: Production ready
       href: production-ready.md
-    - name: Auto-configure Azure SDK clients
+    - name: Autoconfigure Azure SDK clients
       href: auto-configure-azure-sdk-clients.md
     - name: Resource handing
       href: resource-handling.md
