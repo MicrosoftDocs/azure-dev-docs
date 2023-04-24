@@ -53,6 +53,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-typescript-e2e-apps",
+      "url": "https://github.com/Azure-Samples/azure-typescript-e2e-apps",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "js-e2e-azure-function-upload-file",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
       "branch": "main",
