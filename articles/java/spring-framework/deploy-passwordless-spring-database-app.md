@@ -105,6 +105,9 @@ Use the following steps to provision an Azure Database instance.
        --yes
    ```
 
+> [!NOTE]
+> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
+
 1. Create a new database by using the following command:
 
    ```azurecli
@@ -127,6 +130,9 @@ Use the following steps to provision an Azure Database instance.
        --admin-password $AZ_DB_ADMIN_PASSWORD \
        --yes
    ```
+
+> [!NOTE]
+> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
 
 1. The PostgreSQL server is empty, so create a new database by using the following command:
 
