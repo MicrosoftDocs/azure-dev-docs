@@ -100,7 +100,7 @@ A sample Python application using the Flask framework are available to help you 
 
 ## Create passwordless connectors to Azure resources
 
-Service Connector configures Azure Storage and Azure Database for PostgreSQL resources using managed identities and Azure RBAC, and puts the necessary connection information as app settings in App Service. The output from the commands lists the service connector actions taken to enable passwordless capability.
+The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure RBAC, and put the necessary connection information as app settings in App Service. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
 1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
