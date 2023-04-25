@@ -2,7 +2,7 @@
 title: "Create static web app with serverless app"
 description: Create a static web app (React and API) and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 04/25/2023
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
@@ -278,6 +278,15 @@ When using a separate Azure Function app, instead of a managed Function app, you
 1. In a browser, open your static web app. 
 1. Interact with the app to sign in in, view public and private information, and sign out again.  
 
+
+## 9. Clean up all resources used in this article series
+
+Clean up all resources created in this article series.
+
+1. In the Azure portal, delete your resource group, which deletes the static web app and the function app.
+1. In the GitHub portal, delete your forked repository.
+
+
 ## Troubleshooting 
 
 This sample keeps a [list of known issues and resolutions](https://github.com/Azure-Samples/azure-typescript-e2e-apps/blob/main/docs/troubleshooting.md). If your issue isn't listed, please [open an issue](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues).
@@ -287,16 +296,9 @@ This sample keeps a [list of known issues and resolutions](https://github.com/Az
 
 You can always find your static web app's URL and your function app's URL in the Azure portal, on each resource's **Overview** page. These URLs are public by default. 
 
-## 8. Clean up all resources used in this article series
-
-Clean up all resources created in this article series.
-
-1. In the Azure portal, delete your resource group, which deletes the static web app and the function app.
-1. In the GitHub portal, delete your forked repository.
-
 ## Next steps
 
-* [Custom domains](/azure/static-web-apps/custom-domain)
+* [Custom domains with Static Web Apps](/azure/static-web-apps/custom-domain)
 * [API Functions access user information](/azure/static-web-apps/user-information?tabs=javascript#api-functions)
 * [Deploy with Static web app CLI](/azure/static-web-apps/static-web-apps-cli-deploy)
 * [API support in Azure Static Web Apps with Azure Functions](/azure/static-web-apps/apis-functions)
