@@ -33,9 +33,9 @@ This is an _easy auth_ implementation. The back-end API can't act [_on behalf of
 
 The source code in this sample is meant to learn how to build and deploy a static web app with a serverless API. The code isn't meant for production. 
 
-You'll find several places in the code, which use code to help debug and understand the code. For example, the code uses `console.log` to write to the browser console.
+You'll find several places in the code that don't follow best security practices. For example, the code uses `console.log` to write to the browser console.
 
-When you move to a production environment, you should review and remove any code, which violates security best practices in your organization.
+When you move to a production environment, you should review and remove any code, which violates security best practices, in your organization.
 
 ## 1. Prepare your development environment
 
@@ -87,7 +87,7 @@ Fork the [sample repository](https://github.com/Azure-Samples/azure-typescript-e
     ```
 
 
-### 4. Build and run local app
+## 4. Optional, build and run local app
 
 The sample repository has several versions of the front-end and backend apps. The following steps use the React version of the front-end and the Azure Function v4 with Node.js version of the back-end.
 
