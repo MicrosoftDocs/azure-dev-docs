@@ -701,7 +701,7 @@ Also, because the library uses Spring's configuration system, triggering a refre
 
 The `spring-cloud-azure-appconfiguration-config-web` library can be setup to receive push notifications from your Azure App Configuration store to refresh your configuration values. This is done via an Azure Event Grid Web Hook, which can be configured to send notifications of changes to specified keys. By adding the Spring Actuator library as a dependency, you can expose App Configuration's refresh endpoint(s). There are two different endpoints: `appconfiguration-refresh` and `appconfiguration-refresh-bus`. These endpoints work similarly to their counterparts `refresh` and `refresh-bus`, where the app configuration endpoints expire the refresh interval instead of forcing a refresh upon receiving. The `refresh` and `refresh-bus` can still be used, but can't be directly connected to Azure Event Grid with a Web Hook as they require a response in setup.
 
-`appconfiguration-refresh` expires the refresh interval, so the remaining refresh interval isn't waited on before the next refresh check. `appconfiguration-refresh-bus` sends a notification to a connected messaging service, such as Azure Service Bus to notify all instances of an application to refresh. In both cases, it doesn't completely expire the refresh interval, but almost does by a small jitter amount. This makes sure not every instance of your application doesn't try to refresh at the same time.
+`appconfiguration-refresh` expires the refresh interval, so the remaining refresh interval isn't waited on before the next refresh check. `appconfiguration-refresh-bus` sends a notification to a connected messaging service, such as Azure Service Bus to notify all instances of an application to refresh. In both cases, it doesn't completely expire the refresh interval, but almost does by a small jitter amount. This makes sure every instance of your application doesn't try to refresh at the same time.
 
 ```properties
 management.endpoints.web.exposure.include= appconfiguration-refresh, appconfiguration-refresh-bus
@@ -737,7 +737,7 @@ The library can be configured to force a refresh of all configurations at a refr
 
 | Name | Description | Required | Default |
 | --- | --- | --- | --- |
-| spring.cloud.azure.appconfiguration.refresh-interval | Amount of time, of type Duration, configurations are stored before a check can occur. | No | null |
+| spring.cloud.azure.appconfiguration.refresh-interval | The standard amount of time between refreshes. Is a `Duration`. | No | null |
 
 Refreshing with `spring.cloud.azure.appconfiguration.refresh-interval` doesn't check any configured watch keys. This is used to make sure Key Vault secrets are kept up to date, as Azure App Configuration can't tell when they're updated.
 
