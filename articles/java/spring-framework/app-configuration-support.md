@@ -364,10 +364,10 @@ Though the CLI any secret-identifier can be created, they just require the forma
 
 #### Resolve non-Key Vault secrets
 
-The App Configuration client provides a method of locally resolving secrets that don't have a Key Vault associated with them. This is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` is called when a `TokenCredential` isn't provided for a Key Vault reference, the uri of the Key Vault reference is provided and return value becomes the value of the secret.
+The App Configuration client provides a method to locally resolve secrets that don't have a Key Vault associated with them. This is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` is called when a `TokenCredential` isn't provided for a Key Vault reference. The URI of the Key Vault reference is provided and the returned value becomes the value of the secret.
 
 > [!WARNING]
-> Creating a `KeyVaultSecretProvider` overrides the automatic use of System Assigned Identity. In order to use both, `KeyVaultCredentialProvider` needs to be used and return `null` for URI's that need to resolve using `KeyVaultSecretProvider`.
+> The use of a `KeyVaultSecretProvider` overrides the automatic use of the system-assigned managed identity. To use both, `KeyVaultCredentialProvider` needs to be used and return `null` for the URIs that need resolving.
 
 ```java
 public class MySecretProvider implements KeyVaultSecretProvider {
@@ -380,32 +380,32 @@ public class MySecretProvider implements KeyVaultSecretProvider {
 }
 ```
 
-## Feature Management
+## Feature management
 
-Feature Management provides a way for Spring Boot applications to dynamically access content. Feature Management has a variety of functions, such as Feature Flags that can enable or disable content, Feature Filters for targeting when content is shown, Customized Feature Filters, and Feature Gates for dynamically enabling endpoints.
+Feature management provides a way for Spring Boot applications to dynamically access content. Feature management has a variety of functions, such as feature flags that can enable or disable content, feature filters for targeting when content is shown, customized feature filters, and feature gates for dynamically enabling endpoints.
 
-To use feature flags, they can be enabled through configuration:
+Feature flag can be enabled through the following configuration:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled= true
 ```
 
-With Feature Flags enabled, they're loaded into the Spring Configuration system with the prefix `feature-management`. Feature Flags can also be registered in the local configuration file, see [Feature Flag Declaration](#feature-flag-declaration). The easiest way to use Feature Management is by using the `spring-cloud-azure-feature-management` and `spring-cloud-azure-feature-management-web` libraries. The difference between the two libraries is that `spring-cloud-azure-feature-management-web` takes a dependency on the `spring-web` and `spring-webmvc` libraries to add additional features, such as [Feature Gates](#routing).
+Enabled feature flags are loaded into the Spring configuration system with the prefix `feature-management`. Feature flags can also be registered in the local configuration file, see [Feature flag declaration](#feature-flag-declaration). The easiest way to use feature management is by using the `spring-cloud-azure-feature-management` and `spring-cloud-azure-feature-management-web` libraries. The difference between the two libraries is that `spring-cloud-azure-feature-management-web` takes a dependency on the `spring-web` and `spring-webmvc` libraries to add additional features, such as [feature gates](#routing).
 
-Feature Flags can be loaded by key/label filters. By default, a null label, seen as `(No Label)` is assigned. The Feature Flags that are loaded can be configured by setting a label filter:
+Feature flags can be loaded by key/label filters. By default, a null label, seen as `(No Label)` is assigned. The feature flags that are loaded can be configured by setting a label filter:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].key-filter=A*
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter= dev
 ```
 
-### Feature Management Basics
+### Feature management basics
 
-#### Feature Flags
+#### Feature flags
 
-Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature. Feature Flags can either have a boolean state of on/off, or they can have a list of Feature Filters. Feature Flags evaluate Feature Filters until one returns true. If no Feature Filter returns true, then the Feature Flag returns false.
+Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature. Feature flags can either have a boolean state of on/off, or they can have a list of feature filters. Feature flags evaluate feature filters until one returns true. If no feature filter returns true, then the feature flag returns false.
 
-#### Feature Filters
+#### Feature filters
 
 Feature Filters define a scenario for when a feature should be enabled. Feature Filters are evaluated synchronously.
 
