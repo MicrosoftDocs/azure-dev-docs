@@ -310,7 +310,7 @@ The client library supports configurations with `${}`-style environment placehol
 
 ### JSON
 
-Configurations that have a content-type `application/json` are processed as JSON objects. This let you map one configuration mapping to a complex objects inside of `@ConfigurationProperties`. For example, the JSON key `/application/config.colors` with the value
+Configurations that have a content-type `application/json` are processed as JSON objects. This let you map one configuration to a complex objects inside of a `@ConfigurationProperties`. For example, the JSON key `/application/config.colors` with the value
 
 ```json
 {
@@ -384,7 +384,7 @@ public class MySecretProvider implements KeyVaultSecretProvider {
 
 Feature management provides a way for Spring Boot applications to dynamically access content. Feature management has a variety of functions, such as feature flags that can enable or disable content, feature filters for targeting when content is shown, customized feature filters, and feature gates for dynamically enabling endpoints.
 
-Feature flag can be enabled through the following configuration:
+Feature flags can be enabled through the following configuration:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled= true
@@ -407,15 +407,15 @@ Feature flags are composed of two parts, a name and a list of feature-filters th
 
 #### Feature filters
 
-Feature Filters define a scenario for when a feature should be enabled. Feature Filters are evaluated synchronously.
+Feature filters define a scenario for when a feature should be enabled. Feature filters are evaluated synchronously.
 
-The Feature Management library comes with four predefined filters: [AlwaysOnFilter](#alwaysonfilter), [PercentageFilter](#percentagefilter), [TimeWindowFilter](#timewindowfilter), [TargetingFilter](#targetingfilter).
+The feature management library comes with four predefined filters: [AlwaysOnFilter](#alwaysonfilter), [PercentageFilter](#percentagefilter), [TimeWindowFilter](#timewindowfilter), [TargetingFilter](#targetingfilter).
 
-Custom Feature Filters be made. For example, a Feature Filter could be used to provide a custom experience for only the customers who are using a Microsoft Edge browser. The features in this Feature Filter can be customized, for example to show a specific header for the Microsoft Edge browser audience.
+Custom feature filters can be created. For example, a feature filter can be used to provide a custom experience for the customers who are using a Microsoft Edge browser. The features in this feature filter can be customized, for example, to show a specific header for the Microsoft Edge browser audience.
 
-#### Feature Flag Declaration
+#### Feature flag declaration
 
-The Feature Management library supports Azure App Configuration along with application.yml or bootstrap.yml as sources for Feature Flags. Here's an example of the format used to set up Feature Flags in a application.yml file.
+The feature management library supports Azure App Configuration along with application.yml or bootstrap.yml as sources for feature flags. Here's an example of the format used to set up feature flags in an application.yml file.
 
 ```yaml
 feature-management:
@@ -435,20 +435,20 @@ feature-management:
     - name: AlwaysOnFilter
 ```
 
-- `feature-t` is set to false, this setting always return the Feature Flag's value.
-- `feature-u` is used with Feature Filters. These Filters are defined under the `enabled-for` property.  In this case, `feature-u` has one Feature Filter called `Random`, which doesn't require any configuration, so only the name property is required.
-- `feature-v` specifies a Feature Filter named `TimeWindowFilter`. This Feature Filter can be passed parameters to use as configuration. In this case, a `TimeWindowFilter`, pass in the start and end times for which the feature will be active.
-- `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the Feature Filters, and results in the Feature Filter always return `false`.
+- `feature-t` is set to false. This setting always return the feature flag's value.
+- `feature-u` is used with feature filters. These filters are defined under the `enabled-for` property.  In this case, `feature-u` has one feature filter called `Random`, which doesn't require any configuration, so only the name property is required.
+- `feature-v` specifies a feature filter named `TimeWindowFilter`. This feature filter can be passed parameters to use as configuration. In this example, a `TimeWindowFilter`, passes in the start and end times during which the feature will be active.
+- `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the feature filters, and results in the feature filter always returning `false`.
 
-### Evaluating Feature Flags
+### Evaluating feature flags
 
-`spring-cloud-azure-feature-management` library provides `FeatureManager` to check if a Feature Flag is enabled. It provides an asynchronous way to check the state of the flag.
+The `spring-cloud-azure-feature-management` library provides `FeatureManager` to check if a feature flag is enabled. It provides an asynchronous way to check the state of the flag.
 
-`spring-cloud-azure-feature-management-web` along with providing `FeatureManager` has `FeatureManagerSnapshot`, which caches the state of previously evaluated Feature Flags in the `@RequestScope` to guarantee all requests return the same value. In addition, the web library provides `@FeatureGate`, which can either block or redirect web requests to different endpoints.
+`spring-cloud-azure-feature-management-web`, along with providing `FeatureManager`, contains `FeatureManagerSnapshot`, which caches the state of previously evaluated feature flags in the `@RequestScope` to guarantee that all requests return the same value. In addition, the web library provides `@FeatureGate`, which can either block or redirect web requests to different endpoints.
 
-#### Feature Flag Check
+#### Feature flag check
 
-`FeatureManager` is a `@Bean` that can be `@Autowired` or injected into `@Component` type objects. `FeatureManager` has a method `isEnabled` that, when passed the name of a Feature Flag, returns its state.
+`FeatureManager` is a `@Bean` that can be `@Autowired` or injected into `@Component` type objects. `FeatureManager` has a method `isEnabled` that, when passed the name of a feature flag, returns its state.
 
 ```java
 @Autowired
@@ -462,17 +462,17 @@ if(featureManager.isEnabled("feature-t")) {
 > [!NOTE]
 > `FeatureManger` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
 
-If Feature Management hasn't been configured or the Feature Flag doesn't exist, `isEnabled` always return false. If an existing Feature Flag is configured with an unknown Feature Filter, then a `FilterNotFoundException` is thrown. This can be changed to return false by configuring `fail-fast` to false.
+If feature management hasn't been configured or the feature flag doesn't exist, `isEnabled` always returns false. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. This can be changed to return false by configuring `fail-fast` to false.
 
 | Name | Description | Required | Default |
 | --- | --- | --- | --- |
 |spring.cloud.azure.feature.management.fail-fast | If an exception occurs, a RuntimeException is thrown, if set to false then returns false instead. | No |  true |
 
-`FeatureManagerSnapshot` works the same as `FeatureManager`, besides its caching of results in the `@RequestScope`.
+The only difference between `FeatureManagerSnapshot` and `FeatureManager` is the caching of results in the `@RequestScope`.
 
-#### Feature Gate
+#### Feature gate
 
-With the Feature Management Web library, you can require that a given feature is enabled in order to execute an endpoint. This can be done by using the `@FeatureGate` annotation.
+With the feature management web library, you can require that a given feature is enabled in order to execute an endpoint. This can be done by using the `@FeatureGate` annotation.
 
 ```java
 @GetMapping("/featureT")
@@ -485,7 +485,7 @@ public String featureT() {
 
 The `featureT` endpoint can only be accessed if "feature-t" is enabled.
 
-##### Disabled Action Handling
+##### Disabled action handling
 
 When an endpoint is blocked because the feature it specifies is disabled, `DisabledFeaturesHandler` is invoked. By default, an HTTP 404 is returned. This can be overridden by implementing `DisabledFeaturesHandler`.
 
@@ -521,9 +521,9 @@ public String oldEndpoint() {
 }
 ```
 
-### Built-In Feature Filters
+### Built-in feature filters
 
-There are a few Feature Filters that come with the `spring-cloud-azure-feature-management` package. These Feature Filters aren't added automatically, but can be set up in an `@Configuration` for use.
+There are a few feature filters that come with the `spring-cloud-azure-feature-management` package. These feature filters aren't added automatically, but can be set up in an `@Configuration` for use.
 
 #### AlwaysOnFilter
 
