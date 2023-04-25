@@ -98,15 +98,6 @@ A sample Python application using the Flask framework are available to help you 
       --startup-file "start.sh"
     ```
 
-1. Create a secret key with the [az webapp config appsettings](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). The secret key is used to securely sign the session cookie and can be used for any other security related needs by extensions or your application.
-
-    ```azurecli
-    az webapp config appsettings set \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $APP_SERVICE_NAME \
-    --settings SECRET_KEY=$(echo $RANDOM | md5sum | head -c 20)
-    ```
-
 ## Create passwordless connectors to Azure resources
 
 The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure RBAC, and put the necessary connection information as app settings in App Service. The output from the commands lists the service connector actions taken to enable passwordless capability.
