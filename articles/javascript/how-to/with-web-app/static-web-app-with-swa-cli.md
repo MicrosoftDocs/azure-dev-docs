@@ -148,18 +148,22 @@ To use the preview version of the Azure Functions v4 runtime, you need to create
     |Tags|Don't change anything.|
     |Review + create|Select `Create`.|
 
-1. The previous step added a GitHub workflow file to your forked repository. The workflow file needs to up pulled down to your local computer to edit the file with the location of the subdirectory of the correct API source code.
+    The step adds a GitHub workflow file to your forked repository. 
+
+1. With a bash terminal, use **git** to pull down the new workflow file to your local computer.
 
     ```bash
     git pull origin main
     ```
 
-1. In Visual Studio Code, open the new workflow file in `./.github/workflows/main_*.yml`. Your specific filename will be different.
-1. The workflow file assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample application. To fix that, edit the set which builds the Azure Function app.
+1. In Visual Studio Code, open the new yaml workflow file located at `./.github/workflows/`. 
+1. The workflow file assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample repository. To fix that, edit the set which builds the Azure Function app. The lines to edit are highlighted in the following yaml block:
 
-    :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/react-app-inmem-api.yml" highlight="4,10-11,34" :::
+    :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/api-inmem.yml" highlight="7, 13-14,18,20, 42,49" :::
 
-1. Save the file and add, commit, and push it back to GitHub with git:
+    The  `Upload artifact for deployment job` is optional. It's used to understand what files are deployed to Azure Functions or to use those files in a separate environment.
+
+1. Save the file then add, commit, and push it back to GitHub with git:
 
     ```bash
     git add .
@@ -168,6 +172,15 @@ To use the preview version of the Azure Functions v4 runtime, you need to create
     ```
 
 1. From a browser, rerun the workflow on GitHub in your fork's actions area.
+
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/github-action-api-rerun.png" alt-text="Screenshot of GitHub forked repository, showing how to rerun a GitHub action.":::
+
+1. Wait for the action to successfully complete before continuing. 
+1. In a web browser, use your function app's external API endpoint to verify the app deployed successfully.
+    
+    ```URL
+    https://YOUR-FUNCTION-APP-NAME.azurewebsites.net/api/todo
+    ```
 
 ## 6. Create a new Azure Static web app
 
