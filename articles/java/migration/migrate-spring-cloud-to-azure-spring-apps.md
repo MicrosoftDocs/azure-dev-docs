@@ -52,7 +52,7 @@ In Maven projects, the Spring Cloud version is typically set in the `spring-clou
 ```xml
   <properties>
     <java.version>1.8</java.version>
-    <spring-cloud.version>2021.0.6/spring-cloud.version>
+    <spring-cloud.version>2021.0.6</spring-cloud.version>
   </properties>
 ```
 
