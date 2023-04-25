@@ -111,17 +111,21 @@ The sample repository has several versions of the front-end and backend apps. Th
 
 1. Open a web browser to the proxied URL, `http://localhost:4280`. You should see the following page:
    
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-not-signed-in.png" alt-text="{alt-text}":::
 
-1. You can sign in using authentication provided by the SWA CLI using on of the listed providers. The process mocks authectication in Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Once a user is authenticated, the front-end displays _private_ information such as the API's environment variables.
+1. You can sign in using authentication provided by the SWA CLI using on of the listed providers. The process mocks authectication in Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Enter any fake user name and don't change the rest of the fields.
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-sign-in-form.png" alt-text="{alt-text}":::
 
-1. The form and its call to the back-end API work successfully because the SWA CLI proxied the API request to the Azure Functions app running locally. 
+1. Once a user is authenticated, the front-end displays _private_ information such as the API's environment variables.
+
+    :::image type="content"  source="../../media/static-web-app-with-swa-cli/browser-local-signed-in.png" :::
+
+1. Expand the public and private sections to see the content from the API is displayed. 
 
 ## 5. Create a new Azure Functions app
 
-To use the preview version of the Azure Functions v4 runtime, you need to create a new Azure Functions app. This is known as a bring-your-own (BYO) function. The static web app also needs to be rebuilt and redeployed to use the new Azure Functions app URI in the fetch requests to the API.
+To use the preview version of the Azure Functions v4 runtime, you need to create a new Azure Functions app. This is known as a bring-your-own (BYO) function to Static web app. Your static web app also needs to be rebuilt and redeployed to use the Azure Functions app URI in the fetch requests to the API instead of using a proxied and managed API.
 
 1. In a web browser, open the Azure portal to create a new Azure Functions app: [Create new app](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)
 
@@ -129,6 +133,7 @@ To use the preview version of the Azure Functions v4 runtime, you need to create
 
 
     |Tab:Seetting|Value|
+    |--|--|
     |Basics: Subscription|Select the subscription you want to use.|
     |Basics: Resource Group|Create a new resource group such as `first-static-web-app-with-api`. The name isn't used in the app's public URL. Resource groups help you group and managed related Azure resources.|
     |Basics: Instance details: Function App name|Enter a globally unique name such as `swa-api` with 3 random characters added at the end.|
@@ -139,7 +144,7 @@ To use the preview version of the Azure Functions v4 runtime, you need to create
     |Basics: Hosting|Select `Consumption`.|
     |Storage: Storage account|Don't change this. A new Azure Storage account will be created to help with function events.|
     |Networking|Don't change anything.|
-    |Monitoring: Application Insights: Enable Application Insights|Select `Yes. Don't change the default name provided.|
+    |Monitoring: Application Insights: Enable Application Insights|Select `Yes`. Don't change the default name provided.|
     |Deployment: GitHub Actions Settings: Continuous deployment|Select `Enable`.|
     |Deployment: GitHub account| Select your GitHub account, it if isn't already set.|
     |Deployment: Organization|Select your GitHub account which you used when you forked the sample repository.|
@@ -148,20 +153,31 @@ To use the preview version of the Azure Functions v4 runtime, you need to create
     |Tags|Don't change anything.|
     |Review + create|Select `Create`.|
 
-    The step adds a GitHub workflow file to your forked repository. 
+    The step adds a GitHub yaml workflow file to your forked repository. 
 
-1. With a bash terminal, use **git** to pull down the new workflow file to your local computer.
+1. When the resource is created, select the `Go to resource` button.
+1. Select **Settings -> Configuration** then add a configuration setting for the Azure Function Node.js v4 runtime with name `AzureWebJobsFeatureFlags` and value `EnableWorkerIndexing`.
+1. Select **Save** to save the setting.
+
+1. In a bash terminal, use **git** to pull down the new yaml workflow file to your local computer.
 
     ```bash
     git pull origin main
     ```
 
 1. In Visual Studio Code, open the new yaml workflow file located at `./.github/workflows/`. 
-1. The workflow file assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample repository. To fix that, edit the set which builds the Azure Function app. The lines to edit are highlighted in the following yaml block:
+1. The workflow file assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample repository. To fix that, edit the set which builds the Azure Function app. The lines to edit are highlighted in the following yaml block and explained below the image:
 
-    :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/api-inmem.yml" highlight="7, 13-14,18,20, 42,49" :::
+    :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/api-inmem.yml" highlight="7, 13-14,18,20, 42-49" :::
 
-    The  `Upload artifact for deployment job` is optional. It's used to understand what files are deployed to Azure Functions or to use those files in a separate environment.
+    |Property change|Purpose|
+    |`name`|Shorten the name so you can easily find it in your fork's GitHub actions list.|
+    |`paths`|Add the paths section to  limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
+    |`AZURE_FUNCTIONAPP_PACKAGE_PATH`|When using a subdirection for source code, this needs to be that subdirectory path and name.|
+    |`VERBOSE`|This is setting is helpful for debugging the build and deploy process.|
+    |step named `Upload artifact for deployment job`|This step creates a downloadable artifact. This is helpful when debugging exactly what files are deployed to your Azure Function.|
+
+    The `Upload artifact for deployment job` is optional. It's used to understand and debug what files are deployed to Azure Functions or to use those files in a separate environment.
 
 1. Save the file then add, commit, and push it back to GitHub with git:
 
