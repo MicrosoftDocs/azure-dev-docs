@@ -49,7 +49,7 @@ Install the following on your local development computer:
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
 - [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
 - [Azure Static Web Apps (SWA) CLI](https://azure.github.io/static-web-apps-cli/docs/use/install) installed globally with `-g` flag
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally) installed globally with `-g` flag
+- [Azure Functions Core Tools](/azure/azure-functions/functions-core-tools-reference?tabs=v2) v4.0.5095+ (if running locally) installed globally with `-g` flag
 - [TypeScript](https://www.typescriptlang.org/) v4+
 
 ## 2. Fork the sample repository
@@ -60,7 +60,7 @@ Fork the [sample repository](https://github.com/Azure-Samples/azure-typescript-e
 
 ## 3. Clone the forked sample repository
 
- The remaining local development steps are optional and helpful to know what the application looks like and how it should behave before you deploy to Azure. If you aren't interested in running the sample locally, you can skip to [Create a new Azure Static Web app](#create-a-new-azure-static-web-app).
+ The remaining local development steps are optional and helpful to know what the application looks like and how it should behave before you deploy to Azure. If you aren't interested in running the sample locally, you can skip to [Create a new Azure Static Web app](#6-create-a-new-azure-static-web-app).
 
 1. In a bash terminal, clone **your forked repository** to your local computer. Don't clone the original sample repository. An example URL is ``
 
@@ -119,15 +119,15 @@ The sample repository has several versions of the front-end and backend apps. Th
 
 1. Open a web browser to the proxied URL, `http://localhost:4280`. You should see the following page:
    
-    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-not-signed-in.png" alt-text="{alt-text}":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-not-signed-in.png" alt-text="Screenshot of local React app prior to authentication.":::
 
 1. You can sign in using authentication provided by the SWA CLI using on of the listed providers. The process mocks authentication in Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Enter any fake user name and don't change the rest of the fields.
 
-    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-sign-in-form.png" alt-text="{alt-text}":::
+    :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-sign-in-form.png" alt-text="Screenshot of local React app's mock authentication form.":::
 
 1. Once a user is authenticated, the front-end displays _private_ information such as the API's environment variables.
 
-    :::image type="content"  source="../../media/static-web-app-with-swa-cli/browser-local-signed-in.png" :::
+    :::image type="content"  source="../../media/static-web-app-with-swa-cli/browser-local-signed-in.png" alt-text="Screenshot of local React app with authentication complete.":::
 
 1. Expand the public and private sections to see the content from the API is displayed. 
 
@@ -181,6 +181,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
     :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/api-inmem.yml" highlight="7, 13-14,18,20, 42-49" :::
 
     |Property change|Purpose|
+    |--|--|
     |`name`|Shorten the name so you can easily find it in your fork's GitHub actions list.|
     |`paths`|Add the paths section to  limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
     |`AZURE_FUNCTIONAPP_PACKAGE_PATH`|When using a subdirection for source code, this needs to be that subdirectory path and name.|
@@ -258,6 +259,7 @@ This creation process deploys the same forked GitHub sample repository to Azure.
     :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/app-react-vite.yml" highlight="7-8, 13-15,19, 39-41" :::
 
     |Property change|Purpose|
+    |--|--|
     |`paths`|Add the paths section to limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
     |`workflow_dispatch`|Add `workflow_dispatch` _only_ while learning the deployment process and debugging any issues in the Vite build. Remove this line, when you continue this source code beyond this article.|
     |`if ... || github.event_name == 'workflow_dispatch' `|Include the `workflow_dispatch` event as allowed to generate a build only while learning the deployment process and debugging any issues in the Vite build.|
