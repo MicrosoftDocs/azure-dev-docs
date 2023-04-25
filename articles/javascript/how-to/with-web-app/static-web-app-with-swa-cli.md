@@ -8,26 +8,24 @@ ms.custom: devx-track-js
 ---
 # Create a Static web app with a serverless API 
 
-Learn how to locally run then deploy a static web app with a serverless API to Azure. This tutorial uses the **preview version of the latest Azure Functions Node.js programming model**.
+Learn how to locally run then deploy a static web app with a serverless API to Azure. This tutorial uses the **preview version of the latest Azure Functions Node.js programming model**. Because this article uses a preview version of Azure Functions, it is deployed as a separate app from the static web app.
 
 Learn how to:
 
-* Locally run a [static web app](/azure/static-web-apps/) (SWA)
-* Locally proxy front-end requests to local API using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). 
-* Deploy and run the same code remotely without changes.
+* Locally run a [static web app](/azure/static-web-apps/) (SWA) with an [Azure Function app](/azure/azure-functions/)
+* Locally proxy front-end requests to local back-end API using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). 
+* Deploy and run the same code remotely.
 
-The proxy between the front-end and APIs is provided by the Static web app CLI provides:
+The proxy between the front-end and backend-endis provided by the Static web app CLI provides:
 * The URL in React, `/api/todo`, doesn't specify the server or port number for the API. Requests using this URL are successful locally because the SWA CLI manages the proxy for you. 
 * A local authentication emulator when accessing `/.auth/login/<provider>`
-* Route management and authorization 
+* Route management and authorization
 
 ## Authentication in this sample
 
-The authentication in this sample is provided for front-end users:
+The authentication in this sample is provided for front-end users from the Azure Static Web Apps service:
 * Login/Logout
 * Public and private content
-
-This is an _easy auth_ implementation. The back-end API can't act [_on behalf of_(OBO)](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
 
 ## Source code in this sample
 
@@ -35,14 +33,14 @@ The source code in this sample is meant to learn how to build and deploy a stati
 
 You'll find several places in the code that don't follow best security practices. For example, the code uses `console.log` to write to the browser console.
 
-When you move to a production environment, you should review and remove any code, which violates security best practices, in your organization.
+When you move to a production environment, you should review and remove any code, which violates security best practices for your organization.
 
 ## 1. Prepare your development environment
 
 Create the following accounts:
 
 - Azure subscription - [Create a free Azure account](https://azure.microsoft.com/free/)
-- [GitHub account](https://github.com/) - You need a GitHub account to deploy in this tutorial. If you don't have one, you can deploy from the SWA CLI. Learn more about [deployment with the SWA CLI](/azure/static-web-apps/static-web-apps-cli-deploy).
+- [GitHub account](https://github.com/) - You need a GitHub account to deploy in this tutorial. 
 
 Install the following on your local development computer:
 
@@ -52,7 +50,7 @@ Install the following on your local development computer:
 - [Azure Functions Core Tools](/azure/azure-functions/functions-core-tools-reference?tabs=v2) v4.0.5095+ (if running locally) installed globally with `-g` flag
 - [TypeScript](https://www.typescriptlang.org/) v4+
 
-## 2. Fork the sample repository
+## 2. Fork the sample repository on GitHub
 
 You need to have your own fork of the sample repository to complete the deployment from GitHub. During the fork process, you only need to copy the `main` branch. 
 
@@ -60,18 +58,10 @@ Fork the [sample repository](https://github.com/Azure-Samples/azure-typescript-e
 
 ## 3. Clone the forked sample repository
 
- The remaining local development steps are optional and helpful to know what the application looks like and how it should behave before you deploy to Azure. If you aren't interested in running the sample locally, you can skip to [Create a new Azure Static Web app](#6-create-a-new-azure-static-web-app).
-
-1. In a bash terminal, clone **your forked repository** to your local computer. Don't clone the original sample repository. An example URL is ``
+1. In a bash terminal, clone **your forked repository** to your local computer. Don't clone the original sample repository. An example URL is `https://github.com/YOUR-ACCOUNT-NAME/azure-typescript-e2e-apps`
 
     ```bash
     git clone YOUR-FORKED-REPO-URL
-    ```
-
-1. Install dependencies for SWA CLI.
-
-    ```bash
-    cd azure-typescript-e2e-apps && npm install
     ```
 
 1. Install dependencies for the local front-end app:
@@ -89,9 +79,9 @@ Fork the [sample repository](https://github.com/Azure-Samples/azure-typescript-e
 
 ## 4. Optional, build and run local app
 
-The sample repository has several versions of the front-end and backend apps. The following steps use the React version of the front-end and the Azure Function v4 with Node.js version of the back-end.
+The sample repository has several versions of the front-end and backend apps. The following steps use the React 18 (Vite) version of the front-end and the Azure Function v4 with Node.js version of the back-end with the `/status` and `/todo` API routes.
 
-1. From the root of the sample app, use the SWA CLI with the `swa-cli.config.json` file to build the front-end and back-end apps:
+1. From the root of the sample app, use the SWA CLI with the `./swa-cli.config.json` file to build the front-end and back-end apps:
 
     ```bash
     swa build
@@ -121,7 +111,7 @@ The sample repository has several versions of the front-end and backend apps. Th
    
     :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-not-signed-in.png" alt-text="Screenshot of local React app prior to authentication.":::
 
-1. You can sign in using authentication provided by the SWA CLI using on of the listed providers. The process mocks authentication in Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Enter any fake user name and don't change the rest of the fields.
+1. You can sign in using authentication provided by the SWA CLI. The process mocks authentication in cloud-based Azure Static web apps. The front-end code uses the `/.auth/me` endpoint to get the user's identity. Enter any fake user name and don't change the rest of the fields.
 
     :::image type="content" source="../../media/static-web-app-with-swa-cli/browser-local-sign-in-form.png" alt-text="Screenshot of local React app's mock authentication form.":::
 
@@ -135,7 +125,7 @@ The sample repository has several versions of the front-end and backend apps. Th
 
 The previous section of running the static web app with the API was optional. The remaining sections of the article are required to deploy the app and API to the Azure cloud.
 
-To use the **preview version of the Azure Functions v4 runtime**, you need to create a new Azure Functions app. This is known as a bring-your-own (BYO) function to Static web app. Your static web app also needs to be rebuilt and redeployed to use the Azure Functions app URI in the fetch requests to the API instead of using a proxied and managed API.
+To use the **preview version of the Azure Functions v4 runtime**, you need to create a new Azure Functions app. Your static web app also needs to be rebuilt and redeployed to use the Azure Functions app URI in the **Fetch** requests to the API instead of using a proxied and managed API.
 
 1. In a web browser, open the Azure portal to create a new Azure Functions app: [Create new app](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)
 
@@ -146,7 +136,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
     |--|--|
     |Basics: Subscription|Select the subscription you want to use.|
     |Basics: Resource Group|Create a new resource group such as `first-static-web-app-with-api`. The name isn't used in the app's public URL. Resource groups help you group and managed related Azure resources.|
-    |Basics: Instance details: Function App name|Enter a globally unique name such as `swa-api` with 3 random characters added at the end.|
+    |Basics: Instance details: Function App name|Enter a globally unique name such as `swa-api` with 3 random characters added at the end, such as `swa-api-123`.|
     |Basics: Instance details: Code or container|Select `Code`.|
     |Basics: Instance details: Runtime stack|Select `Node.js`.|
     |Basics: Instance details: Runtime stack|Select `18LTS`.|
@@ -169,14 +159,14 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
 1. Select **Settings -> Configuration** then add a configuration setting for the Azure Function Node.js v4 runtime with name `AzureWebJobsFeatureFlags` and value `EnableWorkerIndexing`.
 1. Select **Save** to save the setting.
 
-1. In a bash terminal, use **git** to pull down the new yaml workflow file to your local computer.
+1. In a bash terminal, use **git** to pull down the new yaml workflow file from your GitHub forked repository to to your local computer.
 
     ```bash
     git pull origin main
     ```
 
 1. In Visual Studio Code, open the new yaml workflow file located at `./.github/workflows/`. 
-1. The workflow file assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample repository. To fix that, edit the set, which builds the Azure Function app. The lines to edit are highlighted in the following yaml block and explained below the image:
+1. The _default_ workflow file provided for you assumes the function source code is at the root of the repository and is the only app in the repository but that isn't the case with this sample. To fix that, edit the file. The lines to edit are highlighted in the following yaml block and explained below:
 
     :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/api-inmem.yml" highlight="7, 13-14,18,20, 42-49" :::
 
@@ -225,7 +215,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
 This creation process deploys the same forked GitHub sample repository to Azure. You configure the deployment to use only the front-end app. 
 
 1. Open the Azure portal and sign in with your Azure account: [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StaticApp).
-1. Use the following information to complete the information:
+1. Use the following information to complete the creation steps:
 
     |Prompt|Setting|
     |--|--|
@@ -254,7 +244,7 @@ This creation process deploys the same forked GitHub sample repository to Azure.
     git pull origin main
     ```
 
-1. The GitHub action found at `./.github/workflows/azure-static-web-apps-*.yml` is responsible for building and deploying the front-end and the back-end apps. Edit the file to add an environment variable for the API URL. The lines to edit are highlighted in the following yaml block and explained below the yaml block.
+1. The GitHub action found at `./.github/workflows/azure-static-web-apps-*.yml` is responsible for building and deploying the front-end app. Edit the file to add an environment variable for the cloud-based back-end API URL. The lines to edit are highlighted in the following yaml block and explained below the yaml block.
 
     :::code language="yaml" source="~/../azure-typescript-e2e-apps/example-workflows/app-react-vite.yml" highlight="7-8, 13-15,19, 39-41" :::
 
@@ -263,7 +253,7 @@ This creation process deploys the same forked GitHub sample repository to Azure.
     |`paths`|Add the paths section to limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
     |`workflow_dispatch`|Add `workflow_dispatch` _only_ while learning the deployment process and debugging any issues in the Vite build. Remove this line, when you continue this source code beyond this article.|
     |`if ... || github.event_name == 'workflow_dispatch' `|Include the `workflow_dispatch` event as allowed to generate a build only while learning the deployment process and debugging any issues in the Vite build.|
-    |`env`|Add the environment variables necessary to include the Azure Function API's URL in the static build with **Vite**.|
+    |`env`|Add the environment variables necessary to include the Azure Function API's URL in the static build with **Vite**.**VITE_BACKEND_URL** is the URL of your Azure Function app. **VITE_CLOUD_ENV** is a parameter to indicate when to use the **VITE_BACKEND_URL** URL. Don't use **NODE_ENV** for this sample as it has unintented side affects.|
 
 1. Save the file then add, commit, and push it back to GitHub with git:
 
@@ -282,9 +272,6 @@ When using a separate Azure Function app, instead of a managed Function app, you
 
 1. In the Azure portal, open your Azure Function app. 
 1. In the **API -> CORS** section, add your static web app's URL to the list of allowed origins. 
-
-> [!NOTE]
-> When your use a managed Azure Function app, which is deployed in the same workflow as your static web app with the **Azure/static-web-apps-deploy** GitHub action, CORS is configured automatically.
 
 ## 8. Test your static web app
 
@@ -309,4 +296,8 @@ Clean up all resources created in this article series.
 
 ## Next steps
 
+* [Custom domains](/azure/static-web-apps/custom-domain)
+* [API Functions access user information](/azure/static-web-apps/user-information?tabs=javascript#api-functions)
+* [Deploy with Static web app CLI](/azure/static-web-apps/static-web-apps-cli-deploy)
+* [API support in Azure Static Web Apps with Azure Functions](/azure/static-web-apps/apis-functions)
 * [Add search to your web site](/azure/search/tutorial-javascript-overview)
