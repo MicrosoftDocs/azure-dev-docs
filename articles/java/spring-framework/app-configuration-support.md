@@ -29,6 +29,11 @@ The Azure Spring Cloud App Configuration Client Library loads configurations and
 
 ### Prerequisites
 
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free).
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
+- [Apache Maven](https://maven.apache.org)
+- [Azure CLI](/cli/azure/install-azure-cli)
+
 To create your Azure App Configuration store, you can use:
 
 ```azurecli
@@ -230,12 +235,12 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI of your Configurati
 
 When only the endpoint is set, the client library uses the [`DefaultAzureCredential`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#credential-classes) to authenticate. The `DefaultAzureCredential` uses the following methods to authenticate:
 
-* Environment credential
-* Managed Identity credential
-* Azure Developer CLI credential
-* IntelliJ credential
-* Azure CLI credential
-* Azure PowerShell credential
+- Environment credential
+- Managed Identity credential
+- Azure Developer CLI credential
+- IntelliJ credential
+- Azure CLI credential
+- Azure PowerShell credential
 
 You need to assign an identity such as a system assigned identity to read configurations.
 
@@ -254,9 +259,9 @@ Each replica you create has its dedicated endpoint. If your application resides 
 
 The failover may occur if the library observes any of the following conditions:
 
-* Receives responses with service unavailable status code (HTTP 500 or above) from an endpoint.
-* Experiences with network connectivity issues.
-* Requests are throttled (HTTP status code 429)
+- Receives responses with service unavailable status code (HTTP 500 or above) from an endpoint.
+- Experiences with network connectivity issues.
+- Requests are throttled (HTTP status code 429)
 
 ### Creating a configuration store with geo-replication
 
@@ -272,7 +277,7 @@ Once you've created a replica, you can use it in your application. Like the orig
 
 **Using Azure AD**
 
-To use Azure AD to connect to your replica, you need to list the `endpoints` instead of `endpoint` of your configuration store.
+To use Azure AD to connect to your replica, you need to list the `endpoints` of your configuration store instances.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]=[your primary store endpoint]
@@ -283,7 +288,7 @@ You can list as many endpoints as you have replicas. The library tries to connec
 
 **Using a Connection String**
 
-To use a connection string to connect to your replica, you need to list the `connectionStrings` instead of `connectionString` of your configuration store.
+To use a connection string to connect to your replica, you need to list the `connectionStrings` of your configuration store instances.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].connectionStrings[0]=[your primary store connection string]
@@ -292,20 +297,20 @@ spring.cloud.azure.appconfiguration.stores[0].connectionStrings[1]=[your replica
 
 You can list as many connection strings as you have replicas. The library tries to connect to the connection strings in the order they're listed. If the library is unable to connect to a replica, it will try the next one in the list. After a period of time has passed, the library will attempt to reconnect to the preferred connection strings.
 
-## Key Values
+## Key values
 
-Azure App Configuration Supports multiple types of key values, some of which have special features built into them. Azure App Configuration has built in support for JSON content type, Spring placeholders, a Key Vault references.
+Azure App Configuration supports multiple types of key values, some of which have special features built into them. Azure App Configuration has built in support for the JSON content type, Spring placeholders, and Key Vault references.
 
 ### Placeholders
 
-The client library supports configurations with `${}`-style environment placeholders. If, referencing an Azure App Configuration key with a placeholder any prefix needs to be removed in the reference. For example: `/application/config.message` is referenced as `${config.message}`.
+The client library supports configurations with `${}`-style environment placeholders. When referencing an Azure App Configuration key with a placeholder, remove prefixes from the reference. For example: `/application/config.message` is referenced as `${config.message}`.
 
 > [!NOTE]
 > The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`.
 
 ### JSON
 
-Configurations that have a content-type `application/json` are processed as json objects. This enables one configuration mapping to a complex object in a `@Configuration`. The json key `/application/config.colors` with the value
+Configurations that have a content-type `application/json` are processed as JSON objects. This let you map one configuration mapping to a complex objects inside of `@ConfigurationProperties`. For example, the JSON key `/application/config.colors` with the value
 
 ```json
 {
@@ -332,18 +337,18 @@ public class MyConfigurations {
 }
 ```
 
-### Key Vault References
+### Key Vault references
 
-Azure App Configuration and its client libraries support referencing secrets stored in Key Vault. In App Configuration, keys can be created which have values that map to a  secret stored in a Key Vault. The secrets are securely stored in Key Vault, but can be accessed the same as any other configuration once loaded.
+Azure App Configuration and its client libraries support referencing secrets stored in Key Vault. In App Configuration, keys can be created with values that map to a secret stored in a Key Vault. Secrets are securely stored in Key Vault, but can be accessed in the same way as any other configuration once loaded.
 
 Your application uses the client provider to retrieve Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client connects to Key Vault to retrieve their values for you.
 
 > [!NOTE]
 > Key Vault only allows for secrets to be retrieved one at a time, so each Key Vault reference stored in App Configuration will result in a pull against Key Vault.
 
-#### Creating Key Vault References
+#### Creating Key Vault references
 
-You can easily create a Key Vault reference in the Azure portal in the Configuration explorer using the Create -> Key Vault reference option. You're able to select a secret to reference, this can be from any of the Key Vaults you have access to. You can also create arbitrary Key Vault references using the Input option. Through the portal, a valid URI Key Vault is required and using a Key Vault reference format.
+You can create a Key Vault reference in the Azure portal by goint to **Configuration explorer** > **Create** > **Key Vault reference**. You can then select a secret to reference from any of the Key Vaults you have access to. You can also create arbitrary Key Vault references from the **Input** tab. In the Azure portal, enter a valid URI.
 
 You can also create a Key Vault reference through the CLI using:
 
@@ -351,13 +356,13 @@ You can also create a Key Vault reference through the CLI using:
 az appconfig kv set-keyvault --name <name-of-your-store> --key <key-name> --secret-identifier <uri-to-your-secret>
 ```
 
-Though the CLI any secret-identifier with the format of `{vault}/{collection}/{name}/{version?}` where the version section is optional.
+Though the CLI any secret-identifier can be created, they just require the format `{vault}/{collection}/{name}/{version?}` where the version section is optional.
 
-#### Using Key Vault References
+#### Using Key Vault references
 
-[Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The same credential use to connect to App Configuration can be used to connect to Azure Key Vault.
+[Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) can be used to configure the client library. The same credential used to connect to App Configuration can be used to connect to Azure Key Vault.
 
-#### Resolve Non-Key Vault Secrets
+#### Resolve non-Key Vault secrets
 
 The App Configuration client provides a method of locally resolving secrets that don't have a Key Vault associated with them. This is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` is called when a `TokenCredential` isn't provided for a Key Vault reference, the uri of the Key Vault reference is provided and return value becomes the value of the secret.
 
@@ -430,10 +435,10 @@ feature-management:
     - name: AlwaysOnFilter
 ```
 
-* `feature-t` is set to false, this setting always return the Feature Flag's value.
-* `feature-u` is used with Feature Filters. These Filters are defined under the `enabled-for` property.  In this case, `feature-u` has one Feature Filter called `Random`, which doesn't require any configuration, so only the name property is required.
-* `feature-v` specifies a Feature Filter named `TimeWindowFilter`. This Feature Filter can be passed parameters to use as configuration. In this case, a `TimeWindowFilter`, pass in the start and end times for which the feature will be active.
-* `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the Feature Filters, and results in the Feature Filter always return `false`.
+- `feature-t` is set to false, this setting always return the Feature Flag's value.
+- `feature-u` is used with Feature Filters. These Filters are defined under the `enabled-for` property.  In this case, `feature-u` has one Feature Filter called `Random`, which doesn't require any configuration, so only the name property is required.
+- `feature-v` specifies a Feature Filter named `TimeWindowFilter`. This Feature Filter can be passed parameters to use as configuration. In this case, a `TimeWindowFilter`, pass in the start and end times for which the feature will be active.
+- `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the Feature Filters, and results in the Feature Filter always return `false`.
 
 ### Evaluating Feature Flags
 
@@ -750,9 +755,9 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-in
 
 The client library comes with a Health Indicator that checks whether the connection to the Azure App Configuration store(s) is healthy or not. If enabled for each store, it gives a status of:
 
-* UP - The last connection was successful
-* DOWN- The last connection resulted in a non 200 error code. This could be due to a number of issues ranging from credentials expiring to a service issue. The client library will automatically retry to connect to the store at the next refresh-interval.
-* NOT LOADED - The config store is listed in the local configuration file, but the config store wasn't loaded from the file at startup. The config store is disabled in the configuration file or the configuration(s) loading failed to load at startup while the `fail-fast` configuration for the store was set to false.
+- UP - The last connection was successful
+- DOWN- The last connection resulted in a non 200 error code. This could be due to a number of issues ranging from credentials expiring to a service issue. The client library will automatically retry to connect to the store at the next refresh-interval.
+- NOT LOADED - The config store is listed in the local configuration file, but the config store wasn't loaded from the file at startup. The config store is disabled in the configuration file or the configuration(s) loading failed to load at startup while the `fail-fast` configuration for the store was set to false.
 
 You can enable the Health Indicator by setting `management.health.azure-app-configuration.enabled=true`.
 
