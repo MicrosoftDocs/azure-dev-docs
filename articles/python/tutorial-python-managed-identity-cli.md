@@ -145,7 +145,7 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
 
 ## Test the Python web app in Azure
 
-The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and `DefaultAzureCredentialClass`. The `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and Postgres in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
+The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
 1. Browse to the deployed application at the URL `http://$APP_SERVICE_NAME.azurewebsites.net`.
 
