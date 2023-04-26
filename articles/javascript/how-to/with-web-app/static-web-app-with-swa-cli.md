@@ -99,10 +99,10 @@ The sample repository has several versions of the front-end and backend apps. Th
 
     ```bash
     [swa] Serving static content:
-    [swa]   /workspaces/js-e2e-static-web-app-with-cli/v2/app/dist
+    [swa]   /workspaces/azure-typescript-e2e-apps/app-react-vite/dist
     [swa] 
     [swa] Serving API:
-    [swa]   /workspaces/js-e2e-static-web-app-with-cli/v2/api
+    [swa]   /workspaces/azure-typescript-e2e-apps/api-inmemory
     [swa] 
     [swa] Azure Static Web Apps emulator started at http://0.0.0.0:4280. Press CTRL+C to exit.
     ```
@@ -118,6 +118,10 @@ The sample repository has several versions of the front-end and backend apps. Th
 1. Once a user is authenticated, the front-end displays _private_ information such as the API's environment variables.
 
     :::image type="content"  source="../../media/static-web-app-with-swa-cli/browser-local-signed-in.png" alt-text="Screenshot of local React app with authentication complete.":::
+
+    The Azure Function v4 app source code for this API is:
+
+    :::code language="typescript" source="~/../azure-typescript-e2e-apps/api-inmemory/src/functions/status.ts" highlight="23-34":::
 
 1. Expand the public and private sections to see the content from the API is displayed. 
 
