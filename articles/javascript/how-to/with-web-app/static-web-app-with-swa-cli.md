@@ -146,7 +146,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
     |Networking|Don't change anything.|
     |Monitoring: Application Insights: Enable Application Insights|Select `Yes`. Don't change the default name provided.|
     |Deployment: GitHub Actions Settings: Continuous deployment|Select `Enable`.|
-    |Deployment: GitHub account| Select your GitHub account, it if isn't already set.|
+    |Deployment: GitHub account| Select your GitHub account.|
     |Deployment: Organization|Select your GitHub account, which you used when you forked the sample repository.|
     |Deployment: Repository|Select your forked repository name, `azure-typescript-e2e-apps`.|
     |Deployment: Branch|Select `main`.|
@@ -159,7 +159,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
 1. Select **Settings -> Configuration** then add a configuration setting for the Azure Function Node.js v4 runtime with name `AzureWebJobsFeatureFlags` and value `EnableWorkerIndexing`.
 1. Select **Save** to save the setting.
 
-1. In a bash terminal, use **git** to pull down the new yaml workflow file from your GitHub forked repository to to your local computer.
+1. In a bash terminal, use **git** to pull down the new yaml workflow file from your GitHub forked repository to your local computer.
 
     ```bash
     git pull origin main
@@ -175,7 +175,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
     |`name`|Shorten the name so you can easily find it in your fork's GitHub actions list.|
     |`paths`|Add the paths section to  limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
     |`AZURE_FUNCTIONAPP_PACKAGE_PATH`|When using a subdirection for source code, this needs to be that subdirectory path and name.|
-    |`VERBOSE`|This is setting is helpful for debugging the build and deploy process.|
+    |`VERBOSE`|This setting is helpful for debugging the build and deploy process.|
     |step named `Upload artifact for deployment job`|This step creates a downloadable artifact. This is helpful when debugging exactly what files are deployed to your Azure Function.|
 
     The `Upload artifact for deployment job` is optional. It's used to understand and debug what files are deployed to Azure Functions or to use those files in a separate environment.
@@ -253,7 +253,7 @@ This creation process deploys the same forked GitHub sample repository to Azure.
     |`paths`|Add the paths section to limit the deployment to run only when the Azure Functions API code changes. When you edit the workflow file, you can trigger the deployment manually.|
     |`workflow_dispatch`|Add `workflow_dispatch` _only_ while learning the deployment process and debugging any issues in the Vite build. Remove this line, when you continue this source code beyond this article.|
     |`if ... || github.event_name == 'workflow_dispatch' `|Include the `workflow_dispatch` event as allowed to generate a build only while learning the deployment process and debugging any issues in the Vite build.|
-    |`env`|Add the environment variables necessary to include the Azure Function API's URL in the static build with **Vite**.**VITE_BACKEND_URL** is the URL of your Azure Function app. **VITE_CLOUD_ENV** is a parameter to indicate when to use the **VITE_BACKEND_URL** URL. Don't use **NODE_ENV** for this sample as it has unintented side affects.|
+    |`env`|Add the environment variables necessary to include the Azure Function API's URL in the static build with **Vite**.**VITE_BACKEND_URL** is the URL of your Azure Function app. **VITE_CLOUD_ENV** is a parameter to indicate when to use the **VITE_BACKEND_URL** URL. Don't use **NODE_ENV** for this sample as it has unintended side affects.|
 
 1. Save the file then add, commit, and push it back to GitHub with git:
 
@@ -276,7 +276,7 @@ When using a separate Azure Function app, instead of a managed Function app, you
 ## 8. Test your static web app
 
 1. In a browser, open your static web app. 
-1. Interact with the app to sign in in, view public and private information, and sign out again.  
+1. Interact with the app to sign in, view public and private information, and sign out again.  
 
 
 ## 9. Clean up all resources used in this article series
