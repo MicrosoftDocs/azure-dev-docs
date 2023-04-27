@@ -131,6 +131,12 @@ In this case, you could change it as shown in the following example:
 />
 ```
 
+To ensure that parameter substitution occurs for any *context.xml* file within the *META-INF* folder inside a deployed *.war* file, be sure to set the `CATALINA_OPTS` environment variable as shown in the following example:
+
+```bash
+export CATALINA_OPTS="-Dorg.apache.tomcat.util.digester.PROPERTY_SOURCE=org.apache.tomcat.util.digester.EnvironmentPropertySource"
+```
+
 ### Provision an App Service plan
 
 From the list of available service plans at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), select the plan whose specifications meet or exceed those of the current production hardware.
