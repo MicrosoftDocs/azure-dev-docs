@@ -17,7 +17,7 @@ This article is part of a tutorial about deploying a Python app to Azure App Ser
 
 With the web app, storage account, and PostgreSQL database resources created, the next step is to tell the web app how to connect to the Azure Storage account and Azure Database for PostgreSQL service.
 
-The Python sample code expects environment variables named `DBHOST`, `DBNAME`, `DBUSER`, `STORAGE_ACCOUNT_NAME`, and `STORAGE_CONTAINER_NAME` to connect to the storage and database resources. You don't specify an access key for storage or a password for the database because authentication is handled by managed identity.
+The Python sample code expects environment variables named `DBHOST`, `DBNAME`, `DBUSER`, `STORAGE_ACCOUNT_NAME`, `STORAGE_CONTAINER_NAME`, and `SECRET_KEY` to connect to the storage and database resources. You don't specify an access key for storage or a password for the database because authentication is handled by managed identity.
 
 ### [Azure portal](#tab/azure-portal)
 

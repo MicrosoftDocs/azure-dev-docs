@@ -3,7 +3,7 @@ title: Comparing Terraform and Bicep
 description: Learn how Terraform and Bicep compare 
 ms.topic: conceptual
 ms.date: 04/27/2022
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-bicep
 adobe-target: true
 ---
 

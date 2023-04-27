@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 This article describes how to go from Python project code (for example, a web app) to a deployed Docker container in Azure. Discussed are the general process of containerization, deployment options for containers in Azure, and Python-specific configuration of containers in Azure.
 
-The nature of Docker containers is that creating a Python Docker image from code and deploying that image to a container in Azure is similar across programming languages. The language-specific considerations - Python in this case - are in the configuration during the containerization process in Azure, in particular the Dockerfile structure and configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
+The nature of Docker containers is that creating a Docker image from code and deploying that image to a container in Azure is similar across programming languages. The language-specific considerations - Python in this case - are in the configuration during the containerization process in Azure, in particular the Dockerfile structure and configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
 
 ## Container workflow scenarios
 
@@ -18,7 +18,7 @@ For Python container development, some typical workflows for moving from code to
 
 |Scenario|Description|Workflow|
 |--------|-----------|-----|
-|**Dev**|Build Python Docker images in your dev environment.|Code: git clone code to dev environment (with Docker installed). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). Described in section [Working with Python Docker images and containers](#working-with-python-docker-images-and-containers). <br><br> Run: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
+|**Dev**|Build Python Docker images in your dev environment.|Code: git clone code to dev environment (with Docker installed). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). Described in section [Working with Python Docker images and containers](#working-with-python-docker-images-and-containers). <br><br> Test: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
 |**Hybrid**|From your dev environment, build Python Docker images in Azure.|Code: git clone code to dev environment (not necessary for Docker to be installed).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
 |**Azure**|All in the cloud; use Azure Cloud Shell to build Python Docker images code from GitHub repo.| Code: git clone GitHub repo to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
@@ -30,9 +30,9 @@ A dev environment can be your local workstation with Visual Studio Code or PyCha
 
 Python container apps are supported in the following services.
 
-[Web App for Containers][3] provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. Containerized web apps on Azure App Service can scale as needed and use streamlined CI/CD workflows with Docker Hub, Azure Container Registry, and GitHub. For an example, see [Containerized Python web app on Azure App Service][4].
+[Web App for Containers][3] provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. Containerized web apps on Azure App Service can scale as needed and use streamlined CI/CD workflows with Docker Hub, Azure Container Registry, and GitHub. For an example, see [Deploy a Flask or FastPI web app on Azure App Service][4].
 
-[Azure Container Apps (ACA)][5] is a fully managed serverless container service for containers. Container Apps provides many application-specific concepts on top of containers, including certificates, revisions, scale, and environments. Container Apps are a good for web applications including web sites and web APIs. For an example, see …
+[Azure Container Apps (ACA)][5] is a fully managed serverless container service for containers. Container Apps provides many application-specific concepts on top of containers, including certificates, revisions, scale, and environments. Container Apps are a good for web applications including web sites and web APIs. For an example, see [Deploy a Flask or FastPI web app on Azure Container Apps][52].
 
 [Azure Container Instances (ACI)][6] is a serverless offering, billed on consumption rather than provisioned resources. Concepts like scale, load balancing, and certificates aren't provided with ACI containers, and ACI is a lower-level "building block" option compared to ACA. For an example, see the tutorial [Create a container image for deployment to Azure Container Instances][7]. The tutorial isn't Python-specific, but the concepts show apply to all languages.
 
@@ -49,7 +49,7 @@ When you're running a Python project in a dev environment, using a virtual envir
 > [!TIP]
 > With containers, virtual environments aren't needed unless you're using them for testing or other reasons. If you use virtual environments, don't copy them into the Docker image. Use the *\.dockerignore* file to exclude them.
 
-You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability. Docker container can be run anywhere containers can be run, regardless of OS.
+You can think of Docker containers as providing similar capabilities as virtual environments, but with further advantages in reproducibility and portability. Docker container can be run anywhere containers can be run, regardless of OS.
 
 A Docker container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create container, a runnable instance of that image.
 
@@ -69,7 +69,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 | -------------- | ---- |
 | [Django][35] | 8000 |
 | [Flask][36] | 5000 or 5002 |
-| [FastAPI][37] ([uvicorn][13]) | 8000 |
+| [FastAPI][37] ([uvicorn][13]) | 8000 or 80 |
 
 The following table shows how to set the port for difference Azure container solutions.
 
@@ -271,13 +271,13 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 
 ## Next steps
 
-* [Deploy a containerized Python web app in Azure App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md)
-* [Deploy a containerized Python web app in Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
+* [Containerized Python web app on Azure with MongoDB](./tutorial-containerize-deploy-python-web-app-azure-01.md)
+* [Deploy a Python web app on Azure Container Apps with PostgreSQL](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
 [3]: https://azure.microsoft.com/products/app-service/containers/
-[4]: ./tutorial-containerize-deploy-python-web-app-azure-01.md
+[4]: ./tutorial-containerize-simple-web-app-for-app-service.md
 [5]: https://azure.microsoft.com/products/container-apps/
 [6]: https://azure.microsoft.com/products/container-instances
 [7]: /azure/container-instances/container-instances-tutorial-prepare-app
@@ -325,3 +325,4 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 [49]: /cli/azure/container#az-container-logs
 [50]: /cli/azure/acr#az-acr-build
 [51]: https://docs.docker.com/engine/reference/commandline/image_inspect/
+[52]: ./tutorial-containerize-simple-web-app.md

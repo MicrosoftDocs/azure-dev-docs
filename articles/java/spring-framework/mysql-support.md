@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure MySQL support
 description: This article describes how Spring Cloud Azure and Azure MySQL can be used together.
-ms.date: 12/29/2022
+ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 # Spring Cloud Azure MySQL support
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 

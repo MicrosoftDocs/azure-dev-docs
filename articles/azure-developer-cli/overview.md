@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-azurecli
 ---
 
 # What is the Azure Developer CLI (preview)?
@@ -17,9 +17,7 @@ You can use `azd` with [extensible azd templates](#azure-developer-cli-templates
 
 ## Typical `azd` workflow
 
-Once you've [installed Azure Developer CLI](./install-azd.md), you can get your app onto Azure in two quick steps.
-
-:::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
+Once you've [installed Azure Developer CLI](./install-azd.md), you can get your app onto Azure in just a few steps.
 
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
 2. Get the code and initialize the project by [running `azd init`](./get-started.md)

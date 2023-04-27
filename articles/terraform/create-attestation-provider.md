@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Policy Signing Certificate:** A PEM file defines a set of trusted signing keys. As there are many scenarios in which to have a PEM file, this article assumes you have access to one. For example, you can download a PEM during the process of creating a virtual machine in the [Azure portal](https://portal.azure.com).
+- **Policy Signing Certificate:** You need to upload an X.509 certificate, which is used by the attestation provider to validate signed policies. This certificate is either signed by a certificate authority or self-signed. Supported file extensions include pem, txt and cer. This article assumes that you already have a valid X.509 certificate.
 
 ## 2. Implement the Terraform code
 

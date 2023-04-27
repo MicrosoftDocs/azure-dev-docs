@@ -1,13 +1,13 @@
 ---
 ms.author: tarcher
 ms.topic: conceptual
-ms.date: 04/27/2022
-ms.custom: devx-track-terraform
+ms.date: 04/22/2023
+ms.custom: devx-track-terraform, devx-track-bicep
 ---
 
-To achieve scale, DevOps teams are always looking for ways to quickly deploy code with a trusted and repeatable process. When it comes to the cloud and infrastructure, this process is increasingly accomplished with infrastructure-as-code (IaC). IaC tools range from general-purpose tools intended for specific environments. Terraform is an example of the former, while Bicep is designed to handle Azure-related tasks.
+To achieve scale, DevOps teams are always looking for ways to quickly deploy code with a trusted and repeatable process. When it comes to the cloud and infrastructure, this process is increasingly accomplished with infrastructure-as-code (IaC). IaC tools range from general-purpose tools to tools intended for specific environments. Terraform is an example of the former, while Bicep is designed to handle Azure-related tasks.
 
-In this article, we'll compare nine infrastructure and integration features of Bicep and Terraform. Understanding these differences will help you decide which tool best supports your infrastructure and processes.  
+In this article, we compare nine infrastructure and integration features of Bicep and Terraform. Understanding these differences helps you decide which tool best supports your infrastructure and processes.  
 
 ## State and backend
 
@@ -22,13 +22,13 @@ When comparing Bicep to Terraform for managing cloud infrastructure, it's import
 
 Bicep is Azure-specific and not designed to work with other cloud services.
 
-If your goal is to automate deployments to any of the following environments, Terraform will likely be a better option:
+If your goal is to automate deployments to any of the following environments, Terraform is likely the better option:
 
 - Virtualization environments
-- Multi-cloud scenarios - such as Azure and other cloud(s)
+- Multicloud scenarios - such as Azure and other cloud(s)
 - On-premises workloads
 
-Terraform interacts with other cloud providers or APIs using plugins called *providers*. There are several [Terraform Azure providers](../overview.md#terraform-providers-for-azure-infrastructure) that enable the management of Azure infrastructure. When coding a Terraform configuration, you specify the required providers you'll be using. When you run [terraform init](https://www.terraform.io/docs/commands/init.html), the specified provider is installed and usable from your code.
+Terraform interacts with other cloud providers or APIs using plugins called *providers*. There are several [Terraform Azure providers](../overview.md#terraform-providers-for-azure-infrastructure) that enable the management of Azure infrastructure. When coding a Terraform configuration, you specify the required providers you're using. When you run [terraform init](https://www.terraform.io/docs/commands/init.html), the specified provider is installed and usable from your code.
 
 ## CLI tools
 
@@ -47,27 +47,27 @@ Bicep also provides a feature that makes it easy to integrate Bicep with Azure P
 
 ## Processing
 
-There are some important differences between Bicep and Terraform in terms of the efficiency and optimizations of deployments. With Bicep, processing occurs within the core Azure infrastructure service side. This feature offers advantages such as preflight processing to check policy or the availability for deploying multiple instances within a region. With Terraform, processing is done within the Terraform client. Thus, pre-processing involves no calls to Azure since it uses state and HCL (HashiCorp Language) to determine the required changes.
+There are some important differences between Bicep and Terraform in terms of the efficiency and optimizations of deployments. With Bicep, processing occurs within the core Azure infrastructure service side. This feature offers advantages such as preflight processing to check policy or the availability for deploying multiple instances within a region. With Terraform, processing is done within the Terraform client. Thus, preprocessing involves no calls to Azure since it uses state and HCL (HashiCorp Language) to determine the required changes.
 
 ## Authentication
 
-The Azure authentication features vary between Bicep and Terraform. With Bicep, an authorization token is supplied during the request to submit a Bicep file and ARM Template. ARM will ensure that you have permission to both create the deployment and deploy resources within the specified template. Terraform authenticates each API based on provider credentials – such as Azure CLI, service principal, or [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Moreover, multiple provider credentials can be utilized in a single configuration.
+The Azure authentication features vary between Bicep and Terraform. With Bicep, an authorization token is supplied during the request to submit a Bicep file and ARM Template. ARM ensures that you have permission to both create the deployment and deploy resources within the specified template. Terraform authenticates each API based on provider credentials – such as Azure CLI, service principal, or [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Moreover, multiple provider credentials can be utilized in a single configuration.
 
 ## Azure integrations
 
-You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each will interact with other tools and languages. Bicep's preflight validation features can determine whether a resource will be denied by policy and fail before a deployment. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, will fail when a resource is deployed that is disallowed by policy.
+You should also consider your use of Azure features such as [Azure Policy](/azure/governance/policy/overview) and how each interacts with other tools and languages. Bicep's preflight validation determines whether a resource doesn't comply with a policy so that it fails before a deployment. Thus, developers can remediate resources with policy using provided ARM templates. The ARM template can be used to create a policy assignment to another resource for automated remediation. Terraform, however, fails when a resource is deployed that is disallowed due to policy.
 
 ## Portal integration
 
-One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. But note that you'll need to decompile the exported ARM template until Bicep templates are supported.
+One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. Until Bicep templates are supported, you need to decompile the exported ARM template.
 
-Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Terrafy](https://github.com/Azure/aztfy). (Azure Terrafy is an open-source tool owned and maintained by Microsoft.)
+Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Export for Terraform](../azure-export-for-terraform/export-terraform-overview.md). (Azure Export for Terraform is an open-source tool owned and maintained by Microsoft on the [Azure/aztfexport GitHub repo](https://github.com/Azure/aztfexport).)
 
 ## Out-of-band changes
 
-Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a virtual machine scale set using Bicep or Terraform. If you change that virtual machine scale set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
+Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a Virtual Machine Scale Set using Bicep or Terraform. If you change that Virtual Machine Scale Set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
 
-If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes won't block the deployment.
+If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes don't block the deployment.
 
 If you're using Terraform, you need to import the out-of-band changes into the Terraform state and update the HCL.
 
@@ -79,4 +79,4 @@ The [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) is a coll
 
 ## Summary
 
-Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it's important to consider whether you'll be deploying to more than one cloud or whether your infrastructure will consist of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.
+Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it's important to consider if you're deploying to more than one cloud or whether your infrastructure consists of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.

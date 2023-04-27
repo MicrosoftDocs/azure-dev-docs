@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-bicep
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
@@ -66,7 +66,7 @@ Learn more about:
 
 ## Initialize a new environment
 
-1. Run the following command to initialize the project. 
+1. Run the following command to initialize the project:
 
     ```azdeveloper
     azd init
@@ -114,7 +114,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "name": {
+            "environmentName": {
             "value": "${AZURE_ENV_NAME}"
             },
             "location": {
@@ -126,6 +126,20 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         }
     }
     ```
+    **Additional tips:**
+    - You can override the default azd resource naming conventions by providing values here. For example, to use "rg-myGroupName" as your resource group name, add:
+
+      ```json
+      "resourceGroupName": {
+           "value": "rg-myGroupName"
+      }
+      ```
+    - You can use the azd `secretOrRandomPassword` function to retrieve a secret from Azure Key Vault if parameters for the key vault name and secret are provided. For example:
+      ```json
+      "sqlAdminPassword": {
+           "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
+      }
+      ```
 
 1. Create a file named `main.bicep` as the main entry point. Declare the parameters you included in `main.parameters.json`. 
 
@@ -206,7 +220,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
   
     In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
-1. Run the following command to provision the Azure resources.
+1. Run the following command to provision the Azure resources:
 
     ```azdeveloper
     azd provision

@@ -5,7 +5,7 @@ summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease. 
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Migration overview
             url: migration-overview.md
+          - text: Cloud Suitability Analyzer
+            url: cloud-suitability-analyzer.md
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -77,6 +79,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: WebSphere Application Server to Azure Virtual Machines
+            url: migrate-websphere-to-virtual-machines.md
           - text: WebSphere to WildFly on AKS
             url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
           - text: WebSphere to JBoss EAP on App Service

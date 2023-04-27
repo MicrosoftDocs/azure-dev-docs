@@ -3,7 +3,7 @@ title: Deploy a PostgreSQL Flexible Server Database using Terraform
 description: Learn how to deploy a PostgreSQL Flexible Server Database using Terraform
 keywords: azure, devops, terraform, postgresql, flexible server, database
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 03/21/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -60,9 +60,9 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/variables.tf)]
 
-1. Create a file named `output.tf` and insert the following code to output the resource group name, Azure PostgreSQL server name, and Azure PostgreSQL database name:
+1. Create a file named `outputs.tf` and insert the following code to output the resource group name, Azure PostgreSQL server name, and Azure PostgreSQL database name:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/outputs.tf)]
 
 ## 3. Initialize Terraform
 

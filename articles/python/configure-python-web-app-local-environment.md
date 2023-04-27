@@ -3,7 +3,7 @@ title: "Configure your local environment for developing and deploying Python web
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: conceptual
 ms.date: 11/21/2022
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 adobe-target: true
 ---
 

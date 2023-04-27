@@ -3,7 +3,7 @@ title: Spring Cloud Stream with Azure Event Hubs
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: tutorial
@@ -44,19 +44,23 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
-   ```xml
-   <dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>com.azure.spring</groupId>
-          <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.5.0</version>
-          <type>pom</type>
-          <scope>import</scope>
-          </dependency>
-      </dependencies>
-    </dependencyManagement>
-   ```
+  ```xml
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.7.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  ```
+
+   > [!NOTE]
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`. 
+   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
 
@@ -75,8 +79,8 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
     spring.cloud.azure.eventhubs.namespace=${AZURE_EVENTHUBS_NAMESPACE}
-    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=${AZURE_STORAGE_CONTAINER_NAME}
-    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=${AZURE_STORAGE_ACCOUNT_NAME}
+    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=${AZURE_STORAGE_ACCOUNT_NAME}
+    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=${AZURE_STORAGE_CONTAINER_NAME}
     spring.cloud.stream.bindings.consume-in-0.destination=${AZURE_EVENTHUB_NAME}
     spring.cloud.stream.bindings.consume-in-0.group=${AZURE_EVENTHUB_CONSUMER_GROUP}
     spring.cloud.stream.bindings.supply-out-0.destination=${AZURE_EVENTHUB_NAME}

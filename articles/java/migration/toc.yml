@@ -3,6 +3,8 @@
   items:
     - name: Overview
       href: migration-overview.md
+    - name: Cloud Suitability Analyzer
+      href: cloud-suitability-analyzer.md
     - name: Spring to Azure
       expanded: true
       items:
@@ -46,6 +48,15 @@
           href: migrate-weblogic-with-app-gateway.md
         - name: "Tutorial: WebLogic Server with Elastic on Azure"
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
+    - name: WebSphere to Azure
+      expanded: true
+      items:
+        - name: WebSphere Application Server to Azure Virtual Machines
+          href: migrate-websphere-to-virtual-machines.md
+        - name: WebSphere to JBoss EAP on App Service
+          href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
+        - name: WebSphere to WildFly on AKS
+          href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: JBoss EAP to Azure
       expanded: true
       items:
@@ -57,9 +68,5 @@
           href: migrate-jboss-eap-to-azure-redhat-openshift.md
         - name: JBoss EAP to WildFly on AKS
           href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
-    - name: WebSphere to JBoss EAP on App Service
-      href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
-    - name: WebSphere to WildFly on AKS
-      href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
