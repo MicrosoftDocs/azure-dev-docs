@@ -22,7 +22,9 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
 
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
-2. Run [`azd up`](./get-started.md) to get the code and deploy the template.
+3. Get the code and initialize the project by [running `azd init`](./get-started.md)
+4. Deploy the template by [running `azd up`](./get-started.md).
+5. Customize the app to meet your needs.
 
 From there, you can pull out or modify the application code to leverage the infrastructure as code assets (IaC) provided in the template and customize the app to fit your needs.
 
