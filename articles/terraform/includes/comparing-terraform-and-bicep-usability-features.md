@@ -35,7 +35,7 @@ In Terraform, [modules](https://www.terraform.io/language/modules) are the prima
 
 ## Provisioning lifecycle
 
-Both Terraform and Bicep allow developers to validate a configuration before deployment and then apply the changes. Terraform provides more flexibility to destroy all remote objects managed by a particular configuration. This feature is useful to clean up temporary objects once your work is completed. It'ss crucial to consider the lifecycle requirements of typical infrastructure deployments when choosing the best option.
+Both Terraform and Bicep allow developers to validate a configuration before deployment and then apply the changes. Terraform provides more flexibility to destroy all remote objects managed by a particular configuration. This feature is useful to clean up temporary objects once your work is completed. It's crucial to consider the lifecycle requirements of typical infrastructure deployments when choosing the best option.
 
 Bicep offers a [what-if](/azure/azure-resource-manager/bicep/deploy-what-if?tabs=azure-powershell%2CCLI) operation that allows you to preview changes before deploying a Bicep file. The Azure Resource Manager provides the `what-if` operation and doesn't make any changes to existing resources. It's then possible to use Azure PowerShell or Azure CLI with your Bicep files to [deploy your resources to Azure](/azure/azure-resource-manager/bicep/deploy-powershell). Azure PowerShell and Azure CLI don't support the deployment of remote Bicep files. However, you can use Bicep CLI to build your Bicep file to a JSON template and then load the JSON file to a remote location.
 
