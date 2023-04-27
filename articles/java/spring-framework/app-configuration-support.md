@@ -212,7 +212,7 @@ If an error resulting in a `RuntimeException` happens during a refresh check or 
 
 ## Authentication
 
-The library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). Authentication can be done through configuration for connection strings and managed identity. All other forms of identity can be done by using the `TokenCredentialProvider`.
+The library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). Authentication can be done through configuration for connection strings and managed identity.
 
 ### Connection string
 
