@@ -70,10 +70,10 @@ aztfexport mapping-file [option] <resource_mapping_file>
 
 You can use a mapping file in either interactive or non-interactive modes:
 
-- **Interactive mode:** You can generate the mapping file in all export commands (`resource`, `resource-group`, `query`, `mapping file`) by adding the `--generate-mapping-file` flag.
-- **Non-interactive mode:** Press <kbd>s</kbd> when running interactively in the resource list view.
+- **Interactive mode:** Press <kbd>s</kbd> when running interactively in the resource list view.
+- **Non-interactive mode:** You can generate the mapping file in all export commands (`resource`, `resource-group`, `query`, `mapping file`) by adding the `--generate-mapping-file` flag.
 
-If your use cases require pre-export modifications, you're to manually construct or edit the mapping file. Here are some examples of when you would want to manually edit your own mapping file:
+If your use cases require pre-export modifications, you can manually construct or edit the mapping file. Here are some examples of when you would want to manually edit your own mapping file:
 
 | Use-case | Steps |
 |-|-|
