@@ -13,7 +13,7 @@ zone_pivot_groups: make-azure-developer-cli-compatible-set
 
 # Make your project compatible with Azure Developer CLI (preview)
 
-Azure Developer CLI (`azd`) enables developers to create apps from [templates](./azd-templates.md) stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
+Azure Developer CLI (`azd`) enables developers to create apps from [templates](./azd-templates.md) stored in GitHub repositories. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to enable your own project as a template.
 
 ## Understand the `azd` architecture
 

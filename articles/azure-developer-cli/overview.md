@@ -13,7 +13,7 @@ ms.custom: devx-track-azdevcli, devx-track-azurecli
 
 Azure Developer CLI (`azd`) is an open-source tool that accelerates the time it takes for you to get started on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or DevOps.
 
-You can use `azd` with [extensible azd templates](#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code.
+You can use `azd` with [extensible azd templates](./more-azd-info.md#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code.
 
 ## Typical `azd` workflow
 

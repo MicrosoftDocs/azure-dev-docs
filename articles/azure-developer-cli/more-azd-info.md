@@ -1,6 +1,6 @@
 ---
 title: Other things to know about AZD
-description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
+description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: gkulin
 ms.author: gracekulin
 ms.date: 4/27/2023
@@ -14,6 +14,14 @@ ms.custom: devx-track-azdevcli, devx-track-azurecli
 ## Introductory video
 
 > [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
+
+## Azure Developer CLI templates
+
+The Azure Developer CLI works alongside [idiomatic application templates](./azd-templates.md) that include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in four supported languages. Each template uses best practices and includes:
+
+- Application code
+- Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
+- An `azure.yaml` file that describes your application.
 
 ## Supported development environments
 
@@ -48,7 +56,7 @@ Currently supported/planned languages:
 | .NET     | Yes         |
 | Java     | Yes         |
 
-# Next Steps
+## Next Steps
 - Get started by [installing Azure Developer CLI](./install-azd.md).
 - [Walk through our quickstart](./get-started.md) to see Azure Developer CLI in action.
   
