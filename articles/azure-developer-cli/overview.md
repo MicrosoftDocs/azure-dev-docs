@@ -11,45 +11,24 @@ ms.custom: devx-track-azdevcli
 
 # What is the Azure Developer CLI (preview)?
 
-Azure Developer CLI (`azd`) is an open-source tool that accelerates the process of building cloud apps on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or DevOps.
+Azure Developer CLI (`azd`) is an open-source tool that accelerates the time it takes for you to get started on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or DevOps.
 
-You can use the `azd` with [extensible azd templates](#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include application code, and reusable infrastructure as code assets.
-
-The new `azd` builds upon the experience and foundations of the [Azure CLI](#azure-developer-cli-vs-azure-cli). You can use both tools together, as needed, to support your Azure workflow.
+You can use `azd` with [extensible azd templates](#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code.
 
 ## Typical `azd` workflow
 
-Once you've [installed Azure Developer CLI](./install-azd.md), the following steps are the typical workflow to using `azd`:
+Once you've [installed Azure Developer CLI](./install-azd.md), you can get your app onto Azure in two quick steps.
 
 :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
 
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
-1. Get the code and deploy the template by [running `azd up`](./get-started.md).
-1. Customize the app to meet your needs.
+2. Run [`azd up`](./get-started.md) to get the code and deploy the template.
+
+From there, you can pull out or modify the application code to leverage the infrastructure as code assets (IaC) provided in the template and customize the app to fit your needs.
 
 ## Introductory video
 
 > [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
-
-## Azure Developer CLI templates
-
-The Azure Developer CLI works alongside [idiomatic application templates](./azd-templates.md) that include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in four supported languages. Each template uses best practices and includes:
-
-- Application code
-- Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
-- An `azure.yaml` file that describes your application.
-
-[Learn more about the `azd` templates we provide and which template you should select.](./azd-templates.md#choose-a-template)
-
-## Azure Developer CLI vs Azure CLI
-
-[Azure Developer CLI (azd)](./index.yml) and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools.
-
-However, they help you do different tasks.
-
-The `azd` focuses on the developer workflow. Apart from provisioning/managing Azure resources, the CLI helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
-
-Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
 
 ## Supported development environments
 
