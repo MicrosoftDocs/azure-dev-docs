@@ -1,3 +1,5 @@
+crazybow manage-azure-policy.md
+
 --- 
 title: Manage Azure Policies with GitHub  
 description: Manage Azure Policies as code from GitHub 
