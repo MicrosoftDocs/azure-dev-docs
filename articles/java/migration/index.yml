@@ -85,6 +85,8 @@ landingContent:
             url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
           - text: WebSphere to JBoss EAP on App Service
             url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
+          - text: "Tutorial: WebSphere to Azure VMs manual guidance"
+            url: migrate-websphere-to-azure-vm-manually.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: how-to-guide

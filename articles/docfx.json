@@ -121,7 +121,8 @@
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
         "terraform/**/*.md": "terraform",
-        "python/**/*.md": "azure-python"
+        "python/**/*.md": "azure-python",
+        "javascript/**/*.md": "azure-javascript"
       },
       
       "titleSuffix": {
@@ -142,9 +143,6 @@
       },
       "ms.topic": {
         "**/includes/**/*.md": "include"
-      },
-      "ms.prod": {
-        "javascript/**/*.md": "azure-nodejs"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
