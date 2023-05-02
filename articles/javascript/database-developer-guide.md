@@ -3,7 +3,7 @@ title: Getting started with Azure Databases
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
 ms.date: 02/03/2023
-ms.custom: devx-track-js, devx-graphql
+ms.custom: devx-track-js, devx-graphql, devx-track-azurecli
 ---
 
 # Getting started with databases on Azure

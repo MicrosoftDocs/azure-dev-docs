@@ -4,7 +4,7 @@ description: An overview of how to create and deploy a Python (Django or Flask) 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/21/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Overview: Deploy a Python web app to Azure with managed identity

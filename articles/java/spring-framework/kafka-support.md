@@ -1,15 +1,16 @@
 ---
 title: Spring Cloud Azure kafka support
 description: This article describes how Spring Cloud Azure and Kafka can be used together.
-ms.date: 12/29/2022
+ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure Kafka support
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
@@ -158,7 +159,7 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 
 Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -187,7 +188,7 @@ This section describes the usage scenario for Spring Boot application using Spri
 
 ##### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -221,7 +222,7 @@ This section describes the usage scenario for Spring Boot applications using the
 
 ##### Dependency setup
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -248,25 +249,38 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 
 ##### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) repository on GitHub.
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter/spring-cloud-azure-sample-eventhubs-kafka) repository on GitHub.
 
 <a name="basic-usage-connection-string"></a>
 ### Use connection string authentication
 
 You can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string.
 
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
 > [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
 >
-> Since version of 4.5.0, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the *`<kafka-binder-name>`* placeholder has a value of `kafka` by default.
+> Since version of 4.5.0, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the value of *`<kafka-binder-name>`* should be `kafka` when there is no customized configuration for your Kafka binder name.
 >
 > `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
+
+###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
+
+> [!NOTE]
+> Since version of 5.0.0, when using connection string authentication with Spring Cloud Stream framework, the following property is still required to ensure that the connection string can take effect, where the value of *`<kafka-binder-name>`* should be `kafka` when there is no customized configuration for your Kafka binder name.
+>
+> `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
+> 
+> If the version of `spring-cloud-dependencies` you used is `2022.0.0`, you'll encounter exception the `java.lang.IllegalStateException: kafka_context has not been refreshed yet`. To solve this problem, upgrade to a higher version.
+
+---
 
 #### Dependency setup
 
 Add the following dependencies if you want to migrate your Apache Kafka application to use Azure Event Hubs for Kafka.
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter</artifactId>
@@ -275,7 +289,7 @@ Add the following dependencies if you want to migrate your Apache Kafka applicat
 
 If you want to retrieve the connection string using Azure Resource Manager, add the following dependency:
 
-``` xml
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-resourcemanager</artifactId>

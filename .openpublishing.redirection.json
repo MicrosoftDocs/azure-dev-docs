@@ -1,5 +1,48 @@
 {
     "redirections": [
+
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/introduction.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      }, 
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },       
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/introduction.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+      },      
       { "source_path": "articles/lab/index.yml",
         "redirect_url": "/azure/developer/python" 
       },
@@ -875,6 +918,10 @@
       {
         "source_path": "articles/java/migration/migrate-weblogic-with-aad-ldap.md",
         "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps"
+      },
+      {
+        "source_path": "articles/java/migration/migrate-weblogic-with-elk.md",
+        "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-weblogic"
       },
       {
         "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",

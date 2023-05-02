@@ -1,7 +1,7 @@
 ---
 title: "Load a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
-ms.date: 02/15/2023
+ms.date: 04/06/2023
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
@@ -19,8 +19,8 @@ This tutorial shows you how to use Key Vault in Spring Boot applications to secu
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- If you don't have a Key Vault instance, follow [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal) to create a Key Vault instance. Also, make a note of the URI of the Key Vault instance, as you need it for the test application for this tutorial.
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **H2 Database** dependencies, and then select Java version 8 or higher.
+- A Key Vault instance. If you don't have one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). Also, make a note of the URI of the Key Vault instance, as you need it for the test application for this tutorial.
+- A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **H2 Database** dependencies, and then select Java version 8 or higher.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
@@ -48,13 +48,17 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>pom</type>
         <scope>import</scope>
-        </dependency>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   ```
+
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Key Vault Starter artifact:
 
@@ -113,12 +117,7 @@ To read a secret using Azure SDK from Key Vault, configure the application by fo
    }
    ```
 
-   > [!TIP]
-   > In this tutorial, neither the configurations nor the code have any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
-   >
-   > `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. For more information, see the [Default Azure credential](../sdk/identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticate Azure-hosted Java applications](../sdk/identity-azure-hosted-auth.md).
-   >
-   > To use Azure CLI, Visual Studio Code, PowerShell or other methods to complete the authentication in local development environments, see [Azure authentication in Java development environments](../sdk/identity-dev-env-auth.md). To complete the authentication in Azure hosting environments, we recommend using managed identity. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
 1. Start the application. You'll see logs similar to the following example:
 

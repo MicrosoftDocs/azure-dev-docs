@@ -95,7 +95,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
 * **Container** application using [Azure App Service](/azure/app-service/)
     * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash)
 * **Linux Virtual machine** application using [Azure Virtual Machines](/azure/virtual-machines/)
-    * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
+    * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](/azure/developer/javascript/tutorial/run-nodejs-virtual-machine)
 
 Learn more about [hosting options](../how-to/deploy-web-app.md).
 

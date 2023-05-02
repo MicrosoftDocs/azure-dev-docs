@@ -6,32 +6,32 @@ ms.author: haiche
 ms.topic: how-to
 ms.date: 01/12/2023
 keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java, devx-track-azurecli
 ---
 
 # Configure passwordless database connections for Java apps on Oracle WebLogic Servers
 
 This article shows you how to configure passwordless database connections for Java apps on Oracle WebLogic Server offers with the Azure portal.
 
-In this guide, you'll:
+In this guide, you accomplish the following tasks:
 
 > [!div class="checklist"]
 > - Provision database resources using Azure CLI.
-> - Enable the Azure AD administrator in the database.
+> - Enable the Azure Active Directory (Azure AD) administrator in the database.
 > - Provision a user-assigned managed identity and create a database user for it.
 > - Configure a passwordless database connection in Oracle WebLogic offers with the Azure portal.
 > - Validate the database connection.
 
-The offers support passwordless connections for PostgreSQL and MySQL databases.
+The offers support passwordless connections for PostgreSQL, MySQL and Azure SQL databases.
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0, or above.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or higher.
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-- If you prefer, [install the Azure CLI 2.43.0, or above](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- If you prefer, [install the Azure CLI 2.43.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -82,7 +82,7 @@ az mysql flexible-server db create \
     --database-name $DATABASE_NAME
 ```
 
-When the commands completes, you should see output similar to the following.
+When the command completes, you should see output similar to the following example:
 
 ```output
 Creating database with utf8 charset and utf8_general_ci collation
@@ -130,11 +130,44 @@ az postgres flexible-server db create \
     --database-name $DATABASE_NAME
 ```
 
+### [Azure SQL Database](#tab/azure-sql-database)
+
+Create a server with the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command. This example creates a server named `myazuresql20130213` with admin user `azureuser` and admin password `Secret123456`. Replace the password with yours. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli).
+
+```azurecli-interactive
+AZURESQL_SERVER_NAME="myazuresql20130213"
+AZURESQL_ADMIN_USER="azureuser"
+AZURESQL_ADMIN_PASSWORD="Secret123456"
+
+az sql server create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $AZURESQL_SERVER_NAME \
+    --location eastus \
+    --admin-user $AZURESQL_ADMIN_USER \
+    --admin-password $AZURESQL_ADMIN_PASSWORD
+```
+
+Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview).
+
+```azurecli-interactive
+DATABASE_NAME="mysingledatabase20230213"
+
+az sql db create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server $AZURESQL_SERVER_NAME \
+    --name $DATABASE_NAME \
+    --sample-name AdventureWorksLT \
+    --edition GeneralPurpose \
+    --compute-model Serverless \
+    --family Gen5 \
+    --capacity 2
+```
+
 ---
 
 ## Configure an Azure AD administrator to your database
 
-Now that you've created the database, you'll need to make it ready to support passwordless connection. A passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+Now that you've created the database, you need to make it ready to support passwordless connections. A passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
@@ -193,7 +226,7 @@ If you want to sign in to a specific tenant, use this command instead.
 Connect-AzAccount -Tenant <your-tenant-name>.onmicrosoft.com
 ```
 
-In either case, you'll be directed to a browser to complete the sign-in. Your `TenantId` should be output, as shown with redacted data here.
+In either case, you're directed to a browser to complete the sign-in. Your `TenantId` should be output, as shown with redacted data in the following example.
 
 ```output
 Account                       SubscriptionName       TenantId                             Environment
@@ -207,7 +240,7 @@ Use the following command to grant `Azure Database for PostgreSQL - Flexible Ser
 Connect-AzureAD -TenantId <your-tenant-ID>
 ```
 
-A successful output will look similar to the following example:
+A successful output looks similar to the following example:
 
 ```output
 Account                       Environment TenantId                             TenantDomain                       AccountType
@@ -221,7 +254,7 @@ Ensure that your Azure tenant has the service principal for the Azure Database f
 Get-AzureADServicePrincipal -ObjectId 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98
 ```
 
-If the service principal exists, you'll see the following output.
+If the service principal exists, you see the following output.
 
 ```output
 ObjectId                             AppId                                DisplayName
@@ -229,7 +262,7 @@ ObjectId                             AppId                                Displa
 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9 Azure OSSRDBMS PostgreSQL Flexible Server
 ```
 
-Otherwise, you'll need to create the service principal with the following command. The specific `AppId` value is for the Azure Database for PostgreSQL Flexible Server.
+Otherwise, you need to create the service principal with the following command. The specific `AppId` value is for the Azure Database for PostgreSQL Flexible Server.
 
 ```powershell
 New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
@@ -239,18 +272,33 @@ Use the following steps to continue the configuration in the Azure portal.
 
 1. Sign in to the Azure portal from your browser. Search for `postgresql20221223` and then select it.
 1. In the **Security** section, select **Authentication**, then select **PostgreSQL and Azure Active Directory authentication**.
-1. Select **Save**, then **Continue**. The deployment will take several minutes to finish. Wait for the deployment to complete before continuing.
+1. Select **Save**, then **Continue**. The deployment takes several minutes to finish. Wait for the deployment to complete before continuing.
 1. Go back to resource `postgresql20221223`, and then in the **Security** section, select **Authentication** again.
-1. You'll find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, select the account you're currently using in the Azure portal, then select **Select**.
-1. Select **Save**. It will take several seconds to create the Azure AD Admin, as shown in the following screenshot.
+1. You find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, select the account you're currently using in the Azure portal, then select **Select**.
+1. Select **Save**. It takes several seconds to create the Azure AD Admin, as shown in the following screenshot.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of Azure portal showing the Configure authentication on PostgreSQL Flexible Server." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of the Azure portal showing the Configure authentication on PostgreSQL Flexible Server page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
+
+### [Azure SQL Database](#tab/azure-sql-database)
+
+For information on how Azure SQL Server interacts with managed identities, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
+
+The following example configures an Azure AD administrator account to Azure SQL server from the portal.
+
+1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance `myazuresql20130213`.
+1. Select **Settings**, then select **Azure Active Directory**. On the **Azure Active Directory** page, select **Set admin**.
+
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png" alt-text="Screenshot of the Azure portal showing the SQL server page and the Azure Active Directory settings with the Set admin option highlighted." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png":::
+
+1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
+1. At the top of the **Azure Active Directory** page, select **Save**. For Azure AD users and groups, the Object ID is displayed next to the admin name.
+1. The process of changing the administrator may take several minutes. Then, the new administrator appears in the **Azure Active Directory** box.
 
 ---
 
 ## Create a user-assigned managed identity
 
-Next, in Azure CLI, create an identity in your subscription by using the [az identity create](/cli/azure/identity#az-identity-create) command. You'll use this managed identity to connect to your database.
+Next, in Azure CLI, create an identity in your subscription by using the [az identity create](/cli/azure/identity#az-identity-create) command. You use this managed identity to connect to your database.
 
 ```azurecli-interactive
 az identity create \
@@ -332,7 +380,7 @@ This extension depends on gcc, libpq-dev, python3-dev and they will be installed
 [sudo] password for user:
 ```
 
-If the *.sql* file executes successfully, you'll find output that is similar to the following example:
+If the *.sql* file executes successfully, you find output that is similar to the following example:
 
 ```output
 Running *.sql* file 'createuser.sql'...
@@ -352,7 +400,7 @@ az mysql flexible-server firewall-rule delete \
     --yes
 ```
 
-Finally, get the connection string that you'll use in the next section.
+Finally, use the following command to get the connection string that you use in the next section.
 
 ```azurecli-interactive
 CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
@@ -374,7 +422,7 @@ This example uses Azure Cloud Shell to connect to the database. Use the followin
    select * from pgaadauth_create_principal('myManagedIdentity', false, false);
    ```
 
-   You'll find a message saying `Created role for "myManagedIdentity"`, which means the user is created successfully.
+   You find a message saying `Created role for "myManagedIdentity"`, which means the user is created successfully.
 
 1. List all the Azure AD users by using the following command:
 
@@ -422,16 +470,53 @@ This example uses Azure Cloud Shell to connect to the database. Use the followin
 
 1. Close the Azure Cloud Shell window.
 
-1. Finally, back in the Azure CLI shell you've been using, use the following command get the connection string that you'll use in the next section.
+1. Finally, back in the Azure CLI shell you've been using, use the following command get the connection string that you use in the next section.
 
    ```azurecli-interactive
    CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
    echo ${CONNECTION_STRING}
    ```
 
+### [Azure SQL Database](#tab/azure-sql-database)
+
+Now, connect as the Azure AD administrator user to your Azure SQL database from the Azure portal, and create a user for your managed identity.
+
+First, create a firewall rule to access the Azure SQL server from portal, as shown in the following steps.
+
+1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance `myazuresql20130213`.
+1. Select **Security**, then select **Networking**.
+1. Under **Firewall rules**, select **Add your client IPV4 IP address**.
+1. Under  **Exceptions**, select **Allow Azure services and resources to access this server**.
+1. Select **Save**.
+
+After the firewall rule is created, you can access the Azure SQL server from portal. Use the following steps to create a database user.
+
+1. Select **Settings**, then select **SQL databases**. Select `mysingledatabase20230213`.
+1. Select **Query editor**. On the **Welcome to SQL Database Query Editor** page, under **Active Directory authentication**, find a message like "Logged in as user@contoso.com".
+1. Select **Continue as user@contoso.com**, where `user` is your AD admin account name.
+1. After signing in, in the **Query 1** editor, run the following commands to create a database user for managed identity `myManagedIdentity`.
+
+   ```sql
+   CREATE USER "myManagedIdentity" FROM EXTERNAL PROVIDER
+   ALTER ROLE db_datareader ADD MEMBER "myManagedIdentity";
+   ALTER ROLE db_datawriter ADD MEMBER "myManagedIdentity";
+   ALTER ROLE db_ddladmin ADD MEMBER "myManagedIdentity";
+   GO
+   ```
+
+1. In the **Query 1** editor, select **Run** to run the SQL commands.
+1. If the commands complete successfully, you can find a message saying "Query succeeded: Affected rows: 0".
+
+Finally, use the following command to get the connection string that you use in the next section.
+
+```azurecli-interactive
+CONNECTION_STRING="jdbc:sqlserver://myazuresql20130213.database.windows.net:1433;database=mysingledatabase20230213;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+echo ${CONNECTION_STRING}
+```
+
 ---
 
-## Configure passwordless database connection for Oracle WebLogic Server on Azure VMs
+## Configure a passwordless database connection for Oracle WebLogic Server on Azure VMs
 
 This section shows you how to configure the passwordless data source connection using the Azure Marketplace offers for Oracle WebLogic Server.
 
@@ -446,42 +531,56 @@ First, begin the process of deploying an offer. The following offers support pas
 - [Oracle WebLogic Server Dynamic Cluster on VMs](https://aka.ms/wls-vm-dynamic-cluster)
   - [Quickstart](./weblogic-server-azure-virtual-machine.md)
 
-Fill in the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, fill in the passwordless configuration as shown in the following following steps.
+Fill in the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, fill in the passwordless configuration as shown in the following steps.
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
 1. For **Connect to database?**, select **Yes**.
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **MySQL (with support for passwordless connection)**.
-1. Select **Use passwordless datasource connection**.
 1. For **JNDI Name**, input *testpasswordless* or your expected value.
-1. For **DataSource Connection String**, input the connection string you obtained in last section.
+1. For **DataSource Connection String**, input the connection string you obtained in the last section.
 1. For **Database username**, input the database user name of your managed identity (the value of `${IDENTITY_LOGIN_NAME}`). In this example, the value is `identity-contoso`.
-1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is `myManagedIdentity`.
+1. Select **Use passwordless datasource connection**.
+1. For **User assigned managed identity**, select the managed identity you created previously. In this example, its name is `myManagedIdentity`.
 
 The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png" alt-text="Screenshot of the Azure portal showing the Configure database pane of the Create Oracle WebLogic Server on VMs page." lightbox="media/how-to-configure-passwordless-datasource/screenshot-database-portal.png":::
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
 1. For **Connect to database?**, select **Yes**.
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure Database for PostgreSQL (with support for passwordless connection)**.
-1. Select **Use passwordless datasource connection**.
 1. For **JNDI Name**, input *testpasswordless* or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. For **Database username**, input your managed identity name. In this example, the value is `myManagedIdentity`.
+1. Select **Use passwordless datasource connection**.
 1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is `myManagedIdentity`.
 1. Select **Add**.
 
 The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png" alt-text="Screenshot of Azure portal showing the Configure PostgreSQL database." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png" alt-text="Screenshot of the Azure portal showing the Configure PostgreSQL database page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-configuration.png":::
+
+### [Azure SQL Database](#tab/azure-sql-database)
+
+1. For **Connect to database?**, select **Yes**.
+1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure SQL (with support for passwordless connection)**.
+1. For **JNDI Name**, input *testpasswordless* or your expected value.
+1. For **DataSource Connection String**, input the connection string you obtained in last section.
+1. Select **Use passwordless datasource connection**.
+1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is `myManagedIdentity`.
+1. Select **Add**.
+
+The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
+
+:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal showing the Configure Azure SQL database page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-configuration.png":::
 
 ---
 
 You've now finished configuring the passwordless connection. You can continue to fill in the following panes or select **Review + create**, then **Create** to deploy the offer.
 
-## Verify database connection
+## Verify the database connection
 
 The database connection is configured successfully if the offer deployment completes without error.
 
@@ -499,20 +598,24 @@ Use the following steps to verify the database connection.
 
 1. Sign in to the WebLogic Administration Console with the username and password you provided on the **Basics** pane.
 1. Under the **Domain Structure**, select **Services**, **Data Sources**, then **testpasswordless**.
-1. Select the **Monitoring** tab. You'll find the state of data source is **Running**, as shown in the following screenshot.
+1. Select the **Monitoring** tab, where the state of the data source is *Running*, as shown in the following screenshot.
 
    ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of WebLogic Console portal showing the datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png" alt-text="Screenshot of the WebLogic Console portal showing the MySQL datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-datasource-state.png":::
 
    ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png" alt-text="Screenshot of WebLogic Console portal showing the PostgreSQL state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png":::
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png" alt-text="Screenshot of the WebLogic Console portal showing the PostgreSQL datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-postgresql-state.png":::
+
+   ### [Azure SQL Database](#tab/azure-sql-database)
+
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-sql-server-state.png" alt-text="Screenshot of the WebLogic Console portal showing the SQL Server datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-sql-server-state.png":::
 
 1. Select the **Testing** tab, then select the radio button next to the desired server.
 1. Select **Test Data Source**. You should see a message indicating a successful test, as shown in the following screenshot.
 
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png" alt-text="Screenshot of WebLogic Console portal showing a successful test of the datasource." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png":::
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png" alt-text="Screenshot of the WebLogic Console portal showing a successful test of the datasource." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png":::
 
 ## Clean up resources
 

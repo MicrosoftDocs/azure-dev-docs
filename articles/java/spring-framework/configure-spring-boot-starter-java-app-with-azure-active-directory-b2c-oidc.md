@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 * An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
    * Under **Project**, select **Maven Project**.
    * Under **Language**, select **Java**.
-   * Under **Spring Boot**, select **2.7.8**.
+   * Under **Spring Boot**, select **2.7.9**.
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill in some of these fields as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 

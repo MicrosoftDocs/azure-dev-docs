@@ -3,7 +3,7 @@ title: Migrate Azure Firewall Standard to Premium using Terraform
 description: Learn how to migrate an existing standard Azure Firewall to Azure Firewall Premium.
 keywords: azure, devops, terraform, firewall, migrate
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 author: vhorne
 ms.author: victorh
@@ -18,7 +18,6 @@ If you use Terraform to deploy standard Azure Firewall with classic rules, you c
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Deploy a standard Azure Firewall with classic rules using Terraform
 > * Import the firewall rules into a premium firewall policy
 > * Edit the Terraform configuration file to migrate the firewall

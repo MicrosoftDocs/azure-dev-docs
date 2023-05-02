@@ -4,7 +4,7 @@ description: Learn how to install Terraform on Windows
 keywords: terraform azure install configure 
 ms.topic: quickstart
 ms.date: 05/24/2021
-ms.custom: devx-track-terraform, mode-api, devx-track-azurecli 
+ms.custom: devx-track-terraform, mode-api
 adobe-target: true
 # Customer intent: As an Azure user, I want to select the appropriate Terraform installation for my environment.
 ---

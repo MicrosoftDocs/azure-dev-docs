@@ -347,6 +347,6 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
     * [Use DefaultAzureCredential with SDK](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
     
 * Manage Azure resources with SDKs
-    * [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
+    * [Create a resource group with an Azure Function API](./azure-function-resource-group-management.md)
     
     

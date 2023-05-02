@@ -75,7 +75,8 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
    spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
    > [!WARNING]
    > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
@@ -127,7 +128,8 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
    spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    ---
 
    > [!WARNING]
    > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.

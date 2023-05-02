@@ -2,7 +2,7 @@
 title: Create a hub virtual network appliance in Azure using Terraform
 description: Learn how to create a Hub virtual network (VNet) that acts as a common connection point between other networks.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -15,8 +15,8 @@ A *VPN device* is a device that provides external connectivity to an on-premises
 Azure supports a broad variety of network virtual appliances from which to select. For this article, an Ubuntu image is used. To learn more about the broad variety of device solutions supported in Azure, see the [Network Appliances home page](https://azure.microsoft.com/solutions/network-appliances/).
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Implement the Hub VNet in hub-spoke topology
 > * Create Hub Network Virtual Machine which acts as appliance
 > * Enable routes using CustomScript extensions

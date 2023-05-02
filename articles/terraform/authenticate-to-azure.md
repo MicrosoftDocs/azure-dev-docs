@@ -3,8 +3,8 @@ title: Authenticate Terraform to Azure
 description: Learn the various options to authenticate to Azure with a Microsoft Account
 keywords: azure devops terraform cli powershell authentication microsoft account subscription environment variables provider block
 ms.topic: how-to
-ms.date: 08/29/2021
-ms.custom: devx-track-terraform
+ms.date: 03/18/2023
+ms.custom: devx-track-terraform, devx-track-azurepowershell
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
 
@@ -15,8 +15,8 @@ ms.custom: devx-track-terraform
 To use Terraform commands against your Azure subscription, you must first authenticate Terraform to that subscription. This article covers some common scenarios for authenticating to Azure.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Understand common Terraform and Azure authentication scenarios
 > * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)
 > * Authenticate via a Microsoft account from Windows (using Bash or PowerShell)

@@ -57,6 +57,49 @@ sections:
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
 
+      - question: What is the behavior of the `secretOrRandomPassword` function?
+        answer: |
+          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
+          
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. 
+
+          ```json
+            "sqlAdminPassword": {
+              "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
+            } 
+          ```
+
+          The output of `secretOrRandomPassword` should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across deploys can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the Bicep code below. You can view the full sample code for these modules in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev/tree/main/templates/common/infra/bicep/core/security). 
+
+          ```json
+          module keyVault './core/security/keyvault.bicep' = {
+            name: 'keyvault'
+            scope: resourceGroup
+            params: {
+              name: '${take(prefix, 17)}-vault'
+              location: location
+              tags: tags
+              principalId: principalId
+            }
+          }
+
+          module keyVaultSecrets './core/security/keyvault-secret.bicep' = {
+            name: 'keyvault-secret-sqlAdminPassword'
+            scope: resourceGroup
+            params: {
+              keyVaultName: keyVault.outputs.name
+              name: 'sqlAdminPassword'
+              secretValue: sqlAdminPassword
+            }
+          }]
+          ```
+          
+          This Bicep setup enables the following workflow for managing your secrets:
+
+          1. If the specified secret exists, it will be retrieved from Key Vault using the `secretOrRandomPassword` function.
+          2. If the secret does not exist, a Key Vault will be created, and the randomly generated secret will be stored inside of it. 
+          3. On future deploys, the stored secret will be retrieved by the `secretOrRandomPassword` method now that it exists in Key Vault. The Key Vault will not be recreated if it already exists, but the same secret value will be stored again for the next run.
+          
       - question: Can I use Azure Free Subscription?
         answer: |
           Yes, but each Azure location can only have one deployment. If you've already used the selected Azure location, you'll see the deployment error:   
@@ -165,6 +208,6 @@ sections:
     questions: 
       - question: Why am I unable to locally run the container app that I am building? 
         answer: | 
-          When building container applications locally, you'll need to run `azd login` in the container for the application to work 
+          When building container applications locally, you'll need to run `azd auth login` in the container for the application to work 
           with the `AzureDeveloperCliCredential`. Alternatively, you could configure your application to use a service principal 
           instead of the `AzureDeveloperCliCredential`.

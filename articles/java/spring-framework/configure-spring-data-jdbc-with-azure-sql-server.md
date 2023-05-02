@@ -2,7 +2,7 @@
 title: Use Spring Data JDBC with Azure SQL Database
 description: Learn how to use Spring Data JDBC with an Azure SQL Database.
 documentationcenter: java
-ms.date: 02/22/2023
+ms.date: 04/06/2023
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
@@ -27,6 +27,8 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility).
 
+- [ODBC Driver](/sql/connect/odbc/download-odbc-driver-for-sql-server) 17 or 18.
+
 - If you don't have one, create an Azure SQL Server instance named `sqlservertest` and a database named `demo`. For instructions, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 - If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **MS SQL Server Driver** dependencies, and then select Java version 8 or higher.
@@ -39,25 +41,29 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 ## Store data from Azure SQL Database
 
-Now that you have an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
+With an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
 
 To install the Spring Cloud Azure Starter module, add the following dependencies to your *pom.xml* file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
   ```xml
-   <dependencyManagement>
-     <dependencies>
-       <dependency>
-         <groupId>com.azure.spring</groupId>
-         <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.5.0</version>
-         <type>pom</type>
-         <scope>import</scope>
-         </dependency>
-     </dependencies>
-   </dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.7.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   ```
+
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
 
@@ -96,12 +102,14 @@ To store data from Azure SQL Database using Spring Data JDBC, follow these steps
    spring.sql.init.mode=always
    ```
 
-   ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    ---
 
    > [!WARNING]
    > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
 
-1. Create the *src/main/resources/schema.sql* configuration file to configure the database schema, then add the following contents.
+<!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering will reset to 1. -->
+2. Create the *src/main/resources/schema.sql* configuration file to configure the database schema, then add the following contents.
 
    ```sql
    DROP TABLE IF EXISTS todo;

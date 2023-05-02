@@ -2,7 +2,7 @@
 title: Create a hub virtual network in Azure by using Terraform
 description: Learn how to create a hub virtual network in Azure that acts as a common connection point between other networks.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -13,8 +13,8 @@ ms.custom: devx-track-terraform
 The hub virtual network acts as the central point of connectivity to the on-premises network. The virtual network hosts shared services consumed by workloads hosted in the spoke virtual networks. For demo purposes, no shared services are implemented in this article.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Implement the hub virtual network in a hub-and-spoke topology.
 > * Create a hub jumpbox virtual machine.
 > * Create a hub virtual private network gateway.

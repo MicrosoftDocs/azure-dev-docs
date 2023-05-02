@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop Network Settings using Terraform - Azure
 description: Learn how to use Terraform to configure Network Settings for Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop nsg
 ms.topic: how-to
-ms.date: 4/19/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -19,12 +19,12 @@ Article tested with the following Terraform and Terraform provider versions:
 This article provides an overview of how to use Terraform to configure the network settings for Azure Virtual Desktop.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create a virtual network
-> - Use Terraform to create a subnet
-> - Use Terraform to create an NSG
-> - Peering the Azure Virtual Desktop vnet with hub vnet
+> [!div class="checklist"]
+> * Use Terraform to create a virtual network
+> * Use Terraform to create a subnet
+> * Use Terraform to create an NSG
+> * Peering the Azure Virtual Desktop vnet with hub vnet
 
 ## 1. Configure your environment
 

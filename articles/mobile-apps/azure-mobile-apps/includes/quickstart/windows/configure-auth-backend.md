@@ -102,7 +102,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
 9. Edit the `appsettings.json`.  Add the following block:
 
   ``` json
-    "AzureAD": {
+    "AzureAd": {
       "Instance": "https://login.microsoftonline.com",
       "ClientId": "<client-id>",
       "TenantId": "common"
@@ -113,7 +113,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
 
   ``` json
   {
-    "AzureAD": {
+    "AzureAd": {
       "Instance": "https://login.microsoftonline.com",
       "ClientId": "<client-id>",
       "TenantId": "common"

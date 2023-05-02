@@ -4,7 +4,7 @@ description: Clean up resources used and show next steps of the tutorial showing
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Clean up and next steps of managed identity tutorial
@@ -55,7 +55,7 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * More details on how App Service runs a Python app, see [Configure Python app](/azure/app-service/configure-language-python).
 
-* Review PostgresSQL best practices, see [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices).
+* Review PostgreSQL best practices, see [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices).
 
 * Learn more about security for Blob storage, see [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations).
 

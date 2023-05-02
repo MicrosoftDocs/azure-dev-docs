@@ -1,5 +1,6 @@
 ---
  ms.service: azure
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
  ms.topic: include
  ms.date: 05/12/2021
 ---

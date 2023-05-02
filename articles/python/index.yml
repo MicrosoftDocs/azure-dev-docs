@@ -42,6 +42,8 @@ landingContent:
             url: ./python-web-app-github-actions-app-service.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Logs
+            url: /azure/azure-monitor/app/opencensus-python
   - title: Containers
     linkLists:
       - linkListType: tutorial

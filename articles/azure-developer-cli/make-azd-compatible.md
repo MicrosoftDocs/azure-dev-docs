@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-bicep
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
@@ -66,7 +66,7 @@ Learn more about:
 
 ## Initialize a new environment
 
-1. Run the following command to initialize the project. 
+1. Run the following command to initialize the project:
 
     ```azdeveloper
     azd init
@@ -114,7 +114,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "name": {
+            "environmentName": {
             "value": "${AZURE_ENV_NAME}"
             },
             "location": {
@@ -126,6 +126,20 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
         }
     }
     ```
+    **Additional tips:**
+    - You can override the default azd resource naming conventions by providing values here. For example, to use "rg-myGroupName" as your resource group name, add:
+
+      ```json
+      "resourceGroupName": {
+           "value": "rg-myGroupName"
+      }
+      ```
+    - You can use the azd `secretOrRandomPassword` function to retrieve a secret from Azure Key Vault if parameters for the key vault name and secret are provided. For example:
+      ```json
+      "sqlAdminPassword": {
+           "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} sqlAdminPassword)"
+      }
+      ```
 
 1. Create a file named `main.bicep` as the main entry point. Declare the parameters you included in `main.parameters.json`. 
 
@@ -206,7 +220,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
   
     In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
-1. Run the following command to provision the Azure resources.
+1. Run the following command to provision the Azure resources:
 
     ```azdeveloper
     azd provision
@@ -257,6 +271,23 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 > [!NOTE]
 > You can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. If you wish to create a new environment, run `azd env new`.
+
+## Make your template Dev Container and Codespaces Compatible
+
+You can also make your template Dev Container or Codespaces compatible with minimal additional configurations. A Development Container (or Dev Container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud. (Source: [https://containers.dev/](https://containers.dev/))
+
+If you'd like to configure your template for a Development Container or Codespaces, you will need to add add a Dockerfile in the `.devcontainer` folder with the specification seen below. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
+
+```dockerfile
+ARG VARIANT=bullseye
+FROM --platform=amd64 mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+RUN export DEBIAN_FRONTEND=noninteractive \
+     && apt-get update && apt-get install -y xdg-utils \
+     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL https://aka.ms/install-azd.sh | bash
+```
+
+You can also read more about [working with Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) on the Visual Studio Code documentation.
 
 ## Configure a DevOps pipeline
 

@@ -15,7 +15,7 @@ Use Azure SDK to stop, start, and list virtual machines.
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- [Create a service principal](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript#1-create-a-service-principal) and copy the `Tenant Id`, `Client ID`, `Client secret`.
+- [Create a service principal](../../sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript) and copy the `Tenant Id`, `Client ID`, `Client secret`.
 - Use the Azure portal's [subscription page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) to find your subscription ID, copy that value to use in these scripts. 
 
 ## Gather information about your Virtual machine

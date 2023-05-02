@@ -16,11 +16,13 @@
   items:
   - name: Web app solutions
     items:
-    - name: Django/Flask web app
+    - name: Django/Flask
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Django/Flask web app + database
+    - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Django/Flask web app + database + auth
+    - name: Web app passwordless auth (service connector)
+      href: tutorial-python-managed-identity-cli.md
+    - name: Web app passwordless auth
       items:
       - name: 1. Overview
         href: tutorial-python-managed-identity-01.md
@@ -106,27 +108,37 @@
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
       items:
-        - name: 1. Overview
-          href: tutorial-containerize-deploy-python-web-app-azure-01.md
-        - name: 2. Build and test container locally
-          href: tutorial-containerize-deploy-python-web-app-azure-02.md
-        - name: 3. Build container in Azure
-          href: tutorial-containerize-deploy-python-web-app-azure-03.md
-        - name: 4. Deploy container App Service
-          href: tutorial-containerize-deploy-python-web-app-azure-04.md
-        - name: 5. Clean up resources
-          href: tutorial-containerize-deploy-python-web-app-azure-05.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-web-app-for-app-service.md
+        - name: Web app + MongoDB
+          items:
+            - name: 1. Overview
+              href: tutorial-containerize-deploy-python-web-app-azure-01.md
+            - name: 2. Build and test container locally
+              href: tutorial-containerize-deploy-python-web-app-azure-02.md
+            - name: 3. Build container in Azure
+              href: tutorial-containerize-deploy-python-web-app-azure-03.md
+            - name: 4. Deploy container App Service
+              href: tutorial-containerize-deploy-python-web-app-azure-04.md
+            - name: 5. Clean up resources
+              href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy to Container Apps
       items:
-        - name: Overview
-          href: tutorial-deploy-python-web-app-azure-container-apps-01.md
-        - name: Build and deploy a container app
-          href: tutorial-deploy-python-web-app-azure-container-apps-02.md
-        - name: Configure CI/CD
-          href: tutorial-deploy-python-web-app-azure-container-apps-03.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-web-app.md
+        - name: Web app + PostgreSQL
+          items:
+            - name: Overview
+              href: tutorial-deploy-python-web-app-azure-container-apps-01.md
+            - name: Build and deploy a container app
+              href: tutorial-deploy-python-web-app-azure-container-apps-02.md
+            - name: Configure CI/CD
+              href: tutorial-deploy-python-web-app-azure-container-apps-03.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
+- name: Logs
+  href: /azure/azure-monitor/app/opencensus-python
 - name: Azure SDK for Python
   items:
     - name: Overview
@@ -207,7 +219,7 @@
     href: quickstarts-machine-learning.md
   - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
-  - name: Messaging & IoT
+  - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
   - name: Other services
     href: quickstarts-other-services.md

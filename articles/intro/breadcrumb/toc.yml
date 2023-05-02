@@ -66,3 +66,6 @@
         - name: Introduction
           tocHref: /azure/container-instances
           topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/azure-sql/database
+          topicHref: /azure/developer/intro/index

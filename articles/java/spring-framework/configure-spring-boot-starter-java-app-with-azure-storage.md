@@ -3,7 +3,7 @@ title: Upload a file to an Azure Blob Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 02/15/2023
+ms.date: 04/06/2023
 ms.service: storage
 ms.topic: article
 ms.workload: storage
@@ -20,10 +20,10 @@ This tutorial shows you how to upload and read from container blobs in an Azure 
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
-- [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+- [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 - [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
-- An Azure storage account and container. If you don't have, [create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
+- An Azure storage account and container. If you don't have one, [create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
+- A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
 > [!NOTE]
 > To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
@@ -45,17 +45,21 @@ To install the Spring Cloud Azure Storage Blob Starter module, add the following
 
   ```xml
   <dependencyManagement>
-     <dependencies>
-       <dependency>
-         <groupId>com.azure.spring</groupId>
-         <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.6.0</version>
-         <type>pom</type>
-         <scope>import</scope>
-         </dependency>
-     </dependencies>
-   </dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.7.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   ```
+
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Storage Blob Starter artifact:
 
@@ -116,12 +120,7 @@ To upload and read files from blobs by using the Spring Cloud Azure Storage Blob
    }
    ```
 
-   > [!TIP]
-   > In this tutorial, neither the configurations nor the code have any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
-   >
-   > `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. For more information, see the [Default Azure credential](../sdk/identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticate Azure-hosted Java applications](../sdk/identity-azure-hosted-auth.md).
-   >
-   > To use Azure CLI, Visual Studio Code, PowerShell or other methods to complete the authentication in local development environments, see [Azure authentication in Java development environments](../sdk/identity-dev-env-auth.md). To complete the authentication in Azure hosting environments, we recommend using managed identity. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
 1. After your application is running, use `curl` to test your application by following these steps.
 

@@ -1,15 +1,16 @@
 ---
 title: Spring Cloud Azure secret management
 description: This article describes Spring Cloud Azure secret management.
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure secret management
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
@@ -38,9 +39,9 @@ spring:
       keyvault:
         secret:
           property-sources:
-            - name: key-vault-property-souece-1
+            - name: key-vault-property-source-1
               endpoint: ${ENDPOINT_1}
-            - name: key-vault-property-souece-2
+            - name: key-vault-property-source-2
               endpoint: ${ENDPOINT_2}
 ```
 

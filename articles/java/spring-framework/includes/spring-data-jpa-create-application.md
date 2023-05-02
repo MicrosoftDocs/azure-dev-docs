@@ -4,7 +4,8 @@ author: KarlErickson
 ms.author: judubois
 ---
 
-1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be created automatically by JPA. The following code ignores the `getters` and `setters` methods.
+<!-- NOTE: The item number must be 2 here to force continuation of the sequence after previous steps in the file that includes this file. Otherwise, the numbering will reset to 1. -->
+2. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be created automatically by JPA. The following code ignores the `getters` and `setters` methods.
 
    ```java
    package com.example.demo;
@@ -47,7 +48,8 @@ ms.author: judubois
    import org.springframework.context.ApplicationListener;
    import org.springframework.context.annotation.Bean;
    import org.springframework.data.jpa.repository.JpaRepository;
-
+   
+   import java.util.stream.Collectors;
    import java.util.stream.Stream;
 
    @SpringBootApplication
@@ -60,7 +62,7 @@ ms.author: judubois
        @Bean
        ApplicationListener<ApplicationReadyEvent> basicsApplicationListener(TodoRepository repository) {
            return event->repository
-               .saveAll(Stream.of("A", "B", "C").map(name->new Todo("configuration", "congratulations, you have set up correctly!", true)).toList())
+               .saveAll(Stream.of("A", "B", "C").map(name->new Todo("configuration", "congratulations, you have set up correctly!", true)).collect(Collectors.toList()))
                .forEach(System.out::println);
        }
 
@@ -71,12 +73,7 @@ ms.author: judubois
    }
    ```
 
-   > [!TIP]
-   > In this tutorial, neither the configurations nor the code have any authentication operations. In fact, connecting to Azure service requires authentication. In order to complete the authentication, you need to use the Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which Azure Identity provides to help you get credentials without any code changes.
-   >
-   > `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. For more information, see the [DefaultAzureCredential](../../sdk/identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticate Azure-hosted Java applications](../../sdk/identity-azure-hosted-auth.md). `DefaultAzureCredential` enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
-   >
-   > In local development environments, you can use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication. For more information, see [Azure authentication in Java development environments](../../sdk/identity-dev-env-auth.md). In Azure hosting environments, we recommend using managed identity to complete the authentication. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+   [!INCLUDE [spring-default-azure-credential-overview.md](spring-default-azure-credential-overview.md)]
 
 1. Start the application. You'll see logs similar to the following example:
 

@@ -3,7 +3,7 @@ title: Deploy a Go web app to Azure Container Apps
 description: In this tutorial, you'll learn how to use Docker, Azure Container Registry, and Azure Container Apps to deploy a Go web app to Azure.
 ms.topic: quickstart
 ms.date: 07/12/2022
-ms.custom: devx-track-go
+ms.custom: devx-track-go, devx-track-azurecli
 ---
 
 # Deploy a Go web app to Azure Container Apps

@@ -7,7 +7,7 @@ keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
 ms.date: 01/03/2023
 ms.service: azure-dev-cli
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, devx-track-bicep
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
 ---
 
@@ -31,7 +31,7 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 
 ### Solution
 
-Run `azd login` to refresh the access token.
+Run `azd auth login` to refresh the access token.
 
 ## Cannot connect to the Docker daemon in Cloud Shell
 
@@ -91,6 +91,10 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 `azd monitor` is currently not supported if you use a development container as your development environment.
 
+## Unable to authenticate in Codespaces environments
+
+If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
@@ -135,10 +139,10 @@ You may also be receiving this error due to being logged in using the device cod
 ### Solution
 
 1. Make sure you're running on a device listed as supported, per the error message.
-1. Rerun `azd login` with the flag `--use-device-code=false` appended:
+1. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
 
    ```azdeveloper
-   azd login --use-device-code=false
+   azd auth login --use-device-code=false
    ```
 
    > [!NOTE]

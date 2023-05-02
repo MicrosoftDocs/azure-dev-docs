@@ -3,8 +3,8 @@ title: Install Terraform on Windows with Azure PowerShell
 description: Learn how to configure Terraform on Windows with Azure PowerShell
 keywords: terraform azure cli devops powershell install configure windows interactive login rbac service principal automated script
 ms.topic: how-to
-ms.date: 02/06/2023
-ms.custom: devx-track-terraform, mode-api, devx-track-azurecli 
+ms.date: 03/18/2023
+ms.custom: devx-track-terraform, mode-api, devx-track-azurecli, devx-track-azurepowershell
 adobe-target: true
 # Customer intent: As a Windows user new to Terraform and Azure, I want install Terraform on Windows using Azure PowerShell.
 ---
@@ -16,8 +16,8 @@ adobe-target: true
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using PowerShell.
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * Install the latest version of PowerShell
 > * Install the new PowerShell Az Module
 > * Install the Azure CLI

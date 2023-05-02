@@ -1,7 +1,7 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 04/22/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -11,9 +11,9 @@ Terraform only supports authenticating to Azure via the Azure CLI. Authenticatin
 
 This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
-- [Authenticating via a Microsoft account using Cloud Shell (with Bash or PowerShell) and ](#authenticate-to-azure-via-a-microsoft-account)
-- [Authenticating via a Microsoft account using Windows (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
-- Authenticating via a service principal:
+- [Authenticate via a Microsoft account using Cloud Shell (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
+- [Authenticate via a Microsoft account using Windows (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
+- Authenticate via a service principal:
     1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
     1. [Authenticate to Azure using environment variables](#specify-service-principal-credentials-in-environment-variables) or [authenticate to Azure using the Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
 
@@ -21,7 +21,11 @@ This article explains how to authenticate Terraform to Azure for the following s
 
 A Microsoft account is a username (associated with an email and its credentials) that is used to sign in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
 
-The following steps show you how to sign in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
+The following steps show you how:
+
+- Sign in to Azure interactively using a Microsoft account
+- List the account's associated Azure subscriptions (including the default)
+- Set the current subscription.
 
 1. Open a command line that has access to the Azure CLI.
 

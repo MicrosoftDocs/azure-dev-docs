@@ -2,7 +2,7 @@
 title: "Tutorial: Deploy Python ETL Solution to Azure"
 description: In this article, Deploy Python ETL Solution to Azure
 services: python, azure-functions, azure-storage-accounts
-ms.custom: devx-track-python, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-python, engagement-fy23
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/03/2023

@@ -450,7 +450,7 @@ To search the logs, use the Azure portal.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Function to manage Azure resources](../how-to/with-web-app/azure-function-resource-group-management/introduction.md)
+> [Create an Azure Function to manage Azure resources](../how-to/with-web-app/azure-function-resource-group-management.md)
 
 
 Learn more about Azure Functions:

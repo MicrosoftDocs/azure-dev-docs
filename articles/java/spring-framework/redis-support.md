@@ -1,15 +1,16 @@
 ---
 title: Spring Cloud Azure Redis support
 description: This article describes how Spring Cloud Azure and Azure Redis can be used together.
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure Redis support
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
 Connect to Azure Cache for Redis using Spring Redis libraries. With adding `spring-cloud-azure-starter` and `spring-cloud-azure-resourcemanager` to your application, it's possible to read the Azure Cache for Redis connection information through Azure Resource Manager and auto-configure the Redis properties.
 
@@ -17,7 +18,7 @@ Connect to Azure Cache for Redis using Spring Redis libraries. With adding `spri
 
 Add the following dependencies if you want to use the Spring Cloud Azure Redis support to your Spring Boot application using Redis.
 
-``` xml
+```xml
 <dependencies>
     <dependency>
       <groupId>com.azure.spring</groupId>
@@ -52,7 +53,7 @@ Authentication information is also required for authenticating for Azure Resourc
 
 Add the following properties and you're good to go.
 
-``` properties
+```properties
 spring.cloud.azure.redis.name=${AZURE_CACHE_REDIS_NAME}
 spring.cloud.azure.redis.resource.resource-group=${AZURE_CACHE_REDIS_RESOURCE_GROUP}
 ```

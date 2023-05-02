@@ -1,18 +1,18 @@
 ---
-title: 'Deploy to Azure Spring Apps with passwordless connection to Azure database'
+title: 'Tutorial: Deploy to Azure Spring Apps with passwordless connection to Azure database'
 description: Create a Spring Boot application with passwordless connection to an Azure database and deploy to Azure Spring Apps.
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 01/18/2023
-ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector, devx-track-azurecli
 ---
 
-# Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
+# Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database
 
 This article shows you how to use passwordless connections to Azure databases in Spring Boot applications deployed to Azure Spring Apps.
 
-In this tutorial, you'll complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
+In this tutorial, you complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > - Provision an instance of Azure Spring Apps.
@@ -24,10 +24,10 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 
 ## Prerequisites
 
-- [JDK 8 or JDK 11](../fundamentals/java-jdk-install.md).
 - An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or above required.
+- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or higher required.
 - The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.
+- [Java Development Kit (JDK)](../fundamentals/java-support-on-azure.md), version 8, 11, or 17.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
 - MySQL command line client if you choose to run Azure Database for MySQL. You can connect to your server with Azure Cloud Shell using a popular client tool, the [mysql.exe](https://dev.mysql.com/downloads/) command-line tool. Alternatively, you can use the `mysql` command line in your local environment.
@@ -52,7 +52,7 @@ export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your Azure Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
+- `<YOUR_AZURE_REGION>`: The Azure region you want to use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 - `<YOUR_AZURE_SPRING_APPS_SERVICE_NAME>`: The name of your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 - `<AZ_DB_ADMIN_USERNAME>`: The admin username of your Azure database server.
 - `<AZ_DB_ADMIN_PASSWORD>`: The admin password of your Azure database server.
@@ -105,6 +105,9 @@ Use the following steps to provision an Azure Database instance.
        --yes
    ```
 
+> [!NOTE]
+> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
+
 1. Create a new database by using the following command:
 
    ```azurecli
@@ -119,7 +122,7 @@ Use the following steps to provision an Azure Database instance.
 1. Create an Azure Database for PostgreSQL server by using the following command:
 
    ```azurecli
-   az postgres flexible-server db create \
+   az postgres flexible-server create \
        --resource-group $AZ_RESOURCE_GROUP \
        --name $AZ_DATABASE_SERVER_NAME \
        --location $AZ_LOCATION \
@@ -127,6 +130,9 @@ Use the following steps to provision an Azure Database instance.
        --admin-password $AZ_DB_ADMIN_PASSWORD \
        --yes
    ```
+
+> [!NOTE]
+> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
 
 1. The PostgreSQL server is empty, so create a new database by using the following command:
 
@@ -163,13 +169,14 @@ Use the following steps to provision an Azure Database instance.
 
 ## Create an app with a public endpoint assigned
 
-Use the following command to create the app. If you selected Java version 11 when generating the Spring project, include the argument `--runtime-version=Java_11`.
+Use the following command to create the app.
 
    ```azurecli
    az spring app create \
        --resource-group $AZ_RESOURCE_GROUP \
        --service $AZ_SPRING_APPS_SERVICE_NAME \
        --name $AZ_SPRING_APPS_APP_NAME \
+       --runtime-version=Java_17
        --assign-endpoint true
    ```
 
@@ -209,7 +216,7 @@ az spring connection create mysql-flexible \
     --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
 ```
 
-This Service Connector command will do the following tasks in the background:
+This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
 - Set the Azure Active Directory admin to the current signed-in user.
@@ -234,7 +241,7 @@ az spring connection create postgres-flexible \
     --system-identity
 ```
 
-This Service Connector command will do the following tasks in the background:
+This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
 - Set the Azure Active Directory admin to current sign-in user.
@@ -264,7 +271,7 @@ az spring connection create sql \
     --system-identity
 ```
 
-This Service Connector command will do the following tasks in the background:
+This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
 - Set the Azure Active Directory admin to current sign-in user.
@@ -412,6 +419,35 @@ The following steps describe how to download, configure, build, and deploy the s
    -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
    <app name>         eastus      <resource group> default                                                                       Succeeded              1      2         1/1                 0/1                    -
    ```
+
+## Test the application
+
+To test the application, you can use cURL. First, create a new "todo" item in the database by using the following command:
+
+```bash
+curl --header "Content-Type: application/json" \
+    --request POST \
+    --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
+        https://${AZ_SPRING_APPS_SERVICE_NAME}-hellospring.azuremicroservices.io
+```
+
+This command returns the created item, as shown in the following example:
+
+```json
+{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}
+```
+
+Next, retrieve the data by using the following cURL request:
+
+```bash
+curl https://${AZ_SPRING_APPS_SERVICE_NAME}-hellospring.azuremicroservices.io
+```
+
+This command returns the list of "todo" items, including the item you've created, as shown in the following example:
+
+```json
+[{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}]
+```
 
 ## Clean up resources
 

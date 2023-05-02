@@ -1,17 +1,17 @@
 ---
 title: Use JMS in Spring to access Azure Service Bus
-description: This article demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
+description: This tutorial demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 01/18/2023
-ms.topic: article
+ms.date: 04/06/2023
+ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure
 ---
 
 # Use JMS in Spring to access Azure Service Bus
 
-This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
+This tutorial demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. You can use Service Bus across the range of supported Azure platforms.
 
@@ -25,384 +25,203 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 ## Prerequisites
 
-- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
 
-- A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 
-- [Apache Maven](http://maven.apache.org/), version 3.2 or later.
+- [Apache Maven](http://maven.apache.org/), version 3.2 or higher.
 
-- If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
+- [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
-  - Allows access from all networks.
-  - Is Premium (or higher).
-  - Has an access policy with read/write access for your queue and topic.
+- A queue or topic for Azure Service Bus. If you don't have one, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
-- If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
-
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, and then select Java version 8 or 11.
+- A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, then select Java version 8 or higher.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or higher is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
 
-## Use the Azure Service Bus JMS starter
+## Send and receive messages from Azure Service Bus
 
-1. Locate the *pom.xml* file in the parent directory of your app; for example:
+With a queue or topic for Azure Service Bus, you can send and receive messages using Spring Cloud Azure Service Bus JMS.
 
-   *C:\SpringBoot\servicebus\pom.xml*
+To install the Spring Cloud Azure Service Bus JMS Starter module, add the following dependencies to your *pom.xml* file:
 
-   -or-
+- The Spring Cloud Azure Bill of Materials (BOM):
 
-   */users/example/home/servicebus/pom.xml*
+  ```xml
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.7.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  ```
 
-1. Open the *pom.xml* file in a text editor.
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
-1. Add the Spring Boot Azure Service Bus JMS starter to the list of `<dependencies>`:
+- The Spring Cloud Azure Service Bus JMS Starter artifact:
 
-   ```xml
-   <dependency>
-     <groupId>com.azure.spring</groupId>
-     <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
-   </dependency>
-   ```
+  ```xml
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
+  </dependency>
+  ```
 
-   > [!NOTE]
-   > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+### Code the application
 
-1. Save and close the *pom.xml* file.
+Use the following steps to configure your application to use a Service Bus queue or topic to send and receive messages.
 
-## Configure the app for your service bus
+1. Configure the Service Bus credentials by adding the following properties to your *application.properties* file.
 
-In this section, you see how to configure your app to use either a Service Bus queue or topic.
+   #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
-### Use a Service Bus queue
-
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
-
-   *C:\SpringBoot\servicebus\application.properties*
-
-   -or-
-
-   */users/example/home/servicebus/application.properties*
-
-1. Open the *application.properties* file in a text editor.
-
-1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and don't put quotes around the values.
-
-   ```yml
+   ```properties
    spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier> 
+   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
    ```
 
-   **Field descriptions**
+   The following table describes the fields in the configuration:
 
-   | Field                                     | Description                               |
+   | Field                                     | Description                                                                                     |
    |-------------------------------------------|-------------------------------------------------------------------------------------------------|
    | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
-   | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+   | `spring.jms.servicebus.pricing-tier`      | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
-1. Save and close the *application.properties* file.
+   #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
-### Use Service Bus topic
-
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
-
-   *C:\SpringBoot\servicebus\application.properties*
-
-   -or-
-
-   */users/example/home/servicebus/application.properties*
-
-1. Open the *application.properties* file in a text editor.
-
-1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and don't put quotes around the values.
-
-   ```yml
+   ```properties
    spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
    spring.jms.servicebus.topic-client-id=<ServiceBusSubscriptionID>
-   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier> 
+   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
    ```
 
-   **Field descriptions**
+   The following table describes the fields in the configuration:
 
-   | Field                                     | Description                                                                                       |
-   |-------------------------------------------|---------------------------------------------------------------------------------------------------|
-   | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
-   | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.                | 
-   | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+   | Field                                     | Description                                                                                     |
+   |-------------------------------------------|-------------------------------------------------------------------------------------------------|
+   | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
+   | `spring.jms.servicebus.pricing-tier`      | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+   | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.       |
 
-1. Save and close the *application.properties* file.
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
-## Implement basic Service Bus functionality
+1. Add `@EnableJms` to enable support for JMS listener annotated endpoints. Use `JmsTemplate` to send messages and `@JmsListener` to receive messages, as shown in the following example:
 
-In this section, you create the necessary Java classes for sending messages to your Service Bus queue or topic and receive messages from your corresponding queue or topic subscription.
-
-### Modify the main application class
-
-1. Locate the main application Java file in the package directory of your app; for example:
-
-   *C:\SpringBoot\servicebus\src\main\java\com\wingtiptoys\servicebus\ServiceBusJmsStarterApplication.java*
-
-   -or-
-
-   */users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java*
-
-1. Open the main application Java file in a text editor.
-
-1. Add the following code to the file:
+   #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
    ```java
-   package com.wingtiptoys.servicebus;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-   @SpringBootApplication
-   public class ServiceBusJmsStarterApplication {
-
-       public static void main(String[] args) {
-           SpringApplication.run(ServiceBusJmsStarterApplication.class, args);
-       }
-   }
-   ```
-
-1. Save and close the file.
-
-### Define a test Java class
-
-1. Using a text editor, create a Java file named *User.java* in the package directory of your app.
-
-1. Define a generic user class that stores and retrieves user's name:
-
-   ```java
-   package com.wingtiptoys.servicebus;
-
-   import java.io.Serializable;
-
-   // Define a generic User class.
-   public class User implements Serializable {
-
-       private static final long serialVersionUID = -295422703255886286L;
-
-       private String name;
-
-       public User() {
-       }
-
-       public User(String name) {
-           setName(name);
-       }
-
-       public String getName() {
-           return name;
-       }
-
-       public void setName(String name) {
-           this.name = name;
-       }
-
-   }
-   ```
-
-   The `Serializable` implementation uses the `send` method in `JmsTemplate` in the Spring framework. Alternately, you should define a customized `MessageConverter` bean to serialize the content to JSON in text format. For more information about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
-
-1. Save and close the *User.java* file.
-
-### Create a new class for the message send controller
-
-1. Using a text editor, create a Java file named *SendController.java* in the package directory of your app
-
-1. Add the following code to the new file:
-
-   ```java
-   package com.wingtiptoys.servicebus;
-
    import org.slf4j.Logger;
    import org.slf4j.LoggerFactory;
    import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.jms.annotation.EnableJms;
+   import org.springframework.boot.CommandLineRunner;
+   import org.springframework.jms.annotation.JmsListener;
    import org.springframework.jms.core.JmsTemplate;
-   import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestParam;
-   import org.springframework.web.bind.annotation.RestController;
 
-   @RestController
-   public class SendController {
+   @SpringBootApplication
+   @EnableJms
+   public class ServiceBusJMSQueueApplication implements CommandLineRunner {
 
-       private static final String DESTINATION_NAME = "<DestinationName>";
-
-       private static final Logger logger = LoggerFactory.getLogger(SendController.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusJMSQueueApplication.class);
+       private static final String QUEUE_NAME = "<QueueName>";
 
        @Autowired
        private JmsTemplate jmsTemplate;
 
-       @PostMapping("/messages")
-       public String postMessage(@RequestParam String message) {
-           logger.info("Sending message");
-           jmsTemplate.convertAndSend(DESTINATION_NAME, new User(message));
-           return message;
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceBusJMSQueueApplication.class, args);
        }
-   }
-   ```
 
-   > [!NOTE]
-   > Replace `<DestinationName>` with your own queue name or topic name configured in your Service Bus namespace.
-
-1. Save and close the *SendController.java*.
-
-### Create a class for the message receive controller
-
-#### Receive messages from a Service Bus queue
-
-1. Use a text editor to create a Java file named *QueueReceiveController.java* in the package directory of your app
-
-1. Add the following code to the new file:
-
-   ```java
-   package com.wingtiptoys.servicebus;
-
-   import org.slf4j.Logger;
-   import org.slf4j.LoggerFactory;
-   import org.springframework.jms.annotation.JmsListener;
-   import org.springframework.stereotype.Component;
-
-   @Component
-   public class QueueReceiveController {
-
-       private static final String QUEUE_NAME = "<ServiceBusQueueName>";
-
-       private final Logger logger = LoggerFactory.getLogger(QueueReceiveController.class);
+       @Override
+       public void run(String... args) {
+           LOGGER.info("Sending message");
+           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello Word");
+       }
 
        @JmsListener(destination = QUEUE_NAME, containerFactory = "jmsListenerContainerFactory")
-       public void receiveMessage(User user) {
-           logger.info("Received message: {}", user.getName());
+       public void receiveMessage(String message) {
+           LOGGER.info("Message received: {}", message);
        }
+
    }
    ```
 
-   > [!NOTE]
-   > Replace `<ServiceBusQueueName>` with your own queue name configured in your Service Bus namespace.
+   Replace `<QueueName>` with your own queue name configured in your Service Bus namespace.
 
-1. Save and close the *QueueReceiveController.java* file.
-
-#### Receive messages from a Service Bus subscription
-
-1. Using a text editor, create a Java file named *TopicReceiveController.java* in the package directory of your app. 
-
-1. Add the following code to the new file. Replace the `<ServiceBusTopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<ServiceBusSubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
+   #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
    ```java
-   package com.wingtiptoys.servicebus;
-
    import org.slf4j.Logger;
    import org.slf4j.LoggerFactory;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.jms.annotation.EnableJms;
    import org.springframework.jms.annotation.JmsListener;
-   import org.springframework.stereotype.Component;
+   import org.springframework.jms.core.JmsTemplate;
 
-   @Component
-   public class TopicReceiveController {
+   @SpringBootApplication
+   @EnableJms
+   public class ServiceBusJMSTopicApplication implements CommandLineRunner {
 
-       private static final String TOPIC_NAME = "<ServiceBusTopicName>";
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusJMSTopicApplication.class);
+       private static final String TOPIC_NAME = "<TopicName>";
+       private static final String SUBSCRIPTION_NAME = "<SubscriptionName>";
 
-       private static final String SUBSCRIPTION_NAME = "<ServiceBusSubscriptionName>";
+       @Autowired
+       private JmsTemplate jmsTemplate;
 
-       private final Logger logger = LoggerFactory.getLogger(TopicReceiveController.class);
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceBusJMSTopicApplication.class, args);
+       }
+
+       @Override
+       public void run(String... args) {
+           LOGGER.info("Sending message");
+           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello Word");
+       }
 
        @JmsListener(destination = TOPIC_NAME, containerFactory = "topicJmsListenerContainerFactory",
-               subscription = SUBSCRIPTION_NAME)
-       public void receiveMessage(User user) {
-           logger.info("Received message: {}", user.getName());
+           subscription = SUBSCRIPTION_NAME)
+       public void receiveMessage(String message) {
+           LOGGER.info("Message received: {}", message);
        }
+
    }
    ```
 
-1. Save and close the *TopicReceiveController.java* file.
+   Replace the `<TopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<SubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
 
-## Optional Service Bus Functionality
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
-You can use a customized `MessageConverter` bean to convert between Java objects and JMS messages.
+   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-### Set the content-type of messages
+1. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
 
-The following code example sets the `BytesMessage` content-type to `application/json`. For more information, see [Messages, payloads, and serialization](/azure/service-bus-messaging/service-bus-messages-payloads).
-
-```java
-package com.wingtiptoys.servicebus;
-
-import com.fasterxml.jackson.databind.ObjectWriter;
-import org.apache.qpid.jms.message.JmsBytesMessage;
-import org.apache.qpid.jms.provider.amqp.message.AmqpJmsMessageFacade;
-import org.apache.qpid.proton.amqp.Symbol;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
-import org.springframework.stereotype.Component;
-
-import javax.jms.BytesMessage;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import java.io.IOException;
-
-@Component
-public class CustomMessageConverter extends MappingJackson2MessageConverter {
-
-    private static final String TYPE_ID_PROPERTY = "_type";
-    private static final Symbol CONTENT_TYPE = Symbol.valueOf("application/json");
-
-    public CustomMessageConverter() {
-        this.setTargetType(MessageType.BYTES);
-        this.setTypeIdPropertyName(TYPE_ID_PROPERTY);
-    }
-
-    @Override
-    protected BytesMessage mapToBytesMessage(Object object, Session session, ObjectWriter objectWriter)
-        throws JMSException, IOException {
-        final BytesMessage bytesMessage = super.mapToBytesMessage(object, session, objectWriter);
-        JmsBytesMessage jmsBytesMessage = (JmsBytesMessage) bytesMessage;
-        AmqpJmsMessageFacade facade = (AmqpJmsMessageFacade) jmsBytesMessage.getFacade();
-        facade.setContentType(CONTENT_TYPE);
-        return jmsBytesMessage;
-    }
-}
-```
-
-For more information about `MessageConverter`, see the official [Spring JMS guide](https://spring.io/guides/gs/messaging-jms/).
-
-## Build and test your application
-
-1. Open a command prompt and change directory to the location of your *pom.xml*; for example:
-
-   ```cmd
-   cd C:\SpringBoot\servicebus 
+   ```output
+   Sending message
+   Message received: Hello Word
    ```
 
-   -or-
+---
 
-   ```bash
-   cd /users/example/home/servicebus 
-   ```
-
-1. Build your Spring Boot application with Maven and run it:
-
-   ```shell
-   mvn clean spring-boot:run
-   ```
-
-1. Once your application is running, you can use *curl* to test your application:
-
-   ```shell
-   curl -X POST localhost:8080/messages?message=hello
-   ```
-
-   You should see "Sending message" and "hello" posted to your application log:
-
-   ```shell
-   [nio-8080-exec-1] com.wingtiptoys.servicebus.SendController : Sending message
-   [enerContainer-1] com.wingtiptoys.servicebus.ReceiveController : Received message: hello
-   ```
-
-## Clean up resources
-
-When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+[!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to use JMS API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp)
+> [Azure for Spring developers](../spring/index.yml)
+> [Spring Cloud Azure Service Bus JMS Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus)

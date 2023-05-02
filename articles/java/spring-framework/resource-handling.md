@@ -1,15 +1,16 @@
 ---
 title: Spring Cloud Azure resource handling
 description: This article describes Spring Cloud Azure resource handling.
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yonghuiye
 ms.topic: reference
+ms.custom: devx-track-java
 ---
 
 # Spring Cloud Azure resource handling
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
 
 The Spring project provides a [Spring Resources](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources) abstraction to access a number of low-level resources. The project provides interfaces like `Resource`, `ResourceLoader` and `ResourcePatternResolver`. Spring Cloud Azure implements these interfaces for Azure Storage services, which allows you to interact with Azure storage Blob and File Share using the Spring programming model. Spring Cloud Azure provides `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-storage-file-share` to auto-configure Azure Storage Blob and Azure Storage File Share.
 
@@ -191,4 +192,4 @@ Files larger than 4 MiB will be uploaded to Azure Storage in parallel.
 
 ## Samples
 
-See the [storage-blob-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample) and [storage-file-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample) repositories on GitHub.
+See the [storage-blob-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample) and [storage-file-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample) repositories on GitHub.

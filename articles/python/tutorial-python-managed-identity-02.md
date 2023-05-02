@@ -4,7 +4,7 @@ description: How to run a Python (Django or Flask) web app locally with local Po
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/01/2022
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Configure and run the Python app locally with a PostgreSQL instance and a storage emulator
@@ -125,7 +125,7 @@ Connecting Azure Storage Explorer to Azurite is covered in the article [Use the 
 
 If you started with one of the sample apps, copy the *.env.sample* file to *.env*. If you didn't start with one of the sample apps, create an *.env* file and make sure you have the dependencies in the *requirements.txt*. Add other packages as needed such as [django-sslserver](https://pypi.org/project/django-sslserver/) or [python-certifi-win32](https://pypi.org/project/python-certifi-win32/).
 
-The *.env* is only used in local development and should look like the example below. The *.env* file contains info about connecting to your local PostgreSQL and Azurite instances:
+The *.env* file is only used in local development and should look like the example below. The *.env* file contains info about connecting to your local PostgreSQL and Azurite instances:
 
 ```
 # Local PostgreSQL connection info
@@ -133,13 +133,16 @@ DBNAME=<local-database name>
 DBHOST=<local-database-hostname>
 DBUSER=<local-db-user-name>
 DBPASS=<local-db-password>
+SECRET_KEY=<your-secret-key>
 
 # Emulator storage connection info
 STORAGE_URL=https://127.0.0.1:10000/devstoreaccount1
 STORAGE_CONTAINER_NAME=photos
 ```
 
-The sample app uses the [python-dotenv](https://pypi.org/project/python-dotenv/) to read environment variables from the *.env* file. 
+A `SECRET_KEY` key you can use for this tutorial can be generated with the following Python code: `python -c "import secrets; print(secrets.token_hex())"`.
+
+The sample app uses the [python-dotenv](https://pypi.org/project/python-dotenv/) to read environment variables from the *.env* file.
 
 Next, create the `restaurant` and `review` database tables:
 

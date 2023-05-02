@@ -25,11 +25,9 @@ The following `azd` command hooks are available:
 
 * `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
-* `preinfracreate` and `preinfracrate`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
 * `predeploy` and `postdeploy`: Run before and after the application code is deployed to Azure.
 * `preup` and `postup`: Run before and after the combined deployment pipeline. `Up` is a shorthand command that runs `restore`, `provision`, and `deploy` sequentially.
 * `predown` and `postdown`: Run before and after the resources are removed.
-* `preinfradelete` and `preinfradelete`: Run before and after Azure resources are created. These values are interchangeable aliases for `preprovision` and `postprovision`.
 
 The following service lifecycle event hooks are available:
 
@@ -42,6 +40,7 @@ The following service lifecycle event hooks are available:
 Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
 * `shell`: `sh` | `pwsh` (automatically inferred from run if not specified).
+  * *Note*: PowerShell 7 is required for `pwsh`.
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
 * `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false). This property need to be set to `true` in order to see the hook's output.
@@ -55,6 +54,8 @@ The following examples demonstrate different types of hook registrations and con
 ### Root command registration
 
 Hooks can be configured to run for specific `azd` commands at the root of your `azure.yaml` file.
+
+The project directory (where the `azure.yaml` file is located) is the default current working directory (`cwd`) for command hooks.
 
 ```yml
 name: todo-nodejs-mongo
@@ -81,6 +82,8 @@ services:
 ### Service registration
 
 Hooks can also be configured to run only for specific services defined in your `.yaml` file.
+
+The service directory (same path as defined in the `project` property of the service configuration in the `azure.yaml` file) is the default `cwd` for service hooks.
 
 ```yml
 name: todo-nodejs-mongo

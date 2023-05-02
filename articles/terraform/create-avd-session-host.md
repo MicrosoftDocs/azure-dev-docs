@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop Session Hosts using Terraform
 description: Learn how to use Terraform to configure session hosts and add them to a host pool.
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -19,13 +19,13 @@ Article tested with the following Terraform and Terraform provider versions:
 [Learn more about using Terraform in Azure](/azure/terraform)
 
 In this article, you learn how to:
-> [!div class="checklist"]
 
-> - Use Terraform to create NIC for each session host
-> - Use Terraform to create VM for session host
-> - Join VM to domain
-> - Register VM with Azure Virtual Desktop
-> - Use variables file
+> [!div class="checklist"]
+> * Use Terraform to create NIC for each session host
+> * Use Terraform to create VM for session host
+> * Join VM to domain
+> * Register VM with Azure Virtual Desktop
+> * Use variables file
 
 ## 1. Configure your environment
 

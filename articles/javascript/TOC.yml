@@ -27,159 +27,151 @@
           href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
         - name: Use Key Vault secrets
           href: how-to/with-web-app/use-secret-environment-variables.md
-      - name: Azure Static Web Apps
-        items: 
-        - name: Getting started
-          href: how-to/create-static-web-app.md
-        - name: Create Static web app
-          items:
-            - name: 1. Introduction
-              href: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md
-            - name: 2. Create GitHub repo
-              href: how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md                  
-            - name: 3. Create React client app
-              href: how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md                  
-            - name: 4. Create Azure Static Web app
-              href: how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md                  
-            - name: 5. Create Azure Function API
-              href: how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md  
-            - name: 6. Connect client to API
-              href: how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md                                    
-            - name: 7. Add easy authentication
-              href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md                                    
-            - name: 8. Clean up resources
-              href: how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md                                    
-        - name: Add search to website
-          href: /azure/search/tutorial-javascript-overview
-        - name: "Upload image to Storage"
-          href: tutorial/browser-file-upload-azure-storage-blob.md
-        - name: Add image analysis
-          href: tutorial/static-web-app-image-analysis.md  
-        - name: Authentication and identity
-          items:  
-          - name: Easy auth with Static Web Apps
-            href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
-          - name: Vanilla JS
-            href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-          - name: "React: Add a Login button for Microsoft Identity provider" 
-            href: /azure/active-directory/develop/tutorial-v2-react
-          - name: "Angular: Add a Login button for Microsoft Identity provider"
-            href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
-          - name: Add custom auth with MSAL.js
-            items:
-              - name: Introduction
-                href: how-to/with-authentication/static-web-app-with-api/introduction.md
-              - name: Create app registration
-                href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-              - name: Create local Static web app
-                href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-              - name: Add MongoDB to API
-                href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-              - name: Deploy to Azure
-                href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
+  - name: Azure Static Web Apps
+    items: 
+    - name: Getting started
+      href: how-to/create-static-web-app.md
+    - name: Create Static web app
+      href: how-to/with-web-app/static-web-app-with-swa-cli.md
+    - name: Add custom domain
+      href: /azure/static-web-apps/custom-domain
+    - name: Connect to database
+      items: 
+      - name: with Data API builder
+        href: /azure/static-web-apps/database-overview
+      - name: Azure Cosmos DB
+        href: /azure/static-web-apps/database-azure-cosmos-db
+      - name: Azure SQL
+        href: /azure/static-web-apps/database-azure-sql
+      - name: Azure Database for MySQL
+        href: /azure/static-web-apps/database-mysql
+      - name: Azure Database for PostgreSQL
+        href: /azure/static-web-apps/database-postgresql
+    - name: Add search to website
+      href: /azure/search/tutorial-javascript-overview
+    - name: "Upload image to Storage"
+      href: tutorial/browser-file-upload-azure-storage-blob.md
+    - name: Add image analysis
+      href: tutorial/static-web-app-image-analysis.md  
+    - name: Authentication and identity
+      items:  
+      - name: Easy auth with Static Web Apps
+        href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
+      - name: Vanilla JS
+        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
+      - name: "React: Add a Login button for Microsoft Identity provider" 
+        href: /azure/active-directory/develop/tutorial-v2-react
+      - name: "Angular: Add a Login button for Microsoft Identity provider"
+        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
+      - name: Add custom auth with MSAL.js
+        items:
+          - name: Introduction
+            href: how-to/with-authentication/static-web-app-with-api/introduction.md
+          - name: Create app registration
+            href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
+          - name: Create local Static web app
+            href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
+          - name: Add MongoDB to API
+            href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
+          - name: Deploy to Azure
+            href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
 
-        - name: GraphQL trivia game with React + APIs
-          items: 
-            - name: 1. Introduction
-              href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-            - name: 2. GraphQL basics
-              href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
-            - name: 3. Local TypeScript development
-              href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
-            - name: 4. Create an Azure Cosmos DB resource
-              href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
-            - name: 5. Deploy to Azure Static Web Apps
-              href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
-        - name: GraphQL trivia game with Next.js hybrid
-          items: 
-            - name: 1. Getting started
-              href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-            - name: 2. Working with database
-              href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-            - name: 3. Working with translator
-              href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
-            - name: 4. Deploy to Static Web App
-              href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
-      - name: Migrate to Serverless
-        items: 
-        - name: "Training: Migrate to Azure Functions"
-          href: /training/modules/shift-nodejs-express-apis-serverless
-        - name: "Docs: Migrate to Azure Functions"
-          href: /azure/azure-functions/shift-expressjs?tabs=javascript
-      - name: Azure Functions
-        items: 
-        - name: Develop Azure Functions
-          href: how-to/develop-serverless-apps.md
-        - name: Store data in MongoDB 
-          href: tutorial/azure-function-cosmos-db-mongo-api.md
-        - name: Upload file to Storage
-          items: 
-          - name: with SDK
-            href: how-to/with-web-app/azure-function-file-upload.md
-          - name: with trigger and bindings
-            href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
-        - name: Resource management API
-          items: 
-          - name: 1. Introduction and prerequisites
-            href: how-to/with-web-app/azure-function-resource-group-management/introduction.md
-          - name: 2. Create local Azure Function
-            href: how-to/with-web-app/azure-function-resource-group-management/create-function-app.md
-          - name: 3. Deploy function to Azure
-            href: how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md
-          - name: 4. Add APIs and redeploy
-            href: how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md
-          - name: 5. View and query application logs
-            href: how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md
-          - name: 6. Clean up resources
-            href: how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md
-        - name: Use GraphQL APIs
-          items:
-          - name: Hello world API
-            href: how-to/with-web-app/graphql/azure-function-hello-world.md
-          - name: Data (CRUD) API
-            href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
-      - name: Azure App service
-        items:
-        - name: "Express.js with MongoDB"
-          href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
-        - name: "Express.js convert text to speech"
-          href: tutorial/convert-text-to-speech-cognitive-services.md
-        - name: Add easy authentication
-          href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
-        - name: Use Microsoft Identity provider (MSAL.js)
-          href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md             
-      - name: Container web apps
-        items:
-        - name: "Express.js with VS Code"
-          items:
-            - name: Introduction and prerequisites
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-            - name: Use a container registry
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
-            - name: Create a local Node.js app
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
-            - name: Create the app image
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
-            - name: Deploy the app image
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
-            - name: Make changes and redeploy
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
-            - name: Stream logs
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
-            - name: Clean up resources
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-        - name: Create container registry
-          href: how-to/with-azure-cli/create-container-registry-resource.md
-        - name: Create container from local project
-          href: how-to/with-visual-studio-code/containerize-local-project.md              
-      - name: Virtual machine web apps
-        items:
-          - name: "Express.js VM"
-            href: tutorial/run-nodejs-virtual-machine.md
-          - name: "Create and delete VM with SDK"
-            href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-          - name: "Manage VM with SDK"
-            href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
+    - name: GraphQL trivia game with React + APIs
+      items: 
+        - name: 1. Introduction
+          href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+        - name: 2. GraphQL basics
+          href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
+        - name: 3. Local TypeScript development
+          href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
+        - name: 4. Create an Azure Cosmos DB resource
+          href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
+        - name: 5. Deploy to Azure Static Web Apps
+          href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
+    - name: GraphQL trivia game with Next.js hybrid
+      items: 
+        - name: 1. Getting started
+          href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
+        - name: 2. Working with database
+          href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
+        - name: 3. Working with translator
+          href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
+        - name: 4. Deploy to Static Web App
+          href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
+  - name: Migrate to Serverless
+    items: 
+    - name: "Training: Migrate to Azure Functions"
+      href: /training/modules/shift-nodejs-express-apis-serverless
+    - name: "Docs: Migrate to Azure Functions"
+      href: /azure/azure-functions/shift-expressjs?tabs=javascript
+  - name: Azure Functions
+    items: 
+    - name: Develop Azure Functions
+      href: how-to/develop-serverless-apps.md
+    - name: Store data in MongoDB 
+      href: tutorial/azure-function-cosmos-db-mongo-api.md
+    - name: Upload file to Storage
+      items: 
+      - name: with SDK
+        href: how-to/with-web-app/azure-function-file-upload.md
+      - name: with trigger and bindings
+        href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
+    - name: Resource management API
+      href: how-to/with-web-app/azure-function-resource-group-management.md
+    - name: Use GraphQL APIs
+      items:
+      - name: Hello world API
+        href: how-to/with-web-app/graphql/azure-function-hello-world.md
+      - name: Data (CRUD) API
+        href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
+  - name: Azure App service
+    items:
+    - name: "Express.js with MongoDB"
+      href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+    - name: "Express.js convert text to speech"
+      href: tutorial/convert-text-to-speech-cognitive-services.md
+    - name: Add easy authentication
+      href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
+    - name: Use Microsoft Identity provider (MSAL.js)
+      href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+    - name: Express.js in container
+      items:
+        - name: Introduction and prerequisites
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
+        - name: Use a container registry
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
+        - name: Create a local Node.js app
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
+        - name: Create the app image
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
+        - name: Deploy the app image
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
+        - name: Make changes and redeploy
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
+        - name: Stream logs
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
+        - name: Clean up resources
+          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md                   
+  - name: Container Apps
+    items:
+    - name: Backend microservice app
+      href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote
+    - name: Frontend microservice app
+      href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote
+    - name: Microservice with DAPR
+      href: /azure/container-apps/microservices-dapr?tabs=bash
+    - name: Create container registry
+      href: how-to/with-azure-cli/create-container-registry-resource.md
+    - name: Create container from local project
+      href: how-to/with-visual-studio-code/containerize-local-project.md              
+  - name: Virtual machine web apps
+    items:
+      - name: "Express.js VM"
+        href: tutorial/run-nodejs-virtual-machine.md
+      - name: "Create and delete VM with SDK"
+        href: how-to/with-azure-sdk/create-manage-virtual-machine.md
+      - name: "Manage VM with SDK"
+        href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Visual Studio Code
     items:
       - name: Install and debug local project
@@ -253,7 +245,7 @@
       - name: Resource management
         items: 
           - name: "List subscriptions"
-            href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+            href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
           - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
   - name: Serverless developer guide

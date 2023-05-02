@@ -3,7 +3,7 @@ title: Quickstart - Deploy your first Azure resource with the AzAPI Terraform pr
 description: Learn how to use the AzAPI Terraform provider to manage an Azure Lab Service
 keywords: azure devops terraform lab azapi resource
 ms.topic: quickstart
-ms.date: 04/24/2022
+ms.date: 03/18/2023
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
@@ -22,7 +22,6 @@ Article tested with the following Terraform and Terraform provider versions:
 In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource` will be used to manage an [Azure Lab Services](/azure/lab-services/lab-services-overview) account as well as a lab.
 
 > [!div class="checklist"]
-
 > * Define and configure the AzureRM and AzAPI providers.
 > * Use the AzureRM provider to create an Azure resource group
 > * Use the AzureRM provider to register the "Microsoft.LabServices" provider in your subscription
