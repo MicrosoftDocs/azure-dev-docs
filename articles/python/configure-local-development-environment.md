@@ -141,7 +141,7 @@ To create a virtual environment, follow these steps.
     ---
 
     > [!NOTE]
-    > If you're using [Git Bash in Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_git-bash-on-windows) on Windows, use the virtual environment activate command `source .venv/Scripts/activate` instead.
+    > If you're using Windows Command shell, activate the virtual environment with `.venv\Scripts\activate`. If you're using [Git Bash in Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_git-bash-on-windows) on Windows, use the command `source .venv/Scripts/activate` instead.
 
 Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment uses the specific package versions installed into that virtual environment. Using different virtual environments allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
 
