@@ -16,7 +16,7 @@ Before starting this tutorial, you should have completed the [Uno Platform Quick
 
 ## Update the app to support offline sync
 
-In online operation, you read to and write from a `IRemoteTable<T>`.  When using offline sync, you read to and write from a `IOfflineTable<T>` instead.  The `IOfflineTable<T>` is backed by an on-device SQLite database, and synchronized with the backend database.
+In online operation, you read to and write from a `IRemoteTable<T>`.  When using offline sync, you read to and write from a `IOfflineTable<T>` instead.  The `IOfflineTable<T>` uses an on-device SQLite database which you synchronize with a remote service.
 
 ### Add the necessary NuGet packages
 

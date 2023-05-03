@@ -36,7 +36,7 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 ## Add authentication to the app
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
@@ -68,7 +68,7 @@ namespace TodoApp.Forms
 }
 ```
 
-This interface will be used later on to allow the shared project to ask the platform project for an identity client suitable for the platform.
+This interface is used later on to allow the shared project to ask the platform project for an identity client suitable for the platform.
 
 Open `App.xaml.cs`.  Add the following `using` statements:
 
@@ -220,7 +220,7 @@ public IPublicClientApplication GetIdentityClient(string applicationId)
 }
 ```
 
-When the shared project requires authentication, it will obtain an identity client from `GetIdentityClient()`, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  That then calls the MSAL authentication helper, which completes the transaction.
+When the shared project requires authentication, it obtains an identity client from `GetIdentityClient()`, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The `MsalActivity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`.  That then calls the MSAL authentication helper, which completes the transaction.
 
 ## Configure the iOS app for authentication
 
@@ -310,13 +310,13 @@ Add the custom entitlements to the project:
 
 ## Test the Android app
 
-Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app
 
 [!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
 
-Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 
