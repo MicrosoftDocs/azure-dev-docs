@@ -57,6 +57,8 @@ services:
 | `infra` | N | _(object)_ Provides extra configuration for Azure infrastruction provisioning. See [infra properties](#infra-properties) for more details. |
 | `services` | Y | _(object)_ Definition of services that comprise the application. See [services properties](#services-properties) for more details. |
 | `pipeline` | N | _(object)_ Definition of continuous integration pipeline. See [pipeline properties](#pipeline-properties) for more details. |
+| `hooks` | N | Command level hooks. Hooks should match `azd` command names prefixed with `pre` or `post` depending on when the script should execute. When specifying paths they should be relative to the project path. See [Customize your Azure Developer CLI workflows using command and event hooks](./azd-extensibility.md) for more details. |
+| `requiredVersions` | N |A range of supported versions of `azd` for this project. If the version of `azd` is outside this range, the project will fail to load. Optional (allows all versions if absent). Example: `>= 0.6.0-beta.3` |
 
 ### `metadata` properties
 
@@ -103,6 +105,8 @@ infra:
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
 | `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | `build` |
 | `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. `path` _(string)_: Path to the Dockerfile. Default: `./Dockerfile`; `context` _(string)_: The docker build context. When specified, overrides default context. Default: `.`; `platform` _(string)_: The platform target. Default: `amd64` |
+| `k8s` | N | The Azure Kubernetes Service (AKS) configuration options. | See the [k8s sample](#k8s-sample) below. `deploymentPath` _(string)_: Optional. The relative path from the service path to the k8s deployment manifests. When set, it will override the default deployment path location for k8s deployment manifests. Default: `manifests`; `namespace` _(string)_: Optional. The k8s namespace of the deployed resources. When specified, a new k8s namespace will be created if it does not already exist. Default: `Project name`; `deployment` _(object)_: See [deployment properties](#aks-deployment-properties); `service` _(object)_: See [service properties](#aks-service-properties); `ingress` _(object)_: See [ingress preperties](#aks-ingress-properties).  |
+| `hooks` | N | Service level hooks. Hooks should match `service` event names prefixed with `pre` or `post` depending on when the script should execute. When specifying paths they should be relative to the service path. | See [Customize your Azure Developer CLI workflows using command and event hooks](./azd-extensibility.md) for more details. |
 
 #### Docker options sample
 
@@ -124,6 +128,53 @@ services:
       project: src/web
   language: js
   host: containerapp
+```
+
+### AKS `deployment` properties
+
+| Element Name | Required | Description | Example |
+| --- | --- | --- | --- |
+| `name` | N | _(string)_ Optional. The name of the k8s deployment resource to use during deployment. Used during deployment to ensure if the k8s deployment rollout has been completed. If not set, will search for a deployment resource in the same namespace that contains the service name. Default: `Service name` | `api` |
+
+### AKS `service` properties
+
+| Element Name | Required | Description | Example |
+| --- | --- | --- | --- |
+| `name` | N | _(string)_ Optional. The name of the k8s service resource to use as the default service endpoint. Used when determining endpoints for the default service resource. If not set, will search for a deployment resource in the same namespace that contains the service name. (Default: Service name)  | `api` |
+
+### AKS `ingress` properties
+
+| Element Name | Required | Description | Example |
+| --- | --- | --- | --- |
+| `name` | N | _(string)_ Optional. The name of the k8s ingress resource to use as the default service endpoint. Used when determining endpoints for the default ingress resource. If not set, will search for a deployment resource in the same namespace that contains the service name. Default: `Service name` | `api` |
+| `relativePath` | N | _(string)_ Optional. The relative path to the service from the root of your ingress controller. When set, will be appended to the root of your ingress resource path. | |
+
+### AKS sample with service level hooks
+
+```yaml
+metadata:
+  template: todo-nodejs-mongo-aks@0.0.1-beta
+services:
+  web:
+    project: ./src/web
+    dist: build
+    language: js
+    host: aks
+    hooks:
+      postdeploy:
+        shell: sh
+        run: azd env set REACT_APP_WEB_BASE_URL ${SERVICE_WEB_ENDPOINT_URL}
+  api:
+    project: ./src/api
+    language: js
+    host: aks
+    k8s:
+      ingress:
+        relativePath: api
+    hooks:
+      postdeploy:
+        shell: sh
+        run: azd env set REACT_APP_API_BASE_URL ${SERVICE_API_ENDPOINT_URL}
 ```
 
 ### `pipeline` properties
