@@ -224,7 +224,7 @@ Edit the `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MainActivity.Android.cs` class;
     }
 ```
 
-When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser. Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`). The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`. The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
+When the Android requires authentication, it obtains an identity client, then switch to an internal activity that opens the system browser. Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`). The `MasalActvity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`. The `OnActivityResult()` method calls the MSAL authentication helper to complete the transaction.
 
 ## Configure the iOS app for authentication
 
@@ -245,16 +245,16 @@ Open the `TodoApp.Uno.Mobile` project and expand the `iOS` folder. Update the `E
 
 ## Test the Android app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 
 ##  Test the Windows app
 
-Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Next steps
 
