@@ -4,16 +4,13 @@ description: Add authentication to your Uno Platform app using Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/02/2023
+ms.date: 05/03/2023
 ms.author: adhal
 ---
 
 # Add authentication to your Uno Platform app
 
 In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
-
-> [!NOTE]
-> This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered in this tutorial.
 
 > [!TIP]
 > Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
@@ -148,7 +145,6 @@ Add the following method into the `MainPage` class:
         {
             result = await _identityClient
                 .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-                .WithUnoHelpers()
                 .ExecuteAsync();
         }
         catch (MsalUiRequiredException)
@@ -212,7 +208,6 @@ Replace `{client-id}` with the application ID of the native client (which is the
 
 Edit the `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MainActivity.Android.cs` class; add the `OnActivityResult` method:
 
-<!-- TODO FOR NICK: Replace this code with the code I can't read in the comment -->
 ``` csharp
     [Activity(
         MainLauncher = true,
@@ -250,16 +245,16 @@ Open the `TodoApp.Uno.Mobile` project and expand the `iOS` folder. Update the `E
 
 ## Test the Android app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press F5 to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press F5 to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 
 ##  Test the Windows app
 
-Set `TodoApp.Uno.Windows` as the startup project, then press F5 to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you'll be prompted to sign in to the app. On the first run, you'll also be asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

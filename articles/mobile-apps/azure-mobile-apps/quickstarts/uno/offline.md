@@ -4,7 +4,7 @@ description: Add offline data sync to your Uno Platform app using Azure Mobile A
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 02/24/2023
+ms.date: 05/03/2023
 ms.author: adhal
 ---
 

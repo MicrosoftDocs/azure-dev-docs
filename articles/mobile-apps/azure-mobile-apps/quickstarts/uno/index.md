@@ -4,7 +4,7 @@ description: Get up to speed with the Uno Platform and Azure Mobile Apps with ou
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 02/24/2023
+ms.date: 05/03/2023
 ms.author: adhal
 ---
 
@@ -14,6 +14,8 @@ The [Uno Platform](https://platform.uno/) lets you create .NET UI applications f
 
 You must complete this tutorial before all other Uno Platform tutorials about using Azure Mobile Apps.
 
+> [!NOTE]
+> Although the Uno Platform supports a wide variety of platforms, the Azure Mobile Apps library is only supported on mobile and desktop platforms.  The tutorial only covers mobile (Android and iOS) platforms.
 ## Prerequisites
 
 To complete this tutorial, you need:
@@ -23,14 +25,19 @@ To complete this tutorial, you need:
   * Azure development
   * .NET desktop development
 * The [Uno Platform for Visual Studio extension](https://platform.uno/visual-studio/).
-* An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
-  * Phone: Any phone image - we use the Pixel 5 for testing.
-  * System Image: Android 11 (API 30 with Google APIs)
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* For Android support, an [Android Virtual Device](https://developer.android.com/studio/run/managing-avds) with the following settings:
+  * Phone: Any phone image - we use the Pixel 5 for testing.
+  * System Image: Android 11 (API 30 with Google APIs)
+* For iOS support, an available Mac:
+  * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835)
+  * Open Xcode after installing so that it can add any extra required components.
+  * Once open, select XCode Preferences... > Components, and install an iOS simulator.
+  * Follow the guide to [Pair to Mac](https://learn.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
-This tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Uno Platform tutorial](https://platform.uno/docs/articles/getting-started-tutorial-1.html) to become acquainted with the development process for Avalonia.
+This tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Uno Platform tutorial](https://platform.uno/docs/articles/getting-started-tutorial-1.html) to become acquainted with the development process for the Uno Platform.
 
 ## Download the sample app
 
@@ -47,13 +54,13 @@ This tutorial assumes you are using Windows and Visual Studio 2022.  We recommen
 
 [!INCLUDE [Instructions for configuring the sample code.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-sample.md)]
 
-## Build and run the sample app
+## Build and run the sample app for Android
 
 1. In the solutions explorer, expand the `uno` folder.
 1. Right-click the `TodoApp.Uno.Mobile` project and select **Set as Startup Project**.
-1. In the top bar, select the **Any CPU** configuration, **TodoApp.Un.Mobile** target.  Select a suitable Android emulator to run the application:
+1. In the top bar, select the **Any CPU** configuration, **TodoApp.Uno.Mobile** target.  Select a suitable Android emulator to run the application:
 
-    ![Screenshot of the Visual Studio configuration bar.](./media/win-configuration.png)
+    ![Screenshot showing how to select an Android emulator in Visual Studio.](./media/win-android-configuration.png)
 
 1. Press **F5** to build and run the project.
 
@@ -64,6 +71,24 @@ Once the app has started, you'll see an empty list with a text box.  You can:
 * Press the refresh icon to reload data from the service.
 
     ![Screenshot of the Uno Platform app running on Android.](./media/running-app.png)
+
+## Build and run the sample app for iOS
+
+1. In the solutions explorer, expand the `uno` folder.
+1. Right-click the `TodoApp.Uno.Mobile` project and select **Set as Startup Project**.
+1. In the top bar, select the **Any CPU** configuration, **TodoApp.Uno.Mobile** target. Select an appropriate iOS simulator: <!-- TODO: Correct this instruction -->
+
+   ![Screenshot showing how to select an i O S simulator in Visual Studio.](./media/win-ios-configuration.png)
+
+1. In the top menu, select **Debug** > **Start Debugging**.
+
+Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+
+* Press the **+** button to add an item.
+* Select an item to set or clear the completed flag.
+* Press the refresh icon to reload data from the service.
+
+![Screenshot of the Uno Platform app running on i O S.](./media/ios-running-app.png)
 
 ## Next steps
 
