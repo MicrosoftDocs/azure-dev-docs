@@ -16,6 +16,7 @@ You must complete this tutorial before all other Uno Platform tutorials about us
 
 > [!NOTE]
 > Although the Uno Platform supports a wide variety of platforms, the Azure Mobile Apps library is only supported on mobile and desktop platforms.  The tutorial only covers mobile (Android and iOS) platforms.
+
 ## Prerequisites
 
 To complete this tutorial, you need:
