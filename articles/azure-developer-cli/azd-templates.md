@@ -40,6 +40,12 @@ Check back for our growing list of templates.
 
 For information on authoring your own template or “templatizing” an existing application, [read our guide on making your template `azd`-compatible](./make-azd-compatible.md).
 
+We also authored starter templates with Infrastructure as Code (IaC) written in:
+- Bicep
+- Terraform
+
+These templates are focused on providing a starting point for writing your app's IaC and can support you in creating your own `azd`-compatible templates. Unlike the template applications we've authored, these starter templates do not function as full applications on their own. So, you will need to add your own source code and connect it to the infrastructure to have a fully functioning app. 
+
 ## Choose a template
 
 [Install the Azure Developer CLI](./install-azd.md) and then select your preferred programming language to choose a template.
@@ -87,6 +93,12 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | [ToDo Python MongoDB (Terraform)](https://github.com/Azure-Samples/todo-python-mongo-terraform) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Terraform  |  
 | [ToDo Python MongoDB ACA](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |  
 | [ToDo Python MongoDB SWA + Functions](https://github.com/azure-samples/todo-python-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep|
+
+### [Starter Templates (IaC only)](#tab/starter-IaC)
+| Template      | App host | Tech stack |
+| ----------- | ----------| ----------- |
+| [Bicep Starter](https://github.com/Azure-Samples/azd-starter-bicep) | - | Bicep, [dev container](https://containers.dev) configuration file, Continuous deployment workflows for CI providers such as GitHub Actions |  
+| [Terraform Starter](https://github.com/Azure-Samples/azd-starter-terraform) | - | Terraform [dev container](https://containers.dev) configuration file, Continuous deployment workflows for CI providers such as GitHub Actions  |  
 
 ---
 
