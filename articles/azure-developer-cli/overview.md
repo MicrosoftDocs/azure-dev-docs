@@ -13,7 +13,7 @@ ms.custom: devx-track-azdevcli, devx-track-azurecli
 
 Azure Developer CLI (`azd`) is an open-source tool that accelerates the time it takes for you to get started on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
 
-You can use `azd` with [extensible azd templates](./more-azd-info.md#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code. You can also [create your own template](./make-azd-compatible.md?pivots=azd-create) or find one to [build on](./make-azd-compatible.md?pivots=azd-convert). 
+You can use `azd` with [extensible azd templates](./azd-templates.md) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code. You can also [create your own template](./make-azd-compatible.md?pivots=azd-create) or find one to [build on](./make-azd-compatible.md?pivots=azd-convert). 
 
 ## Typical `azd` workflow
 
@@ -21,7 +21,7 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
 2. Get the code and initialize the project by [running `azd init`](./get-started.md)
-3. Deploy the template by [running `azd up`](./get-started.md).
+3. Package, provisionm and deply the app by [running `azd up`](./get-started.md).
 4. Customize the app to meet your needs.
 
 From there, you can pull out or modify the application code to leverage the infrastructure as code assets (IaC) provided in the template and customize the app to fit your needs.
@@ -31,6 +31,6 @@ From there, you can pull out or modify the application code to leverage the infr
 > [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
 
 ## Next steps
-- [Learn more about Azure Deloper CLI](./more-azd-info.md)
+- [Supported languages and environments](./supported-languages-environments.md)
 - Get started by [installing Azure Developer CLI](./install-azd.md).
 - [Walk through our quickstart](./get-started.md) to see Azure Developer CLI in action.

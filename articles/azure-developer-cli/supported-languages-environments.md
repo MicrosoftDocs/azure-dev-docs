@@ -11,14 +11,6 @@ ms.custom: devx-track-azdevcli, devx-track-azurecli
 
 # Supported languages and environments
 
-## Azure Developer CLI templates
-
-The Azure Developer CLI works alongside [idiomatic application templates](./azd-templates.md) that include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in four supported languages. Each template uses best practices and includes:
-
-- Application code
-- Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
-- An `azure.yaml` file that describes your application.
-
 ## Supported development environments
 
 You can run any `azd` template, in one of the following supported development environments:

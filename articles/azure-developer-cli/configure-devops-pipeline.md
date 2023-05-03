@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure a pipeline and push updates (preview)
 
-In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template changes through GitHub Actions or Azure DevOps via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./more-azd-info.md#azure-developer-cli-templates).
+In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template changes through GitHub Actions or Azure DevOps via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./azd-templates.md).
 
 ## Prerequisites
 
