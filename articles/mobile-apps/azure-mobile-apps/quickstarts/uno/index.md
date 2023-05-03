@@ -35,7 +35,7 @@ To complete this tutorial, you need:
   * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835)
   * Open Xcode after installing so that it can add any extra required components.
   * Once open, select XCode Preferences... > Components, and install an iOS simulator.
-  * Follow the guide to [Pair to Mac](https://learn.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
+  * Follow the guide to [Pair to Mac](/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
 This tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Uno Platform tutorial](https://platform.uno/docs/articles/getting-started-tutorial-1.html) to become acquainted with the development process for the Uno Platform.
 
