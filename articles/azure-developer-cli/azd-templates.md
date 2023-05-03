@@ -97,8 +97,8 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 ### [Starter Templates (IaC only)](#tab/starter-IaC)
 | Template      | App host | Tech stack |
 | ----------- | ----------| ----------- |
-| [Bicep Starter](https://github.com/Azure-Samples/azd-starter-bicep) | - | Bicep, [dev container](https://containers.dev) configuration file, Continuous deployment workflows for CI providers such as GitHub Actions |  
-| [Terraform Starter](https://github.com/Azure-Samples/azd-starter-terraform) | - | Terraform [dev container](https://containers.dev) configuration file, Continuous deployment workflows for CI providers such as GitHub Actions  |  
+| [Bicep Starter](https://github.com/Azure-Samples/azd-starter-bicep) | - | Bicep, [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
+| [Terraform Starter](https://github.com/Azure-Samples/azd-starter-terraform) | - | Terraform [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
 
 ---
 
