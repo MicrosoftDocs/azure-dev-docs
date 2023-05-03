@@ -103,7 +103,7 @@ As this sample provisions App Service resources, you need:
 - An Azure App Service Plan
 - An Azure App Service running on Linux
 
-For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). However, you can use the information in this section with [any supported host](./overview.md#supported-azure-compute-services-host).
+For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). However, you can use the information in this section with [any supported host](./more-azd-info.md#supported-azure-compute-services-host).
 
 1. Create a directory named `infra` in your project directory and change into it.
 

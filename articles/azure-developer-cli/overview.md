@@ -11,9 +11,9 @@ ms.custom: devx-track-azdevcli, devx-track-azurecli
 
 # What is the Azure Developer CLI (preview)?
 
-Azure Developer CLI (`azd`) is an open-source tool that accelerates the time it takes for you to get started on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or DevOps.
+Azure Developer CLI (`azd`) is an open-source tool that accelerates the time it takes for you to get started on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
 
-You can use `azd` with [extensible azd templates](./more-azd-info.md#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code.
+You can use `azd` with [extensible azd templates](./more-azd-info.md#azure-developer-cli-templates) that include everything you need to get an application up and running in Azure. These templates include reusable infrastructure as code assets and application code that can be ripped out and replaced with your own app code. You can also [create your own template](./make-azd-compatible.md?pivots=azd-create) or find one to [build on](./make-azd-compatible.md?pivots=azd-convert). 
 
 ## Typical `azd` workflow
 
@@ -26,10 +26,9 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 From there, you can pull out or modify the application code to leverage the infrastructure as code assets (IaC) provided in the template and customize the app to fit your needs.
 
-## Even faster `azd` workflow
+## Introductory video
 
-Get up and running on Azure by using `azd` and GitHub Codespaces together!
-> [!VIDEO https://www.youtube.com/watch?v=_MNndbEPvYQ]
+> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
 
 ## Next steps
 - [Learn more about Azure Deloper CLI](./more-azd-info.md)

@@ -1,5 +1,5 @@
 ---
-title: Other things to know about AZD
+title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: gkulin
 ms.author: gracekulin
@@ -9,11 +9,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli, devx-track-azurecli
 ---
 
-# Other things to know about AZD
-
-## Introductory video
-
-> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
+# Supported languages and environments
 
 ## Azure Developer CLI templates
 
