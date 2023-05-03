@@ -289,7 +289,7 @@ Add keychain access to the `Entitlements.plist`:
 
 1. Open the `Entitlements.plist` file.
 2. If necessary, switch from the **Source** view to the **Entitlements** view.  The selector is in the top-right corner of the window.
-3. Scroll down until you find the **Keychain** panel. 
+3. Scroll down until you find the **Keychain** panel.
 4. Turn on the **Keychain** switch.
 5. Select the green **+** icon.
 6. Enter `com.microsoft.adalcache` in the provided box (overwriting whatever is already there), then press Enter.
@@ -303,7 +303,7 @@ Add the custom entitlements to the project:
 3. Select the **...** button next to the **Custom Entitlements** field.
 4. Select `TodoApp.Forms.iOS` > `Entitlements.plist`, then select **Open**.
 5. Select **OK**.
-   
+
    ![Screenshot showing the i O S bundle signing properties.](./media/mac-ios-bundle-signing.png)
 
 ::: zone-end

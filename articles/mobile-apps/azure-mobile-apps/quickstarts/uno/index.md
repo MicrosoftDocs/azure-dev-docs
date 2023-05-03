@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Build an Uno Platform app with Azure Mobile Apps
 
-The [Uno Platform](https://platform.uno/) lets you create .NET UI applications for Windows, macOS, Linux, iOS, Android, and Web Assembly from a single codebase.  This tutorial shows you how to add a cloud-based backend service to an Uno Platform Android mobile app by using Azure Mobile Apps and an Azure mobile app backend. You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+The [Uno Platform](https://platform.uno/) lets you create .NET UI applications for Windows, macOS, Linux, iOS, Android, and Web Assembly from a single codebase.  This tutorial shows you how to add a cloud-based backend service to an Uno Platform Android mobile app by using Azure Mobile Apps and an Azure mobile app backend. You create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before all other Uno Platform tutorials about using Azure Mobile Apps.
 
@@ -65,7 +65,7 @@ This tutorial assumes you are using Windows and Visual Studio 2022.  We recommen
 
 1. Press **F5** to build and run the project.
 
-Once the app has started, you'll see an empty list with a text box.  You can:
+Once the app has started, you see an empty list with a text box.  You can:
 
 * Enter some text, then press the **+** icon to add the item.
 * Set or clear the check box to mark any item as done.
@@ -83,7 +83,7 @@ Once the app has started, you'll see an empty list with a text box.  You can:
 
 1. In the top menu, select **Debug** > **Start Debugging**.
 
-Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+Once the app has started, you see an empty list and a text box to add items in the emulator.  You can:
 
 * Press the **+** button to add an item.
 * Select an item to set or clear the completed flag.
