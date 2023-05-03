@@ -167,7 +167,7 @@ public class MoodelController : TableController<Model>
 
 The options you can set include:
 
-* `PageSize` (`int`, default: 100) is the maximum number of items in a single page that will be returned by a query operation.
+* `PageSize` (`int`, default: 100) is the maximum number of items a query operation returned in a single page.
 * `MaxTop` (`int`, default: 512000) is the maximum number of items returned in a query operation without paging.
 * `EnableSoftDelete` (`bool`, default: false) enables soft-delete, which marks items as deleted instead of deleting them from the database.  Soft delete allows clients to update their offline cache, but requires that deleted items are purged from the database separately.
 * `UnauthorizedStatusCode` (`int`, default: 401 Unauthorized) is the status code returned when the user isn't allowed to do an action.
@@ -308,7 +308,7 @@ Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet
 
 ### PostgreSQL
 
-PostgreSQL does not support "timestamp" row versions. If using PostgreSQL, create the following class:
+PostgreSQL doesn't support "timestamp" row versions. If using PostgreSQL, create the following class:
 
 ```csharp
 public class PgEntityTableData : EntityTableData
@@ -334,7 +334,7 @@ public class PgEntityTableData : EntityTableData
 }
 ```
 
-This will ensure the version property is correctly created and handled within the database.  Derive database models from the `PgEntityTableData` class:
+The database maintains the `xmin` system column, which can be used for concurrency checks. Derive database models from the `PgEntityTableData` class:
 
 ```csharp
 public class TodoItem : PgEntityTableData
@@ -344,7 +344,7 @@ public class TodoItem : PgEntityTableData
 }
 ```
 
-The database table will contain an `xmin` column (instead of a `Version` column) that is maintained by the database. For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
 ### SqLite
 
@@ -413,14 +413,16 @@ public void InitializeDatabase(DbContext context)
 
 [LiteDB](https://www.litedb.org/) is a serverless database delivered in a single small DLL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
-1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
+1. Install the `Microsoft.AspNetCore.Datasync.LiteDb` package from NuGet.
+   
+2. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
     ``` csharp
     const connectionString = builder.Configuration.GetValue<string>("LiteDb:ConnectionString");
     builder.Services.AddSingleton<LiteDatabase>(new LiteDatabase(connectionString));
     ```
 
-2. Derive models from the `LiteDbTableData`:
+3. Derive models from the `LiteDbTableData`:
 
     ``` csharp
     public class TodoItem : LiteDbTableData
@@ -432,7 +434,7 @@ public void InitializeDatabase(DbContext context)
 
     You can use any of the `BsonMapper` attributes that are supplied with the LiteDb NuGet package.
 
-3. Create a controller using the `LiteDbRepository`:
+4. Create a controller using the `LiteDbRepository`:
 
     ``` csharp
     [Route("tables/[controller]")]
@@ -444,8 +446,6 @@ public void InitializeDatabase(DbContext context)
         }
     }
     ```
-
-You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDB is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
 
 ## OpenAPI Support
 
@@ -485,7 +485,7 @@ Follow the basic instructions for NSwag integration, then modify as follows:
     }
     ```
 
-With this configuration, browsing to the `/swagger` endpoint of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring NSwag, see [Get started with NSwag and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-nswag).
+Browsing to the `/swagger` endpoint of the web service allows you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring NSwag, see [Get started with NSwag and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-nswag).
 
 ### Swashbuckle
 
@@ -530,7 +530,7 @@ Follow the basic instructions for Swashbuckle integration, then modify as follow
     }
     ```
 
-With this configuration, browsing to the root of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
+With this configuration, browsing to the root of the web service allows you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
 
 ## Limitations
 
