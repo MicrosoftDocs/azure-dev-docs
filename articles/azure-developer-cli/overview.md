@@ -64,7 +64,7 @@ You can run any `azd` template, in one of the following supported development en
 
 Currently supported hosting platform for the app:
 
-`azd` supports several services for hosting your app. Services marked as **alpha** are experimental and will need to be enabled manually with [`azd config`](./reference#azd-config). **beta** features may experience breaking changes. **stable** features are not expected to experience breaking changes. 
+`azd` supports several services for hosting your app. Services marked as **alpha** are experimental and will need to be enabled manually with [`azd config`](./reference.md#azd-config). **beta** features may experience breaking changes. **stable** features are not expected to experience breaking changes. 
 
 For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md). For a list of all features and their stages, see [Alpha, Beta, and Stable Feature Stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md).
 
