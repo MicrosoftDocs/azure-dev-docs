@@ -245,15 +245,15 @@ Open the `TodoApp.Uno.Mobile` project and expand the `iOS` folder. Update the `E
 
 ## Test the Android app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app  
 
-Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Test the Windows app
 
-Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you are prompted to sign in to the app. On the first run, you are also asked to consent to the app. Once authentication is complete, the app runs as normal.
+Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Next steps
 
