@@ -125,6 +125,7 @@ public class TodoItemController : TableController<TodoItem>
 ```
 
 > [!NOTE]
+>
 > * The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
 > * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
 > * Assign a repository based on the same type as your model.
@@ -414,7 +415,7 @@ public void InitializeDatabase(DbContext context)
 [LiteDB](https://www.litedb.org/) is a serverless database delivered in a single small DLL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
 1. Install the `Microsoft.AspNetCore.Datasync.LiteDb` package from NuGet.
-   
+
 2. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
     ``` csharp
@@ -456,7 +457,7 @@ You can publish the API defined by data sync controllers using [NSwag](/aspnet/c
 Follow the basic instructions for NSwag integration, then modify as follows:
 
 1. Add packages to your project to support NSwag.  The following packages are required:
-   
+
     * [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore).
     * [Microsoft.AspNetCore.Datasync.NSwag](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.NSwag).
 
