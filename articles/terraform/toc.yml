@@ -139,6 +139,10 @@
         items:
           - name: Azure Attestation
             href: create-attestation-provider.md
+      - name: Stream Analytics
+        items:
+          - name: Create a job
+            href: /azure/stream-analytics/quick-create-terraform
       - name: Traffic Manager
         items:
           - name: Create a profile and endpoints
