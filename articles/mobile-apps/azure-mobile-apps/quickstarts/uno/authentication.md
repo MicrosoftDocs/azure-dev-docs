@@ -103,29 +103,19 @@ Replace the fields and constructor with the following code:
     public MainPage() {
         this.InitializeComponent();
 
-#if __ANDROID__
         _identityClient = PublicClientApplicationBuilder
             .Create(Constants.ApplicationId)
             .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+#if __IOS__ || __MACOS__ || __ANDROID__
             .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
-            .WithUnoHelpers()
-            .Build();
-#elif __IOS__
-        _identityClient = PublicClientApplicationBuilder
-            .Create(Constants.ApplicationId)
-            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
-            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
-            .WithUnoHelpers()
-            .Build();
 #else
-        _identityClient = PublicClientApplicationBuilder
-            .Create(Constants.ApplicationId)
-            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
             .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+#endif
+#if __IOS__
+            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+#endif
             .WithUnoHelpers()
             .Build();
-#endif
         _service = new RemoteTodoService(GetAuthenticationClient);
         _viewModel = new TodoListViewModel(this, _service);
         mainContainer.DataContext = _viewModel;
