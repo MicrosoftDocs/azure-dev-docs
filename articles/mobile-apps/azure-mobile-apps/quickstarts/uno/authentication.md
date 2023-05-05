@@ -27,7 +27,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL](https://platform.uno/docs/articles/interop/MSAL.html) to each of the `TodoApp.Uno` projects:
 
-1. Right-click on the solution, then select **Manage NuGet Packages...**.
+1. Right-click on the solution, then select **Manage NuGet Packages for Solution...**.
 2. Select the **Browse** tab.
 3. Enter `Uno.WinUI.MSAL` in the search box, then press Enter.
 4. Select the `Uno.WinUI.MSAL` result.
@@ -93,7 +93,7 @@ using System.Linq;
 using Uno.UI.MSAL;
 ```
 
-Remove the `TodoService` property and replace it with the following code:
+Replace the fields and constructor with the following code:
 
 ``` csharp
     private readonly IPublicClientApplication _identityClient;
@@ -126,7 +126,7 @@ Remove the `TodoService` property and replace it with the following code:
             .WithUnoHelpers()
             .Build();
 #endif
-        _service = new RemoteTodoService();
+        _service = new RemoteTodoService(GetAuthenticationClient);
         _viewModel = new TodoListViewModel(this, _service);
         mainContainer.DataContext = _viewModel;
     }
@@ -138,7 +138,7 @@ Add the following method into the `MainPage` class:
     public async Task<AuthenticationToken> GetAuthenticationToken()
     {
         var accounts = await _identityClient.GetAccountsAsync();
-        AuthenticationResult result = null;
+        AuthenticationResult? result = null;
         bool tryInteractiveLogin = false;
 
         try
@@ -185,7 +185,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 ## Configure the Android app for authentication
 
-Open the `TodoApp.Uno.Mobile` project and expand the `Android` folder.  Create a new class `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MsalActivity.Android.cs` with the following code:
+Open the `TodoApp.Uno.Mobile` project and expand the `Android` folder.  Create a new class `MsalActivity.Android.cs` (alongside the existing `MainActivity.Android.cs`) with the following code:
 
 ``` csharp
 using Android.Content;
@@ -206,9 +206,14 @@ namespace TodoApp.Uno.Droid
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
-Edit the `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MainActivity.Android.cs` class; add the `OnActivityResult` method:
+Edit the `MainActivity.Android.cs` class; add the `OnActivityResult` method:
 
 ``` csharp
+using Android.Views;
+using Microsoft.Identity.Client;
+
+namespace TodoApp.Uno.Droid
+{
     [Activity(
         MainLauncher = true,
         ConfigurationChanges = global::Uno.UI.ActivityHelper.AllConfigChanges,
@@ -222,38 +227,14 @@ Edit the `TodoApp.Uno\TodoApp.Uno.Mobile\Android\MainActivity.Android.cs` class;
             AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
         }
     }
+}
 ```
 
 When the Android requires authentication, it obtains an identity client, then switch to an internal activity that opens the system browser. Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`). The `MasalActvity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`. The `OnActivityResult()` method calls the MSAL authentication helper to complete the transaction.
 
-## Configure the iOS app for authentication
-
-Open the `TodoApp.Uno.Mobile` project and expand the `iOS` folder. Update the `Entitlements.plist` file to include the `keychain-access-groups`:
-
-``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>keychain-access-groups</key>
-    <array>
-      <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
-    </array>
-  </dict>
-</plist>
-```
-
 ## Test the Android app  
 
 Set `TodoApp.Uno.Mobile` as the startup project, select an android emulator as the target, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
-
-## Test the iOS app  
-
-Set `TodoApp.Uno.Mobile` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
-
-## Test the Windows app
-
-Set `TodoApp.Uno.Windows` as the startup project, then press **F5** to build and run the app. When the app starts, you're prompted to sign in to the app. On the first run, you're also asked to consent to the app. Once authentication is complete, the app runs as normal.
 
 ## Next steps
 
