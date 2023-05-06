@@ -136,16 +136,12 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this document after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the `Azure CLI` steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
 
    > [!NOTE]
    >
-   > * At the **Basics** step, write down **Resource group**, **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
-   > * At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
-   >
-   >   ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
-   >
-   > * Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
+   > * Write down all variables in the **Variable block**, including **location**, **resourceGroup**,**database**, ***server**.database.windows.net*, **login** admin user and **password**. The database **resourceGroup** will be referred to as `<db-resource-group>` later in this article.
+   > * After creating the database server, in the **Networking** blade, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
    >
    >   ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png)
 
