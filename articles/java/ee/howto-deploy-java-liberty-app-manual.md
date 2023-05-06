@@ -27,15 +27,19 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
-* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
+  * Prepare a local machine with either Windows or Linux operation system installed.
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+
+* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
 
 ## Create a resource group
 
@@ -239,6 +243,9 @@ You can now run and test the project locally before deploying to Azure. For conv
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Build image for AKS deployment
+
+> [!NOTE]
+> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [deploy application on the AKS cluster](#deploy-application-on-the-aks-cluster).
 
 You can now run the `docker build` command to build the image.
 
