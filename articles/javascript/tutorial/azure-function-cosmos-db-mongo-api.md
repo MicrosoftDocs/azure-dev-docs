@@ -582,8 +582,6 @@ To search the logs, use the Azure portal.
 
     If the log doesn't display any results, it may be because there's a few minute delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/azure-function-cosmos-db-mongo-api/azure-portal-application-insights-function-log-trace.png":::
-
     You didn't need to do anything extra to get this logging information:
 
     * The code used the `context.log` function provided by the Function framework. By using `context`, instead of `console`, your logging can be filtered to the specific individual function. This is useful if your Function app has many functions. 
