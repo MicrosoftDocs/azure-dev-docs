@@ -36,7 +36,7 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
