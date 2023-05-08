@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.1.0
 
 Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
 
@@ -71,7 +71,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
 > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 #### Starter dependencies
