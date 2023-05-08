@@ -21,8 +21,8 @@ Install the following software:
 * Install [Node.js LTS](https://nodejs.org/en/download) v18+
 * [TypeScript](https://www.typescriptlang.org/) v4+
 * [Azurite](https://www.npmjs.com/package/azurite) installed globally for local development storage
-* [Azure Functions Runtime](./functions-versions.md) v4.16+
-* [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally) installed globally for local development
+* [Azure Functions Runtime](/azure/azure-functions/functions-versions?pivots=programming-language-javascript&tabs=v4) v4.16+
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Cnode%2Cportal%2Cbash) v4.0.5095+ (if running locally) installed globally for local development
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
     * [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -157,9 +157,6 @@ Run the Azure Functions project locally to test it before deploying to Azure.
     You could also use the **Debug** > **Start Debugging** menu command.
 
 1. Output appears in the **Terminal** panel. 
-
-    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-local-debug-function" alt-text="Screenshot of Visual Studio Code output terminal panel when debugging locally" lightbox="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-local-debug-function":::
-
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Workspace** section, find and expand the **Local Project** -> **Functions** -> **getBlogPosts**.
 1. Right-click the function name, **getBlogPosts**, then select **Copy Function Url**.
