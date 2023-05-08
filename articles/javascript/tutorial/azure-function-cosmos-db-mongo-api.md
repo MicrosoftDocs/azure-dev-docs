@@ -88,7 +88,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     This code is standard boilerplate in the new v4 programming model. It isn't meant to indicate the only way to write an API layer with POST and GET. 
 
-1. Replace all this copy to allow only GET requests to return all blog posts. 
+1. Replace the previous code with the following code to allow only GET requests to return all blog posts. 
 
     ```typescript
     import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -373,7 +373,7 @@ npm install mongoose
 
 1. Run the application locally and test the API with the same url in the previous section.
 
-## 14. Add Azure Cosmos DB database connection string to remote Azure Function app
+## 14. Add connection string to remote app
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, find your Azure Cosmos DB instance. Right-click the resource and select **Copy Connection String**.
@@ -518,7 +518,17 @@ npm install mongoose
     });
     ```
 
-1. Start the local function with the debugger again.
+1. Start the local function with the debugger again. The following APIs are available:
+
+    ```console
+    deleteBlogPost: [DELETE] http://localhost:7071/api/blogpost/{id}
+    getBlogPost: [GET] http://localhost:7071/api/blogpost/{id}
+    getBlogPosts: [GET] http://localhost:7071/api/blogposts
+    postBlogPost: [POST] http://localhost:7071/api/blogpost
+    putBlogPost: [PUT] http://localhost:7071/api/blogpost/{id}
+    ```
+
+
 1. Use the `blogpost` (singular) API from a cURL command to add a few blog posts.
 
     ```bash
@@ -588,8 +598,6 @@ To search the logs, use the Azure portal.
     * The Function app added Application Insights _for you_.
     * The Kusto Query tool is included in the Azure portal.
     * You can select `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
-
-[!INCLUDE [remove resource group](../includes/visual-studio-code-delete-resource-group.md)]
 
 ## 20. Clean up resources
 
