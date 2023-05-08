@@ -1,5 +1,5 @@
 ---
-title: "JavaScript Serverless MongoDB API"
+title: "Serverless TypeScript API"
 description: "Tutorial: Create Azure Function in Visual Studio Code to store MongoDB data with Mongoose API. Deploy the application to the Azure cloud for hosting with a public HTTP endpoint."
 ms.topic: how-to
 ms.date: 05/08/2023
@@ -7,9 +7,12 @@ ms.custom: devx-track-js, contperf-fy21q2,  engagement-fy23, vscode-azure-extens
 adobe-target: true
 ---
 
-# JavaScript API: Store data in MongoDB with Azure Function
+# Serverless TypeScript API: Store data in MongoDB with Azure Functions
 
 Create an Azure Function API to store data with Mongoose API into Azure Cosmos DB, then deploy the Function application to the Azure cloud for hosting with a public HTTP endpoint. 
+
+> [!NOTE]
+> This article uses the [Azure Functions Node.js v4 programming model](/azure/azure-functions/functions-node-upgrade-v4?tabs=azure-cli-set-indexing-flag%2Cv4) currently in preview.
 
 :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/flow-client-serverless-cosmos-db.png" alt-text="Flow chart showing path of HTTP request to pass data through Azure Functions and store in Azure Cosmos DB.":::
 
@@ -85,7 +88,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     This code is standard boilerplate in the new v4 programming model. It isn't meant to indicate the only way to write an API layer with POST and GET. 
 
-1. Change this copy, by replacing it with the following code, to allow only GET requests to return all blog posts. 
+1. Replace all this copy to allow only GET requests to return all blog posts. 
 
     ```typescript
     import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -125,26 +128,28 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
 ## 4. Start Azurite local storage emulator
 
-1. In a separate terminal, start the [Azurite](https://www.npmjs.com/package/azurite) local storage emulator. 
+Developing functions on your local computer requires either a Storage emulator (free) or an Azure Storage account (paid).
 
-    ```bash
-    azurite --silent --location ./azurite --debug ./azurite/debug.log
-    ```
+In a separate terminal, start the [Azurite](https://www.npmjs.com/package/azurite) local storage emulator. 
 
-    This is required to run the Azure Functions locally using a local Azure Storage emulator. The local storage emulator is specified in the `local.settings.json` file with the **AzureWebJobsStorage** property with a value of `UseDevelopmentStorage=true`.
-    
-    ```json
-    {
-      "IsEncrypted": false,
-      "Values": {
-        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "node",
-        "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
-      }
+```bash
+azurite --silent --location ./azurite --debug ./azurite/debug.log
+```
+
+This is required to run the Azure Functions locally using a local Azure Storage emulator. The local storage emulator is specified in the `local.settings.json` file with the **AzureWebJobsStorage** property with a value of `UseDevelopmentStorage=true`.
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
     }
-    ```
+}
+```
 
-1. You don't need to add the `azurite` subfolder to your `.gitignore` because it's already in that file. 
+The `azurite` subfolder has already been added to your `.gitignore` file. 
 
 ## 5. Run the local serverless function
 
@@ -169,7 +174,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
     curl http://localhost:7071/api/blogposts --verbose
     ```
 
-    The response is:
+    The response of an empty array of blog posts is returned as:
 
     ```console
     *   Trying 127.0.0.1:7071...
@@ -219,7 +224,7 @@ In this section, you create a function app cloud resource and related resources 
 1. If you're asked if you're sure you want to deploy, select **Deploy**.
 1. After deployment completes, a notification displays with severals options. Select **View Output** to view the results. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
-## 8. Add application setting
+## 8. Add application setting to cloud app
 
 1. Choose the Azure icon in the Activity bar, then in the **Resources** area, expand your function app resource and right-click select **Application Settings**.
 1. Select **Add New Setting** and add the following setting to enable the Node.js v4 (Preview) programming model.
@@ -232,7 +237,7 @@ In this section, you create a function app cloud resource and related resources 
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, expand your Azure Function app resource. Right-click the function name and select **Copy Function Url**.
-1. Paste the URL into a browser. The URL includes the function key, `code`, as a query parameter. The same empty array is returned as when you ran the function locally.
+1. Paste the URL into a browser. The same empty array is returned as when you ran the function locally.
 
     ```json
     {"blogposts":[]}
@@ -368,7 +373,16 @@ npm install mongoose
 
 1. Run the application locally and test the API with the same url in the previous section.
 
-## 14. Add APIs for create, update, and delete of blogposts
+## 14. Add Azure Cosmos DB database connection string to remote Azure Function app
+
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, find your Azure Cosmos DB instance. Right-click the resource and select **Copy Connection String**.
+1. In the same **Resources** section, find your Function App and expand the node.
+1. Right-click on **Application Settings** and select **Add New Setting**.
+1. Enter the app setting name, `MONGODB_URI` and select Enter. 
+1. Paste the value you copied and press enter.
+
+## 15. Add APIs for create, update, and delete of blogposts
 
 1. In Visual Studio Code, use the command palette to find and select **Azure Functions: Create function**.
 1. Select **HTTP trigger** and name it `blogpost` (singular).
@@ -517,7 +531,7 @@ npm install mongoose
     curl http://localhost:7071/api/blogposts --verbose
     ```
 
-## 15. View all data with Visual Studio Code extension for Azure Cosmos DB
+## 16. View all data with Visual Studio Code extension for Azure Cosmos DB
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, right-click your Azure Cosmos DB database and select **Refresh**.
@@ -526,21 +540,12 @@ npm install mongoose
 
     :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
 
-## 16. Redeploy the function app to include database code
+## 17. Redeploy the function app to include database code
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, right-click your Azure Function app and select **Deploy to Function App**.
 1. In the pop-up asking if you're sure you want to deploy, select **Deploy**.
 1. Wait until deployment completes before continuing.
-
-## 17. Add Azure Cosmos DB database connection string to remote Azure Function app
-
-1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
-1. In the **Resources** section, find your Azure Cosmos DB instance. Right-click the resource and select **Copy Connection String**.
-1. In the same **Resources** section, find your Function App and expand the node.
-1. Right-click on **Application Settings** and select **Add New Setting**.
-1. Enter the app setting name, `MONGODB_URI` and select Enter. 
-1. Paste the value you copied and press enter.
 
 ## 18. Use cloud-based Azure Function 
 
