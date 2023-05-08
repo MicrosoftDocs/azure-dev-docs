@@ -158,13 +158,13 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
 1. Output appears in the **Terminal** panel. 
 
-    :::image type="content" source="../media/functions-extension/visual-studio-code-local-debug-function" alt-text="Screenshot of Visual Studio Code output terminal panel when debugging locally" lightbox="../media/functions-extension/visual-studio-code-local-debug-function":::
+    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-local-debug-function" alt-text="Screenshot of Visual Studio Code output terminal panel when debugging locally" lightbox="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-local-debug-function":::
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Workspace** section, find and expand the **Local Project** -> **Functions** -> **getBlogPosts**.
 1. Right-click the function name, **getBlogPosts**, then select **Copy Function Url**.
 
-    :::image type="content" source="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png":::
+    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-function-extension-get-function-url.png":::
 
 1. In your browser, paste the URL and select Enter or use the following cURL command in the terminal:
 
@@ -527,7 +527,7 @@ npm install mongoose
 1. Expand the **test** database and **blogposts** collection node's to view the documents. 
 1. Select one of the items listed to view the data in the Azure Cosmos DB instance. 
 
-    :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
+    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
 
 ## 16. Redeploy the function app to include database code
 
@@ -561,7 +561,7 @@ To search the logs, use the Azure portal.
 
 1. From **Settings**, select **Application Insights**, then select **View Application Insights data**.
 
-    :::image type="content" source="../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/functions-extension/azure-portal-function-application-insights-link.png":::
+    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/azure-function-cosmos-db-mongo-api/azure-portal-function-application-insights-link.png":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
 
@@ -580,7 +580,7 @@ To search the logs, use the Azure portal.
 
     If the log doesn't display any results, it may be because there's a few minute delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
+    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/azure-function-cosmos-db-mongo-api/azure-portal-application-insights-function-log-trace.png":::
 
     You didn't need to do anything extra to get this logging information:
 
