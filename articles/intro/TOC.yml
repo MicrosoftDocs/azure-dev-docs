@@ -172,6 +172,8 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Azure SQL Database with mssql
+            href: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/quickstart-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
