@@ -45,7 +45,7 @@ In this article, you learn how to:
     - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension.
     - Azure Account is a dependency file for the Azure Terraform extension. This file is used to authenticate to Azure and Azure-related code extensions.
 
-1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension will appear in the list of installed extensions.
+1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension appear in the list of installed extensions.
 
     :::image type="content" source="media/configure-vs-code-extension-for-terraform/installed-extensions.png" alt-text="View installed Terraform extensions.":::
 
@@ -93,12 +93,12 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     **Key points:**
 
-    - Selecting this option is the same as running [terraform init](https://www.terraform.io/docs/commands/init.html) from the command line and will initialize your Terraform deployment.
+    - Selecting this option is the same as running [terraform init](https://www.terraform.io/docs/commands/init.html) from the command line and initializes your Terraform deployment.
     - This command downloads the Azure modules required to create an Azure resource group.
 
 1. Follow the prompts to install any dependencies - such as the latest supported version of nodejs.
 
-1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
+1. If you're using Cloud Shell for the first time with your default Azure subscription, follow the prompts to configure the environment.
 
 ## 6. Create a Terraform execution plan within Visual Studio Code
 
