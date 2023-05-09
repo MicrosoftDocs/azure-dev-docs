@@ -129,8 +129,8 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 **Key points:**
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 * Terraform state is stored in plain text and may contain secrets. If the state is incorrectly secured, unauthorized access to systems and data loss can result.
-* In this example, Terraform authenticates to the Azure storage account using an Access Key. In a production deployment, it is recommended to evaluate the available [authentication options](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) supported by the azurerm backend and to use the most secure option for your use case.
-* In this example, public network access is allowed to this Azure storage account. In a production deployment, it is recommended to restrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
+* In this example, Terraform authenticates to the Azure storage account using an Access Key. In a production deployment, it's recommended to evaluate the available [authentication options](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) supported by the azurerm backend and to use the most secure option for your use case.
+* In this example, public network access is allowed to this Azure storage account. In a production deployment, it's recommended to restrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
 
 ## 3. Configure terraform backend state
 
