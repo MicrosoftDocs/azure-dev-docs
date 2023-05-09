@@ -95,6 +95,32 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
 
+## Static Web Apps fail to deploy despite success message
+
+There is a known issue when deploying to Static Web Apps. The default `azd up` output may state the action was successful but did not actually deploy the changes. You can diagnose this issue by running the `azd up` command with the `--debug` flag enabled. In the logs you may see the following message:
+
+```bash
+Preparing deployment. Please wait...
+An unknown exception has occurred
+```
+
+The product team is currently working to resolve this issue.
+
+## Issues running the `pipeline config` command on Codespaces
+
+There are two known issues when using `azd pipeline config` on Codespaces:
+
+1) The command appears to hang due to spinner overlay, while `gh` is prompting the user for input to login.
+
+1) The `azd` authentication integration with Codespaces no longer works due to an issue with token management. You may see the following error message:
+
+    ```bash
+    ERROR: failed configuring authentication: failed setting github secret 'AZURE_ENV_NAME':  failed running gh secret set exit code: 1, stdout: , stderr: failed to fetch public key: HTTP 403: Resource not accessible by integration 
+    : user is not authorized. Try running gh auth refresh with the required scopes to request additional authorization
+    ```
+
+These are known issues that will be addressed in a future release.
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
