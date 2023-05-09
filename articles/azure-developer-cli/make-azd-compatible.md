@@ -25,10 +25,12 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
+├── .devcontainer              [ For DevContainer ]
+│   ├── devcontainer.json      [ For setting up the containerized development environment ]
+│   └── Dockerfile             [ For building the container image ]
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
-│   ├── app                    [ Recommended resources directory organized by functionality ]
 │   └── core                   [ Reference library that contains all of the Bicep modules used by the azd templates ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
@@ -72,16 +74,17 @@ Learn more about:
     azd init
     ```
 
+1. Since your current directory isn't empty, type "y" to confirm initializing a project here. 
+
 1. Select **Starter - Bicep** to get starter template with Bicep as IaC provider. 
     > [!NOTE]
     > - Select **Starter -  Terraform** to get starter template with Terraform as IaC provider.
     > - Select **Minimal** to get the minimum: `azure.yaml`, `infra` folder, `main.bicep` and `main.parameters.json` under the `infra` folder.
 
-1. If your current directory is not empty, type "y" to confirm initializing a project here. 
+1. Supply an **environment name**. Environment name is used as a prefix for the resource group created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
-1. Supply an environment name. Environment name is used as a prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
+    **Key points**
 
-    ### Key points
     After you run `azd init`, the following are added to your project:
 
     ```txt
@@ -106,7 +109,8 @@ Learn more about:
     - A `.azdo` and a `.github` folder for Azure Pipelines and GitHub Actions respectively.
       - Both folders are optional. 
       - Depending on your choice for CICD, you can delete either one of these folders.
-    - A directory called `.azure`
+      - For more details, refer to the [configure a DevOps Pipeline](#configure-a-devops-pipeline) section.
+    - A directory called `.azure`.
       - Within the `.azure` directory, a directory is created: `<environment_name>`.
       - Within the `\.azure\<your environment_name>` directory, a file named `.env` is created.
       - The `.env` file contains information such as the value you supplied: 
@@ -128,7 +132,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 1. Change the directory to the `infra` folder.
 
-1. You will see a file named `main.parameters.json`:
+1. Update the `main.parameters.json` as needed:
 
     ```json
     {
@@ -159,9 +163,9 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
       }
       ```
 
-1. Edit the `main.bicep` file. Declare the parameters you included in `main.parameters.json`. 
+1. Edit the `main.bicep` file. Declare the parameters you include in `main.parameters.json`. 
 
-   For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also refer to the `main.bicep` of an [Azure Developer CLI template](./azd-templates.md) (such as [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep)), remove the Bicep modules in /core and outputs you don't need. 
+   For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also refer to the `main.bicep` of an [Azure Developer CLI template](./azd-templates.md) (such as [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep)), copy the `/infra/core` directory, remove any Bicep modules and outputs you don't need. 
 
    For example:
 
@@ -235,7 +239,10 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
     ```
   
-    In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
+  > [!NOTE]
+  > For this sample:
+  > - A unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
+  > - Make sure you create a sub directory named `core` in `infra` and copy `appservice-appsettings.bicep`, `appservice.bicep` and `appserviceplan.bicep` from the `/infra/core` directory from [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep).
 
 1. Run the following command to provision the Azure resources:
 
@@ -247,10 +254,11 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
+   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
+   | `Azure Location`   | The Azure location where your resources are deployed. |
 
-    ###Key points:
+    **Key points**
+
     - After you run `azd provision`, the Azure resources are created under the resource group `rg-<environment_name>`.
     - The Azure location, subscription, tenant id, web end point are added to `.env` file in the project's `.azure/<environment_name>` directory.
 
@@ -273,9 +281,9 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
     | ----- | ----------- |
     | `name` | Root element. Required. Name of the app. |
     | `services` | Root element. Required. Definition of services that is part of the app. |
-    | `web` | Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier. |
+    | `web` | Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier in **main.bicep**. |
     | `project` | Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web. |
-    | `language` | Service implementation language. `py` for Python. If not specified, .NET will be assumed. |
+    | `language` | Service implementation language. `py` for Python. If not specified, .NET is assumed. |
     | `host` | Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed. |
 
     For full details, refer to [the azure.yaml schema](./azd-schema.md).
@@ -286,7 +294,8 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
     azd deploy
     ```
 
-    ### Key points
+    **Key points**
+
     After running `azd deploy`, the service **web** is deployed to the app service you previously provisioned.
 
 1. Use your browser to open the end point to test your app.
@@ -298,9 +307,9 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 ## Make your template Dev Container and Codespaces Compatible
 
-You can also make your template Dev Container or Codespaces compatible with minimal additional configurations. A Development Container (or Dev Container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud. (Source: [https://containers.dev/](https://containers.dev/))
+You can also make your template Dev Container or Codespaces compatible. A Development Container (or Dev Container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud. (Source: [https://containers.dev/](https://containers.dev/))
 
-The **Starter - Bicep** template includes the Dockerfile in the `.devcontainer` folder with the specification seen below. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
+The **Starter - Bicep** template includes the Dockerfile in the `.devcontainer` directory. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
 
 ```dockerfile
 ARG IMAGE=bullseye
@@ -315,13 +324,14 @@ You can read more about [working with Dev Containers](https://code.visualstudio.
 
 ## Configure a DevOps pipeline
 
-The **Starter - Bicep** template includes both sampels for Azure DevOps and GitHub Actions. For GitHub Actions:
+The **Starter - Bicep** template includes both sampels for Azure DevOps and GitHub Actions. 
 
-1. Remove the .azdo directory (optional step.)
+For GitHub Actions, you can remove the .azdo directory:
 
 ::: zone pivot="azd-convert"
 
-1. Run `git remote rm origin` to remove the remote repository from which you initially cloned your repository
+> [!NOTE]
+> - If you don't have the permission to push code to the remote repository from which you initially cloned your repository, run `git remote rm origin` to remove the remote repository before you proceed further.
 
 ::: zone-end
 
