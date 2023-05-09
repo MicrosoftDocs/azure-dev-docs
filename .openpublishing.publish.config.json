@@ -65,12 +65,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "js-e2e-azure-function-mongodb",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-mongodb",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "js-e2e-azure-resource-management-functions",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions",
       "branch": "main",
