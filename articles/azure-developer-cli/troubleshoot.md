@@ -97,7 +97,7 @@ If you are experiencing authentication issues in Codespaces, make sure the templ
 
 ## Static Web Apps fail to deploy despite success message
 
-There is a known issue when deploying to Static Web Apps. The default `azd up` output may state the action was successful but did not actually deploy the changes. You can diagnose this issue by running the `azd up` command with the `--debug` flag enabled. In the logs you may see the following message:
+A known issue exists when deploying to Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
 
 ```bash
 Preparing deployment. Please wait...
@@ -110,7 +110,7 @@ The product team is currently working to resolve this issue.
 
 There are two known issues when using `azd pipeline config` on Codespaces:
 
-1) The command appears to hang due to spinner overlay, while `gh` is prompting the user for input to login.
+1) The command appears to hang due to spinner overlay, while GitHub prompts the user for input to login.
 
 1) The `azd` authentication integration with Codespaces no longer works due to an issue with token management. You may see the following error message:
 
@@ -119,7 +119,7 @@ There are two known issues when using `azd pipeline config` on Codespaces:
     : user is not authorized. Try running gh auth refresh with the required scopes to request additional authorization
     ```
 
-These are known issues that will be addressed in a future release.
+The product team is working to resolve these issues.
 
 ## Text-based browser support
 
