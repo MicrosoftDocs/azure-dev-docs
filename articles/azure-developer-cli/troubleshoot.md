@@ -97,7 +97,7 @@ If you are experiencing authentication issues in Codespaces, make sure the templ
 
 ## Static Web Apps fail to deploy despite success message
 
-A known issue exists when deploying to Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
+A known issue exists when deploying to Azure Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
 
 ```bash
 Preparing deployment. Please wait...
