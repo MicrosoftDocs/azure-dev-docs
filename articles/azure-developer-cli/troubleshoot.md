@@ -21,6 +21,20 @@ If you're unable to find what you're looking for in this article or you want to 
 
 You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
+## Using the `--debug` switch
+
+If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output.
+
+```bash
+azd up --debug
+```
+
+You can also send the debugging output to a local text file for improved usability. This approach also allows the debugging info to be ingested by other monitoring systems.
+
+```bash
+azd deploy --debug > "<your-file-path>.txt"
+```
+
 ## The `.azure` directory
 
 Azure Developer CLI assumes that any directories that are stored in the `.azure` directory are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.

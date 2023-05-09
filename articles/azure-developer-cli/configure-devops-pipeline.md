@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure a pipeline and push updates (preview)
 
-In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template changes through GitHub Actions or Azure DevOps via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
+In this article, you'll learn how to use the Azure Developer CLI (azd) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
@@ -19,10 +19,17 @@ In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB 
 - [Deploy the Node.js template](./get-started.md).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
-[All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploy your code to the main branch. You can find `azure-dev.yml`:
+To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
 
- - **For GitHub Actions:** in the `.github/workflow` directory.
- - **For Azure DevOps:** in the `azdo/pipeline` directory. 
+- Creates and configures a Service Principal for the app on the Azure subscription.
+- If there is not a git repository already configured, provides the steps to create and configure a GitHub repository as well as commit the code.
+- Creates a secure connection between Azure and your repository using GitHub secrets.
+- Runs the action when you check-in the workflow file.
+
+[All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploys your code to the main branch. You can find `azure-dev.yml`:
+
+- **For GitHub Actions:** in the `.github/workflow` directory.
+- **For Azure DevOps:** in the `azdo/pipeline` directory.
  
 You can use the configuration file as-is or modify it to suit your needs.
 
