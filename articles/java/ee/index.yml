@@ -89,6 +89,8 @@ landingContent:
         links:
         - text: Red Hat JBoss EAP Server on Azure VM
           url: jboss-eap-single-server-azure-vm.md
+        - text: Red Hat JBoss EAP on Azure Red Hat OpenShift
+          url: jboss-eap-on-aro.md
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service
