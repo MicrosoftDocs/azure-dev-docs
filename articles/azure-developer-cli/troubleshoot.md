@@ -95,6 +95,19 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
 
+## Static Web Apps fail to deploy despite success message
+
+A known issue exists when deploying to Azure Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
+
+```bash
+Preparing deployment. Please wait...
+An unknown exception has occurred
+```
+
+You are most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
+
+The product team is working to resolve this issue.
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
