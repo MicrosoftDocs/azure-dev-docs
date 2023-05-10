@@ -1,10 +1,14 @@
 ---
+title: Azure Event Hubs configuration properties
+description: This reference doc contains all Azure Event Hubs configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: rujche
 ms.date: 05/10/2023
+ms.topic: reference
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-## Azure Event Hubs properties
+# Azure Event Hubs configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |

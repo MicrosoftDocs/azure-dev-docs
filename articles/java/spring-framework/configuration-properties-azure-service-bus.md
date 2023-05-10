@@ -1,10 +1,14 @@
 ---
+title: Azure Service Bus configuration properties
+description: This reference doc contains all Azure Service Bus configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: rujche
 ms.date: 05/10/2023
+ms.topic: reference
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-## Azure Service Bus properties
+# Azure Service Bus configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                              | Description                                                                                                                                                                                        |

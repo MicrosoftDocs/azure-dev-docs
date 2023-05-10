@@ -1,10 +1,14 @@
 ---
+title: Azure Active Directory configuration properties
+description: This reference doc contains all Azure Active Directory configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: rujche
 ms.date: 05/10/2023
+ms.topic: reference
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-## Azure Active Directory properties
+# Azure Active Directory configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |

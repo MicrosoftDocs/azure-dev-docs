@@ -1,10 +1,14 @@
 ---
+title: Azure Key Vault Secrets configuration properties
+description: This reference doc contains all Azure Key Vault Secrets configuration properties.
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: rujche
 ms.date: 05/10/2023
+ms.topic: reference
+ms.custom: devx-track-java, spring-cloud-azure
 ---
 
-## Azure Key Vault Secrets properties
+# Azure Key Vault Secrets configuration properties
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
