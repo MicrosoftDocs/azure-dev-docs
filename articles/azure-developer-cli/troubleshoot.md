@@ -104,7 +104,7 @@ Preparing deployment. Please wait...
 An unknown exception has occurred
 ```
 
-This issue always happens when `azd` is run from a GitHub action, so you're most likely to encounter it there. As a workaround, after you build your site, copy over `staticwebapp.config.json` into the build folder. You can automate this step this using a prepackage or predeploy script combined with [azd hooks](/azure/developer/azure-developer-cli/azd-extensibility), which allow you to execute custom scripts at various points in the `azd` command workflows.
+You are most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
 
 The product team is working to resolve this issue.
 
