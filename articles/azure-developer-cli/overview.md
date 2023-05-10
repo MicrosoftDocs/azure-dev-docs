@@ -62,26 +62,33 @@ You can run any `azd` template, in one of the following supported development en
 
 ## Supported Azure compute services (host)
 
-Currently supported/planned hosting platform for the app:
+Currently supported hosting platform for the app:
 
-| Azure compute service    | Supported?     |
+`azd` supports several services for hosting your app. Services marked as **alpha** are experimental and will need to be enabled manually with [`azd config`](./reference.md#azd-config). **beta** features may experience breaking changes. **stable** features are not expected to experience breaking changes. 
+
+For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md). For a list of all features and their stages, see [Alpha, Beta, and Stable Feature Stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md).
+
+| Azure compute service    | Feature Stage  |
 | ------------------------ | -------------- |
-| Azure App Service        | Yes            |
-| Function                 | Yes            |
-| Azure Container Apps     | Yes            |
-| Azure Static Web Apps    | Yes            |
-| Azure Kubernetes Service | Preview (only for projects deployable via `kubectl apply -f`)    |
+| Azure App Service        | Stable         |
+| Azure Static Web Apps    | Stable         |
+| Azure Container Apps     | Beta           |
+| Azure Functions          | Stable         |
+| Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
+| Azure Spring Apps        | Alpha          |
 
 ## Supported programming languages
 
 Currently supported/planned languages:
 
-| Language | Supported?  |
-| -------- | ----------- |
-| Node.js  | Yes         |
-| Python   | Yes         |
-| .NET     | Yes         |
-| Java     | Yes         |
+| Language | Feature Stage |
+| -------- | -----------   |
+| Node.js  | Stable        |
+| Python   | Stable        |
+| .NET     | Stable        |
+| Java     | Stable        |
+
+For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md)
 
 ## Next steps
 
