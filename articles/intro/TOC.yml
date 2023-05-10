@@ -42,6 +42,8 @@ items:
             href: /azure/service-bus-messaging/service-bus-migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Blobs
             href: /azure/storage/common/migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Storage - Queues
+            href: /azure/storage/queues/passwordless-migrate-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Service Connector reference
         items:
           - name: SQL

@@ -14,6 +14,8 @@
         href: traditional-websphere-application-server-virtual-machines.md
       - name: Red Hat JBoss EAP Server on Azure VM
         href: jboss-eap-single-server-azure-vm.md
+      - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
+        href: jboss-eap-on-aro.md
   - name: Java application servers on Azure
     expanded: true
     items:
