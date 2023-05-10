@@ -22,9 +22,11 @@ In this article, you'll learn how to use the Azure Developer CLI (azd) to push t
 To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
 
 - Creates and configures a Service Principal for the app on the Azure subscription.
-- If there is not a git repository already configured, provides the steps to create and configure a GitHub repository as well as commit the code.
+- Steps you through a workflow to create and configure a GitHub repository and commit your project code to it. If a GitHub repository is already setup for your project, this step is skipped.
 - Creates a secure connection between Azure and your repository using GitHub secrets.
-- Runs the action when you check-in the workflow file.
+- Runs the GitHub action when you check-in the workflow file.
+
+For more granular control over this process, you can also [manually configure a pipeline](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/manual-pipeline-config.md).
 
 [All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploys your code to the main branch. You can find `azure-dev.yml`:
 
