@@ -62,6 +62,8 @@ items:
           href: using-storage-queue-in-spring-applications.md
         - name: Use Azure Service Bus in Spring applications
           href: using-service-bus-in-spring-applications.md
+        - name: Using Event Hubs in Spring applications
+          href: using-event-hubs-in-spring-applications.md
     - name: Database
       items:
       - name: NoSQL- Azure Cosmos DB
