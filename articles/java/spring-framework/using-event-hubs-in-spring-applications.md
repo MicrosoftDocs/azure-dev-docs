@@ -3,7 +3,7 @@ title: Using Event Hubs in Spring applications
 description: This article demonstrates how to use Azure Event Hubs in Java applications built with Spring framework.
 manager: kyliel
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.date: 01/18/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure
@@ -62,7 +62,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -389,7 +389,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -517,7 +517,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -703,7 +703,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -740,7 +740,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
         @Bean
         public Consumer<Message<String>> consume() {
             return message -> {
-                System.out.println("New message received: %s.%n", message.getPayload());
+                System.out.printf("New message received: %s%n", message.getPayload());
             };
         }
         ```
@@ -804,7 +804,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -901,7 +901,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
          <dependency>
            <groupId>com.azure.spring</groupId>
            <artifactId>spring-cloud-azure-dependencies</artifactId>
-           <version>4.6.0</version>
+           <version>4.7.0</version>
            <type>pom</type>
            <scope>import</scope>
            </dependency>
@@ -918,7 +918,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+      <artifactId>spring-cloud-stream-binder-kafka</artifactId>
     </dependency>
     ```
 
@@ -940,7 +940,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
         @Bean
         public Consumer<Message<String>> consume() {
             return message -> {
-                System.out.println("New message received: %s.%n", message.getPayload());
+                System.out.printf("New message received: %s%n", message.getPayload());
             };
         }
         ```
