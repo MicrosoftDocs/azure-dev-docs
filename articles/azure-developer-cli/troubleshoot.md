@@ -104,22 +104,9 @@ Preparing deployment. Please wait...
 An unknown exception has occurred
 ```
 
-The product team is currently working to resolve this issue.
+This issue always happens when `azd` is run from a GitHub action, so you're most likely to encounter it there. As a workaround, after you build your site, copy over `staticwebapp.config.json` into the build folder. You can automate this step this using a prepackage or predeploy script combined with [azd hooks](/azure/developer/azure-developer-cli/azd-extensibility), which allow you to execute custom scripts at various points in the `azd` command workflows.
 
-## Issues running the `pipeline config` command on Codespaces
-
-There are two known issues when using `azd pipeline config` on Codespaces:
-
-1) The command appears to hang due to spinner overlay, while GitHub prompts the user for input to login.
-
-1) The `azd` authentication integration with Codespaces no longer works due to an issue with token management. You may see the following error message:
-
-    ```bash
-    ERROR: failed configuring authentication: failed setting github secret 'AZURE_ENV_NAME':  failed running gh secret set exit code: 1, stdout: , stderr: failed to fetch public key: HTTP 403: Resource not accessible by integration 
-    : user is not authorized. Try running gh auth refresh with the required scopes to request additional authorization
-    ```
-
-The product team is working to resolve these issues.
+The product team is working to resolve this issue.
 
 ## Text-based browser support
 
