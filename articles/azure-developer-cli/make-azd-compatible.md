@@ -188,7 +188,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     param appServicePlanName string = ''
     param resourceGroupName string = ''
     param webServiceName string = ''
-    // serviceName is used as value for the tag (azd-service-name) azd uses to identify
+    // serviceName is used as value for the tag (azd-service-name) azd uses to identify deployment host
     param serviceName string = 'web'
     @description('Id of the user or app to assign application roles')
 
@@ -241,6 +241,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
   
     > [!NOTE]
     > - A unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
+    > - serviceName is used as value for the tag (`azd-service-name`) azd uses to identify deployment host.
     > - Make sure you create a sub directory named `core` in `infra` and copy `appservice-appsettings.bicep`, `appservice.bicep` and `appserviceplan.bicep` from the  [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep)`/infra/core` directory.
     
 1. Run the following command to provision the Azure resources:
