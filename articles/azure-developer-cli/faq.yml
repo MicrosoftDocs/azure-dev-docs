@@ -53,11 +53,11 @@ sections:
         answer: |
           In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as `azd deploy` also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
           
-      - question: I have run `azd up` in CodeSpaces. Can I continue my work in a local development environment?
+      - question: I have run `azd up` in Codespaces. Can I continue my work in a local development environment?
         answer: |
-          Yes. You can continue development work locally by:
-          1. Run `azd init -t <template repo>` to clone the template project to your local machine
-          2. To pull down the existing env created using CoeSpaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and locaiton as before.
+          Yes. You can continue development work locally.
+          1. Run `azd init -t <template repo>` to clone the template project to your local machine.
+          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and locaiton as before.
       
       - question: How is the azure.yaml file used?
         answer: |

@@ -258,7 +258,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     **Key points**
 
     - After you run `azd provision`, the Azure resources are created under the resource group `rg-<environment_name>`.
-    - The Azure location, subscription, tenant id, web end point are added to `.env` file in the project's `.azure/<environment_name>` directory.
+    - The Azure location, subscription, tenant ID, web endpoint are added to `.env` file in the project's `.azure/<environment_name>` directory.
 
 ## Update azure.yaml
 
@@ -281,7 +281,7 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
     | `services` | Root element. Required. Definition of services that is part of the app. |
     | `web` | Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier in **main.bicep**. |
     | `project` | Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web. |
-    | `language` | Service implementation language. `py` for Python. If not specified, .NET is assumed. |
+    | `language` | Required. Service implementation language. `py` for Python. |
     | `host` | Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed. |
 
     For full details, refer to [the azure.yaml schema](./azd-schema.md).
@@ -307,7 +307,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 You can also make your template Dev Container or Codespaces compatible. A Development Container (or Dev Container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud. (Source: [https://containers.dev/](https://containers.dev/))
 
-The **Starter - Bicep** template includes the Dockerfile in the `.devcontainer` directory. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
+The **Starter - Bicep** template includes a Dockerfile in the `.devcontainer` directory. Note that the example includes the `apt-get update && apt-get install -y xdg-utils` command to enable interactive browser authentication for environments like Codespaces.
 
 ```dockerfile
 ARG IMAGE=bullseye
