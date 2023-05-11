@@ -55,21 +55,21 @@ Outputs for infrastructure provisioning are automatically stored as environment 
 
 The following are variables that are automatically provided by `azd`:
 
-|Name  |Description  |Examples  |When available  |
+| Name  | Description  | Examples  | When available  |
 |---------|---------|---------|---------|
 |`AZURE_ENV_NAME`     | The name of the environment in-use.       | `todo-app-dev`        | When an environment is created (i.e. after running azd init or azd env new).        |
 |`AZURE_LOCATION`     | The location of the environment in-use.        |  `eastus2`        |  Right before an environment is provisioned for the first time.       |
 |`AZURE_PRINCIPAL_ID`     | The running user/service principal.       | `925cff12-ffff-4e9f-9580-8c06239dcaa4`        | Determined automatically during provisioning (ephemeral).        |
-|`AZURE_SUBSCRIPTION_ID`    | The targeted subscription.       |         |  `925cff12-ffff-4e9f-9580-8c06239dcaa4`       | Right before an environment is provisioned for the first time.
+|`AZURE_SUBSCRIPTION_ID`    | The targeted subscription.       |  `925cff12-ffff-4e9f-9580-8c06239dcaa4`       | Right before an environment is provisioned for the first time.
 |`SERVICE_<service>_IMAGE_NAME`     | The full name of the container image published to Azure Container Registry for containerapp services.        | `todoapp/web-dev:azdev-deploy-1664988805`        | After a successful publishing of a `containerapp` image        |
 
 ## User-provided environment variables
 
 These are variables that can be declared as an infrastructure output parameter (which is automatically stored in `.env`), or set directly by the user in the environment (`azd env set <key> <value>`). `azd` will read the values as configuration and perform differently.
 
-|Name  |Description  |Examples  |Effects  |
+| Name  | Description  | Examples  | Effects  |
 |---------|---------|---------|---------|
 |`AZURE_AKS_CLUSTER_NAME`     | The name of the Azure Kubernetes Service cluster to target.     |   `aks-my-cluster`      |  Required property for deployment of an aks service.       |
-|`AZURE_RESOURCE_GROUP`    | The specific resource group to target. Type string.        |         |  `rg-todo-dev`       | `azd` will not perform resource group discovery, and instead references this resource group. Note that azd does not control the authored IaC configuration files, thus changes to IaC files may be needed. |
+|`AZURE_RESOURCE_GROUP`    | The specific resource group to target. Type string.   |  `rg-todo-dev`       | `azd` will not perform resource group discovery, and instead references this resource group. Note that azd does not control the authored IaC configuration files, thus changes to IaC files may be needed. |
 |`AZURE_CONTAINER_REGISTRY_ENDPOINT`     | The Azure Container Registry endpoint to publish docker image. Type string.        |  `myexampleacr.azurecr.io`      |  Required property for deployment of a `containerapp` or `aks` service.        |
 |`SERVICE_<service>_ENDPOINTS`    | The endpoints for the particular service. Type `array` (bicep) / `list-equivalent` (terraform).      | `['endpoint1', 'endpoint2']`      | Sets the public endpoints for the particular service will be used by azd for display. By default, azd discovers the automatically assigned hostnames for a given host. i.e. `*.azurewebsites.net` for `appservice`.        |
