@@ -17,6 +17,8 @@ Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing an
 
 Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
+For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md)
+
 ::: zone pivot="os-windows"
 ### Install `azd`
 ## [Windows Package Manager (winget)](#tab/winget)
