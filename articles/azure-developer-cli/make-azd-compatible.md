@@ -24,14 +24,12 @@ The following diagram gives a quick overview of the process to create an `azd` t
 All `azd` templates have the same file structure, based on `azd` conventions. The following hierarchy shows the directory structure you'll build in this tutorial. 
 
 ```txt
-├── .github                    [ Configure GitHub workflow ]
 ├── .devcontainer              [ For DevContainer ]
-│   ├── devcontainer.json      [ For setting up the containerized development environment ]
-│   └── Dockerfile             [ For building the container image ]
+├── .github                    [ Configure GitHub workflow]
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
-│   └── core                   [ Reference library that contains all of the Bicep modules used by the azd templates ]
+│   └── core                   [ Contains Bicep modules copied from azd reference library ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
 
@@ -241,7 +239,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
   
     > [!NOTE]
     > - A unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
-    > - serviceName is used as value for the tag (`azd-service-name`) azd uses to identify deployment host.
+    > - `serviceName` is used as value for the tag (`azd-service-name`) azd uses to identify deployment host. The value must be the same as what is defined in the **azure.yaml** file.
     > - Make sure you create a sub directory named `core` in `infra` and copy `appservice-appsettings.bicep`, `appservice.bicep` and `appserviceplan.bicep` from the  [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep)`/infra/core` directory.
     
 1. Run the following command to provision the Azure resources:
@@ -324,7 +322,7 @@ You can read more about [working with Dev Containers](https://code.visualstudio.
 
 ## Configure a DevOps pipeline
 
-The **Starter - Bicep** template includes both sampels for Azure DevOps and GitHub Actions. 
+The **Starter - Bicep** template includes both samples for Azure DevOps and GitHub Actions.
 
 For GitHub Actions, you can remove the .azdo directory:
 
@@ -365,18 +363,18 @@ azd down
 The following hierarchy shows the complete directory structure of an `azd` template.
 
 ```txt
-├── .azdo                      [ Configure Azure Pipeline ]
-├── .devcontainer              [ For DevContainer ]
-├── .github                    [ Configure GitHub workflow ]
-├── .vscode                    [ VS Code workspace ]
-├── assets                     [ Assets used by README.MD ]
-├── infra                      [ Creates and configures Azure resources ]
-│   ├── main.bicep             [ Main infrastructure file ]
-│   ├── main.parameters.json   [ Parameters file ]
-│   ├── app                    [ Recommended resources directory organized by functionality ]
-│   └── core                   [ Contains all of the Bicep modules used by the azd templates ]
-├── src                        [ Contains directories for the app code ]
-└── azure.yaml                 [ Describes the app and type of Azure resources]
+├── .azdo                                        [ Configure Azure Pipeline ]
+├── .devcontainer                                [ For DevContainer ]
+├── .github                                      [ Configure GitHub workflow ]
+├── .vscode                                      [ VS Code workspace configutations ]
+├── assets                                       [ Assets used by README.MD ]
+├── infra                                        [ Creates and configures Azure resources ]
+│   ├── main.bicep/main.tf                       [ Main infrastructure file ]
+│   ├── main.parameters.json/main.tfvars.json    [ Parameters file ]
+│   ├── app                                      [ Bicep only. Recommended resources directory organized by functionality ]
+│   └── core/modules                             [ Contains all of the Bicep/Terraform modules used by the azd templates ]
+├── src                                          [ Contains directories for the app code ]
+└── azure.yaml                                   [ Describes the app and type of Azure resources]
 ```
 
 ## See also
