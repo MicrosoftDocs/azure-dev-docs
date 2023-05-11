@@ -209,6 +209,8 @@ When you no longer need the Azure resources created in this article, run the fol
 azd down
 ```
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

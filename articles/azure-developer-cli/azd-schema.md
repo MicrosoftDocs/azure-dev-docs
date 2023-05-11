@@ -146,6 +146,7 @@ pipeline:
   provider: azdo
 ```
 
+[!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 

@@ -47,6 +47,18 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 
 Run `azd auth login` to refresh the access token.
 
+## Updated Azure account permissions do not refresh in `azd`
+
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`.To solve this issue, log out and then log back in to `azd` using the following commands:
+
+```bash
+azd auth logout
+
+azd auth login
+```
+
+Follow the prompts from the `azd auth login` command to complete the sign-in process and update your cached credentials.
+
 ## Cannot connect to the Docker daemon in Cloud Shell
 
 Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
@@ -176,3 +188,9 @@ You may also be receiving this error due to being logged in using the device cod
 ## Live metrics support for Python
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
+
+## Create a GitHub issue to request help
+
+The Azure Developer CLI and the [Azure Dev CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
+
+For help and questions about using this project, please look at our [wiki](https://github.com/Azure/azure-dev/wiki) for using Azure Developer CLI and our [CONTRIBUTING doc](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md) if you want to contribute.

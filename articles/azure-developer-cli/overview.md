@@ -83,6 +83,8 @@ Currently supported/planned languages:
 | .NET     | Yes         |
 | Java     | Yes         |
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 - Get started by [installing Azure Developer CLI](./install-azd.md).
