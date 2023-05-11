@@ -25,6 +25,8 @@
       href: monitor-your-app.md
     - name: Make your project azd-compatible
       href: make-azd-compatible.md
+    - name: Manage environment variables
+      href: manage-environment-variables.md
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Feature versioning and release strategy

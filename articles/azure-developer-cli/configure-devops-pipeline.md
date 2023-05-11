@@ -21,9 +21,9 @@ In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB 
 
 [All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploy your code to the main branch. You can find `azure-dev.yml`:
 
- - **For GitHub Actions:** in the `.github/workflow` directory.
- - **For Azure DevOps:** in the `azdo/pipeline` directory. 
- 
+- **For GitHub Actions:** in the `.github/workflow` directory.
+- **For Azure DevOps:** in the `azdo/pipeline` directory.
+
 You can use the configuration file as-is or modify it to suit your needs.
 
 Select your preferred pipeline provider to continue:
