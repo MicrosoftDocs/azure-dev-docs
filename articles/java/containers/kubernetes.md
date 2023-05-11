@@ -23,10 +23,10 @@ Keep in mind that the cost of a VM SKU is proportional to the number of cores an
 
 ## Set CPU requests and limits
 
-If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. The JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
+For the best fair CPU utilization across your Kubernetes cluster, ensure all containers specify CPU requests, but do not specify CPU limits. If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. The JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
 
 > [!TIP]
-> Set same value for CPU requests and CPU limits.
+> Set CPU requests, but not CPU limits.
 
 ```yaml
 containers:
@@ -34,7 +34,7 @@ containers:
   name: myapp
   resources:
     limits:
-      cpu: "2"
+      # CPU limit intentionally left unset
     requests:
       cpu: "2"
 ```
