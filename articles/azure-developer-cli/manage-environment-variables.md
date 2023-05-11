@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Manage environment variables
 
-Environment variables are used to specify certain configurations for `azd` templates. These configurations can influence your CI/CD pipelines and how resources are provisioned and deployed to Azure.
+Environment variables are used to specify certain configurations for `azd` templates. These configurations can influence how resources are provisioned and deployed to Azure and how your CI/CD pipeline is setup.
 
 ## Input Parameters Substitution
 
