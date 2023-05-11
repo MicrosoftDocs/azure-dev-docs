@@ -150,23 +150,32 @@ This error is related to your Azure Active Directory's tenant enablement of Cond
 You may also be receiving this error due to being logged in using the device code mechanism, which prevents Azure Active Directory from detecting your device platform correctly.
 
 ### Solution
+To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principal stored in a GitHub secret named `AZURE_CREDENTIALS`. Select your Codespace host for steps:
+
+## [Browser](#tab/Browser)
 
 1. Make sure you're running on a device listed as supported, per the error message.
-1. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
+2. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
 
    ```azdeveloper
    azd auth login --use-device-code=false
    ```
+3. You may receive an error with message `localhost refused to connect` after logging in. If so:
+   1. Copy the URL.
+   2. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
 
-   > [!NOTE]
-   > If running CodeSpaces in the browser, you may receive an error with message `localhost refused to connect` after logging in. If so:
-   > 
-   > 1. Copy the URL.
-   > 1. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
-   > 
-   > In the original terminal, the login should now succeed.
+   In the original terminal, the login should now succeed.
+4. After logging in, rerun `azd pipeline config`.
 
-1. After logging in, rerun `azd pipeline config`.
+## [VS Code](#tab/VSCode)
+
+1. Make sure you're running on a device listed as supported, per the error message.
+2. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
+
+   ```azdeveloper
+   azd auth login --use-device-code=false
+   ```
+3. After logging in, rerun `azd pipeline config`.
 
 ## `azd pipeline config` support
 
