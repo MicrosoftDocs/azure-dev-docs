@@ -6,7 +6,7 @@
   - name: Get started
     items: 
     - name: Install or update azd
-      href: install-update-azd.md
+      href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md
     - name: Deploy an azd template
