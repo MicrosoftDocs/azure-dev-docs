@@ -20,6 +20,8 @@ When you install `azd`, the following tools are also installed:
 - The [Git CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
 
+These dependencies are only installed within the local scope of `azd`, meaning you cannot use them on their own outside of `azd` and they are removed when `azd` is uninstalled.
+
 ## [Local install](#tab/localinstall)
 
 [!INCLUDE [azd-install-local](includes/azd-install-local.md)]

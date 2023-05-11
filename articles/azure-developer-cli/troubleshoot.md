@@ -23,13 +23,16 @@ You can also report bugs by opening GitHub Issues in the [Azure Developer CLI Gi
 
 ## Using the `--debug` switch
 
-If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output.
+If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
 
 ```bash
 azd up --debug
 ```
 
-You can also send the debugging output to a local text file for improved usability. This approach also allows the debugging info to be ingested by other monitoring systems.
+You can also send the debugging output to a local text file for improved usability. This approach allows the debugging info to be ingested by other monitoring systems and can also be useful when filing an issue on GitHub.
+
+> [!IMPORTANT]
+> Make sure to redact any sensitive information when submitting debug logs on GitHub or saving them to other diagnostics systems.
 
 ```bash
 azd deploy --debug > "<your-file-path>.txt"
@@ -191,6 +194,8 @@ Live Metrics (`azd monitor --live`) is currently not supported for Python apps. 
 
 ## Create a GitHub issue to request help
 
-The Azure Developer CLI and the [Azure Dev CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
+:::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
+
+The Azure Developer CLI and the [Azure Developer CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
 
 For help and questions about using this project, please look at our [wiki](https://github.com/Azure/azure-dev/wiki) for using Azure Developer CLI and our [CONTRIBUTING doc](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md) if you want to contribute.
