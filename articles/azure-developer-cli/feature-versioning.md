@@ -12,7 +12,7 @@ ms.custom: devx-track-azdevcli
 
 # Azure Developer CLI feature versioning and release strategy
 
-Azure Developer CLI (`azd`) features are introduced and supported using a phased approach. Features begin in the **alpha** stage and then advance to **beta** and **stable** after meeting various criteria. This article describes the definitions, expectations and advancement requirements for each phase.
+Azure Developer CLI (`azd`) features are introduced and supported using a phased approach. Features begin in the **alpha** stage and then advance to **beta** and **stable** after meeting various criteria. This article describes the definitions, expectations and advancement requirements for each phase. See a full list of each feature /command supported by `azd` and its current stage [on GitHub](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md)
 
 ## Alpha Features
 

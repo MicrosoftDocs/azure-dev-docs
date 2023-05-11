@@ -2,9 +2,9 @@
 title: Using Azure Export for Terraform in advanced scenarios
 description: Learn how to append resources and use remote backends 
 ms.topic: how-to
-ms.date: 04/23/2023
+ms.date: 05/10/2023
 ms.author: stema
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform,devx-track-export-terraform
 ---
 
 # Using Azure Export for Terraform in advanced scenarios
