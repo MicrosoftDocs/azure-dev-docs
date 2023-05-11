@@ -11,9 +11,11 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Manage environment variables
 
+Environment variables are used to specify certain configurations for `azd` templates. These configurations can influence your CI/CD pipelines and how resources are provisioned and deployed to Azure.
+
 ## Input Parameters Substitution
 
-Environment variables can be referenced in IaC provider parameter files (*.parameters.json for Bicep, *.tfvars.json for Terraform) as part of provisioning. When an environment variable substitution syntax is encountered, azd will automatically substitute the reference with the actual environment variable value set. Substitution also occurs for certain configuration settings in azure.yaml (properties documented field 'Supports environment variable substitution'), and in deployment configuration files, such as deployment manifests for aks.
+Environment variables can be referenced in parameter files (`*.parameters.json` for Bicep, `*.tfvars.json` for Terraform) as part of provisioning. When an environment variable substitution syntax is encountered, `azd` will automatically substitute the reference with the actual environment variable value set. Substitution also occurs for certain configuration settings in `azure.yaml` (properties documented field 'Supports environment variable substitution'), and in deployment configuration files, such as deployment manifests for `aks`.
 
 ### Example: Input parameter substitution (Bicep)
 
