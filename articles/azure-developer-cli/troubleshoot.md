@@ -150,7 +150,7 @@ This error is related to your Azure Active Directory's tenant enablement of Cond
 You may also be receiving this error due to being logged in using the device code mechanism, which prevents Azure Active Directory from detecting your device platform correctly.
 
 ### Solution
-To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principal stored in a GitHub secret named `AZURE_CREDENTIALS`. Select your Codespace host for steps:
+To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure Service Principal stored in a GitHub secret named `AZURE_CREDENTIALS`. Select your Codespace host for steps:
 
 ## [Browser](#tab/Browser)
 
@@ -162,7 +162,7 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
    ```
 3. You may receive an error with message `localhost refused to connect` after logging in. If so:
    1. Copy the URL.
-   2. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
+   2. Run `curl '<pasted url>'` (URL in quotes) in a new Codespaces terminal.
 
    In the original terminal, the login should now succeed.
 4. After logging in, rerun `azd pipeline config`.
