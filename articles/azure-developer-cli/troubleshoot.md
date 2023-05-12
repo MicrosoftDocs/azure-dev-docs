@@ -21,6 +21,23 @@ If you're unable to find what you're looking for in this article or you want to 
 
 You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
+## Using the `--debug` switch
+
+If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
+
+```bash
+azd up --debug
+```
+
+You can also send the debugging output to a local text file for improved usability. This approach allows the debugging info to be ingested by other monitoring systems and can also be useful when filing an issue on GitHub.
+
+> [!IMPORTANT]
+> Make sure to redact any sensitive information when submitting debug logs on GitHub or saving them to other diagnostics systems.
+
+```bash
+azd deploy --debug > "<your-file-path>.txt"
+```
+
 ## The `.azure` directory
 
 Azure Developer CLI assumes that any directories that are stored in the `.azure` directory are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
@@ -32,6 +49,18 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 ### Solution
 
 Run `azd auth login` to refresh the access token.
+
+## Updated Azure account permissions do not refresh in `azd`
+
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`.To solve this issue, log out and then log back in to `azd` using the following commands:
+
+```bash
+azd auth logout
+
+azd auth login
+```
+
+Follow the prompts from the `azd auth login` command to complete the sign-in process and update your cached credentials.
 
 ## Cannot connect to the Docker daemon in Cloud Shell
 
@@ -184,3 +213,11 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 ## Live metrics support for Python
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
+
+## Create a GitHub issue to request help
+
+:::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
+
+The Azure Developer CLI and the [Azure Developer CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
+
+For help and questions about using this project, please look at our [wiki](https://github.com/Azure/azure-dev/wiki) for using Azure Developer CLI and our [CONTRIBUTING doc](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md) if you want to contribute.

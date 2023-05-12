@@ -384,6 +384,8 @@ The following hierarchy shows the complete directory structure of an `azd` templ
 - [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
 - [Azure Developer CLI's azure.yaml schema](./azd-schema.md)
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

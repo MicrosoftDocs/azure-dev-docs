@@ -25,6 +25,8 @@ zone_pivot_groups: azd-devenv-set
 
 ::: zone-end
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -50,6 +50,8 @@ azd down
 
 - [Azure Monitor documentation](/azure/azure-monitor/)
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
