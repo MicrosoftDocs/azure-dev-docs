@@ -116,6 +116,8 @@ The Azure Developer CLI team plans to author more templates in the future to cov
 
 You can also open an issue on [our GitHub repository](https://github.com/Azure/azure-dev) if there’s a use case and template that you would like to see created.
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

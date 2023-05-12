@@ -2,7 +2,7 @@
 title: Use Azure Storage Queue in Spring applications
 description: This article demonstrates how to use Azure Storage Queue in Java applications built with Spring framework.
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.date: 04/06/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, passwordless-java

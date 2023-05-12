@@ -1,7 +1,7 @@
 ---
 ms.date: 11/16/2022
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ---
 
 ### Introducing passwordless connections
