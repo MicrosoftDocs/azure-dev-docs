@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Manage environment variables
 
-Environment variables are used to specify certain configurations for `azd` templates. These configurations can influence how resources are provisioned and deployed to Azure and how your CI/CD pipeline is setup.
+Environment variables can be configured to influence how resources are provisioned and deployed to Azure. This is especially useful when running azd in CI/CD workflow scenarios.
 
 ## Input Parameters Substitution
 
-Environment variables can be referenced in parameter files (`*.parameters.json` for Bicep, `*.tfvars.json` for Terraform) as part of provisioning. When an environment variable substitution syntax is encountered, `azd` will automatically substitute the reference with the actual environment variable value set. Substitution also occurs for certain configuration settings in `azure.yaml` (properties documented field 'Supports environment variable substitution'), and in deployment configuration files, such as deployment manifests for `aks`.
+Environment variables can be referenced in parameter files (`*.parameters.json` for Bicep, `*.tfvars.json` for Terraform) as part of provisioning. When an environment variable substitution syntax is encountered, `azd` will automatically substitute the reference with the actual environment variable value set. Substitution also occurs for certain configuration settings in `azure.yaml` (properties documented with 'Supports environment variable substitution'), and in deployment configuration files, such as deployment manifests for `aks`.
 
 ### Example: Input parameter substitution (Bicep)
 
@@ -42,10 +42,6 @@ In the `main.parameters.json` file, you can reference `AZURE_LOCATION` and allow
   }
 }
 ```
-
-### Provide default values
-
-To set `location` to the value `eastus2` if `AZURE_LOCATION` is not set, the syntax `${AZURE_LOCATION=eastus2}` can be used. For more details on the syntax, visit the [environment substitution](https://github.com/a8m/envsubst#docs) for Go.
 
 ## Environment-specific `.env` file
 
