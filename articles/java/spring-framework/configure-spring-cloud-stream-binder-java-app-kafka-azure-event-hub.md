@@ -108,7 +108,7 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
    spring.cloud.stream.kafka.binder.brokers=${AZ_EVENTHUBS_NAMESPACE_NAME}.servicebus.windows.net:9093
-   spring.cloud.stream.function.definition=consume;supply
+   spring.cloud.function.definition=consume;supply
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
@@ -132,7 +132,7 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
    spring.cloud.azure.eventhubs.connection-string=${AZ_EVENTHUBS_CONNECTION_STRING}
-   spring.cloud.stream.function.definition=consume;supply
+   spring.cloud.function.definition=consume;supply
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
