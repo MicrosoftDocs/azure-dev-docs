@@ -134,9 +134,6 @@ apt update
 apt install ./azd_<version>_amd64.deb -y
 ```
 
-> [!NOTE]
-> You may need to use `sudo` when running `apt`.
-
 ## Uninstall `.deb` package for `azd`
 ```bash 
 apt remove -y azd
@@ -156,12 +153,8 @@ curl -fSL https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_<ve
 yum install -y azd-<version>-1.x86_64.rpm 
 ```
 
-> [!NOTE]
-> You may need to use `sudo` when running `yum`.
-
 ## Uninstall `.rpm` package for `azd`
 
-### [.rpm package](#tab/rpm-linux)
 ```bash 
 yum remove -y azd
 ```
