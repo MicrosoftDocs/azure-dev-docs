@@ -21,40 +21,57 @@ For more advanced installation scenarios and instructions, see [Azure Developer 
 
 ::: zone pivot="os-windows"
 ### [Windows Package Manager (winget)](#tab/winget-windows)
-## Install `azd`
+### Install `azd`
 
 ```powershell
 winget install microsoft.azd
 ```
 
-## Uninstall `azd`
+### Update `azd`
+
+```powershell
+winget upgrade microsoft.azd
+```
+
+### Uninstall `azd`
 
 ```powershell
 winget uninstall microsoft.azd
 ```
 
 ### [Chocolatey](#tab/choco-windows)
-## Install `azd`
+### Install `azd`
 
 ```powershell
 choco install azd
 ```
 
-## Uninstall `azd`
+### Update `azd`
+```powershell
+choco upgrade azd
+```
+
+### Uninstall `azd`
 
 ```powershell
 choco uninstall azd
 ```
 
 ### [Script](#tab/script-windows)
-## Install `azd`
+### Install `azd`
 
 The install script downloads and installs the MSI package on the machine with default parameters.
 
 ```powershell
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
-## Uninstall `azd`
+
+### Update `azd`
+```powershell
+powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
+```
+
+### Uninstall `azd`
 
 Once you've installed the MSI versions, using the uninstall script to remove `azd` will leave some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
 
@@ -74,7 +91,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1
 
 ::: zone pivot="os-mac"
 ### [Homebrew (recommended)](#tab/brew-mac)
-## Install `azd`
+### Install `azd`
 
 ```bash
 brew tap azure/azd && brew install azd
@@ -84,14 +101,19 @@ The `brew tap azure/azd` command only needs to be run once to configure the tap 
 
 If using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually.
 
-## Uninstall `azd`
+### Update `azd`
+```bash
+brew upgrade azd
+```
+
+### Uninstall `azd`
 
 ```bash
 brew uninstall azd
 ```
 
 ### [Script](#tab/script-mac)
-## Install `azd`
+### Install `azd`
 
 The install script can be used to install `azd` at the machine scope.
 
@@ -99,7 +121,12 @@ The install script can be used to install `azd` at the machine scope.
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-## Uninstall `azd`
+### Update `azd`
+```bash
+curl -fsSL https://aka.ms/install-azd.sh | bash
+```
+
+### Uninstall `azd`
 
 ```bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
@@ -110,21 +137,26 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ::: zone pivot="os-linux"
 
 ### [Script](#tab/script-linux)
-## Install `azd`
+### Install `azd`
 
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
-## Uninstall `azd`
+
+### Update `azd`
+curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+
+
+### Uninstall `azd`
 
 ```bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
 
 ### [.deb package](#tab/deb-linux)
-The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
+The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install or update, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
 
-## Install `.deb` package for `azd`
+### Install or Update `.deb` package for `azd`
 
 You can install the `.deb` package using `apt-get`:
 
@@ -134,7 +166,7 @@ apt update
 apt install ./azd_<version>_amd64.deb -y
 ```
 
-## Uninstall `.deb` package for `azd`
+### Uninstall `.deb` package for `azd`
 ```bash 
 apt remove -y azd
 ```
@@ -144,7 +176,7 @@ apt remove -y azd
 ### [.rpm package](#tab/rpm-linux)
 The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
 
-## Install `.rpm` package for `azd`
+### Install `.rpm` package for `azd`
 
 You can install the `.rpm` package using `yum install`:
 
@@ -153,7 +185,7 @@ curl -fSL https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_<ve
 yum install -y azd-<version>-1.x86_64.rpm 
 ```
 
-## Uninstall `.rpm` package for `azd`
+### Uninstall `.rpm` package for `azd`
 
 ```bash 
 yum remove -y azd
