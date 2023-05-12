@@ -5,7 +5,7 @@
     href: overview.md
   - name: Get started
     items: 
-    - name: Install azd
+    - name: Install or update azd
       href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md

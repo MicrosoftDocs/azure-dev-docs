@@ -24,9 +24,31 @@ All features start as **alpha** features (e.g., experimental). In this phase, th
 ### Definition
 
 * These features are under active development.
-* Features are hidden behind a feature flag, which interested users must explicitly opt into. Visit the [azure-dev](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/alpha-features.md)  GitHub repository for more information on how to enable **alpha** features.
+* Features are hidden behind a feature flag, which interested users must explicitly opt into. 
 * There are no guarantees about the long-term stability or support of experimental features.
 * No commitment that the feature is something the product team plans to advance to preview or stable stage (it’s an experiment).
+
+### How to opt into alpha features
+
+1. To list available experimental features, run:
+
+    ```azdeveloper
+    azd config list-alpha
+    ```
+
+1. To enable a specific experimental feature, e.g. `resourceGroupDeployments` to support infrastructure deployments at resource group scope, run:
+
+    ```azdeveloper
+    azd config set alpha.resourceGroupDeployments on
+    ```
+
+1. To disable the `resourceGroupDeployments` feature, run:
+
+    ```azdeveloper
+    azd config set alpha.resourceGroupDeployments off
+    ```
+
+    For more information, visit the [azure-dev](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/alpha-features.md) GitHub repository.
 
 ### Advancement criteria (how to reach beta)
 
@@ -66,3 +88,5 @@ The goal of this phase is to improve the feature experience and advance beyond p
 * Breaking changes in these areas are unexpected.
 * The product team ensures that any breaking changes are rolled out in a way that minimizes impact.
 * Use in business-critical scenarios.
+
+[!INCLUDE [request-help](includes/request-help.md)]

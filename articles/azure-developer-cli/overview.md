@@ -90,6 +90,8 @@ Currently supported/planned languages:
 
 For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md)
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 - Get started by [installing Azure Developer CLI](./install-azd.md).

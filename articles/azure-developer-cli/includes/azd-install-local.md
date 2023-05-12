@@ -14,7 +14,6 @@ Before you get started using `azd`, ensure you have:
   - [Git](https://git-scm.com/)
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-
 ## Install `azd`
 
 ### [Windows](#tab/windows)

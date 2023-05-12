@@ -11,13 +11,18 @@ zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.j
 zone_pivot_groups: azd-os-env-set
 ---
 
-# Install the Azure Developer CLI (preview)
+# Install or update the Azure Developer CLI (preview)
 
-Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run the `azd`.
+Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run `azd`.
 
 Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
 For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md)
+
+Note: When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
+
+- The [Git CLI](https://cli.github.com/)
+- The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
 
 ::: zone pivot="os-windows"
 ### [Windows Package Manager (winget)](#tab/winget-windows)
@@ -211,3 +216,10 @@ Before you get started using `azd`, ensure you have:
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
   
 ::: zone-end
+
+[!INCLUDE [request-help](includes/request-help.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Choose an azd template](./azd-templates.md)
