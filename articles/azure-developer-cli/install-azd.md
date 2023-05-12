@@ -109,18 +109,22 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 
 ::: zone pivot="os-linux"
 
-## Install `azd`
-
 ### [Script](#tab/script-linux)
+## Install `azd`
 
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
+## Uninstall `azd`
 
-## DEB/RPM Packages
-The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:
+```bash
+curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+```
 
 ### [.deb package](#tab/deb-linux)
+The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
+
+## Install `.deb` package for `azd`
 
 You can install the `.deb` package using `apt-get`:
 
@@ -133,7 +137,17 @@ apt install ./azd_<version>_amd64.deb -y
 > [!NOTE]
 > You may need to use `sudo` when running `apt`.
 
+## Uninstall `.deb` package for `azd`
+```bash 
+apt remove -y azd
+```
+> [!NOTE]
+> You may need to use `sudo` when running `apt`.
+
 ### [.rpm package](#tab/rpm-linux)
+The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
+
+## Install `.rpm` package for `azd`
 
 You can install the `.rpm` package using `yum install`:
 
@@ -145,24 +159,7 @@ yum install -y azd-<version>-1.x86_64.rpm
 > [!NOTE]
 > You may need to use `sudo` when running `yum`.
 
-## Uninstall `azd`
-
-### [Script](#tab/script-linux)
-
-```bash
-curl -fsSL https://aka.ms/uninstall-azd.sh | bash
-```
-
-If you installed `azd` using one of the .deb or .rpm packages, use the appropriate uninstall method for your package manager. 
-
-### [.deb package](#tab/deb-linux)
-```bash 
-apt remove -y azd
-```
-> [!NOTE]
-> You may need to use `sudo` when running `apt`.
-
-## DEB/RPM Packages
+## Uninstall `.rpm` package for `azd`
 
 ### [.rpm package](#tab/rpm-linux)
 ```bash 
@@ -172,10 +169,11 @@ yum remove -y azd
 > [!NOTE]
 > You may need to use `sudo` when running `yum`.
 
-
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
+
+
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
 
 ## Pre-requisites
