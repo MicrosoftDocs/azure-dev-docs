@@ -26,21 +26,21 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Set the offline database location
 
-In the `TodoApp.Uno` project, edit the `MainWindowViewModel.cs` file in the `ViewModels` folder.  Change the definition of the `RemoteTodoService` as follows:
+In the `TodoApp.Uno` project, edit the `MainPage.xaml.cs` file. Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
-TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
+_service = new RemoteTodoService(async () => await GetAuthenticationToken())
 {
-    OfflineDb = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\offline.db"
+    OfflineDb = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/offline.db"
 };
 ```
 
 If you haven't completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
 
 ``` csharp
-TodoService = new RemoteTodoService()
+_service = new RemoteTodoService()
 {
-    OfflineDb = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\offline.db"
+    OfflineDb = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/offline.db"
 };
 ```
 

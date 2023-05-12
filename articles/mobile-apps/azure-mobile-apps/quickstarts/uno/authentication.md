@@ -50,7 +50,10 @@ Use the same technique to add the [Microsoft.Identity.Client](/azure/active-dire
 5. Accept the license agreement to continue the installation.
 
 > [!NOTE]
-> Ensure you install the latest versions of these two libraries.
+> Ensure you install the latest versions of these two libraries.  The minimum version numbers are:
+>
+> * Uno.WinUI.MSAL v4.9.0
+> * Microsoft.Identity.Client v4.54.0
 
 Add the native client ID and backend scope to the configuration.
 
@@ -116,7 +119,7 @@ Replace the fields and constructor with the following code:
 #endif
             .WithUnoHelpers()
             .Build();
-        _service = new RemoteTodoService(GetAuthenticationClient);
+        _service = new RemoteTodoService(GetAuthenticationToken);
         _viewModel = new TodoListViewModel(this, _service);
         mainContainer.DataContext = _viewModel;
     }
