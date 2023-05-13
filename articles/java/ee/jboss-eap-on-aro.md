@@ -367,8 +367,8 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    git clone https://github.com/Azure/rhel-jboss-templates.git
    oc new-project ${PROJECT_NAME}
 
-   CON_REG_ACC_USER_NAME_BASE64=$(echo CON_REG_ACC_USER_NAME | base64 -w0)
-   CON_REG_ACC_PWD_BASE64=$(echo CON_REG_ACC_PWD | base64 -w0)
+   CON_REG_ACC_USER_NAME_BASE64=$(echo ${CON_REG_ACC_USER_NAME} | base64 -w0)
+   CON_REG_ACC_PWD_BASE64=$(echo ${CON_REG_ACC_PWD} | base64 -w0)
 
    cat <<EOF | oc apply -f -
    apiVersion: v1
