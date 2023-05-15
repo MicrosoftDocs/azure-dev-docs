@@ -22,13 +22,13 @@ With the approach shown here, you can start with the sample code and use it to r
 
 There are many possible paths to create and use GitHub Codespaces. This tutorial shows one path you can start with.
 
-1. Go to sample app repo in /Azure-Samples/msdocs-fastapi-postgres-codespace
+1. Go to sample app repo at [https://github.com/Azure-Samplesmsdocs-fastapi-postgres-codespace][0].
 
     The sample repo has all the configuration needed to create a FastAPI app with a Postgres database environment and run them in an environment. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
 
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
-    :::image type="content" source="./media/codespaces-tutorial/create-codespaces.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
+    :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
     
 1. When the container finishes building, codespace is running in a browser with the sample project.
 
@@ -43,7 +43,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Select the *.env.devcontainer* file and create a copy called *.env* with the same contents.
 
-1. Run the FastAPI app with
+1. In the terminal window, run the FastAPI app.
 
     ```bash
     uvicorn main:app --reload
@@ -53,20 +53,29 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     If you don't see or missed the notification, go to **PORTS** and find the **Local Address* for port 8000. Use the URL listed there.
 
-1. Add */docs* on the end of the preview URL to see the API methods.
+1. Add */docs* on the end of the preview URL to see the [Swagger UI][12], which allows you to test the API methods.
 
-1. In the preview page, run the POST method to add a restaurant.
+    You should see the Swagger UI page with the API methods. The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
 
-    Be sure to fill in the request body and select **Execute** to commit the change.
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
-    ```json
-    {
-      "name": "restaurant 1",
-      "address": "an address"
-    }
-    ```
 
-## Connect to the Postgres database
+1. On the Swagger page, run the POST method to add a restaurant.
+
+    1. Select **Try it out**.
+
+    2. Fill in the request body.
+
+        ```json
+        {
+          "name": "restaurant 1",
+          "address": "an address"
+        }
+        ```
+
+    3. Select **Execute** to commit the change
+
+## Use a database management tool to view the data
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
@@ -89,6 +98,7 @@ Go to https://github.com/codespaces to manage your codespaces, including restart
 * [Develop a container app][10]
 * [Learn to use the Azure libraries for Python][11]
 
+[0]: https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace
 [1]: https://docs.github.com/codespaces
 [2]: https://code.visualstudio.com/docs/devcontainers/containers
 [3]: https://www.docker.com/products/docker-desktop/
@@ -100,3 +110,4 @@ Go to https://github.com/codespaces to manage your codespaces, including restart
 [9]: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
 [10]: ./containers-in-azure-overview-python.md
 [11]: ./sdk/azure-sdk-overview.md
+[12]: https://swagger.io/tools/swagger-ui/
