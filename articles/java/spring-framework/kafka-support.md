@@ -3,7 +3,7 @@ title: Spring Cloud Azure kafka support
 description: This article describes how Spring Cloud Azure and Kafka can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: reference
 ms.custom: devx-track-java
 ---

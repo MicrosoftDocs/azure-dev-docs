@@ -3,7 +3,7 @@ title: Spring Cloud Stream support
 description: This article describes how Spring Cloud Azure and Spring Cloud Stream can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: reference
 ms.custom: devx-track-java
 ---
@@ -204,9 +204,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                  container-name: ${CHECKPOINT_CONTAINER}
                  account-name: ${CHECKPOINT_STORAGE_ACCOUNT}
                  account-key: ${CHECKPOINT_ACCESS_KEY}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
@@ -238,9 +238,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
                  account-name: ${ACCOUNT_NAME}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
@@ -270,9 +270,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
                  account-name: ${ACCOUNT_NAME}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
@@ -332,9 +332,9 @@ A `PartitionSupplier` with user-provided partition information is created to con
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume
        stream:
-         function:
-           definition: consume
          bindings:
            consume-in-0:
              destination: ${AZURE_EVENTHUB_NAME}
@@ -568,9 +568,9 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume1;supply1;consume2;supply2
        stream:
-         function:
-           definition: consume1;supply1;consume2;supply2
          bindings:
            consume1-in-0:
              destination: ${EVENTHUB_NAME_01}
@@ -816,9 +816,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
              azure:
                servicebus:
                  connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -849,9 +849,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  tenant-id: ${AZURE_TENANT_ID}
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -880,9 +880,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -1126,9 +1126,9 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume1;supply1;consume2;supply2
        stream:
-         function:
-           definition: consume1;supply1;consume2;supply2
          bindings:
            consume1-in-0:
              destination: ${SERVICEBUS_TOPIC_NAME}

@@ -100,8 +100,8 @@ infra:
 | --- | --- | --- | --- |
 | `resourceName` | N | _(string)_ Name of the Azure resource that implements the service. If not specified, `azd` will look for a resource by `azd-env-name` and `azd-service-name` tags. If not found, it will look for a resource name constructed from the current environment name, concatenated with the service name (`<environment-name><resource-name>`). | `prodapi` |
 | `project` | Y | _(string)_ Path to the service source code directory. |  |
-| `host` | Y | _(string)_ Type of Azure resource used for service implementation. If omitted, App Service will be assumed. | `appservice`, `containerapp`, `function`, `staticwebapp`, `aks` (only for projects deployable via `kubectl apply -f`), `springapp` (when [enabled](aka.ms/azd-may-2023) - learn more about [alpha features](./feature-versioning.md#alpha-features)) | 
-| `language` | Y | _(string)_ Service implementation language. If omitted, .NET will be assumed. | `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java` |
+| `host` | Y | _(string)_ Type of Azure resource used for service implementation. If omitted, App Service will be assumed. | `appservice`, `containerapp`, `function`, `staticwebapp`, `aks` (only for projects deployable via `kubectl apply -f`), `springapp` (when [enabled](https://aka.ms/azd-may-2023) - learn more about [alpha features](./feature-versioning.md#alpha-features)) | 
+| `language` | Y | _(string)_ Service implementation language. | `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java` |
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
 | `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | `build` |
 | `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. `path` _(string)_: Path to the Dockerfile. Default: `./Dockerfile`; `context` _(string)_: The docker build context. When specified, overrides default context. Default: `.`; `platform` _(string)_: The platform target. Default: `amd64` |
@@ -197,6 +197,7 @@ pipeline:
   provider: azdo
 ```
 
+[!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 
