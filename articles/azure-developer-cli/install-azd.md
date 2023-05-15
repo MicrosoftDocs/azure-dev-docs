@@ -221,8 +221,6 @@ Before you get started using `azd`, ensure you have:
   
 ::: zone-end
 
-[!INCLUDE [request-help](includes/request-help.md)]
-
 ## Updating the Azure Developer CLI
 
 When working with an out of date version of `azd`, you will see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
