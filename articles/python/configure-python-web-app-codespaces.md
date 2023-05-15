@@ -12,7 +12,7 @@ This article shows you how to run FastAPI and Postgres together in a development
 
 You can open the sample repo in a [browser][4] or IDE like [VS Code][6] with the [GitHub Codespaces extension][5].
 
-You can also clone the sample repo and when you open the project in VS Code, you have the option to run in [Visual Studio Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is install locally. If you don't have Docker installed, you can still use VS Code to run the project, but you'll be using GitHub Codespaces.
+You can also clone the sample repo and when you open the project in VS Code, you can run in [Visual Studio Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is install locally. If you don't have Docker installed, you can still use VS Code to run the project, but you're using GitHub Codespaces as the environment.
 
 If you use Codespaces in a browser or VS Code, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
@@ -30,9 +30,9 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     :::image type="content" source="./media/codespaces-tutorial/create-codespaces.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
     
-1. When the container finishes building, you'll have a codespace for the project running in a browser.
+1. When the container finishes building, codespace is running in a browser with the sample project.
 
-    A codespace is a development environment that's hosted in the cloud. The configuration key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GetHub Codespaces overview][1].
+    A codespace is a development environment that's hosted in the cloud. The configuration key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
 
     > [!TIP]
     > You can also run the codespace in a Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop Codespaces and go back to the repo and open it again in GitHub Codespaces, you can open in VS Code or a browser.
@@ -49,9 +49,9 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
     uvicorn main:app --reload
     ```
 
-1. Click the notification **Open in Browser**.
+1. Select the notification **Open in Browser**.
 
-    If you don't see or missed the notification, go to **PORTS** and find the **Local Address* for port 8000. This is the URL to use.
+    If you don't see or missed the notification, go to **PORTS** and find the **Local Address* for port 8000. Use the URL listed there.
 
 1. Add */docs* on the end of the preview URL to see the API methods.
 
@@ -78,9 +78,9 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 To stop using the codespace, close the browser. (Or, close VS Code if you opened it that way.)
 
-If you plan on using the codespace again, you can keep it and you won't be charged if it isn't used.
+If you plan on using the codespace again, you can keep it, and you aren't be charged if it isn't used.
 
-Go to https://github.com/codespaces to manage you codespaces, including restarting and deleting codespaces.
+Go to https://github.com/codespaces to manage your codespaces, including restarting and deleting codespaces.
 
 
 ## Next steps
