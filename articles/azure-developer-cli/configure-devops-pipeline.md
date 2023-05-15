@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure a pipeline and push updates (preview)
 
-In this article, you'll learn how to use the Azure Developer CLI (azd) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./azd-templates.md).
+In this article, you'll learn how to use the Azure Developer CLI (`azd`) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./azd-templates.md).
 
 ## Prerequisites
 

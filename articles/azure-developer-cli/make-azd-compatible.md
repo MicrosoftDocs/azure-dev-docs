@@ -13,7 +13,7 @@ zone_pivot_groups: make-azure-developer-cli-compatible-set
 
 # Make your project compatible with Azure Developer CLI (preview)
 
-Azure Developer CLI (`azd`) enables developers to create apps from [templates](./azd-templates.md) stored in GitHub repositories. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to enable your own project as a template.
+Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
 
 ## Understand the `azd` architecture
 
@@ -113,7 +113,7 @@ Learn more about:
       - Within the `\.azure\<your environment_name>` directory, a file named `.env` is created.
       - The `.env` file contains information such as the value you supplied: 
         - Environment name
-    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template DevContainer and Codespaces compatible](#make-your-template-dev-container-and-codespaces-compatible) section.
+    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template Dev Container and Codespaces compatible](#make-your-template-dev-container-and-codespaces-compatible) section.
     - An `infra` folder with basic Bicep files. For more details, refer to [add Bicep files](#add-bicep-files).
     - A file named [`azure.yaml`](./azd-schema.md) in the root of your project.
 
