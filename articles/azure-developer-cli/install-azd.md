@@ -202,9 +202,9 @@ yum remove -y azd
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
-## DevContainer
+## Dev Container
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
+A [Dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
 
 ## Pre-requisites
 
