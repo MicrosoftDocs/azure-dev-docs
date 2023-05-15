@@ -15,13 +15,13 @@ zone_pivot_groups: azd-os-env-set
 
 Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run `azd`.
 
-Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
+Start by selecting your development environment above. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
-For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md)
+For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios)
 
 Note: When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
 
-- The [Git CLI](https://cli.github.com/)
+- The [GitHub CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
 
 ::: zone pivot="os-windows"
@@ -86,16 +86,14 @@ Once you've installed the MSI versions, using the uninstall script to remove `az
 
 3. Select **Uninstall**.
 
-**For versions before 0.5.0-beta.1**, use the following uninstall script:
-
-```azdeveloper
-powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
-```
-
 ::: zone-end 
 
 ::: zone pivot="os-mac"
 ### [Homebrew (recommended)](#tab/brew-mac)
+
+> [!NOTE] 
+> On Apple Silicon Macs (M1 and M2) `azd` requires Rosetta 2. If Rosetta 2 is not already installed run `softwareupdate --install-rosetta` from the terminal.
+
 ### Install `azd`
 
 ```bash
