@@ -1,7 +1,7 @@
 ---
 title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres.
 description: How to set up a Python dev environment in GitHub Codespaces with FastAPI and Postgres.
-ms.date: 05/11/2023
+ms.date: 05/14/2023
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -24,6 +24,8 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
 
 1. Go to sample app repo in /Azure-Samples/msdocs-fastapi-postgres-codespace
 
+    The sample repo  has all the configuration needed to create a FastAPI app with a Postgres database environment and run them in an environment. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces).
+
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
 1. When the container finishes building, you'll have a codespace for the project running in a browser.
@@ -31,13 +33,13 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
     See the section [About the project devcontainer](#below) for information about how the container is built.
 
     > [!TIP]
-    > You can also run the codespace in a VS COde. Select **Codespaces** in lower left corner of the browser or CTRL+SHIFT+P and type "Codespaces". Then select **Open in VS Code**. Also, if you stop Codespaces and go back to the repo and open again in Codespace, you can open in VS Code or a browser.
+    > You can also run the codespace in a Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop Codespaces and go back to the repo and open it again in Codespace, you can open in VS Code or a browser.
 
-1. Click **PORTS** to show that PostgreSQL is running on port 5432.
+1. Open the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Terminal: Create New Terminal" and select to create a new terminal.
 
-1. Select *.env.devcontainer* and create a copy called *.env* with the same contents.
+1. Select the **PORTS** in the terminal window to show that PostgreSQL is running on port 5432.
 
-1. CTRL + SHIFT + P and type "Terminal: Create New Terminal" and select to create a new terminal.
+1. Select the *.env.devcontainer* file and create a copy called *.env* with the same contents.
 
 1. Run the FastAPI app with
 
@@ -47,11 +49,11 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
 
 1. Click the notification **Open in Browser**.
 
-    If you don't see or missed the notification, got **PORTS** and find the **Local Address* for port 8000. This is the URL to use.
+    If you don't see or missed the notification, go to **PORTS** and find the **Local Address* for port 8000. This is the URL to use.
 
 1. Add */docs* on the end of the preview URL to see the API methods.
 
-1. In the preview ULR page, run the POST method to add a restaurant.
+1. In the preview page, run the POST method to add a restaurant.
 
     Be sure to fill in the request body and select **Execute** to commit the change.
 
@@ -62,7 +64,9 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
     }
     ```
 
-1. Back Codespaces for the project, select the SQLTools extension, then select **Local database** to connect.
+## Connect to the Postgres database
+
+1. Go back to the codespace for the project, select the SQLTools extension, then select **Local database** to connect.
 
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
@@ -70,14 +74,13 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
 
 ## About the project devcontainer.json
 
-This information is optional. For an overview of GitHub Codespaces, see [GetHub Codespaces overview](https://docs.github.com/codespaces/overview). 
-
 A codespace is a development environment that's hosted in the cloud. You can customize your project for GitHub Codespaces by committing configuration files to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
 
 The sample repo (link) has all the configuration needed to create a FastAPI app with Postgres environment and run them. The key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*.
 
 The *devcontainer.json* file defines frameworks, tools, extensions, and port forwarding. The *Dockerfile* contains the instructions for creating a Docker container image.
 
+For more information, see [GetHub Codespaces overview](https://docs.github.com/codespaces/overview).
 
 ## Clean up
 
