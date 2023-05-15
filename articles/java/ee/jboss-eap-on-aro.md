@@ -367,8 +367,8 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    git clone https://github.com/Azure/rhel-jboss-templates.git
    oc new-project ${PROJECT_NAME}
 
-   CON_REG_ACC_USER_NAME_BASE64=$(echo CON_REG_ACC_USER_NAME | base64 -w0)
-   CON_REG_ACC_PWD_BASE64=$(echo CON_REG_ACC_PWD | base64 -w0)
+   CON_REG_ACC_USER_NAME_BASE64=$(echo ${CON_REG_ACC_USER_NAME} | base64 -w0)
+   CON_REG_ACC_PWD_BASE64=$(echo ${CON_REG_ACC_PWD} | base64 -w0)
 
    cat <<EOF | oc apply -f -
    apiVersion: v1
@@ -469,7 +469,7 @@ Next, use the following steps to create a secret:
 1. Run the following command to return the URL of the application. You can use this URL to access the deployed sample app. Copy the output to the clipboard.
 
    ```azurecli-interactive
-   echo $(oc get route ${APPLICATION_NAME}-route -o=jsonpath='{.spec.host}')/javaee-cafe
+   echo http://$(oc get route ${APPLICATION_NAME}-route -o=jsonpath='{.spec.host}')/javaee-cafe
    ```
 
 1. Paste the output into an Internet-connected web browser, and then press <kbd>Enter</kbd>. You should see the UI of **Java EE Cafe** app similar to the following screenshot:
