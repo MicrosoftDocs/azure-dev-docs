@@ -40,4 +40,4 @@ groups:
   - id: os-mac
     title: Mac
   - id: env-dev-container 
-    title: DevContainer
+    title: Dev Container
