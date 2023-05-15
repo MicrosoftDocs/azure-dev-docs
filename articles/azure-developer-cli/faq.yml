@@ -41,13 +41,13 @@ sections:
           Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
 
           ```txt	 
-          ├── .Azure                          [ This directory displays after you run add init or azd up ]
-          │   ├── <your environment1>         [ A directory to store all environment-related configurations]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
-          │   └── <your environment2>         [ A directory to store all environment-related configurations ]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
+          ├── .Azure                          [This directory displays after you run add init or azd up]
+          │   ├── <your environment1>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
+          │   └── <your environment2>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
           │   └──config.json 
           ```
 
@@ -67,7 +67,7 @@ sections:
         answer: |
           Yes. You can continue development work locally.
           1. Run `azd init -t <template repo>` to clone the template project to your local machine.
-          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and locaiton as before.
+          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and location as before.
       
       - question: How is the azure.yaml file used?
         answer: |

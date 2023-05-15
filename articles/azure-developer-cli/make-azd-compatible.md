@@ -113,7 +113,7 @@ Learn more about:
       - Within the `\.azure\<your environment_name>` directory, a file named `.env` is created.
       - The `.env` file contains information such as the value you supplied: 
         - Environment name
-    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template DevContainer and Codespaces comparible](#make-your-template-dev-container-and-codespaces-compatible) section.
+    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template DevContainer and Codespaces compatible](#make-your-template-dev-container-and-codespaces-compatible) section.
     - An `infra` folder with basic Bicep files. For more details, refer to [add Bicep files](#add-bicep-files).
     - A file named [`azure.yaml`](./azd-schema.md) in the root of your project.
 
@@ -324,7 +324,7 @@ You can read more about [working with Dev Containers](https://code.visualstudio.
 
 The **Starter - Bicep** template includes both samples for Azure DevOps and GitHub Actions.
 
-For GitHub Actions, you can remove the .azdo directory:
+For GitHub Actions, you can remove the `.azdo` directory:
 
 ::: zone pivot="azd-convert"
 
