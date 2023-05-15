@@ -57,7 +57,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     You should see the Swagger UI page with the API methods. The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
 
-    :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
 
 1. On the Swagger page, run the POST method to add a restaurant.
