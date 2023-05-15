@@ -31,5 +31,5 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 ## Next steps
 - [View supported languages and environments](./supported-languages-environments.md)
-- [Installing the Azure Developer CLI](./install-azd.md).
+- [Install the Azure Developer CLI](./install-azd.md).
 - [Walk through the `azd` quickstart](./get-started.md) to see Azure Developer CLI in action.
