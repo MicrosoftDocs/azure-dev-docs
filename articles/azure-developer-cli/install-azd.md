@@ -149,7 +149,9 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
 ### Update `azd`
+```bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+```
 
 
 ### Uninstall `azd`
