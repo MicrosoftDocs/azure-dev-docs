@@ -151,6 +151,10 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
 
+When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
+
+- The [Git CLI](https://cli.github.com/)
+- The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
 
 ### Uninstall `azd`
 
@@ -216,6 +220,12 @@ Before you get started using `azd`, ensure you have:
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
   
 ::: zone-end
+
+[!INCLUDE [request-help](includes/request-help.md)]
+
+## Updating the Azure Developer CLI
+
+When working with an out of date version of `azd`, you will see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
