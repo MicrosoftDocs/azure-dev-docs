@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI's azure.yaml schema
 
-[`azd` templates](./azd-templates.md) are sample repositories that include app code, tools, and infrastructure code. You can use these templates to create your own solutions using Azure Developer CLI (`azd`). The [azure.yaml](https://aka.ms/azure.yaml.json) schema defines and describes the apps and types of Azure resources that are included in these templates.
+[`azd` templates](./azd-templates.md) are blueprint repositories that include proof-of-concept application code, editor/IDE configurations, and infrastructure code written in Bicep or Terraform. These templates are intended to be modified and adapted for your specific application requirements and then used to get your application on Azure using Azure Developer CLI (`azd`). The [azure.yaml](https://aka.ms/azure.yaml.json) schema defines and describes the apps and types of Azure resources that are included in these templates.
 
 ## Sample
 
