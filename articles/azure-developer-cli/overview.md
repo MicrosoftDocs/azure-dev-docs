@@ -22,7 +22,7 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
 2. Initialize the project with the template by [running `azd init`](./get-started.md)
 3. Package, provision and deploy the app by [running `azd up`](./get-started.md).
-4. Customize the app to meet your needs.
+4. Continue iterating on your application code and deploying changes as needed by running `azd deploy`
 5. Update Azure resources by modifying the template's Infrastructure as Code (IaC) and then running `azd provision` (optional)
 
 ## Introductory video
