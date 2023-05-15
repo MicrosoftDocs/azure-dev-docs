@@ -6,34 +6,36 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Create a dev environment in Codespaces with FastAPI and Postgres
+# Create a dev environment in GitHub Codespaces with FastAPI and Postgres
 
-This article shows you how to run FastAPI and Postgres together in a development environment using GitHub Codepaces. Codespaces is a development environment hosted in the cloud.  Using Codespaces (or equivalent Dev Container locally) enables you to create a configurable and repeatable development environment.
+This article shows you how to run FastAPI and Postgres together in a development environment using [GitHub Codespaces][1]. Codespaces is a development environment hosted in the cloud.  Using Codespaces enables you to create a configurable and repeatable development environment.
 
-You can open the sample repo in a [browser](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository) or IDE like [VS Code](https://code.visualstudio.com/docs/remote/codespaces) with the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+You can open the sample repo in a [browser][4] or IDE like [VS Code][6] with the [GitHub Codespaces extension][5].
 
-You can also clone the sample repo and when you open the project in VS Code, you have the option to run as a [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers). VS Code Dev Container require that Docker is install locally. If you don't have Docker installed.
+You can also clone the sample repo and when you open the project in VS Code, you have the option to run in [Visual Studio Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is install locally. If you don't have Docker installed, you can still use VS Code to run the project, but you'll be using GitHub Codespaces.
 
-If you use Codespaces in a browser or VS Code, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+If you use Codespaces in a browser or VS Code, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
-With the approach shown here, you can start with the sample code and use it to run other framework like Django or Flask. 
+With the approach shown here, you can start with the sample code and use it to run other Python frameworks like Django or Flask. 
 
 ## Start the dev environment in Codespaces
 
-There are many possible paths to create and use GitHub Codespaces. This is just one path you can start with.
+There are many possible paths to create and use GitHub Codespaces. This tutorial shows one path you can start with.
 
 1. Go to sample app repo in /Azure-Samples/msdocs-fastapi-postgres-codespace
 
-    The sample repo  has all the configuration needed to create a FastAPI app with a Postgres database environment and run them in an environment. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces).
+    The sample repo has all the configuration needed to create a FastAPI app with a Postgres database environment and run them in an environment. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
 
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
+    :::image type="content" source="./media/codespaces-tutorial/create-codespaces.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
+    
 1. When the container finishes building, you'll have a codespace for the project running in a browser.
 
-    See the section [About the project devcontainer](#below) for information about how the container is built.
+    A codespace is a development environment that's hosted in the cloud. The configuration key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GetHub Codespaces overview][1].
 
     > [!TIP]
-    > You can also run the codespace in a Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop Codespaces and go back to the repo and open it again in Codespace, you can open in VS Code or a browser.
+    > You can also run the codespace in a Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop Codespaces and go back to the repo and open it again in GitHub Codespaces, you can open in VS Code or a browser.
 
 1. Open the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Terminal: Create New Terminal" and select to create a new terminal.
 
@@ -60,27 +62,17 @@ There are many possible paths to create and use GitHub Codespaces. This is just 
     ```json
     {
       "name": "restaurant 1",
-      "address": "test address"
+      "address": "an address"
     }
     ```
 
 ## Connect to the Postgres database
 
-1. Go back to the codespace for the project, select the SQLTools extension, then select **Local database** to connect.
+1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
     You should see the restaurant you added.
-
-## About the project devcontainer.json
-
-A codespace is a development environment that's hosted in the cloud. You can customize your project for GitHub Codespaces by committing configuration files to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
-
-The sample repo (link) has all the configuration needed to create a FastAPI app with Postgres environment and run them. The key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*.
-
-The *devcontainer.json* file defines frameworks, tools, extensions, and port forwarding. The *Dockerfile* contains the instructions for creating a Docker container image.
-
-For more information, see [GetHub Codespaces overview](https://docs.github.com/codespaces/overview).
 
 ## Clean up
 
@@ -93,6 +85,18 @@ Go to https://github.com/codespaces to manage you codespaces, including restarti
 
 ## Next steps
 
-* [Develop a Python web app](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
-* [Develop a container app](./containers-in-azure-overview-python.md)
-* [Learn to use the Azure libraries for Python](./sdk/azure-sdk-overview.md)
+* [Develop a Python web app][9]
+* [Develop a container app][10]
+* [Learn to use the Azure libraries for Python][11]
+
+[1]: https://docs.github.com/codespaces
+[2]: https://code.visualstudio.com/docs/devcontainers/containers
+[3]: https://www.docker.com/products/docker-desktop/
+[4]: https://docs.github.com/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+[5]: https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces
+[6]: https://code.visualstudio.com/docs/remote/codespaces
+[7]: https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+[8]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
+[9]: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+[10]: ./containers-in-azure-overview-python.md
+[11]: ./sdk/azure-sdk-overview.md
