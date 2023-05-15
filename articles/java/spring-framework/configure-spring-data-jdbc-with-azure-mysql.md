@@ -6,7 +6,7 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.date: 02/22/2023
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure
 ms.contributors: judubois-09162021

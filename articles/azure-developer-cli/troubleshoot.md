@@ -21,6 +21,23 @@ If you're unable to find what you're looking for in this article or you want to 
 
 You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
+## Using the `--debug` switch
+
+If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
+
+```bash
+azd up --debug
+```
+
+You can also send the debugging output to a local text file for improved usability. This approach allows the debugging info to be ingested by other monitoring systems and can also be useful when filing an issue on GitHub.
+
+> [!IMPORTANT]
+> Make sure to redact any sensitive information when submitting debug logs on GitHub or saving them to other diagnostics systems.
+
+```bash
+azd deploy --debug > "<your-file-path>.txt"
+```
+
 ## The `.azure` directory
 
 Azure Developer CLI assumes that any directories that are stored in the `.azure` directory are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
@@ -32,6 +49,18 @@ After you've run `azd init -t <template-name>` in Visual Studio, you get the fol
 ### Solution
 
 Run `azd auth login` to refresh the access token.
+
+## Updated Azure account permissions do not refresh in `azd`
+
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`.To solve this issue, log out and then log back in to `azd` using the following commands:
+
+```bash
+azd auth logout
+
+azd auth login
+```
+
+Follow the prompts from the `azd auth login` command to complete the sign-in process and update your cached credentials.
 
 ## Cannot connect to the Docker daemon in Cloud Shell
 
@@ -95,6 +124,19 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
 
+## Static Web Apps fail to deploy despite success message
+
+A known issue exists when deploying to Azure Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
+
+```bash
+Preparing deployment. Please wait...
+An unknown exception has occurred
+```
+
+You are most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
+
+The product team is working to resolve this issue.
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.
@@ -137,23 +179,32 @@ This error is related to your Azure Active Directory's tenant enablement of Cond
 You may also be receiving this error due to being logged in using the device code mechanism, which prevents Azure Active Directory from detecting your device platform correctly.
 
 ### Solution
+To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure Service Principal stored in a GitHub secret named `AZURE_CREDENTIALS`. Select your Codespace host for steps:
+
+## [Browser](#tab/Browser)
 
 1. Make sure you're running on a device listed as supported, per the error message.
-1. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
+2. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
 
    ```azdeveloper
    azd auth login --use-device-code=false
    ```
+3. You may receive an error with message `localhost refused to connect` after logging in. If so:
+   1. Copy the URL.
+   2. Run `curl '<pasted url>'` (URL in quotes) in a new Codespaces terminal.
 
-   > [!NOTE]
-   > If running CodeSpaces in the browser, you may receive an error with message `localhost refused to connect` after logging in. If so:
-   > 
-   > 1. Copy the URL.
-   > 1. Run `curl '<pasted url>'` (URL in quotes) in a new Visual Studio Code terminal.
-   > 
-   > In the original terminal, the login should now succeed.
+   In the original terminal, the login should now succeed.
+4. After logging in, rerun `azd pipeline config`.
 
-1. After logging in, rerun `azd pipeline config`.
+## [VS Code](#tab/VSCode)
+
+1. Make sure you're running on a device listed as supported, per the error message.
+2. Rerun `azd auth login` with the flag `--use-device-code=false` appended:
+
+   ```azdeveloper
+   azd auth login --use-device-code=false
+   ```
+3. After logging in, rerun `azd pipeline config`.
 
 ## `azd pipeline config` support
 
@@ -162,3 +213,11 @@ You may also be receiving this error due to being logged in using the device cod
 ## Live metrics support for Python
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
+
+## Create a GitHub issue to request help
+
+:::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
+
+The Azure Developer CLI and the [Azure Developer CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
+
+For help and questions about using this project, please look at our [wiki](https://github.com/Azure/azure-dev/wiki) for using Azure Developer CLI and our [CONTRIBUTING doc](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md) if you want to contribute.

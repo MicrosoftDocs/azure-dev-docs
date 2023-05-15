@@ -792,6 +792,8 @@ When you no longer need the resources created in this article, run the following
 azd down
 ```
 
+[!INCLUDE [request-help](includes/request-help.md)]
+
 ## Next steps
 
 - [Learn how to run and debug apps with `azd`.](debug.md)
