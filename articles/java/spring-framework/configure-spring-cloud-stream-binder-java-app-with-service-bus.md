@@ -58,7 +58,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Service Bus artifact:
@@ -84,7 +84,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.bindings.supply-out-0.destination=${AZURE_SERVICEBUS_QUEUE_NAME}
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
-    spring.cloud.stream.function.definition=consume;supply;
+    spring.cloud.function.definition=consume;supply;
     spring.cloud.stream.poller.fixed-delay=1000
     spring.cloud.stream.poller.initial-delay=0
    ```
@@ -98,7 +98,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.bindings.supply-out-0.destination`                       | Specify the same value used for input destination.                                                                                                                      |
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
-   | `spring.cloud.stream.function.definition`                                     | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
+   | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
    | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 
@@ -111,7 +111,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.bindings.supply-out-0.destination=${AZURE_SERVICEBUS_TOPIC_NAME}
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=topic
-    spring.cloud.stream.function.definition=consume;supply;
+    spring.cloud.function.definition=consume;supply;
     spring.cloud.stream.poller.fixed-delay=1000
     spring.cloud.stream.poller.initial-delay=0
    ```
@@ -126,7 +126,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.bindings.supply-out-0.destination`                       | Specify the same value used for input destination.                                                                                                                      |
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
-   | `spring.cloud.stream.function.definition`                                     | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
+   | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
    | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 

@@ -63,15 +63,21 @@ sections:
         answer: |
           In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as `azd deploy` also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
           
+      - question: I have run `azd up` in Codespaces. Can I continue my work in a local development environment?
+        answer: |
+          Yes. You can continue development work locally.
+          1. Run `azd init -t <template repo>` to clone the template project to your local machine.
+          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and locaiton as before.
+      
       - question: How is the azure.yaml file used?
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
 
       - question: What is the behavior of the `secretOrRandomPassword` function?
         answer: |
-          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
+          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters aren't provided or a secret can't be retrieved, the function will instead return a randomly generated password to use instead.
           
-          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. 
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value can't be retrieved, a random password is generated instead. 
 
           ```json
             "sqlAdminPassword": {
@@ -106,9 +112,9 @@ sections:
           
           This Bicep setup enables the following workflow for managing your secrets:
 
-          1. If the specified secret exists, it will be retrieved from Key Vault using the `secretOrRandomPassword` function.
-          2. If the secret does not exist, a Key Vault will be created, and the randomly generated secret will be stored inside of it. 
-          3. On future deploys, the stored secret will be retrieved by the `secretOrRandomPassword` method now that it exists in Key Vault. The Key Vault will not be recreated if it already exists, but the same secret value will be stored again for the next run.
+          1. If the specified secret exists, it's retrieved from Key Vault using the `secretOrRandomPassword` function.
+          2. If the secret doesn't exist, a Key Vault is created, and the randomly generated secret is stored inside of it. 
+          3. On future deploys, the `secretOrRandomPassword` method retrieves the stored secret now that it exists in Key Vault. The Key Vault won't be recreated if it already exists, but the same secret value will be stored again for the next run.
           
       - question: Can I use Azure Free Subscription?
         answer: |
@@ -216,8 +222,8 @@ sections:
   
   - name: "Building a container application locally"
     questions: 
-      - question: Why am I unable to locally run the container app that I am building? 
+      - question: Why am I unable to locally run the container app that I'm building? 
         answer: | 
-          When building container applications locally, you'll need to run `azd auth login` in the container for the application to work 
+          When building container applications locally, you need to run `azd auth login` in the container for the application to work 
           with the `AzureDeveloperCliCredential`. Alternatively, you could configure your application to use a service principal 
           instead of the `AzureDeveloperCliCredential`.

@@ -40,6 +40,12 @@ Check back for our growing list of templates.
 
 For information on authoring your own template or “templatizing” an existing application, [read our guide on making your template `azd`-compatible](./make-azd-compatible.md).
 
+We also authored starter templates with Infrastructure as Code (IaC) written in:
+- Bicep
+- Terraform
+
+These templates are focused on providing a starting point for writing your app's IaC and can support you in creating your own `azd`-compatible templates. Unlike the template applications we've authored, these starter templates do not function as full applications on their own. So, you will need to add your own source code and connect it to the infrastructure to have a fully functioning app. 
+
 ## Choose a template
 
 [Install the Azure Developer CLI](./install-azd.md) and then select your preferred programming language to choose a template.
@@ -89,6 +95,12 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | [Containerized React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |  
 | [Static React Web App + Functions with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep|
 
+### [Starter Templates (IaC only)](#tab/starter-IaC)
+| Template      | App host | Tech stack |
+| ----------- | ----------| ----------- |
+| [Bicep Starter](https://github.com/Azure-Samples/azd-starter-bicep) | - | Bicep, [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
+| [Terraform Starter](https://github.com/Azure-Samples/azd-starter-terraform) | - | Terraform [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
+
 ---
 
 For more community contributed templates, check out our template gallery: [Awesome AZD](https://aka.ms/awesome-azd).
@@ -104,6 +116,8 @@ Microsoft is not responsible for any non-Microsoft templates and does not screen
 The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` topic to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
 
 You can also open an issue on [our GitHub repository](https://github.com/Azure/azure-dev) if there’s a use case and template that you would like to see created.
+
+[!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 

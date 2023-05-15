@@ -103,6 +103,10 @@
                 href: create-k8s-cluster-with-tf-and-aks.md
       - name: Database
         items:
+          - name: Azure SQL Database
+            items:
+              - name: Create a server and database
+                href: /azure/azure-sql/database/single-database-create-terraform-quickstart
           - name: MySQL Flexible Server
             items:
               - name: Create a MySQL Flexible Server instance
@@ -139,6 +143,10 @@
         items:
           - name: Azure Attestation
             href: create-attestation-provider.md
+      - name: Stream Analytics
+        items:
+          - name: Create a job
+            href: /azure/stream-analytics/quick-create-terraform
       - name: Traffic Manager
         items:
           - name: Create a profile and endpoints

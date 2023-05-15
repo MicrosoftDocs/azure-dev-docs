@@ -16,7 +16,7 @@ You can then configure a proxy globally by using environment variables, or you c
 
 ## Global configuration
 
-To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the server URL. These variables work with any version of the Azure libraries.
+To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the server URL. These variables work with any version of the Azure libraries. Note that `HTTPS_PROXY` doesn't mean `HTTPS` proxy, but the proxy for `https://` requests.
 
 These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 

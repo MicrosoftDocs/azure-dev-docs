@@ -86,7 +86,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
@@ -108,7 +108,7 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
    spring.cloud.stream.kafka.binder.brokers=${AZ_EVENTHUBS_NAMESPACE_NAME}.servicebus.windows.net:9093
-   spring.cloud.stream.function.definition=consume;supply
+   spring.cloud.function.definition=consume;supply
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
@@ -132,7 +132,7 @@ Use the following steps to configure your application to produce and consume mes
 
    ```properties
    spring.cloud.azure.eventhubs.connection-string=${AZ_EVENTHUBS_CONNECTION_STRING}
-   spring.cloud.stream.function.definition=consume;supply
+   spring.cloud.function.definition=consume;supply
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}

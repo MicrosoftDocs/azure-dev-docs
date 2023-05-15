@@ -1,7 +1,7 @@
 ---
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ---
 
 ## Configure a firewall rule for your PostgreSQL server
@@ -67,7 +67,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC PostgreSQL artifact:
