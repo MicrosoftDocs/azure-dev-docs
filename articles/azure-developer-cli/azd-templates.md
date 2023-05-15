@@ -73,8 +73,6 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | ----------- | ----------| ----------- | 
 | [React Web App with Java API and MongoDB on Azure](https://github.com/Azure-Samples/todo-java-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
 | [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/Azure-Samples/todo-java-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
-| [React Web App with Java API and PostgreSQL (Terraform) on Azure](https://github.com/Azure-Samples/todo-java-postgresql-terraform) | [Azure App Service](/azure/app-service/) | [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview), Terraform
-
 
 ### [Node.js](#tab/nodejs)
 
