@@ -5,6 +5,8 @@
     href: overview.md
   - name: Get started
     items: 
+    - name: Supported languages and environments
+      href: supported-languages-environments.md
     - name: Install or update azd
       href: install-azd.md
     - name: Choose an azd template

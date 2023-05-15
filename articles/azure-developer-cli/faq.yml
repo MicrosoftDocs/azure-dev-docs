@@ -26,18 +26,28 @@ sections:
           curl -fsSL https://aka.ms/uninstall-azd.sh | bash
           ```
 
+      - question: What's the difference between Azure Developer CLI (`azd`) and the Azure CLI (`az`)?
+
+        answer: | 
+          [Azure Developer CLI (`azd`)] and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools, but they help you do different tasks.
+
+          [`azd`](./index.yml) focuses on the developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
+
+          Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
+
+
       - question: What is an environment name?
         answer: |
           Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
 
           ```txt	 
-          ├── .Azure                          [ This directory displays after you run add init or azd up ]
-          │   ├── <your environment1>         [ A directory to store all environment-related configurations]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
-          │   └── <your environment2>         [ A directory to store all environment-related configurations ]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
+          ├── .Azure                          [This directory displays after you run add init or azd up]
+          │   ├── <your environment1>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
+          │   └── <your environment2>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
           │   └──config.json 
           ```
 
@@ -57,7 +67,7 @@ sections:
         answer: |
           Yes. You can continue development work locally.
           1. Run `azd init -t <template repo>` to clone the template project to your local machine.
-          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and locaiton as before.
+          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and location as before.
       
       - question: How is the azure.yaml file used?
         answer: |

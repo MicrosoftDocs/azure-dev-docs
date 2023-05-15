@@ -15,7 +15,7 @@ zone_pivot_groups: azd-os-env-set
 
 Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run `azd`.
 
-Start by selecting your development environment above. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
+Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](./supported-languages-environments.md#supported-development-environments).
 
 For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios)
 
@@ -206,9 +206,9 @@ yum remove -y azd
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
-## DevContainer
+## Dev Container
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
+A [Dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
 
 ## Pre-requisites
 

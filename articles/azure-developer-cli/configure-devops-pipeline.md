@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure a pipeline and push updates (preview)
 
-In this article, you'll learn how to use the Azure Developer CLI (azd) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
+In this article, you'll learn how to use the Azure Developer CLI (`azd`) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./azd-templates.md).
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ All [`azd` templates](./azd-templates.md) include a default GitHub Actions and A
 To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
 
 - Creates and configures a Service Principal for the app on the Azure subscription.
-- Steps you through a workflow to create and configure a GitHub repository and commit your project code to it. If a GitHub repository is already setup for your project, this step is skipped.
+- Steps you through a workflow to create and configure a GitHub repository and commit your project code to it. You can also choose to use an existing GitHub repository.
 - Creates a secure connection between Azure and your repository using GitHub secrets.
-- Runs the GitHub action when you check-in the workflow file.
+- Runs the GitHub action when you check in the workflow file.
 
 For more granular control over this process, you can also [manually configure a pipeline](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/manual-pipeline-config.md).
 
