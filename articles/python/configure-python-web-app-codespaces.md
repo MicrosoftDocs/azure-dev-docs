@@ -8,11 +8,11 @@ ms.custom: devx-track-python
 
 # Create a GitHub Codespaces dev environment with FastAPI and Postgres
 
-This article shows you how to run FastAPI and Postgres together in a development environment using [GitHub Codespaces][1]. Codespaces is a development environment hosted in the cloud. Codespaces enables you to create configurable and repeatable development environments.
+This article shows you how to run FastAPI and Postgres together in a [GitHub Codespaces][1] environment. Codespaces is a development environment hosted in the cloud. Codespaces enables you to create configurable and repeatable development environments.
 
 You can open the sample repo in a [browser][4] or in an integrated development environment (IDE) like [Visual Studio Code][6] with the [GitHub Codespaces extension][5].
 
-You can also clone the sample repo locally and when you open the project in Visual Studio Code, you can run using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is installed locally. If you don't have Docker installed, you can still use VS Code to run the project, but you're using GitHub Codespaces as the environment.
+You can also clone the sample repo locally and when you open the project in Visual Studio Code, you can run using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] installed locally. If you don't have Docker installed, you can still use VS Code to run the project, but you're using GitHub Codespaces as the environment.
 
 When using GitHub Codespaces, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
