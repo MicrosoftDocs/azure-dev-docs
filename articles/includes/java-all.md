@@ -381,7 +381,7 @@
 | Management - Digital Twins | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_12_01/azure-mgmt-digitaltwins/1.0.0/jar/) |  |  |
 | Purview Administration | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar/) |  |  |
 | Quantum Jobs | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-quantum-jobs/1.0.0-beta.1/jar/) |  |  |
-| Resouce Management - NetApp Files | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2020_09_01/azure-mgmt-netapp/1.0.0-beta/jar/) |  |  |
+| Resource Management - NetApp Files | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2020_09_01/azure-mgmt-netapp/1.0.0-beta/jar/) |  |  |
 | Resource Management - Container Service | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2020_12_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
 | Resource Management - Kubernetes Configuration | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kubernetesconfiguration.v2021_03_01/azure-mgmt-kubernetesconfiguration/1.0.0/jar/) |  |  |
 | Resource Management - Mixed Reality | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mixedreality.v2021_01_01/azure-mgmt-mixedreality/1.0.0-beta/jar/) |  |  |
