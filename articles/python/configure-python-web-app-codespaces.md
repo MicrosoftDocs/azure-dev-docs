@@ -41,9 +41,9 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     The *.env* contains environment variables that are used in the code to connect to the database.
 
-1. Open the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`), type "Terminal: Create New Terminal", and select it to create a new terminal.
+1. If a terminal window isn't already open, open one by opening the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`), typing "Terminal: Create New Terminal", and selecting it to create a new terminal.
 
-1. Select the **PORTS** tab in the terminal window to show that PostgreSQL is running on port 5432.
+1. Select the **PORTS** tab in the terminal window to confirm that PostgreSQL is running on port 5432.
 
 1. In the terminal window, run the FastAPI app.
 
