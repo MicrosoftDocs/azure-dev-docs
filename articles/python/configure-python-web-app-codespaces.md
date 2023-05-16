@@ -83,6 +83,8 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
+    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen. 
+
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
     You should see the restaurant you added.
