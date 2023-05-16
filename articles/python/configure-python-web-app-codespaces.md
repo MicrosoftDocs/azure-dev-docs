@@ -70,8 +70,8 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
         ```json
         {
-          "name": "restaurant 1",
-          "address": "an address"
+          "name": "Restaurant 1",
+          "address": "Restaurant 1 address"
         }
         ```
 
@@ -85,13 +85,15 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     You should see the restaurant you added.
 
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Use SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
+
 ## Clean up
 
 To stop using the codespace, close the browser. (Or, close VS Code if you opened it that way.)
 
 If you plan on using the codespace again, you can keep it, and you aren't be charged if it isn't used.
 
-Go to https://github.com/codespaces to manage your codespaces, including restarting and deleting codespaces.
+If you want to remove the codespace, go to https://github.com/codespaces to manage your codespaces.
 
 
 ## Next steps
