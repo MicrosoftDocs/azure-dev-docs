@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Create a dev environment in GitHub Codespaces with FastAPI and Postgres
+# Create a GitHub Codespaces dev environment with FastAPI and Postgres
 
 This article shows you how to run FastAPI and Postgres together in a development environment using [GitHub Codespaces][1]. Codespaces is a development environment hosted in the cloud.  Using Codespaces enables you to create a configurable and repeatable development environment.
 
