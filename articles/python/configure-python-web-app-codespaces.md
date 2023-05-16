@@ -22,22 +22,24 @@ With the approach shown in this tutorial, you can start with the sample code and
 
 There are many possible paths to create and use GitHub Codespaces. This tutorial shows one path you can start with.
 
-1. Go to sample app repo at [https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace][0].
+1. Go to sample app repo [https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace][0].
 
-    The sample repo has all the configuration needed to create an environment with FastAPI app using a Postgres database. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
+    The sample repo has all the configuration needed to create an environment with an FastAPI app using a Postgres database. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
 
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
     :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
     
-1. When the container finishes building, a codespace is running in a browser with the sample project.
+1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser and that sample repo has loaded.
 
-    A codespace is a development environment that's hosted in the cloud. The configuration key files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
+    The codespace key configuration files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
 
     > [!TIP]
     > You can also run the codespace in Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop the codespace and go back to the repo and open it again in GitHub Codespaces, you have the option to open it in VS Code or a browser.
 
 1. Select the *.env.devcontainer* file and create a copy called *.env* with the same contents.
+
+    The *.env* contains environment variables that are used in the code to connect to the database.
 
 1. Open the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`), type "Terminal: Create New Terminal", and select it to create a new terminal.
 
