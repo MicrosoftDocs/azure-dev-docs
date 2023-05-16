@@ -28,7 +28,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
-    :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
+    :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Screenshot showing how to create a codespace from the GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
     
 1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and that sample repo has loaded.
 
@@ -59,7 +59,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
 
-    :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="Screenshot showing the FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
 
 1. On the Swagger page, run the POST method to add a restaurant.
@@ -89,7 +89,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     You should see the restaurant you added.
 
-    :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Use SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Screenshot showing how touUse SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
 
 ## Clean up
 
