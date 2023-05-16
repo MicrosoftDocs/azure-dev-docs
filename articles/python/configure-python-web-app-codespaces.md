@@ -95,7 +95,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 To stop using the codespace, close the browser. (Or, close VS Code if you opened it that way.)
 
-If you plan on using the codespace again, you can keep it, and you aren't be charged if it isn't used.
+If you plan on using the codespace again, you can keep it. Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs. 
 
 If you want to remove the codespace, go to https://github.com/codespaces to manage your codespaces.
 
