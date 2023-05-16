@@ -14,7 +14,7 @@ You can open the sample repo in a [browser][4] or in an integrated development e
 
 You can also clone the sample repo locally and when you open the project in Visual Studio Code, you can run using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is installed locally. If you don't have Docker installed, you can still use VS Code to run the project, but you're using GitHub Codespaces as the environment.
 
-If you use Codespaces in a browser or Visual Studio Code, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
+When using GitHub Codespaces, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
 With the approach shown in this tutorial, you can start with the sample code and modify it to run other Python frameworks like Django or Flask. 
 
@@ -24,13 +24,13 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Go to sample app repo [https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace][0].
 
-    The sample repo has all the configuration needed to create an environment with an FastAPI app using a Postgres database. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
+    The sample repo has all the configuration needed to create an environment with a FastAPI app using a Postgres database. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
 
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
     :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Create a codespaces from GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
     
-1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser and that sample repo has loaded.
+1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and that sample repo has loaded.
 
     The codespace key configuration files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
 
