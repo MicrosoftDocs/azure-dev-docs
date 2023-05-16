@@ -51,20 +51,22 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Select the notification **Open in Browser**.
 
-    If you don't see or missed the notification, go to **PORTS** and find the **Local Address* for port 8000. Use the URL listed there.
+    If you don't see or missed the notification, go to **PORTS** and find the **Local Address** for port 8000. Use the URL listed there.
 
 1. Add */docs* on the end of the preview URL to see the [Swagger UI][12], which allows you to test the API methods.
 
-    You should see the Swagger UI page with the API methods. The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
+    The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
 
     :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
 
 1. On the Swagger page, run the POST method to add a restaurant.
 
+    1. Expand the **POST** method.
+
     1. Select **Try it out**.
 
-    2. Fill in the request body.
+    1. Fill in the request body.
 
         ```json
         {
@@ -73,7 +75,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
         }
         ```
 
-    3. Select **Execute** to commit the change
+    1. Select **Execute** to commit the change
 
 ## Use a database management tool to view the data
 
