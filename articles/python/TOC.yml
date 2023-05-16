@@ -48,7 +48,7 @@
       items:
       - name: Local dev environment
         href: configure-python-web-app-local-environment.md
-      - name: Dev environment with Codespaces
+      - name: Codespaces dev environment
         href: configure-python-web-app-codespaces.md
       - name: Configure a startup file for App Service
         href: configure-python-web-app-on-app-service.md
