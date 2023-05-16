@@ -22,7 +22,7 @@ With the approach shown here, you can start with the sample code and use it to r
 
 There are many possible paths to create and use GitHub Codespaces. This tutorial shows one path you can start with.
 
-1. Go to sample app repo at [https://github.com/Azure-Samplesmsdocs-fastapi-postgres-codespace][0].
+1. Go to sample app repo at [https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace][0].
 
     The sample repo has all the configuration needed to create a FastAPI app with a Postgres database environment and run them in an environment. You can create a similar project following the steps in [Setting up a Python project for GitHub Codespaces][8].
 
