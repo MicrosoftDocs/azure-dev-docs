@@ -79,7 +79,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     1. Select **Execute** to commit the change
 
-## Use a database management tool to view the data
+## Connect to the database and view the data
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
