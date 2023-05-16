@@ -13,7 +13,7 @@ zone_pivot_groups: make-azure-developer-cli-compatible-set
 
 # Make your project compatible with Azure Developer CLI (preview)
 
-Azure Developer CLI (`azd`) enables developers to create apps from [templates](./azd-templates.md) stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as an `azd` template.
+Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
 
 ## Understand the `azd` architecture
 
@@ -113,7 +113,7 @@ Learn more about:
       - Within the `\.azure\<your environment_name>` directory, a file named `.env` is created.
       - The `.env` file contains information such as the value you supplied: 
         - Environment name
-    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template DevContainer and Codespaces comparible](#make-your-template-dev-container-and-codespaces-compatible) section.
+    - A `.devcontainer` folder is created. This folder is optional. For more details, refer to the [make your template Dev Container and Codespaces compatible](#make-your-template-dev-container-and-codespaces-compatible) section.
     - An `infra` folder with basic Bicep files. For more details, refer to [add Bicep files](#add-bicep-files).
     - A file named [`azure.yaml`](./azd-schema.md) in the root of your project.
 
@@ -126,7 +126,7 @@ As this sample provisions App Service resources, you need:
 - An Azure App Service Plan
 - An Azure App Service running on Linux
 
-For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). However, you can use the information in this section with [any supported host](./overview.md#supported-azure-compute-services-host).
+For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). However, you can use the information in this section with [any supported host](./supported-languages-environments.md#supported-azure-compute-services-host).
 
 1. Change the directory to the `infra` folder.
 
@@ -324,7 +324,7 @@ You can read more about [working with Dev Containers](https://code.visualstudio.
 
 The **Starter - Bicep** template includes both samples for Azure DevOps and GitHub Actions.
 
-For GitHub Actions, you can remove the .azdo directory:
+For GitHub Actions, you can remove the `.azdo` directory:
 
 ::: zone pivot="azd-convert"
 

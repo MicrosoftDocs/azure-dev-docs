@@ -106,8 +106,8 @@ For example:
 
 - Learn more about Terraform's dependency on [Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli). 
 - For more on remote state, see [store Terraform state in Azure Storage](../terraform/store-state-in-azure-storage.md).
-- Template: [Todo Application with Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform)
-- Template: [Todo Application with Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform)
+- Template: [React Web App with Node.js API and MongoDB (Terraform) on Azure](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform)
+- Template: [React Web App with Python API and MongoDB (Terraform) on Azure](https://github.com/Azure-Samples/todo-python-mongo-terraform)
 
 ## Next steps
 

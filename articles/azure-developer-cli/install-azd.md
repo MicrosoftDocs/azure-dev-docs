@@ -15,7 +15,7 @@ zone_pivot_groups: azd-os-env-set
 
 Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run `azd`.
 
-Start by selecting your development environment above. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
+Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](./supported-languages-environments.md#supported-development-environments).
 
 For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios)
 
@@ -135,6 +135,17 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
 
+### [Apple Silicon (beta, manual)](#tab/manual-mac)
+### Install `azd` 
+
+> [!NOTE]
+> There is an ARM64 build of `azd` available for Apple Silicon Macs (M1 and M2). Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
+
+1. Download `azd-darwin-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
+1. Unzip the the .zip file 
+1. Ensure that `azd-darwin-arm64` is executable (`chmod +x azd-darwin-arm64`)
+1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+
 ::: zone-end
 
 ::: zone pivot="os-linux"
@@ -203,12 +214,23 @@ yum remove -y azd
 > [!NOTE]
 > You may need to use `sudo` when running `yum`.
 
+### [ARM64 (beta, manual)](#tab/manual-linux)
+### Install `azd` 
+
+> [!NOTE]
+> There is an ARM64 build of `azd` available for ARM64 Linux. Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
+
+1. Download `azd-linux-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
+1. Extract the .tar.gz file
+1. Ensure that `azd-linux-arm64` is executable (`chmod +x azd-linux-arm64`)
+1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
-## DevContainer
+## Dev Container
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
+A [Dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
 
 ## Pre-requisites
 
@@ -220,8 +242,6 @@ Before you get started using `azd`, ensure you have:
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
   
 ::: zone-end
-
-[!INCLUDE [request-help](includes/request-help.md)]
 
 ## Updating the Azure Developer CLI
 
