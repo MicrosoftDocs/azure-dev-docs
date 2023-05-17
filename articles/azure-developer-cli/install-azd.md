@@ -142,9 +142,9 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 > There is an ARM64 build of `azd` available for Apple Silicon Macs (M1 and M2). Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
 
 1. Download `azd-darwin-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Unzip the the .zip file 
-1. Ensure that `azd-darwin-arm64` is executable (`chmod +x azd-darwin-arm64`)
-1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+1. Unzip the the `.zip` file 
+1. Ensure that `azd-darwin-arm64-beta` is executable (`chmod +x azd-darwin-arm64-beta`)
+1. Copy `azd-darwin-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
 ::: zone-end
 
@@ -222,8 +222,8 @@ yum remove -y azd
 
 1. Download `azd-linux-arm64-beta.tar.gz` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
 1. Extract the `.tar.gz` file
-1. Ensure that `azd-linux-arm64` is executable (`chmod +x azd-linux-arm64`)
-1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+1. Ensure that `azd-linux-arm64-beta` is executable (`chmod +x azd-linux-arm64-beta`)
+1. Copy `azd-linux-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
 ::: zone-end
 
