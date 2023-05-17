@@ -221,7 +221,7 @@ yum remove -y azd
 > There is an ARM64 build of `azd` available for ARM64 Linux. Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
 
 1. Download `azd-linux-arm64-beta.tar.gz` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Extract the .tar.gz file
+1. Extract the `.tar.gz` file
 1. Ensure that `azd-linux-arm64` is executable (`chmod +x azd-linux-arm64`)
 1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
