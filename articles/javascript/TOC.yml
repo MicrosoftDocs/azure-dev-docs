@@ -295,9 +295,19 @@
           - name: Trivia game
             href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
   - name: Training
-    href: learn-azure-javascript.md            
+    href: learn-azure-javascript.md  
+  - name: Contoso Real Estate
+    href: composable-cloud-contoso-real-estate.md 
+    displayName: contoso, composable, sample, example, real-estate
   - name: Samples
-    href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
+    items: 
+      - name: Contoso Real Estate
+        items: 
+          - name: "GitHub: contoso-real-estate"
+            href: https://github.com/Azure-Samples/contoso-real-estate
+            displayName: contoso, composable, sample, example, real-estate
+      - name: Azure Samples browser
+        href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
