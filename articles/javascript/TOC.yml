@@ -296,7 +296,7 @@
             href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
   - name: Training
     href: learn-azure-javascript.md  
-  - name: Contoso Real Estate
+  - name: "Build 2023: Contoso Real Estate"
     href: composable-cloud-contoso-real-estate.md 
     displayName: contoso, composable, sample, example, real-estate
   - name: Samples
