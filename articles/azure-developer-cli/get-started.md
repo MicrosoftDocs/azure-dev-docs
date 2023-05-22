@@ -18,7 +18,7 @@ zone_pivot_groups: azd-languages-set
 
 ## Run a Node.js template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -209,7 +209,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a Python template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Python template applications. We'll use the [ToDo Application with a Python API and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Python template applications. We'll use the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -405,7 +405,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a C# template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our C# template applications. We'll use the [ToDo Application with a C# API and Azure Cosmos DB for NoSQL](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our C# template applications. We'll use the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -596,7 +596,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a Java template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Java template applications. We'll use the [ToDo Application with a Java API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-java-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Java template applications. We'll use the [React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 

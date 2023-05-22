@@ -13,7 +13,7 @@ ms.custom: devx-track-azdevcli
 
 In this article, you learn how to use Azure Developer CLI (`azd`) to monitor your app health.
 
-While we use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template for this guide, you can use any of the [Azure Developer CLI templates](./azd-templates.md).
+While we use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template for this guide, you can use any of the [Azure Developer CLI templates](./azd-templates.md).
 
 ## Prerequisites
 
