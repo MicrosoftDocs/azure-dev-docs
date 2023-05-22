@@ -117,6 +117,7 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
     ```azurecli
     az extension add --name serviceconnector-passwordless --upgrade
     az webapp connection create postgres-flexible \
+      --connection webappuser
       --resource-group $RESOURCE_GROUP_NAME \
       --name $APP_SERVICE_NAME \
       --target-resource-group $RESOURCE_GROUP_NAME \
@@ -124,6 +125,8 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
       --database restaurant \
       --client-type django \
       --user-identity client-id=$UAClientID subs-id=$SUBSCRIPTION_ID
+
+TBD: Is client-type = python better? Does specifying connection make sense? 
 
 1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
 
