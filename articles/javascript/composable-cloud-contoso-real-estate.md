@@ -59,6 +59,7 @@ The developer experience for the HR app is:
 
 ## Resources
 
+* [Announcement](http://aka.ms/contoso-real-estate/announcement)
 * [Lab120](https://github.com/contoso-real-estate/msbuild-2023)
     * Speakers: Savannah Ostrowski, Dan Wahlin
 * [Source code](https://aka.ms/contoso-real-estate-github)
