@@ -18,11 +18,11 @@ Contoso is expanding to new regions and countries, which will result in massive 
 
 Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
 
-## What is the HR rentals app? 
+## What is the HR real estate app? 
 
 The HR app is built as:
 
-* UI for rentals portal and blog front ends - denoted as 1 and 2 in the diagram.
+* UI for portal and blog front ends - denoted as 1 and 2 in the diagram.
 * API layer to communicate between client and cloud.
 * Microservices for cloud integrations.
 
@@ -37,16 +37,16 @@ The HR app is built as:
 |5|**Microservices** (Backend)|The microservices layer is built with Azure Functions and Node.js.|
 |6|**Payments**|The payments layer is built with Stripe.|
 
-## The HR rentals app is a composable cloud native app
+## The HR app is a composable cloud native app
 
 The architect designs a cloud native solution for the developer.
 
 :::image type="content" source="./media/contoso-real-estate/contoso-real-estate-application-sketchnote.png" lightbox="./media/contoso-real-estate/contoso-real-estate-application-sketchnote.png" alt-text="Diagram showing architect explaining composable cloud native to developer for JavaScript enterprise end-to-end application development and deployment. ":::
 
 
-## What is the developer's experience for the HR rentals app?
+## What is the developer's experience for the HR app?
 
-The developer experience for the HR rentals app is: 
+The developer experience for the HR app is: 
 
 :::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal.drawio.png" lightbox="./media/contoso-real-estate/e2e-full-horizontal.drawio.png" alt-text="Diagram showing developer journey for JavaScript enterprise end-to-end application development and deployment. ":::
 
