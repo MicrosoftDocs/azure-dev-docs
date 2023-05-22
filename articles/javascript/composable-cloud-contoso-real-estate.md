@@ -18,7 +18,7 @@ Contoso is expanding to new regions and countries, which will result in massive 
 
 Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
 
-## What is the HR real estate app? 
+## Introduction to the HR Real Estate app
 
 The HR app is built as:
 
@@ -44,7 +44,7 @@ The architect designs a cloud native solution for the developer.
 :::image type="content" source="./media/contoso-real-estate/contoso-real-estate-application-sketchnote.png" lightbox="./media/contoso-real-estate/contoso-real-estate-application-sketchnote.png" alt-text="Diagram showing architect explaining composable cloud native to developer for JavaScript enterprise end-to-end application development and deployment. ":::
 
 
-## What is the developer's experience for the HR app?
+## Enterprise developer experience
 
 The developer experience for the HR app is: 
 
