@@ -1,34 +1,34 @@
 ---
-title: Create and deploy a Flask Python web app to Azure with managed identity
-description: Use the Azure CLI to create and deploy a Flask Python web app to Azure App Service using a system-assigned managed identity.
+title: Create and deploy a Django Python web app to Azure with managed identity
+description: Use the Azure CLI to create and deploy a Django Python web app to Azure App Service using a user-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/23/2023
+ms.date: 05/22/2023
 ms.custom: devx-track-python
 ---
 
-# Create and deploy a Flask Python web app to Azure with a system-assigned managed identity
+# Create and deploy a Django Python web app to Azure with a user-assigned managed identity
 
-In this tutorial, you deploy Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
+In this tutorial, you deploy Python **[Djgano](https://www.djangoproject.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
-You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector with a system-assigned managed identity. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
+You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to  Service Connector with a user-assigned managed identity.. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
 This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). For examples of using the Azure portal or Visual Studio Code to create and deploy, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
 
 ## Get the sample app
 
-A sample Python application using the Flask framework are available to help you follow along with this tutorial. Download or clone the sample application to your local workstation.
+A sample Python application using the Django framework are available to help you follow along with this tutorial. Download or clone one of the sample applications to your local workstation.
 
 1. Clone the sample in an Azure Cloud Shell session.
 
     ```azurecli
-    git clone https://github.com/Azure-Samples/msdocs-flask-web-app-managed-identity.git
+    git clone https://github.com/Azure-Samples/msdocs-djangoask-web-app-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
     ```azurecli
-    cd msdocs-flask-web-app-managed-identity
+    cd msdocs-django-web-app-managed-identity
     ```
 
 ## Create an Azure PostgreSQL server
@@ -98,11 +98,19 @@ A sample Python application using the Flask framework are available to help you 
       --startup-file "start.sh"
     ```
 
+## Create a user-assigned managed identity
+
+Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
+
+```azurecli
+az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME
+```
+
 ## Create passwordless connectors to Azure resources
 
-The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
+The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use user-assigned managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
-1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
+1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The user-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
 
     ```azurecli
     az webapp connection create postgres-flexible \
@@ -114,6 +122,16 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
       --client-type python \
       --system-identity
     ```
+
+    ```azurecli
+    az extension add --name serviceconnector-passwordless --upgrade
+    az webapp connection create postgres-flexible \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --target-resource-group $RESOURCE_GROUP_NAME \
+      --server $DB_SERVER_NAME \
+      --client-type django \
+      --user-identity client-id=885c02a7-13ed-4a11-a8c5-8bdf76fd427d subs-id=bb881e62-cf77-4d5d-89fb-29d71e930b66
 
 1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
 
