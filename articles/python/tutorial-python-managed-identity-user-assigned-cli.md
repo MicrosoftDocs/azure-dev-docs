@@ -106,22 +106,13 @@ Use the [az identity create](/cli/azure/identity#az-identity-create) command to 
 az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME
 ```
 
+TBD: How to set UAClientID and SUBSCRIPTION_ID environment variables.
+
 ## Create passwordless connectors to Azure resources
 
 The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use user-assigned managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
 1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The user-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
-
-    ```azurecli
-    az webapp connection create postgres-flexible \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP_NAME \
-      --server $DB_SERVER_NAME \
-      --database restaurant \
-      --client-type python \
-      --system-identity
-    ```
 
     ```azurecli
     az extension add --name serviceconnector-passwordless --upgrade
@@ -130,8 +121,9 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
       --name $APP_SERVICE_NAME \
       --target-resource-group $RESOURCE_GROUP_NAME \
       --server $DB_SERVER_NAME \
+      --database restaurant \
       --client-type django \
-      --user-identity client-id=885c02a7-13ed-4a11-a8c5-8bdf76fd427d subs-id=bb881e62-cf77-4d5d-89fb-29d71e930b66
+      --user-identity client-id=$UAClientID subs-id=$SUBSCRIPTION_ID
 
 1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
 
