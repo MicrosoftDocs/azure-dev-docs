@@ -1,12 +1,12 @@
 ---
-title: Composable Cloud - Contoso Real Estate 
+title: Composable Cloud
 description: Enterprise-grade Reference Architecture for JavaScript including a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
-# Contoso Real Estate App: Enterprise-grade Reference Sample for Composable Architecture
+# Enterprise-grade Reference Sample for Composable Architecture
 
 This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
@@ -57,8 +57,6 @@ The HR app is built as:
 
 ## Composable reference architecture
 
-:::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal.drawio.png" lightbox="./media/contoso-real-estate/e2e-full-horizontal.drawio.png" alt-text="Diagram showing developer journey for JavaScript enterprise end-to-end application development and deployment. ":::
-
 |#|Name|Description|
 |:--|:--|--|
 |1|**Local development** (Developer)|Using GitHub CodeSpaces either in the browser or locally with Visual Studio Code, the developer uses the typical tools and workflow to add new features, or fix issues. This development includes the all layers including the deployment infrastructure and deployment pipeline.|
@@ -69,7 +67,5 @@ The HR app is built as:
 ## Resources
 
 * [Announcement](https://aka.ms/contoso-real-estate/announcement)
-* [Lab120](https://github.com/contoso-real-estate/msbuild-2023)
-    * Speakers: Savannah Ostrowski, Dan Wahlin
 * [Source code](https://aka.ms/contoso-real-estate-github)
 * [Learn Collection](https://aka.ms/javascript-e2e-serverless-learn-collection)
