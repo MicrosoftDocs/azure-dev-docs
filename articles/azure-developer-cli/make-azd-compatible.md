@@ -1,17 +1,17 @@
 ---
-title: Make your project compatible with Azure Developer CLI (preview)
+title: Make your project compatible with Azure Developer CLI
 description: How to convert an app to an Azure developer enabled template.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, devx-track-bicep
+ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
 
-# Make your project compatible with Azure Developer CLI (preview)
+# Make your project compatible with Azure Developer CLI
 
 Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
 
