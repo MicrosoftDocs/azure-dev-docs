@@ -100,13 +100,17 @@ A sample Python application using the Django framework are available to help you
 
 ## Create a user-assigned managed identity
 
-Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
+Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
 
 ```azurecli
-az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME
+UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --out
 ```
 
-TBD: How to set UAClientID and SUBSCRIPTION_ID environment variables.
+Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
+
+```azurecli
+SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+```
 
 ## Create passwordless connectors to Azure resources
 
@@ -126,7 +130,7 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
       --client-type django \
       --user-identity client-id=$UAClientID subs-id=$SUBSCRIPTION_ID
 
-TBD: Is client-type = python better? Does specifying connection make sense? 
+TBD: Is client-type = python better? Does specifying connection make sense? What kind of environment variables do we want?
 
 1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
 
