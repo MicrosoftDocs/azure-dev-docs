@@ -183,7 +183,7 @@ az postgres flexible-server connect \
   --output none
 ```
 
-*TBD: This isn't really acceptable. Is there another way to do this besides connectors? Can we run sql commands when we create the database?*
+*TBD: This isn't really acceptable. Is there another way to do this besides connectors? Can we run sql commands when we create the database? Could use `az postgres flexible-server execute`.*
 
 Create a user and assign roles with the following SQL statements.
 
