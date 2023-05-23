@@ -181,7 +181,7 @@ In this section, you create role assignments for the managed identity to enable 
     --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
     ```
 
-    The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
+    The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
 
 1. Execute T-SQL commands to create a user for the managed identity and assign roles to that user. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
