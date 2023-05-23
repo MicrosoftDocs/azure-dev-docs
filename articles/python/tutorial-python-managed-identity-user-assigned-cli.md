@@ -24,13 +24,13 @@ A sample Python application using the Django framework are available to help you
 1. Clone the sample in an Azure Cloud Shell session.
 
     ```azurecli
-    git clone https://github.com/Azure-Samples/msdocs-djangoask-web-app-managed-identity.git
+    git clone https://github.com/Azure-Samples/msdocs-django-user-assigned-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
     ```azurecli
-    cd msdocs-django-web-app-managed-identity
+    cd msdocs-django-user-assigned-managed-identity
     ```
 
 ## Create an Azure PostgreSQL server
@@ -100,58 +100,22 @@ A sample Python application using the Django framework are available to help you
       --startup-file "start.sh"
     ```
 
-## Create a user-assigned managed identity
+*TBD: The start.sh for Django may only need migration of database.*
 
-Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
+## Create storage account and blob container
 
-```azurecli
-UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
-```
-
-Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
+1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
 ```azurecli
-SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+$STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
+az storage account create \
+  --name $STORAGE_ACCOUNT_NAME \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --location $LOCATION \
+  --sku Standard_LRS
 ```
 
-## Create passwordless connectors to Azure resources
-
-The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use user-assigned managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
-
-1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The user-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
-
-    ```azurecli
-    az extension add --name serviceconnector-passwordless --upgrade
-    az webapp connection create postgres-flexible \
-      --connection webappuser
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP_NAME \
-      --server $DB_SERVER_NAME \
-      --database restaurant \
-      --client-type django \
-      --user-identity client-id=$UAClientID subs-id=$SUBSCRIPTION_ID
-
-TBD: Is client-type = python better? Does specifying connection make sense? What kind of environment variables do we want?
-
-1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
-
-    This command also adds a storage account and adds the web app with role *Storage Blob Data Contributor* to the storage account.
-
-    ```azurecli
-    STORAGE_ACCOUNT_URL=$(az webapp connection create storage-blob \
-      --new true \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP_NAME \
-      --client-type python \
-      --system-identity \
-      --query configurations[].value \
-      --output tsv)
-    STORAGE_ACCOUNT_NAME=$(cut -d . -f1 <<< $(cut -d / -f3 <<< $STORAGE_ACCOUNT_URL))
-    ```
-
-## Create a container in the storage account
+*TBD: Verify this*
 
 1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
@@ -161,6 +125,75 @@ TBD: Is client-type = python better? Does specifying connection make sense? What
       --name photos \
       --public-access blob 
     ```
+
+## Create a user-assigned managed identity
+
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
+
+```azurecli
+UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
+```
+
+1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
+
+```azurecli
+SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+```
+
+1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+
+```azurecli
+az webapp identity assign \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $APP_SERVICE_NAME \
+    --identities UAManagedIdentity
+```
+
+*TBD: is this really the identity name?*
+
+1. Create an App Service app setting that contains the client ID of the managed identity with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
+
+```azurecli
+az webapp config appsettings set \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $APP_SERVICE_NAME \
+    --settings AZURE_CLIENT_ID=$UAClientID
+```
+
+## Create roles for managed identity to enable access to Azure resources
+
+1. Create a role assignment for the managed identity to enable access to the storage account with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
+```azurecli
+export MSYS_NO_PATHCONV=1
+az role assignment create \
+--assignee $UAClientID \
+--resource-group $RESOURCE_GROUP_NAME \
+--role "Storage Blob Data Contributor"
+--scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
+```
+
+1. Connect to the Postgres database with the [az postgres flexible-server connect](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-connect) command.
+
+```azurecli
+az postgres flexible-server connect \
+  --name $DB_SERVER_NAME \
+  --admin-user $ADMIN_USER \
+  --admin-password $ADMIN_PW \
+  --output none
+```
+
+*TBD: This isn't really acceptable. Is there another way to do this besides connectors? Can we run sql commands when we create the database?*
+
+Create a user and assign roles with the following SQL statements.
+
+```tsql
+CREATE USER [UAManagedIdentity] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [UAManagedIdentity];
+ALTER ROLE db_datawriter ADD MEMBER [UAManagedIdentity];
+ALTER ROLE db_ddladmin ADD MEMBER [UAManagedIdentity];
+GO
+```
 
 ## Test the Python web app in Azure
 
