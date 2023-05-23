@@ -183,16 +183,15 @@ az postgres flexible-server connect \
   --output none
 ```
 
-*TBD: This isn't really acceptable. Is there another way to do this besides connectors? Can we run sql commands when we create the database? Could use `az postgres flexible-server execute`.*
+1. Execute T-SQL commands to create a user and assign roles to the managed identity. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
-Create a user and assign roles with the following SQL statements.
-
-```tsql
-CREATE USER [UAManagedIdentity] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [UAManagedIdentity];
-ALTER ROLE db_datawriter ADD MEMBER [UAManagedIdentity];
-ALTER ROLE db_ddladmin ADD MEMBER [UAManagedIdentity];
-GO
+```azurecli
+az postgres flexible-server execute \
+  --name $DB_SERVER_NAME \
+  --admin-user $ADMIN_USER \
+  --admin-password $ADMIN_PW \
+  --database-name postgres \
+  --querytext 'CREATE USER "UAManagedIdentity" FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER "UAManagedIdentity";ALTER ROLE db_datawriter ADD MEMBER "UAManagedIdentity";ALTER ROLE db_ddladmin ADD MEMBER "UAManagedIdentity";'
 ```
 
 ## Test the Python web app in Azure
