@@ -119,7 +119,7 @@ The sample app uses a storage account and blob container to store photos. The st
       --sku Standard_LRS
     ```
 
-    *TBD: Verify this*
+    *TBD: Verify this command.*
 
 1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
@@ -155,7 +155,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
         --identities UAManagedIdentity
     ```
 
-    *TBD: is this really the identity name?*
+    *TBD: Does the --identities parameter really take the identity name?*
 
 1. Create an App Service app setting that contains the client ID of the managed identity with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
