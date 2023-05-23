@@ -55,15 +55,6 @@ The HR app is built as:
 |5|**Microservices** (Backend)| The microservices layer is built with Azure Functions and Node.js with Fastify, and the payment service is containerized and deployed to Azure Container Apps|
 |6|**Payments**|The payments layer is built with Stripe.|
 
-## Composable reference architecture
-
-|#|Name|Description|
-|:--|:--|--|
-|1|**Local development** (Developer)|Using GitHub CodeSpaces either in the browser or locally with Visual Studio Code, the developer uses the typical tools and workflow to add new features, or fix issues. This development includes the all layers including the deployment infrastructure and deployment pipeline.|
-|2|**Workloads** (DevOps)|When the developer pushes to the source control repository on GitHub, GitHub Action workflows provide testing automation, and deployment. Deploy packages to Azure using Azure Developer CLI, allowing you to manage resource creation with simple commands such as `azd deploy`|
-|3|**Azure**|The composable web app is deployed with all Azure services configured to integrate with other services.|
-|4|**Services**|The primary services used in this architecture are Azure Container Apps, Azure Static Web Apps, Azure Cosmos DB, Azure Cache for Redis, and Azure Functions.|
-
 ## Resources
 
 * [Announcement](https://aka.ms/contoso-real-estate/announcement)
