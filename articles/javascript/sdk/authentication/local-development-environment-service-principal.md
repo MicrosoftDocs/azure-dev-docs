@@ -221,7 +221,7 @@ async function listSubscriptions() {
   try {
 
     // use credential to authenticate with Azure SDKs
-    const client = new SubscriptionClient(credentials);
+    const client = new SubscriptionClient(tokenCredential);
 
     // get details of each subscription
     for await (const item of client.subscriptions.list()) {
