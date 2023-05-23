@@ -6,7 +6,7 @@ ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
-# Enterprise-grade Reference Sample for Composable Architecture
+# Enterprise-grade reference for composable architecture
 
 This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
