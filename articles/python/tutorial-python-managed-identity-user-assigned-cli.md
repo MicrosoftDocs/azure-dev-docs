@@ -104,7 +104,7 @@ Run these commands in the root folder of the sample app.
 
     *TBD: The start.sh for Django may only need migration of database.*
 
-## Create storage account and blob container
+## Create a storage account and container
 
 The sample app uses a storage account and blob container to store photos. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
 
@@ -166,7 +166,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
         --settings AZURE_CLIENT_ID=$UAClientID
     ```
     
-## Create roles for managed identity to enable access to Azure resources
+## Create roles for the managed identity
 
 In this section, you create role assignments for the managed identity to enable access to the storage account and database.
 
