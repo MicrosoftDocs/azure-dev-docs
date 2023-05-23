@@ -173,17 +173,9 @@ az role assignment create \
 --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
 ```
 
-1. Connect to the Postgres database with the [az postgres flexible-server connect](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-connect) command.
+The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
 
-```azurecli
-az postgres flexible-server connect \
-  --name $DB_SERVER_NAME \
-  --admin-user $ADMIN_USER \
-  --admin-password $ADMIN_PW \
-  --output none
-```
-
-1. Execute T-SQL commands to create a user and assign roles to the managed identity. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+1. Execute T-SQL commands to create a user for the managed identity and assign roles to that user. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
 ```azurecli
 az postgres flexible-server execute \
