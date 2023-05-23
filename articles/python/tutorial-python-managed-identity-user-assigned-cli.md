@@ -103,7 +103,7 @@ A sample Python application using the Django framework are available to help you
 Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
 
 ```azurecli
-UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --out
+UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
 ```
 
 Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
