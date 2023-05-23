@@ -79,6 +79,8 @@ A sample Python application using the Django framework are available to help you
 
 ## Create an Azure App Service and deploy the code
 
+Run these commands in the root folder of the sample app.
+
 1. Create an app service using the [az webapp up](/cli/azure/webapp#az-webapp-up) command.
 
     ```azurecli
@@ -100,22 +102,24 @@ A sample Python application using the Django framework are available to help you
       --startup-file "start.sh"
     ```
 
-*TBD: The start.sh for Django may only need migration of database.*
+    *TBD: The start.sh for Django may only need migration of database.*
 
 ## Create storage account and blob container
 
+The sample app uses a storage account and blob container to store photos. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
+
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
-```azurecli
-$STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
-az storage account create \
-  --name $STORAGE_ACCOUNT_NAME \
-  --resource-group $RESOURCE_GROUP_NAME \
-  --location $LOCATION \
-  --sku Standard_LRS
-```
+    ```azurecli
+    $STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
+    az storage account create \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --location $LOCATION \
+      --sku Standard_LRS
+    ```
 
-*TBD: Verify this*
+    *TBD: Verify this*
 
 1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
@@ -128,63 +132,67 @@ az storage account create \
 
 ## Create a user-assigned managed identity
 
+Create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account.
+
 1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
 
-```azurecli
-UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
-```
+    ```azurecli
+    UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
+    ```
 
 1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
 
-```azurecli
-SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-```
+    ```azurecli
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    ```
 
 1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
 
-```azurecli
-az webapp identity assign \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $APP_SERVICE_NAME \
-    --identities UAManagedIdentity
-```
+    ```azurecli
+    az webapp identity assign \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $APP_SERVICE_NAME \
+        --identities UAManagedIdentity
+    ```
 
-*TBD: is this really the identity name?*
+    *TBD: is this really the identity name?*
 
 1. Create an App Service app setting that contains the client ID of the managed identity with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
-```azurecli
-az webapp config appsettings set \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $APP_SERVICE_NAME \
-    --settings AZURE_CLIENT_ID=$UAClientID
-```
-
+    ```azurecli
+    az webapp config appsettings set \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $APP_SERVICE_NAME \
+        --settings AZURE_CLIENT_ID=$UAClientID
+    ```
+    
 ## Create roles for managed identity to enable access to Azure resources
+
+In this section, you create role assignments for the managed identity to enable access to the storage account and database.
 
 1. Create a role assignment for the managed identity to enable access to the storage account with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
-```azurecli
-export MSYS_NO_PATHCONV=1
-az role assignment create \
---assignee $UAClientID \
---resource-group $RESOURCE_GROUP_NAME \
---role "Storage Blob Data Contributor"
---scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
-```
+    ```azurecli
+    export MSYS_NO_PATHCONV=1
+    az role assignment create \
+    --assignee $UAClientID \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --role "Storage Blob Data Contributor"
+    --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
+    ```
 
-The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
+    The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
 
 1. Execute T-SQL commands to create a user for the managed identity and assign roles to that user. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
-```azurecli
-az postgres flexible-server execute \
-  --name $DB_SERVER_NAME \
-  --admin-user $ADMIN_USER \
-  --admin-password $ADMIN_PW \
-  --database-name postgres \
-  --querytext 'CREATE USER "UAManagedIdentity" FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER "UAManagedIdentity";ALTER ROLE db_datawriter ADD MEMBER "UAManagedIdentity";ALTER ROLE db_ddladmin ADD MEMBER "UAManagedIdentity";'
-```
+    ```azurecli
+    az postgres flexible-server execute \
+      --name $DB_SERVER_NAME \
+      --admin-user $ADMIN_USER \
+      --admin-password $ADMIN_PW \
+      --database-name postgres \
+      --querytext 'CREATE USER "UAManagedIdentity" FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER "UAManagedIdentity";ALTER ROLE db_datawriter ADD MEMBER "UAManagedIdentity";ALTER ROLE db_ddladmin ADD MEMBER "UAManagedIdentity";'
+    ```
 
 ## Test the Python web app in Azure
 
