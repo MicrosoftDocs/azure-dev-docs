@@ -1,17 +1,20 @@
 ---
-title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps (preview)
+title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps
 description: Learn how to push updates using GitHub Actions or Azure DevOps.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 08/10/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Configure a pipeline and push updates (preview)
+# Configure a pipeline and push updates
 
 In this article, you'll learn how to use the Azure Developer CLI (`azd`) to push template changes through a CI/CD pipeline such as GitHub Actions or Azure DevOps. For this example you'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template, but you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](./azd-templates.md).
+
+> [!NOTE]
+> The `azd pipeline config` command is still in beta. Read more about alpha and beta feature support on the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) page.
 
 ## Prerequisites
 

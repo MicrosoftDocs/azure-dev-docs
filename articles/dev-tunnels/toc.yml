@@ -1,0 +1,16 @@
+- name: Dev tunnels documentation
+  href: ./index.yml
+- name: Overview 
+  items:
+  - name: What are dev tunnels?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create and host a tunnel
+    href: get-started.md
+- name: Reference
+  items:
+  - name: Command line
+    href: cli-commands.md
+  - name: Frequently asked questions
+    href: faq.md

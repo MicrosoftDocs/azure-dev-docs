@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Dev tunnels documentation
+summary: Dev tunnels allows developers to securely expose local web services to the Internet, control who has access, and easily & debug your web applications from anywhere.
+metadata:
+  title: Dev tunnels documentation
+  description: Use Dev tunnels to securely expose local web services to the Internet, control who has access, and easily test and debug your web applications from anywhere.
+  ms.service: azure-dev-tunnels
+  ms.custom: build-2023
+  ms.topic: landing-page
+  author: curib 
+  ms.author: cauribeg
+  ms.date: 04/26/2023 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: Get started with dev tunnels
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What are dev tunnels?
+            url: overview.md
+          - text: Create and host a tunnel
+            url: get-started.md
+
+  # Card
+  - title: Reference documentation
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Command line reference
+            url: cli-commands.md
+          - text: Frequently asked questions
+            url: faq.md
+  

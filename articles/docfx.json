@@ -128,7 +128,8 @@
         "jenkins/**/*.md": "jenkins",
         "terraform/**/*.md": "terraform",
         "python/**/*.md": "azure-python",
-        "javascript/**/*.md": "azure-javascript"
+        "javascript/**/*.md": "azure-javascript",
+        "dev-tunnels/**/*.md": "dev-tunnels"
       },
       
       "titleSuffix": {
