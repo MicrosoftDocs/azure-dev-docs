@@ -59,4 +59,5 @@ The HR app is built as:
 
 * [Announcement](https://aka.ms/contoso-real-estate/announcement)
 * [Source code](https://aka.ms/contoso-real-estate-github)
+* [AZD template](https://azure.github.io/awesome-azd/?operator=AND&tags=enterprisepatterns&tags=javascript)
 * [Learn Collection](https://aka.ms/javascript-e2e-serverless-learn-collection)
