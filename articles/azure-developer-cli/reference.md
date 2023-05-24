@@ -34,12 +34,12 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd down](#azd-down): Delete Azure resources for an application.
 * [azd env](#azd-env): Manage environments.
 * [azd init](#azd-init): Initialize a new application.
-* [azd monitor](#azd-monitor): Monitor a deployed application.
-* [azd package](#azd-package): Packages the application's code to be deployed to Azure. (Beta)
-* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
+* [azd monitor](#azd-monitor): (Beta) Monitor a deployed application.
+* [azd package](#azd-package): (Beta) Packages the application's code to be deployed to Azure. (Beta)
+* [azd pipeline](#azd-pipeline): (Beta) Manage and configure your deployment pipelines.
 * [azd provision](#azd-provision): Provision the Azure resources for an application.
 * [azd restore](#azd-restore): Restores the application's dependencies.
-* [azd template](#azd-template): Find and view template details.
+* [azd template](#azd-template): (Beta) Find and view template details.
 * [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
 
@@ -97,7 +97,7 @@ azd auth login [flags]
   -h, --help                                   Gets help for login.
       --redirect-port int                      Choose the port to be used as part of the redirect URI during interactive login.
       --tenant-id string                       The tenant id or domain name to authenticate with.
-      --use-device-code[=true]                 When true, log in by using a device code instead of a browser.
+      --use-device-code                 When true, log in by using a device code instead of a browser.
 ```
 
 ### Options inherited from parent commands
@@ -119,7 +119,7 @@ Log out of Azure.
 
 ### Synopsis
 
-Log out of Azure
+Log out of Azure.
 
 ```azdeveloper
 azd auth logout [flags]
@@ -221,7 +221,7 @@ azd config get <path> [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config list
@@ -258,7 +258,7 @@ azd config list [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config list-alpha
@@ -285,7 +285,7 @@ azd config list-alpha [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config reset
@@ -322,7 +322,7 @@ azd config reset [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config set
@@ -366,7 +366,7 @@ azd config set defaults.location eastus
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config unset
@@ -409,7 +409,7 @@ azd config unset defaults.location
 
 ### See also
 
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd deploy
@@ -443,7 +443,7 @@ azd deploy <service> [flags]
 
 ## azd down
 
-Delete Azure resources for an application.
+Delete Azure resources for an application. Running `azd down` will not delete application files on your local machine.
 
 ```azdeveloper
 azd down [flags]
@@ -668,6 +668,8 @@ azd env set <key> <value> [flags]
 ## azd init
 
 Initialize a new application.
+- Running `azd init` without a template will prompt you to start with a minimal template or select from a curated list of presets.
+- To view all available sample templates, including those submitted by the `azd` community, visit: aka.ms/awesome-azd
 
 ```azdeveloper
 azd init [flags]
@@ -698,7 +700,7 @@ azd init [flags]
 
 ## azd monitor
 
-Monitor a deployed application.
+(Beta) Monitor a deployed application.  For more information, go to: https://aka.ms/azure-dev/monitor.
 
 ```azdeveloper
 azd monitor [flags]
@@ -728,7 +730,11 @@ azd monitor [flags]
 
 ## azd package
 
-Packages the application's code to be deployed to Azure. (Beta)
+(Beta) Packages the application's code to be deployed to Azure. (Beta)
+- By default, packages all services listed in 'azure.yaml' in the current directory, or the service described in the project that matches the current directory.
+- When <service> is set, only the specific service is packaged.
+- After the packaging is complete, the package locations are printed.
+
 
 ```azdeveloper
 azd package <service> [flags]
@@ -756,7 +762,9 @@ azd package <service> [flags]
 
 ## azd pipeline
 
-Manage and configure your deployment pipelines.
+(Beta) Manage integrating your application with build pipelines.
+- The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the `.github/workflows` folder) that deploys your application whenever code is pushed to the main branch.
+- For more information, go to: aka.ms/azure-dev/pipeline.
 
 ### Options
 
@@ -812,7 +820,12 @@ azd pipeline config [flags]
 
 ## azd provision
 
-Provision the Azure resources for an application.
+Provision the Azure resources for an application. This step may take a while depending on the resources provisioned. You should run `azd provision` any time you update your Bicep or Terraform file.
+
+This command prompts you to input the following:
+-  Environment name: The name of your environment (ex: dev, test, prod).
+- Azure location: The Azure location where your resources will be deployed.
+- Azure subscription: The Azure subscription where your resources will be deployed.
 
 ### Synopsis
 
@@ -850,7 +863,10 @@ azd provision [flags]
 
 ## azd restore
 
-Restores the application's dependencies.
+(Beta) Restore application dependencies.
+- Run this command to download and install all required dependencies so that you can build, run, and debug the application locally.
+- For the best local run and debug experience, go to aka.ms/azure-dev/vscode to learn how to use the Visual Studio Code extension.
+>```
 
 ```azdeveloper
 azd restore <service> [flags]
@@ -878,7 +894,11 @@ azd restore <service> [flags]
 
 ## azd template
 
-Find and view template details.
+(Beta) View details of your current template or browse a list of curated sample templates.
+
+- The azd CLI includes a curated list of sample templates viewable by running azd template list.
+- To view all available sample templates, including those submitted by the azd community visit: aka.ms/awesome-azd.
+- Running azd init without a template will prompt you to start with a minimal template or select from our curated list of samples.
 
 ### Options
 
@@ -956,7 +976,7 @@ azd template show <template> [flags]
 
 ## azd up
 
-Provision Azure resources, and deploy your project with a single command.
+Executes the azd provision and azd deploy commands in a single step.
 
 ```azdeveloper
 azd up [flags]
