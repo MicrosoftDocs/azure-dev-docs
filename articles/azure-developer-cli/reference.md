@@ -35,7 +35,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd env](#azd-env): Manage environments.
 * [azd init](#azd-init): Initialize a new application.
 * [azd monitor](#azd-monitor): (Beta) Monitor a deployed application.
-* [azd package](#azd-package): (Beta) Packages the application's code to be deployed to Azure. (Beta)
+* [azd package](#azd-package): (Beta) Packages the application's code to be deployed to Azure.
 * [azd pipeline](#azd-pipeline): (Beta) Manage and configure your deployment pipelines.
 * [azd provision](#azd-provision): Provision the Azure resources for an application.
 * [azd restore](#azd-restore): Restores the application's dependencies.
@@ -730,7 +730,7 @@ azd monitor [flags]
 
 ## azd package
 
-(Beta) Packages the application's code to be deployed to Azure. (Beta)
+(Beta) Packages the application's code to be deployed to Azure.
 - By default, packages all services listed in 'azure.yaml' in the current directory, or the service described in the project that matches the current directory.
 - When <service> is set, only the specific service is packaged.
 - After the packaging is complete, the package locations are printed.
