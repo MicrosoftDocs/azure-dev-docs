@@ -39,8 +39,8 @@ In this article, you learn how to:
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-traffic-manager-external-endpoint). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-traffic-manager-external-endpoint\TestRecord.md).
-> 
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks/TestRecord.md).
+>
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
