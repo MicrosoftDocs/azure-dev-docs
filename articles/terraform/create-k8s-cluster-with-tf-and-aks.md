@@ -4,7 +4,7 @@ description: In this article, you learn how to create a Kubernetes Cluster with 
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
 ms.date: 05/25/2023
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, ai-gen-docs
 ---
 
 # Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -28,7 +28,7 @@ In this article, you learn how to:
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](~/../azure-docs-pr/includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
@@ -87,11 +87,11 @@ In this article, you learn how to:
 
 1. Get the Azure resource group name.
 
-    ```console
-    resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Display the name of the new Log Analytics workspace.
+  ```console
+  resource_group_name=$(terraform output -raw resource_group_name)
+  ```
+  
+1. Run [az monitor log-analytics workspace list](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list) to display the name of the new Log Analytics workspace.
 
   ```azurecli
   az monitor log-analytics workspace list \
@@ -100,7 +100,7 @@ In this article, you learn how to:
     --output table  
   ```
 
-1. Display the name of the new Log Analytics solution.
+1. Run [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) to display the name of the new Log Analytics solution.
 
   ```azurecli
   az monitor log-analytics solution list \
@@ -113,7 +113,7 @@ In this article, you learn how to:
 
   - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
 
-1. Display the name of the new Kubernetes cluster.
+1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
 
   ```azurecli
   az aks list \
