@@ -166,7 +166,7 @@ sqlcmd -S $AZ_DATABASE_NAME.database.windows.net,1433  -d demo -U $AZ_SQL_SERVER
 Generate the application on the command line by running the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.9 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.11 -d javaVersion=17 | tar -xzvf -
 ```
 
 ## Add the reactive Azure SQL Database driver implementation
