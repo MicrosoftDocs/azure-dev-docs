@@ -109,10 +109,10 @@ In this article, you learn how to:
       --output table  
     ```
 
-  **Key points:**
-
-  - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
-
+    **Key points:**
+  
+    - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
+  
 1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
 
     ```azurecli
@@ -167,16 +167,16 @@ In this article, you learn how to:
 
 1. Get the service principal ID.
 
-  ```azurecli
-  sp=$(terraform output -raw sp)
-  ```
-  
+    ```azurecli
+    sp=$(terraform output -raw sp)
+    ```
+    
 1. Run [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) to delete the service principal.
 
-  ```azurecli
-  az ad sp delete --id $sp
-  ```
-  
+    ```azurecli
+    az ad sp delete --id $sp
+    ```
+    
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
