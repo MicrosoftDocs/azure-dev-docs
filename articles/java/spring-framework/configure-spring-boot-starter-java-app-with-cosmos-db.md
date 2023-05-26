@@ -62,7 +62,7 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.9**.
+   * Specify your **Spring Boot** version to **2.7.11**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.
