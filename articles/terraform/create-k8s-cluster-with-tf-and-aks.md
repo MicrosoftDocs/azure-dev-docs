@@ -87,27 +87,27 @@ In this article, you learn how to:
 
 1. Get the Azure resource group name.
 
-  ```console
-  resource_group_name=$(terraform output -raw resource_group_name)
-  ```
-  
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
 1. Run [az monitor log-analytics workspace list](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list) to display the name of the new Log Analytics workspace.
 
-  ```azurecli
-  az monitor log-analytics workspace list \
-    --resource-group $resource_group_name \
-    --query "[].{\"Workspace name\":name}" \
-    --output table  
-  ```
-
+    ```azurecli
+    az monitor log-analytics workspace list \
+      --resource-group $resource_group_name \
+      --query "[].{\"Workspace name\":name}" \
+      --output table  
+    ```
+  
 1. Run [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) to display the name of the new Log Analytics solution.
 
-  ```azurecli
-  az monitor log-analytics solution list \
-    --resource-group $resource_group_name \
-    --query "value[*].{\"Solution name\":name}" \
-    --output table  
-  ```
+    ```azurecli
+    az monitor log-analytics solution list \
+      --resource-group $resource_group_name \
+      --query "value[*].{\"Solution name\":name}" \
+      --output table  
+    ```
 
   **Key points:**
 
@@ -115,12 +115,12 @@ In this article, you learn how to:
 
 1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
 
-  ```azurecli
-  az aks list \
-    --resource-group $resource_group_name \
-    --query "[].{\"K8s cluster name\":name}" \
-    --output table
-  ```
+    ```azurecli
+    az aks list \
+      --resource-group $resource_group_name \
+      --query "[].{\"K8s cluster name\":name}" \
+      --output table
+    ```
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
@@ -164,9 +164,6 @@ In this article, you learn how to:
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ### Delete service principal
-
-> [!CAUTION]
-> Delete the service principal you used in this demo only if you're not using it for anything else.
 
 1. Get the service principal ID.
 
