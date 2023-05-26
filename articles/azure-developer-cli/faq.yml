@@ -26,10 +26,10 @@ sections:
           curl -fsSL https://aka.ms/uninstall-azd.sh | bash
           ```
 
-      - question: What's the difference between Azure Developer CLI (`azd`) and the Azure CLI (`az`)?
+      - question: What's the difference between the Azure Developer CLI and the Azure CLI?
 
         answer: | 
-          [Azure Developer CLI (`azd`)] and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools, but they help you do different tasks.
+          [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) and [Azure CLI](/cli/azure/what-is-azure-cli) (`az`) are both command-line tools, but they help you do different tasks.
 
           [`azd`](./index.yml) focuses on the developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
 
