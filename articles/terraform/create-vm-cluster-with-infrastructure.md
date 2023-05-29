@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform, ai-gen-docs
 
 # Quickstart: Create an Azure Linux VM cluster with Terraform
 
-This article shows how to create a small compute Linux VM cluster in Azure using Terraform.
+This article shows how to create a small Linux VM cluster in Azure using Terraform.
 
 In this article, you learn how to:
 
@@ -80,7 +80,7 @@ In this article, you learn how to:
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run the [az vm list](/cli/azure/vm#az-vm-list) command with a [JMESPath](/cli/azure/query-azure-cli) query to display the VMs created in the resource group.
+1. Run [az vm list](/cli/azure/vm#az-vm-list) with a [JMESPath](/cli/azure/query-azure-cli) query to display the names of the virtual machines created in the resource group.
 
     ```azurecli
     az vm list \
@@ -96,7 +96,7 @@ In this article, you learn how to:
     $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run [Get-AzVm]()  to display the names of all the virtual machines in the resource group.
+1. Run [Get-AzVm](/powershell/module/az.compute/get-azvm)  to display the names of all the virtual machines in the resource group.
 
     ```azurepowershell
     Get-AzVm -ResourceGroupName $resource_group_name
