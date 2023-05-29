@@ -88,6 +88,22 @@ In this article, you learn how to:
       --query "[].{\"VM Name\":name}" -o table
     ```
 
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [Get-AzVm]()  to display the names of all the virtual machines in the resource group.
+
+    ```azurepowershell
+    Get-AzVm -ResourceGroupName $resource_group_name
+    ```
+
+---
+
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
