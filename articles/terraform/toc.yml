@@ -156,7 +156,7 @@
         - name: Create a Linux VM
           href: /azure/virtual-machines/linux/quick-create-terraform
         - name: Create a Linux VM cluster
-          href: create-vm-cluster-with-infrastructure
+          href: create-vm-cluster-with-infrastructure.md
 - name: Samples
   items:
     - name: Terraform samples
