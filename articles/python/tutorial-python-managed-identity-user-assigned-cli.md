@@ -137,8 +137,6 @@ The sample app uses a storage account and blob container to store photos. The st
       --allow-blob-public-access true
     ```
 
-    *TBD: Verify this command.*
-
 1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
     ```azurecli
