@@ -48,7 +48,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
 
     ```bash
     git init
-    git remote add origin https://github.com/azure-samples/azure-typescript-e2e-samples.git
+    git remote add origin https://github.com/azure-samples/azure-typescript-e2e-apps
     git config core.sparseCheckout true
     git sparse-checkout set cli-openai lib-openai
     git pull origin main
@@ -59,13 +59,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     * cli-openai: The CLI application with the conversation loop.
     * lib-openai: The OpenAi conversation management functionality.
 
-1. Create a root-level package.json.
-
-    ```bash
-    npm inity -y
-    ```
-
-1. Open the package.json file and add the two subdirectories to the workspace setting:
+1. Create a root-level file named `package.json` and add the two subdirectories to the workspace setting:
 
     ```json
     {
@@ -81,26 +75,20 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     }
     ```
 
+    This lets the CLI application reference the LIB application using the npm workspace.
+
+    > [!NOTE]
+    > NPM workspaces and separate subdirectories are used in this tutorial but not necessary to use Azure OpenAI or create a CLI. You can use the lib-openai directory in a web app or serverless API.
+
 1. Install the dependencies for the two subdirectories.
 
     ```bash
     npm install
     ```
 
-    This lets the CLI application reference the LIB application using the npm workspace.
-
-    > [!NOTE]
-    > NPM workspaces and separate subdirectories are used in this tutorial but not necessary to use Azure OpenAI or create a CLI. You can use the lib-openai directory in a web app or serverless API.
-
-1. Build the two projects.
-
-    ```bash
-    npm run build
-    ```
-
 ## Create environment file for Azure OpenAi settings
 
-1. Create a `.env.development` file in the `./cli-openai` directory.
+1. In the `./cli-openai` directory, create a `.env.development` file.
 1. Copy the following environment variables into the `.env.development` file.
 
     ```INI
@@ -121,10 +109,10 @@ The command line interface (CLI) application you'll build in this tutorial is a 
 
 ## Run the CLI application
 
-1. Change into the CLI application directory.
+1. Use the root-leve package.json `build` script to build both apps.
 
     ```bash
-    cd cli-openai
+    npm run build
     ```
 
 1. Run the CLI application.
@@ -142,6 +130,9 @@ The command line interface (CLI) application you'll build in this tutorial is a 
 1. At the command prompt, enter a question such as `What is TypeScript?` and press Enter. 
 
 1. The CLI responds with a short answer and a new prompt.
+
+    :::image type="content" source="media/azire-openai/conversational-ai.png" alt-text="Screenshot of console showing interaction with the CLI.":::
+
 1. Continue the conversation with a follow-up question such as `What are the top 3 things to learn about Azure with using TypeScript?`.
 
 ## OpenAI request and response 
@@ -223,5 +214,6 @@ The CLI application creates a `debug.log` if the `-d` switch is used.
 * Tutorial sample code:
     * [`CLI`](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/cli-openai): conversation loop
     * [`LIB`](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/lib): OpenAI library
+        * [OpenAIConversationClient class](https://github.com/Azure-Samples/azure-typescript-e2e-apps/blob/main/lib-openai/src/index.ts)
 * [Azure OpenAi documentation](/azure/cognitive-services/openai/)
 * [AZURE SDK for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples)
