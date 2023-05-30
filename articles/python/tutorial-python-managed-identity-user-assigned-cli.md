@@ -146,7 +146,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 
     ```azurecli
     SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/msdocs-mi-web-app/providers/Microsoft.ManagedIdentity/userAssignedIdentities/UAManagedIdentityPythonTest"
+    RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/UAManagedIdentityPythonTest"
     ```
 
 1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
