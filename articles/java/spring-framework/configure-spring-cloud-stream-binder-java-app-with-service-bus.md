@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/06/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Stream with Azure Service Bus

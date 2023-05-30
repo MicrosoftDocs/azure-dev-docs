@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 08/07/2022
 ---
 

@@ -8,7 +8,7 @@ ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: mvc, devx-track-java, spring-cloud-azure
+ms.custom: mvc, devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Deploy a Spring Boot application to Linux on Azure App Service

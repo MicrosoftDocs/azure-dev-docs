@@ -5,7 +5,7 @@ services: event-hubs
 ms.date: 04/06/2023
 ms.service: event-hubs
 ms.topic: article
-ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-azurecli
+ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Spring Kafka with Azure Event Hubs for Kafka API

@@ -3,7 +3,7 @@ title: "Local dev: Auth JS apps to Azure services with service principal"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using dedicated application service principals.
 ms.date: 12/01/2022
 ms.topic: how-to
-ms.custom: dexx-track-js, devx-track-azurecli
+ms.custom: dexx-track-js, devx-track-azurecli, devx-track-js
 ---
 
 # Authenticate JavaScript apps to Azure services during local development using service principals

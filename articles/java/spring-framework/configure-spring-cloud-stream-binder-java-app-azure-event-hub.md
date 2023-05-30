@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Stream with Azure Event Hubs

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: dbrittain
 ms.topic: conceptual
 ms.date: 01/04/2023
-ms.custom: devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-was, migration-java
+ms.custom: devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-was, migration-java, devx-track-extended-java
 ---
 
 # Migrate WebSphere applications to JBoss EAP on Azure App Service

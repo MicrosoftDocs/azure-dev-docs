@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: how-to
 ms.date: 04/27/2023
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, migration-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines
