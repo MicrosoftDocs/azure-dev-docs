@@ -67,6 +67,8 @@ A sample Python application using the Django framework are available to help you
 
     The *sku-name* is the name of the pricing tier and compute configuration. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). To list available SKUs, use `az postgres flexible-server list-skus --location $LOCATION`.
 
+*TBD: Allow access from other services.Add current as admin in Auth blade.*
+
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
     ```azurecli
@@ -190,8 +192,10 @@ In this section, you create role assignments for the managed identity to enable 
       --admin-user $ADMIN_USER \
       --admin-password $ADMIN_PW \
       --database-name postgres \
-      --querytext "CREATE USER [UAManagedIdentityPythonTest] FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER [UAManagedIdentityPythonTest];ALTER ROLE db_datawriter ADD MEMBER [UAManagedIdentityPythonTest];ALTER ROLE db_ddladmin ADD MEMBER [UAManagedIdentityPythonTest];"
+      --querytext "select * from pgaadauth_create_principal('$UAClientID', false, false);"
     ```
+
+*TBD: Make sure Azure AD auth is enabled on the server. And user using az commands is assigned as admin.*
 
 ## Test the Python web app in Azure
 
