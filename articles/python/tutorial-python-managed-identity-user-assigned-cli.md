@@ -5,7 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 author: bobtabor-msft
 ms.author: rotabor
-ms.date: 05/22/2023
+ms.date: 05/30/2023
 ms.custom: devx-track-python
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 
 In this tutorial, you deploy Python **[Django](https://www.djangoproject.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
-You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to  Service Connector with a user-assigned managed identity. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
+User-assigned identities can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. In this tutorial, you create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account. For an example of using a system managed identity, see [Create and deploy a Flask Python web app to Azure with managed identity](./tutorial-python-managed-identity-cli.md). For more information about best practices of using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). For examples of using the Azure portal or Visual Studio Code to create and deploy, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
 
