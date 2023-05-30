@@ -186,21 +186,18 @@ In this section, you create role assignments for the managed identity to enable 
 
     The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
 
-1. Connect to the Postgres database using [psql](https://www.postgresql.org/docs/current/app-psql.html) with the account email you set as Azure AD administrator for the database server. Only the Azure AD account can create roles and assign permissions to the managed identity.
+1. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command to connect to the Postgres database and run the same commands to assign roles to the managed identity.
 
-    ```psql
+    ```azurecli
     ACCOUNT_EMAIL=$(az account show --query user.name --output tsv)
-    psql 'host=$DB_SERVER_NAME.postgres.database.azure.com port=5432 dbname=postgres user=$ACCOUNT_EMAIL password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require'
+    ACCOUNT_EMAIL_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+    az postgres flexible-server execute \
+      --name $DB_SERVER_NAME \
+      --admin-user $ACCOUNT_EMAIL \
+      --admin-password $ACCOUNT_EMAIL_TOKEN \
+      --database-name postgres \
+      --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
     ```
-
-1. At the psql prompt run the following commands to assign roles to the managed identity.
-
-    ```psql
-    select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);
-    select * from pgaadauth_list_principals(false);
-    ```
-
-    Exit psql with `\q`.
 
 ## Test the Python web app in Azure
 
