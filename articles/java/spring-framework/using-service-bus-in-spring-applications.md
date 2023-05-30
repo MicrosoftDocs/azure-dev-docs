@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/21/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Azure Service Bus in Spring applications

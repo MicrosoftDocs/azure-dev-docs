@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
 ms.date: 09/30/2022
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal

@@ -3,6 +3,7 @@ title: Add authentication to your .NET MAUI app
 description: Add authentication to your .NET MAUI app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 11/11/2021
 ms.author: adhal

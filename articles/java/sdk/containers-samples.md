@@ -7,7 +7,7 @@ ms.author: karler
 ms.date: 07/31/2017
 ms.topic: article
 ms.service: azure-kubernetes-service
-ms.custom: seo-java-july2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-july2019, seo-java-september2019, devx-track-java, devx-track-extended-java
 ---
 
 # Java samples for Azure Container Service

@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: how-to
 ms.date: 12/09/2022
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines

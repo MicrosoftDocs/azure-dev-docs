@@ -13,7 +13,7 @@ ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: how-to
 ms.workload: web
-ms.custom: devx-track-java, kr2b-contr-experiment
+ms.custom: devx-track-java, kr2b-contr-experiment, devx-track-extended-java
 ---
 
 # Deploy a Java-based MicroProfile service to Azure Web App for Containers
@@ -23,7 +23,7 @@ MicroProfile is a great way to build tiny Java applications that can be quickly 
 > [!NOTE]
 > This procedure works with any implementation of MicroProfile as long the Docker container image is self-executable, that is, includes the runtime.
 
-This sample uses [Payara Micro](https://www.payara.fish/payara_micro) and [MicroProfile 1.3](https://microprofile.io/) to create a tiny Java *.war* file, which is only 5,085 bytes. You then page it into a Docker image, which is approximately 174 megabytes. This Docker image contains everything needed for a fully containerized deployment of this webapp.
+This sample uses [Payara Micro](https://www.payara.fish/products/payara-micro/) and [MicroProfile 1.3](https://microprofile.io/) to create a tiny Java *.war* file, which is only 5,085 bytes. You then page it into a Docker image, which is approximately 174 megabytes. This Docker image contains everything needed for a fully containerized deployment of this webapp.
 
 The entire 174 megabyte Docker image often doesn't need to be redeployed whenever the application source code is changed. Docker only uploads the differences. Therefore, the process of running a new release of a MicroProfile application by using a CI/CD pipeline is efficient and quick, reducing friction and enabling rapid development iteration.
 

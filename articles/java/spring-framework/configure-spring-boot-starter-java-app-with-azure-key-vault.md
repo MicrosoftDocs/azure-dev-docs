@@ -4,7 +4,7 @@ description: In this tutorial, you create a Spring Boot app that reads a value f
 ms.date: 04/06/2023
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
 ms.author: edburns
 ---

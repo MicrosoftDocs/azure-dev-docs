@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.topic: conceptual
 ms.date: 01/18/2023
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Azure Cosmos DB dev guide

@@ -9,7 +9,7 @@ ms.date: 09/07/2021
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
 ms.contributors: judubois-03042021
 ---
 
@@ -440,7 +440,7 @@ Like in the previous section, the Function should answer you with a `Greeting` o
 
 Congratulations, you have a Spring Cloud Function running on Azure Functions! For more information and samples of Spring Cloud functions, see the following resources:
 
-- [Spring cloud function blog](https://spring.io/blog/2023/03/02/spring-cloud-function-for-azure-function)
+- [Spring cloud function blog](https://spring.io/blog/2023/02/24/spring-cloud-function-for-azure-function)
 - [Spring cloud function reference documents](https://docs.spring.io/spring-cloud-function/docs/4.0.2-SNAPSHOT/reference/html/azure.html#_microsoft_azure)
 - [Spring cloud function samples](https://github.com/spring-cloud/spring-cloud-function/tree/main/spring-cloud-function-samples/function-azure-di-samples)
 

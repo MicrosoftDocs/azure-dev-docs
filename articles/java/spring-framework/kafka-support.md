@@ -5,7 +5,7 @@ ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure Kafka support
