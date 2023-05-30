@@ -103,8 +103,6 @@ Run these commands in the root folder of the sample app.
       --startup-file "start.sh"
     ```
 
-    *TBD: The start.sh for Django may only need migration of database.*
-
 ## Create a storage account and container
 
 The sample app uses a storage account and blob container to store photos. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
