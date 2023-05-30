@@ -131,7 +131,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
 
 1. The CLI responds with a short answer and a new prompt.
 
-    :::image type="content" source="media/azire-openai/conversational-ai.png" alt-text="Screenshot of console showing interaction with the CLI.":::
+    :::image type="content" source="media/azure-openai/conversational-ai.png" alt-text="Screenshot of console showing interaction with the CLI.":::
 
 1. Continue the conversation with a follow-up question such as `What are the top 3 things to learn about Azure with using TypeScript?`.
 
