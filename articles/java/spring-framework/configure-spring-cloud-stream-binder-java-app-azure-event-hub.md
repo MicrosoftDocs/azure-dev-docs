@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Stream with Azure Event Hubs
@@ -50,7 +50,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

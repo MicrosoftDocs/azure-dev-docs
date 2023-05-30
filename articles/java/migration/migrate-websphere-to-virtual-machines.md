@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: conceptual
 ms.date: 04/03/2023
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, migration-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, migration-java, devx-track-extended-java
 ---
 
 # Migrate WebSphere applications to Azure Virtual Machines

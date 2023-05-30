@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 5/26/2020
-ms.custom: devx-track-java, migration-java
+ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 ---
 

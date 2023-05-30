@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: yangtony
 ms.topic: conceptual
 ms.date: 03/24/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Assess Spring applications with Cloud Suitability Analyzer

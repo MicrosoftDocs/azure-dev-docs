@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.custom: devx-track-java, migration-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc
+ms.custom: devx-track-java, migration-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, devx-track-extended-java
 ---
 
 # Migrate WebLogic Server applications to JBoss EAP on Azure App Service

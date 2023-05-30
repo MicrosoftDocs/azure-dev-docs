@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: quickstart
 ms.date: 08/19/2022
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
 
 # Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal

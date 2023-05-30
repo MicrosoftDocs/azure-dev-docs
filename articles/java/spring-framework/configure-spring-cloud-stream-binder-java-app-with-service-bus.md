@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/06/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Stream with Azure Service Bus
@@ -49,7 +49,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

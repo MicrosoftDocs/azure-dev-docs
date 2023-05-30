@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 ms.service: storage
 ms.topic: article
 ms.workload: storage
-ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Upload a file to an Azure Blob Storage
@@ -49,7 +49,7 @@ To install the Spring Cloud Azure Storage Blob Starter module, add the following
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

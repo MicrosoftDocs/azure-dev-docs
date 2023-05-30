@@ -1,17 +1,17 @@
 ---
-title: Install the Azure Developer CLI (preview)
+title: Install the Azure Developer CLI
 description: Install the Azure Developer CLI (azd) with all the pre-requisites for your local environment.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 08/19/2022
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-os-env-set
 ---
 
-# Install or update the Azure Developer CLI (preview)
+# Install or update the Azure Developer CLI
 
 Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run `azd`.
 
@@ -142,9 +142,9 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 > There is an ARM64 build of `azd` available for Apple Silicon Macs (M1 and M2). Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
 
 1. Download `azd-darwin-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Unzip the the .zip file 
-1. Ensure that `azd-darwin-arm64` is executable (`chmod +x azd-darwin-arm64`)
-1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+1. Unzip the the `.zip` file 
+1. Ensure that `azd-darwin-arm64-beta` is executable (`chmod +x azd-darwin-arm64-beta`)
+1. Copy `azd-darwin-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
 ::: zone-end
 
@@ -220,10 +220,10 @@ yum remove -y azd
 > [!NOTE]
 > There is an ARM64 build of `azd` available for ARM64 Linux. Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
 
-1. Download `azd-linux-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Extract the .tar.gz file
-1. Ensure that `azd-linux-arm64` is executable (`chmod +x azd-linux-arm64`)
-1. Copy `azd-darwin-arm64` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
+1. Download `azd-linux-arm64-beta.tar.gz` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
+1. Extract the `.tar.gz` file
+1. Ensure that `azd-linux-arm64-beta` is executable (`chmod +x azd-linux-arm64-beta`)
+1. Copy `azd-linux-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
 ::: zone-end
 

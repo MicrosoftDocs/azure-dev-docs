@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: jialuogan
 ms.service: azure-java
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Managing Redis Caches using the Azure Explorer for IntelliJ

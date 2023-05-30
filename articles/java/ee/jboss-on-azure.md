@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: overview
 ms.date: 09/15/2022
-ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-jbosseap-vm
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-jbosseap-vm, devx-track-extended-java
 ---
 
 # Red Hat JBoss EAP on Azure

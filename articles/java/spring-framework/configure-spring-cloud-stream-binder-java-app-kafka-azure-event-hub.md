@@ -5,7 +5,7 @@ services: event-hubs
 ms.date: 04/06/2023
 ms.service: event-hubs
 ms.topic: article
-ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-azurecli
+ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Spring Kafka with Azure Event Hubs for Kafka API
@@ -77,7 +77,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

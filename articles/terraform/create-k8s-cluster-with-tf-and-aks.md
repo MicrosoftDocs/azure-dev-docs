@@ -1,56 +1,61 @@
 ---
 title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform'
-description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
+description: In this article, you learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 03/18/2023
-ms.custom: devx-track-terraform
+ms.date: 05/25/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 ---
 
 # Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
 
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
-
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
+
+This article shows how to create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform. The sample code is fully encapsulated such that it automatically creates a service principal and SSH key pair (using the [AzAPI provider](overview-azapi-provider.md)).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Use HCL (HashiCorp Language) to define a Kubernetes cluster
-> * Use Terraform and AKS to create a Kubernetes cluster
-> * Use the kubectl tool to test the availability of a Kubernetes cluster
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+> * Access the configuration of the AzureRM provider to get the Azure Object ID using [azurerm_client_config](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config).
+> * Create a Log Analytics workspace using [azurerm_log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace).
+> * Create a Log Analytics solution using [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution).
+> * Create a Kubernetes cluster using [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster).
+> * Create an Azure Active Directory app registration using [azuread_application](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application).
+> * Create an Azure service principal using [azuread_service_principal](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal).
+> * Create an Azure service principal password using [azuread_service_principal_password](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal_password).
+> * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
+> * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-> [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks).
+[!INCLUDE [AI attribution](~/../azure-docs-pr/includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
-
-- **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
-
-- **SSH key pair:** Use one of the following articles:
-
-    - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
-    - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
-    - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
 
 - **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
 
 ## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
+
+1. Create a file named `sp.tf` and insert the following code:
+
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/sp.tf)]
+
+1. Create a file named `ssh.tf` and insert the following code:
+
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/ssh.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -63,10 +68,6 @@ In this article, you learn how to:
 1. Create a file named `outputs.tf` and insert the following code:
 
     [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
-
-1. Create a file named `terraform.tfvars` and insert the following code.
-
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/terraform.tfvars)]
 
 ## Initialize Terraform
 
@@ -82,19 +83,44 @@ In this article, you learn how to:
 
 ## Verify the results
 
-1. Get the resource group name.
+#### [Azure CLI](#tab/azure-cli)
+
+1. Get the Azure resource group name.
 
     ```console
-    echo "$(terraform output resource_group_name)"
+    resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Run [az monitor log-analytics workspace list](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list) to display the name of the new Log Analytics workspace.
 
-1. Under **Azure services**, select **Resource groups** and locate your new resource group to see the following resources created in this demo:
+    ```azurecli
+    az monitor log-analytics workspace list \
+      --resource-group $resource_group_name \
+      --query "[].{\"Workspace name\":name}" \
+      --output table  
+    ```
+  
+1. Run [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) to display the name of the new Log Analytics solution.
 
-    - **Solution:** By default, the demo names this solution **ContainerInsights**. The portal will show the solution's workspace name in parenthesis.
-    - **Kubernetes service:** By default, the demo names this service **k8stest**. (A Managed Kubernetes Cluster is also known as an AKS / Azure Kubernetes Service.)
-    - **Log Analytics Workspace:** By default, the demo names this workspace with a prefix of **TestLogAnalyticsWorkspaceName-** followed by a random number.
+    ```azurecli
+    az monitor log-analytics solution list \
+      --resource-group $resource_group_name \
+      --query "value[*].{\"Solution name\":name}" \
+      --output table  
+    ```
+
+    **Key points:**
+  
+    - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
+  
+1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
+
+    ```azurecli
+    az aks list \
+      --resource-group $resource_group_name \
+      --query "[].{\"K8s cluster name\":name}" \
+      --output table
+    ```
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
@@ -130,8 +156,6 @@ In this article, you learn how to:
 
 - When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
 - Several key values were output when you applied the Terraform execution plan. For example, the host address, AKS cluster user name, and AKS cluster password are output.
-- To view all of the output values, run `terraform output`.
-- To view a specific output value, run `echo "$(terraform output <output_value_name>)"`.
 
 ## Clean up resources
 
@@ -141,25 +165,23 @@ In this article, you learn how to:
 
 ### Delete service principal
 
-> [!CAUTION]
-> Delete the service principal you used in this demo only if you're not using it for anything else.
-
-1. Run [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to get the object ID of the service principal.
+1. Get the service principal ID.
 
     ```azurecli
-    az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":id}" --output table
-
+    sp=$(terraform output -raw sp)
+    ```
+    
 1. Run [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) to delete the service principal.
 
     ```azurecli
-    az ad sp delete --id <service_principal_object_id>
+    az ad sp delete --id $sp
     ```
-
+    
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [!div class="nextstepaction"]
+> [Learn more about using AKS](/azure/aks)

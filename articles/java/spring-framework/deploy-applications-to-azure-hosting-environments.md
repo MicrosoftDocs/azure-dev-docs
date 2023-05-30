@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: rujche
 ms.date: 04/06/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Deploy applications to Azure hosting services
 
-**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.1.0
+**This article applies to:** ✔️ Version 4.8.0 ✔️ Version 5.1.0
 
 The following list provides references on how to deploy applications to various Azure hosting services.
 

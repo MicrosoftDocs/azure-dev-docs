@@ -1,5 +1,5 @@
 ---
-title: Get started using Azure Developer CLI (preview)
+title: Get started using Azure Developer CLI
 description: Learn how to get started with Azure Developer CLI with a template for Node.js.
 keywords: azure developer cli, azd
 author: alexwolfmsft
@@ -7,12 +7,12 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---
 
-# Get started using Azure Developer CLI (preview)
+# Get started using Azure Developer CLI
 
 ::: zone pivot="programming-language-nodejs"
 

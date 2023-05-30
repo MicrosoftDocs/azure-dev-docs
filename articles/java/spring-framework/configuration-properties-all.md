@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: rujche
 ms.date: 12/09/2022
 ms.topic: reference
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Azure configuration properties

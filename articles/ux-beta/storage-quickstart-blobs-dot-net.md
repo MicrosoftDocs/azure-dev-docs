@@ -8,7 +8,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ROBOTS: NOINDEX
 ---
 

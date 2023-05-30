@@ -3,7 +3,7 @@ title: Use the Azure SDK for Java
 description: Overview of the features and capabilities of the Azure SDK for Java that help you be more productive when provisioning, using, and managing Azure resources.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---

@@ -5,12 +5,12 @@ ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Data support
 
-**This article applies to:** ✔️ Version 4.7.0
+**This article applies to:** ✔️ Version 4.8.0
 
 This article describes how Spring Cloud Azure and Spring Data can be used together.
 
