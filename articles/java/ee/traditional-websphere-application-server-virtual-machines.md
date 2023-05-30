@@ -2,7 +2,7 @@
 title: "Quickstart: Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines"
 description: Shows you how to deploy a WebSphere Application Server (traditional) cluster on Azure Virtual Machines.
 author: KarlErickson
-ms.author: zhengchang
+ms.author: karler
 ms.topic: quickstart
 ms.date: 04/06/2023
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was
