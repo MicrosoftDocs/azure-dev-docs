@@ -2,7 +2,7 @@
 title: Conversational CLI with Azure OpenAI
 description: Use Azure Open AI in a TypeScript CLI to create a chatbot that generates text responses to user input.
 ms.topic: how-to
-ms.date: 05-30-2023
+ms.date: 05/30/2023
 ms.custom: devx-track-js, devx-track-ts, ai-gen-docs
 ---
 
