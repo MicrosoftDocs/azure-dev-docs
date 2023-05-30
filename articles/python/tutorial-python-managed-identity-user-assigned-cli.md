@@ -140,6 +140,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 
     ```azurecli
     UAClientID=$(az identity create --name UAManagedIdentityPythonTest --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
+    echo $UAClientID
     ```
 
 1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable that can be used to construct the resource ID of the managed identity.
@@ -147,6 +148,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
     ```azurecli
     SUBSCRIPTION_ID=$(az account show --query id --output tsv)
     RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/UAManagedIdentityPythonTest"
+    echo $RESOURCE_ID
     ```
 
 1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
@@ -184,18 +186,21 @@ In this section, you create role assignments for the managed identity to enable 
 
     The command specifies the scope of the role assignment to the resource group. For more information, see [Understand role assignments](/azure/role-based-access-control/role-assignments-portal#understand-role-assignments).
 
-1. Execute T-SQL commands to create a user for the managed identity and assign roles to that user. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+1. Connect to the Postgres database using [psql](https://www.postgresql.org/docs/current/app-psql.html) with the account email you set as Azure AD administrator for the database server. Only the Azure AD account can create roles and assign permissions to the managed identity.
 
-    ```azurecli
-    az postgres flexible-server execute \
-      --name $DB_SERVER_NAME \
-      --admin-user $ADMIN_USER \
-      --admin-password $ADMIN_PW \
-      --database-name postgres \
-      --querytext "select * from pgaadauth_create_principal('$UAClientID', false, false);"
+    ```psql
+    ACCOUNT_EMAIL=$(az account show --query user.name --output tsv)
+    psql 'host=$DB_SERVER_NAME.postgres.database.azure.com port=5432 dbname=postgres user=$ACCOUNT_EMAIL password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require'
     ```
 
-*TBD: Make sure Azure AD auth is enabled on the server. And user using az commands is assigned as admin.*
+1. At the psql prompt run the following commands to assign roles to the managed identity.
+
+    ```psql
+    select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);
+    select * from pgaadauth_list_principals(false);
+    ```
+
+    Exit psql with `\q`.
 
 ## Test the Python web app in Azure
 
