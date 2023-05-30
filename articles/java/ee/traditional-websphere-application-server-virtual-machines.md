@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 04/06/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was, devx-track-extended-java
 ---
 
 # Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines

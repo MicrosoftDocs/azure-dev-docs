@@ -9,7 +9,7 @@ ms.date: 09/07/2021
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
 ms.contributors: judubois-03042021
 ---
 

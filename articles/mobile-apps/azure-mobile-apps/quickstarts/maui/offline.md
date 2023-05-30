@@ -3,6 +3,7 @@ title: Add offline data sync to your .NET MAUI app
 description: Add offline data sync to your .NET MAUI app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 11/11/2022
 ms.author: adhal
@@ -65,4 +66,3 @@ TodoService = new RemoteTodoService()
 * Review the HOW TO documentation:
   * [ASP.NET6 service documentation](~/mobile-apps/azure-mobile-apps/howto/server/dotnet-core.md)
   * [.NET client documentation](~/mobile-apps/azure-mobile-apps/howto/client/dotnet.md)
-

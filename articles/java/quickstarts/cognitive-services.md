@@ -3,7 +3,7 @@ title: Quickstarts for Cognitive Services for Java apps on Azure
 description: List of getting started material in the Azure documentation for Cognitive Services for Java apps.
 ms.date: 04/09/2020
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Cognitive Services for Java apps on Azure

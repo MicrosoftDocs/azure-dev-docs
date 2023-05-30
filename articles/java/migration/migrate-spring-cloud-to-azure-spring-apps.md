@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 02/09/2022
-ms.custom: devx-track-java, migration-java
+ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 zone_pivot_group_filename: java/java-zone-pivot-groups.json
 zone_pivot_groups: spring-cloud-tier-selection

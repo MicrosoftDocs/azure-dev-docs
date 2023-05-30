@@ -6,7 +6,7 @@ ms.author: rujche
 ms.service: azure-java
 ms.topic: overview
 ms.date: 04/06/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # What is Spring Cloud Azure?

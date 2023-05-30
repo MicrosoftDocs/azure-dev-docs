@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 01/05/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro, devx-track-extended-java
 ---
 
 # Java on Azure Samples

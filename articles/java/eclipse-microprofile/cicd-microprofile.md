@@ -10,7 +10,7 @@ ms.date: 07/31/2019
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.custom: devx-track-java, team=cloud_advocates
+ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
 ms.contributors: ruyakubu-09162021
 ---
 

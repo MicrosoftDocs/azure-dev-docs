@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 author: KarlErickson
 ms.author: judubois
-ms.custom: devx-track-java, team=cloud_advocates
+ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
 ms.contributors: judubois-09162021
 ---
 
