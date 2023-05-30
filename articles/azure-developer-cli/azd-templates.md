@@ -1,15 +1,15 @@
 ---
-title: Azure Developer CLI templates (preview)
+title: Azure Developer CLI templates
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 12/09/2022
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli
 ---
 
-# Azure Developer CLI templates (preview)
+# Azure Developer CLI templates
 
 Azure Developer CLI templates are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. The `azd` templates extend beyond “Hello World!” to provision Azure resources, configure continuous integration and delivery (CI/CD) pipelines, and more. These templates serve as the foundation from which you can build and customize for your own solutions. Each template includes:
 
@@ -19,9 +19,9 @@ Azure Developer CLI templates are sample repositories created using the Azure De
 
 These templates are extensible and customizable to your specific use case.
 
-## Templates in preview
+## Available templates
 
-As part of Azure Developer CLI preview, we’ve authored an initial set of template applications written in:
+As part of Azure Developer CLI, we’ve authored an initial set of template applications written in:
 
 - Python
 - JavaScript/TypeScript

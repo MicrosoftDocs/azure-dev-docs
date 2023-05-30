@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 # Spring Cloud Azure configuration
 
-**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.1.0
+**This article applies to:** ✔️ Version 4.8.0 ✔️ Version 5.1.0
 
 This article describes all the Spring Cloud Azure common configuration properties.
 

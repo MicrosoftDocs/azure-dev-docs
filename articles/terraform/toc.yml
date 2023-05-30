@@ -155,6 +155,8 @@
         items:
         - name: Create a Linux VM
           href: /azure/virtual-machines/linux/quick-create-terraform
+        - name: Create a Linux VM cluster
+          href: create-vm-cluster-with-infrastructure.md
 - name: Samples
   items:
     - name: Terraform samples
@@ -227,8 +229,6 @@
             items:
               - name: Configure a virtual machine cluster
                 href: create-vm-cluster-module.md
-              - name: Virtual Machine cluster with Terraform and HCL
-                href: create-vm-cluster-with-infrastructure.md
               - name: Virtual Machine Scale Set with infrastructure
                 href: create-vm-scaleset-network-disks-hcl.md
               - name: Virtual Machine Scale Set from Packer image

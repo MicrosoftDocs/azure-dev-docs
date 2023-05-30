@@ -48,9 +48,11 @@
           href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Configure web apps
       items:
-      - name: Set up web dev environment
+      - name: Local dev environment
         href: configure-python-web-app-local-environment.md
-      - name: Configure a startup file
+      - name: Codespaces dev environment
+        href: configure-python-web-app-codespaces.md
+      - name: Configure a startup file for App Service
         href: configure-python-web-app-on-app-service.md
     - name: CI/CD with App Service
       items:
