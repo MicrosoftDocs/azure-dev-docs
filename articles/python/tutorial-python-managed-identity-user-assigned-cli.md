@@ -110,12 +110,13 @@ The sample app uses a storage account and blob container to store photos. The st
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
     ```azurecli
-    $STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
+    STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
     az storage account create \
       --name $STORAGE_ACCOUNT_NAME \
       --resource-group $RESOURCE_GROUP_NAME \
       --location $LOCATION \
-      --sku Standard_LRS
+      --sku Standard_LRS \
+      --allow-blob-public-access true
     ```
 
     *TBD: Verify this command.*
@@ -133,16 +134,17 @@ The sample app uses a storage account and blob container to store photos. The st
 
 Create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account.
 
-1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable.
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable for later use.
 
     ```azurecli
-    UAClientID=$(az identity create --name UAManagedIdentity --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
+    UAClientID=$(az identity create --name UAManagedIdentityPythonTest --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
     ```
 
-1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable.
+1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable that can be used to construct the resource ID of the managed identity.
 
     ```azurecli
     SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/msdocs-mi-web-app/providers/Microsoft.ManagedIdentity/userAssignedIdentities/UAManagedIdentityPythonTest"
     ```
 
 1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
@@ -151,10 +153,8 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
     az webapp identity assign \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $APP_SERVICE_NAME \
-        --identities UAManagedIdentity
+        --identities $RESOURCE_ID
     ```
-
-    *TBD: Does the --identities parameter really take the identity name?*
 
 1. Create an App Service app setting that contains the client ID of the managed identity with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
@@ -176,7 +176,7 @@ In this section, you create role assignments for the managed identity to enable 
     az role assignment create \
     --assignee $UAClientID \
     --resource-group $RESOURCE_GROUP_NAME \
-    --role "Storage Blob Data Contributor"
+    --role "Storage Blob Data Contributor" \
     --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
     ```
 
@@ -190,7 +190,7 @@ In this section, you create role assignments for the managed identity to enable 
       --admin-user $ADMIN_USER \
       --admin-password $ADMIN_PW \
       --database-name postgres \
-      --querytext 'CREATE USER "UAManagedIdentity" FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER "UAManagedIdentity";ALTER ROLE db_datawriter ADD MEMBER "UAManagedIdentity";ALTER ROLE db_ddladmin ADD MEMBER "UAManagedIdentity";'
+      --querytext "CREATE USER [UAManagedIdentityPythonTest] FROM EXTERNAL PROVIDER;ALTER ROLE db_datareader ADD MEMBER [UAManagedIdentityPythonTest];ALTER ROLE db_datawriter ADD MEMBER [UAManagedIdentityPythonTest];ALTER ROLE db_ddladmin ADD MEMBER [UAManagedIdentityPythonTest];"
     ```
 
 ## Test the Python web app in Azure
