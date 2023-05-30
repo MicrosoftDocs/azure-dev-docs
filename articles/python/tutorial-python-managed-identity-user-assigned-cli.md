@@ -62,12 +62,28 @@ A sample Python application using the Django framework are available to help you
       --location $LOCATION \
       --admin-user $ADMIN_USER \
       --admin-password $ADMIN_PW \
-      --sku-name Standard_D2ds_v4
+      --sku-name Standard_D2ds_v4 \
+      --active-directory-auth Enabled \
+      --public-access 0.0.0.0
     ```
 
     The *sku-name* is the name of the pricing tier and compute configuration. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). To list available SKUs, use `az postgres flexible-server list-skus --location $LOCATION`.
 
-*TBD: Allow access from other services.Add current as admin in Auth blade.*
+*TBD: Confirm the command above allows access from other services. Still need to allow admin in Auth blade.*
+
+1. Add your Azure account as an Azure AD admin for the server with the [az postgres flexible-server ad-admin create]() command.
+
+    ```azurecli
+    ACCOUNT_EMAIL=$(az ad signed-in-user show --query userPrincipalName --output tsv)
+    ACCOUNT_ID=$(az ad signed-in-user show --query id --output tsv)
+    echo $ACCOUNT_EMAIL, $ACCOUNT_ID
+    az postgres flexible-server ad-admin create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --server-name $DB_SERVER_NAME \
+      --display-name $ACCOUNT_EMAIL \
+      --object-id $ACCOUNT_ID \
+      --type User
+    ```
 
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
@@ -189,7 +205,6 @@ In this section, you create role assignments for the managed identity to enable 
 1. Use the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command to connect to the Postgres database and run the same commands to assign roles to the managed identity.
 
     ```azurecli
-    ACCOUNT_EMAIL=$(az account show --query user.name --output tsv)
     ACCOUNT_EMAIL_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
     az postgres flexible-server execute \
       --name $DB_SERVER_NAME \
