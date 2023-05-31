@@ -105,6 +105,7 @@ Run these commands in the root folder of the sample app to create an App Service
     ```azurecli
     az webapp up \
       --resource-group $RESOURCE_GROUP_NAME \
+      --location $LOCATION \
       --name $APP_SERVICE_NAME \
       --runtime PYTHON:3.9 \
       --sku B1
