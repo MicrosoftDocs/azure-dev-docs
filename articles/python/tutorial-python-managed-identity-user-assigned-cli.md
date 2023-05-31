@@ -129,7 +129,7 @@ The sample app stores images in as blobs in Azure Storage. The storage account i
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
     ```azurecli
-    STORAGE_ACCOUNT_NAME="msdocsstorage$RANDOM"
+    STORAGE_ACCOUNT_NAME="msdocsstorage$RAND_ID"
     az storage account create \
       --name $STORAGE_ACCOUNT_NAME \
       --resource-group $RESOURCE_GROUP_NAME \
