@@ -20,7 +20,7 @@ This tutorial shows you how to create and deploy a Python web app using the Azur
 
 ## Get the sample app
 
-A sample Python application using the Django framework are available to help you follow along with this tutorial. Download or clone one of the sample applications to your local workstation.
+A sample Python application using the Django framework are available to help you follow along with this tutorial. Download or clone the sample application to your development environment.
 
 1. Clone the sample in an Azure Cloud Shell session.
 
