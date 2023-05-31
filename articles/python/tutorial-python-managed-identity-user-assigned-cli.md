@@ -22,7 +22,7 @@ This tutorial shows you how to create and deploy a Python web app using the Azur
 
 A sample Python application using the Django framework are available to help you follow along with this tutorial. Download or clone the sample application to your development environment.
 
-1. Clone the sample in an Azure Cloud Shell session.
+1. Clone the sample.
 
     ```azurecli
     git clone https://github.com/Azure-Samples/msdocs-django-user-assigned-managed-identity.git
@@ -34,7 +34,7 @@ A sample Python application using the Django framework are available to help you
     cd msdocs-django-user-assigned-managed-identity
     ```
 
-## Create an Azure PostgreSQL server
+## Create an Azure PostgreSQL flexible server
 
 1. Set up the environment variables needed for the tutorial and create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
 
@@ -53,7 +53,7 @@ A sample Python application using the Django framework are available to help you
     > [!IMPORTANT]
     >The `ADMIN_PW` must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and nonalphanumeric characters. When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
-1. Create a PostgreSQL server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. (This and subsequent commands use the line continuation character for Bash Shell ('\\'). Change the line continuation character for your shell if needed.)
+1. Create a PostgreSQL flexible server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. (This and subsequent commands use the line continuation character for Bash Shell ('\\'). Change the line continuation character for other shells.)
 
     ```azurecli
     az postgres flexible-server create \
@@ -98,7 +98,7 @@ A sample Python application using the Django framework are available to help you
 
 ## Create an Azure App Service and deploy the code
 
-Run these commands in the root folder of the sample app.
+Run these commands in the root folder of the sample app to create an App Service and deploy the code to it.
 
 1. Create an app service using the [az webapp up](/cli/azure/webapp#az-webapp-up) command.
 
@@ -110,9 +110,9 @@ Run these commands in the root folder of the sample app.
       --sku B1
     ```
 
-    The *sku* defines the size (CPU, memory) and cost of the app service plan.  The B1 (Basic) service plan incurs a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
+    The *sku* defines the size (CPU, memory) and cost of the App Service plan.  The B1 (Basic) service plan incurs a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 
-1. Configure App Service to use the *start.sh* in the repo with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
+1. Configure App Service to use the *start.sh* in the sample repo with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
     ```azurecli
     az webapp config set \
@@ -123,7 +123,7 @@ Run these commands in the root folder of the sample app.
 
 ## Create a storage account and container
 
-The sample app uses a storage account and blob container to store photos. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
+The sample app stores images in as blobs in Azure Storage. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
 
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
