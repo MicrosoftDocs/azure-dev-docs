@@ -212,6 +212,28 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
+## Define environment variables for the app
+
+The sample app uses environment variables to store the connection information for the database and storage account but doesn't included passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`. 
+
+The environment variables are set in the App Service with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
+
+```azurecli
+az webapp config appsettings set \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $APP_SERVICE_NAME \
+  --settings AZURE_CLIENT_ID=$UAClientID \
+    STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME \
+    STORAGE_CONTAINER_NAME=photos \
+    DBHOST=$DB_SERVER_NAME \
+    DBNAME=restaurant \
+    DBUSER=webappuser
+```
+
+The repo code shown uses the []`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
+
+If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. If a system-assigned managed identity isn't configured, the code will fall back to using a service principal. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+
 ## Test the Python web app in Azure
 
 The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
