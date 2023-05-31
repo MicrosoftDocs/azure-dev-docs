@@ -69,8 +69,6 @@ A sample Python application using the Django framework are available to help you
 
     The *sku-name* is the name of the pricing tier and compute configuration. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). To list available SKUs, use `az postgres flexible-server list-skus --location $LOCATION`.
 
-*TBD: Confirm the command above allows access from other services. Still need to allow admin in Auth blade.*
-
 1. Add your Azure account as an Azure AD admin for the server with the [az postgres flexible-server ad-admin create]() command.
 
     ```azurecli
@@ -95,6 +93,8 @@ A sample Python application using the Django framework are available to help you
       --database-name postgres \
       --querytext 'create database restaurant;'
     ```
+
+*TBD: If this can't be run, probably means the current IP isn't on network list for database. Need to add command for this.*
 
 ## Create an Azure App Service and deploy the code
 
@@ -143,7 +143,8 @@ The sample app stores images in as blobs in Azure Storage. The storage account i
     az storage container create \
       --account-name $STORAGE_ACCOUNT_NAME \
       --name photos \
-      --public-access blob 
+      --public-access blob \
+      --auth-mode login
     ```
 
 ## Create a user-assigned managed identity
@@ -204,7 +205,6 @@ In this section, you create role assignments for the managed identity to enable 
     export MSYS_NO_PATHCONV=1
     az role assignment create \
     --assignee $UAClientID \
-    --resource-group $RESOURCE_GROUP_NAME \
     --role "Storage Blob Data Contributor" \
     --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
     ```
