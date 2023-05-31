@@ -174,15 +174,26 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
         --identities $RESOURCE_ID
     ```
 
-1. Create an App Service app setting that contains the client ID of the managed identity with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
+1. Create App Service app settings that contain the client ID of the managed identity and other configuration info with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
     ```azurecli
     az webapp config appsettings set \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --name $APP_SERVICE_NAME \
-        --settings AZURE_CLIENT_ID=$UAClientID
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --settings AZURE_CLIENT_ID=$UAClientID \
+        STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME \
+        STORAGE_CONTAINER_NAME=photos \
+        DBHOST=$DB_SERVER_NAME \
+        DBNAME=restaurant \
+        DBUSER=UAManagedIdentityPythonTest
     ```
-    
+
+The sample app uses environment variables (app settings) define connection information for the database and storage account but don't included passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`. 
+
+The repo code shown uses the []`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
+
+If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. If a system-assigned managed identity isn't configured, the code will fall back to using a service principal. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+
 ## Create roles for the managed identity
 
 In this section, you create role assignments for the managed identity to enable access to the storage account and database.
@@ -211,28 +222,6 @@ In this section, you create role assignments for the managed identity to enable 
       --database-name postgres \
       --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
     ```
-
-## Define environment variables for the app
-
-The sample app uses environment variables to store the connection information for the database and storage account but doesn't included passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`. 
-
-The environment variables are set in the App Service with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
-
-```azurecli
-az webapp config appsettings set \
-  --resource-group $RESOURCE_GROUP_NAME \
-  --name $APP_SERVICE_NAME \
-  --settings AZURE_CLIENT_ID=$UAClientID \
-    STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME \
-    STORAGE_CONTAINER_NAME=photos \
-    DBHOST=$DB_SERVER_NAME \
-    DBNAME=restaurant \
-    DBUSER=UAManagedIdentityPythonTest
-```
-
-The repo code shown uses the []`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
-
-If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. If a system-assigned managed identity isn't configured, the code will fall back to using a service principal. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
 ## Test the Python web app in Azure
 
