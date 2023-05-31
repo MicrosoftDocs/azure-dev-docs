@@ -227,7 +227,7 @@ az webapp config appsettings set \
     STORAGE_CONTAINER_NAME=photos \
     DBHOST=$DB_SERVER_NAME \
     DBNAME=restaurant \
-    DBUSER=webappuser
+    DBUSER=UAManagedIdentityPythonTest
 ```
 
 The repo code shown uses the []`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
