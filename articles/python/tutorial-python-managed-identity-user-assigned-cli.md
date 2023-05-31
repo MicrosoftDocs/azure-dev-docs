@@ -150,7 +150,7 @@ The sample app stores images in as blobs in Azure Storage. The storage account i
 
 Create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account.
 
-1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable for later use.
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity named "UAManagedIdentityPythonTest" and output the client ID to a variable for later use.
 
     ```azurecli
     UAClientID=$(az identity create --name UAManagedIdentityPythonTest --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
