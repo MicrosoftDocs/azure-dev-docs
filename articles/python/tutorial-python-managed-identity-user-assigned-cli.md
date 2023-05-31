@@ -16,7 +16,7 @@ In this tutorial, you deploy Python **[Django](https://www.djangoproject.com/)**
 In this tutorial, you create a user-assigned managed identity and assign it to the App Service so that it can access 
 the database and storage account resources. For an example of using a system managed identity, see [Create and deploy a Flask Python web app to Azure with managed identity](./tutorial-python-managed-identity-cli.md). User-assigned identities are recommended because they can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. For more information about best practices of using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment, the [Azure Cloud Shell](https://shell.azure.com), or [GitHub Codespaces](https://github.com/features/codespaces). For examples of using the Azure portal or Visual Studio Code to create and deploy, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
+This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment, the [Azure Cloud Shell](https://shell.azure.com), or [GitHub Codespaces](https://github.com/features/codespaces). 
 
 ## Get the sample app
 
