@@ -1,6 +1,6 @@
 ---
 title: Conversational CLI with Azure OpenAI
-description: Use Azure Open AI in a TypeScript CLI to create a chatbot that generates text responses to user input.
+description: Use Azure OpenAI in a TypeScript CLI to create a chatbot that generates text responses to user input.
 ms.topic: how-to
 ms.date: 05/30/2023
 ms.custom: devx-track-js, devx-track-ts, ai-gen-docs
@@ -28,19 +28,14 @@ In this tutorial, learn how to use Azure Open AI with JavaScript in an interacti
 
 ## Application architecture
 
-The command line interface (CLI) application you'll build in this tutorial is a simple chatbot that uses the Azure OpenAI Service to generate text responses to user input. The conversation is encapsulated and managed by an OpenAiClient class. The conversation loop is managed separately. 
+The command line interface (CLI) application you'll build in this tutorial is a simple chatbot that uses the Azure OpenAI Service to generate text responses to user input. The conversation is encapsulated and managed by an OpenAIClient class. The conversation loop is managed separately. 
   
 ## Create a new TypeScript application
 
-1. Create a new directory for your project.
+1. Create a new directory for your project and change to the new directory.
 
     ```bash
     mkdir openai
-    ```
-
-1. Change to the new directory.
-
-    ```bash
     cd openai
     ```
 
@@ -52,12 +47,13 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     git config core.sparseCheckout true
     git sparse-checkout set cli-openai lib-openai
     git pull origin main
+    git sparse-checkout disable
     ```
 
     The two subdirectories are: 
 
     * cli-openai: The CLI application with the conversation loop.
-    * lib-openai: The OpenAi conversation management functionality.
+    * lib-openai: The OpenAI conversation management functionality.
 
 1. Create a root-level file named `package.json` and add the two subdirectories to the workspace setting:
 
@@ -86,7 +82,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     npm install
     ```
 
-## Create environment file for Azure OpenAi settings
+## Create environment file for Azure OpenAI settings
 
 1. In the `./cli-openai` directory, create a `.env.development` file.
 1. Copy the following environment variables into the `.env.development` file.
@@ -134,6 +130,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     :::image type="content" source="media/azure-openai/conversational-ai.png" alt-text="Screenshot of console showing interaction with the CLI.":::
 
 1. Continue the conversation with a follow-up question such as `What are the top 3 things to learn about Azure with using TypeScript?`.
+1. When you want to end the conversation, enter `exit` and select Enter.
 
 ## OpenAI request and response 
 
@@ -142,8 +139,8 @@ The CLI application creates a `debug.log` if the `-d` switch is used.
 1. Open the `./lib-openai/debug.log` and find the request and response for Azure OpenAI, returned from the LIB application.
 
     ```console
-    LIB OpenAi request: ...
-    LIB OpenAi response: ...
+    LIB OpenAI request: ...
+    LIB OpenAI response: ...
     ```
 
 1. The OpenAI request includes the question you submitted and the overall conversation and metadata settings for OpenAI. 
@@ -209,11 +206,16 @@ The CLI application creates a `debug.log` if the `-d` switch is used.
     }
     ```
 
+## Clean up resources
+
+When you're done using your Azure OpenAI Service resource, [delete the resource](/azure/cognitive-services/openai/chatgpt-quickstart#clean-up-resources).
+
 ## Resources
 
 * Tutorial sample code:
     * [`CLI`](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/cli-openai): conversation loop
     * [`LIB`](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/lib): OpenAI library
         * [OpenAIConversationClient class](https://github.com/Azure-Samples/azure-typescript-e2e-apps/blob/main/lib-openai/src/index.ts)
-* [Azure OpenAi documentation](/azure/cognitive-services/openai/)
+* [Azure OpenAI documentation](/azure/cognitive-services/openai/)
+* [Azure OpenAI Samples](https://github.com/Azure-Samples/openai)
 * [AZURE SDK for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples)
