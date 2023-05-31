@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machines 
 ms.subservice: imaging
 ms.date: 05/23/2022
-ms.custom: github-actions-azure, devx-track-azurecli, mode-portal
+ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-extended-java
 ---
 
 

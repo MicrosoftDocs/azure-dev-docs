@@ -8,7 +8,7 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
 ms.contributors: judubois-09162021
 ---
 

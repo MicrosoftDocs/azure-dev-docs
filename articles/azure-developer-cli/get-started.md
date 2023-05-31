@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
-ms.custom: devx-track-azdevcli, build-2023
+ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---

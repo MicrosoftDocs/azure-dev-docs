@@ -6,7 +6,7 @@ ms.service: active-directory
 ms.topic: article
 author: KarlErickson
 ms.author: shaozliu
-ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure
+ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Boot Starter for Azure Active Directory developer's guide

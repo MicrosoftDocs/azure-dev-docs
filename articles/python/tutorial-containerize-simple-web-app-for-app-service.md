@@ -3,7 +3,7 @@ title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
 ms.date: 04/13/2023
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Deploy a Flask or FastPI web app on Azure App Service

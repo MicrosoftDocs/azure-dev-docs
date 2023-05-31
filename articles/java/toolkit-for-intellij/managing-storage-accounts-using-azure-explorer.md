@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: jialuogan
 ms.service: storage
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Manage storage accounts by using the Azure Explorer for IntelliJ

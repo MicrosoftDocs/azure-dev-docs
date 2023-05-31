@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: v-yeyonghui
 ms.date: 04/06/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure, passwordless-java
+ms.custom: devx-track-java, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ---
 
 # Use Azure Storage Queue in Spring applications

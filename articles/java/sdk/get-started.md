@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
-ms.custom: seo-java-august2019, devx-track-java
+ms.custom: seo-java-august2019, devx-track-java, devx-track-extended-java
 ---
 
 # Get started with cloud development using Java on Azure

@@ -4,7 +4,7 @@ description: Use the Azure CLI to create and deploy a Flask Python web app to Az
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/23/2023
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Create and deploy a Flask Python web app to Azure with a system-assigned managed identity

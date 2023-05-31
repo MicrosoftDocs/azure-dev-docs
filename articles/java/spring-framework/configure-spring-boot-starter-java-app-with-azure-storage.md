@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 ms.service: storage
 ms.topic: article
 ms.workload: storage
-ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Upload a file to an Azure Blob Storage
