@@ -96,7 +96,6 @@ A sample Python application using the Django framework are available to help you
 
     Use any tool or website that shows your IP address. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
 
-    ```azurecli
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
     ```azurecli
