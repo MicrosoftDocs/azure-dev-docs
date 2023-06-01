@@ -83,6 +83,20 @@ A sample Python application using the Django framework are available to help you
       --type User
     ```
 
+1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to connect to the server. (If you're using the Azure Cloud Shell, you can skip this step.)
+
+    ```azurecli
+    az postgres flexible-server firewall-rule create \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $DB_SERVER_NAME \
+       --rule-name AllowMyIP \
+       --start-ip-address <your IP> \
+       --end-ip-address <your IP>
+    ```
+
+    Use any tool or website that shows your IP address. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
+
+    ```azurecli
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
     ```azurecli
@@ -170,6 +184,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 1. Assign the managed identity to the App Service with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
 
     ```azurecli
+    export MSYS_NO_PATHCONV=1
     az webapp identity assign \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $APP_SERVICE_NAME \
