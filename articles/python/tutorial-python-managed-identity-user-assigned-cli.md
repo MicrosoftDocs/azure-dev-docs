@@ -108,8 +108,6 @@ A sample Python application using the Django framework are available to help you
       --querytext 'create database restaurant;'
     ```
 
-*TBD: If this can't be run, probably means the current IP isn't on network list for database. Need to add command for this.*
-
 ## Create an Azure App Service and deploy the code
 
 Run these commands in the root folder of the sample app to create an App Service and deploy the code to it.
