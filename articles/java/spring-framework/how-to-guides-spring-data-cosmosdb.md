@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.topic: conceptual
 ms.date: 01/18/2023
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Azure Cosmos DB dev guide
@@ -188,7 +188,7 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
 [azure_subscription]: https://azure.microsoft.com/free/
-[samples]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos/src/samples/java/com/azure/spring/data/cosmos
+[samples]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/src/samples/java/com/azure/spring/data/cosmos
 [sample-for-multi-database]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/cosmos-multi-database-multi-account
 [sample-for-multi-database-single-account]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/cosmos-multi-database-single-account
 [sql_api_query]: /azure/cosmos-db/sql-api-sql-query
@@ -196,7 +196,7 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [local_emulator_export_ssl_certificates]: /azure/cosmos-db/local-emulator-export-ssl-certificates
 [spring_data_commons_id_annotation]: https://github.com/spring-projects/spring-data-commons/blob/main/src/main/java/org/springframework/data/annotation/Id.java
 [azure_cosmos_db_partition]: /azure/cosmos-db/partition-data
-[address_repository_it_test]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos-test/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java
+[address_repository_it_test]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos-test/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java
 [azure_spring_data_cosmos_docs]: /azure/cosmos-db/sql-api-sdk-java-spring-v3
 [spring_data_custom_query]: https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details
 [sql_queries_in_cosmos]: /azure/cosmos-db/tutorial-query-sql-api
@@ -205,31 +205,31 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [maven_link]: https://maven.apache.org/
 [autoscale-throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [unique-keys]: /azure/cosmos-db/unique-keys
-[spring-boot-support-policy]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-boot-support-policy
-[spring-boot-version-support]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-boot-version-support
-[spring-data-version-support]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-data-version-support
-[spring-data-cosmos-sdk-version-mapping]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#which-version-of-azure-spring-data-cosmos-should-i-use
-[setup-configuration-class]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#setup-configuration-class
-[customizing-configuration]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#customizing-configuration
-[azure-spring-data-cosmos-sdk-readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md
-[define-an-entity]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#define-an-entity
-[creating-containers-with-autoscale-throughput]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#creating-containers-with-autoscale-throughput
-[nested-partition-key-support]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#nested-partition-key-support
-[create-repositories]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#create-repositories
-[query-annotation-code-snippet]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#queryannotation--using-annotated-queries-in-repositories
-[spring-data-id-annotation]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#spring-data-id-annotation
+[spring-boot-support-policy]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-support-policy
+[spring-boot-version-support]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-version-support
+[spring-data-version-support]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-data-version-support
+[spring-data-cosmos-sdk-version-mapping]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#which-version-of-azure-spring-data-cosmos-should-i-use
+[setup-configuration-class]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#setup-configuration-class
+[customizing-configuration]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#customizing-configuration
+[azure-spring-data-cosmos-sdk-readme]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md
+[define-an-entity]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#define-an-entity
+[creating-containers-with-autoscale-throughput]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#creating-containers-with-autoscale-throughput
+[nested-partition-key-support]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#nested-partition-key-support
+[create-repositories]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#create-repositories
+[query-annotation-code-snippet]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#queryannotation--using-annotated-queries-in-repositories
+[spring-data-id-annotation]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spring-data-id-annotation
 [spring_data_commons_id_annotation]: https://github.com/spring-projects/spring-data-commons/blob/main/src/main/java/org/springframework/data/annotation/Id.java
-[id-auto-generation]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#id-auto-generation
-[spel-expression-and-custom-container-name]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#spel-expression-and-custom-container-name
-[indexing-policy]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#indexing-policy
-[unique-key-policy]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#unique-key-policy
-[optimistic-locking]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#optimistic-locking
+[id-auto-generation]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#id-auto-generation
+[spel-expression-and-custom-container-name]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spel-expression-and-custom-container-name
+[indexing-policy]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#indexing-policy
+[unique-key-policy]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#unique-key-policy
+[optimistic-locking]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#optimistic-locking
 [spring-data-pageable-slice-sort]: https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters
-[spring-data-custom-query-pageable-and-sorting]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#spring-data-custom-query-pageable-and-sorting
-[spring-boot-starter-data-rest]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#spring-boot-starter-data-rest
-[spring-data-cosmos-auditing]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#auditing
-[multi-database-configuration]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#multi-database-configuration
-[enable-client-logging]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#enable-client-logging
+[spring-data-custom-query-pageable-and-sorting]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spring-data-custom-query-pageable-and-sorting
+[spring-boot-starter-data-rest]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spring-boot-starter-data-rest
+[spring-data-cosmos-auditing]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#auditing
+[multi-database-configuration]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#multi-database-configuration
+[enable-client-logging]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#enable-client-logging
 [azure-spring-data-cosmos-samples]: https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples
 [spring-mvc-with-azure-cosmosdb-samples]: https://github.com/Azure-Samples/azure-spring-mvc-cosmos-db-java-sql-api-samples
 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/21/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Azure Service Bus in Spring applications
@@ -758,7 +758,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
 
      ```properties
       # name for the `Consumer` bean
-      spring.cloud.stream.function.definition=consume
+      spring.cloud.function.definition=consume
       spring.cloud.stream.bindings.consume-in-0.destination=<service-bus-queue-name>
      ```
 
@@ -789,7 +789,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
 
      ```properties
      # "consume" is added from the previous step
-     spring.cloud.stream.function.definition=consume;supply
+     spring.cloud.function.definition=consume;supply
      spring.cloud.stream.bindings.supply-out-0.destination=<your-servicebus-queue-name>
      spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
      ```

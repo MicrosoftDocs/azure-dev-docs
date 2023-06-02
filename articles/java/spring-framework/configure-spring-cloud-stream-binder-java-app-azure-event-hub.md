@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Cloud Stream with Azure Event Hubs
@@ -50,7 +50,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -59,7 +59,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
   ```
 
    > [!NOTE]
-   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`. 
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`. 
    > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
@@ -85,7 +85,7 @@ Use the following steps to configure your application to produce and consume mes
     spring.cloud.stream.bindings.consume-in-0.group=${AZURE_EVENTHUB_CONSUMER_GROUP}
     spring.cloud.stream.bindings.supply-out-0.destination=${AZURE_EVENTHUB_NAME}
     spring.cloud.stream.eventhubs.bindings.consume-in-0.consumer.checkpoint.mode=MANUAL
-    spring.cloud.stream.function.definition=consume;supply;
+    spring.cloud.function.definition=consume;supply;
     spring.cloud.stream.poller.initial-delay=0
     spring.cloud.stream.poller.fixed-delay=1000
    ```
@@ -98,7 +98,7 @@ Use the following steps to configure your application to produce and consume mes
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`          | Specify the access-key of your storage account.                                               |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`         | Specify the storage account you created in this tutorial.                                     |
-   | `spring.cloud.stream.function.definition`                                      | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
+   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
    | `spring.cloud.stream.bindings.consume-in-0.destination`                        | Specify the event hub you used in this tutorial.                                              |
    | `spring.cloud.stream.bindings.consume-in-0.group`                              | Specify the Consumer groups in your Event Hubs Instance.                                      |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                        | Specify the same event hub you used in this tutorial.                                         |

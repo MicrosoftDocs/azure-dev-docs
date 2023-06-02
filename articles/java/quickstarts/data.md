@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: bbenz
 ms.date: 01/04/2023
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro, devx-track-extended-java
 ---
 
 # Data for Java apps on Azure

@@ -5,7 +5,7 @@ ms.author: xiada
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 01/18/2023
-ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector, devx-track-azurecli
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database

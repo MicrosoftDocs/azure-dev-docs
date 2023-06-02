@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Workshops and videos for Java developers

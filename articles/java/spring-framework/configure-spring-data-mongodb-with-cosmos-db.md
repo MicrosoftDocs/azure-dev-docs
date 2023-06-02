@@ -8,7 +8,7 @@ ms.author: bbenz
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Spring Data with Azure Cosmos DB for MongoDB API

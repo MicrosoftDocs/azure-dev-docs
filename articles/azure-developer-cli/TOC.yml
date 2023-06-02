@@ -5,7 +5,9 @@
     href: overview.md
   - name: Get started
     items: 
-    - name: Install azd
+    - name: Supported languages and environments
+      href: supported-languages-environments.md
+    - name: Install or update azd
       href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md
@@ -25,6 +27,8 @@
       href: monitor-your-app.md
     - name: Make your project azd-compatible
       href: make-azd-compatible.md
+    - name: Manage environment variables
+      href: manage-environment-variables.md
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Feature versioning and release strategy

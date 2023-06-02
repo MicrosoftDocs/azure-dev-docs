@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: haiche
 ms.date: 04/27/2023
+ms.custom: devx-track-azurecli
 ---
 
 ```azurecli

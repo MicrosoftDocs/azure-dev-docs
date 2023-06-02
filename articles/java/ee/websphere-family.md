@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: rezar
 ms.topic: overview
 ms.date: 01/26/2022
-ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-was
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-was, devx-track-extended-java
 ---
 
 # What are solutions to run the IBM WebSphere family of products on Azure?
