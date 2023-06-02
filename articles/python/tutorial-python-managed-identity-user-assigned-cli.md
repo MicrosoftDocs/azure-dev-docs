@@ -1,6 +1,6 @@
 ---
-title: Create and deploy a Django Python web app to Azure with managed identity
-description: Use the Azure CLI to create and deploy a Django Python web app to Azure App Service using a user-assigned managed identity.
+title: Create and deploy a Django web app to Azure with managed identity
+description: Use the Azure CLI to create and deploy a Django web app to Azure App Service using a user-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
 author: bobtabor-msft
@@ -9,9 +9,9 @@ ms.date: 05/30/2023
 ms.custom: devx-track-python
 ---
 
-# Create and deploy a Django Python web app to Azure with a user-assigned managed identity
+# Create and deploy a Django web app to Azure with a user-assigned managed identity
 
-In this tutorial, you deploy a Python **[Django](https://www.djangoproject.com/)** web app to Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
+In this tutorial, you deploy a **[Django](https://www.djangoproject.com/)** web app to Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
 In this tutorial, you create a user-assigned managed identity and assign it to the App Service so that it can access the database and storage account resources. For an example of using a system managed identity, see [Create and deploy a Flask Python web app to Azure with managed identity](./tutorial-python-managed-identity-cli.md). User-assigned identities are recommended because they can be used by multiple resources, and their life cycles are decoupled from the resource life cycles with which they're associated. For more information about best practices of using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
@@ -19,7 +19,7 @@ This tutorial shows you how to deploy the Python web app and create Azure resour
 
 ## Get the sample app
 
-Use the sample Python and Django sample application to follow along with this tutorial. Download or clone the sample application to your development environment.
+Use the sample Django sample application to follow along with this tutorial. Download or clone the sample application to your development environment.
 
 1. Clone the sample.
 
