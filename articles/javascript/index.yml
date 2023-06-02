@@ -142,7 +142,7 @@ landingContent:
             url: https://code.visualstudio.com/docs/languages/javascript
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
-          - text: Azure Developer CLI (preview)
+          - text: Azure Developer CLI
             url: ../azure-developer-cli/overview.md
           - text: Azure Static Web Apps CLI
             url: https://github.com/Azure/static-web-apps-cli
