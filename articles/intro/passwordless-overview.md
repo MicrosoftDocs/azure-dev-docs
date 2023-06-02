@@ -2,11 +2,11 @@
 title: Passwordless connections for Azure services
 description: Describes the security challenges with passwords and introduces passwordless connections for Azure services.
 ms.topic: overview
-ms.date: 01/12/2023
+ms.date: 06/02/2023
 ms.author: asirveda
 author: KarlErickson
 ms.service: azure
-ms.custom: devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python
+ms.custom: devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go
 ---
 
 # Passwordless connections for Azure services
@@ -22,11 +22,11 @@ Passwords and secret keys should be used with caution, and developers must never
 
 Embedding passwords in an application itself presents a huge security risk for many reasons, including discovery through a code repository. Many developers externalize such passwords using environment variables so that applications can load them from different environments. However, this only shifts the risk from the code itself to an execution environment. Anyone who gains access to the environment can steal passwords, which in turn, increases your data exfiltration risk.
 
-The following code example demonstrates how to connect to Azure Storage using a storage account key. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past, even though it is not an ideal solution. If your application currently uses access keys, consider migrating to passwordless connections.
+The following code example demonstrates how to connect to Azure Storage using a storage account key. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past, even though it isn't an ideal solution. If your application currently uses access keys, consider migrating to passwordless connections.
 
 ```csharp
 // Connection using secret access keys
-var blobServiceClient = new BlobServiceClient(
+BlobServiceClient blobServiceClient = new(
     new Uri("https://<storage-account-name>.blob.core.windows.net"),
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
 ```
@@ -61,6 +61,7 @@ Passwordless connections to Azure services through Azure AD and Role Based Acces
 The order and locations in which `DefaultAzureCredential` searches for credentials varies between languages:
 
 - [.NET](/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
+- [C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity#defaultazurecredential)
 - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
 - [Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
 - [JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
@@ -74,7 +75,7 @@ For example, when working locally with .NET, `DefaultAzureCredential` will gener
 The following code example demonstrates how to connect to Service Bus using passwordless connections. Other documentation describes how to migrate to this setup for a specific service in more detail. A .NET app can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
-var serviceBusClient = new ServiceBusClient(
+ServiceBusClient serviceBusClient = new(
     new Uri("https://<your-service-bus-namespace>.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```
