@@ -32,6 +32,8 @@ items:
             href: /azure/azure-sql/database/azure-sql-passwordless-migration?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Azure SQL Database with Java & Spring
             href: ../java/spring-framework/migrate-sql-database-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Azure SQL Database with Python
+            href: /azure/azure-sql/database/azure-sql-passwordless-migration-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/migrate-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs with Kafka
