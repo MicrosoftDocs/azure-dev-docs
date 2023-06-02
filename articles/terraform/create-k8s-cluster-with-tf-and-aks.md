@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (A
 description: In this article, you learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 05/25/2023
+ms.date: 06/02/2023
 ms.custom: devx-track-terraform, ai-gen-docs
 ---
 
@@ -22,9 +22,6 @@ In this article, you learn how to:
 > * Create a Log Analytics workspace using [azurerm_log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace).
 > * Create a Log Analytics solution using [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution).
 > * Create a Kubernetes cluster using [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster).
-> * Create an Azure Active Directory app registration using [azuread_application](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application).
-> * Create an Azure service principal using [azuread_service_principal](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal).
-> * Create an Azure service principal password using [azuread_service_principal_password](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal_password).
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
@@ -48,10 +45,6 @@ In this article, you learn how to:
 1. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
-
-1. Create a file named `sp.tf` and insert the following code:
-
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/sp.tf)]
 
 1. Create a file named `ssh.tf` and insert the following code:
 
