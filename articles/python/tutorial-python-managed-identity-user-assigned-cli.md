@@ -85,15 +85,16 @@ Use the sample Python and Django sample application to follow along with this tu
 1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to connect to the server. (If you're using the Azure Cloud Shell, you can skip this step.)
 
     ```azurecli
+    IP_ADDRESS=<your IP>
     az postgres flexible-server firewall-rule create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name $DB_SERVER_NAME \
        --rule-name AllowMyIP \
-       --start-ip-address <your IP> \
-       --end-ip-address <your IP>
+       --start-ip-address $IP_ADDRESS \
+       --end-ip-address $IP_ADDRESS
     ```
 
-    Use any tool or website that shows your IP address. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
+    Use any tool or website that shows your IP address to subtitute `<your IP>` in the command. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
 
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
@@ -203,7 +204,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 
 The sample app uses environment variables (app settings) define connection information for the database and storage account but don't included passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`. 
 
-The repo code shown uses the []`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
+The repo code shown uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
 
 If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. If a system-assigned managed identity isn't configured, the code will fall back to using a service principal. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
@@ -234,6 +235,8 @@ In this section, you create role assignments for the managed identity to enable 
       --database-name postgres \
       --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
     ```
+
+    If you have trouble running the command, make sure you added your user account as Azure AD admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 
