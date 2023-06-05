@@ -52,6 +52,10 @@ items:
     - name: WebSphere to Azure
       expanded: true
       items:
+        - name: WebSphere Application Server to AKS
+          href: migrate-websphere-to-azure-kubernetes-service.md
+        - name: WebSphere Application Server to ARO
+          href: migrate-websphere-to-azure-redhat-openshift.md
         - name: WebSphere Application Server to Azure Virtual Machines
           href: migrate-websphere-to-virtual-machines.md
         - name: "Tutorial: WebSphere to Azure VMs manual guidance"

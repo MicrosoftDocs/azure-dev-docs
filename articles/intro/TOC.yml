@@ -32,6 +32,8 @@ items:
             href: /azure/azure-sql/database/azure-sql-passwordless-migration?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Azure SQL Database with Java & Spring
             href: ../java/spring-framework/migrate-sql-database-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Azure SQL Database with Python
+            href: /azure/azure-sql/database/azure-sql-passwordless-migration-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/migrate-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs with Kafka
@@ -170,7 +172,7 @@ items:
                 href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
                 href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: JavaScript
+      - name: Node.js
         items:
         - name: Quickstarts
           items:
@@ -198,6 +200,8 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Azure SQL Database with pyodbc
+            href: /azure/azure-sql/database/azure-sql-python-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs

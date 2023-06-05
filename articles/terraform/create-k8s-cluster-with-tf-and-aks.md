@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (A
 description: In this article, you learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 05/25/2023
+ms.date: 06/02/2023
 ms.custom: devx-track-terraform, ai-gen-docs
 ---
 
@@ -19,12 +19,7 @@ In this article, you learn how to:
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
 > * Access the configuration of the AzureRM provider to get the Azure Object ID using [azurerm_client_config](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config).
-> * Create a Log Analytics workspace using [azurerm_log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace).
-> * Create a Log Analytics solution using [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution).
 > * Create a Kubernetes cluster using [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster).
-> * Create an Azure Active Directory app registration using [azuread_application](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application).
-> * Create an Azure service principal using [azuread_service_principal](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal).
-> * Create an Azure service principal password using [azuread_service_principal_password](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal_password).
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
@@ -48,10 +43,6 @@ In this article, you learn how to:
 1. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
-
-1. Create a file named `sp.tf` and insert the following code:
-
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/sp.tf)]
 
 1. Create a file named `ssh.tf` and insert the following code:
 
@@ -91,28 +82,6 @@ In this article, you learn how to:
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run [az monitor log-analytics workspace list](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list) to display the name of the new Log Analytics workspace.
-
-    ```azurecli
-    az monitor log-analytics workspace list \
-      --resource-group $resource_group_name \
-      --query "[].{\"Workspace name\":name}" \
-      --output table  
-    ```
-  
-1. Run [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) to display the name of the new Log Analytics solution.
-
-    ```azurecli
-    az monitor log-analytics solution list \
-      --resource-group $resource_group_name \
-      --query "value[*].{\"Solution name\":name}" \
-      --output table  
-    ```
-
-    **Key points:**
-  
-    - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
-  
 1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
 
     ```azurecli
