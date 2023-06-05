@@ -38,7 +38,7 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed. You may launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
 
 
 #### [In BASH](#tab/in-bash)
@@ -63,7 +63,6 @@ Create a resource group called *java-liberty-project* using the [az group create
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME=java-liberty-project
 az group create --name $RESOURCE_GROUP_NAME --location eastus
-az configure --defaults group=$RESOURCE_GROUP_NAME
 ```
 
 ## Create an ACR instance
@@ -419,7 +418,6 @@ Create a resource group called *java-liberty-project* using the [az group create
 ```azurepowershell-interactive
 $Env:RESOURCE_GROUP_NAME = "java-liberty-project"
 az group create --name $Env:RESOURCE_GROUP_NAME --location eastus
-az configure --defaults group=$Env:RESOURCE_GROUP_NAME
 ```
 
 ## Create an ACR instance
@@ -740,7 +738,7 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurepowershell-interactive
-az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+az group delete --name $Env.RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
 
