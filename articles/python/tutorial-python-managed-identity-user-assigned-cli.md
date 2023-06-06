@@ -94,7 +94,7 @@ Use the sample Django sample application to follow along with this tutorial. Dow
        --end-ip-address $IP_ADDRESS
     ```
 
-    Use any tool or website that shows your IP address to subtitute `<your IP>` in the command. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
+    Use any tool or website that shows your IP address to substitute `<your IP>` in the command. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
 
 1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
