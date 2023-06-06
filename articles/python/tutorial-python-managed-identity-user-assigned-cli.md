@@ -264,6 +264,6 @@ You can optionally add the `--no-wait` argument to allow the command to return b
 
 ## Next steps
 
-* [Deploy a Python web app to Azure with PostgreSQL and managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)
 
 * [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app)
