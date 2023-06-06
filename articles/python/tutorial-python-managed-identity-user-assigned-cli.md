@@ -24,13 +24,13 @@ Use the sample Django sample application to follow along with this tutorial. Dow
 1. Clone the sample.
 
     ```azurecli
-    git clone https://github.com/Azure-Samples/msdocs-django-user-assigned-managed-identity.git
+    git clone https://github.com/Azure-Samples/msdocs-django-web-app-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
     ```azurecli
-    cd msdocs-django-user-assigned-managed-identity
+    cd msdocs-django-web-app-managed-identity
     ```
 
 ## Create an Azure PostgreSQL flexible server
