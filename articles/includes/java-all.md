@@ -419,7 +419,6 @@
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.1/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.1/jar/) |  |  |
-| Unknown Display Name | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-ai-openai/1.0.0-beta.1/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-sharing/1.0.0-beta.1/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-core-http-jdk-httpclient/1.0.0-beta.3/jar/) |  |  |
 | Unknown Display Name | Maven [0.3.2-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis/0.3.2-preview/jar/) |  |  |
