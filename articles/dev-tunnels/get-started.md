@@ -36,7 +36,9 @@ curl -sL https://aka.ms/DevTunnelCliInstall | bash
 
 Direct download link:
 
-[macOS (x64) - https://aka.ms/TunnelsCliDownload/osx-x64](https://aka.ms/TunnelsCliDownload/osx-x64)
+[macOS (arm64) - https://aka.ms/TunnelsCliDownload/osx-arm64-zip](https://aka.ms/TunnelsCliDownload/osx-arm64-zip)
+
+[macOS (x64) - https://aka.ms/TunnelsCliDownload/osx-x64-zip](https://aka.ms/TunnelsCliDownload/osx-x64-zip)
 
 # [Linux](#tab/linux)
 
