@@ -87,7 +87,7 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 
 ## Configure client environment variables
 
-The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](../../github/github-variable-substitution.md).
+The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section.
 
 ```yml
 name: Azure Static Web Apps CI/CD
