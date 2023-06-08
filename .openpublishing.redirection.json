@@ -1475,6 +1475,10 @@
       {
         "source_path":"articles/terraform/get-started-powershell.md",
         "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
+      },
+      {
+        "source_path":"articles/github/github-variable-substitution.md",
+        "redirect_url": "/azure/developer/github/"
       }
     ]
   }
