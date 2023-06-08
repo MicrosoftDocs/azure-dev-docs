@@ -44,8 +44,6 @@ landingContent:
         links:
           - text: Authenticate from Azure to GitHub
             url: connect-from-azure.md  
-          - text: Use variable substitution
-            url: github-variable-substitution.md
 
   # Card (optional)
   - title: Azure Developer CLI (azd) Preview
