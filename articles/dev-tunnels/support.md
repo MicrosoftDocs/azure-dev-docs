@@ -1,0 +1,29 @@
+---
+title: Troubleshooting, feedback, and support
+titleSuffix: Microsoft dev tunnels
+description: How to submit feedback and request support for dev tunnels.
+author: curib
+ms.author: cauribeg
+ms.topic: reference
+ms.service: azure-dev-tunnels
+ms.date: 06/07/2023 
+---
+
+# Troubleshooting, feedback, and support
+
+## Troubleshooting
+
+To troubleshoot issues with the `devtunnel` CLI, the following may be useful:
+
+- Ensure you're on the latest version of the `devtunnel` CLI. Check the currently installed version with `devtunnel --version`.
+- The `--verbose` option prints debugging messages which can provide additional diagnostic information.
+
+## Feedback and support
+
+If you have any feedback, feature requests, questions, or you encounter an unexpected issue while working with the `devtunnel` CLI, please reach out to us. We want to hear from you!
+
+GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with us. You can open a new issue or up-vote any existing issues using a 👍 reaction to:
+
+- Request a feature
+- Submit a bug
+- Provide feedback
