@@ -11,6 +11,8 @@ ms.date: 06/07/2023
 
 # Troubleshooting, feedback, and support
 
+In this article, you will learn how to troubleshoot issues with the `devtunnel` CLI. Along with how to contact our team if you have any feedback, questions, or issues.
+
 ## Troubleshooting
 
 To troubleshoot issues with the `devtunnel` CLI, the following may be useful:
