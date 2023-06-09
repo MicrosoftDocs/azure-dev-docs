@@ -13,7 +13,7 @@ ms.date: 04/26/2023
 
 Dev tunnels is a powerful tool to securely open your localhost to the internet and control who has access, so you can easily test and debug your web apps and webhooks from virtually anywhere. Create, host, and connect to your first dev tunnel in seconds.
 
-In this quickstart, you will learn how to create, host, and connect to your first dev tunnel in seconds.
+In this quickstart, you'll learn how to create, host, and connect to your first dev tunnel in seconds.
 
 ## Install
 
@@ -56,7 +56,7 @@ Direct download link:
 
 ## Login
 
-To start a dev tunnel, you first need to login with either a Microsoft Azure Active Directory (Azure AD), Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
+To start a dev tunnel, you first need to log in with either a Microsoft Azure Active Directory (Azure AD), Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
 
 ```bash
 devtunnel user login

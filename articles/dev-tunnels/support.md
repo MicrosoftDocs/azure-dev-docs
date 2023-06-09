@@ -11,14 +11,14 @@ ms.date: 06/07/2023
 
 # Troubleshooting, feedback, and support
 
-In this article, you will learn how to troubleshoot issues with the `devtunnel` CLI. Along with how to contact our team if you have any feedback, questions, or issues.
+In this article, you'll learn how to troubleshoot issues with the `devtunnel` CLI. Along with how to contact our team if you have any feedback, questions, or issues.
 
 ## Troubleshooting
 
-To troubleshoot issues with the `devtunnel` CLI, the following may be useful:
+To troubleshoot issues with the `devtunnel` CLI, the following tips may be useful:
 
 - Ensure you're on the latest version of the `devtunnel` CLI. Check the currently installed version with `devtunnel --version`.
-- The `--verbose` option prints debugging messages which can provide additional diagnostic information.
+- The `--verbose` option prints debugging messages, which can provide extra diagnostic information.
 
 ## Feedback and support
 

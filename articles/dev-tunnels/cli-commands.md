@@ -30,7 +30,7 @@ Dev tunnels offer a command-line interface (CLI) tool for creating and managing 
 
 The dev tunnel service requires login for authorizing management of and access to dev tunnels. By default, a dev tunnel is only accessible to the user who created the dev tunnel, though that user may grant access to others.
 
-After logging in, the login token is cached in the system secure key chain, and is valid for several days before expiration. Logging out of the CLI clears this cached token, but doesn't clear any browser cookies that may include dev tunnel access tokens if a browser was used to authenticate with a dev tunnel.
+After logging in, the login token is cached in the system secure key chain, and is valid for several days before expiration. Logging out of the CLI clears this cached token, but doesn't clear any browser cookies. Which may include dev tunnel access tokens if a browser was used to authenticate with a dev tunnel.
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
@@ -52,7 +52,7 @@ Here are some examples on use of these commands:
 
 ## Host a dev tunnel
 
-This is the main command used to host your dev tunnel. The command should be run on the host system running the server you want accessible through the dev tunnel.
+`devtunnel host` is the main command used to host your dev tunnel. The command should be run on the host system running the server you want accessible through the dev tunnel.
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
@@ -100,7 +100,7 @@ devtunnel connect TUNNELID
 
 - Replace `TUNNELID` with the same dev tunnel id that was used on the host.
 
-Successful client output will be similar to the following:
+Successful client output is similar to the following:
 
 ```powershell
 Connected to tunnel: l3rs99qw
@@ -220,7 +220,7 @@ These commands can be used if you need to explicitly set or unset this local cac
 
 ## Troubleshooting
 
-To troubleshoot issues with the `devtunnel` CLI, the following may be useful:
+To troubleshoot issues with the `devtunnel` CLI, the following tips may be useful:
 
 - Ensure you're on the latest version of the `devtunnel` CLI. Check the currently installed version with `devtunnel --version`.
-- The `--verbose` option prints debugging messages which can provide additional diagnostic information.
+- The `--verbose` option prints debugging messages, which can provide extra diagnostic information.
