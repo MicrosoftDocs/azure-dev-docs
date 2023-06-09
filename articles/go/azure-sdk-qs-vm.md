@@ -304,6 +304,6 @@ The value for the VM user is also loaded from the JSON. The VM password was load
 
 In this quickstart, you took an existing template and deployed it through Go. Then you connected to the newly created VM via SSH.
 
-To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/resources).
+To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/resources).
 
 To learn more about the available authentication methods in the SDK, and which authentication types they support, see [Authentication with the Azure SDK for Go](azure-sdk-authorization.md).
