@@ -14,7 +14,7 @@ At the end of this quickstart, you have a running VM that you log into with a us
 
 > [!NOTE]
 > To see the creation of a VM in Go without the use of a Resource Manager template, there
-> is an [imperative sample](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/main/services/compute/vm.go)
+> is an [imperative sample](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/compute/armcompute/virtualmachines_client.go)
 > demonstrating how to build and configure all VM resources with the SDK. Using a template in this sample
 > allows a focus on SDK conventions without getting into too many details about Azure service architecture.
 
