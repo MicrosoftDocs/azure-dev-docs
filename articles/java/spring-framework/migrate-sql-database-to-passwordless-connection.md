@@ -1,15 +1,15 @@
 ---
-title: Migrate an application to use passwordless connections with Azure SQL Database
-description: Learn how to migrate existing applications using Azure SQL Database away from authentication patterns such as passwords to more secure approaches like Managed Identity.
+title: Migrate a Java application to use passwordless connections with Azure SQL Database
+description: Learn how to migrate a Java application to use passwordless connections with Azure SQL Database.
 ms.service: sql-database
 ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/18/2023
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Migrate an application to use passwordless connections with Azure SQL Database
+# Migrate a Java application to use passwordless connections with Azure SQL Database
 
 This article explains how to migrate from traditional authentication methods to more secure, passwordless connections with Azure SQL Database.
 
