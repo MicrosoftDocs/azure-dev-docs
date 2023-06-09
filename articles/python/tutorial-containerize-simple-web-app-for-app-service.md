@@ -265,7 +265,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
-    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, [https://webappsimple123.azurewebsites.net](https://webappsimple123.azurewebsites.net).
+    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, `https://webappsimple123.azurewebsites.net`.
 
 ## Make updates and redeploy
 
