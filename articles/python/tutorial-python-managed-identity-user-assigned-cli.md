@@ -250,7 +250,7 @@ The sample Python app uses the [azure.identity](https://pypi.org/project/azure-i
 
     The restaurant and review information is stored in Azure Database for PostgreSQL and the photos are stored in Azure Storage. Here's an example screenshot:
 
-    :::image type="content" source="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed-small.png" lightbox="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed.png" alt-text="Screenshot of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
+    :::image type="content" source="./media/python-managed-identity/example-of-review-sample-app-production-deployed-small.png" lightbox="./media/python-managed-identity/example-of-review-sample-app-production-deployed.png" alt-text="Screenshot of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
 
 ## Clean up
 

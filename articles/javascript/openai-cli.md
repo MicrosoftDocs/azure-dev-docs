@@ -6,12 +6,12 @@ ms.date: 05/30/2023
 ms.custom: devx-track-js, devx-track-ts, ai-gen-docs
 ---
 
-# Using Azure OpenAI in a TypeScript CLI
+# Using Azure Open AI in a TypeScript CLI
   
 > [!NOTE]
 > This article was partially created with the help of artificial intelligence. Before publishing, an author reviewed and revised the content as needed. See [Our principles for using AI-generated content in Microsoft Learn](https://aka.ms/ai-content-principles).
 
-In this tutorial, learn how to use Azure OpenAI with JavaScript in an interactive CHAT CLI. Azure OpenAI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure OpenAI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
+In this tutorial, learn how to use Azure Open AI with JavaScript in an interactive CHAT CLI. Azure Open AI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure Open AI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
 
 > [!CAUTION]
 > This tutorial and the Azure OpenAI service are in preview. Both will update as the service evolves.
@@ -39,7 +39,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     cd openai
     ```
 
-1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-apps](https://github.com/azure-samples/azure-typescript-e2e-apps.git) samples repository related to this tutorial. 
+1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-samples](https://github.com/azure-samples/azure-typescript-e2e-samples.git) samples repository related to this tutorial. 
 
     ```bash
     git init
