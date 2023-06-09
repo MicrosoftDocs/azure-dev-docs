@@ -95,5 +95,5 @@ take a look at some of the available sample code.
 * [Deploy new virtual machines with SSH authentication](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute)
 * [Deploy a container image to Azure Container Instances](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute)
 * [Create a cluster in Azure Kubernetes Service](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute)
-* [Work with Azure Storage services](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/storage)
+* [Work with Azure Storage services](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage)
 * [All samples for the Azure SDK for Go](https://github.com/azure-samples/azure-sdk-for-go-samples)
