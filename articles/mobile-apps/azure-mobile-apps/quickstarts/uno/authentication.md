@@ -52,8 +52,8 @@ Use the same technique to add the [Microsoft.Identity.Client](/azure/active-dire
 > [!NOTE]
 > Ensure you install the latest versions of these two libraries.  The minimum version numbers are:
 >
-> * Uno.WinUI.MSAL v4.9.0
-> * Microsoft.Identity.Client v4.54.0
+> * Uno.WinUI.MSAL v4.9.20
+> * Microsoft.Identity.Client v4.54.1
 
 Add the native client ID and backend scope to the configuration.
 
