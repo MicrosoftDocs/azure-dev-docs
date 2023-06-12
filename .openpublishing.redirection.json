@@ -1479,6 +1479,34 @@
       {
         "source_path":"articles/github/github-variable-substitution.md",
         "redirect_url": "/azure/developer/github/"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-01.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-02.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-03.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-04.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-05.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-06.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/python/tutorial-python-managed-identity-07.md",
+        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
       }
     ]
   }

@@ -199,7 +199,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    ```
 
    > [!NOTE]
-   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.2.0`.
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
    > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 1. Add the following properties to your *application.yml* file:

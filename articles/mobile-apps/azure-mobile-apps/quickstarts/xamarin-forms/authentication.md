@@ -18,7 +18,7 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 > Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps. 
+> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
@@ -36,7 +36,7 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 ## Add authentication to the app
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
@@ -68,7 +68,7 @@ namespace TodoApp.Forms
 }
 ```
 
-This interface will be used later on to allow the shared project to ask the platform project for an identity client suitable for the platform.
+This interface is used later on to allow the shared project to ask the platform project for an identity client suitable for the platform.
 
 Open `App.xaml.cs`.  Add the following `using` statements:
 
@@ -220,7 +220,7 @@ public IPublicClientApplication GetIdentityClient(string applicationId)
 }
 ```
 
-When the shared project requires authentication, it will obtain an identity client from `GetIdentityClient()`, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  That then calls the MSAL authentication helper, which completes the transaction.
+When the shared project requires authentication, it obtains an identity client from `GetIdentityClient()`, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The `MsalActivity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`.  That then calls the MSAL authentication helper, which completes the transaction.
 
 ## Configure the iOS app for authentication
 
@@ -289,7 +289,7 @@ Add keychain access to the `Entitlements.plist`:
 
 1. Open the `Entitlements.plist` file.
 2. If necessary, switch from the **Source** view to the **Entitlements** view.  The selector is in the top-right corner of the window.
-3. Scroll down until you find the **Keychain** panel. 
+3. Scroll down until you find the **Keychain** panel.
 4. Turn on the **Keychain** switch.
 5. Select the green **+** icon.
 6. Enter `com.microsoft.adalcache` in the provided box (overwriting whatever is already there), then press Enter.
@@ -303,20 +303,20 @@ Add the custom entitlements to the project:
 3. Select the **...** button next to the **Custom Entitlements** field.
 4. Select `TodoApp.Forms.iOS` > `Entitlements.plist`, then select **Open**.
 5. Select **OK**.
-   
+
    ![Screenshot showing the i O S bundle signing properties.](./media/mac-ios-bundle-signing.png)
 
 ::: zone-end
 
 ## Test the Android app
 
-Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app
 
 [!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
 
-Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

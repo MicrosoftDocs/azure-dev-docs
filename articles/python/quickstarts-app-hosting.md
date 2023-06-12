@@ -17,7 +17,7 @@ The sections in this article are arranged approximately from more managed option
 - **Web app hosting with Azure App Service**:
   - [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
   - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
-  - [Overview: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+  - [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)
   - [Configure a Python app for Azure App Service](/azure/app-service/configure-language-python)
 
 - **Content delivery network with Azure Static web apps**
