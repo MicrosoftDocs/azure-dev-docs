@@ -159,7 +159,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 
 ### Update `azd`
 ```bash
-curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
 When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
