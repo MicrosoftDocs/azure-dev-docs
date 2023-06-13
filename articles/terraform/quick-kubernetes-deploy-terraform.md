@@ -151,7 +151,7 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
     **Key points:**
 
-    - For more information about YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+    - For more information about YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -210,5 +210,5 @@ Two [Kubernetes Services][kubernetes-service] are created:
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
-[kubernetes-deployment]: /azure/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: /azure/aks/concepts-network.md#services
+[kubernetes-deployment]: /azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests
+[kubernetes-service]: /azure/aks/concepts-network#services
