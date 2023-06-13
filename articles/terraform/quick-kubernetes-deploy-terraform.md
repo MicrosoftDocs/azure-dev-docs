@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster by using Terraform'
 description: In this article, you learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS)
 ms.topic: quickstart
-ms.date: 06/12/2023
+ms.date: 06/13/2023
 ms.custom: devx-track-terraform, ai-gen-docs
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -169,7 +169,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 
     **Key points:**
 
-1. The **EXTERNAL-IP** output for the `azure-vote-front` service will initially show as *pending*. Once the **EXTERNAL-IP** address displays an IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. The **EXTERNAL-IP** output for the `azure-vote-front` service initially shows as *pending*. Once the **EXTERNAL-IP** address displays an IP address, use `CTRL-C` to stop the `kubectl` watch process.
   
 1. To see the **Azure Vote** app in action, open a web browser to the external IP address of your service.
 
