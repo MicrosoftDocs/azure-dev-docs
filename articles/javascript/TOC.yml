@@ -27,11 +27,11 @@
           href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
         - name: Use Key Vault secrets
           href: how-to/with-web-app/use-secret-environment-variables.md
-  - name: Azure OpenAi
+  - name: Azure OpenAI
     items: 
       - name: Build a conversational CLI
         href: openai-cli.md
-      - name: Azure OpenAi quickstart
+      - name: Azure OpenAI quickstart
         href: /azure/cognitive-services/openai/
   - name: Azure Static Web Apps
     items: 
