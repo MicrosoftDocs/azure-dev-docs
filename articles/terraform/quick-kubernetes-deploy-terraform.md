@@ -210,5 +210,5 @@ Two [Kubernetes Services][kubernetes-service] are created:
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
-[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
+[kubernetes-deployment]: /azure/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: /azure/aks/concepts-network.md#services
