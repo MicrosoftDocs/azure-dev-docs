@@ -133,14 +133,14 @@ In this article, you learn how to:
 
 ## Deploy the application
 
-A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
+A [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
 
-In this quickstart, you use a manifest to create all the objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+In this quickstart, you use a manifest to create all the objects needed to run the [Azure Vote application](https://github.com/Azure-Samples/azure-voting-app-redis.git). This manifest includes two [Kubernetes deployments](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests):
 
 * The sample Azure Vote Python applications.
 * A Redis instance.
 
-Two [Kubernetes Services][kubernetes-service] are created:
+Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
 
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
@@ -153,7 +153,7 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
     - For more information about YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+1. Run [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) to deploy the application.
 
     ```console
     kubectl apply -f azure-vote.yaml
@@ -161,7 +161,7 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
 ### Test the application
 
-1. When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Run [kubectl get service][kubectl-get] with the `--watch` argument to monitor progress.
+1. When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Run [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) with the `--watch` argument to monitor progress.
 
     ```console
     kubectl get service azure-vote-front --watch
@@ -203,12 +203,3 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
 > [!div class="nextstepaction"]
 > [Learn more about using AKS](/azure/aks)
-
-<!-- LINKS - external -->
-[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-
-<!-- LINKS - internal -->
-[kubernetes-deployment]: /azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests
-[kubernetes-service]: /azure/aks/concepts-network#services
