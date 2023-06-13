@@ -27,7 +27,7 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
+> [!VIDEO https://www.youtube.com/watch?v=9z3PiHSCcYs]
 
 ## Next steps
 - [View supported languages and environments](./supported-languages-environments.md)
