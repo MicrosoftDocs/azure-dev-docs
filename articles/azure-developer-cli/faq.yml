@@ -126,6 +126,23 @@ sections:
 
           You can select a different Azure location to fix the issue.
 
+      - question My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning
+        answer: |
+          This might happen because of our method for naming resources. 
+
+          Our 'Azure Dev' authored templates allow for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder:
+          
+          For example: 
+          ```
+            "webServiceName": {
+            "value": "my-unique-name"
+          }
+          ```
+
+          Will create a new resource named "my-unique-name" instead of something like "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group with the Azure Portal or run `azd down` to remove all previous deployments and then run `azd provision` to create it again, with the new name.
+
+          This name will need to be unique to your subscription, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
+   
   - name: "Command: azd provision"
     questions:
       - question: How does the command know what resources to provision?
