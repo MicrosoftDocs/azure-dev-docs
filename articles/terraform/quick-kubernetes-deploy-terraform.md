@@ -14,7 +14,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using Terraform. The sample code is fully encapsulated such that it automatically creates a service principal and SSH key pair (using the [AzAPI provider](overview-azapi-provider.md)).
 * Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
-:::image type="content" source="media/quick-kubernetes-deploy-terraform/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-terraform/azure-voting-application.png" alt-text="Preview of Azure Vote sample application.":::
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
@@ -151,7 +151,7 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
     **Key points:**
 
-    - For more information about YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+    - For more information about YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -173,7 +173,7 @@ Two [Kubernetes Services][kubernetes-service] are created:
   
 1. To see the **Azure Vote** app in action, open a web browser to the external IP address of your service.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-rm-bicep/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-terraform/azure-voting-application.png" alt-text="Screenshot of Azure Vote sample application.":::
 
 ## Clean up resources
 
