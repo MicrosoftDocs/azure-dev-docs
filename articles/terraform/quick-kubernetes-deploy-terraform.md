@@ -135,17 +135,17 @@ In this article, you learn how to:
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
-In this quickstart, you'll use a manifest to create all the objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+In this quickstart, you use a manifest to create all the objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
 
 * The sample Azure Vote Python applications.
 * A Redis instance.
 
-Two [Kubernetes Services][kubernetes-service] are also created:
+Two [Kubernetes Services][kubernetes-service] are created:
 
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
-1. Create a file named `ssh.tf` and insert the following code:
+1. Create a file named `azure-vote.yaml` and insert the following code:
 
     [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/azure-vote.yaml)]
 
