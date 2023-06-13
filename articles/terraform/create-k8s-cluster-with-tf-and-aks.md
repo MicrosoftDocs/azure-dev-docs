@@ -19,6 +19,8 @@ In this article, you learn how to:
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
 > * Access the configuration of the AzureRM provider to get the Azure Object ID using [azurerm_client_config](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config).
+> * Create a Log Analytics workspace using [azurerm_log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace).
+> * Create a Log Analytics solution using [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution).
 > * Create a Kubernetes cluster using [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster).
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
@@ -82,6 +84,28 @@ In this article, you learn how to:
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
+1. Run [az monitor log-analytics workspace list](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list) to display the name of the new Log Analytics workspace.
+
+    ```azurecli
+    az monitor log-analytics workspace list \
+      --resource-group $resource_group_name \
+      --query "[].{\"Workspace name\":name}" \
+      --output table  
+    ```
+  
+1. Run [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) to display the name of the new Log Analytics solution.
+
+    ```azurecli
+    az monitor log-analytics solution list \
+      --resource-group $resource_group_name \
+      --query "value[*].{\"Solution name\":name}" \
+      --output table  
+    ```
+
+    **Key points:**
+  
+    - The value in parentheses is the name of the Log Analytics workspace in which the Log Analytic solution was created.
+  
 1. Run [az aks list](/cli/azure/aks#az-aks-list) to display the name of the new Kubernetes cluster.
 
     ```azurecli

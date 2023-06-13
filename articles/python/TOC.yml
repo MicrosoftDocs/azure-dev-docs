@@ -24,22 +24,6 @@
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
       href: tutorial-python-managed-identity-user-assigned-cli.md
-    - name: Web app passwordless auth
-      items:
-      - name: 1. Overview
-        href: tutorial-python-managed-identity-01.md
-      - name: 2. Run the web app locally
-        href: tutorial-python-managed-identity-02.md
-      - name: 3. Create an App Service
-        href: tutorial-python-managed-identity-03.md
-      - name: 4. Create a storage account
-        href: tutorial-python-managed-identity-04.md
-      - name: 5. Create a PostgreSQL database
-        href: tutorial-python-managed-identity-05.md
-      - name: 6. Deploy the web app to Azure
-        href: tutorial-python-managed-identity-06.md
-      - name: 7. Clean up resources
-        href: tutorial-python-managed-identity-07.md
     - name: Static websites
       items:
         - name: Hosting in Azure Storage

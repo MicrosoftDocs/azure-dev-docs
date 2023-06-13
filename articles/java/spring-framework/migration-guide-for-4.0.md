@@ -72,7 +72,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.2.0`.
+> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
 > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 ## Artifact changes: renamed / added / deleted
