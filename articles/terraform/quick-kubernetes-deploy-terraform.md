@@ -203,3 +203,12 @@ Two [Kubernetes Services][kubernetes-service] are created:
 
 > [!div class="nextstepaction"]
 > [Learn more about using AKS](/azure/aks)
+
+<!-- LINKS - external -->
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: ../concepts-network.md#services
