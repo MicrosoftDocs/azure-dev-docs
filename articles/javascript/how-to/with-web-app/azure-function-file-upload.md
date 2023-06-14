@@ -135,7 +135,7 @@ Now that the basic project folder structure and files are in place, add local st
 1. In a new Visual Studio Code integrated bash terminal, add npm packages to handle file tasks:
 
     ```bash
-    npm install http-status-enum parse-multipart @types/parse-multipart
+    npm install http-status-enum parse-multipart @types/parse-multipart @azure/storage-blob
     ```
 
     Leave this terminal open to use other script commands. You should have two terminal windows open: one window running Azurite storage emulator, and this terminal for commands.
