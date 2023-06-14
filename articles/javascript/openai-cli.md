@@ -39,7 +39,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     cd openai
     ```
 
-1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-samples](https://github.com/azure-samples/azure-typescript-e2e-samples.git) samples repository related to this tutorial. 
+1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-apps](https://github.com/azure-samples/azure-typescript-e2e-apps.git) samples repository related to this tutorial. 
 
     ```bash
     git init
