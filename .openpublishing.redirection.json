@@ -1507,6 +1507,10 @@
       {
         "source_path":"articles/python/tutorial-python-managed-identity-07.md",
         "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+      },
+      {
+        "source_path":"articles/terraform/create-k8s-cluster-with-tf-and-aks.md",
+        "redirect_url": "/azure/developer/terraform/quick-kubernetes-deploy-terraform"
       }
     ]
   }

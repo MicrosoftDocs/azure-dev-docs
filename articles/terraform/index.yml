@@ -96,7 +96,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a Kubernetes cluster with AKS
-            url: create-k8s-cluster-with-tf-and-aks.md
+            url: quick-kubernetes-deploy-terraform.md
           - text: Create a Kubernetes cluster with Application Gateway
             url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
