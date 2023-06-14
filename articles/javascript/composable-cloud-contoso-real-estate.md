@@ -14,7 +14,7 @@ This reference architecture contains the components for building enterprise-grad
 
 Contoso Corporation is a fictional but representative global manufacturing conglomerate with its headquarters in Paris. The company deployed Microsoft 365 for enterprise with to accelerate its digital transformation by using cloud services to bring together its employees, partners, data, and processes to create customer value and maintain its competitive advantage in a digital-first world.
 
-Contoso is expanding to new regions and countries, which results in massive hiring. They offer relocation and have designed an application, to help HR and new hires find the right housing. This web app is an internal tool used by Contoso HR and new hire or relocating employees.
+Contoso is expanding to new countries/regions, which results in massive hiring. They offer relocation and have designed an application, to help HR and new hires find the right housing. This web app is an internal tool used by Contoso HR and new hire or relocating employees.
 
 Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
 
