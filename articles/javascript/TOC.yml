@@ -116,10 +116,10 @@
       href: how-to/develop-serverless-apps.md
     - name: Store data in MongoDB 
       href: tutorial/azure-function-cosmos-db-mongo-api.md
-    - name: Upload file to Storage
+    - name: Upload file to Storage - model v3
       items: 
       - name: with SDK
-        href: how-to/with-web-app/azure-function-file-upload.md
+        href: how-to/with-web-app/azure-function-file-upload-v3.md
       - name: with trigger and bindings
         href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
     - name: Resource management API

@@ -3,7 +3,7 @@ title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
 ms.date: 09/06/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, 
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
 
