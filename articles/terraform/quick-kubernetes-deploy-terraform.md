@@ -167,8 +167,6 @@ Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
     kubectl get service azure-vote-front --watch
     ```
 
-    **Key points:**
-
 1. The **EXTERNAL-IP** output for the `azure-vote-front` service initially shows as *pending*. Once the **EXTERNAL-IP** address displays an IP address, use `CTRL-C` to stop the `kubectl` watch process.
   
 1. To see the **Azure Vote** app in action, open a web browser to the external IP address of your service.
