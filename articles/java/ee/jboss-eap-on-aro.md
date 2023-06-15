@@ -313,7 +313,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 Next, use the following steps to connect to the OpenShift cluster using the OpenShift CLI:
 
-1. In the Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for Linux.
+1. In the Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
    ```azurecli-interactive
    cd ~
@@ -362,14 +362,26 @@ The steps in this section show you how to deploy an app on the cluster.
 
 Use the following steps to deploy the app to the cluster. The app is hosted in the GitHub repo [rhel-jboss-templates/eap-coffee-app](https://github.com/Azure/rhel-jboss-templates/tree/main/eap-coffee-app).
 
-1. In the Azure Cloud Shell, run the following commands to create a project, image the pull secret, and link the secret to the relative service accounts in the project for image pulling.
+1. In the Azure Cloud Shell, run the following commands to create a project, image the pull secret, and link the secret to the relative service accounts in the project for image pulling. Disregard the git warning about "'detached HEAD' state".
 
    ```azurecli-interactive
    git clone https://github.com/Azure/rhel-jboss-templates.git
+   cd rhel-jboss-templates
+   git checkout 20230615
+   cd ..
    oc new-project ${PROJECT_NAME}
+   w0=-w0
+   if [[ $OSTYPE == 'darwin'* ]]; then
+     w0=
+   fi
 
-   CON_REG_ACC_USER_NAME_BASE64=$(echo ${CON_REG_ACC_USER_NAME} | base64 -w0)
-   CON_REG_ACC_PWD_BASE64=$(echo ${CON_REG_ACC_PWD} | base64 -w0)
+   CON_REG_ACC_USER_NAME_BASE64=$(echo ${CON_REG_ACC_USER_NAME} | base64 $w0)
+   CON_REG_ACC_PWD_BASE64=$(echo ${CON_REG_ACC_PWD} | base64 $w0)
+   ```
+   
+   Because the next section uses HEREDOC format, it is best to include and execute it in its own code excerpt.
+   
+   ```azurecli-interactive
 
    cat <<EOF | oc apply -f -
    apiVersion: v1
@@ -383,7 +395,11 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    stringData:
      hostname: registry.redhat.io
    EOF
+   ```
+   
+   You must see `secret/eaparo-sample-pull-secret created` to indicate successful creation of the secret. If you don't see this output, troubleshoot and resolve the problem before proceeding. Finally, link the secret.
 
+   ```azurecli-interactive
    oc secrets link default ${CON_REG_SECRET_NAME} --for=pull
    oc secrets link builder ${CON_REG_SECRET_NAME} --for=pull
    ```
@@ -405,7 +421,7 @@ Successfully pushed image-registry.openshift-image-registry.svc:5000/eaparo-samp
 Push successful
 ```
 
-If you don't see similar output, troubleshoot and resolve the problem before continuing.
+If you don't see similar output, troubleshoot and resolve the problem before proceeding.
 
 ### Create a secret for the database password
 
@@ -455,7 +471,7 @@ Next, use the following steps to create a secret:
    EOF
    ```
 
-   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.
+   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.  If you do not see this output, troubleshoot and resolve the problem before proceeding.
 
 1. Run `oc get pod -w | grep 1/1` to monitor whether all pods of the app are running. When you see output similar to the following example, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the monitoring:
 
