@@ -100,7 +100,7 @@
           - name: Azure Kubernetes Service
             items:
               - name: Create a cluster
-                href: quick-kubernetes-deploy-terraform.md
+                href: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - name: Database
         items:
           - name: Azure SQL Database
