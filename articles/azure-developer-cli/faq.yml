@@ -126,14 +126,14 @@ sections:
 
           You can select a different Azure location to fix the issue.
 
-      - question My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning
+      - question My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning, how can I fix it?
         answer: |
           This might happen because of our method for naming resources. 
 
-          Our 'Azure Dev' authored templates allow for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder:
+          Our 'Azure Dev' authored templates allows for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder:
           
           For example: 
-          ```
+          ```json
             "webServiceName": {
             "value": "my-unique-name"
           }
