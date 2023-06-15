@@ -1512,6 +1512,10 @@
         "source_path":"articles/terraform/create-k8s-cluster-with-tf-and-aks.md",
         "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
       },
+      {
+        "source_path":"articles/terraform/quick-kubernetes-deploy-terraform.md",
+        "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
+      },
       { 
         "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload-v3"
