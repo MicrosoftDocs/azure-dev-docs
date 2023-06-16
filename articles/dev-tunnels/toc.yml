@@ -8,9 +8,15 @@
   items:
   - name: Create and host a tunnel
     href: get-started.md
+- name: Concepts
+  items:
+  - name: Security
+    href: security.md
 - name: Reference
   items:
   - name: Command line
     href: cli-commands.md
   - name: Frequently asked questions
     href: faq.md
+  - name: Provide feedback
+    href: support.md
