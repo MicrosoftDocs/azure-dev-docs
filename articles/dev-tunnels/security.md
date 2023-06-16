@@ -15,7 +15,7 @@ In this article, you'll learn about how dev tunnels are secured.
 
 ## Overview
 
-By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account that created the tunnel. Tunnelling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service. On connection of a tunnel, an SSH connection is created in order to provide end-to-end encryption. The current preferred cipher for this encryption is AES 256 in CTR mode, and the code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
+By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account that created the tunnel. Tunnelling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service. On connection of a tunnel, an SSH connection is created in order provide connectivity. The code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
 
 ## Domains
 
@@ -66,8 +66,6 @@ See the [Manage dev tunnel access](cli-commands#advanced-manage-dev-tunnel-acces
 
 ## Tunnel Connections
 
-### E2E Encryption
-
 Client-SDK connections are end-to-end encrypted using the SSH protocol. Traffic routed through the service does not persist in any way. Even if the tunnel relay service was compromised, it could not decrypt any of the tunnel communication.
 
 HTTP (browser) client connections are not E2E encrypted as access to the Application Layer is required for Ingress and HTTP Header Rewriting. See the section on web-forwarding below for more details. Tunnel connection payload data is never stored or logged.
@@ -76,7 +74,7 @@ The SSH protocol uses a Diffie-Hellman key-exchange to establish a shared secret
 
 The SSH session is also two-way authenticated. The host (SSH server role) uses public/private key authentication as is standard for the SSH protocol. When a host initiates a session, it generates a unique ECDSA public/private key-pair for the session. The host private key is kept only in memory in the host process; it is never written to disk or sent to any service. The host public key is published to the service along with the session connection information where authorized clients can connect. When a client connects to the host's SSH session, the client uses the SSH host authentication protocol to validate that the host holds the private key corresponding to the published public key (without the client actually getting to see the private key).
 
-### Web-forwarding
+## Web-forwarding
 
 Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (e.g. `https://tunnelid-3000.devtunnels.ms`).
 
@@ -88,9 +86,9 @@ Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the 
   - Note: After TLS, header rewriting takes place. This is required for many web application development scenarios.
 - The connection between the tunnel relay and tunnel host is E2E encrypted as described above.
 
-### Anti-phishing protection
+## Anti-phishing protection
 
-When connecting to a web forwarding url for the first time, users are presented with an interstitial anti-phishing page.
+When connecting to a web-forwarding url for the first time, users are presented with an interstitial anti-phishing page.
 
 Under any of the following circumstances, the page is skipped:
 - The request uses a method other than `GET`
