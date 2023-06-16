@@ -93,10 +93,12 @@ landingContent:
   # Card
   - title: Manage AKS
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a cluster and deploy a web app
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - linkListType: how-to-guide
         links:
-          - text: Create a Kubernetes cluster with AKS
-            url: quick-kubernetes-deploy-terraform.md
           - text: Create a Kubernetes cluster with Application Gateway
             url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
