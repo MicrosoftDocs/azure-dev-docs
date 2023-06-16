@@ -15,7 +15,7 @@ In this article, you'll learn about how dev tunnels are secured.
 
 ## Overview
 
-Both hosting and connecting to a tunnel requires authentication with the same Github or Microsoft account on each end. In both cases, outbound connections are made to the service hosted in Azure; no firewall changes are generally necessary, and no set up of network listeners is required.
+By default, both hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account on each end. In both cases, outbound connections are made to the service hosted in Azure; no firewall changes are generally necessary, and no set up of network listeners is required.
 
 On connection of a tunnel, an SSH connection is created over the tunnel in order to provide end-to-end encryption. The current preferred cipher for this encryption is AES 256 in CTR mode, and the code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
 
@@ -34,21 +34,13 @@ Below is the list of domains where outbound connections may be made.
   - `*.rel.tunnels.api.visualstudio.com`
   - `*.devtunnels.ms`
 
---------
-
 ## Access Control
 
 By default, tunnels and tunnel ports are private and only accessible to the user who created the tunnel.
 
-A rich set of access control capabilities are available in the service. Access control entries (ACEs) can be added to tunnels or tunnel ports to allow or deny access for others. GitHub, AAD and MSA are supported as identity providers for authentication and authorization. With AAD, ACEs can be added for specific users, AAD groups or the current AAD tenant. With GitHub, ACEs can be added for specific users, teams or a GitHub organization. GitHub team or org access requires installing the VS Tunnel Service GH app in the org.
+If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added.
 
-If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous ACE can be added. Tunnel access can also be restricted to specific IP address ranges including those defined by Azure service tags.
-
-See the [Basis CLI](../cli/README.md#manage-tunnel-access) page to learn more about access control lists (ACLs), access control entries (ACEs), and how to manage them with the through the CLI. The [TypeScript SDK](../apis/typescript-sdk.md#4-host) and [.NET SDK](../apis/dotnet-sdk.md#3-create-management-client-and-tunnel-definition) docs provide examples for adding access control entries in those languages.
-
-### Tunnel Policies
-
-Tunnel policies allow access controls and resource limits to be set for all tunnels within a team or organization. At this stage policies can only be set by the Basis team. In a future release we plan for owners/admins to be able to manage policies for their teams/orgs. In the meantime you can [contact the Basis team](https://aka.ms/basis-partners) if your team needs to add a policy.
+See the [Manage dev tunnel access](cli-commands#advanced-manage-dev-tunnel-access) section to learn more about how to manage tunnel access through the CLI.
 
 ## Tunnel Connections
 
@@ -56,7 +48,7 @@ Tunnel policies allow access controls and resource limits to be set for all tunn
 
 Client-SDK connections are end-to-end encrypted using the SSH protocol. Traffic routed through the service does not persist in any way. Even if the tunnel relay service was compromised, it could not decrypt any of the tunnel communication.
 
-HTTP (browser) client connections are not E2E encrypted as access to the Application Layer is required for Ingress and HTTP Header Rewriting. See the section on web-forwarding below for more details.
+HTTP (browser) client connections are not E2E encrypted as access to the Application Layer is required for Ingress and HTTP Header Rewriting. See the section on web-forwarding below for more details. Tunnel connection payload data is never stored or logged.
 
 The SSH protocol uses a Diffie-Hellman key-exchange to establish a shared secret for the session, and derives from that a key for AES symmetric encryption. The encryption key is rotated periodically throughout the duration of the session. The shared session secret and all encryption keys are only maintained in-memory by both sides, and are only valid for the duration of the session. They are never written to disk or sent to any service.
 
@@ -64,46 +56,25 @@ The SSH session is also two-way authenticated. The host (SSH server role) uses p
 
 ### Web-forwarding
 
-Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (e.g. `https://mytunnel-3000.rel.tunnels.api.visualstudio.com/`).
+Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (e.g. `https://tunnelid-3000.devtunnels.ms`).
 
 - Insecure client connections are **always** automatically upgraded to HTTPS/WSS.
   - Note: These may still connect to a (non-TLS) HTTP server on the host, even when the client connection is upgraded to HTTPS (see TLS termination below).
 - HTTP Strict Transport Security (HSTS) is enabled with a one year max-age.
 - The minimum TLS version the service supports is 1.2, with TLS 1.3 being the preferred version.
-- TLS termination is done at service ingress using our service certificates, issued by a Microsoft CA.
-  - Note: After TLS, header rewriting takes place. This is required for many web application development scenarios. See [Header rewriting](../design/design.md#header-rewriting).
-- The connection between the tunnel relay and the tunnel host is E2E encrypted as described above.
-
-[Example TLS report for web-forwarding url - ssllabs.com](https://www.ssllabs.com/ssltest/analyze.html?d=qdbsj911-3000.usw2.rel.tunnels.api.visualstudio.com&hideResults=on)
+- TLS termination is done at service ingress using service certificates, issued by a Microsoft CA.
+  - Note: After TLS, header rewriting takes place. This is required for many web application development scenarios.
+- The connection between the tunnel relay and tunnel host is E2E encrypted as described above.
 
 #### Anti-phishing protection
 
-Interstitial webpage / 
-
-When connecting to a web forwarding url for the first time, users are presented with an anti-phishing page. This page will be skipped in all of the following scenarios: 
-- The request is not GET
-- The user has already visited that page and clicked continue
-- The request "Accepts" header does not contain "text/html"
-- The request contains the "X-Tunnel-Skip-AntiPhishing-Page" header
-- The request contains the "X-Tunnel-Authorization" header
-
-
-
-## Privacy & Data Storage
-
-- The service stores user IDs (for tracking tunnel ownership and ACEs) but does not store or log other user profile information such as names or emails.
-- All user and tunnel metadata is stored only in the home region of the tunnel, and is never replicated to other regions, with the exception of tunnel names which are replicated to support global name resolution.
-- Tunnel connection payload data is never stored or logged.
-
-## Security Roadmap
-| Status                | Roadmap Item                        | Details |
-|:----------------------|:------------------------------------|:--------|
-| :white_check_mark:    | Audit Logs                          | Auditing of user and ip origin of tunnel requests. |
-| :white_check_mark:    | Client IP Restrictions / Allow List | Restrict tunnel access to clients from specific IPs including Azure service tags. |
-| :white_check_mark:    | Tunnel Policies                     | Allows for policies such as disabling anonymous access for all tunnels created in an AAD tenant and restricting access to members of an AAD tenant. |
-|                       | Static IPs & Service Tags           | The Basis service has static IP addresses and is assigned service tags. |
-
---
+When connecting to a web forwarding url for the first time, users are presented with an interstitial anti-phishing page.  
+Under the following circumstances, the page will be skipped:
+- The request uses a method other than `GET`
+- The request `Accepts` header does not contain `text/html`
+- The request contains the `X-Tunnel-Skip-AntiPhishing-Page` header
+- The request contains the `X-Tunnel-Authorization` header
+- The user has already visited the page and clicked continue
 
 ## Tunnel Access Tokens
 
