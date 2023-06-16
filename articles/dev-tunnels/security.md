@@ -19,6 +19,23 @@ Both hosting and connecting to a tunnel requires authentication with the same Gi
 
 On connection of a tunnel, an SSH connection is created over the tunnel in order to provide end-to-end encryption. The current preferred cipher for this encryption is AES 256 in CTR mode, and the code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
 
+## Domains
+
+If you're part of an organization who wants to control access to dev tunnels, you can do so by allowing or denying outbound access to the following. No inbound connections are required to use the service.
+
+Below is the list of domains where outbound connections may be made.
+
+- Authentication
+  - `github.com` - [GitHub IP Addresses](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)
+  - `login.microsoftonline.com` - [AzureActiveDirectory service tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview)
+
+- Tunnel service domains
+  - `global.rel.tunnels.api.visualstudio.com`
+  - `*.rel.tunnels.api.visualstudio.com`
+  - `*.devtunnels.ms`
+
+--------
+
 ## Access Control
 
 By default, tunnels and tunnel ports are private and only accessible to the user who created the tunnel.
@@ -61,42 +78,16 @@ Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the 
 
 #### Anti-phishing protection
 
-When connecting to a web forwarding url for the first time, users are presented with an antiphishing page. This page will be skipped in all of the following scenerios: 
+Interstitial webpage / 
+
+When connecting to a web forwarding url for the first time, users are presented with an anti-phishing page. This page will be skipped in all of the following scenarios: 
 - The request is not GET
 - The user has already visited that page and clicked continue
 - The request "Accepts" header does not contain "text/html"
 - The request contains the "X-Tunnel-Skip-AntiPhishing-Page" header
 - The request contains the "X-Tunnel-Authorization" header
 
-## Domains & IP Ranges
 
-If you're part of an organization who wants to control access to dev tunnels. You can do so by allowing or denying access to the following domains.
-
-No inbound connections are required to use the service.
-
-Below is the list of domains and IPs where outbound connections may be made.
-
-This information can be used to either allow or block access to the service.
-
-- Authentication
-  - `github.com` - [GitHub IP Addresses](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)
-  - `login.microsoftonline.com` - [AzureActiveDirectory service tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview)
-
-- Tunnel service domains
-  - `global.rel.tunnels.api.visualstudio.com`
-  - `[clusterId].rel.tunnels.api.visualstudio.com`
-  - `*.rel.tunnels.api.visualstudio.com`
-  - `*.[clusterId].rel.tunnels.api.visualstudio.com`
-  - _Where `[clusterId] = {usw2, use, euw, asse, brs, aue}`_
-
-- Tunnel service IPs
-  - `TCP 20.69.79.91:443` (usw2)
-  - `TCP 20.120.56.11:443` (use)
-  - `TCP 20.103.221.187:443` (euw)
-  - `TCP 20.197.80.108:443` (asse)
-  - `TCP 20.201.67.222:443` (brs)
-  - `TCP 20.213.0.59:443` (aue)
-  - _Note these IPs may change in the future. Static IPs and Service Tags are on our roadmap._
 
 ## Privacy & Data Storage
 
