@@ -10,7 +10,7 @@ ms.date: 06/15/2023
 ---
 # Security
 
-Dev tunnels is a security-focussed tunneling service.
+Dev tunnels is a security-focussed developer tunneling service.  
 In this article, you'll learn about how dev tunnels are secured.
 
 ## Overview
@@ -55,11 +55,11 @@ The page will be skipped under the following circumstances:
 - The request contains the `X-Tunnel-Authorization` header
 - The user has already visited the page and clicked continue
 
-## Tunnel Access
+## Tunnel access
 
 By default, tunnels and tunnel ports are private and only accessible to the user who created the tunnel.
 
-If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (e.g. use `--anonymous`).
+If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--anonymous`).
 
 Tunnel access can also be extended to specific GitHub organizations (use `--organization`), or your current AAD tenant (use `--tenant`).
 
@@ -76,7 +76,7 @@ All of the tokens are limited to the current tunnel; they do not grant access to
 
 Most CLI commands can accept a `--access-token` argument with an appropriate token as an alternative to logging in.
 
-Web service clients can pass a token in a header to authorize requests to a tunnel URI:
+Web clients can pass a token in a header to authorize requests to a tunnel URI:
 
 ```http
 X-Tunnel-Authorization: tunnel <TOKEN>
