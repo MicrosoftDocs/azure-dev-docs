@@ -130,9 +130,7 @@ sections:
         answer: |
           This might happen because of our method for naming resources. 
 
-          Our 'Azure Dev' authored templates allow for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder:
-          
-          For example: 
+          Our 'Azure Dev' authored templates allow for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder. For example: 
           ```json
             "webServiceName": {
             "value": "my-unique-name"
