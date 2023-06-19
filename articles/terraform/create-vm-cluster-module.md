@@ -36,19 +36,19 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="JSON" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf":::
+    :::code language="JSON" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/outputs.tf)]
 
 ## Initialize Terraform
 
