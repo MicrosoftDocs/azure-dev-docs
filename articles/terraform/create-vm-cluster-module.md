@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Create an Windows VM cluster in Azure using Terraform'
-description: In this article, you learn how to create an Windows VM cluster in Azure using Terraform
+title: 'Quickstart: Create a Windows VM cluster in Azure using Terraform'
+description: In this article, you learn how to create a Windows VM cluster in Azure using Terraform
 ms.topic: quickstart
 ms.date: 06/19/2023
 ms.custom: devx-track-terraform, ai-gen-docs
 #Customer intent: As a developer or cluster operator, I want to learn how to quickly create a Windows VM cluster.
 ---
 
-# Quickstart: Create an Windows VM cluster in Azure using Terraform
+# Quickstart: Create a Windows VM cluster in Azure using Terraform
 
-This article shows you how to create a Windows VM cluster (containing three Windows Server VM instances) in Azure using Terraform.
+This article shows you how to create a Windows VM cluster (containing three Windows VM instances) in Azure using Terraform.
 
 > [!div class="checklist"]
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
-> * Create an random value for the Windows Server VM host name [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
-> * Create a random password for the Windows Server VMs using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password).
-> * Create a Windows Server VM using [windows_server](https://registry.terraform.io/modules/Azure/compute/azurerm).
-> * Create a virtual network along with subnet using [network](https://registry.terraform.io/modules/Azure/network/azurerm)
+> * Create an random value for the Windows VM host name [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
+> * Create a random password for the Windows VMs using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password).
+> * Create a Windows VM using the [compute module](https://registry.terraform.io/modules/Azure/compute/azurerm).
+> * Create a virtual network along with subnet using the [network module](https://registry.terraform.io/modules/Azure/network/azurerm).
 
 [!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
