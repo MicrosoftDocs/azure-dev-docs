@@ -64,6 +64,38 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 ## Verify the results
 
+#### [Azure CLI](#tab/azure-cli)
+
+1. Get the Azure resource group name.
+
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [az vm list](/cli/azure/vm#az-vm-list) with a [JMESPath](/cli/azure/query-azure-cli) query to display the names of the virtual machines created in the resource group.
+
+    ```azurecli
+    az vm list \
+      --resource-group $resource_group_name \
+      --query "[].{\"VM Name\":name}" -o table
+    ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [Get-AzVm](/powershell/module/az.compute/get-azvm)  to display the names of all the virtual machines in the resource group.
+
+    ```azurepowershell
+    Get-AzVm -ResourceGroupName $resource_group_name
+    ```
+
+---
+
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
