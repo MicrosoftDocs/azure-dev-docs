@@ -165,6 +165,8 @@
           href: /azure/virtual-machines/linux/quick-create-terraform
         - name: Create a Linux VM cluster
           href: create-vm-cluster-with-infrastructure.md
+        - name: Create a Windows VM cluster
+          href: create-vm-cluster-module.md
 - name: Samples
   items:
     - name: Terraform samples
@@ -235,8 +237,6 @@
                 href: create-avd-log-analytics-workspace.md
           - name: Virtual machines
             items:
-              - name: Configure a virtual machine cluster
-                href: create-vm-cluster-module.md
               - name: Virtual Machine Scale Set with infrastructure
                 href: create-vm-scaleset-network-disks-hcl.md
               - name: Virtual Machine Scale Set from Packer image
