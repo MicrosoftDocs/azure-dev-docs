@@ -23,7 +23,7 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 ## Prerequisites
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+* [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## Implement the Terraform code
 
@@ -36,20 +36,19 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="HCL" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/providers.tf":::
     :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/main.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/variables.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-windows/outputs.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-windows/output.tf":::
 
 ## Initialize Terraform
 
