@@ -1,86 +1,74 @@
 ---
-title: Configure an Azure VM cluster using Terraform
-description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure.
-keywords: azure devops terraform vm virtual machine cluster module registry
-ms.topic: how-to
-ms.date: 03/18/2023
-ms.custom: devx-track-terraform
+title: 'Quickstart: Create an Windows VM cluster in Azure using Terraform'
+description: In this article, you learn how to create an Windows VM cluster in Azure using Terraform
+ms.topic: quickstart
+ms.date: 06/19/2023
+ms.custom: devx-track-terraform, ai-gen-docs
+#Customer intent: As a developer or cluster operator, I want to learn how to quickly create a Windows VM cluster.
 ---
 
-# Configure an Azure VM cluster using Terraform
+# Quickstart: Create an Windows VM cluster in Azure using Terraform
 
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
-
-This article shows example Terraform code for creating a VM cluster on Azure.
-
-In this article, you learn how to:
+This article shows you how to create a Windows VM cluster (containing 3 Windows VM instances) in Azure using Terraform.
 
 > [!div class="checklist"]
-> * Configure an Azure VM cluster
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+> * Create an random value for the Windows Server VM host name [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
+> * Create a random password for the Windows Server VMs using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password).
+> * Create a Windows Server VM using [windows_server](https://registry.terraform.io/modules/Azure/compute/azurerm).
+> * Create a virtual network along with subnet using [network](https://registry.terraform.io/modules/Azure/network/azurerm)
 
-## 1. Configure your environment
+[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+## Prerequisites
 
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-## 2. Implement the code
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/UserStory89540/quickstart/101-vm-cluster-windows). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/UserStory89540/quickstart/101-vm-cluster-windows/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
-    ```hcl
-    module "windowsservers" {
-      source              = "Azure/compute/azurerm"
-      resource_group_name = azurerm_resource_group.rg.name
-      is_windows_image    = true
-      vm_hostname         = "mywinvm"                         // Line can be removed if only one VM module per resource group
-      admin_password      = "ComplxP@ssw0rd!"                 // See note following code about storing passwords in config files
-      vm_os_simple        = "WindowsServer"
-      public_ip_dns       = ["winsimplevmips"]                // Change to a unique name per data center region
-      vnet_subnet_id      = module.network.vnet_subnets[0]
-        
-      depends_on = [azurerm_resource_group.rg]
-    }
-    
-    module "network" {
-      source              = "Azure/network/azurerm"
-      resource_group_name = azurerm_resource_group.rg.name
-      subnet_prefixes     = ["10.0.1.0/24"]
-      subnet_names        = ["subnet1"]
-    
-      depends_on = [azurerm_resource_group.rg]
-    }
-    
-    output "windows_vm_public_name" {
-      value = module.windowsservers.public_ip_dns_name
-    }
-    
-    output "vm_public_ip" {
-      value = module.windowsservers.public_ip_address
-    }
-    
-    output "vm_private_ips" {
-      value = module.windowsservers.network_interface_private_ip
-    }
-    ```
-    
-    **Key points:**
-    
-    - In the preceding code example, the variable `admin_password` is assigned a literal value for the sake of simplicity. There are many ways in which to store sensitive data such as passwords. The decision as to how you want to protect your data comes down to individual choices involving your particular environment and comfort level exposing this data. As an example of the risk, storing a file like this in source control could potentially result in the password being seen by others. For more information on this subject, HashiCorp has documented various ways to [declare input variables](https://www.terraform.io/docs/configuration/variables.html) and techniques for [managing sensitive data (such as passwords)](https://www.terraform.io/docs/state/sensitive-data.html).
-    
-## 3. Initialize Terraform
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf)]
+
+1. Create a file named `outputs.tf` and insert the following code:
+
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf)]
+
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## Verify the results
+
+#### [Azure CLI](#tab/azure-cli)
+
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 
@@ -88,5 +76,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [!div class="nextstepaction"]
+> [Learn more about managing virtual machines in Azure using Terraform](/azure/virtual-machines)
