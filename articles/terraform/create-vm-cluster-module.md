@@ -19,7 +19,7 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 > * Create a Windows VM using the [compute module](https://registry.terraform.io/modules/Azure/compute/azurerm).
 > * Create a virtual network along with subnet using the [network module](https://registry.terraform.io/modules/Azure/network/azurerm).
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](~/../azure-docs-pr/includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
@@ -36,19 +36,19 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](../../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](../../terraform_samples/quickstart/101-vm-cluster-linux/main.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](../../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory89540](../../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf)]
+    [!code-terraform[UserStory89540](~/../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf)]
 
 ## Initialize Terraform
 
