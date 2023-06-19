@@ -64,8 +64,6 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 ## Verify the results
 
-#### [Azure CLI](#tab/azure-cli)
-
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
