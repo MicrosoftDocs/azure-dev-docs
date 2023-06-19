@@ -36,7 +36,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "terraform_samples",
-      "url": "https://github.com/azure/terraform",
+      "url": "https://github.com/azure/tomarchermsft",
       "branch": "UserStory89540",
       "branch_mapping": {}
     },

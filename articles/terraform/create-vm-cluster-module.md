@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform, ai-gen-docs
 
 # Quickstart: Create an Windows VM cluster in Azure using Terraform
 
-This article shows you how to create a Windows VM cluster (containing 3 Windows VM instances) in Azure using Terraform.
+This article shows you how to create a Windows VM cluster (containing three Windows Server VM instances) in Azure using Terraform.
 
 > [!div class="checklist"]
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
