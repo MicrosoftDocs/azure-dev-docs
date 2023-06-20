@@ -22,6 +22,9 @@ This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenSh
 
   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
+   > [!NOTE]
+   >  This guidance can also be executed from a local developer command line with Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](azure/install-azure-cli).
+
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 > [!NOTE]
