@@ -186,32 +186,31 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     ```go
     package main
 
-    // Import key modules.
     import (
-      "log"
+      "context"
 
       "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     )
 
-    // Define key global variables.
-    var (
-      subscriptionId = "<subscription ID>"
-    )
-
-    // Define the function to create a resource group.
+    var subscriptionID = "<subscription ID>"
 
     func main() {
       cred, err := azidentity.NewDefaultAzureCredential(nil)
       if err != nil {
-        log.Fatalf("Authentication failure: %+v", err)
+        // TODO: handle error
       }
-
-      // Azure SDK Azure Resource Management clients accept the credential as a parameter
-      client, _ := armresources.NewClient(subscriptionId, cred, nil)
-
-      log.Print("Authenticated to subscription", client)
-    }
+      // Azure SDK Azure Resource Management clients accept the credential as a parameter.
+      // The client will authenticate with the credential as necessary.
+      client, err := armsubscription.NewSubscriptionsClient(cred, nil)
+      if err != nil {
+        // TODO: handle error
+      }
+      _, err = client.Get(context.TODO(), subscriptionID, nil)
+      if err != nil {
+        // TODO: handle error
+      }
+    }   
     ```
 
     Replace `<subscriptionId>` with your subscription ID.
