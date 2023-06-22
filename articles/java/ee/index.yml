@@ -72,7 +72,7 @@ landingContent:
         - text: WebLogic Server on Azure Virtual Machine
           url: weblogic-server-azure-virtual-machine.md
         - text: WebLogic Server on Azure Kubernetes Service
-          url: weblogic-server-azure-kubernetes-service.md
+          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines

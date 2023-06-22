@@ -9,7 +9,7 @@
       - name: Oracle WebLogic Server on Azure VM
         href: weblogic-server-azure-virtual-machine.md
       - name: Oracle WebLogic Server on AKS
-        href: weblogic-server-azure-kubernetes-service.md 
+        href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - name: Traditional WebSphere on Azure VMs
         href: traditional-websphere-application-server-virtual-machines.md
       - name: Red Hat JBoss EAP Server on Azure VM
