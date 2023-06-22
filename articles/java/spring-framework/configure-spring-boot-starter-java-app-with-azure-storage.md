@@ -4,7 +4,7 @@ description: Learn how to configure a Spring Boot Initializer app with the Azure
 services: storage
 documentationcenter: java
 ms.date: 04/06/2023
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.workload: storage
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
