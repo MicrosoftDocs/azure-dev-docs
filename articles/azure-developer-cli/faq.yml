@@ -139,7 +139,7 @@ sections:
 
           This entry creates a new resource named "my-unique-name" instead of a randomized value such as "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group using the Azure Portal or run `azd down` to remove all previous deployments. After removing the resources, run `azd provision` to create them again with the new name.
 
-          This name will need to be unique to your subscription, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
+          This name will need to be globally unique, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
    
   - name: "Command: azd provision"
     questions:
