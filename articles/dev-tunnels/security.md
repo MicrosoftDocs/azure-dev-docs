@@ -1,5 +1,5 @@
 ---
-title: Security
+title: Dev tunnels security
 titleSuffix: Microsoft dev tunnels
 description: Learn about security when using dev tunnels
 author: curib
@@ -11,11 +11,11 @@ ms.date: 06/15/2023
 # Security
 
 Dev tunnels is a security-focussed developer tunneling service.  
-In this article, you'll learn about how dev tunnels are secured.
+In this article, learn about how dev tunnels are secured.
 
 ## Overview
 
-By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account that created the tunnel. Tunnelling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
+By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
 
 ## Domains
 
@@ -35,10 +35,9 @@ The list of current `[clusterId]` values is available at https://global.rel.tunn
 
 ## Web-forwarding
 
-Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (e.g. `https://tunnelid-3000.devtunnels.ms`).
+Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (for example: `https://tunnelid-3000.devtunnels.ms`).
 
 - Insecure client connections are **always** automatically upgraded to HTTPS/WSS.
-  - Note: These may still connect to a (non-TLS) HTTP server on the host, even when the client connection is upgraded to HTTPS (see TLS termination below).
 - HTTP Strict Transport Security (HSTS) is enabled with a one year max-age.
 - The minimum TLS version the service supports is 1.2, with TLS 1.3 being the preferred version.
 - TLS termination is done at service ingress using service certificates, issued by a Microsoft CA.
@@ -48,9 +47,9 @@ Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the 
 
 When connecting to a web-forwarding url for the first time, users are presented with an interstitial anti-phishing page.
 
-The page will be skipped under the following circumstances:
+The page is skipped under the following circumstances:
 - The request uses a method other than `GET`
-- The request `Accepts` header does not contain `text/html`
+- The request `Accepts` header doesn't contain `text/html`
 - The request contains the `X-Tunnel-Skip-AntiPhishing-Page` header
 - The request contains the `X-Tunnel-Authorization` header
 - The user has already visited the page and clicked continue
@@ -61,18 +60,18 @@ By default, tunnels and tunnel ports are private and only accessible to the user
 
 If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--anonymous`).
 
-Tunnel access can also be extended to specific GitHub organizations (use `--organization`), or your current AAD tenant (use `--tenant`).
+Tunnel access can also be extended to specific GitHub organizations (use `--organization`), or your current Azure AD tenant (use `--tenant`).
 
 The CLI can also be used to request access tokens that grant limited access to anyone holding the token (use `devtunnel token`). This is an advanced feature but can be useful in specific situations.
 
-Currently, 4 types of tunnel access tokens are available:
+Currently, four types of tunnel access tokens are available:
 
 - A "client access token" allows the bearer to connect to any ports of the tunnel.
 - A "host access token" allows the bearer to host the tunnel and accept connections, but not make any other changes to it.
 - A "manage ports access token" allows the bearer to add and delete ports on a tunnel.
 - A "management access token" allows the bearer to perform any operations on that tunnel, including setting access controls, hosting, connecting, and deleting the tunnel.
 
-All of the tokens are limited to the current tunnel; they do not grant access to any of the current user's _other_ tunnels, if any. The tokens expire after some time (currently 24 hours). Tokens can only be refreshed using an actual user identity that has manage-scope access to the tunnel (not just a management access token).
+All of the tokens are limited to the current tunnel; they don't grant access to any of the current user's _other_ tunnels, if any. The tokens expire after some time (currently 24 hours). Tokens can only be refreshed using an actual user identity that has manage-scope access to the tunnel (not just a management access token).
 
 Most CLI commands can accept a `--access-token` argument with an appropriate token as an alternative to logging in.
 
