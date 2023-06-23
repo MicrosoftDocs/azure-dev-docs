@@ -23,6 +23,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 
 * [Avalonia: Enable offline sync](../quickstarts/avalonia/offline.md)
 * [.NET MAUI: Enable offline sync](../quickstarts/maui/offline.md)
+* [Uno Platform: Enable offline sync](../quickstarts/uno/offline.md)
 * [Windows (UWP): Enable offline sync](../quickstarts/uwp/offline.md)
 * [Windows (WinUI3): Enable offline sync](../quickstarts/winui/offline.md)
 * [Windows (WPF): Enable offline sync](../quickstarts/wpf/offline.md)
