@@ -41,7 +41,7 @@ A local store is the data persistence layer on the client device. Most platforms
 
 ## How offline sync works
 
-Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
+Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until you *push* local changes. Similarly, the local store is populated with new or updated data only when you *pull* data.
 
 You can push pending operations for all tables, a list of tables, or one table:
 
