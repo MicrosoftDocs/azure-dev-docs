@@ -10,12 +10,11 @@ ms.date: 06/15/2023
 ---
 # Security
 
-Dev tunnels is a security-focussed developer tunneling service.  
-In this article, learn about how dev tunnels are secured.
+Dev tunnels is a security-focussed developer tunneling service. In this article, learn about how dev tunnels are secured.
 
 ## Overview
 
-By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Azure Active Directory or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
+By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Azure AD or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
 
 ## Domains
 
@@ -37,17 +36,15 @@ The list of current `[clusterId]` values is available at https://global.rel.tunn
 
 Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the provided web-forwarding url (for example: `https://tunnelid-3000.devtunnels.ms`).
 
-- Insecure client connections are **always** automatically upgraded to HTTPS/WSS.
+- Insecure client connections are always automatically upgraded to HTTPS/WSS.
 - HTTP Strict Transport Security (HSTS) is enabled with a one year max-age.
 - The minimum TLS version the service supports is 1.2, with TLS 1.3 being the preferred version.
 - TLS termination is done at service ingress using service certificates, issued by a Microsoft CA.
-  - Note: After TLS termination, header rewriting takes place. This is required for many web application development scenarios.
+  - After TLS termination, header rewriting takes place. This is required for many web application development scenarios.
 
 ## Anti-phishing protection
 
-When connecting to a web-forwarding url for the first time, users are presented with an interstitial anti-phishing page.
-
-The page is skipped under the following circumstances:
+When connecting to a web-forwarding url for the first time, users are presented with an interstitial anti-phishing page. The page is skipped under the following circumstances:
 - The request uses a method other than `GET`
 - The request `Accepts` header doesn't contain `text/html`
 - The request contains the `X-Tunnel-Skip-AntiPhishing-Page` header
