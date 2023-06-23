@@ -80,11 +80,13 @@ await table.PullItemsAsync(query);
 
 ### Incremental Sync
 
-The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  Only new records are pulled on successive operations.
+The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled.  This is faster and saves bandwidth when processing large tables.
+
+For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. This is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
 
 ### Performance and consistency
 
-There are times when the synchronization will terminate prematurely.  The network being used for synchronization becomes unavailable during the synchronization process; or the user may force-close the application during synchronization. To minimize the risk of a consistency problem within the offline database, each record is written to the database as it is received.  You may, optionally, decide to write the records to the database in batches.  Batched operations increase the performance of the offline database writes during the pull operation.  However, the risk of an inconsistency between the table metadata and the data within the table is increased.  
+There are times when the synchronization terminates prematurely.  The network being used for synchronization becomes unavailable during the synchronization process; or the user may force-close the application during synchronization. To minimize the risk of a consistency problem within the offline database, each record is written to the database as it is received.  You may, optionally, decide to write the records to the database in batches.  Batched operations increase the performance of the offline database writes during the pull operation.  However, the risk of an inconsistency between the table metadata and the data within the table is increased.  
 
 You can tune the interval between writes as follows:
 
