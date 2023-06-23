@@ -80,9 +80,9 @@ await table.PullItemsAsync(query);
 
 ### Incremental Sync
 
-The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled.  This is faster and saves bandwidth when processing large tables.
+The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when processing large tables.
 
-For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. This is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
+For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. The last `UpdatedAt` value is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
 
 ### Performance and consistency
 
