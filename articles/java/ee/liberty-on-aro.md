@@ -22,6 +22,9 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
+  > [!NOTE]
+  > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 - ARO requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.

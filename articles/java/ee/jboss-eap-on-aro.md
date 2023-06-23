@@ -22,6 +22,9 @@ This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenSh
 
   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
+  > [!NOTE]
+  > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 > [!NOTE]
@@ -362,7 +365,7 @@ The steps in this section show you how to deploy an app on the cluster.
 
 Use the following steps to deploy the app to the cluster. The app is hosted in the GitHub repo [rhel-jboss-templates/eap-coffee-app](https://github.com/Azure/rhel-jboss-templates/tree/main/eap-coffee-app).
 
-1. In the Azure Cloud Shell, run the following commands to create a project, image the pull secret, and link the secret to the relative service accounts in the project for image pulling. Disregard the git warning about "'detached HEAD' state".
+1. In the Azure Cloud Shell, run the following commands to create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project for image pulling. Disregard the git warning about "'detached HEAD' state".
 
    ```azurecli-interactive
    git clone https://github.com/Azure/rhel-jboss-templates.git
@@ -370,6 +373,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    git checkout 20230615
    cd ..
    oc new-project ${PROJECT_NAME}
+   oc adm policy add-scc-to-user privileged -z default --namespace ${PROJECT_NAME}
    w0=-w0
    if [[ $OSTYPE == 'darwin'* ]]; then
      w0=

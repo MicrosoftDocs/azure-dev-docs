@@ -28,7 +28,7 @@ landingContent:
         - text: WebLogic Server on Azure Virtual Machine using the Azure portal
           url: ../ee/weblogic-server-azure-virtual-machine.md
         - text: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal
-          url: ../ee/weblogic-server-azure-kubernetes-service.md
+          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart

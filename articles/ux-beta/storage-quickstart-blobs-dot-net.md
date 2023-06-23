@@ -4,8 +4,7 @@ description: In this quickstart, you will learn how to use the Azure Blob Storag
 author: stevenmatthew
 ms.author: shaas
 ms.date: 10/06/2021
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
