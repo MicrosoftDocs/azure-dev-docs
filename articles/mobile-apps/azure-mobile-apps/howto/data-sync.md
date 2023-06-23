@@ -62,11 +62,38 @@ The push operation sends all pending changes in the operations queue to the serv
 
 ### Implicit Push
 
-If a pull is executed against a table that has pending local updates, the pull first executes a push on the sync context. This push helps minimize conflicts between changes that are already queued and new data from the server.
+If a pull is executed against a table that has pending local updates, the pull first executes a push for that table. This push helps minimize conflicts between changes that are already queued and new data from the server.  You may optionally configure a push of all tables by setting `PushOtherTables` in the `PullOptions`:
+
+```csharp
+var pullOptions = new PullOptions { PushOtherTables = true };
+await table.PullItemsAsync(pullOptions);
+```
+
+### Pulling a subset of records
+
+You may, optionally, specify a query that is used to determine which records should be included in the offline database.  For example:
+
+```csharp
+var query = table.CreateQuery().Where(x => x.Color == "Blue");
+await table.PullItemsAsync(query);
+```
 
 ### Incremental Sync
 
 The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  Only new records are pulled on successive operations.
+
+### Performance and consistency
+
+There are times when the network being used for synchronization will become unavailable during the synchronization process, or the user may close the application prior to the appropriate records being written to the database.  To minimize the risk of a consistency problem within the offline database, each record is written to the database as it is received.  You may, optionally, decide to write the records to the database in batches.  This will increase the performance of the offline database writes during the pull operation.  However, the risk of an inconsistency between the table metadata and the data within the table is increased.  
+
+You can tune the interval between writes as follows:
+
+```csharp
+var pullOptions = new PullOptions { WriteDeltaTokenInterval = 25 };
+await table.PullItemsAsync(pullOptions);
+```
+
+This code will batch writes into batches of 25 records.  Performance testing suggests that performance improves up to a value of 25. A `WriteDeltaTokenInterval` greater than 25 will not yield significantly better performance.
 
 ### Purging
 
