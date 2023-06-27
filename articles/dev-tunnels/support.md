@@ -29,3 +29,5 @@ GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with
 - Request a feature
 - Submit a bug
 - Provide feedback
+
+If you are an enterprise looking to adopt dev tunnels in your organization with specific questions on security, enterprise management or support, please email us at tunnelsfeedback@microsoft.com.
