@@ -1,18 +1,17 @@
 ---
-title: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster
-description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster.
+title: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
+description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster.
 author: karlerickson
 ms.author: edburns
 ms.date: 12/20/2022
 ms.topic: how-to
 ms.service: azure-redhat-openshift
-keywords: java, jakartaee, microprofile, EAP, JBoss EAP, ARO, OpenShift, JBoss Enterprise Application Platform
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java
 ---
 
-# Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster
+# Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
 
-This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (JBoss EAP) app to an Azure Red Hat OpenShift (ARO) 4 cluster. The application is a Jakarta EE application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
+This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (JBoss EAP) app to an Azure Red Hat OpenShift 4 cluster. The application is a Jakarta EE application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
 The guide takes a traditional Jakarta EE application and walks you through the process of migrating it to a container orchestrator such as Azure Red Hat OpenShift. First, it describes how you can package your application as a [Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_xp_3.0.0/the-bootable-jar_default) to run it locally. Finally, it shows you how you can deploy on OpenShift with three replicas of the JBoss EAP application by using Helm Charts.
 
@@ -27,7 +26,7 @@ The application is a stateful application that stores information in an HTTP Ses
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
 
 > [!IMPORTANT]
-> While ARO is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of ARO, including that described in this article, is subject to its own support and license terms. For details about support of ARO, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> While Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For details about support of the software described in this article, see the main pages for that software as listed in the article.
 
 ## Prerequisites
 
@@ -41,7 +40,7 @@ The application is a stateful application that stores information in an HTTP Ses
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
 
-   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your ARO cluster to find the JBoss EAP application images.
+   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
@@ -202,7 +201,7 @@ Follow the next steps to build and run the application locally.
 
 ## Deploy to OpenShift
 
-To deploy the application, we're going to use the JBoss EAP Helm Charts already available in ARO. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
+To deploy the application, we're going to use the JBoss EAP Helm Charts already available in Azure Red Hat OpenShift. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
 
 Navigate to your demo application local repository and change the current branch to `bootable-jar-openshift`:
 
@@ -271,7 +270,7 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
     :::image type="content" source="media/jboss-eap-on-aro/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
-1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your ARO cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
+1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
 
     :::image type="content" source="media/jboss-eap-on-aro/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
@@ -337,13 +336,13 @@ $ oc delete project eap-demo
 # project.project.openshift.io "eap-demo" deleted
 ```
 
-### Delete the ARO cluster
+### Delete the Azure Red Hat OpenShift cluster
 
-Delete the ARO cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
 
 ### Delete the resource group
 
-If you want to delete all of the resources created by the preceding steps, delete the resource group you created for the ARO cluster.
+If you want to delete all of the resources created by the preceding steps, delete the resource group you created for the Azure Red Hat OpenShift cluster.
 
 ## Next steps
 
@@ -352,8 +351,8 @@ In this guide, you learned how to:
 >
 > * Prepare an JBoss EAP application for OpenShift.
 > * Run it locally together with a containerized Microsoft SQL Server.
-> * Deploy a Microsoft SQL Server on an ARO 4 by using the OpenShift CLI.
-> * Deploy the application on an ARO 4 by using JBoss Helm Charts and OpenShift Web Console.
+> * Deploy a Microsoft SQL Server on an Azure Red Hat OpenShift 4 by using the OpenShift CLI.
+> * Deploy the application on an Azure Red Hat OpenShift 4 by using JBoss Helm Charts and OpenShift Web Console.
 
 You can learn more from references used in this guide:
 
