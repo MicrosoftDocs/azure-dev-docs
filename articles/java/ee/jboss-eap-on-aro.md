@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-
 
 # Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal
 
-This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift  using the Azure portal.
 
 ## Prerequisites
 
@@ -32,19 +32,19 @@ This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenSh
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+The Azure Marketplace offer you use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
 Use the following steps to get the pull secret.
 
 1. Open the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned), then use your Red Hat account to sign in to the OpenShift cluster manager portal. You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
-   :::image type="content" source="media/liberty-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/liberty-on-aro/redhat-account-complete-profile.png":::
+   :::image type="content" source="media/jboss-eap-on-aro/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/jboss-eap-on-aro/redhat-account-complete-profile.png":::
 
 1. After you sign in, select **OpenShift** then **Downloads**.
 1. Select the **All categories** dropdown list and then select **Tokens**.
 1. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
 
-   :::image type="content" source="media/liberty-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/liberty-on-aro/redhat-console-portal-pull-secret.png":::
+   :::image type="content" source="media/jboss-eap-on-aro/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/jboss-eap-on-aro/redhat-console-portal-pull-secret.png":::
 
    The following content is an example that was copied from the Red Hat console portal, with the auth codes replaced with `xxxx...xxx`.
 
