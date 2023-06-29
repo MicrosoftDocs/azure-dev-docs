@@ -193,7 +193,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     )
 
-    var subscriptionID = "<subscription ID>"
+    const subscriptionID = "<subscription ID>"
 
     func main() {
       cred, err := azidentity.NewDefaultAzureCredential(nil)
