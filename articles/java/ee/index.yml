@@ -11,7 +11,7 @@ metadata:
   author: KarlErickson
   ms.author: edburns
   ms.date: 06/27/2022
-  ms.custom: devx-track-java
+  ms.custom: devx-track-java, devx-track-extended-java
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -39,11 +39,11 @@ landingContent:
         links:
           - text: Java app with Helidon to Azure App Service
             url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
+          - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: howto-deploy-java-liberty-app-manual.md
-          - text: Java app with JBoss EAP to Azure Red Hat OpenShift (ARO)
+          - text: Java app with JBoss EAP to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty
             url: how-to-deploy-java-liberty-jcache.md
@@ -72,7 +72,7 @@ landingContent:
         - text: WebLogic Server on Azure Virtual Machine
           url: weblogic-server-azure-virtual-machine.md
         - text: WebLogic Server on Azure Kubernetes Service
-          url: weblogic-server-azure-kubernetes-service.md
+          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines

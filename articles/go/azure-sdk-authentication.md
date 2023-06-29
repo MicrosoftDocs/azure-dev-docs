@@ -1,20 +1,16 @@
 ---
-title: Azure authentication with the Azure SDK for Go
-description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with environment variables, a managed identity, or the Azure CLI.
-ms.date: 04/20/2022
+title: Azure authentication with the Azure Identity module for Go
+description: Learn to use the Azure Identity module for Go to authenticate to Azure.
+ms.date: 06/22/2023
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli
 ---
 
-# Azure authentication with the Azure SDK for Go
+# Azure authentication with the Azure Identity module for Go
 
-In this tutorial, you'll use the Default Azure Credential type from the Azure SDK for Go to authenticate to Azure with environment variables, a managed identity, or the Azure CLI.
+In this tutorial, the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go is used to authenticate to Azure. The Azure Identity module offers several credential types that focus on OAuth with Azure Active Directory (Azure AD).
 
-The Azure Identity module for Go offers several different credential types that focus on OAuth with Azure Active Directory (Azure AD).
-
-The `DefaultAzureCredential` type simplifies authentication by combining commonly used credentials types. It chains together type used to authenticate deployed Azure applications with credentials used to authenticate in a development environment.
-
-![default azure credential workflow](./media\azure-sdk-authentication/default-azure-credential-workflow.png)
+`DefaultAzureCredential` simplifies authentication by combining commonly used credential types. It chains credential types used to authenticate Azure-deployed applications with credential types used to authenticate in a development environment.
 
 ## Prerequisites
 
@@ -22,8 +18,6 @@ The `DefaultAzureCredential` type simplifies authentication by combining commonl
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
 ## 1. Install the Azure Identity module for Go
-
-The Azure Identity module is used to authenticate to Azure.
 
 Run the following command to download the [azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module:
 
@@ -35,9 +29,10 @@ go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 Use the `DefaultAzureCredential` to authenticate to Azure with one of the following techniques:
 
-* [Option 1: Define environment variables](#environment-variables)
-* [Option 2: Use a managed identity](#managed-identity)
-* [Option 3: Sign in with Azure CLI](#azureCLI)
+- [Option 1: Define environment variables](#environment-variables)
+- [Option 2: Use workload identity](#workload-identity)
+- [Option 3: Use a managed identity](#managed-identity)
+- [Option 4: Sign in with Azure CLI](#azureCLI)
 
 To learn more about the different credential types, see [credential types](./azure-sdk-authorization.md).
 
@@ -123,15 +118,21 @@ $env:AZURE_PASSWORD="<azure_user_password>"
 
 ---
 
-Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
+Configuration is attempted in the preceding order. For example, if values for a client secret and certificate are both present, the client secret is used.
 
-### <span id="managed-identity"/> Option 2: Use a managed identity
+### <span id="workload-identity"/> Option 2: Use Workload Identity
+
+[Azure AD Workload Identity](/azure/aks/workload-identity-overview) enables pods in a Kubernetes cluster to use a Kubernetes identity (service account). A Kubernetes token is issued, and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) enables Kubernetes applications to access Azure resources securely with Azure AD.
+
+If the required environment variables for `EnvironmentCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [WorkloadIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#WorkloadIdentityCredential). `WorkloadIdentityCredential` attempts to read the service principal configuration from environment variables set by the Workload Identity webhook.
+
+### <span id="managed-identity"/> Option 3: Use a managed identity
 
 [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
 
-If the required environment variables for the `EnvironmentCredential` credential type aren't present, the `DefaultAzureCredential` will attempt to authenticate using the `ManagedIdentityCredential` type.
+If the required environment variables for `WorkloadIdentityCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [ManagedIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential).
 
-If using a user assigned managed identity, run the following command to set the `AZURE_CLIENT_ID` environment variable.
+If using a user-assigned managed identity, run the following command to set the `AZURE_CLIENT_ID` environment variable.
 
 # [Bash](#tab/bash)
 
@@ -146,42 +147,42 @@ $env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 ```
 
 > [!NOTE]
-> To use a system assigned managed identity, make sure the `AZURE_CLIENT_ID` is not set.
+> To use a system-assigned managed identity, make sure the `AZURE_CLIENT_ID` environment variable isn't set.
 
 ---
 
-### <span id="azureCLI"/> Option 3: Sign in with Azure CLI
+### <span id="azureCLI"/> Option 4: Sign in with Azure CLI
 
-To support local development, the `DefaultAzureCredential` can authenticate as the user signed into the Azure CLI.
+To reduce friction in local development, `DefaultAzureCredential` can authenticate as the user signed into the Azure CLI.
 
-Run the following command to sign into the Azure CLI.
+Run the following command to sign into the Azure CLI:
 
 ```azurecli
 az login
 ```
 
-The `azidentity` module supports authenticating through developer tools to simplify local development. Azure CLI authentication isn't recommended for applications running in Azure.
+Azure CLI authentication isn't recommended for applications running in Azure.
 
 ## 3. Use DefaultAzureCredential to authenticate ResourceClient
 
-Create a new sample Go module named `azure-auth` to test authenticating to Azure with the `DefaultAzureCredential`.
+Create a new sample Go module named `azure-auth` to test authenticating to Azure with `DefaultAzureCredential`:
 
 1. Create a directory to test and run the sample Go code, then change into that directory.
 
-1. Run [go mod init](https://go.dev/ref/mod#go-mod-init) to create a module.
+1. Run [go mod init](https://go.dev/ref/mod#go-mod-init) to create a module:
 
     ```bash
     go mod init azure-auth
     ```
 
-1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
+1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules:
 
     ```bash
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     ```
 
-1. Create a file named `main.go` and insert the following code.
+1. Create a file named `main.go` and insert the following code:
 
     ```go
     package main
@@ -193,7 +194,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     )
 
-    var subscriptionID = "<subscription ID>"
+    const subscriptionID = "<subscription ID>"
 
     func main() {
       cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -211,11 +212,10 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
         // TODO: handle error
       }
     }   
-    ```
 
-    Replace `<subscriptionId>` with your subscription ID.
+    Replace `<subscription ID>` with your subscription ID.
 
-1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the app.
+1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the application:
 
     ```bash
     go run .
@@ -223,24 +223,25 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
 ## Authenticate to Azure with DefaultAzureCredential
 
-Use the following code in your applications to authenticate to Azure with the Azure Identity Go module using the `DefaultAzureCredential` credential type.
+Use the following code in your application to authenticate to Azure with the Azure Identity module using `DefaultAzureCredential`:
 
 ```go
-// The default credential checks environment variables for configuration.
+// This credential type checks environment variables for configuration.
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
   // handle error
 }
 
-// Azure SDK Azure Resource Management clients accept the credential as a parameter
-client, err := armresources.NewClient("<subscription ID>", cred, nil)
+// Azure Resource Management clients accept the credential as a parameter
+client, err := armresources.NewClient("<subscriptionId>", cred, nil)
 if err != nil {
   // handle error
 }
 ```
 
-<!-- TODO: Uncomment after manage resource groups with GO sdk is merged -->
-<!-- [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)] -->
+## Troubleshooting
+
+For guidance on resolving errors from specific credential types, see the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azidentity/TROUBLESHOOTING.md).
 
 ## Next steps
 
