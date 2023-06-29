@@ -12,6 +12,8 @@
         href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
       - name: Traditional WebSphere on Azure VMs
         href: traditional-websphere-application-server-virtual-machines.md
+      - name: Red Hat JBoss EAP Cluster on Azure VMs
+        href: jboss-eap-cluster-azure-vms.md
       - name: Red Hat JBoss EAP Server on Azure VM
         href: jboss-eap-single-server-azure-vm.md
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
