@@ -214,6 +214,23 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
 
+## Cloud Shell limitations for `azd`
+
+There are some limitations to running `azd` in Cloud Shell:
+
+### Docker support in Cloud Shell
+
+Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
+
+### Cloud Shell timeout
+
+Cloud Shell may time out during a long deployment or other long-running tasks. Make sure the session does not become idle. See [Cloud Shell Usage limits](/azure/cloud-shell/limitations#usage-limits).
+
+### Cloud Shell interface
+
+Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
+like Visual Studio Code.
+
 ## Create a GitHub issue to request help
 
 :::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
