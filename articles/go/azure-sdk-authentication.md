@@ -213,6 +213,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       }
     }   
 
+    ```
     Replace `<subscription ID>` with your subscription ID.
 
 1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the application:
