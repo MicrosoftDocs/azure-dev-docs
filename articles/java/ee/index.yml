@@ -87,6 +87,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+        - text: Red Hat JBoss EAP Cluster on Azure VMs
+          url: jboss-eap-cluster-azure-vms.md
         - text: Red Hat JBoss EAP Server on Azure VM
           url: jboss-eap-single-server-azure-vm.md
         - text: Red Hat JBoss EAP on Azure Red Hat OpenShift

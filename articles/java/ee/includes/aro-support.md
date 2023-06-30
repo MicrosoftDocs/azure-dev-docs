@@ -1,5 +1,5 @@
 ---
-author: karlerickson
+author: KarlErickson
 ms.author: edburns
 ms.date: 10/29/2020
 ---
