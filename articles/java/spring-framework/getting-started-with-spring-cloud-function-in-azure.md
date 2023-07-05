@@ -44,7 +44,7 @@ The project is available in the [Spring Cloud Function in Azure](https://github.
 
 We're going to create an empty Maven project, and configure it with Spring Cloud Function and Azure Functions.
 
-In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure-Samples/hello-spring-function-azure/blob/master/pom.xml) file.
+In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure/azure-functions-java-worker/blob/dev/samples/spring-cloud-example/pom.xml) file.
 
 > [!NOTE]
 > This file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and it configures
