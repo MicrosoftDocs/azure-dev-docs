@@ -3,14 +3,13 @@ title: Conversational CLI with Azure OpenAI
 description: Use Azure OpenAI in a TypeScript CLI to create a chatbot that generates text responses to user input.
 ms.topic: how-to
 ms.date: 05/30/2023
-ms.custom: devx-track-js, devx-track-ts, ai-gen-docs
+ms.custom: devx-track-js, devx-track-ts
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Using Azure OpenAI in a TypeScript CLI
   
-> [!NOTE]
-> This article was partially created with the help of artificial intelligence. Before publishing, an author reviewed and revised the content as needed. See [Our principles for using AI-generated content in Microsoft Learn](https://aka.ms/ai-content-principles).
-
 In this tutorial, learn how to use Azure OpenAI with JavaScript in an interactive CHAT CLI. Azure OpenAI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure OpenAI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
 
 > [!CAUTION]
