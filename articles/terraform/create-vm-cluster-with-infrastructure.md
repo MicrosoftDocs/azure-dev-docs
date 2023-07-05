@@ -4,7 +4,9 @@ description: Learn how to Create an Azure Linux VM cluster with Terraform.
 keywords: azure devops terraform vm virtual machine cluster
 ms.topic: quickstart
 ms.date: 05/29/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure Linux VM cluster with Terraform
@@ -26,8 +28,6 @@ In this article, you learn how to:
 > * Create a availability set using [azurerm_availability_set](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/availability_set)
 > * Create a random password using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
 > * Create a Linux virtual machine using [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
-
-[!INCLUDE [AI attribution](~/../azure-docs-pr/includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
