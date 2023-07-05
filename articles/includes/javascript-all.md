@@ -314,13 +314,14 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.4.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.4.1) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-sharing/v/1.0.0-beta.1) |  |  |
+| Unknown Display Name | npm [10.19.0-preview](https://www.npmjs.com/package/@azure-tools/azcopy-darwin-arm64/v/10.19.0-preview) |  |  |
 | Unknown Display Name | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/typespec-apiview/v/0.4.4) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-core/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-resource-manager/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-bump-deps/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-core/v/0.31.0) |  |  |
-| Unknown Display Name | npm [0.2.0-beta.20230702.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230702.1) |  |  |
+| Unknown Display Name | npm [0.2.0-beta.20230705.2](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230705.2) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-diff/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.8.4](https://www.npmjs.com/package/@azure-tools/typespec-java/v/0.8.4) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub/v/0.31.0) |  |  |
@@ -422,7 +423,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230702.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230702.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230705.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230705.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -502,7 +503,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.51](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.51) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.504](https://www.npmjs.com/package/@autorest/powershell/v/3.0.504)<br>npm [4.0.0-dev.10](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.10) |  | GitHub [3.0.504](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.617](https://www.npmjs.com/package/@autorest/powershell/v/4.0.617) |  | GitHub [4.0.617](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.6.0](https://www.npmjs.com/package/@autorest/python/v/6.6.0) |  | GitHub [6.6.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -517,12 +518,12 @@
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
-| Stream Analytics CI/CD | npm [3.1.1](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/3.1.1) |  |  |
+| Stream Analytics CI/CD | npm [3.1.2](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/3.1.2) |  |  |
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
-| Tools - Azcopy Darwin | npm [10.18.1](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.18.1) |  | GitHub [10.18.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Linux | npm [10.18.1](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.18.1) |  | GitHub [10.18.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Node | npm [2.12.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.12.0) |  | GitHub [2.12.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win32 | npm [10.18.1](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.18.1) |  | GitHub [10.18.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win64 | npm [10.18.1](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.18.1) |  | GitHub [10.18.1](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Darwin | npm [10.19.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.19.0) |  | GitHub [10.19.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Linux | npm [10.19.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.19.0) |  | GitHub [10.19.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Node | npm [3.0.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win32 | npm [10.19.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.19.0) |  | GitHub [10.19.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win64 | npm [10.19.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.19.0) |  | GitHub [10.19.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.7.1](https://www.npmjs.com/package/@azure-tools/datastore/v/4.7.1) |  | GitHub [4.7.1](https://github.com/Azure/perks) |
 | Tools - OpenAPI Tools Common | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/openapi-tools-common/v/1.2.2) |  |  |
