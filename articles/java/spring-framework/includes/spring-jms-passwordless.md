@@ -1,7 +1,9 @@
 #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
-1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
-   Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
+1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using.
+
+   Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) for more details.
+
    If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
 2. Configure the Service Bus credentials by adding the following properties to your *application.properties* file.
@@ -74,8 +76,10 @@
 
 #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
-1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
-   Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
+1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using.
+
+   Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) for more details.
+
    If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
 2. Configure the Service Bus credentials by adding the following properties to your *application.properties* file.
