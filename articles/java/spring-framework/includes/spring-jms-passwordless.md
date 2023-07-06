@@ -1,6 +1,6 @@
 #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
-1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
    Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
    If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
@@ -63,7 +63,7 @@
 
    Replace `<QueueName>` with your own queue name configured in your Service Bus namespace.
 
-   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
+   [!INCLUDE [spring-default-azure-credential-overview.md](spring-default-azure-credential-overview.md)]
 
 4. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
 
@@ -74,7 +74,7 @@
 
 #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
-1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Assign the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
    Before using Azure Active Directory(Azure AD) to authorize requests to Service Bus resources, you need to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
    If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
@@ -141,7 +141,7 @@
 
    Replace the `<TopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<SubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
 
-   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
+   [!INCLUDE [spring-default-azure-credential-overview.md](spring-default-azure-credential-overview.md)]
 
 4. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
 

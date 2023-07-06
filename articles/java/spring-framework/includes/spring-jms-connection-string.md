@@ -57,7 +57,7 @@
 
    Replace `<QueueName>` with your own queue name configured in your Service Bus namespace.
 
-   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
+   [!INCLUDE [spring-default-azure-credential-overview.md](spring-default-azure-credential-overview.md)]
 
 3. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
 
@@ -129,7 +129,7 @@
 
    Replace the `<TopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<SubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
 
-   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
+   [!INCLUDE [spring-default-azure-credential-overview.md](spring-default-azure-credential-overview.md)]
 
 3. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
 
