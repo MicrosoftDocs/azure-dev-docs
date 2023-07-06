@@ -27,7 +27,7 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/watch?v=9z3PiHSCcYs]
+> [!VIDEO https://www.youtube.com/embed/9z3PiHSCcYs]
 Check out our [Azure Developer CLI playlist](https://www.youtube.com/watch?v=_MNndbEPvYQ&list=PLq8oMtzrBmrhdtmthuGO9pOHRUqD-BmWh&index=1)! 
 
 ## Next steps
