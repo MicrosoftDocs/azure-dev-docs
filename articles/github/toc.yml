@@ -12,8 +12,6 @@
       href: deploy-to-azure.md 
     - name: Deploy databases to Azure
       href: database-actions-deploy.md
-    - name: Use Key Vault secrets
-      href: github-key-vault.md
     - name: Manage Azure Policy
       href: manage-azure-policy.md
     - name: Build custom virtual machine images

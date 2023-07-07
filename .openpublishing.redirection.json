@@ -1040,6 +1040,10 @@
         "redirect_url": "/azure/developer/github/"
       },
       {
+        "source_path":"articles/github/github-key-vault.md",
+        "redirect_url": "/azure/developer/github/"
+      },
+      {
         "source_path":"articles/python/tutorial-python-managed-identity-01.md",
         "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
       },
