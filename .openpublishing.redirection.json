@@ -1084,7 +1084,7 @@
         "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
       },
       { 
-        "source_path": " articles/javascript/how-to/with-web-app/azure-function-file-upload-v3.md",
+        "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload-v3.md",
         "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
       }
     ]
