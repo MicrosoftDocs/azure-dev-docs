@@ -41,8 +41,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 ## Azure Container Instances
 
 - [Configure a GitHub action to create a container instance](/azure/container-instances/container-instances-github-action)
-## Azure Container Registry
-- [Scan container images using GitHub Actions](/azure/container-registry/github-action-scan)
+
 ## Azure Kubernetes Service
 
 - [Use GitHub Actions to deploy to Kubernetes](/azure/aks/kubernetes-action)  
