@@ -46,7 +46,7 @@ Tunnel ports using the HTTP(S)/WS(S) protocols can be accessed directly via the 
 
 When connecting to a web-forwarding url for the first time, users are presented with an interstitial anti-phishing page. The page is skipped under the following circumstances:
 - The request uses a method other than `GET`
-- The request `Accepts` header doesn't contain `text/html`
+- The request `Accept` header doesn't contain `text/html`
 - The request contains the `X-Tunnel-Skip-AntiPhishing-Page` header
 - The request contains the `X-Tunnel-Authorization` header
 - The user has already visited the page and clicked continue
