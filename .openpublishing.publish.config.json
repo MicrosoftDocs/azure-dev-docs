@@ -252,5 +252,8 @@
   },
   "docs_build_engine": {
     "name": "docfx_v3"
-  }
+  },
+    "redirection_files": [
+        "articles/java/.openpublishing.redirection.java.json"
+    ]
 }

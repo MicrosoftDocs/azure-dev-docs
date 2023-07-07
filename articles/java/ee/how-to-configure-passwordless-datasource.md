@@ -523,7 +523,7 @@ This section shows you how to configure the passwordless data source connection 
 First, begin the process of deploying an offer. The following offers support passwordless database connections:
 
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
-  - [Quickstart](./weblogic-server-azure-kubernetes-service.md)
+  - [Quickstart](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
   - [Quickstart](./weblogic-server-azure-virtual-machine.md)
 - [Oracle WebLogic Server with Admin Server on VMs](https://aka.ms/wls-vm-admin)

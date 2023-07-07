@@ -11,7 +11,7 @@ metadata:
   ms.author: karler
   ms.date: 04/03/2020
   ms.topic: landing-page
-  ms.custom: seo-azure-migrate, devx-track-java
+  ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
 
 landingContent:
   - title: Migrate Java applications to Azure
@@ -81,7 +81,7 @@ landingContent:
         links:
           - text: WebSphere Application Server to AKS
             url: migrate-websphere-to-azure-kubernetes-service.md
-          - text: WebSphere Application Server to ARO
+          - text: WebSphere Application Server to Azure Red Hat OpenShift
             url: migrate-websphere-to-azure-redhat-openshift.md
           - text: WebSphere Application Server to Azure Virtual Machines
             url: migrate-websphere-to-virtual-machines.md

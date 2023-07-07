@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-java, devx-track-extended-java, devx-trac
 
 # Migrate WebSphere applications to Azure Red Hat OpenShift
 
-This guide describes what you should be aware of when you want to migrate an existing WebSphere Application Server (WAS) workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Red Hat OpenShift (ARO).
+This guide describes what you should be aware of when you want to migrate an existing WebSphere Application Server (WAS) workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Red Hat OpenShift.
 
 ## Pre-migration
 
@@ -21,18 +21,18 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Determine whether the prebuilt Azure Marketplace offer is a good starting point
 
-After you've decided that ARO is the appropriate deployment target, you must accept that the IBM WebSphere Liberty operator or Open Liberty Operator (the operator) is the only way to run Liberty on Kubernetes. After accepting this fact, you must decide whether or not the prebuilt [Azure Marketplace offer](https://aka.ms/liberty-aro) is a good starting point. Here are some things to consider about the prebuilt Azure Marketplace offer:
+After you've decided that Azure Red Hat OpenShift is the appropriate deployment target, you must accept that the IBM WebSphere Liberty operator or Open Liberty Operator (the operator) is the only way to run Liberty on Kubernetes. After accepting this fact, you must decide whether or not the prebuilt [Azure Marketplace offer](https://aka.ms/liberty-aro) is a good starting point. Here are some things to consider about the prebuilt Azure Marketplace offer:
 
-- IBM and Microsoft created this offer to allow you to quickly provision Liberty on ARO. This concept is explained in more detail in the following content.
+- IBM and Microsoft created this offer to allow you to quickly provision Liberty on Azure Red Hat OpenShift. This concept is explained in more detail in the following content.
 - At a high level, the offer automates the following steps for you.
   - Take an existing application image, if desired.
-  - Provision an ARO cluster, if desired.
-  - Install and configure the IBM WebSphere Liberty operator or Open Liberty operator on ARO.
-  - Use the operator to run the whole thing. The operator deploys and manages containerized Liberty applications in ARO. You can find the reference documentation at [IBM WebSphere Liberty operator](https://www.ibm.com/docs/was-liberty/core?topic=operator-getting-started-websphere-liberty) and [Open Liberty operator](https://github.com/OpenLiberty/open-liberty-operator).
+  - Provision an Azure Red Hat OpenShift cluster, if desired.
+  - Install and configure the IBM WebSphere Liberty operator or Open Liberty operator on Azure Red Hat OpenShift.
+  - Use the operator to run the whole thing. The operator deploys and manages containerized Liberty applications in Azure Red Hat OpenShift. You can find the reference documentation at [IBM WebSphere Liberty operator](https://www.ibm.com/docs/was-liberty/core?topic=operator-getting-started-websphere-liberty) and [Open Liberty operator](https://github.com/OpenLiberty/open-liberty-operator).
 
 If you don't use the prebuilt Azure Marketplace offer, you must learn how to use the operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the operator is available at [IBM WebSphere Liberty operator](https://www.ibm.com/docs/was-liberty/core?topic=operator-getting-started-websphere-liberty) and [Open Liberty operator](https://github.com/OpenLiberty/open-liberty-operator).
 
-Now that you've been introduced to the various ways to handle Liberty on ARO, you're better able to choose whether to use the prebuilt Azure Marketplace offer or to do it yourself using the operator directly.
+Now that you've been introduced to the various ways to handle Liberty on Azure Red Hat OpenShift, you're better able to choose whether to use the prebuilt Azure Marketplace offer or to do it yourself using the operator directly.
 
 [!INCLUDE [determine-whether-the-liberty-version-is-compatible](includes/determine-whether-the-liberty-version-is-compatible.md)]
 
@@ -67,7 +67,7 @@ If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources 
 
 [!INCLUDE [inspect-your-profile-configuration](includes/inspect-your-profile-configuration-liberty.md)]
 
-You need to capture these customizations in the container image that ARO runs. When you use the prebuilt Azure Marketplace offer, such customizations are best handled by creating a custom container image and making it available in a public registry, then pointing to that registry at deployment time.
+You need to capture these customizations in the container image that Azure Red Hat OpenShift runs. When you use the prebuilt Azure Marketplace offer, such customizations are best handled by creating a custom container image and making it available in a public registry, then pointing to that registry at deployment time.
 
 If you're using a WebSphere Application Server Network Deployment cell, each cluster member runs in an installation of traditional WAS. Liberty is lightweight profile of WebSphere Application Server. It's a flexible and dynamic profile of WAS, which enables the WAS server to deploy only required custom features instead of deploying a large set of available JEE components.
 
@@ -81,7 +81,7 @@ The prebuilt Azure Marketplace offer has limited support for databases. You can 
 
 [!INCLUDE [determine-whether-was-has-been-customized](includes/determine-whether-was-has-been-customized.md)]
 
-You need to capture these customizations in the container image that ARO runs. When you use the prebuilt Azure Marketplace offer, such customizations are best handled by creating a custom container image and making it available in a public registry, then pointing to that registry at deployment time.
+You need to capture these customizations in the container image that Azure Red Hat OpenShift runs. When you use the prebuilt Azure Marketplace offer, such customizations are best handled by creating a custom container image and making it available in a public registry, then pointing to that registry at deployment time.
 
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
@@ -97,7 +97,7 @@ You can include the bundles in the image supplied to the prebuilt Azure Marketpl
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
-Liberty on ARO runs on Linux x86_64. Any OS-specific code must be compatible with Linux. To learn how to discover specific OS information, follow the steps in the [Determine whether the Liberty version is compatible](#determine-whether-the-liberty-version-is-compatible) section.
+Liberty on Azure Red Hat OpenShift runs on Linux x86_64. Any OS-specific code must be compatible with Linux. To learn how to discover specific OS information, follow the steps in the [Determine whether the Liberty version is compatible](#determine-whether-the-liberty-version-is-compatible) section.
 
 [!INCLUDE [determine-whether-ibm-integration-bus-is-in-use](includes/determine-whether-ibm-integration-bus-is-in-use.md)]
 
@@ -123,7 +123,7 @@ Kubernetes deals with file systems with persistent volumes (PV). Mounting persis
 
 ### Determine whether clustering is used
 
-The operator handles clustering for all possible ways of running a WAS workload on ARO.
+The operator handles clustering for all possible ways of running a WAS workload on Azure Red Hat OpenShift.
 
 #### Inspect your EJB clustering
 
@@ -151,7 +151,7 @@ After you've connected the databases, you can configure JMS by following the ins
 
 ### Account for logging
 
-You can't do cloud without mastering logging. The operator provides different approaches for monitoring. For more information, see [Monitoring the Liberty server runtime environment](https://www.ibm.com/docs/was-liberty/core?topic=monitoring-liberty-server-runtime-environment). It's helpful to master logging and monitoring system in Red Hat OpenShift. For more information, see [Understanding the logging subsystem for Red Hat OpenShift](https://docs.openshift.com/container-platform/4.12/logging/cluster-logging.html) and [About OpenShift Container Platform monitoring](https://docs.openshift.com/container-platform/4.12/monitoring/monitoring-overview.html). You can configure Azure Monitor container insights for ARO. For more information, see [Configure Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters). If you prefer using Elastic Stack, Azure provides great support for Elastic. For complete details, see [What is Elastic integration with Azure?](/azure/partner-solutions/elastic/overview) You can combine the knowledge in these resources to achieve an Azure-optimized logging solution for Liberty on ARO.
+You can't do cloud without mastering logging. The operator provides different approaches for monitoring. For more information, see [Monitoring the Liberty server runtime environment](https://www.ibm.com/docs/was-liberty/core?topic=monitoring-liberty-server-runtime-environment). It's helpful to master logging and monitoring system in Red Hat OpenShift. For more information, see [Understanding the logging subsystem for Red Hat OpenShift](https://docs.openshift.com/container-platform/4.12/logging/cluster-logging.html) and [About OpenShift Container Platform monitoring](https://docs.openshift.com/container-platform/4.12/monitoring/monitoring-overview.html). You can configure Azure Monitor container insights for Azure Red Hat OpenShift. For more information, see [Configure Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters). If you prefer using Elastic Stack, Azure provides great support for Elastic. For complete details, see [What is Elastic integration with Azure?](/azure/partner-solutions/elastic/overview) You can combine the knowledge in these resources to achieve an Azure-optimized logging solution for Liberty on Azure Red Hat OpenShift.
 
 ### Migrate your applications
 
@@ -171,7 +171,7 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - Get Java-optimized application performance monitoring with Azure Monitor and Application Insights. For more information, see [Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
-- Use Azure Storage to serve static content mounted to ARO. For more information, see [Create an Azure Files StorageClass on Azure Red Hat OpenShift 4](/azure/openshift/howto-create-a-storageclass). Combine this knowledge with the OpenShift documentation [OpenShift Container Platform storage overview](https://docs.openshift.com/container-platform/4.12/storage/index.html).
+- Use Azure Storage to serve static content mounted to Azure Red Hat OpenShift. For more information, see [Create an Azure Files StorageClass on Azure Red Hat OpenShift 4](/azure/openshift/howto-create-a-storageclass). Combine this knowledge with the OpenShift documentation [OpenShift Container Platform storage overview](https://docs.openshift.com/container-platform/4.12/storage/index.html).
 
 - Deploy your applications to your migrated WAS cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started).
 
