@@ -1,7 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Linux VM cluster using Terraform'
-description: In this article, you learn how to create an Azure Linux VM cluster using Terraform
-keywords: azure devops terraform vm virtual machine cluster
+title: 'Quickstart: Create a Linux VM cluster in Azure using Terraform'
+description: In this article, you learn how to create a Linux VM cluster in Azure using Terraform
 ms.topic: quickstart
 ms.date: 07/07/2023
 ms.custom: devx-track-terraform
@@ -9,9 +8,9 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure Linux VM cluster using Terraform
+# Quickstart: Create a Linux VM cluster in Azure using Terraform
 
-This article shows how to create a small Linux VM cluster in Azure using Terraform.
+This article shows you how to create a Linux VM cluster (containing three Linux VM instances) in Azure using Terraform.
 
 In this article, you learn how to:
 
@@ -114,5 +113,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Create an Azure virtual machine scale set using Terraform](create-vm-scaleset-network-disks-hcl.md)
