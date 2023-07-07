@@ -10,7 +10,7 @@ content_well_notification:
 
 # Quickstart: Create a Linux VM cluster in Azure using Terraform
 
-This article shows you how to create a Linux VM cluster (containing three Linux VM instances) in Azure using Terraform.
+This article shows you how to create a Linux VM cluster (containing two Linux VM instances) in Azure using Terraform.
 
 In this article, you learn how to:
 
