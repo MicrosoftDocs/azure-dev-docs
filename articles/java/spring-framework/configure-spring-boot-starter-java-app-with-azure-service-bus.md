@@ -85,13 +85,120 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
 
 Use the following steps to configure your application to use a Service Bus queue or topic to send and receive messages.
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+1. Configure the Service Bus credentials by adding the following properties to your *application.properties* file.
 
-[!INCLUDE [spring-jms-passwordless-queue.md](includes/spring-jms-passwordless.md)]
+   #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
-#### [Connection string](#tab/connection-string)
+   [!INCLUDE [spring-jms-passwordless-queue.md](includes/spring-jms-passwordless-queue.md)]
 
-[!INCLUDE [spring-jms-connection-string.md](includes/spring-jms-connection-string.md)]
+   #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
+
+   [!INCLUDE [spring-jms-passwordless-topic.md](includes/spring-jms-passwordless-topic.md)]
+
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
+
+1. Add `@EnableJms` to enable support for JMS listener annotated endpoints. Use `JmsTemplate` to send messages and `@JmsListener` to receive messages, as shown in the following example:
+
+   #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
+
+   ```java
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.jms.annotation.EnableJms;
+   import org.springframework.boot.CommandLineRunner;
+   import org.springframework.jms.annotation.JmsListener;
+   import org.springframework.jms.core.JmsTemplate;
+
+   @SpringBootApplication
+   @EnableJms
+   public class ServiceBusJMSQueueApplication implements CommandLineRunner {
+
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusJMSQueueApplication.class);
+       private static final String QUEUE_NAME = "<QueueName>";
+
+       @Autowired
+       private JmsTemplate jmsTemplate;
+
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceBusJMSQueueApplication.class, args);
+       }
+
+       @Override
+       public void run(String... args) {
+           LOGGER.info("Sending message");
+           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello Word");
+       }
+
+       @JmsListener(destination = QUEUE_NAME, containerFactory = "jmsListenerContainerFactory")
+       public void receiveMessage(String message) {
+           LOGGER.info("Message received: {}", message);
+       }
+
+   }
+   ```
+
+   Replace `<QueueName>` with your own queue name configured in your Service Bus namespace.
+
+   #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
+
+   ```java
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.jms.annotation.EnableJms;
+   import org.springframework.jms.annotation.JmsListener;
+   import org.springframework.jms.core.JmsTemplate;
+
+   @SpringBootApplication
+   @EnableJms
+   public class ServiceBusJMSTopicApplication implements CommandLineRunner {
+
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusJMSTopicApplication.class);
+       private static final String TOPIC_NAME = "<TopicName>";
+       private static final String SUBSCRIPTION_NAME = "<SubscriptionName>";
+
+       @Autowired
+       private JmsTemplate jmsTemplate;
+
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceBusJMSTopicApplication.class, args);
+       }
+
+       @Override
+       public void run(String... args) {
+           LOGGER.info("Sending message");
+           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello Word");
+       }
+
+       @JmsListener(destination = TOPIC_NAME, containerFactory = "topicJmsListenerContainerFactory",
+           subscription = SUBSCRIPTION_NAME)
+       public void receiveMessage(String message) {
+           LOGGER.info("Message received: {}", message);
+       }
+
+   }
+   ```
+
+   Replace the `<TopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<SubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
+
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
+
+   [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
+
+1. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
+
+   ```output
+   Sending message
+   Message received: Hello Word
+   ```
 
 ---
 
