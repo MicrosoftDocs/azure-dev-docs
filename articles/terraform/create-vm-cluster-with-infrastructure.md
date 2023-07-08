@@ -1,17 +1,16 @@
 ---
-title: 'Quickstart: Create an Azure Linux VM cluster with Terraform'
-description: Learn how to Create an Azure Linux VM cluster with Terraform.
-keywords: azure devops terraform vm virtual machine cluster
+title: 'Quickstart: Create a Linux VM cluster in Azure using Terraform'
+description: In this article, you learn how to create a Linux VM cluster in Azure using Terraform
 ms.topic: quickstart
-ms.date: 05/29/2023
+ms.date: 07/07/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure Linux VM cluster with Terraform
+# Quickstart: Create a Linux VM cluster in Azure using Terraform
 
-This article shows how to create a small Linux VM cluster in Azure using Terraform.
+This article shows you how to create a Linux VM cluster (containing two Linux VM instances) in Azure using Terraform.
 
 In this article, you learn how to:
 
@@ -44,19 +43,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/outputs.tf":::
 
 ## Initialize Terraform
 
@@ -114,5 +113,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Create an Azure virtual machine scale set using Terraform](create-vm-scaleset-network-disks-hcl.md)
