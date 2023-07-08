@@ -41,12 +41,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "terraform_samples_test",
-      "url": "https://github.com/tomarchermsft/terraform",
-      "branch": "UserStory89540",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
