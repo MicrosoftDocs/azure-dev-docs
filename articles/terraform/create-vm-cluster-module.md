@@ -15,7 +15,7 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 > [!div class="checklist"]
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
-> * Create an random value for the Windows VM host name [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
+> * Create a random value for the Windows VM host name [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
 > * Create a random password for the Windows VMs using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password).
 > * Create a Windows VM using the [compute module](https://registry.terraform.io/modules/Azure/compute/azurerm).
 > * Create a virtual network along with subnet using the [network module](https://registry.terraform.io/modules/Azure/network/azurerm).
