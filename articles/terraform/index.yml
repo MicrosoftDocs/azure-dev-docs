@@ -111,10 +111,12 @@ landingContent:
             url: /azure/virtual-machines/linux/quick-create-terraform
           - text: Create a Linux VM cluster
             url: create-vm-cluster-with-infrastructure.md
+          - text: Create a Windows VM
+            url: /azure/virtual-machines/windows/quick-create-terraform
+          - text: Create a Windows VM cluster
+            url: create-vm-cluster-module.md
       - linkListType: how-to-guide
         links:
-          - text: Configure a VM cluster
-            url: create-vm-cluster-module.md
           - text: Provision VM scale set with infrastructure
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image

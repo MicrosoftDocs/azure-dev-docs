@@ -37,7 +37,7 @@
 | Core - Client - Http Compat | npm [2.0.1](https://www.npmjs.com/package/@azure/core-http-compat/v/2.0.1) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.0.1/sdk/core/core-http-compat/) |
 | Core - Client - Logger | npm [1.0.4](https://www.npmjs.com/package/@azure/logger/v/1.0.4) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.4/sdk/core/logger/) |
 | Core - Client - LRO | npm [2.5.3](https://www.npmjs.com/package/@azure/core-lro/v/2.5.3) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.5.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.5.3/sdk/core/core-lro/) |
-| Core - Client - Rest | npm [1.1.3](https://www.npmjs.com/package/@azure-rest/core-client/v/1.1.3) |  | GitHub [1.1.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.3/sdk/core/core-client-rest/) |
+| Core - Client - Rest | npm [1.1.4](https://www.npmjs.com/package/@azure-rest/core-client/v/1.1.4) |  | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.4/sdk/core/core-client-rest/) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.4](https://www.npmjs.com/package/@azure/core-xml/v/1.3.4) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.4/sdk/core/core-xml/) |
 | Core - Paging | npm [1.5.0](https://www.npmjs.com/package/@azure/core-paging/v/1.5.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.5.0/sdk/core/core-paging/) |
@@ -321,7 +321,7 @@
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-resource-manager/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-bump-deps/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-core/v/0.31.0) |  |  |
-| Unknown Display Name | npm [0.2.0-beta.20230705.3](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230705.3) |  |  |
+| Unknown Display Name | npm [0.2.0-beta.20230710.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230710.1) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-diff/v/0.31.0) |  |  |
 | Unknown Display Name | npm [0.8.4](https://www.npmjs.com/package/@azure-tools/typespec-java/v/0.8.4) |  |  |
 | Unknown Display Name | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub/v/0.31.0) |  |  |
@@ -329,6 +329,7 @@
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-python/v/0.11.0) |  |  |
 | Unknown Display Name | npm [0.13.4](https://www.npmjs.com/package/@azure-tools/typespec-ts/v/0.13.4) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.3) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.0.0-beta.0) |  |  |
 | Unknown Display Name | npm [0.0.8](https://www.npmjs.com/package/@azure/web-apps-framework-detection/v/0.0.8) |  |  |
 | Unknown Display Name | npm [2.3.101](https://www.npmjs.com/package/@microsoft.azure/autorest.csharp/v/2.3.101) |  |  |
 | Unknown Display Name | npm [0.45.2](https://www.npmjs.com/package/@typespec/compiler/v/0.45.2) |  |  |
@@ -373,7 +374,7 @@
 | Image Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch/v/3.0.1) |  |  |
 | IoT AMQP Base | npm [2.5.2](https://www.npmjs.com/package/azure-iot-amqp-base/v/2.5.2) |  | GitHub [2.5.2](https://github.com/Azure/azure-iot-sdk-node) |
 | IoT Http Base | npm [1.12.2](https://www.npmjs.com/package/azure-iot-http-base/v/1.12.2) |  | GitHub [1.12.2](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT Hub | npm [1.16.3](https://www.npmjs.com/package/azure-iothub/v/1.16.3) |  | GitHub [1.16.3](https://github.com/Azure/azure-iot-sdk-node) |
+| IoT Hub | npm [1.16.4](https://www.npmjs.com/package/azure-iothub/v/1.16.4) |  | GitHub [1.16.4](https://github.com/Azure/azure-iot-sdk-node) |
 | IoT Hub - IoT Common | npm [1.13.2](https://www.npmjs.com/package/azure-iot-common/v/1.13.2) |  | GitHub [1.13.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/common) |
 | IoT Hub - IoT Device | npm [1.18.2](https://www.npmjs.com/package/azure-iot-device/v/1.18.2) |  | GitHub [1.18.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/device) |
 | IoT Hub Device Provisioning | npm [1.9.1](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.9.1) |  | GitHub [1.9.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
@@ -395,7 +396,7 @@
 | MS REST - Azure Env | npm [2.0.0](https://www.npmjs.com/package/@azure/ms-rest-azure-env/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/ms-rest-azure-env) |
 | MS REST - Azure JS | npm [2.1.0](https://www.npmjs.com/package/@azure/ms-rest-azure-js/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/ms-rest-azure-js) |
 | MS REST - Browser Auth | npm [1.0.2](https://www.npmjs.com/package/@azure/ms-rest-browserauth/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/ms-rest-browserauth) |
-| MS REST - JS | npm [2.6.6](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.6.6) |  | GitHub [2.6.6](https://github.com/Azure/ms-rest-js) |
+| MS REST - JS | npm [2.7.0](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.7.0) |  | GitHub [2.7.0](https://github.com/Azure/ms-rest-js) |
 | MS REST - Node Auth | npm [3.1.1](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.1.1) |  | GitHub [3.1.1](https://github.com/Azure/ms-rest-nodeauth) |
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  |  |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
@@ -423,7 +424,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230705.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230705.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230710.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230710.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -501,7 +502,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.51](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.51) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.52](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.52) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.617](https://www.npmjs.com/package/@autorest/powershell/v/4.0.617) |  | GitHub [4.0.617](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.6.0](https://www.npmjs.com/package/@autorest/python/v/6.6.0) |  | GitHub [6.6.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
