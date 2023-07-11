@@ -37,8 +37,6 @@ SAS authentication uses the connection string of your Azure Service Bus namespac
 
 - [Apache Maven](http://maven.apache.org/), version 3.2 or higher.
 
-- cURL or a similar HTTP utility to test functionality.
-
 - A queue or topic for Azure Service Bus. If you don't have one, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, then select Java version 8 or higher.
