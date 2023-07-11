@@ -24,6 +24,17 @@ Before you create a dev tunnel, you first need to download and install the `devt
 ```powershell
 Invoke-WebRequest -Uri https://aka.ms/TunnelsCliDownload/win-x64 -OutFile devtunnel.exe
 .\devtunnel.exe -h
+
+To allow the command to run with 'devtunnel' instead of ./devtunnel.exe'
+1. Press Windows key and type 'Environment variables'
+2. Open the option 'Edit the system environment variables'
+3. Click 'Environment variables...' button
+4. There you see two boxes, in 'System Variables' box find 'PATH' variable
+5. Click Edit
+6. A window pops up, click New
+6. Type the Directory path of your devtunnel.exe file (Directory means exclude the file name from path,
+   to find the directory string you can navigate to the directory in powershell or terminal and type 'pwd')
+7. Click Ok on all open windows and restart the command prompt.
 ```
 
 Direct download link:
