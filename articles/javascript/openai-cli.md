@@ -13,12 +13,12 @@ content_well_notification:
 In this tutorial, learn how to use Azure OpenAI with JavaScript in an interactive CHAT CLI. Azure OpenAI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure OpenAI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
 
 > [!CAUTION]
-> This tutorial and the Azure OpenAI service are in preview. Both will update as the service evolves.
+> This tutorial and the Azure OpenAI Service are in preview. Both will update as the service evolves.
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
+- Access granted to the Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](/azure/cognitive-services/openai/how-to/create-resource).
