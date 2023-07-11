@@ -24,7 +24,6 @@ Before you create a dev tunnel, you first need to download and install the `devt
 ```powershell
 Invoke-WebRequest -Uri https://aka.ms/TunnelsCliDownload/win-x64 -OutFile devtunnel.exe
 .\devtunnel.exe -h
-
 ```
 
 Direct download link:
