@@ -4,7 +4,7 @@
 > Azure Service Bus JMS supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus resources. With Azure AD, you can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
 
 > [!IMPORTANT]
-> Before you started, please make sure you have assigned the `Azure Service Bus Data Owner` role to the Azure AD account you're currently using. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) for more details.
+> Before you start, ensure you have assigned the **Azure Service Bus Data Owner** role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    ```properties
    spring.jms.servicebus.namespace=<ServiceBusNamespace>
