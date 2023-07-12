@@ -36,7 +36,7 @@ For more information about each feature stage, see [feature versioning and relea
 | Azure Container Apps     | Beta           |
 | Azure Functions          | Stable         |
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
-| Azure Spring Apps        | Alpha          |
+| Azure Spring Apps        | Beta           |
 
 ## Supported programming languages
 
