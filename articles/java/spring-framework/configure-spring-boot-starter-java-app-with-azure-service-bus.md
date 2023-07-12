@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/06/2023
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, passwordless-java
 ---
 
 # Use JMS in Spring to access Azure Service Bus
