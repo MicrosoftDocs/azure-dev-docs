@@ -23,7 +23,7 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 > [!VIDEO https://www.youtube.com/embed/9O3CALyoZHE?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
-In this tutorial, we included two authentication methods: [Azure Active Directory(Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+In this tutorial, we included two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Service Bus JMS using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
