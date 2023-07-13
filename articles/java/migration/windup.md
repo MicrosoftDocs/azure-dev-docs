@@ -1,50 +1,73 @@
-# Discover and Assess Java Applications with WindUp
+# Discover and Assess Java Applications with Azure CAT
 
-This guide describes how to discover and assess any type of Java applications with WindUop to evaluate their readiness to migrate to Azure.
+This guide describes how to discover and assess any type of Java applications with Azure CAT (Code Assessment Tool) to evaluate their readiness to migrate to Azure.
 
 [//]: # (TODO VIDEO)
 
-## When should I use WindUp?
+## What is Azure CAT?
 
-[WindUp](https://github.com/windup) is a generic application migration and assessment tool.
+[Azure CAT](https://github.com/Azure/windup-rulesets) is a generic application migration and assessment tool.
 It helps large-scale Java application modernization and migration projects across a broad range of transformations and use cases.
 It discovers applications through static code analysis, supports effort estimation, accelerates code migration, helping you move applications to Azure.
 
-Created in 2013 by RedHat, WindUp is an open-source project (Eclipse Public License) that bundles a set of rules to transform Java applications to different Azure targets: Azure App Service, AKS and Azure Container Apps as well as to JBoss EAP, Camel, Spring, SpringBoot, Quarkus or OpenShift.
+Azure CAT is based on [WindUp](https://github.com/windup).
+Created in 2013 by RedHat, WindUp is an open-source project (Eclipse Public License) that bundles a set of rules to transform Java applications to different targets (Java 17, Jakarta EE 10, Quarkus, OpenShift, JBoss EAP, etc.).
+Azure CAT adds Azure targets to WindUp (Azure App Service, AKS, Azure Container Apps and Azure Spring Apps) as well as specific Azure migration rules.
 
-Windup is designed to help organizations modernize their applications in a way that reduces costs and enables faster innovation.
+## When should I use Azure CAT?
+
+Azure CAT is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation.
 The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
+With Azure CAT you can:
 
-### Discovering Java applications
+* Discover Java applications: Quickly see which technologies an application uses. This is very useful if you have legacy applications with not much documentation and want to know which technologies they use. 
+* Assess Java applications: Assess an application for a specific Azure target. Check the effort and the modifications you will have to do in order to migration your applications to Azure.  
 
-Discovery and assessment are the first stages of application migration and modernization when using a tool like Windup.
-During the _discovery_ phase, the WindUp scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies.
+### How to Discover a Java applications?
+
+Discovery and assessment are the first stages of application migration and modernization when using a tool like Azure CAT.
+During the _discovery_ phase, Azure CAT scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies.
 This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
 
-![Discovery target](./media/windup/target-discovery.png)
+```shell
+$ ./cat-cli --input ./<my_application> \
+  --target discovery
+```
 
-### Assessing Java application for a specific Azure target
+### How to Assess a Java application for a specific Azure target?
 
 After the discovery phase you have the optional _assessment_ phase.
-The assessment phase is where WindUp analyzes the application and its components to determine its suitability for migration and to identify any potential challenges or limitations.
+The assessment phase is where Azure CAT analyzes the application and its components to determine its suitability for migration and to identify any potential challenges or limitations.
 This phase involves analyzing the application code and check its compliance with the migration target.
 The assessment also provides an evaluation of the application's readiness for migration, including any necessary refactoring or restructuring that may be required.
 
-WindUp is very flexible, and you can create any transformation target you want (by aggregating a set of rules).
+Azure CAT is very flexible, and you can create any transformation target you want (by aggregating a set of rules).
 It comes with existing targets (JBoss EAP, Camel, Spring, SpringBoot, Quarkus), and includes a set of Azure targets.
 
-* Azure App Services
-* Azure Container Apps
-* Azure Kubernetes Service (AKS) 
+```shell
+$ ./cat-cli --listTargetTechnologies
 
-![Azure targets](./media/windup/target-azure.png)
+Available target technologies:
+	azure-aks
+	azure-appservice
+	azure-container-apps
+	azure-spring-apps
+	discovery
+```
 
-## What results can I get from WindUp?
+Then it's just a matter of executing Azure CAT using one of the available Azure tagets.
+
+```shell
+$ ./cat-cli --input ./<my_application> \
+  --target azure-appservice
+```
+
+## What results can I get from Azure CAT?
 
 The outcome of the discovery and assessment phases is a detailed report that provides a roadmap for the migration and modernization of the Java application, including recommendations for the Azure platform and migration approach.
 The report serves as the foundation for the next stages of the migration process, and helps organizations take decisions about how to modernize their applications for maximum benefits.
 
-The report generated by Windup provides a comprehensive overview of the application and its components.
+The report generated by Azure CAT provides a comprehensive overview of the application and its components.
 You can use this report to gain insights into the structure and dependencies of the application, and to determine its suitability for migration and modernization.
 
 ### Summary of the analysis
@@ -57,9 +80,8 @@ The dashboard provides a summary of the analysis, including the number of transf
 When you zoom in on the _Incidents by Category_ pie chart, you can see the number of incidents by category: _Mandatory_, _Optional_, _Potential_, _Information_.
 The dashboard also shows the _story points_. 
 The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change.
-WindUp uses story points to express the level of effort needed to migrate a particular application.
+Azure CAT uses story points to express the level of effort needed to migrate a particular application.
 It does not necessarily translate to man-hours, but the value should be consistent across tasks.
-
 
 ![Summary incident](./media/windup/report-summary-incident.png)
 
@@ -67,7 +89,7 @@ It does not necessarily translate to man-hours, but the value should be consiste
 
 The discovery report is a report that is generated during the _Discovery Phase_.
 It shows the list of technologies used by the application in the _Information_ category.
-This means that WindUp is just informing you about the technology that it discovered.
+This means that Azure CAT is just informing you about the technology that it discovered.
 
 ![Discovery report](./media/windup/report-discovery.png)
 
@@ -77,9 +99,6 @@ The assessment report gives an overview of the transformation issues that would 
 These "_Issues_", also called "_Incidents_", have a severity (_Mandatory_, _Optional_, _Potential_, _Information_), a level of effort and the number of story points (number of incidents x the effort).
 
 ![Assessment report](./media/windup/report-assessment.png)
-
-> [!NOTE]
-> _Cloud Mandatory_ issues are related to the Azure targets, whereas _Migration Mandatory_ issues are related to the other targets (JBoss EAP, SpringBoot, Quarkus, etc.).
 
 ### Detail information for a specific issue
 
@@ -91,9 +110,9 @@ Then, for each file/class that is affected by the incident, you can jump into th
 
 ![Issue code](./media/windup/report-assessment-code.png)
 
-## How should I use WindUp?
+## How should I use Azure CAT?
 
-Depending on your needs, there are several ways of using WindUp:
+Depending on your needs, there are several ways of using Azure CAT:
 
 * [Web Console](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/user_interface_guide/index)
 * IDE Plugin (Eclipse, Eclipse CHE and [VS Code](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/visual_studio_code_extension_guide/index))
@@ -101,7 +120,7 @@ Depending on your needs, there are several ways of using WindUp:
 
 ### Web console
 
-The WindUp Web console allows a team of users to assess and analayze applications.
+The Azure CAT Web console allows a team of users to assess and analayze applications.
 These users can be _administrators_, who configure the credentials, repositories, and proxies, and _developers_ who perform the application assessment.
 Then, the developers can share the reports with any stakeholders.
 
@@ -109,23 +128,23 @@ Then, the developers can share the reports with any stakeholders.
 
 ### VS Code extension
 
-You can also assess applications by using the WindUp VS Code extension.
-It allows developers to run an analysis from their IDE, having access to all the WindUp reports as well as having the ability to directly point the migration issues right into their code.
+You can also assess applications by using the Azure CAT VS Code extension.
+It allows developers to run an analysis from their IDE, having access to all the Azure CAT reports as well as having the ability to directly point the migration issues right into their code.
 
 ![VS Code](./media/windup/execute-vscode.png)
 
 ### Command Line
 
-The WindUp CLI allows users to discover and assess application using the command-line.
-It also allows WindUp analysis to be executed in a CI/CD pipeline.
+The Azure CAT CLI allows users to discover and assess application using the command-line.
+It also allows Azure CAT analysis to be executed in a CI/CD pipeline.
 The CLI provides the same reports as the Web console or the VS Code extension.
 It just highlights the analysis without the overhead of the other tools. 
 
 ## How can I create a new rule?
 
-WindUp can be seen as a rule engine.
+Azure CAT can be seen as a rule engine.
 It uses rules to extract files from Java archives, decompiles Java classes, scans and classifies file types, analyzes these files, and builds the reports.
-In Windup, the rules are defined in the form of a ruleset, which is a collection of individual rules that define specific issues or patterns that should be detected during the analysis.
+In Azure CAT, the rules are defined in the form of a ruleset, which is a collection of individual rules that define specific issues or patterns that should be detected during the analysis.
 These rules a defined in XML and follow this simple rule pattern:
 
 ```
@@ -134,8 +153,8 @@ when(condition)
     otherwise(action)
 ```
 
-WindUp provides a comprehensive set of standard migration rules out-of-the-box.
-But because applications may contain custom libraries or components, WindUp allows you to write your own rules to identify use of components or software that may not be covered by the existing ruleset.
+Azure CAT provides a comprehensive set of standard migration rules out-of-the-box.
+But because applications may contain custom libraries or components, Azure CAT allows you to write your own rules to identify use of components or software that may not be covered by the existing ruleset.
 For that, it use a rich DSL (_Domain Specific Language_) expressed in XML.
 
 For example, let's say we want a rule that identifies the use of the PostgreSQL JDBC driver in a Java application and suggests the use of the Azure PostgreSQL Flexible Server instead.
@@ -152,7 +171,7 @@ We need a rule to find the PostgreSQL JDBC driver defined in a Maven `pom.xml` o
 To detect the use of this dependency, the rule uses several XML tags:
 
 * `ruleset`: The unique identifier of the ruleset. A ruleset is a collection of rules that are related to a specific technology or topic.
-* `targetTechnology`: The technology that the rule targets. In this case, we are targeting Azure App Services, AKS and Azure Container Apps.
+* `targetTechnology`: The technology that the rule targets. In this case, we are targeting Azure App Services, AKS, Azure Spring Apps and Azure Container Apps.
 * `rule`: The root element of a single rule.
 * `when`: The condition that must be met for the rule to be triggered.
 * `perform`: The action to be performed when the rule is triggered.
@@ -171,6 +190,7 @@ To detect the use of this dependency, the rule uses several XML tags:
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
+        <targetTechnology id="azure-spring-apps"/>
     </metadata>
     <rules>
         <rule id="azure-postgre-flexible-server">
@@ -190,24 +210,24 @@ To detect the use of this dependency, the rule uses several XML tags:
 </ruleset>
 ```
 
-Once this rule is uploaded to WindUp, it's just a matter of running an analysis again and check the report.
+Once this rule is uploaded to Azure CAT, it's just a matter of running an analysis again and check the report.
 Like any other incident, the issues and the files that are affected by this rule will be listed in the assessment report.
 
 ![Rule being executed](./media/windup/rule.png)
 
 ## Frequently asked questions
 
-Q: Where do I download WindUp from?
+Q: Where do I download Azure CAT from?
 
-A: You can download WindUp from https://windup.github.io/downloads
+A: You can download Azure CAT from https://windup.github.io/downloads
 
-Q: Where can I find more information about WindUp?
+Q: Where can I find more information about Azure CAT?
 
-A: WindUp has several online guides. From an overview of the tool to the installation and execution of the tool, to the creation of custom rules. You can find all the guides in the [WindUp documentation](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0)
+A: Azure CAT has several online guides. From an overview of the tool to the installation and execution of the tool, to the creation of custom rules. You can find all the guides in the [Azure CAT documentation](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0)
 
-Q: Where can I find the WindUp Azure rules?
+Q: Where can I find the specific Azure rules?
 
-A: All the Azure rules are available in the [WindUp Ruleset GitHub repository](https://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure)
+A: All the Azure rules are available in the [Azure CAT Ruleset GitHub repository](https://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure)
 
 Q: Where can I find more information about creating custom rules?
 
