@@ -56,9 +56,9 @@ For more information about these authentication scenarios, see [Application and 
 To create an Azure client ID and an Azure client secret, use the following command, replacing the *`<...>`* placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, `tenant`.
 
 ```azurecli
-CLIENT_NAME=<your-client-name>
+export CLIENT_NAME=<your-client-name>
 az ad sp create-for-rbac --skip-assignment --name ${CLIENT_NAME}
-CLIENT_ID=$(az ad sp list --display-name ${CLIENT_NAME} | jq -r '.[0].appId')
+export CLIENT_ID=$(az ad sp list --display-name ${CLIENT_NAME} | jq -r '.[0].appId')
 az ad app credential reset --id ${CLIENT_ID}
 ```
 

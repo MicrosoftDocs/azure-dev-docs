@@ -231,8 +231,8 @@ Since you have already successfully run the app in the Liberty Docker container,
    cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 
    # Fetch maven artifactId as image name, maven build version as image version
-   IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-   IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   export IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   export IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
    cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
 
    # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
@@ -392,7 +392,7 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
    oc get deployment ${IMAGE_NAME}
 
    # Get host of the route
-   HOST=$(oc get route ${IMAGE_NAME} --template='{{ .spec.host }}')
+   export HOST=$(oc get route ${IMAGE_NAME} --template='{{ .spec.host }}')
    echo "Route Host: $HOST"
    ```
 
@@ -471,7 +471,7 @@ Instead of using the web console GUI, you can deploy the application from the CL
 
    ```bash
    # Get host of the route
-   HOST=$(oc get route javaee-cafe-simple --template='{{ .spec.host }}')
+   export HOST=$(oc get route javaee-cafe-simple --template='{{ .spec.host }}')
    echo "Route Host: $HOST"
 
    Route Host: javaee-cafe-simple-open-liberty-demo.apps.aqlm62xm.rnfghf.aroapp.io

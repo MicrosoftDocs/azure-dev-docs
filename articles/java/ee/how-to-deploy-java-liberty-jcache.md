@@ -44,7 +44,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
 ```azurecli-interactive
-RESOURCE_GROUP_NAME=java-liberty-project
+export RESOURCE_GROUP_NAME=java-liberty-project
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
@@ -76,9 +76,18 @@ Alternatively, you can create an Azure container registry instance by following 
 You'll need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
 ```azurecli-interactive
-export LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
-export USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
-export PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
+export LOGIN_SERVER=$(az acr show \
+    --name $REGISTRY_NAME \
+    --query 'loginServer' \
+    --output tsv)
+export USER_NAME=$(az acr credential show \
+    --name $REGISTRY_NAME \
+    --query 'username' \
+    --output tsv)
+export PASSWORD=$(az acr credential show \
+    --name $REGISTRY_NAME \
+    --query 'passwords[0].value' \
+    --output tsv)
 
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
@@ -92,7 +101,7 @@ If you see a problem signing in to the Azure container registry, see [Troublesho
 Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named *myAKSCluster* with one node. This command will take several minutes to complete.
 
 ```azurecli-interactive
-CLUSTER_NAME=myAKSCluster
+export CLUSTER_NAME=myAKSCluster
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -229,8 +238,8 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the *pom.xml* file.
 
    ```azurecli-interactive
-   artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-   version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   export artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   export version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
    ```
 
 1. Run `cd target` to change directory to the build of the sample.

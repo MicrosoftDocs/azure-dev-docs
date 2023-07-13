@@ -48,20 +48,21 @@ The application is a stateful application that stores information in an HTTP Ses
    * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
 
 1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+
    * Follow the steps in "Install the OpenShift CLI"
    * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI with the user `kubeadmin`
 
 1. Execute the following command to create the OpenShift project for this demo application:
 
-    ```bash
-    oc new-project eap-demo
-    ```
+   ```bash
+   oc new-project eap-demo
+   ```
 
 1. Execute the following command to add the view role to the default service account. This role is needed so the application can discover other pods and form a cluster with them:
 
-    ```bash
-    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
-    ```
+   ```bash
+   oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
+   ```
 
 ## Prepare the application
 
@@ -101,16 +102,16 @@ On the **Additional settings** page, you don't have to choose the option to pre-
 Once the database has been created with the above database name, Server admin login, and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
 
 > [!NOTE]
-> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update -g $RESOURCEGROUP -s $RESOURCEGROUP -n todos_db --auto-pause-delay -1`
+> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update --resource-group $RESOURCEGROUP --server $RESOURCEGROUP --name todos_db --auto-pause-delay -1`
 
 Follow the next steps to build and run the application locally.
 
 1. Build the Bootable JAR. Because we're using the `eap-datasources-galleon-pack` with MS SQL Server database, we must specify the database driver version we want to use with this specific environment variable. For more information on the `eap-datasources-galleon-pack` and MS SQL Server, see the [documentation from Red Hat](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md)
 
-    ```bash
-    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
-    mvn clean package
-    ```
+   ```bash
+   export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
+   mvn clean package
+   ```
 
 1. Launch the Bootable JAR by using the following commands.
 
@@ -118,17 +119,17 @@ Follow the next steps to build and run the application locally.
 
    When we're launching the application, we need to pass the required environment variables to configure the data source:
 
-    ```bash
-    export MSSQLSERVER_USER=azureuser
-    export MSSQLSERVER_PASSWORD='Passw0rd!'
-    export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
-    export MSSQLSERVER_DATABASE=todos_db
-    export MSSQLSERVER_HOST=<server name saved aside earlier>
-    export MSSQLSERVER_PORT=1433
-    mvn wildfly-jar:run
-    ```
+   ```bash
+   export MSSQLSERVER_USER=azureuser
+   export MSSQLSERVER_PASSWORD='Passw0rd!'
+   export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
+   export MSSQLSERVER_DATABASE=todos_db
+   export MSSQLSERVER_HOST=<server name saved aside earlier>
+   export MSSQLSERVER_PORT=1433
+   mvn wildfly-jar:run
+   ```
 
-    If you want to learn more about the underlying runtime used by this demo, the [Galleon Feature Pack for integrating datasources](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md) documentation has a complete list of available environment variables. For details on the concept of feature-pack, see [the WildFly documentation](https://docs.wildfly.org/galleon/#_feature_packs).
+   If you want to learn more about the underlying runtime used by this demo, the [Galleon Feature Pack for integrating datasources](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md) documentation has a complete list of available environment variables. For details on the concept of feature-pack, see [the WildFly documentation](https://docs.wildfly.org/galleon/#_feature_packs).
 
    If you receive an error with text similar to the following example:
 
@@ -148,28 +149,28 @@ Follow the next steps to build and run the application locally.
 
 1. (Optional) If you want to verify the clustering capabilities, you can also launch more instances of the same application by passing to the Bootable JAR the `jboss.node.name` argument and, to avoid conflicts with the port numbers, shifting the port numbers by using `jboss.socket.binding.port-offset`. For example, to launch a second instance that represents a new pod on OpenShift, you can execute the following command in a new terminal window:
 
-    ```bash
-    export MSSQLSERVER_USER=azureuser
-    export MSSQLSERVER_PASSWORD='Passw0rd!'
-    export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
-    export MSSQLSERVER_DATABASE=todos_db
-    export MSSQLSERVER_HOST=<server name saved aside earlier>
-    export MSSQLSERVER_PORT=1433
-    mvn wildfly-jar:run -Dwildfly.bootable.arguments="-Djboss.node.name=node2 -Djboss.socket.binding.port-offset=1000"
-    ```
+   ```bash
+   export MSSQLSERVER_USER=azureuser
+   export MSSQLSERVER_PASSWORD='Passw0rd!'
+   export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
+   export MSSQLSERVER_DATABASE=todos_db
+   export MSSQLSERVER_HOST=<server name saved aside earlier>
+   export MSSQLSERVER_PORT=1433
+   mvn wildfly-jar:run -Dwildfly.bootable.arguments="-Djboss.node.name=node2 -Djboss.socket.binding.port-offset=1000"
+   ```
 
-    If your cluster is working, you can see on the server console log a trace similar to the following one:
+   If your cluster is working, you can see on the server console log a trace similar to the following one:
 
-    ```bash
-    INFO  [org.infinispan.CLUSTER] (thread-6,ejb,node) ISPN000094: Received new cluster view for channel ejb
-    ```
+   ```bash
+   INFO  [org.infinispan.CLUSTER] (thread-6,ejb,node) ISPN000094: Received new cluster view for channel ejb
+   ```
 
-    > [!NOTE]
-    > By default the Bootable JAR configures the JGroups subsystem to use the UDP protocol and sends messages to discover other cluster members to the 230.0.0.4 multicast address. To properly verify the clustering capabilities on your local machine, your Operating System should be capable of sending and receiving multicast datagrams and route them to the 230.0.0.4 IP through your ethernet interface. If you see warnings related to the cluster on the server logs, check your network configuration and verify it supports multicast on that address.
+   > [!NOTE]
+   > By default the Bootable JAR configures the JGroups subsystem to use the UDP protocol and sends messages to discover other cluster members to the 230.0.0.4 multicast address. To properly verify the clustering capabilities on your local machine, your Operating System should be capable of sending and receiving multicast datagrams and route them to the 230.0.0.4 IP through your ethernet interface. If you see warnings related to the cluster on the server logs, check your network configuration and verify it supports multicast on that address.
 
 1. Open `http://localhost:8080/` in your browser to visit the application home page. If you have created more instances, you can access them by shifting the port number, for example `http://localhost:9080/`. The application should look similar to the following image:
 
-    :::image type="content" source="media/jboss-eap-on-aro/todo-demo-application.png" alt-text="Screenshot of ToDo EAP demo Application.":::
+   :::image type="content" source="media/jboss-eap-on-aro/todo-demo-application.png" alt-text="Screenshot of ToDo EAP demo Application.":::
 
 1. Check the liveness and readiness probes for the application. OpenShift uses these endpoints to verify when your pod is live and ready to receive user requests.
 
@@ -234,32 +235,33 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
 1. Create `mssqlserver-secret`.
 
-    ```bash
-    oc create secret generic mssqlserver-secret \
-    --from-literal db-host=${MSSQLSERVER_HOST} \
-    --from-literal db-name=${MSSQLSERVER_DATABASE} \
-    --from-literal db-password=${MSSQLSERVER_PASSWORD} \
-    --from-literal db-port=${MSSQLSERVER_PORT} \
-    --from-literal db-user=${MSSQLSERVER_USER}
-    ```
+   ```bash
+   oc create secret generic mssqlserver-secret \
+       --from-literal db-host=${MSSQLSERVER_HOST} \
+       --from-literal db-name=${MSSQLSERVER_DATABASE} \
+       --from-literal db-password=${MSSQLSERVER_PASSWORD} \
+       --from-literal db-port=${MSSQLSERVER_PORT} \
+       --from-literal db-user=${MSSQLSERVER_USER}
+   ```
 
 1. Create `todo-list-secret`.
 
-    ```bash
-    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
-    oc create secret generic todo-list-secret \
-    --from-literal app-cluster-password=mut2UTG6gDwNDcVW \
-    --from-literal app-driver-version=${MSSQLSERVER_DRIVER_VERSION} \
-    --from-literal app-ds-jndi=${MSSQLSERVER_JNDI}
-    ```
+   ```bash
+   export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
+   oc create secret generic todo-list-secret \
+       --from-literal app-cluster-password=mut2UTG6gDwNDcVW \
+       --from-literal app-driver-version=${MSSQLSERVER_DRIVER_VERSION} \
+       --from-literal app-ds-jndi=${MSSQLSERVER_JNDI}
+   ```
 
 1. Open the OpenShift console and navigate to the developer view. You can discover the console URL for your OpenShift cluster by running this command. Log in with the `kubeadmin` userid and password you obtained from a preceding step.
 
    ```bash
    az aro show \
-   --name $CLUSTER \
-   --resource-group $RESOURCEGROUP \
-   --query "consoleProfile.url" -o tsv
+       --name $CLUSTER \
+       --resource-group $RESOURCEGROUP \
+       --query "consoleProfile.url" \
+       --output tsv
    ```
 
    Select the **</> Developer** perspective from the drop-down menu at the top of the navigation pane.
@@ -268,11 +270,11 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
 1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop-down menu.
 
-    :::image type="content" source="media/jboss-eap-on-aro/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
+   :::image type="content" source="media/jboss-eap-on-aro/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
 1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
 
-    :::image type="content" source="media/jboss-eap-on-aro/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
+   :::image type="content" source="media/jboss-eap-on-aro/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
    Because our application uses MicroProfile capabilities, we select the Helm Chart for EAP Xp. The `Xp` stands for Expansion Pack. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
@@ -290,9 +292,9 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
 1. Finally, select **Install** to start the application deployment. This action opens the **Topology** view with a graphical representation of the Helm release (named **eap-todo-list-demo**) and its associated resources.
 
-    :::image type="content" source="media/jboss-eap-on-aro/console-topology.png" alt-text="Screenshot of OpenShift console topology.":::
+   :::image type="content" source="media/jboss-eap-on-aro/console-topology.png" alt-text="Screenshot of OpenShift console topology.":::
 
-    The Helm Release (abbreviated **HR**) is named **eap-todo-list-demo**. It includes a Deployment resource (abbreviated **D**) also named **eap-todo-list-demo**.
+   The Helm Release (abbreviated **HR**) is named **eap-todo-list-demo**. It includes a Deployment resource (abbreviated **D**) also named **eap-todo-list-demo**.
 
    If you select the icon with two arrows in a circle at the lower left of the **D** box, you're taken to the **Logs** pane. Here you can observe the progress of the build.  To return to the topology view, select **Topology** in the left navigation pane.
 
@@ -300,11 +302,11 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
 1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to "3 Running".  When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
 
-    :::image type="content" source="media/jboss-eap-on-aro/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
+   :::image type="content" source="media/jboss-eap-on-aro/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
 
 1. The application is opened in your browser looking similar to the following image ready to be used:
 
-    :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
+   :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
 
 1. The application shows you the name of the pod that's served the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer has dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP Session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field hasn't changed. If the session weren't replicated across your pods, you'd get a Jakarta Faces `ViewExpiredException`, and your application wouldn't work as expected.
 
