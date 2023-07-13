@@ -46,6 +46,10 @@ In this article, you learn how to:
 
     :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/providers.tf":::
 
+1. Create a file named `ssh.tf` and insert the following code:
+
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/ssh.tf":::
+
 1. Create a file named `main.tf` and insert the following code:
 
     :::code language="Terraform" source="~/../terraform_samples/quickstart/101-vm-cluster-linux/main.tf":::
