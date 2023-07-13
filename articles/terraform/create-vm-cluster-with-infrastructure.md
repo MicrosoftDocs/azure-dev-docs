@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Linux VM cluster in Azure using Terraform'
 description: In this article, you learn how to create a Linux VM cluster in Azure using Terraform
 ms.topic: quickstart
-ms.date: 07/07/2023
+ms.date: 07/13/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -25,8 +25,9 @@ In this article, you learn how to:
 > * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
 > * Create a managed disk using [azurerm_managed_disk](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk)
 > * Create a availability set using [azurerm_availability_set](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/availability_set)
-> * Create a random password using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
 > * Create a Linux virtual machine using [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
+> * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
+> * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
 ## Prerequisites
 
