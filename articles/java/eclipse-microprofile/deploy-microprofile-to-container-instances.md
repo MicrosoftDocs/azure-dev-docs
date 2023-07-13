@@ -97,7 +97,7 @@ This command will create a globally unique (hopefully) container registry using 
 ```azurecli
 export RANDINT=`date +"%m%d%y$RANDOM"`
 export ACR=mydockerrepo$RANDINT
-az acr create --name $ACR -g $ARG --sku Basic --admin-enabled
+az acr create --name $ACR --resource-group $ARG --sku Basic --admin-enabled
 ```
 
 #### Build the Docker image
@@ -113,7 +113,7 @@ Because of these reasons, we will build the image using the [Azure Container Reg
 
 ```azurecli
 export IMG_NAME="mympapp:latest"
-az acr build -r $ACR -t $IMG_NAME -g $ARG .
+az acr build --registry $ACR --image $IMG_NAME --resource-group $ARG .
 ...
 Build complete
 Build ID: aa1 was successful after 1m2.674577892s
@@ -124,11 +124,29 @@ Build ID: aa1 was successful after 1m2.674577892s
 Now that the image is available on your ACR, let's push and instantiate a container instance on ACI. But first, we need to make sure we can authenticate into the ACR:
 
 ```azurecli
-export ACR_REPO=`az acr show --name $ACR -g $ARG --query loginServer -o tsv`
-export ACR_PASS=`az acr credential show --name $ACR -g $ARG --query "passwords[0].value" -o tsv`
+export ACR_REPO=$(az acr show \
+    --resource-group $ARG \
+    --name $ACR \
+    --query loginServer \
+    --output tsv)
+export ACR_PASS=$(az acr credential show \
+    --resource-group $ARG \
+    --name $ACR \
+    --query "passwords[0].value" \
+    --output tsv)
 export ACI_INSTANCE=myapp`date +"%m%d%y$RANDOM"`
 
-az container create --resource-group $ARG --name $ACR --image $ACR_REPO/$IMG_NAME --cpu 1 --memory 1 --registry-login-server $ACR_REPO --registry-username $ACR --registry-password $ACR_PASS --dns-name-label $ACI_INSTANCE --ports 8080
+az container create \
+    --resource-group $ARG \
+    --name $ACR \
+    --image $ACR_REPO/$IMG_NAME \
+    --cpu 1 \
+    --memory 1 \
+    --registry-login-server $ACR_REPO \
+    --registry-username $ACR \
+    --registry-password $ACR_PASS \
+    --dns-name-label $ACI_INSTANCE \
+    --ports 8080
 ```
 
 #### Test Your Deployed MicroProfile Application
