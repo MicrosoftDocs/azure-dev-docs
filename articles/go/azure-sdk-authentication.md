@@ -201,7 +201,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       if err != nil {
         // TODO: handle error
       }
-      // Azure SDK Azure Resource Management clients accept the credential as a parameter.
+      // Azure SDK Resource Management clients accept the credential as a parameter.
       // The client will authenticate with the credential as necessary.
       client, err := armsubscription.NewSubscriptionsClient(cred, nil)
       if err != nil {
