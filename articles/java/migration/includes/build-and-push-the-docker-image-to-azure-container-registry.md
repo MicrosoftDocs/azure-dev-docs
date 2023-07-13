@@ -21,13 +21,13 @@ mvn package
 Log into your Azure container registry:
 
 ```azurecli
-az acr login -n ${MY_ACR}
+az acr login --name ${MY_ACR}
 ```
 
 Build and push the image:
 
 ```azurecli
-az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} -f src/main/docker/Dockerfile .
+az acr build --image ${MY_ACR}.azurecr.io/${MY_APP_NAME} --file src/main/docker/Dockerfile .
 ```
 
 Alternatively, you can use Docker CLI to first build and test the image locally, as shown in the following commands. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires you to install the Docker CLI and ensure the Docker daemon is running.
@@ -49,7 +49,7 @@ Your can now access your application at `http://localhost:8080`.
 Log into your Azure container registry:
 
 ```azurecli
-az acr login -n ${MY_ACR}
+az acr login --name ${MY_ACR}
 ```
 
 Push the image to your Azure container registry:

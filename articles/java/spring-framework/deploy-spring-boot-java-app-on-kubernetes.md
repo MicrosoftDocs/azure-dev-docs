@@ -158,7 +158,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```
 
 > [!NOTE]
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate. If you see a *Read timed out* error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
+> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a *401 Unauthorized* error, you can run the `az acr login --name <your registry name>` command again to reauthenticate. If you see a *Read timed out* error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 

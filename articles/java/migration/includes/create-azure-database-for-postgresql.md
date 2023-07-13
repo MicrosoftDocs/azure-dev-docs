@@ -7,7 +7,7 @@ ms.date: 04/27/2023
 Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:
 
 ```azurecli
-DB_RESOURCE_ID=$(az resource show \
+export DB_RESOURCE_ID=$(az resource show \
     --resource-group abc1110rg \
     --name ${DB_SERVER_NAME} \
     --resource-type "Microsoft.DBforPostgreSQL/servers" \
@@ -28,7 +28,7 @@ This example uses the private IP address of the PostgreSQL server for the dataso
 Run the following command to get private IP address of the PostgreSQL server:
 
 ```azurecli
-DB_PRIVATE_IP=$(az network private-endpoint show \
+export DB_PRIVATE_IP=$(az network private-endpoint show \
     --resource-group abc1110rg \
     --name myPrivateEndpoint \
     --query customDnsConfigs'[0]'.ipAddresses'[0]' \
