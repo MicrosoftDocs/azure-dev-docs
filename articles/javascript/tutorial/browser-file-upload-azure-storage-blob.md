@@ -1,60 +1,20 @@
 ---
 title: "JavaScript: Upload image to Blob Storage"
-description: Use a React Static Web App with TypeScript or JavaScript to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+description: Use a client web app to upload a file to Azure Storage blobs. 
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 07/14/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 ---
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and an Azure Storage SAS token. 
+Use an static web app to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and an Azure Storage SAS token. 
 
-The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
+## Application architecture 
 
-## Application architecture and functionality
-
-This article includes several top Azure tasks for JavaScript developers:
-
-* Run a React app locally with Visual Studio Code
-* Create an **Azure Storage Blob** resource and configure for file uploads
-    * Configure CORS
-    * Create Shared access signatures (SAS) token
-* Configure code for Azure SDK client library to use SAS token to authenticate to service
-* Deploy to Static Web App with GitHub Action
-
-The sample React app consists of the following elements:
-
-#### [TypeScript](#tab/typescript)
-
-* **[React app](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)** hosted on port 3000
-* **[Azure SDK client library script](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts)** to upload to Storage blobs
-
-
-#### [JavaScript](#tab/javascript)
-
-* **[React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.jsx)** hosted on port 3000
-* **[Azure SDK client library script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.js)** to upload to Storage blobs
-
---- 
-
-:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Screenshot of web browser showing simple React app connected to Azure Storage blobs.":::
 
 ## 1. Set up development environment
 
-#### [TypeScript](#tab/typescript)
-
-- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [TypeScript](https://www.typescriptlang.org/download)
-- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- Visual Studio Code extensions:
-    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
-    - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
-
-#### [JavaScript](#tab/javascript)
-
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
@@ -62,10 +22,10 @@ The sample React app consists of the following elements:
     - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
+    - [Azure Functions]()
 
---- 
 
-## 2. Fork and clone the sample application
+## 2. Create sample application
 
 1. Open this GitHub sample URL in a web browser: 
 
