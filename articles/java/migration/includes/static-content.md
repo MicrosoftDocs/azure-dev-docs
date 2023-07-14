@@ -6,7 +6,7 @@ ms.date: 4/10/2020
 
 #### Read-only static content
 
-If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn). You can also [directly deploy the static content to an App in the Azure Spring Apps Enterprise plan](/azure/spring-apps/how-to-enterprise-deploy-static-file).
+If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn). You can also directly deploy the static content to an app in the Azure Spring Apps Enterprise plan. For more information, see [Deploy web static files](/azure/spring-apps/how-to-enterprise-deploy-static-file).
 
 #### Dynamically published static content
 
