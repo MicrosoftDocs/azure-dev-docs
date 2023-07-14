@@ -179,7 +179,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
     ```bash
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     ```
 
 1. Create a file named `main.go` and insert the following code:
@@ -187,34 +187,34 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     ```go
     package main
 
-    // Import key modules.
     import (
-      "log"
+      "context"
 
       "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
     )
 
-    // Define key global variables.
-    var (
-      subscriptionId = "<subscriptionId>"
-    )
+    const subscriptionID = "<subscription ID>"
 
-    // Define the function to create a resource group.
     func main() {
       cred, err := azidentity.NewDefaultAzureCredential(nil)
       if err != nil {
-        log.Fatalf("Authentication failure: %+v", err)
+        // TODO: handle error
       }
+      // Azure SDK Resource Management clients accept the credential as a parameter.
+      // The client will authenticate with the credential as necessary.
+      client, err := armsubscription.NewSubscriptionsClient(cred, nil)
+      if err != nil {
+        // TODO: handle error
+      }
+      _, err = client.Get(context.TODO(), subscriptionID, nil)
+      if err != nil {
+        // TODO: handle error
+      }
+    }   
 
-      // Azure Resource Management clients accept the credential as a parameter
-      client, _ := armresources.NewClient(subscriptionId, cred, nil)
-
-      log.Print("Authenticated to subscription", client)
-    }
     ```
-
-    Replace `<subscriptionId>` with your subscription ID.
+    Replace `<subscription ID>` with your subscription ID.
 
 1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the application:
 
