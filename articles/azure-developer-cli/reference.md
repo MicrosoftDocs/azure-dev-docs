@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/14/2023
+ms.date: 07/12/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -22,6 +22,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 ```azdeveloper
   -C, --cwd string   Sets the current working directory.
       --debug        Enables debugging and diagnostics logging.
+      --docs         Opens the documentation for azd in your web browser.
   -h, --help         Gets help for azd.
       --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
 ```
@@ -50,6 +51,7 @@ Authenticate with Azure.
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd auth in your web browser.
   -h, --help   Gets help for auth.
 ```
 
@@ -93,6 +95,7 @@ azd auth login [flags]
       --client-certificate string              The path to the client certificate for the service principal to authenticate with.
       --client-id string                       The client id for the service principal to authenticate with.
       --client-secret string                   The client secret for the service principal to authenticate with. Set to the empty string to read the value from the console.
+      --docs                                   Opens the documentation for azd auth login in your web browser.
       --federated-credential-provider string   The provider to use to acquire a federated token to authenticate with.
   -h, --help                                   Gets help for login.
       --redirect-port int                      Choose the port to be used as part of the redirect URI during interactive login.
@@ -128,6 +131,7 @@ azd auth logout [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd auth logout in your web browser.
   -h, --help   Gets help for logout.
 ```
 
@@ -166,6 +170,7 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config in your web browser.
   -h, --help   Gets help for config.
 ```
 
@@ -208,6 +213,7 @@ azd config get <path> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config get in your web browser.
   -h, --help   Gets help for get.
 ```
 
@@ -245,6 +251,7 @@ azd config list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -272,6 +279,7 @@ azd config list-alpha [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config list-alpha in your web browser.
   -h, --help   Gets help for list-alpha.
 ```
 
@@ -309,6 +317,7 @@ azd config reset [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config reset in your web browser.
   -h, --help   Gets help for reset.
 ```
 
@@ -353,6 +362,7 @@ azd config set defaults.location eastus
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config set in your web browser.
   -h, --help   Gets help for set.
 ```
 
@@ -396,6 +406,7 @@ azd config unset defaults.location
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config unset in your web browser.
   -h, --help   Gets help for unset.
 ```
 
@@ -424,6 +435,7 @@ azd deploy <service> [flags]
 
 ```azdeveloper
       --all                   Deploys all services that are listed in azure.yaml
+      --docs                  Opens the documentation for azd deploy in your web browser.
   -e, --environment string    The name of the environment to use.
       --from-package string   Deploys the application from an existing package.
   -h, --help                  Gets help for deploy.
@@ -452,6 +464,7 @@ azd down [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd down in your web browser.
   -e, --environment string   The name of the environment to use.
       --force                Does not require confirmation before it deletes resources.
   -h, --help                 Gets help for down.
@@ -477,6 +490,7 @@ Manage environments.
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env in your web browser.
   -h, --help   Gets help for env.
 ```
 
@@ -492,7 +506,7 @@ Manage environments.
 
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
-* [azd env new](#azd-env-new): Create a new environment.
+* [azd env new](#azd-env-new): Create a new environment and set it as the default.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
@@ -509,6 +523,7 @@ azd env get-values [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env get-values in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for get-values.
 ```
@@ -537,6 +552,7 @@ azd env list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -555,7 +571,7 @@ azd env list [flags]
 
 ## azd env new
 
-Create a new environment.
+Create a new environment and set it as the default.
 
 ```azdeveloper
 azd env new <environment> [flags]
@@ -564,6 +580,7 @@ azd env new <environment> [flags]
 ### Options
 
 ```azdeveloper
+      --docs                  Opens the documentation for azd env new in your web browser.
   -h, --help                  Gets help for new.
   -l, --location string       Azure location for the new environment
       --subscription string   Name or ID of an Azure subscription to use for the new environment
@@ -593,6 +610,7 @@ azd env refresh <environment> [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env refresh in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for refresh.
 ```
@@ -621,6 +639,7 @@ azd env select <environment> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env select in your web browser.
   -h, --help   Gets help for select.
 ```
 
@@ -648,6 +667,7 @@ azd env set <key> <value> [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env set in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for set.
 ```
@@ -677,6 +697,7 @@ azd init [flags]
 
 ```azdeveloper
   -b, --branch string         The template branch to initialize from.
+      --docs                  Opens the documentation for azd init in your web browser.
   -e, --environment string    The name of the environment to use.
   -h, --help                  Gets help for init.
   -l, --location string       Azure location for the new environment
@@ -707,6 +728,7 @@ azd monitor [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd monitor in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for monitor.
       --live                 Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for Python apps.
@@ -738,6 +760,7 @@ azd package <service> [flags]
 
 ```azdeveloper
       --all                  Deploys all services that are listed in azure.yaml
+      --docs                 Opens the documentation for azd package in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for package.
 ```
@@ -761,6 +784,7 @@ Manage and configure your deployment pipelines. (Beta)
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd pipeline in your web browser.
   -h, --help   Gets help for pipeline.
 ```
 
@@ -789,6 +813,7 @@ azd pipeline config [flags]
 
 ```azdeveloper
       --auth-type string             The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
+      --docs                         Opens the documentation for azd pipeline config in your web browser.
   -e, --environment string           The name of the environment to use.
   -h, --help                         Gets help for config.
       --principal-name string        The name of the service principal to use to grant access to Azure resources as part of the pipeline.
@@ -821,6 +846,7 @@ azd provision [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd provision in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
 ```
@@ -849,6 +875,7 @@ azd restore <service> [flags]
 
 ```azdeveloper
       --all                  Restores all services that are listed in azure.yaml
+      --docs                 Opens the documentation for azd restore in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for restore.
 ```
@@ -872,6 +899,7 @@ Find and view template details. (Beta)
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template in your web browser.
   -h, --help   Gets help for template.
 ```
 
@@ -900,6 +928,7 @@ azd template list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -927,6 +956,7 @@ azd template show <template> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template show in your web browser.
   -h, --help   Gets help for show.
 ```
 
@@ -954,6 +984,7 @@ azd up [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd up in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for up.
 ```
@@ -981,6 +1012,7 @@ azd version [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd version in your web browser.
   -h, --help   Gets help for version.
 ```
 
