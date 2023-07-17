@@ -215,7 +215,7 @@ const { DefaultAzureCredential } = require('@azure/identity');
 const { SubscriptionClient } = require("@azure/arm-subscriptions");
 
 // Acquire credential
-const tokenCredential = DefaultAzureCredential();
+const tokenCredential = new DefaultAzureCredential();
 
 async function listSubscriptions() {
   try {
