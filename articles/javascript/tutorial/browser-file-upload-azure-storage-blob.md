@@ -12,18 +12,21 @@ Use an static web app to upload an image file to an Azure Storage blob using an 
 
 ## Application architecture 
 
+This application architecture includes 3 Azure resources:
+
+* Azure Static Web Apps for the statically-generated client application.
+* Azure Functions for the serverless API.
+* Azure Storage for the blob storage. 
 
 ## 1. Set up development environment
 
-- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- Visual Studio Code extensions:
-    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
-    - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
-    - [Azure Functions]()
+This tutorial uses GitHub CodeSpaces to develop and deploy the sample appliction. You can choose to run CodeSpaces in a browser or in a locally installed Visual Studio Code instance. 
 
+- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- A GitHub account. [Create on for free](https://github.com/join)
+    - GitHub CodeSpaces are used to develop the sample application. It is important to stop and remove the CodeSpace when you are done with this tutorial. 
+    - GitHub actions are used to deploy the sample application to Azure.
+- Optional, free [Visual Studio Code](https://code.visualstudio.com/)
 
 ## 2. Create sample application
 
