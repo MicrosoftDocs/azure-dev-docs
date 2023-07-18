@@ -1,6 +1,30 @@
 {
     "redirections": [
 
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },                              
+      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md",
+        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+      },
       { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/introduction.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
       },
