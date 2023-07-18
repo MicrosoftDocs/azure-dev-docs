@@ -110,7 +110,7 @@
       href: /training/modules/shift-nodejs-express-apis-serverless
     - name: "Docs: Migrate to Azure Functions"
       href: /azure/azure-functions/shift-expressjs?tabs=javascript
-  - name: Azure Functions
+  - name: Serverless apps
     items: 
     - name: Develop Azure Functions
       href: how-to/develop-serverless-apps.md
@@ -128,7 +128,7 @@
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: Data (CRUD) API
         href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
-  - name: Azure App service
+  - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
       href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
@@ -138,25 +138,7 @@
       href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
     - name: Use Microsoft Identity provider (MSAL.js)
       href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
-    - name: Express.js in container
-      items:
-        - name: Introduction and prerequisites
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-        - name: Use a container registry
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
-        - name: Create a local Node.js app
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
-        - name: Create the app image
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
-        - name: Deploy the app image
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
-        - name: Make changes and redeploy
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
-        - name: Stream logs
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
-        - name: Clean up resources
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md                   
-  - name: Container Apps
+  - name: Containerized Apps
     items:
     - name: Backend microservice app
       href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote
@@ -176,7 +158,7 @@
         href: how-to/with-azure-sdk/create-manage-virtual-machine.md
       - name: "Manage VM with SDK"
         href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
-  - name: Visual Studio Code
+  - name: Development with Visual Studio Code
     items:
       - name: Install and debug local project
         href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
@@ -184,7 +166,7 @@
         href: how-to/with-visual-studio-code/clone-github-repository.md
       - name: Create an Azure database
         href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Azure CLI
+  - name: Automation with Azure CLI
     items:
       - name: Get started
         href: core/automate-tasks-with-azure-cli.md
