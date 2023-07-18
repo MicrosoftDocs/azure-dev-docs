@@ -158,7 +158,7 @@
         href: how-to/with-azure-sdk/create-manage-virtual-machine.md
       - name: "Manage VM with SDK"
         href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
-  - name: Developerment with Visual Studio Code
+  - name: Development with Visual Studio Code
     items:
       - name: Install and debug local project
         href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
