@@ -14,7 +14,7 @@ At the end of this quickstart, you have a running VM that you log into with a us
 
 > [!NOTE]
 > To see the creation of a VM in Go without the use of a Resource Manager template, there
-> is an [imperative sample](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/main/services/compute/vm.go)
+> is an [imperative sample](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/compute/armcompute/virtualmachines_client.go)
 > demonstrating how to build and configure all VM resources with the SDK. Using a template in this sample
 > allows a focus on SDK conventions without getting into too many details about Azure service architecture.
 
@@ -304,6 +304,6 @@ The value for the VM user is also loaded from the JSON. The VM password was load
 
 In this quickstart, you took an existing template and deployed it through Go. Then you connected to the newly created VM via SSH.
 
-To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/resources).
+To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute) or [Azure resource management samples for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager).
 
 To learn more about the available authentication methods in the SDK, and which authentication types they support, see [Authentication with the Azure SDK for Go](azure-sdk-authorization.md).
