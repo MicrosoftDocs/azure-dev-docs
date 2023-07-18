@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.custom:
+ms.custom: devx-track-azurecli
 ms.date: 03/31/2022
 ---
 #### [Azure App Service](#tab/azure-app-service)

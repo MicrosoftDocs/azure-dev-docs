@@ -6,7 +6,7 @@ ms.author: gracekulin
 ms.date: 4/27/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli, devx-track-azurecli
+ms.custom: devx-track-azdevcli
 ---
 
 # Supported languages and environments

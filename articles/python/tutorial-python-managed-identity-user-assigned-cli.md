@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: bobtabor-msft
 ms.author: rotabor
 ms.date: 05/30/2023
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Create and deploy a Django web app to Azure with a user-assigned managed identity

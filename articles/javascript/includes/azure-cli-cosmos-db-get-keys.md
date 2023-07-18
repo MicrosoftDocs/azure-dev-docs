@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
 ms.date: 08/08/2022
 ---

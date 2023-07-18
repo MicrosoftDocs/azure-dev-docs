@@ -3,7 +3,7 @@ title: Azure authentication with the Azure Identity module for Go
 description: Learn to use the Azure Identity module for Go to authenticate to Azure.
 ms.date: 06/22/2023
 ms.topic: how-to
-ms.custom: devx-track-go, devx-track-azurecli
+ms.custom: devx-track-go
 ---
 
 # Azure authentication with the Azure Identity module for Go
