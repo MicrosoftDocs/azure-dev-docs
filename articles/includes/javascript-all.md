@@ -13,7 +13,7 @@
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
-| Cognitive Search | npm [11.3.1](https://www.npmjs.com/package/@azure/search-documents/v/11.3.1)<br>npm [12.0.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.1/sdk/search/search-documents/)<br>GitHub [12.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.2/sdk/search/search-documents/) |
+| Cognitive Search | npm [11.3.2](https://www.npmjs.com/package/@azure/search-documents/v/11.3.2)<br>npm [12.0.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.2/sdk/search/search-documents/)<br>GitHub [12.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.2/sdk/search/search-documents/) |
 | Common | npm [1.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/1.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.0.0/sdk/communication/communication-call-automation/) |
 | Communication Chat | npm [1.3.1](https://www.npmjs.com/package/@azure/communication-chat/v/1.3.1)<br>npm [1.3.2-beta.2](https://www.npmjs.com/package/@azure/communication-chat/v/1.3.2-beta.2) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.1/sdk/communication/communication-chat/)<br>GitHub [1.3.2-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.2-beta.2/sdk/communication/communication-chat/) |
@@ -322,9 +322,9 @@
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-resource-manager/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-bump-deps/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-core/v/0.32.0) |  |  |
-| Unknown Display Name | npm [0.2.0-beta.20230717.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230717.1) |  |  |
+| Unknown Display Name | npm [0.2.0-beta.20230718.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230718.1) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-diff/v/0.32.0) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure-tools/typespec-java/v/0.8.5) |  |  |
+| Unknown Display Name | npm [0.8.7](https://www.npmjs.com/package/@azure-tools/typespec-java/v/0.8.7) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub-controller/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-python/v/0.12.0) |  |  |
@@ -425,7 +425,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230717.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230717.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230718.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230718.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -478,7 +478,7 @@
 | @azure-tools/test-recorder | npm [3.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.1](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.1) |  |  |
-| @azure/static-web-apps-cli | npm [1.1.3](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.1.3) |  |  |
+| @azure/static-web-apps-cli | npm [1.1.4](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.1.4) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.40.0) |  |  |
