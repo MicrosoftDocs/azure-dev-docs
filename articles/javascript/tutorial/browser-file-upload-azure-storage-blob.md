@@ -1,14 +1,14 @@
 ---
 title: "JavaScript: Upload image to Blob Storage"
-description: Use a client web app to upload a file to Azure Storage blobs. 
+description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/20/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 ---
 
-# Upload an image to an Azure Storage blob with JavaScript
+# Upload an image to an Azure Storage blob with TypeScript
 
-Use an static web app to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and an Azure Storage SAS token. 
+Use an static web app to upload a file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package with an Azure Storage SAS token. 
 
 ## Application architecture 
 
@@ -17,6 +17,15 @@ This application architecture includes 3 Azure resources:
 * Azure Static Web Apps for the statically-generated client application.
 * Azure Functions for the serverless API.
 * Azure Storage for the blob storage. 
+
+:::image type="content" source="../media/browser-file-upload-azure-storage-blob/file-upload-request-flow.png" alt-text="Diagram showing how a customer interacts from their computer to use the website to upload a file to Azure Storage directly.":::
+
+|Step|Description|
+|:--|--|
+|1|The customer connects to the statically-generated website. The website is hosted in Azure Static Web Apps.|
+|2|The customer uses that website, to select a file to upload. For this tutorial, the front-end framework is Vite React and the file uploaded is an image file.|
+|3|The website calls the Azure Function API to get a SAS token based on the exact **filename** of the file to upload. The serverless API uses the Azure Blob Storage SDK to create the SAS token. The API returns the full URL to use to upload the file, which includes the SAS token as the query string.<br>`https://YOUR-STORAGE-NAME.blob.core.windows.net/YOUR-CONTAINER/YOUR-FILE-NAME?YOUR-SAS-TOKEN`|
+|4|The front-end website uses the SAS token URL to upload the file directly to Azure Storage.| 
 
 ## 1. Set up development environment
 
