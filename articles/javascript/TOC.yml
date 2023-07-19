@@ -132,6 +132,8 @@
     items:
     - name: "Express.js with MongoDB"
       href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+    - name: "Express.js with MERN"
+      href: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app?tabs=github-codespace
     - name: "Express.js convert text to speech"
       href: tutorial/convert-text-to-speech-cognitive-services.md
     - name: Add easy authentication
