@@ -3,7 +3,7 @@ title: Create Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
 ms.date: 01/20/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Create Azure Storage using the Azure libraries for Python
