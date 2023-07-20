@@ -1,3 +1,14 @@
+---
+title: Azure Application and Code Assessment Toolkit
+description: How to assess and replatform any type of Java applications with Azure AppCAT (Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure
+author: antoniomanug
+ms.author: antoniomanug
+ms.service: azure
+ms.topic: overview
+ms.date: 07/20/2023
+keywords: java, azure, appCAT, assessment, replatform
+---
+
 # Azure Application and Code Assessment Toolkit
 
 This guide describes how to assess and replatform any type of Java applications with Azure _AppCAT_ (Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure.
@@ -23,7 +34,7 @@ The tool uses advanced analysis techniques to understand the structure and depen
 With Azure AppCAT you can:
 
 * **Discover technology usage**: quickly see which technologies an application uses.
-This is useful if you have legacy applications with not much documentation and want to know which technologies they use.
+Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
 * **Assess the code to a specific target**: Assess an application for a specific Azure target.
 Check the effort and the modifications you have to do in order to replatform your applications to Azure.
 
@@ -33,7 +44,7 @@ Azure AppCAT can be run on Windows, Linux or Mac.
 It requires Java 11 or Java 17 to be installed.
 
 Download Azure AppCAT and unzip it in a folder of your choice.
-You will find the following directory structure:
+You then get the following directory structure:
 
 ```shell
 ├── docs
@@ -142,7 +153,7 @@ These "_Issues_", also called "_Incidents_", have a severity (_Mandatory_, _Opti
 
 ### Detail information for a specific issue
 
-For each incident you can get more information (the issue detail, the content of the rule, etc.) just by clicking on it. 
+For each incident, you can get more information (the issue detail, the content of the rule, etc.) just by clicking on it. 
 You also get the list of all the files that are affected by this incident.
 
 ![Issue detail](./media/appcat/report-assessment-detail.png)
@@ -179,7 +190,7 @@ The CLI generates reports at a specified output directory.
 [//]: # (![Web Console]&#40;./media/windup/execute-webconsole.png&#41;)
 [//]: # (### VS Code extension)
 [//]: # (You can also assess applications by using the Azure CAT VS Code extension.)
-[//]: # (It allows developers to run an analysis from their IDE, having access to all the Azure CAT reports as well as having the ability to directly point the migration issues right into their code.)
+[//]: # (It allows developers to run an analysis from their IDE, having access to all the Azure CAT reports and having the ability to directly point the migration issues right into their code.)
 [//]: # (![VS Code]&#40;./media/windup/execute-vscode.png&#41;)
 
 ## Custom rules
@@ -187,7 +198,7 @@ The CLI generates reports at a specified output directory.
 Azure AppCAT can be seen as a rule engine.
 It uses rules to extract files from Java archives, decompiles Java classes, scans and classifies file types, analyzes these files, and builds the reports.
 In Azure AppCAT, the rules are defined in the form of a ruleset.
-A ruleset is a collection of individual rules that define specific issues or patterns that chould be detected during the analysis.
+A ruleset is a collection of individual rules that define specific issues or patterns that can be detected during the analysis.
 These rules are defined in XML and follow this simple rule pattern:
 
 ```
@@ -256,7 +267,7 @@ In this case, we are targeting Azure App Services, AKS, Azure Spring Apps and Az
 ```
 
 After executing this rule through Azure AppCAT, simply rerun the analysis to review the generated report.
-Similar to other incidents, the assessment report will enlist the identified issues and affected files related to this rule.
+Similar to other incidents, the assessment report lists the identified issues and affected files related to this rule.
 
 ![Rule being executed](./media/appcat/rule.png)
 
@@ -268,7 +279,7 @@ A: You can download Azure AppCAT from https://windup.github.io/downloads
 
 Q: Where can I find more information about Azure AppCAT?
 
-A: When you download Azure AppCAT, you will find a `docs` disctory with all the information you need to get started.
+A: When you download Azure AppCAT, you get a `docs` disctory with all the information you need to get started.
 
 Q: Where can I find the specific Azure rules?
 
@@ -277,3 +288,7 @@ A: All the Azure rules are available in the [Azure AppCAT Ruleset GitHub reposit
 Q: Where can I find more information about creating custom rules?
 
 A: WindUp has a dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index)
+
+Q: Where can I find some help when creating custom rules?
+
+A: The best is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/windup-rulesets/issues)
