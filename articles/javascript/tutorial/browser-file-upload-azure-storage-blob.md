@@ -12,10 +12,9 @@ Use an static web app to upload a file to an Azure Storage blob using an Azure S
 
 ## Application architecture 
 
-This application architecture includes 3 Azure resources:
+This application architecture includes 2 Azure resources:
 
-* Azure Static Web Apps for the statically-generated client application.
-* Azure Functions for the serverless API.
+* Azure Static Web Apps for the statically-generated client application. The resource also provides the managed Azure Functions API. Managed means that the Static Web Apps resource manages the API resource for its own use.
 * Azure Storage for the blob storage. 
 
 :::image type="content" source="media/browser-file-upload-azure-storage-blob/file-upload-request-flow.png" alt-text="Diagram showing how a customer interacts from their computer to use the website to upload a file to Azure Storage directly.":::
@@ -223,7 +222,7 @@ Because the client web app uploads the file, the Azure Storage account needs to 
 1. Select **+ Container** then enter the following values:
 
     * Name: `upload`
-    * Public access Level: `Private`
+    * Public access Level: `Public`
 1. Select **Create**. 
 
 ## 6. Get Storage resource credentials
@@ -311,70 +310,32 @@ In the API app's terminal, run the following command to start the API app.
 ## 9. Deploy static web app to Azure 
 
 1. In Visual Studio Code, select the Azure explorer.
-1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes.
+1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes. 
 
     To roll back the changes, in Visual Studio Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
 
-1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.    
+1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.
 
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
-    |*Enter the name for the new static web app.*|Create a unique name for your resource. For example, you can prepend your name to the repository name, such as `upload-file-to-storage`. |
+    |*Enter the name for the new static web app.*|Create a unique name for your resource, such as `upload-file-to-storage`. This name isn't use as part of the URL for the client app.|
     |*Select a resource group for new resources.*|Use the resource group that you created for your storage resource.|
-    |*Select a SKU*| Select the free SKU for this tutorial. If you already have a free Static Web App resource used, select the next pricing tier.|
-    |*Choose build preset to configure default project structure.*|Select **React**.|
-    |*Select the location of your application code*|`/` - This indicates the package.json file is at the root of the repository.|
-    |*Select the location of your Azure Functions code*|Accept the default value. While this sample doesn't use an API, you can add one later.|
-    |*Enter the path of your build output...*|`build`<br><br>This is the path from your app to your static (generated) files.|
+    |*Select a SKU*| Select the free SKU for this tutorial. If you already have a free Static Web App resource in your subscription, select the next pricing tier.|
+    |*Choose build preset to configure default project structure.*|Select **Custom**.|
+    |*Select the location of your application code*|`azure-upload-file-to-storage/app`|
+    |*Select the location of your Azure Functions code*|`azure-upload-file-to-storage/api`|
+    |*Enter the path of your build output...*|`dist`<br><br>This is the path from your app to your static (generated) files.|
     |*Select a location for new resources.*|Select a region close to you.|
 
 1. When the process is complete, a notification pop-up displays. Select **View/Edit Workflow**.
 
     :::image type="content" source="media/tutorial-browser-file-upload/visual-studio-code-static-web-app-view-edit-workflow.png" alt-text="Partial screenshot of Visual Studio Code notification pop-up with View/Edit Workflow button highlighted.":::
 
-## 10. Add Azure Storage secrets to GitHub secrets
+## 10. Configure API with Storage resource name and key
 
-1. In a web browser, return to your GitHub fork of the sample project to add the two secrets and their values:
 
-    #### [TypeScript](#tab/typescript)
-
-    ```HTTP
-    https://github.com/YOUR-GITHUB-ACCOUNT/ts-e2e-browser-file-upload-storage-blob/settings/secrets/actions
-    ```
-
-    #### [JavaScript](#tab/javascript)
-
-    ```HTTP
-    https://github.com/YOUR-GITHUB-ACCOUNT/js-e2e-browser-file-upload-storage-blob/settings/secrets/actions
-    ```
-
-     ---
-
-    :::image type="content" source="media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" lightbox="media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
-
-## 11. Configure Static Web App to connect to storage resource
-
-Edit the GitHub workflow and secrets to connect to Azure Storage.
-
-1. In Visual Studio Code, open the `.github/workflows` workflow YAML file and add the two storage environment variables after the `with` section to the `build_and_deploy_job`.
-
-    :::code language="YAML" source="~/../js-e2e-browser-file-upload-storage-blob/build-and-deploy-sample-job.yml" highlight="23-25":::
-
-    This pulls in the secrets to the build process.
-
-1. In Visual Studio Code, select Source Control, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, then select the addition icon to add the changed *.yml file. 
-1. Enter a comment for your commit such as `Adding Storage secrets`.
-1. Push to your GitHub fork by selecting the **Synchronize changes** icon on the status bar. 
-
-    :::image type="content" source="media/tutorial-browser-file-upload/visual-studio-code-status-bar-synchronize-changes.png" alt-text="Partial screenshot of Visual Studio Code status bar.":::
-
-1. In the pop-up window to confirm if you want to push and pull from your remote repository, select **OK**.
-
-    If you get an error at this step, checkout your git remote to make sure you cloned _your fork_: `git remote -v`. 
-
-1. This push triggers a new build and deploy for your static web app.
 
 ## 12. Verify build and deploy job completes
 
