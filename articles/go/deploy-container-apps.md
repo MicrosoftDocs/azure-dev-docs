@@ -77,7 +77,7 @@ Run the following commands build and push the image to the registry:
 
 2. Push the Docker image to Azure Container Registry.
     ```bash
-    docker push <loginServer>/<imageName>:latest
+    docker push <loginServer>/<imageName>:latest .
     ```
 
 3. Verify the image was successfully pushed to Azure Container Registry.
