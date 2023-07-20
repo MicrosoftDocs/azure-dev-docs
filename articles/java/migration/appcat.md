@@ -80,7 +80,7 @@ During the _discovery_ phase, Azure AppCAT scans the application and its compone
 This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
 
 ```shell
-$ ./appcat-cli --input ./<my_application> \
+$ ./appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear> \
   --target discovery
 ```
 
@@ -106,7 +106,7 @@ Available target technologies:
 Then it's just a matter of executing Azure AppCAT using one of the available Azure targets.
 
 ```shell
-$ ./appcat-cli --input ./<my_application> \
+$ ./appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear> \
   --target azure-appservice
 ```
 
@@ -154,11 +154,11 @@ These _Issues_, also called _Incidents_, have a severity (_Mandatory_, _Optional
 ### Detail information for a specific issue
 
 For each incident, you can get more information (the issue detail, the content of the rule, etc.) just by clicking on it. 
-You also get the list of all the files that are affected by this incident.
+You also get the list of all the files affected by this incident.
 
 ![Issue detail](./media/appcat/report-assessment-detail.png)
 
-Then, for each file/class that is affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
+Then, for each file/class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
 
 ![Issue code](./media/appcat/report-assessment-code.png)
 
@@ -208,7 +208,7 @@ when(condition)
 ```
 
 Azure AppCAT provides a comprehensive set of standard migration rules.
-But because applications may contain custom libraries or components, Azure AppCAT allows you to write your own rules to identify use of components or software that may not be covered by the existing ruleset.
+Since applications may contain custom libraries or components, Azure AppCAT enables you to write your own rules to identify the use of components or software that may not be covered by the existing ruleset.
 To write a custom rule, you use a rich DSL (_Domain Specific Language_) expressed in XML.
 
 For example, let's say we want a rule that identifies the use of the PostgreSQL JDBC driver in a Java application and suggests the use of the Azure PostgreSQL Flexible Server instead.
