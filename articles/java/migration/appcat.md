@@ -1,7 +1,7 @@
 ---
 title: Azure Application and Code Assessment Toolkit
 description: How to assess and replatform any type of Java applications with Azure AppCAT (Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure
-author: antoniomanug
+author: agoncal
 ms.author: antoniomanug
 ms.service: azure
 ms.topic: overview
@@ -90,7 +90,7 @@ Otherwise, AppCAT runs `discovery` implicitly for any Azure target.
 ### How to assess a Java application for a specific Azure target?
 
 The assessment phase is where Azure AppCAT analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations.
-This phase involves analyzing the application code and check its compliance with the selected Azure target.
+This phase involves analyzing the application code and checks its compliance with the selected Azure target.
 To check the available Azure targets, run the following command:
 
 ```shell
@@ -103,7 +103,7 @@ Available target technologies:
 	azure-spring-apps
 ```
 
-Then it's just a matter of executing Azure AppCAT using one of the available Azure tagets.
+Then it's just a matter of executing Azure AppCAT using one of the available Azure targets.
 
 ```shell
 $ ./appcat-cli --input ./<my_application> \
@@ -131,7 +131,7 @@ The dashboard also shows the _story points_.
 
 The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change.
 Azure AppCAT uses story points to express the level of effort needed to migrate a particular application.
-It does not necessarily translate to man-hours, but the value should be consistent across tasks.
+It doesn't necessarily translate to work hours, but the value should be consistent across tasks.
 
 ![Summary incident](./media/appcat/report-summary-incident.png)
 
@@ -147,7 +147,7 @@ This report is just informing you about the technology that Azure AppCAT has dis
 
 The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
 
-These "_Issues_", also called "_Incidents_", have a severity (_Mandatory_, _Optional_, _Potential_, _Information_), a level of effort and the number of story points (number of incidents x the effort).
+These _Issues_, also called _Incidents_, have a severity (_Mandatory_, _Optional_, _Potential_, _Information_), a level of effort and the number of story points (number of incidents x the effort).
 
 ![Assessment report](./media/appcat/report-assessment.png)
 
@@ -164,7 +164,7 @@ Then, for each file/class that is affected by the incident, you can jump into th
 
 ## How should I use Azure AppCAT?
 
-Azure AppCAT is a CLI (Command-line Interface) tool that can be executed in any operating system (Windows, Linux, Mac OS).
+Azure AppCAT is a CLI (Command-line Interface) tool that can be executed in any operating system (Windows, Linux, Mac).
 
 [//]: # (TODO: Uncomment once we have the WebConsole and IDE Plugins published)
 [//]: # (Depending on your needs, there are several ways of using Azure CAT:)
@@ -184,7 +184,7 @@ The CLI generates reports at a specified output directory.
 
 [//]: # (TODO: Uncomment once we have the WebConsole and IDE Plugins published)
 [//]: # (### Web console)
-[//]: # (The Azure CAT Web console allows a team of users to assess and analayze applications.)
+[//]: # (The Azure CAT Web console allows a team of users to assess and analyze applications.)
 [//]: # (These users can be _administrators_, who configure the credentials, repositories, and proxies, and _developers_ who perform the application assessment.)
 [//]: # (Then, the developers can share the reports with any stakeholders.)
 [//]: # (![Web Console]&#40;./media/windup/execute-webconsole.png&#41;)
@@ -199,7 +199,7 @@ Azure AppCAT can be seen as a rule engine.
 It uses rules to extract files from Java archives, decompiles Java classes, scans and classifies file types, analyzes these files, and builds the reports.
 In Azure AppCAT, the rules are defined in the form of a ruleset.
 A ruleset is a collection of individual rules that define specific issues or patterns that can be detected during the analysis.
-These rules are defined in XML and follow this simple rule pattern:
+These rules are defined in XML and follow this following rule pattern:
 
 ```
 when(condition)
@@ -209,7 +209,7 @@ when(condition)
 
 Azure AppCAT provides a comprehensive set of standard migration rules.
 But because applications may contain custom libraries or components, Azure AppCAT allows you to write your own rules to identify use of components or software that may not be covered by the existing ruleset.
-To write a custom rule, you just uses a rich DSL (_Domain Specific Language_) expressed in XML.
+To write a custom rule, you use a rich DSL (_Domain Specific Language_) expressed in XML.
 
 For example, let's say we want a rule that identifies the use of the PostgreSQL JDBC driver in a Java application and suggests the use of the Azure PostgreSQL Flexible Server instead.
 We need a rule to find the PostgreSQL JDBC driver defined in a Maven `pom.xml` or a Gradle file.
@@ -225,9 +225,9 @@ We need a rule to find the PostgreSQL JDBC driver defined in a Maven `pom.xml` o
 To detect the use of this dependency, the rule uses several XML tags:
 
 * `ruleset`: The unique identifier of the ruleset.
-A ruleset is a collection of rules that are related to a specific technology or topic.
+A ruleset is a collection of rules that are related to a specific technology.
 * `targetTechnology`: The technology that the rule targets.
-In this case, we are targeting Azure App Services, AKS, Azure Spring Apps and Azure Container Apps.
+In this case, we're targeting Azure App Services, AKS, Azure Spring Apps and Azure Container Apps.
 * `rule`: The root element of a single rule.
 * `when`: The condition that must be met for the rule to be triggered.
 * `perform`: The action to be performed when the rule is triggered.
@@ -266,7 +266,7 @@ In this case, we are targeting Azure App Services, AKS, Azure Spring Apps and Az
 </ruleset>
 ```
 
-After executing this rule through Azure AppCAT, simply rerun the analysis to review the generated report.
+After executing this rule through Azure AppCAT, rerun the analysis to review the generated report.
 Similar to other incidents, the assessment report lists the identified issues and affected files related to this rule.
 
 ![Rule being executed](./media/appcat/rule.png)
@@ -279,7 +279,7 @@ A: You can download Azure AppCAT from https://windup.github.io/downloads
 
 Q: Where can I find more information about Azure AppCAT?
 
-A: When you download Azure AppCAT, you get a `docs` disctory with all the information you need to get started.
+A: When you download Azure AppCAT, you get a `docs` directory with all the information you need to get started.
 
 Q: Where can I find the specific Azure rules?
 
