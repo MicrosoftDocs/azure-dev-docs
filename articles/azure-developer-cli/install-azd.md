@@ -25,7 +25,21 @@ Note: When you install `azd`, the following tools are installed within `azd` sco
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
 
 ::: zone pivot="os-windows"
+
+
+
 ### [Windows Package Manager (winget)](#tab/winget-windows)
+
+**Additional Dependency**: The execution of the "azd up" command requires the "pwsh" package to be installed. "pwsh" is a PowerShell Core runtime that is used by the command for certain operations.
+
+### Install `pwsh`
+
+  ```shell
+  pip install pwsh
+  ```
+
+
+
 ### Install `azd`
 
 ```powershell
