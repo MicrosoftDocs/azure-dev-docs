@@ -231,6 +231,22 @@ Cloud Shell may time out during a long deployment or other long-running tasks. M
 Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
 like Visual Studio Code.
 
+## Install different version of azd in Cloud Shell
+
+In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
+
+1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
+1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
+1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released verison like `1.0.0` can also be specified).  
+
+Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
+version of `azd` symbolically linked in `/usr/local/bin`.
+
+To revert to using the version of `azd` already installed on Cloud Shell in bash:
+
+1. Run `rm ~/bin/azd`
+1. Run `rm -rf ~/azd`
+
 ## Create a GitHub issue to request help
 
 :::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
