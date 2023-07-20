@@ -207,7 +207,7 @@ az containerapp up \
 ```azurecli
 az containerapp up \
   --resource-group web-fastapi-aca-rg --name web-aca-app \ 
-  --ingress external --target-port 80 --source .
+  --ingress external --target-port 3100 --source .
 ```
 
 ---
