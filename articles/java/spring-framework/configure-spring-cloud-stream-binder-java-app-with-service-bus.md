@@ -182,8 +182,8 @@ Use the following steps to configure your application to use a Service Bus queue
     
         @Override
         public void run(String... args) {
-            LOGGER.info("Going to add message {} to Sinks.Many.", "Hello Word");
-            many.emitNext(MessageBuilder.withPayload("Hello Word").build(), Sinks.EmitFailureHandler.FAIL_FAST);
+            LOGGER.info("Going to add message {} to Sinks.Many.", "Hello World");
+            many.emitNext(MessageBuilder.withPayload("Hello World").build(), Sinks.EmitFailureHandler.FAIL_FAST);
         }
     
     }
@@ -194,8 +194,8 @@ Use the following steps to configure your application to use a Service Bus queue
 1. Start the application. Messages like the following example will be posted in your application log:
 
    ```output
-   New message received: 'Hello Word'
-   Message 'Hello Word' successfully checkpointed
+   New message received: 'Hello World'
+   Message 'Hello World' successfully checkpointed
    ```
 
 ## Next steps
