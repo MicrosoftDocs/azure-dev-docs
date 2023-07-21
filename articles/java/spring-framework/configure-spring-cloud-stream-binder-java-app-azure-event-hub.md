@@ -164,8 +164,8 @@ Use the following steps to configure your application to produce and consume mes
     
         @Override
         public void run(String... args) {
-            LOGGER.info("Going to add message {} to sendMessage.", "Hello Word");
-            many.emitNext(MessageBuilder.withPayload("Hello Word").build(), Sinks.EmitFailureHandler.FAIL_FAST);
+            LOGGER.info("Going to add message {} to sendMessage.", "Hello World");
+            many.emitNext(MessageBuilder.withPayload("Hello World").build(), Sinks.EmitFailureHandler.FAIL_FAST);
         }
     
     }
@@ -176,8 +176,8 @@ Use the following steps to configure your application to produce and consume mes
 1. Start the application. Messages like this will be posted in your application log, as shown in the following example output:
 
    ```output
-   New message received: 'Hello Word', partition key: 107207233, sequence number: 458, offset: 94256, enqueued time: 2023-02-17T08:27:59.641Z
-   Message 'Hello Word!' successfully checkpointed
+   New message received: 'Hello World', partition key: 107207233, sequence number: 458, offset: 94256, enqueued time: 2023-02-17T08:27:59.641Z
+   Message 'Hello World!' successfully checkpointed
    ```
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]

@@ -23,7 +23,7 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 > [!VIDEO https://www.youtube.com/embed/9O3CALyoZHE?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
-In this tutorial, we included two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+In this tutorial, we include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
 
 Azure AD authentication is a mechanism for connecting to Azure Service Bus JMS using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
@@ -128,7 +128,7 @@ Use the following steps to configure your application to use a Service Bus queue
        @Override
        public void run(String... args) {
            LOGGER.info("Sending message");
-           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello Word");
+           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello World");
        }
 
        @JmsListener(destination = QUEUE_NAME, containerFactory = "jmsListenerContainerFactory")
@@ -172,7 +172,7 @@ Use the following steps to configure your application to use a Service Bus queue
        @Override
        public void run(String... args) {
            LOGGER.info("Sending message");
-           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello Word");
+           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello World");
        }
 
        @JmsListener(destination = TOPIC_NAME, containerFactory = "topicJmsListenerContainerFactory",
@@ -191,14 +191,12 @@ Use the following steps to configure your application to use a Service Bus queue
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
+1. Start the application. You should see `Sending message` and `Hello World` posted to your application log, as shown in the following example output:
 
    ```output
    Sending message
-   Message received: Hello Word
+   Message received: Hello World
    ```
-
----
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
