@@ -47,11 +47,11 @@
 | Digital Twins - Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
-| Event Grid | npm [4.13.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.13.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.13.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0/sdk/eventgrid/eventgrid/) |
+| Event Grid | npm [4.13.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.13.0)<br>npm [4.13.0-beta.2](https://www.npmjs.com/package/@azure/eventgrid/v/4.13.0-beta.2) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.13.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0/sdk/eventgrid/eventgrid/)<br>GitHub [4.13.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0-beta.2/sdk/eventgrid/eventgrid/) |
 | Event Hubs | npm [5.11.1](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.1) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.1/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [4.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/)<br>GitHub [4.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.1.0-beta.1/sdk/formrecognizer/ai-form-recognizer/) |
-| Identity | npm [3.2.3](https://www.npmjs.com/package/@azure/identity/v/3.2.3) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [3.2.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.3/sdk/identity/identity/) |
+| Identity | npm [3.2.4](https://www.npmjs.com/package/@azure/identity/v/3.2.4) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [3.2.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.4/sdk/identity/identity/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
 | Key Vault - Administration | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.4.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0/sdk/keyvault/keyvault-admin/) |
 | Key Vault - Certificates | npm [4.7.0](https://www.npmjs.com/package/@azure/keyvault-certificates/v/4.7.0) | [docs](/javascript/api/overview/azure/keyvault-certificates-readme) | GitHub [4.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.7.0/sdk/keyvault/keyvault-certificates/) |
@@ -324,12 +324,12 @@
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-resource-manager/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-bump-deps/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-core/v/0.32.0) |  |  |
-| Unknown Display Name | npm [0.2.0-beta.20230721.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230721.1) |  |  |
+| Unknown Display Name | npm [0.2.0-beta.20230723.1](https://www.npmjs.com/package/@azure-tools/typespec-csharp/v/0.2.0-beta.20230723.1) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-diff/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.8.8](https://www.npmjs.com/package/@azure-tools/typespec-java/v/0.8.8) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub/v/0.32.0) |  |  |
 | Unknown Display Name | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-providerhub-controller/v/0.32.0) |  |  |
-| Unknown Display Name | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-python/v/0.12.0) |  |  |
+| Unknown Display Name | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-python/v/0.13.0) |  |  |
 | Unknown Display Name | npm [0.13.4](https://www.npmjs.com/package/@azure-tools/typespec-ts/v/0.13.4) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.0.0-beta.1) |  |  |
@@ -379,16 +379,16 @@
 | IoT Http Base | npm [1.12.2](https://www.npmjs.com/package/azure-iot-http-base/v/1.12.2) |  | GitHub [1.12.2](https://github.com/Azure/azure-iot-sdk-node) |
 | IoT Hub | npm [1.16.4](https://www.npmjs.com/package/azure-iothub/v/1.16.4) |  | GitHub [1.16.4](https://github.com/Azure/azure-iot-sdk-node) |
 | IoT Hub - IoT Common | npm [1.13.2](https://www.npmjs.com/package/azure-iot-common/v/1.13.2) |  | GitHub [1.13.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/common) |
-| IoT Hub - IoT Device | npm [1.18.2](https://www.npmjs.com/package/azure-iot-device/v/1.18.2) |  | GitHub [1.18.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/device) |
+| IoT Hub - IoT Device | npm [1.18.3](https://www.npmjs.com/package/azure-iot-device/v/1.18.3) |  | GitHub [1.18.3](https://github.com/Azure/azure-iot-sdk-node/tree/master/device) |
 | IoT Hub Device Provisioning | npm [1.9.1](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.9.1) |  | GitHub [1.9.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
 | IoT Hub Device Provisioning - AMQP | npm [1.9.1](https://www.npmjs.com/package/azure-iot-provisioning-device-amqp/v/1.9.1) |  | GitHub [1.9.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/amqp) |
 | IoT Hub Device Provisioning - Http | npm [1.9.1](https://www.npmjs.com/package/azure-iot-provisioning-device-http/v/1.9.1) |  | GitHub [1.9.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/http) |
 | IoT Hub Device Provisioning - MQTT | npm [1.8.1](https://www.npmjs.com/package/azure-iot-provisioning-device-mqtt/v/1.8.1) |  | GitHub [1.8.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
 | IoT Hub Device Provisioning Service | npm [1.11.2](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.11.2) |  | GitHub [1.11.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/mqtt) |
 | IoT MQTT Base | npm [1.13.2](https://www.npmjs.com/package/azure-iot-mqtt-base/v/1.13.2) |  | GitHub [1.13.2](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT Plug and Play - IoT Device AMQP | npm [1.14.2](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.14.2) |  | GitHub [1.14.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/amqp) |
-| IoT Plug and Play - IoT Device Http | npm [1.14.2](https://www.npmjs.com/package/azure-iot-device-http/v/1.14.2) |  | GitHub [1.14.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/http) |
-| IoT Plug and Play - IoT Device MQTT | npm [1.16.2](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.16.2) |  | GitHub [1.16.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/mqtt) |
+| IoT Plug and Play - IoT Device AMQP | npm [1.14.3](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.14.3) |  | GitHub [1.14.3](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/amqp) |
+| IoT Plug and Play - IoT Device Http | npm [1.14.3](https://www.npmjs.com/package/azure-iot-device-http/v/1.14.3) |  | GitHub [1.14.3](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/http) |
+| IoT Plug and Play - IoT Device MQTT | npm [1.16.3](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.16.3) |  | GitHub [1.16.3](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/mqtt) |
 | IoT Security Symmetric Key | npm [1.8.2](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.8.2) |  | GitHub [1.8.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/symmetric) |
 | IoT Security TPM | npm [1.9.2](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.9.2) |  | GitHub [1.9.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/tpm) |
 | IoT Security X509 | npm [1.8.2](https://www.npmjs.com/package/azure-iot-security-x509/v/1.8.2) |  | GitHub [1.8.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509) |
@@ -427,7 +427,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230721.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230721.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230723.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230723.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -508,7 +508,7 @@
 | AutoRest - Go | npm [4.0.0-preview.54](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.54) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.623](https://www.npmjs.com/package/@autorest/powershell/v/4.0.623) |  | GitHub [4.0.623](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.7.0](https://www.npmjs.com/package/@autorest/python/v/6.7.0) |  | GitHub [6.7.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.7.1](https://www.npmjs.com/package/@autorest/python/v/6.7.1) |  | GitHub [6.7.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
