@@ -20,7 +20,7 @@ Spring Boot apps typically enable TLS by installing the certificates. The certif
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
 
 > [!IMPORTANT]
-> Currently, Spring Cloud Azure Certificate starter 4.x or higher versions don't support TLS/mTLS, they only auto-configure the Key Vault certificate client. Therefore, if you want to use TLS/mTLS, you cannot migrate to version 4.x.
+> Currently, Spring Cloud Azure Certificate starter version 4.x or higher don't support TLS/mTLS, they only auto-configure the Key Vault certificate client. Therefore, if you want to use TLS/mTLS, you cannot migrate to version 4.x.
 
 ## Prerequisites
 
