@@ -110,11 +110,11 @@ landingContent:
           - text: Create a Linux VM
             url: /azure/virtual-machines/linux/quick-create-terraform
           - text: Create a Linux VM cluster
-            url: create-vm-cluster-with-infrastructure.md
+            url: /azure/virtual-machines/linux/quick-cluster-create-terraform
           - text: Create a Windows VM
             url: /azure/virtual-machines/windows/quick-create-terraform
           - text: Create a Windows VM cluster
-            url: create-vm-cluster-module.md
+            url: /azure/virtual-machines/windows/quick-cluster-create-terraform
       - linkListType: how-to-guide
         links:
           - text: Provision VM scale set with infrastructure
