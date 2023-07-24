@@ -68,11 +68,10 @@ C++ projects.
 
 * In general, see [Visual Studio | Python documentation](/visualstudio/python/) for all documentation related to using Python on Visual Studio 2022.
 
-* For setup steps, see [Install Python support in Visual Studio](/visualstudio/python/installing-python-support-in-visual-studio) which walks you through the steps of installing the Python workload 
-into Visual Studio 2022.
+* For setup steps, see [Install Python support in Visual Studio](/visualstudio/python/installing-python-support-in-visual-studio) which walks you through the steps of installing the Python workload into Visual Studio 2022.
 
-* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](visualstudio/ide/quickstart-python). This article is 
-useful 
+* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](/visualstudio/ide/quickstart-python). This article is useful for understanding how to build a Python web application
+from scratch (but does not include deployment to Azure).
 
 * For using Visual Studio 2022 to manage Azure resources and deploy to Azure, 
 see [Azure Development with Visual Studio](/visualstudio/azure/). While much of the documentation here specifically mentions 
