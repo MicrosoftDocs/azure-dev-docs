@@ -23,7 +23,7 @@ It helps customers to modernize and replatform large-scale Java applications thr
 It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure.
 
 Azure AppCAT is based on [WindUp](https://github.com/windup).
-WindUp is an open-source project created by Red Hat and published under the [Eclipse Public License](https://www.eclipse.org/org/documents/epl-v10.html) EPL).
+WindUp is an open-source project created by Red Hat and published under the [Eclipse Public License](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html) EPL).
 It bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (Azure services, Java 17, Jakarta EE 10, Quarkus, Spring, etc.).
 Azure AppCAT includes Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps and Azure Spring Apps) and specific Azure replatforming rules.
 
@@ -291,15 +291,15 @@ A: When you download Azure AppCAT, you get a `docs` directory with all the infor
 
 Q: Where can I find the specific Azure rules?
 
-A: All the Azure rules are available in the [Azure AppCAT Ruleset GitHub repository](https://github.com/azure/windup-rulesets)
+A: All the Azure rules are available in the [Azure AppCAT Ruleset GitHub repository](https://github.com/Azure/appcat-rulesets)
 
 Q: Where can I find more information about creating custom rules?
 
-A: WindUp has a dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index)
+A: AppCAT being based on WindUp, you can check its dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index)
 
 Q: Where can I find some help when creating custom rules?
 
-A: The best is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/windup-rulesets/issues)
+A: The best is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/appcat-rulesets/issues)
 
 Q: Where can I find more information on the EPL license?
 
