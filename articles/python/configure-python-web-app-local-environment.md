@@ -66,16 +66,16 @@ on using Visual Studio Code, Visual Studio 2022 is a great option if you already
 have it installed, you're comfortable with using it, and are using it for .NET or 
 C++ projects.
 
-* In general, see [Visual Studio | Python documentation](https://learn.microsoft.com/visualstudio/python/?view=vs-2022) for all documentation related to using Python on Visual Studio 2022.
+* In general, see [Visual Studio | Python documentation](https://learn.microsoft.com/visualstudio/python/) for all documentation related to using Python on Visual Studio 2022.
 
-* For setup steps, see [Install Python support in Visual Studio](https://learn.microsoft.com/visualstudio/python/installing-python-support-in-visual-studio?view=vs-2022) which walks you through the steps of installing the Python workload 
+* For setup steps, see [Install Python support in Visual Studio](https://learn.microsoft.com/visualstudio/python/installing-python-support-in-visual-studio) which walks you through the steps of installing the Python workload 
 into Visual Studio 2022.
 
-* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](https://learn.microsoft.com/visualstudio/ide/quickstart-python?view=vs-2022). This article is 
+* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](https://learn.microsoft.com/visualstudio/ide/quickstart-python). This article is 
 useful 
 
 * For using Visual Studio 2022 to manage Azure resources and deploy to Azure, 
-see [Azure Development with Visual Studio](https://learn.microsoft.com/visualstudio/azure/?view=vs-2022). While much of the documentation here specifically mentions 
+see [Azure Development with Visual Studio](https://learn.microsoft.com/visualstudio/azure/). While much of the documentation here specifically mentions 
 .NET, the tooling for managing Azure resources and deploying to Azure works the 
 same regardless of the programming language.
 
