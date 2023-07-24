@@ -46,6 +46,19 @@ Extensions in Visual Studio Code are accessible as you would expect in a typical
 
 :::image type="content" source="./media/configure-local-development-environment/visual-studio-command-palette-small.png" alt-text="A screenshot of the Visual Studio Code command palette for App Service." lightbox="./media/configure-local-development-environment/visual-studio-command-palette.png":::
 
+### Working with Dev Containers in Visual Studio Code
+
+Python developers often rely on virtual environments to create an isolated and self-contained environment for a specific project. Virtual environments allow developers to manage dependencies, packages, and Python versions separately for each project, avoiding conflicts between different projects that might require different package versions.
+
+While there are popular options available for creating virtual environments in 
+Python like `virtualenv` or `venv`, the *Visual Studio Code Dev Container* 
+extension provides another means of isolation using Docker containers within the editor and provides several additional benefits. It enables developers to define a specific development environment with all the necessary tools, dependencies, and extensions pre-configured.
+
+Dev Containers are particularly useful when working on projects that have specific requirements or dependencies that might differ from the host machine's configuration. If a team member clones project repo that was built using Dev Containers and then opens it, Visual Studio Code will identify the Dev Container configuration and ask them if they want to use the Dev Container. If they agree, they will then use the same development environment as the rest of the team, making collaboration and code sharing more efficient.
+
+See [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers).
+
+
 ## Working with Visual Studio 2022
 
 [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
