@@ -271,6 +271,14 @@ Similar to other incidents, the assessment report lists the identified issues an
 
 ![Rule being executed](./media/appcat/rule.png)
 
+## License
+
+Azure AppCAT is licensed under the [Eclipse Public License 2.0](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html).
+EPL is a copyleft license.
+It is less restrictive than, for example, the GPL. 
+It allows you to use, modify, copy, and distribute AppCAT, but any modifications you make and distribute must also be licensed under the EPL.
+However, it does not require the entire combined work to be licensed under the EPL, only the components that are originally EPL-licensed.
+
 ## Frequently asked questions
 
 Q: Where do I download Azure AppCAT from?
@@ -292,3 +300,7 @@ A: WindUp has a dedicated guide to [create custom rules](https://access.redhat.c
 Q: Where can I find some help when creating custom rules?
 
 A: The best is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/windup-rulesets/issues)
+
+Q: Where can I find more information on the EPL license?
+
+A: The Eclipse Foundation [has a FAQ on EPL](https://www.eclipse.org/legal/epl-2.0/faq.php)
