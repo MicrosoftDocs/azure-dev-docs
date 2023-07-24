@@ -46,6 +46,27 @@ Extensions in Visual Studio Code are accessible as you would expect in a typical
 
 :::image type="content" source="./media/configure-local-development-environment/visual-studio-command-palette-small.png" alt-text="A screenshot of the Visual Studio Code command palette for App Service." lightbox="./media/configure-local-development-environment/visual-studio-command-palette.png":::
 
+## Working with Visual Studio 2022
+
+[Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
+on using Visual Studio Code, Visual Studio 2022 is a great option if you already
+have it installed and are using it for .NET or C++ projects.
+
+* In general, see [Visual Studio | Python documentation](https://learn.microsoft.com/en-us/visualstudio/python/?view=vs-2022) for all documentation related to using Python on Visual Studio 2022.
+
+* For setup steps, see [Install Python support in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/python/installing-python-support-in-visual-studio?view=vs-2022) which walks you through the steps of installing the Python workload 
+into Visual Studio 2022.
+
+* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](https://learn.microsoft.com/visualstudio/ide/quickstart-python?view=vs-2022). This article is 
+useful 
+
+* For Azure app development workflows in Visual Studio 2022, see [Azure Development with Visual Studio](https://learn.microsoft.com/en-us/visualstudio/azure/?view=vs-2022). While much of the documentation here specifically mentions .NET, 
+the tooling for managing and deploying to Azure works the same regardless of the 
+programming language.
+
+* When there's no built-in tool available in Visual Studio 2022 for a given 
+management or deployment task, you can always use [Azure CLI commands](#azure-cli-commands).
+
 ## Working with other IDEs
 
 If you're working in another IDE that doesn't have explicit support for Azure, then you can use the Azure CLI to manage Azure resources. In the screenshot below, a simple Flask web app is open in the [PyCharm](https://www.jetbrains.com/pycharm/) IDE. The web app can be deployed to an Azure App Service using the `az webapp up` command. In the screenshot, the CLI command runs within the PyCharm embedded terminal emulator. If your IDE doesn't have an embedded emulator, your can use any terminal and the same command. The Azure CLI must be installed on your computer and be accessible in either case.
