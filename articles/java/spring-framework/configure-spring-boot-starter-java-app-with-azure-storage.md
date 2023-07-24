@@ -157,6 +157,6 @@ For more information about the additional Spring Boot Starters that are availabl
 For more information about additional Azure storage APIs that you can call from your Spring Boot applications, see the following articles:
 
 - [Quickstart: Azure Blob Storage client library for Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
-- [How to use Queue Storage from Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)
+- [How to use Queue Storage from Java](/azure/storage/queues/storage-quickstart-queues-java?tabs=powershell%2Cpasswordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 - [How to use Azure Table client library for Java](/azure/cosmos-db/table-storage-how-to-use-java)
 - [Developer for Azure Files with Java](/azure/storage/files/storage-java-how-to-use-file-storage)
