@@ -197,7 +197,7 @@ Use the following steps to configure your application to produce and consume mes
 
        @Override
        public void run(String... args) {
-           many.emitNext(new GenericMessage<>("Hello Word"), Sinks.EmitFailureHandler.FAIL_FAST);
+           many.emitNext(new GenericMessage<>("Hello World"), Sinks.EmitFailureHandler.FAIL_FAST);
        }
 
    }
@@ -211,7 +211,7 @@ Use the following steps to configure your application to produce and consume mes
    Kafka version: 3.0.1
    Kafka commitId: 62abe01bee039651
    Kafka startTimeMs: 1622616433956
-   New message received: 'Hello Word'
+   New message received: 'Hello World'
    ```
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
