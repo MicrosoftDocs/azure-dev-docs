@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform'
+title: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 ms.topic: how-to
 ms.date: 07/25/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
-# Quickstart: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
+# Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, you can do such tasks as provisioning, upgrading, and scaling resources on-demand.
 
