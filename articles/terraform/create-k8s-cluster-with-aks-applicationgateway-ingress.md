@@ -36,7 +36,7 @@ In this article, you learn how:
   - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
   - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
 
-  You'll need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
+  You need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
@@ -321,10 +321,10 @@ az ad sp delete --id <service_principal_object_id>
 
 ## Troubleshoot Terraform on Azure
 
-If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options will enable you to resolve the error:
+If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options enable you to resolve the error:
 
 - Create the service principal with the "Owner" role. As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
-- Create a custom role based on the role you want - such as Contributor. Depending on the base role you use, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+- Create a custom role based on the role you want - such as Contributor. Depending on the base role, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
