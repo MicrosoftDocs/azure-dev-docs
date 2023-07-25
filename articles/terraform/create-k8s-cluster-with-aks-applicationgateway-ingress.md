@@ -64,7 +64,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Under **Azure services**, select **Storage accounts**. (If the **Storage accounts** option isn't visible on the main page, select **More services** to locate the option.)
 
-1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
+1. On the **Storage accounts** page, select the storage account to hold state information.
 
 1. On the **Storage account** page, in the left menu, in the **Security + networking** section, select **Access keys**.
 
