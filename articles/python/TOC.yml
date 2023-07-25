@@ -1,19 +1,13 @@
 - name: Azure for Python developers
   href: index.yml
 
-- name: Cloud development with Azure
-  items:
-    - name: What is Azure?
-      href: cloud-development-overview.md
-    - name: Create, access, and manage resources
-      href: cloud-development-provisioning.md
-    - name: The Azure development flow
-      href: cloud-development-flow.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md
+- name: Set up your dev environment
+  href: configure-local-development-environment.md
 
 - name: Web
   items:
+  - name: Set up local web dev environment
+    href: configure-python-web-app-local-environment.md  
   - name: Web app solutions
     items:
     - name: Django/Flask
@@ -32,8 +26,6 @@
           href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Configure web apps
       items:
-      - name: Local dev environment
-        href: configure-python-web-app-local-environment.md
       - name: Codespaces dev environment
         href: configure-python-web-app-codespaces.md
       - name: Configure a startup file for App Service

@@ -1122,6 +1122,15 @@
       },
       { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md",
         "redirect_url": "/azure/developer/python" 
-      }      
+      },
+      { "source_path": "articles/python/cloud-development-overview.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-provisioning.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-flow.md",
+        "redirect_url": "/azure/developer/python" 
+      }            
     ]
   }
