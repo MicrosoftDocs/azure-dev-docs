@@ -7,7 +7,7 @@ summary: |
 metadata:
   title: Azure for Python developers
   description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Container Apps, Azure Machine Learning, Azure Storage, Azure Database for PostgreSQL, and the Azure SDK for Python.
-  ms.date: 11/08/2022
+  ms.date: 7/25/2023
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -84,10 +84,10 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Cloud development overview
-            url: cloud-development-overview.md
+          - text: Get started
+            url: get-started.md
           - text: Set up your local dev environment
-            url: configure-local-development-environment.md
+            url: get-started.md#configure-your-local-python-environment-for-azure-development
           - text: Get to know the Azure libraries
             url: sdk/azure-sdk-overview.md
           - text: Learn library usage patterns
