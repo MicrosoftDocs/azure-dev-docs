@@ -1,24 +1,18 @@
 ---
-title: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
+title: 'Quickstart: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform'
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
-keywords: azure devops terraform application gateway Ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 07/25/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
-# Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
-
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+# Quickstart: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, you can do such tasks as provisioning, upgrading, and scaling resources on-demand.
 
 An Application Gateway Ingress Controller (AGIC) provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes Ingress resources are used to configure the Ingress rules for individual Kubernetes services. An Ingress controller allows a single IP address to route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
+
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 In this article, you learn how:
 
@@ -106,7 +100,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `providers.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf":::
 
     **Key points:**
 
@@ -115,19 +109,19 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
 1. Create a file named `output.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf":::
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars":::
 
     **Key points:**
 
