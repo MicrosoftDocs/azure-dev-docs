@@ -30,6 +30,18 @@ Direct download link:
 
 [Windows (x64) - https://aka.ms/TunnelsCliDownload/win-x64](https://aka.ms/TunnelsCliDownload/win-x64)
 
+To run commands with `devtunnel` instead of `./devtunnel`:
+
+1. Press the Windows key and type 'Environment variables'.
+2. Select the option 'Edit the system environment variables'.
+3. Select the 'Environment Variables...' button.
+4. There you see two tables, in the 'System Variables' table, find and select the 'PATH' variable.
+5. Select the 'Edit...' button.
+6. A window should pop up. Select the 'New' button.
+7. Type the directory path of your devtunnel.exe file (directory means exclude the file name from path.
+8. To find the directory string, you can navigate to the directory in PowerShell or terminal and type 'pwd')
+9. Select 'Ok' on all open windows and restart the command prompt.
+
 ## [macOS](#tab/macos)
 
 ```bash
