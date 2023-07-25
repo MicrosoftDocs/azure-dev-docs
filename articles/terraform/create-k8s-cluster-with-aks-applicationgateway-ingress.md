@@ -109,19 +109,19 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
 1. Create a file named `output.tf` and insert the following code.
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf":::
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf":::
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars":::
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars":::
 
     **Key points:**
 
