@@ -1,8 +1,8 @@
 - name: Azure for Python developers
   href: index.yml
 
-- name: Set up your dev environment
-  href: configure-local-development-environment.md
+- name: Get started
+  href: get-started.md
 
 - name: Web
   items:

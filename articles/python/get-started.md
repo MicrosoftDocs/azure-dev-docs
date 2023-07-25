@@ -1,14 +1,29 @@
 ---
-title: Configure your local Python environment for Azure development
+title: Get started with Python on Azure
 description: How to set up a local Python dev environment for working with Azure.
-ms.date: 06/28/2022
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, vscode-azure-extension-update-completed, devx-track-azurecli
 ---
 
-# Configure your local Python dev environment for Azure
+# Get started with Python on Azure
 
-[Previous article: The Azure development flow](./cloud-development-flow.md)
+If you are new to developing applications for the cloud, this short series of articles with videos will help you get up to speed quickly.
+
+* Part 1: [Azure for developers overview](/azure/developer/intro/azure-developer-overview)
+* Part 2: [Key Azure services for developers](/azure/developer/intro/azure-developer-key-services)
+* Part 3: [Hosting applications on Azure](/azure/developer/intro/hosting-apps-on-azure)
+* Part 4: [Connect your app to Azure services](/azure/developer/intro/connect-to-azure-services)
+* Part 5: [How do I create and manage resources in Azure?](/azure/developer/intro/azure-developer-create-resources)
+* Part 6: [Key concepts for building Azure apps](/azure/developer/intro/azure-developer-key-concepts)
+* Part 7: [How am I billed?](/azure/developer/intro/azure-developer-billing)
+* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](/azure/developer/intro/azure-service-sdk-tool-versioning)
+
+Once you understand the basics of developing applications for the cloud, you will 
+want to set up your development environment and follow a Quickstart or Tutorial 
+to build your first app.
+
+## Configure your local Python environment for Azure development
 
 To develop Python applications using Azure, you first want to configure your local development environment.  Configuration includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
