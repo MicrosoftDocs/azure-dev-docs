@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
 ms.date: 10/04/2022
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-extended-java
 ---
 
 # Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal
@@ -16,18 +16,18 @@ This article shows you how to quickly deploy JBoss EAP Server on an Azure virtua
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let the Azure portal install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which will be used as the *RHSM username* and *RHSM password* in the next section.
-- After you're registered, you can find the necessary credentials (*Pool IDs*) by following steps below. The *Pool IDs* will also be used as the *RHSM Pool ID with EAP entitlement* later.
-  - Sign in to your [Red Hat account](https://sso.redhat.com).
-  - The first time you sign in, you'll be asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
+  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
+- After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. You also use the *Pool IDs* as the *RHSM Pool ID with EAP entitlement* later in this article.
+  1. Sign in to your [Red Hat account](https://sso.redhat.com).
+  1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
 
-    :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
+     :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
 
-  - In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
-  - Select the first subscription from the **All purchased Subscriptions** table.
-  - Copy and write down the value following **Master Pools** from **Pool IDs**.
+  1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
+  1. Select the first subscription from the **All purchased Subscriptions** table.
+  1. Copy and write down the value following **Master Pools** from **Pool IDs**.
 
 > [!NOTE]
 > The Azure Marketplace offer you're going to use in this article includes support for Red Hat Satellite for license management. Using Red Hat Satellite is beyond the scope of this quick start. For an overview on Red Hat Satellite, see [Red Hat Satellite](https://aka.ms/red-hat-satellite). To learn more about moving your Red Hat JBoss EAP and Red Hat Enterprise Linux subscriptions to Azure, see [Red Hat Cloud Access program](https://aka.ms/red-hat-cloud-access-overview).
@@ -40,7 +40,7 @@ The steps in this section direct you to deploy JBoss EAP Server on Azure VMs.
 
 The following steps show you how to find the JBoss EAP Server on Azure VM offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the auto-suggested search results, in the **Marketplace** section, select **JBoss EAP standalone on RHEL VM**.
+1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the search results, in the **Marketplace** section, select **JBoss EAP standalone on RHEL VM**.
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing JBoss EAP Server on Azure VM in search results." lightbox="media/jboss-eap-single-server-azure-vm/marketplace-search-results.png":::
 
@@ -54,24 +54,25 @@ The following steps show you how to find the JBoss EAP Server on Azure VM offer 
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0823jbosseapvm*.
 1. Under **Instance details**, select the region for the deployment.
-1. Leave the default VM size for the **Virtual machine size**.
-1. Leave the default option **OpenJDK 17** for the **JDK version**.
-1. Leave the default value **jbossuser** for the **Username**.
-1. Leave the default option **Password** for the **Authentication type**.
-1. Fill in password for the **Password**. Use the same value for the **Confirm password**.
-1. Under **Optional Basic Configuration**, leave the default option **Yes** for the **Accept defaults for optional configuration**.
+1. Leave the default VM size for **Virtual machine size**.
+1. Leave the default option **OpenJDK 17** for **JDK version**.
+1. Leave the default value **jbossuser** for **Username**.
+1. Leave the default option **Password** for **Authentication type**.
+1. Fill in password for **Password**. Use the same value for **Confirm password**.
+1. Under **Optional Basic Configuration**, leave the default option **Yes** for **Accept defaults for optional configuration**.
 1. Scroll to the bottom of the **Basics** pane and notice the helpful links for **Report issues, get help, and share feedback**.
 1. Select **Next: JBoss EAP Settings**.
 
 The following steps show you how to fill out **JBoss EAP Settings** pane and start the deployment.
 
-1. Leave the default value **jbossadmin** for the **JBoss EAP Admin username**.
-1. Fill in JBoss EAP password for the **JBoss EAP password**. Use the same value for the **Confirm password**. Write down the value for later use.
-1. Fill in your RHSM username for the **RHSM username**. The value is the same one that has been prepared in the prerequisites section.
-1. Fill in your RHSM password for the **RHSM password**. Use the same value for the **Confirm password**. The value is the same one that has been prepared in the prerequisites section.
-1. Fill in your RHSM pool ID for the **RHSM Pool ID with EAP entitlement**. The value is the same one that has been prepared in the prerequisites section.
+1. Leave the default value **jbossadmin** for **JBoss EAP Admin username**.
+1. Fill in JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Write down the value for later use.
+1. Leave the default option **No** for **Connect to an existing Red Hat Satellite Server?**.
+1. Fill in your RHSM username for **RHSM username**. The value is the same one that has been prepared in the prerequisites section.
+1. Fill in your RHSM password for **RHSM password**. Use the same value for **Confirm password**. The value is the same one that has been prepared in the prerequisites section.
+1. Fill in your RHSM pool ID for **RHSM Pool ID with EAP entitlement**. The value is the same one that has been prepared in the prerequisites section.
 1. Select **Next: Networking**.
-1. Select **Next: Satellite Server Settings**.
+1. Select **Next: Database**.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
@@ -84,11 +85,11 @@ By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtu
 
 1. On the deployment page, select **Deployment details** to expand the list of Azure resource deployed. Select network security group `jbosseap-nsg` to open its details page.
 1. Under **Settings**, select **Inbound security rules**. Select **+ Add** to open **Add inbound security rule** panel for adding a new inbound security rule.
-1. Fill in *9990* for the **Destination port ranges**. Fill in *Port_jbosseap* for the **Name**. Select **Add**. Wait until the security rule created.
-1. Select **X** icon to close the network security group `jbosseap-nsg` details page. You'll be switched back to the deployment page.
+1. Fill in *9990* for **Destination port ranges**. Fill in *Port_jbosseap* for **Name**. Select **Add**. Wait until the security rule created.
+1. Select **X** icon to close the network security group `jbosseap-nsg` details page. You're switched back to the deployment page.
 1. Select the resource ending with `-nic` (with type `Microsoft.Network/networkInterfaces`) to open its details page.
 1. Under **Settings**, select **IP configurations**. Select `ipconfig1` from the list of IP configurations to open its configuration details panel.
-1. Under **Public IP address**, select **Associate**. Select **Create new** to open the **Add a public IP address** popup. Fill in *jbosseapvm-ip* for the **Name**. Select **Static** for the **Assignment**. Select **OK**.
+1. Under **Public IP address**, select **Associate**. Select **Create new** to open the **Add a public IP address** popup. Fill in *jbosseapvm-ip* for **Name**. Select **Static** for **Assignment**. Select **OK**.
 1. Select **Save**. Wait until the public IP address created and the update completes. Select the **X** icon to close the IP configuration page.
 1. Copy the value of the public IP address from the **Public IP address** column for `ipconfig1`. For example, `20.232.155.59`.
 
@@ -98,7 +99,7 @@ By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtu
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png" alt-text="Screenshot of JBoss EAP management console sign-in screen." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png":::
 
-1. Fill in the value of **JBoss EAP Admin username** which is **jbossadmin**. Fill in the value of **JBoss EAP password** you specified before for the **Password**. Select **Sign in**.
+1. Fill in the value of **JBoss EAP Admin username** which is **jbossadmin**. Fill in the value of **JBoss EAP password** you specified before for **Password**. Select **Sign in**.
 1. You should see the familiar **Red Hat JBoss Enterprise Application Platform** management console welcome page as shown in the following screenshot.
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-welcome.png" alt-text="Screenshot of JBoss EAP management console welcome page." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-welcome.png":::

@@ -3,7 +3,7 @@ title: Pagination and iteration in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to pagination and iteration
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: anuchan
 ---

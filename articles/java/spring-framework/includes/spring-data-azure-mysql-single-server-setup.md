@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.date: 02/22/2023
-ms.author: v-yonghuiye
+ms.date: 04/06/2023
+ms.author: v-yeyonghui
 ---
 
 ## Configure a firewall rule for your MySQL server
@@ -24,7 +24,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id -o tsv)
+export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;
@@ -80,7 +80,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.6.0</version>
+        <version>4.9.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -89,7 +89,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC MySQL artifact:

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 08/05/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 recommendations: false
 ---
 

@@ -9,7 +9,7 @@ groups:
     title: Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
-# Owner: v-yonghuiye
+# Owner: v-yeyonghui
 - id: passwordless-mysql
   title: Azure Database for MySQL use passwordless connection
   prompt: Choose the Azure Database for MySQL server to use

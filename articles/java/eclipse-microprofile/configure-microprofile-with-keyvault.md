@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Configure MicroProfile with Azure Key Vault
@@ -38,7 +38,7 @@ public class DemoClass {
 }
 ```
 
-This sample makes use of [Payara Micro](https://www.payara.fish/payara_micro) and [MicroProfile](https://microprofile.io/) to create a tiny Java war file that you can run locally on your machine. The sample doesn't demonstrate how to containerize or push the code to Azure, but the links section at the end of this tutorial has links to other useful tutorials that explain this.
+This sample makes use of [Payara Micro](https://www.payara.fish/products/payara-micro/) and [MicroProfile](https://microprofile.io/) to create a tiny Java war file that you can run locally on your machine. The sample doesn't demonstrate how to containerize or push the code to Azure, but the links section at the end of this tutorial has links to other useful tutorials that explain this.
 
 This sample makes use of a free and open source library that creates a config source (using the MicroProfile Config API) for Azure Key Vault. You can learn more about this library, and review the code, on the [project GitHub page](https://github.com/Azure/azure-microprofile/tree/master/microprofile-config-keyvault). By using this library, the code in this tutorial can focus on configuration of the library, followed by injecting keys into your code, and we don't need to write any Azure-specific code.
 
@@ -52,11 +52,12 @@ First, create an Azure service principal to provide the client ID and key we nee
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <subscription-id>
 
-az ad sp create-for-rbac --name <service_principal_name> \
+az ad sp create-for-rbac \
+    --name <service-principal-name> \
     --role Contributor \
-    --scopes /subscriptions/<subscription_id>
+    --scopes /subscriptions/<subscription-id>
 ```
 
 Let's say we use `microprofile-keyvault-service-principal` for the service principal name in the previous step. The response from Azure for doing this will be in the following, slightly censored, form:
@@ -78,35 +79,38 @@ Now that we've created a service principal, we can optionally create a resource 
 ```azurecli
 # For this tutorial, the author chose to use `westus`
 # and `jg-test` for the resource group name.
-az group create -l <resource_group_location> -n <resource_group_name>
+az group create --location <resource-group-location> --name <resource-group-name>
 ```
 
 We now create an Azure Key Vault resource. Note that the Key Vault name is what you will use to reference the key vault later, so choose something memorable.
 
 ```azurecli
-az keyvault create --name <your_keyvault_name>            \
-                   --resource-group <your_resource_group> \
-                   --location <location>                  \
-                   --enabled-for-deployment true          \
-                   --enabled-for-disk-encryption true     \
-                   --enabled-for-template-deployment true \
-                   --sku standard
+az keyvault create \
+    --name <your-keyvault-name> \
+    --resource-group <your-resource-group> \
+    --location <location> \
+    --enabled-for-deployment true \
+    --enabled-for-disk-encryption true \
+    --enabled-for-template-deployment true \
+    --sku standard
 ```
 
 We also need to grant the appropriate permissions to the service principal we created earlier, so that it may access the Key Vault secrets. Note that the appID value is the `appId` value from above where we created the service principal (that is, `5292398e-XXXX-40ce-XXXX-d49fXXXX9e79` - but use the value from your terminal output).
 
 ```azurecli
-az keyvault set-policy --name <your_keyvault_name>   \
-                       --secret-permission get list  \
-                       --spn <your_sp_appId_created_in_step1>
+az keyvault set-policy \
+    --name <your-keyvault-name> \
+    --secret-permission get list \
+    --spn <your-sp-appId-created-in-step1>
 ```
 
 We're now at the point where we can push a secret into Key Vault. Lets use the key name `demo-key`, and set the value of the key to be `demo-value`:
 
 ```azurecli
-az keyvault secret set --name demo-key      \
-                       --value demo-value   \
-                       --vault-name <your_keyvault_name>  
+az keyvault secret set \
+    --name demo-key \
+    --value demo-value \
+    --vault-name <your-keyvault-name>
 ```
 
 That's it! We now have Key Vault running in Azure with a single secret. We can now clone this repo and configure it to use this resource in our app.

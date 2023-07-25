@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 5/26/2020
-ms.custom: devx-track-java, migration-java
+ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 ---
 
@@ -36,6 +36,8 @@ If you can't meet any of these pre-migration requirements, see the following com
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
 [!INCLUDE [switch-to-a-supported-platform-azure-spring-apps](includes/switch-to-a-supported-platform-azure-spring-apps.md)]
+
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-apps.md)]
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 

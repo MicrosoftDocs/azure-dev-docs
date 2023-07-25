@@ -3,6 +3,7 @@ title: How to use the .NET SDK for Azure Mobile Apps
 description: How to use the .NET SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 01/08/2023
 ms.author: adhal

@@ -6,7 +6,7 @@ ms.author: karler
 ms.date: 11/12/2019
 ms.service: app-service
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Deploy a Spring app to App Service with MySQL

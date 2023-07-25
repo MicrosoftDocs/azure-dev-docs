@@ -29,3 +29,15 @@ groups:
     title: Create new template
   - id: azd-convert
     title: Convert a sample
+- id: azd-os-env-set
+  title: OS / Development Environment
+  prompt: Choose an OS (for local install) or development environment
+  pivots:
+  - id : os-windows
+    title: Windows
+  - id: os-linux
+    title: Linux
+  - id: os-mac
+    title: Mac
+  - id: env-dev-container 
+    title: Dev Container

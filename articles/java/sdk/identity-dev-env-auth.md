@@ -3,7 +3,7 @@ title: Azure Authentication in Java development environments
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 author: KarlErickson
 ms.author: vigera
 ---

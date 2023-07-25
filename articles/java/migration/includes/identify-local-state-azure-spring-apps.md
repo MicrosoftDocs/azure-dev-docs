@@ -20,4 +20,4 @@ Before migrating to Azure Spring Apps, ensure that your code does not contain lo
 
 * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started)
 * [Azure Cosmos DB](/azure/cosmos-db/create-sql-api-java)
-* Another external database, such as [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure DB for MySQL](/azure/mysql/overview), or [Azure DB for PostgreSQL](/azure/postgresql/overview).
+* Another external database, such as [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure Database for MySQL](/azure/mysql/overview), or [Azure Database for PostgreSQL](/azure/postgresql/overview).

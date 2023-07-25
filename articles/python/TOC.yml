@@ -16,26 +16,14 @@
   items:
   - name: Web app solutions
     items:
-    - name: Django/Flask web app
+    - name: Django/Flask
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Django/Flask web app + database
+    - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Django/Flask web app + database + auth
-      items:
-      - name: 1. Overview
-        href: tutorial-python-managed-identity-01.md
-      - name: 2. Run the web app locally
-        href: tutorial-python-managed-identity-02.md
-      - name: 3. Create an App Service
-        href: tutorial-python-managed-identity-03.md
-      - name: 4. Create a storage account
-        href: tutorial-python-managed-identity-04.md
-      - name: 5. Create a PostgreSQL database
-        href: tutorial-python-managed-identity-05.md
-      - name: 6. Deploy the web app to Azure
-        href: tutorial-python-managed-identity-06.md
-      - name: 7. Clean up resources
-        href: tutorial-python-managed-identity-07.md
+    - name: Passwordless auth - system managed identity
+      href: tutorial-python-managed-identity-cli.md
+    - name: Passwordless auth - user-assigned managed identity
+      href: tutorial-python-managed-identity-user-assigned-cli.md
     - name: Static websites
       items:
         - name: Hosting in Azure Storage
@@ -44,9 +32,11 @@
           href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Configure web apps
       items:
-      - name: Set up web dev environment
+      - name: Local dev environment
         href: configure-python-web-app-local-environment.md
-      - name: Configure a startup file
+      - name: Codespaces dev environment
+        href: configure-python-web-app-codespaces.md
+      - name: Configure a startup file for App Service
         href: configure-python-web-app-on-app-service.md
     - name: CI/CD with App Service
       items:
@@ -106,24 +96,32 @@
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
       items:
-        - name: 1. Overview
-          href: tutorial-containerize-deploy-python-web-app-azure-01.md
-        - name: 2. Build and test container locally
-          href: tutorial-containerize-deploy-python-web-app-azure-02.md
-        - name: 3. Build container in Azure
-          href: tutorial-containerize-deploy-python-web-app-azure-03.md
-        - name: 4. Deploy container App Service
-          href: tutorial-containerize-deploy-python-web-app-azure-04.md
-        - name: 5. Clean up resources
-          href: tutorial-containerize-deploy-python-web-app-azure-05.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-web-app-for-app-service.md
+        - name: Web app + MongoDB
+          items:
+            - name: 1. Overview
+              href: tutorial-containerize-deploy-python-web-app-azure-01.md
+            - name: 2. Build and test container locally
+              href: tutorial-containerize-deploy-python-web-app-azure-02.md
+            - name: 3. Build container in Azure
+              href: tutorial-containerize-deploy-python-web-app-azure-03.md
+            - name: 4. Deploy container App Service
+              href: tutorial-containerize-deploy-python-web-app-azure-04.md
+            - name: 5. Clean up resources
+              href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy to Container Apps
       items:
-        - name: Overview
-          href: tutorial-deploy-python-web-app-azure-container-apps-01.md
-        - name: Build and deploy a container app
-          href: tutorial-deploy-python-web-app-azure-container-apps-02.md
-        - name: Configure CI/CD
-          href: tutorial-deploy-python-web-app-azure-container-apps-03.md
+        - name: Simple web app
+          href: tutorial-containerize-simple-web-app.md
+        - name: Web app + PostgreSQL
+          items:
+            - name: Overview
+              href: tutorial-deploy-python-web-app-azure-container-apps-01.md
+            - name: Build and deploy a container app
+              href: tutorial-deploy-python-web-app-azure-container-apps-02.md
+            - name: Configure CI/CD
+              href: tutorial-deploy-python-web-app-azure-container-apps-03.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 

@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: jogiles
 ms.date: 03/16/2023
 ms.topic: article
+ms.custom: devx-track-extended-java
 ---
 
 # Get started with Azure SDK and Gradle

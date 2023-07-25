@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
 ms.date: 09/30/2022
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal
@@ -160,7 +160,7 @@ Use the following steps to run a sample application in the WLS.
 
 1. Paste the value of **adminConsoleURL** in an internet-connected web browser. You should see the familiar WLS admin console login screen as shown in the following screenshot.
 
-   :::image type="content" source="media/weblogic-server-azure-kubernetes-service/wls-admin-login.png" alt-text="Screenshot of WLS admin login screen.":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/wls-admin-login.png" alt-text="Screenshot of WLS admin login screen.":::
 
 1. Log in with user name *weblogic* and your password (this article uses *wlsVmCluster2022*). You'll see the WLS Administration Console overview page.
 

@@ -1,3 +1,4 @@
+items:
 - name: Java to Azure migration documentation
   href: index.yml
   items:
@@ -46,13 +47,19 @@
           href: migrate-weblogic-to-aks-within-an-existing-vnet.md
         - name: "Tutorial: WebLogic Server with App Gateway"
           href: migrate-weblogic-with-app-gateway.md
-        - name: "Tutorial: WebLogic Server with Elastic on Azure"
+        - name: WebLogic Server to JBoss EAP on Azure App Service
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
     - name: WebSphere to Azure
       expanded: true
       items:
+        - name: WebSphere Application Server to AKS
+          href: migrate-websphere-to-azure-kubernetes-service.md
+        - name: WebSphere Application Server to Azure Red Hat OpenShift
+          href: migrate-websphere-to-azure-redhat-openshift.md
         - name: WebSphere Application Server to Azure Virtual Machines
           href: migrate-websphere-to-virtual-machines.md
+        - name: "Tutorial: WebSphere to Azure VMs manual guidance"
+          href: migrate-websphere-to-azure-vm-manually.md
         - name: WebSphere to JBoss EAP on App Service
           href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
         - name: WebSphere to WildFly on AKS

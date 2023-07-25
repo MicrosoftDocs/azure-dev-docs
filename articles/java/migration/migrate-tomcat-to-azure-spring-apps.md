@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: conceptual
 ms.date: 6/16/2020
 recommendations: false
-ms.custom: devx-track-java, migration-java
+ms.custom: devx-track-java, migration-java, devx-track-extended-java
 ---
 
 # Migrate a Tomcat application to Azure Spring Apps

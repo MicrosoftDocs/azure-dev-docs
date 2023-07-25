@@ -3,7 +3,7 @@ title: Azure authentication with service principal
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 author: KarlErickson
 ms.author: vigera
 ---
@@ -25,7 +25,10 @@ Use the [Azure CLI][azure_cli] examples below to create or get client secret cre
 Use the following command to create a service principal and configure its access to Azure resources:
 
 ```azurecli
-az ad sp create-for-rbac -n <your application name> --role Contributor --scopes /subscriptions/mySubscriptionID
+az ad sp create-for-rbac \
+    --name <your application name> \
+    --role Contributor \
+    --scopes /subscriptions/mySubscriptionID
 ```
 
 This command returns a value similar to the following output:
@@ -43,7 +46,11 @@ This command returns a value similar to the following output:
 Use the following command to create a service principal along with a certificate. Note down the path/location of this certificate.
 
 ```azurecli
-az ad sp create-for-rbac -n <your application name> --role Contributor --cert <certificate name> --create-cert
+az ad sp create-for-rbac \
+    --name <your application name> \
+    --role Contributor \
+    --cert <certificate name> \
+    --create-cert
 ```
 
 Check the returned credentials and to note down the following information:
