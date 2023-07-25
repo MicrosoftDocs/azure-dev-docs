@@ -164,11 +164,11 @@
         - name: Create a Linux VM
           href: /azure/virtual-machines/linux/quick-create-terraform
         - name: Create a Linux VM cluster
-          href: create-vm-cluster-with-infrastructure.md
+          href: /azure/virtual-machines/linux/quick-cluster-create-terraform
         - name: Create a Windows VM
           href: /azure/virtual-machines/windows/quick-create-terraform
         - name: Create a Windows VM cluster
-          href: create-vm-cluster-module.md
+          href: /azure/virtual-machines/windows/quick-cluster-create-terraform
 - name: Samples
   items:
     - name: Terraform samples
