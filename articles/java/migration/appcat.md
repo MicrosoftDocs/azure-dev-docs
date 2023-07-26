@@ -15,7 +15,7 @@ This guide describes how to assess and replatform any type of Java applications 
 
 ## What is Azure AppCAT?
 
-[Azure AppCAT](https://aka.ms/appcat) is a generic application and code assessment tool to replatform applications to Azure.
+Azure AppCAT is a generic application and code assessment tool to replatform applications to Azure.
 It helps customers to modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
 Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure.
@@ -56,7 +56,7 @@ azure-appcat-cli-<version>    # APPCAT_HOME
       └── run-discovery
 ```
 
-* *docs*: This directory contains the documentation of Azure AppCAT (you can also check the [online documentation](https://aka.ms/appcat/docs)).
+* *docs*: This directory contains the documentation of Azure AppCAT (you can also check the [online documentation](https://azure.github.io/appcat-docs)).
 * *bin*: This directory contains the Azure AppCAT CLI executables (for Windows/Linux/Mac).
 * *samples*: This directory contains a sample application and several scripts to run Azure AppCAT against the sample application.
 
@@ -233,7 +233,7 @@ A: You can download Azure AppCAT from https://aka.ms/appcat/azure-appcat-cli-lat
 
 Q: Where can I find more information about Azure AppCAT?
 
-A: When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started. You can also check the [online documentation](https://aka.ms/appcat/docs).
+A: When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started. You can also check the [online documentation](https://azure.github.io/appcat-docs).
 
 Q: Where can I find the specific Azure rules?
 
