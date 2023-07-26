@@ -176,7 +176,7 @@ Run the image locally in a Docker container.
 docker run --detach --publish 5000:50505 flask-demo
 ```
 
-Open the `http://localhost:5000` URL in your browser to see the web app running locally.
+Open the ```http://localhost:5000``` URL in your browser to see the web app running locally.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -184,7 +184,7 @@ Open the `http://localhost:5000` URL in your browser to see the web app running 
 docker run --detach --publish 3100:3100 fastapi-demo
 ```
 
-Open the `http://localhost:3100` URL in your browser to see the web app running locally.
+Open the ```http://localhost:3100``` URL in your browser to see the web app running locally.
 
 ---
 
