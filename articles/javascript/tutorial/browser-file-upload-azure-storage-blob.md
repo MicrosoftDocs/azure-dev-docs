@@ -236,8 +236,9 @@ While you created the resource, you don't have permission yet to view the conten
 1. Select **+ Select members**. 
 1. Search and select your account.
 1. Select **Review + assign**.
+1. Select **Containers** then the **upload** container. You should be able to see there are no blobs in the container without authorization errors. 
 
-## 6. Get Storage resource credentials
+## 8. Get Storage resource credentials
 
 The Storage resource credentials are used in the Azure Functions API app to connect to the Storage resource. 
 
@@ -248,9 +249,9 @@ The Storage resource credentials are used in the Azure Functions API app to conn
 
 It may seem like you entered the same credentials twice. You did, but specifically for this very simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You will need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values.
 
-## 7. Run the API app
+## 9. Run the API app
 
-In the API app's terminal, run the following command to start the API app. 
+1. In the API app's terminal, run the following command to start the API app. 
 
     ```bash
     npm run start
@@ -264,26 +265,27 @@ In the API app's terminal, run the following command to start the API app.
             list: [POST,GET] http://localhost:7071/api/list
     
             sas: [POST,GET] http://localhost:7071/api/sas
-    
+
             status: [GET] http://localhost:7071/api/status
     ```
 
-1. Expose the port for the Functions API app as public by selecting the  **Expose as public** button in the notification pop-up. If the notification box isn't available, select the **Ports** tab in the bottom pane then right-click the **7071** port and select **Port Visibility** then select **Public**.
+1. Select the **Ports** tab in the bottom pane then right-click the **7071** port and select **Port Visibility** then select **Public**.
 
     If you don't expose this app as public, you'll get an error when you use the API from the client app. 
 
-1. To test that the API works and connects to storage, in the **Ports** tab in the bottom pane, select the globe icon in the **Local Address** area for port 7071. 
-1. Add the API route to the URL address bar: `/api/sas?container=upload&file=test.png`.
-1. The response is a JSON object with the URL to access that file, after it is uploaded to Storage. The `sig` is the part of the SAS token query string with the signature (credential).
+1. To test that the API works and connects to storage, in the **Ports** tab in the bottom pane, select the globe icon in the **Local Address** area for port 7071. This opens a web browser to the functions app.
+1. Add the API route to the URL address bar: `/api/sas?container=upload&file=test.png`. 
+    Its ok that the file isn't in the container yet. The API creates the SAS token based on where you want it to be. 
+1. The JSON response should look something like the following: 
 
-    ```console
+    ```JSON
     {
-        "url":"https://myrepo.blob.core.windows.net/upload/test1.png?sv=2023-01-03&spr=https&st=2023-07-20T19%3A45%3A08Z&se=2023-07-20T19%3A46%3A08Z&sr=b&sp=w&sig=RtnTDukQdZ%2Brc0%2ByCsayeP0BZ3KlrKmk50nNFu7iGhk%3D"
+        "url":"https://YOUR-STORAGE-RESOURCE.blob.core.windows.net/upload/test.png?sv=2023-01-03&spr=https&st=2023-07-26T22%3A15%3A59Z&se=2023-07-26T22%3A25%3A59Z&sr=b&sp=w&sig=j3Yc..."
     }
     ```
-1. Copy the base of the URL to use in the next step. The base URL is everything before `/upload/...`.
+1. Copy the base of the API URL (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`.
 
-## 8. Configure and run the client app
+## 10. Configure and run the client app
 
 1. Open the `.env` file in the **app** client folder.
 1. Paste the base URL from the previous step as the value for the `VITE_API_SERVER`.
@@ -303,7 +305,7 @@ In the API app's terminal, run the following command to start the API app.
       ➜  press h to show help
     ``` 
 
-1. Use the URL provided in the notification pop-up to open a browser for the client app. If the notification box isn't available, select the **Ports** tab in the bottom pane then right-click the **5173** port and select the globe icon.
+1. Select the **Ports** tab in the bottom pane then right-click the **5173** port and select the globe icon.
 
 1. You should see the simple web app.
 
@@ -319,21 +321,22 @@ In the API app's terminal, run the following command to start the API app.
 
 1. The client app and the API app successfully worked together in a containerizeded developer environment. 
 
-## 9. Deploy static web app to Azure 
+## 11. Deploy static web app to Azure 
 
 1. In Visual Studio Code, select the Azure explorer.
 1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes. 
 
     To roll back the changes, in Visual Studio Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
 
+1. Navigate to the Azure Storage extension. 
 1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.
 
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
-    |*Enter the name for the new static web app.*|Create a unique name for your resource, such as `upload-file-to-storage`. This name isn't use as part of the URL for the client app.|
     |*Select a resource group for new resources.*|Use the resource group that you created for your storage resource.|
+    |*Enter the name for the new static web app.*|Accept the default name.|
     |*Select a SKU*| Select the free SKU for this tutorial. If you already have a free Static Web App resource in your subscription, select the next pricing tier.|
     |*Choose build preset to configure default project structure.*|Select **Custom**.|
     |*Select the location of your application code*|`azure-upload-file-to-storage/app`|
@@ -345,11 +348,28 @@ In the API app's terminal, run the following command to start the API app.
 
     :::image type="content" source="media/tutorial-browser-file-upload/visual-studio-code-static-web-app-view-edit-workflow.png" alt-text="Partial screenshot of Visual Studio Code notification pop-up with View/Edit Workflow button highlighted.":::
 
-## 10. Configure API with Storage resource name and key
+1. Your remote fork has a new workflow file for deploying to Static Web Apps. Pull that file down to your environment with the following command in the terminal:
 
+    ```bash
+    git pull origin main
+    ```
 
+1. Open the worflow file located 
 
-## 12. Verify build and deploy job completes
+## 12. Configure API with Storage resource name and key
+
+The API needs the Azure Storage resource name and key before the API works correctly.
+
+1. Still in the Azure Explorer, right-click on the **Static Web App resource** and select **Open in Portal**.
+1. Select **Configuration** in the **Settings** section.
+1. Select **+ Add** and create the **Azure_Storage_AccountName** environment setting. Paste your value from `local.settings.json` file in the API project. Select **OK** to save the setting. 
+1. Select **+ Add** and create the **Azure_Storage_AccountKey** environment setting. Paste your value from `local.settings.json` file in the API project. Select **OK** to save the setting.  
+1. Select **Save** on the Configuration page to save both settings.
+
+> [!NOTE]
+> You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same application. 
+
+## 13. Verify build and deploy job completes
 
 1. In a web browser, return to your GitHub fork of the sample project.
 1. Select **Actions**, then select the **Azure Static Web Apps CI/CD** action. 
