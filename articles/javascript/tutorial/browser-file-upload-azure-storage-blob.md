@@ -85,8 +85,8 @@ A [development container](https://containers.dev/) environment is available with
 
     ```shell
     node --version
-
     npm --version
+    func --version
     ```
 
     This tutorial requires the following versions of each tool which are preinstalled in your environment:
@@ -135,8 +135,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     ```shell
     node --version
-
     npm --version
+    func --version
     ```
 
      This tutorial requires the following versions of each tool which are preinstalled in your environment:
@@ -185,23 +185,22 @@ Create the Storage resource to use with the sample app. Storage is used for:
 * Triggers in the Azure Functions app
 * Blob (file) storage
 
-1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
-
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visualstudiocode-storage-extension-create-resource.png" alt-text="Screenshot of Visual Studio Code using the Azure extensions. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
-
+1. Navigate to the Azure Storage extension.
+1. Sign in to Azure if required.
+1. Right-click on the subscription then select `Create Resource...`.
+1. Select **Create Storage Account** from list.
 1. Follow the prompts using the following table to understand how to create your Storage resource.
 
     |Property|Value|
     |--|--|
     |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Select a location for new resources.|Use the recommended location.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/.png" alt-text="Screenshot of Visual Studio Code notification popup. When the app creation process is complete, a notification appears with information about the new resource.":::
-
 ## 5. Configure Storage CORS
 
-Because the client web app uploads the file, the Azure Storage account needs to configure CORS to allow cross-origin requests.
+Because the browser is used to upload the file, the Azure Storage account needs to configure CORS to allow cross-origin requests.
 
 1. Navigate to the Azure Storage extension. Right-click on your storage resource and select **Open in Portal**.
 
@@ -214,6 +213,8 @@ Because the client web app uploads the file, the Azure Storage account needs to 
     * Exposed headers: `*`
     * Max age: 86400
 
+    These settings are used for this tutorial to simplify the steps and are not meant to indicate best practices or security. Learn more about [CORS for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+
 1. Select **Save**.
 
 ## 6. Create upload container
@@ -222,8 +223,19 @@ Because the client web app uploads the file, the Azure Storage account needs to 
 1. Select **+ Container** then enter the following values:
 
     * Name: `upload`
-    * Public access Level: `Public`
+    * Public access Level: `Blob`
 1. Select **Create**. 
+
+## 7. Grant yourself Blob Data access
+
+While you created the resource, you don't have permission yet to view the contents of the container in the portal. That is reserved for specific IAM roles. 
+
+1. Still in the Azure portal, for your Storage resource, Access Control (IAM).
+1. Select **Add role assignement**. 
+1. Search and select **Storage Blob Data Contributor**. Select **Next**. 
+1. Select **+ Select members**. 
+1. Search and select your account.
+1. Select **Review + assign**.
 
 ## 6. Get Storage resource credentials
 
@@ -234,7 +246,7 @@ The Storage resource credentials are used in the Azure Functions API app to conn
 1. Set the **Azure_Storage_AccountName** value in the `local.settings.json` file as your Storage resource name. 
 1. While still on the same portal page, copy the connection string and paste it into the **AzureWebJobsStorage** property in the `local.settings.json` file.
 
-It may seem like you entered the same credentials twice. You did, but specifically for this very simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You will need to set the 
+It may seem like you entered the same credentials twice. You did, but specifically for this very simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You will need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values.
 
 ## 7. Run the API app
 
