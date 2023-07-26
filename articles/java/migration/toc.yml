@@ -3,6 +3,8 @@
   items:
     - name: Overview
       href: migration-overview.md
+    - name: Azure Application and Code Assessment Toolkit
+      href: appcat.md
     - name: Spring to Azure
       expanded: true
       items:
