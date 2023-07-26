@@ -11,21 +11,22 @@ keywords: java, azure, appCAT, assessment, replatform
 
 # Azure Application and Code Assessment Toolkit
 
-This guide describes how to assess and replatform any type of Java applications with Azure _AppCAT_ (Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure.
+This guide describes how to assess and replatform any type of Java applications with _Azure AppCAT_ (Azure Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure.
 
 [//]: # (TODO VIDEO)
 
 ## What is Azure AppCAT?
 
-[Azure AppCAT](https://github.com/azure/appcat-rulesets) is a generic application and code assessment tool to replatform them to Azure.
+[Azure AppCAT](https://aka.ms/appcat) is a generic application and code assessment tool to replatform them to Azure.
 It helps customers to modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
 It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure.
 
 Azure AppCAT is based on [WindUp](https://github.com/windup).
-WindUp is an open-source project created by Red Hat and published under the [Eclipse Public License](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html) EPL).
-It bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (Azure services, Java 17, Jakarta EE 10, Quarkus, Spring, etc.).
-Azure AppCAT includes Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps and Azure Spring Apps) and specific Azure replatforming rules.
+WindUp is an open-source project created by Red Hat and published under the [Eclipse Public License](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html).
+It bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, etc.).
+
+Azure AppCAT adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps and Azure Spring Apps) and specific Azure replatforming rules.
 
 ## When should I use Azure AppCAT?
 
@@ -43,27 +44,29 @@ Check the effort and the modifications you have to do in order to replatform you
 Azure AppCAT can be run on Windows, Linux or Mac.
 It requires Java 11 or Java 17 to be installed.
 
-Download Azure AppCAT and unzip it in a folder of your choice.
+[Download Azure AppCAT](https://aka.ms/appcat/azure-appcat-cli-latest.zip) and unzip it in a folder of your choice.
 You then get the following directory structure:
 
 ```shell
-├── docs
-│   └── appcat-cli-guide.html
-├── README.md
-└── microsoft-appcat-cli-<version>   # APPCAT_HOME
-    ├── bin
-    │   ├── appcat-cli
-    │   └── appcat-cli.bat
-    └── samples
-        ├── airsonic.war
-        ├── run-assessment
-        ├── run-assessment-custom-rules
-        └── run-discovery
+azure-appcat-cli-<version>    # APPCAT_HOME
+  ├── README.md
+  ├── bin
+  │   ├── appcat-cli
+  │   └── appcat-cli.bat
+  ├── docs
+  │   └── appcat-cli-guide.html
+  └── samples
+      ├── airsonic.war
+      ├── run-assessment
+      ├── run-assessment-custom-rules
+      ├── run-assessment-no-code-report
+      ├── run-assessment-zip-report
+      └── run-discovery
 ```
 
-* `docs`: This directory contains the documentation of Azure AppCAT.
-* `microsoft-appcat-cli-<version>/bin`: This directory contains the Azure AppCAT CLI executables (for Windows/Linux/Mac).
-* `microsoft-appcat-cli-<version>/samples`: This directory contains a sample application and several scripts to run Azure AppCAT against the sample application.
+* `docs`: This directory contains the documentation of Azure AppCAT (you can also check the [online documentation](https://aka.ms/appcat/docs)).
+* `bin`: This directory contains the Azure AppCAT CLI executables (for Windows/Linux/Mac).
+* `samples`: This directory contains a sample application and several scripts to run Azure AppCAT against the sample application.
 
 To run the tool, open a terminal session and type:
 
@@ -80,7 +83,7 @@ During the _discovery_ phase, Azure AppCAT scans the application and its compone
 This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
 
 ```shell
-$ ./appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear> \
+$ $APPCAT_HOME/bin/appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear_file> \
   --target discovery
 ```
 
@@ -94,7 +97,7 @@ This phase involves analyzing the application code and checks its compliance wit
 To check the available Azure targets, run the following command:
 
 ```shell
-$ ./appcat-cli --listTargetTechnologies
+$ $APPCAT_HOME/bin/appcat-cli --listTargetTechnologies
 
 Available target technologies:
 	azure-aks
@@ -106,7 +109,7 @@ Available target technologies:
 Then it's just a matter of executing Azure AppCAT using one of the available Azure targets.
 
 ```shell
-$ ./appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear> \
+$ $APPCAT_HOME/bin/appcat-cli --input ./<my_application_source_path or my_application_jar_war_ear_file> \
   --target azure-appservice
 ```
 
@@ -162,27 +165,19 @@ Then, for each file/class affected by the incident, you can jump into the source
 
 ![Issue code](./media/appcat/report-assessment-code.png)
 
-## How should I use Azure AppCAT?
-
-Azure AppCAT is a CLI (Command-line Interface) tool that can be executed in any operating system (Windows, Linux, Mac).
-
 [//]: # (TODO: Uncomment once we have the WebConsole and IDE Plugins published)
+[//]: # (## How should I use Azure AppCAT?)
+[//]: # (Azure AppCAT is a CLI &#40;Command-line Interface&#41; tool that can be executed in any operating system &#40;Windows, Linux, Mac&#41;.)
 [//]: # (Depending on your needs, there are several ways of using Azure CAT:)
 [//]: # (* Web Console)
 [//]: # (* IDE Plugin &#40;Eclipse, Eclipse CHE and VS Code)
 [//]: # (* Command Line Interface)
-
-### Requirements
-
-Azure AppCAT for Java requires JDK 11 or JDK 17 installed.
-
-### Command Line
-
-The CLI may be executed in standalone mode with one specific application as input, or in batch mode for multiple applications.
-It can also be used in any CI/CD pipeline.
-The CLI generates reports at a specified output directory.
-
-[//]: # (TODO: Uncomment once we have the WebConsole and IDE Plugins published)
+[//]: # (### Requirements)
+[//]: # (Azure AppCAT for Java requires JDK 11 or JDK 17 installed.)
+[//]: # (### Command Line)
+[//]: # (The CLI may be executed in standalone mode with one specific application as input, or in batch mode for multiple applications.)
+[//]: # (It can also be used in any CI/CD pipeline.)
+[//]: # (The CLI generates reports at a specified output directory.)
 [//]: # (### Web console)
 [//]: # (The Azure CAT Web console allows a team of users to assess and analyze applications.)
 [//]: # (These users can be _administrators_, who configure the credentials, repositories, and proxies, and _developers_ who perform the application assessment.)
@@ -283,11 +278,12 @@ However, it does not require the entire combined work to be licensed under the E
 
 Q: Where do I download Azure AppCAT from?
 
-A: You can download Azure AppCAT from https://windup.github.io/downloads
+A: You can download Azure AppCAT from https://aka.ms/appcat/azure-appcat-cli-latest.zip
 
 Q: Where can I find more information about Azure AppCAT?
 
 A: When you download Azure AppCAT, you get a `docs` directory with all the information you need to get started.
+But you can also check the [online documentation](https://aka.ms/appcat/docs)
 
 Q: Where can I find the specific Azure rules?
 
@@ -297,7 +293,7 @@ Q: Where can I find more information about creating custom rules?
 
 A: AppCAT being based on WindUp, you can check its dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index)
 
-Q: Where can I find some help when creating custom rules?
+Q: Where can I get some help when creating custom rules?
 
 A: The best is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/appcat-rulesets/issues)
 
