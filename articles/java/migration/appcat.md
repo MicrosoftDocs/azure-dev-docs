@@ -13,8 +13,6 @@ keywords: java, azure, appCAT, assessment, replatform
 
 This guide describes how to assess and replatform any type of Java applications with *Azure AppCAT* (Azure Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure.
 
-[//]: # (TODO VIDEO)
-
 ## What is Azure AppCAT?
 
 [Azure AppCAT](https://aka.ms/appcat) is a generic application and code assessment tool to replatform applications to Azure.
@@ -152,29 +150,6 @@ For each incident, you can get more information (the issue detail, the content o
 Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
 
 :::image type="content" source="media/appcat/report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/appcat/report-assessment-code.png":::
-
-[//]: # (TODO: Uncomment once we have the WebConsole and IDE Plugins published)
-[//]: # (## How should I use Azure AppCAT?)
-[//]: # (Azure AppCAT is a CLI &#40;Command-line Interface&#41; tool that can be executed in any operating system &#40;Windows, Linux, Mac&#41;.)
-[//]: # (Depending on your needs, there are several ways of using Azure CAT:)
-[//]: # (* Web Console)
-[//]: # (* IDE Plugin &#40;Eclipse, Eclipse CHE and VS Code)
-[//]: # (* Command Line Interface)
-[//]: # (### Requirements)
-[//]: # (Azure AppCAT for Java requires JDK 11 or JDK 17 installed.)
-[//]: # (### Command Line)
-[//]: # (The CLI may be executed in standalone mode with one specific application as input, or in batch mode for multiple applications.)
-[//]: # (It can also be used in any CI/CD pipeline.)
-[//]: # (The CLI generates reports at a specified output directory.)
-[//]: # (### Web console)
-[//]: # (The Azure CAT Web console allows a team of users to assess and analyze applications.)
-[//]: # (These users can be *administrators*, who configure the credentials, repositories, and proxies, and *developers* who perform the application assessment.)
-[//]: # (Then, the developers can share the reports with any stakeholders.)
-[//]: # (![Web Console]&#40;./media/windup/execute-webconsole.png&#41;)
-[//]: # (### VS Code extension)
-[//]: # (You can also assess applications by using the Azure CAT VS Code extension.)
-[//]: # (It allows developers to run an analysis from their IDE, having access to all the Azure CAT reports and having the ability to directly point the migration issues right into their code.)
-[//]: # (![VS Code]&#40;./media/windup/execute-vscode.png&#41;)
 
 ## Custom rules
 
