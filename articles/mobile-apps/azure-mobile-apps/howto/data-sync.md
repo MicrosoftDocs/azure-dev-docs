@@ -23,6 +23,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 
 * [Avalonia: Enable offline sync](../quickstarts/avalonia/offline.md)
 * [.NET MAUI: Enable offline sync](../quickstarts/maui/offline.md)
+* [Uno Platform: Enable offline sync](../quickstarts/uno/offline.md)
 * [Windows (UWP): Enable offline sync](../quickstarts/uwp/offline.md)
 * [Windows (WinUI3): Enable offline sync](../quickstarts/winui/offline.md)
 * [Windows (WPF): Enable offline sync](../quickstarts/wpf/offline.md)
@@ -32,7 +33,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 
 ## What is a sync table?
 
-The Azure Mobile Apps SDKs provide an `IRemoteTable<T>` that accesses the service directly.  The operation will fail if the device doesn't have a network connection.  A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local database.  The local store can then be synchronized with the service at a later time.  Before any operations can be performed, the local store must be initialized.
+The Azure Mobile Apps SDKs provide an `IRemoteTable<T>` that accesses the service directly.  The operation fails if the device doesn't have a network connection.  A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local store.  The local store can then be synchronized with the service at a later time.  Before any operations can be performed, the local store must be initialized.
 
 ## What is a local store?
 
@@ -40,7 +41,7 @@ A local store is the data persistence layer on the client device. Most platforms
 
 ## How offline sync works
 
-Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
+Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until you *push* local changes. Similarly, the local store is populated with new or updated data only when you *pull* data.
 
 You can push pending operations for all tables, a list of tables, or one table:
 
@@ -62,14 +63,53 @@ The push operation sends all pending changes in the operations queue to the serv
 
 ### Implicit Push
 
-If a pull is executed against a table that has pending local updates, the pull first executes a push on the sync context. This push helps minimize conflicts between changes that are already queued and new data from the server.
+If a pull is executed against a table that has pending local updates, the pull first executes a push for that table. This push helps minimize conflicts between changes that are already queued and new data from the server.  You may optionally configure a push of all tables by setting `PushOtherTables` in the `PullOptions`:
+
+```csharp
+var pullOptions = new PullOptions { PushOtherTables = true };
+await table.PullItemsAsync(pullOptions);
+```
+
+### Pulling a subset of records
+
+You may, optionally, specify a query that is used to determine which records should be included in the offline database.  For example:
+
+```csharp
+var query = table.CreateQuery().Where(x => x.Color == "Blue");
+await table.PullItemsAsync(query);
+```
 
 ### Incremental Sync
 
-The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  Only new records are pulled on successive operations.
+The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when processing large tables.
+
+For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. The last `UpdatedAt` value is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
+
+### Performance and consistency
+
+There are times when the synchronization terminates prematurely.  The network being used for synchronization becomes unavailable during the synchronization process; or the user may force-close the application during synchronization. To minimize the risk of a consistency problem within the offline database, each record is written to the database as it is received.  You may, optionally, decide to write the records to the database in batches.  Batched operations increase the performance of the offline database writes during the pull operation.  However, the risk of an inconsistency between the table metadata and the data within the table is increased.  
+
+You can tune the interval between writes as follows:
+
+```csharp
+var pullOptions = new PullOptions { WriteDeltaTokenInterval = 25 };
+await table.PullItemsAsync(pullOptions);
+```
+
+This code will batch writes into batches of 25 records.  Performance testing suggests that performance improves up to a value of 25. A `WriteDeltaTokenInterval` greater than 25 doesn't significantly improve performance.
 
 ### Purging
 
-You can clear the contents of the local store using `IOfflineTable<T>.PurgeAsync`. Purging may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.
+You can clear the contents of the local store using `IOfflineTable<T>.PurgeItemsAsync`. Purging may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.  A purge clears a table from the local store.  To purge a table:
 
-A purge clears a table from the local store.  You'll receive an error if purging will remove unsent changes. If you receive an error, you can *force purge* using a parameter.
+```csharp
+await table.PurgeItemsAsync("", new PurgeOptions());
+```
+
+The `PurgeItemsAsync()` method throws an `InvalidOperationException` if there are pending changes in the table.  You can force the purge to happen in this case:
+
+```csharp
+await table.PurgeItemsAsync("", new PurgeOptions { DiscardPendingOperations = true });
+```
+
+Purging is a "last resort" for cleaning up a table in the offline store.

@@ -7,7 +7,7 @@ ms.date: 11/19/2021
 ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Installing the Azure Toolkit for Eclipse

@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.date: 02/22/2023
-ms.author: v-yonghuiye
+ms.date: 04/06/2023
+ms.author: v-yeyonghui
 ---
 
 ## Configure a firewall rule for your MySQL server
@@ -18,30 +18,9 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-> [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For more information, see the [Configure the Azure AD Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+You can use the following method to create a non-admin user that uses a passwordless connection.
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
-
-```bash
-AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id -o tsv)
-
-cat << EOF > create_ad_user.sql
-SET aad_auth_validate_oids_in_tenant = OFF;
-CREATE AADUSER '<your_mysql_ad_non_admin_username>' IDENTIFIED BY '$AZ_MYSQL_AD_NON_ADMIN_USERID';
-GRANT ALL PRIVILEGES ON demo.* TO '<your_mysql_ad_non_admin_username>'@'%';
-FLUSH privileges;
-EOF
-```
-
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
-
-```bash
-mysql -h mysqlflexibletest.mysql.database.azure.com --user <your_mysql_ad_admin_username> --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
-```
-
-> [!TIP]
-> To use Azure AD authentication to connect to Azure Database for MySQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+[!INCLUDE [create-mysql-flexible-server-non-admin-user.md](create-mysql-flexible-server-non-admin-user.md)]
 
 ### [Password](#tab/password)
 
@@ -75,18 +54,22 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
 - The Spring Cloud Azure Bill of Materials (BOM):
 
   ```xml
-   <dependencyManagement>
-     <dependencies>
-       <dependency>
-         <groupId>com.azure.spring</groupId>
-         <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.5.0</version>
-         <type>pom</type>
-         <scope>import</scope>
-         </dependency>
-     </dependencies>
-   </dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.9.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   ```
+
+  > [!NOTE]
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+  > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC MySQL artifact:
 

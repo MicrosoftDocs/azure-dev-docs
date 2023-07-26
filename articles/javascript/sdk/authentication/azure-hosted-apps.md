@@ -3,7 +3,7 @@ title: Authenticating Azure-hosted JavaScript apps to Azure resources with the A
 description: This article covers how to configure authentication for JavaScript apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
 ms.date: 10/11/2022
 ms.topic: how-to
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Authenticating Azure-hosted apps to Azure resources with the Azure SDK for JavaScript

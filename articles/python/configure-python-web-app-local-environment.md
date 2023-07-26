@@ -3,7 +3,7 @@ title: "Configure your local environment for developing and deploying Python web
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: conceptual
 ms.date: 11/21/2022
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 adobe-target: true
 ---
 
@@ -19,7 +19,7 @@ After you get your local environment setup for Python web app development, you'l
 
 * [Quickstart: Create a Python (Django or Flask) web app in Azure App Service](/azure/app-service/quickstart-python).
 * [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app)
-* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)
 
 ## Working with Visual Studio Code
 
@@ -28,7 +28,7 @@ The [Visual Studio Code](https://code.visualstudio.com/) integrated development 
 > [!TIP]
 > Make sure you have [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension installed. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
-In VS code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
+In VS Code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
  
 * The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension enables you to interact with Azure App Service from within Visual Studio Code. App Service provides fully managed hosting for web applications including websites and web APIs.
 
@@ -252,4 +252,4 @@ At this point, add a *requirements.txt* file and then you can deploy the web app
 
 * [Quickstart: Create a Python (Django or Flask) web app in Azure App Service](/azure/app-service/quickstart-python).
 * [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app)
-* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)

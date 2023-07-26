@@ -5,13 +5,13 @@ summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease. 
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
   ms.date: 04/03/2020
   ms.topic: landing-page
-  ms.custom: seo-azure-migrate, devx-track-java
+  ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
 
 landingContent:
   - title: Migrate Java applications to Azure
@@ -22,6 +22,8 @@ landingContent:
             url: migration-overview.md
           - text: Azure Application and Code Assessment Toolkit
             url: appcat.md
+          - text: Cloud Suitability Analyzer
+            url: cloud-suitability-analyzer.md
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -79,10 +81,18 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: WebSphere Application Server to AKS
+            url: migrate-websphere-to-azure-kubernetes-service.md
+          - text: WebSphere Application Server to Azure Red Hat OpenShift
+            url: migrate-websphere-to-azure-redhat-openshift.md
+          - text: WebSphere Application Server to Azure Virtual Machines
+            url: migrate-websphere-to-virtual-machines.md
           - text: WebSphere to WildFly on AKS
             url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
           - text: WebSphere to JBoss EAP on App Service
             url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
+          - text: "Tutorial: WebSphere to Azure VMs manual guidance"
+            url: migrate-websphere-to-azure-vm-manually.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: how-to-guide

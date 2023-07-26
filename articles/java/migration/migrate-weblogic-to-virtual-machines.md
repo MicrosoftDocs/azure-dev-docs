@@ -6,7 +6,7 @@ ms.author: edburns
 ms.topic: conceptual
 ms.date: 12/14/2021
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
 # Migrate WebLogic Server applications to Azure Virtual Machines
@@ -21,19 +21,19 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 This guide, and the corresponding Azure Marketplace Offers, are a starting point to accelerate the migration of your WebLogic Server workloads to Azure. It's important to define the scope of your migration effort. For example, are you doing a strict "lift and shift" from your existing infrastructure to Azure Virtual Machines? If so, you may be tempted to work in some "lift and improve" as you migrate.
 
-It's better to stick as close to pure "lift and shift" as possible, accounting for the necessary changes as detailed in this guide. Define what you mean by "migration complete" so that you know when you've reached this milestone. When you've reached your "migration complete", you can take a snapshot of your Virtual Machines as described in [Create a snapshot](/azure/virtual-machines/windows/snapshot-copy-managed-disk). After you've verified that you can successfully restore from your snapshot, it's safer to do the improvements without fear of losing the migration progress you've achieved thus far.
+It's better to stick as close to pure "lift and shift" as possible, accounting for the necessary changes as detailed in this guide. Define what you mean by "migration complete" so that you know when you've reached this milestone. When you've reached your "migration complete", you can take a snapshot of your Virtual Machines as described in [Create a snapshot](/azure/virtual-machines/windows/snapshot-copy-managed-disk). After you've verified that you can successfully restore from your snapshot, you can do the improvements without fear of losing the migration progress you've achieved thus far.
 
 [!INCLUDE [vm-aks-tradeoffs-wls](includes/vm-aks-tradeoffs-wls.md)]
 
-### Determine whether the pre-built Azure Marketplace offers are a good starting point
+### Determine whether the prebuilt Azure Marketplace offers are a good starting point
 
 Oracle and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
-If none of the existing offers are a good starting point, you'll have to reproduce the deployment by hand using Azure Virtual Machine resources. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/).
+If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using Azure Virtual Machine resources. You can find the step-by-step guidance in [Install Oracle WebLogic Server on Azure Virtual Machines manually](migrate-weblogic-to-azure-vm-manually.md). For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
 
 ### Determine whether the WebLogic version is compatible
 
-Your existing WebLogic version must be compatible with the version in the IaaS offers. This query will show the offers for [WebLogic version 12.2.1.3](https://azuremarketplace.microsoft.com/marketplace/apps?search=oracle%20weblogic%2012.2.1.3&page=1). If your existing WebLogic version is not compatible with that version, you'll have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [the Azure documentation](https://azure.microsoft.com/overview/what-is-iaas/).
+Your existing WebLogic version must be compatible with the version in the IaaS offers. To see the offers for WebLogic version 12.2.1.3, [query Azure Marketplace for Oracle WebLogic 12.2.1.3](https://azuremarketplace.microsoft.com/marketplace/apps?search=oracle%20weblogic%2012.2.1.3&page=1). If your existing WebLogic version isn't compatible with that version, you have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [the Azure documentation](https://azure.microsoft.com/overview/what-is-iaas/).
 
 [!INCLUDE [inventory-server-capacity-virtual-machines](includes/inventory-server-capacity-virtual-machines.md)]
 
@@ -97,7 +97,7 @@ VM filesystems operate the same way as on-premises filesystems with respect to p
 
 The following offers are available for WebLogic on Azure Virtual Machines.
 
-During the deployment of an offer, you'll be asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
+During the deployment of an offer, you're asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
 
 #### WebLogic Server Single Node with no Admin Server
 
@@ -125,7 +125,7 @@ After you've provisioned the offer, you can examine the domain configuration and
 
 ### Connect the databases
 
-After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-n-node-configured-cluster.html). These instructions will help you account for any database secrets and access strings involved.
+After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-n-node-configured-cluster.html). These instructions help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 
@@ -133,13 +133,13 @@ You must account for the migration of any SSL KeyStores used by your application
 
 ### Connect the JMS sources
 
-After you've connected the databases, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
+After you've connected the databases, you can configure JMS. For more information, see [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
 
 [!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization.md)]
 
 ### Account for logging
 
-Use the integration with Elastic on Azure provided by the Oracle WebLogic Server marketplace solution templates. This is the easiest way to account for logging. You can see the list of offers in the overview article [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) Complete tutorials to configure Elastic are provided in:
+Use the integration with Elastic on Azure provided by the Oracle WebLogic Server marketplace solution templates. This approach is the easiest way to account for logging. You can see the list of offers in the overview article [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) Complete tutorials to configure Elastic are provided in:
 
 * [Land Oracle WebLogic Server logs to Elasticsearch and Kibana in admin offer](https://aka.ms/wls-admin-elk-postdeployment-guide)
 * [Land Oracle WebLogic Server logs to Elasticsearch and Kibana in cluster offer](https://aka.ms/wls-cluster-elk-postdeployment-guide)
@@ -149,28 +149,28 @@ If the Elastic integration isn't appropriate, you should carry over the existing
 
 ### Migrating your applications
 
-The techniques used to deploy applications from the development team into test, staging, and production servers vary greatly from case to case. In some cases, there's a highly evolved CI/CD platform that results in the applications being deployed to the WebLogic Server. In other cases, the process can be more manual. One benefit of using Azure Virtual Machines to migrate WebLogic applications to the cloud is that your existing processes will continue to work.
+The techniques used to deploy applications from the development team into test, staging, and production servers vary greatly from case to case. In some cases, there's a highly evolved CI/CD platform that results in the applications being deployed to the WebLogic Server. In other cases, the process can be more manual. One benefit of using Azure Virtual Machines to migrate WebLogic applications to the cloud is that your existing processes continue to work.
 
-You'll have to configure the Network Security Group that is provisioned by the offer to allow access from your CI/CD pipeline, or manual deployment system. For more information, see [Security groups](/azure/virtual-network/security-overview) in the Azure documentation for details.
+You have to configure the Network Security Group that the offer provisions to allow access from your CI/CD pipeline or manual deployment system. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
 ### Testing
 
-Any in-container tests against applications must be configured to access the new servers running within Azure. As with the CI/CD concerns, you must ensure the necessary network security rules allow your tests to access the applications deployed to Azure. For more information, see [Security groups](/azure/virtual-network/security-overview) in the Azure documentation.
+Any in-container tests against applications must be configured to access the new servers running within Azure. As with the CI/CD concerns, you must ensure the necessary network security rules allow your tests to access the applications deployed to Azure. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
 ## Post-migration
 
-After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following:
+After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. For guidance on some potential post-migration enhancements, see the following recommendations:
 
 * Using Azure Storage to serve static content mounted to the virtual machines. For more information, see [Attach or detach a data disk to a virtual machine](/azure/lab-services/devtest-lab-attach-detach-data-disk).
 
 * Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started).
 
-* If you deployed WebLogic Server with Azure Application Gateway by following the steps in [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](migrate-weblogic-with-app-gateway.md), you may want to do additional configuration on the Application Gateway.  For more information, see [Application Gateway configuration overview
+* If you deployed WebLogic Server with Azure Application Gateway by following the steps in [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](migrate-weblogic-with-app-gateway.md), you may want to do more configuration on the Application Gateway. For more information, see [Application Gateway configuration overview
 ](/azure/application-gateway/configuration-overview).
 
 * Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
-* Leverage Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+* Use Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 * Integrate WebLogic Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 

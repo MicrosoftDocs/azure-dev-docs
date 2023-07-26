@@ -10,13 +10,13 @@ ms.date: 07/31/2019
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.custom: devx-track-java, team=cloud_advocates
+ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
 ms.contributors: ruyakubu-09162021
 ---
 
 # CI/CD for MicroProfile apps using Azure Pipelines
 
-This tutorial shows you how to easily set up an Azure Pipelines continuous integration and continuous deployment (CI/CD) release cycle to deploy your [MicroProfile](http://microprofile.io) Java EE application to an Azure Web App for Containers. The MicroProfile app in this tutorial uses a [Payara Micro](https://www.payara.fish/payara_micro) base image to create a WAR file. 
+This tutorial shows you how to easily set up an Azure Pipelines continuous integration and continuous deployment (CI/CD) release cycle to deploy your [MicroProfile](http://microprofile.io) Java EE application to an Azure Web App for Containers. The MicroProfile app in this tutorial uses a [Payara Micro](https://www.payara.fish/products/payara-micro/) base image to create a WAR file. 
 
 ```Dockerfile
 FROM payara/micro:5.182

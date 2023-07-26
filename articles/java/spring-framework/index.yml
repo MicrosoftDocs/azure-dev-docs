@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Spring Cloud Azure documentation
-summary: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
+summary: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. The content on this website shows you how to develop and deploy Spring apps to the cloud.
 
 metadata:
   title: Spring Cloud Azure documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
-  ms.custom: spring-cloud-azure, devx-track-java
+  ms.custom: spring-cloud-azure, devx-track-java, devx-track-extended-java
 
 landingContent:
   - title: Overview
@@ -61,7 +61,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Using JMS to access Azure Service Bus
+          - text: Use JMS to access Azure Service Bus
             url: ./configure-spring-boot-starter-java-app-with-azure-service-bus.md
           - text: Spring Cloud Stream with Azure Event Hubs
             url: ./configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
@@ -69,6 +69,8 @@ landingContent:
             url: ./configure-spring-cloud-stream-binder-java-app-with-service-bus.md
           - text: Use Spring Kafka with Azure Event Hubs for Kafka API
             url: ./configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+          - text: Use Azure Service Bus in Spring applications
+            url: ./using-service-bus-in-spring-applications.md
   - title: Storage
     linkLists:
       - linkListType: get-started

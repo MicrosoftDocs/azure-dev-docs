@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 adobe-target: true
 ---
 

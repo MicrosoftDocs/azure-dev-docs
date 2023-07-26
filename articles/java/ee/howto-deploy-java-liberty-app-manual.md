@@ -8,7 +8,7 @@ ms.service: azure-kubernetes-service
 ms.topic: conceptual
 ms.date: 12/22/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -71,9 +71,18 @@ After a short time, you should see a JSON output that contains:
 You'll need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
 ```azurecli-interactive
-export LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
-export USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
-export PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
+export LOGIN_SERVER=$(az acr show \
+    --name $REGISTRY_NAME \
+    --query 'loginServer' \
+    --output tsv)
+export USER_NAME=$(az acr credential show \
+    --name $REGISTRY_NAME \
+    --query 'username' \
+    --output tsv)
+export PASSWORD=$(az acr credential show \
+    --name $REGISTRY_NAME \
+    --query 'passwords[0].value' \
+    --output tsv)
 
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
@@ -296,7 +305,10 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
    ```azurecli-interactive
-   az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
+   az aks update \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $CLUSTER_NAME \
+       --attach-acr $REGISTRY_NAME
    ```
 
 1. Apply the DB secret and deployment file by running the following commands:

@@ -587,6 +587,9 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<admin-password>
         * RUNNING_IN_PRODUCTION=1
+        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
+
+    Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
         
     :::column-end:::
     :::column:::
@@ -643,8 +646,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         AZURE_POSTGRESQL_USERNAME=demoadmin
         AZURE_POSTGRESQL_PASSWORD=<db-password>
-        RUNNING_IN_PRODUCTION=1
+        RUNNING_IN_PRODUCTION=1* 
+        AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
         ```
+
+        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -798,8 +804,12 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
+        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
 
-        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-server.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
+        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+
+        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-server.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"
+        AZURE_SECRET_KEY=asdfasdfasdf`.
 
     :::column-end:::
 :::row-end:::

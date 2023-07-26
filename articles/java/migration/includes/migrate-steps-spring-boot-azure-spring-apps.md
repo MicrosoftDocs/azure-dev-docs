@@ -6,7 +6,7 @@ ms.date: 8/25/2020
 
 ### Create an Azure Spring Apps instance and apps
 
-Provision an Azure Spring Apps instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/quickstart).
+Provision an Azure Spring Apps instance in your Azure subscription, if one doesn't already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/quickstart).
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps](ensure-console-logging-and-configure-diagnostic-settings-azure-spring-apps.md)]
 
@@ -14,9 +14,17 @@ Provision an Azure Spring Apps instance in your Azure subscription, if one does 
 
 [!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-apps](migrate-all-certificates-to-keyvault-azure-spring-apps.md)]
 
-### Remove application performance management (APM) integrations
+### Configure application performance management (APM) integrations
 
-Eliminate any integrations with APM tools/agents. For information on configuring performance management with Azure Monitor, see the [Post-migration](#post-migration) section.
+Azure Spring Apps offers the following APM integrations. Follow the links to enable the APM you need.
+
+- [Application Insights Java In-Process Agent](/azure/spring-apps/how-to-application-insights)
+- [Elastic APM Java Agent](/azure/spring-apps/how-to-elastic-apm-java-agent-monitor)
+- [Dynatrace Java OneAgent](/azure/spring-apps/how-to-dynatrace-one-agent-monitor)
+- [AppDynamics Java Agent](/azure/spring-apps/how-to-appdynamics-java-agent-monitor)
+- [New Relic Java agent](/azure/spring-apps/how-to-new-relic-monitor)
+
+If your application isn't using a supported APM, consider using Application Insights instead. Azure Spring Apps offers deep integration with Application Insights for performance management and real-time response to aberrations.
 
 ### Disable metrics clients and endpoints in your applications
 
@@ -48,10 +56,10 @@ If any of the Spring Cloud applications require authentication or authorization,
 
 ### Expose the application
 
-By default, applications deployed to Azure Spring Apps are not visible externally. You can expose your application by making it public with the following command:
+By default, applications deployed to Azure Spring Apps aren't visible externally. You can expose your application by making it public with the following command:
 
 ```azurecli
 az spring app update --name <application name> --is-public true
 ```
 
-Skip this step if you are using or intend to use a Spring Cloud Gateway (more on this in the following section).
+Skip this step if you're using or intend to use a Spring Cloud Gateway. For more information, see the following section.

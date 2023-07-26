@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: sreea
 ms.topic: overview
 ms.date: 05/20/2022
-ms.custom: devx-track-java, kr2b-contr-experiment
+ms.custom: devx-track-java, kr2b-contr-experiment, devx-track-extended-java
 ---
 
 # Get help from Microsoft on Java migration to Azure

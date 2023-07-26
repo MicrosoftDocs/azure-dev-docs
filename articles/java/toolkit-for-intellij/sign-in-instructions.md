@@ -6,7 +6,7 @@ ms.date: 03/04/2022
 ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Sign-in instructions for the Azure Toolkit for IntelliJ

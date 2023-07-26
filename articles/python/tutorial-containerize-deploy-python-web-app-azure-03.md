@@ -3,7 +3,7 @@ title: Build a containerized Python web app in Azure Container Registry
 description: Build a containerized Python web app (Django or Flask) in Azure Container Registry, without the need for Docker installed locally.
 ms.topic: conceptual
 ms.date: 08/16/2022
-ms.custom: devx-track-python, py-fresh-zinc
+ms.custom: devx-track-python, py-fresh-zinc, devx-track-azurecli
 ---
 
 # Build a containerized Python web app in the cloud

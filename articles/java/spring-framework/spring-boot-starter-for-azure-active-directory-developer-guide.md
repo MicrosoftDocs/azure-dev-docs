@@ -1,17 +1,17 @@
 ---
 title: Spring Boot Starter for Azure Active Directory developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 ms.service: active-directory
 ms.topic: article
 author: KarlErickson
 ms.author: shaozliu
-ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure
+ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Boot Starter for Azure Active Directory developer's guide
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
 
 This article describes the features and core scenarios of the Spring Boot Starter for Azure Active Directory (Azure AD). The article also includes guidance on common issues, workarounds, and diagnostic steps.
 

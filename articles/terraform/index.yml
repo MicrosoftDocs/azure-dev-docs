@@ -51,6 +51,30 @@ landingContent:
             url: store-state-in-azure-storage.md
 
   # Card
+  - title: Azure Export for Terraform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Export for Terraform overview
+            url: ./azure-export-for-terraform/export-terraform-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Export for Terraform concepts
+            url: ./azure-export-for-terraform/export-terraform-concepts.md
+      - linkListType: quickstart
+        links:
+          - text: Export your first resources
+            url: ./azure-export-for-terraform/export-first-resources.md
+          - text: Export resources to HCL code
+            url: ./azure-export-for-terraform/export-resources-hcl.md
+      - linkListType: how-to-guide
+        links:
+          - text: Select custom resources
+            url: ./azure-export-for-terraform/select-custom-resources.md
+          - text: Advanced scenarios
+            url: ./azure-export-for-terraform/export-advanced-scenarios.md
+            
+  # Card
   - title: Testing Terraform projects
     linkLists:
       - linkListType: concept
@@ -69,10 +93,12 @@ landingContent:
   # Card
   - title: Manage AKS
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a cluster and deploy a web app
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - linkListType: how-to-guide
         links:
-          - text: Create a Kubernetes cluster with AKS
-            url: create-k8s-cluster-with-tf-and-aks.md
           - text: Create a Kubernetes cluster with Application Gateway
             url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
@@ -81,14 +107,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure a Linux VM
+          - text: Create a Linux VM
             url: /azure/virtual-machines/linux/quick-create-terraform
+          - text: Create a Linux VM cluster
+            url: /azure/virtual-machines/linux/quick-cluster-create-terraform
+          - text: Create a Windows VM
+            url: /azure/virtual-machines/windows/quick-create-terraform
+          - text: Create a Windows VM cluster
+            url: /azure/virtual-machines/windows/quick-cluster-create-terraform
       - linkListType: how-to-guide
         links:
-          - text: Configure a VM cluster
-            url: create-vm-cluster-module.md
-          - text: Create a VM cluster with Terraform and HCL
-            url: create-vm-cluster-with-infrastructure.md
           - text: Provision VM scale set with infrastructure
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
