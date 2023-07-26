@@ -1,7 +1,7 @@
 ---
 title: Azure Application and Code Assessment Toolkit
 description: How to assess and replatform any type of Java applications with Azure AppCAT (Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure
-author: agoncal
+author: KarlErickson
 ms.author: antoniomanug
 ms.service: azure
 ms.topic: overview
