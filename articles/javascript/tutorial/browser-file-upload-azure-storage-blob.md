@@ -40,7 +40,6 @@ This tutorial uses the following environments:
 * Local development with GitHub CodeSpaces or Visual Studio Code.
 * Build and deploy with GitHub Actions.
 
-
 ## 1. Fork sample application repository with GitHub
 
 This tutorial uses GitHub actions to deploy the sample application to Azure. You need a GitHub account and a fork of the sample application repository to complete that deployment. 
