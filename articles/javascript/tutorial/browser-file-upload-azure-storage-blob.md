@@ -195,23 +195,27 @@ Create the Storage resource to use with the sample app. Storage is used for:
 1. Navigate to the Azure Storage extension.
 1. Sign in to Azure if necessary.
 1. Right-click on the subscription then select `Create Resource...`.
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-explorer-create-resource.png" alt-text="Screenshot of Visual Studio Code in the Azure Explorer with the righ-click menu showing the Create Resource item highlighted.":::
+
 1. Select **Create Storage Account** from list.
 1. Follow the prompts using the following table to understand how to create your Storage resource.
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
     |Select a location for new resources.|Use the recommended location.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-activity-log-storage-notification.png" alt-text="Screenshot of Visual Studio Code showing the Azure Activity Bar and the notification that the storage account was successfully created.":::
 
 ## 5. Configure Storage CORS
 
 Because the browser is used to upload the file, the Azure Storage account needs to configure CORS to allow cross-origin requests.
 
 1. Navigate to the Azure Storage extension. Right-click on your storage resource and select **Open in Portal**.
-
-1. In the Settings section, select **Resource sharing (CORS)**. 
+1. In the Azure portal storage account **Settings** section, select **Resource sharing (CORS)**. 
 1. Use the following properties to set CORS for this tutorial. 
 
     * Allowed origins: `*`
@@ -226,8 +230,8 @@ Because the browser is used to upload the file, the Azure Storage account needs 
 
 ## 6. Create upload container
 
-1. While still in the Azure portal, in the **Data storage** section, select **Containers**.
-1. Select **+ Container** then enter the following values:
+1. While still in the Azure portal storage account, in the **Data storage** section, select **Containers**.
+1. Select **+ Container** to create your `upload`` container with the following settings:
 
     * Name: `upload`
     * Public access Level: `Blob`
@@ -235,9 +239,9 @@ Because the browser is used to upload the file, the Azure Storage account needs 
 
 ## 7. Grant yourself Blob Data access
 
-While you created the resource, you don't have permission yet to view the contents of the container in the portal. That is reserved for specific IAM roles. 
+While you created the resource, you don't have permission to view the contents of the container. That is reserved for specific IAM roles. Add your account so you can view the blobs in the containers.
 
-1. Still in the Azure portal, for your Storage resource, Access Control (IAM).
+1. Still in the Azure portal storage account, select **Access Control (IAM)**.
 1. Select **Add role assignments**. 
 1. Search and select **Storage Blob Data Contributor**. Select **Next**. 
 1. Select **+ Select members**. 
@@ -250,8 +254,8 @@ While you created the resource, you don't have permission yet to view the conten
 The Storage resource credentials are used in the Azure Functions API app to connect to the Storage resource. 
 
 1. While still in the Azure portal, in the **Security + networking** section, select **Access keys**.
-1. Copy the resource key and paste it into the Functions app file `local.settings.json` as the **Azure_Storage_AccountKey**. 
-1. Set the **Azure_Storage_AccountName** value in the `local.settings.json` file as your Storage resource name. 
+1. Copy the resource key and paste it into the Functions app file `local.settings.json.sample` as the **Azure_Storage_AccountKey**. 
+1. Set the **Azure_Storage_AccountName** value in the `local.settings.json.sample` file as your Storage resource name. 
 1. While still on the same portal page, copy the connection string and paste it into the **AzureWebJobsStorage** property in the `local.settings.json` file.
 
 It may seem like you entered the same credentials twice. You did, but specifically for this simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You'll need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values.
@@ -260,6 +264,7 @@ It may seem like you entered the same credentials twice. You did, but specifical
 
 The the Functions App to make sure it works correctly before deploying it to Azure.
 
+1. Rename `local.settings.json.sample` to `local.settings.json`. 
 1. In the API app's terminal, run the following command to start the API app. 
 
     ```bash
@@ -284,7 +289,7 @@ The the Functions App to make sure it works correctly before deploying it to Azu
 
 1. To test that the API works and connects to storage, in the **Ports** tab in the bottom pane, select the globe icon in the **Local Address** area for port 7071. This opens a web browser to the functions app.
 1. Add the API route to the URL address bar: `/api/sas?container=upload&file=test.png`. 
-    It's ok that the file isn't in the container yet. The API creates the SAS token based on where you want it to be. 
+    It's ok that the file isn't in the container yet. The API creates the SAS token based on where you want it to be uploaded to. 
 1. The JSON response should look something like the following: 
 
     ```JSON
@@ -292,13 +297,13 @@ The the Functions App to make sure it works correctly before deploying it to Azu
         "url":"https://YOUR-STORAGE-RESOURCE.blob.core.windows.net/upload/test.png?sv=2023-01-03&spr=https&st=2023-07-26T22%3A15%3A59Z&se=2023-07-26T22%3A25%3A59Z&sr=b&sp=w&sig=j3Yc..."
     }
     ```
-1. Copy the base of the API URL (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`.
+1. Copy the base of the API URL in the browser address bar (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`.
 
 ## 10. Configure and run the client app
 
-1. Open the `.env` file in the **app** client folder.
-1. Paste the base URL from the previous step as the value for the `VITE_API_SERVER`.
-1. Start the client app from the other split terminal with the following command:
+1. Rename the `./azure-upload-file-to-storage/app/.env.sample` file to `.env`.
+1. Open the `.env` file and paste the base URL from the previous step as the value for the `VITE_API_SERVER`.
+1. In the other split terminal, start the client app from the with the following command:
 
     ```bash
     npm run dev
@@ -318,13 +323,15 @@ The the Functions App to make sure it works correctly before deploying it to Azu
 
 1. You should see the simple web app.
 
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Web browser showing web app with Select File button available.":::
+
 1. Interact with the web app:
 
     * Select an image file (*.jpg or *.png) from your local computer to upload. 
-    * Select the **ArrayBuffer** button. This step demonstrates the client work needed to prepare the file for upload. 
     * Select the **Get a SAS** button to request a SAS token from the API app. The response shows the full URL to use to upload the file to Storage. 
     * Select the **Upload** button to send the image file directly to Storage.
     
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/web-browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and and a thumbnail of the file displayed.":::
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
@@ -333,12 +340,15 @@ The the Functions App to make sure it works correctly before deploying it to Azu
 The Azure Functions app is using a preview feature, it must be deployed to **West US 2** to function properly.
 
 1. In Visual Studio Code, select the Azure explorer.
-1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes. 
+1. Commit your changes in the Source Code explorer. 
+1. In the Azure Explorer, right-click on the subscription name then select `Create Resource...`.
+1. Select **Create Static Web App** from list.
+1. Follow the prompts using the following table to understand how to create your Static Web App resource.
 
-    To roll back the changes, in Visual Studio Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
-
-1. Navigate to the Azure Storage extension. 
-1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.
+    |Property|Value|
+    |--|--|
+    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Select a location for new resources.|Use the recommended location.|
 
 1. Follow the prompts to provide the following information:
 
