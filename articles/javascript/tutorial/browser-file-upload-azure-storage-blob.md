@@ -423,7 +423,8 @@ This deletes all resources in the group, including your Storage and Static Web a
 
 ## Sample code 
 
-* [https://github.com/Azure-Samples/azure-typescript-e2e-apps]
+* [https://github.com/Azure-Samples/azure-typescript-e2e-apps/azure-upload-file-to-storage]
+
 
 ## Related content
 
