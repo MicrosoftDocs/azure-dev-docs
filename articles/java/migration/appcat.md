@@ -56,7 +56,7 @@ azure-appcat-cli-<version>    # APPCAT_HOME
       └── run-discovery
 ```
 
-* *docs*: This directory contains the documentation of Azure AppCAT (you can also check the [online documentation](https://azure.github.io/appcat-docs)).
+* *docs*: This directory contains the documentation of Azure AppCAT.
 * *bin*: This directory contains the Azure AppCAT CLI executables (for Windows/Linux/Mac).
 * *samples*: This directory contains a sample application and several scripts to run Azure AppCAT against the sample application.
 
@@ -233,7 +233,7 @@ A: You can download Azure AppCAT from https://aka.ms/appcat/azure-appcat-cli-lat
 
 Q: Where can I find more information about Azure AppCAT?
 
-A: When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started. You can also check the [online documentation](https://azure.github.io/appcat-docs).
+A: When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started.
 
 Q: Where can I find the specific Azure rules?
 
