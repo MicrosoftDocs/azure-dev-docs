@@ -331,7 +331,7 @@ The Functions App to make sure it works correctly before deploying it to Azure.
     * Select the **Get a SAS** button to request a SAS token from the API app. The response shows the full URL to use to upload the file to Storage. 
     * Select the **Upload** button to send the image file directly to Storage.
     
-    :::image type="content" source="media/file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
