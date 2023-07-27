@@ -196,7 +196,7 @@ Create the Storage resource to use with the sample app. Storage is used for:
 1. Sign in to Azure if necessary.
 1. Right-click on the subscription then select `Create Resource...`.
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-explorer-create-resource.png" alt-text="Screenshot of Visual Studio Code in the Azure Explorer with the righ-click menu showing the Create Resource item highlighted.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-explorer-create-resource.png" alt-text="Screenshot of Visual Studio Code in the Azure Explorer with the right-click menu showing the Create Resource item highlighted.":::
 
 1. Select **Create Storage Account** from list.
 1. Follow the prompts using the following table to understand how to create your Storage resource.
@@ -262,7 +262,7 @@ It may seem like you entered the same credentials twice. You did, but specifical
 
 ## 9. Run the API app
 
-The the Functions App to make sure it works correctly before deploying it to Azure.
+The Functions App to make sure it works correctly before deploying it to Azure.
 
 1. Rename `local.settings.json.sample` to `local.settings.json`. 
 1. In the API app's terminal, run the following command to start the API app. 
@@ -303,7 +303,7 @@ The the Functions App to make sure it works correctly before deploying it to Azu
 
 1. Rename the `./azure-upload-file-to-storage/app/.env.sample` file to `.env`.
 1. Open the `.env` file and paste the base URL from the previous step as the value for the `VITE_API_SERVER`.
-1. In the other split terminal, start the client app from the with the following command:
+1. In the other split terminal, start the client app with the following command:
 
     ```bash
     npm run dev
@@ -331,7 +331,7 @@ The the Functions App to make sure it works correctly before deploying it to Azu
     * Select the **Get a SAS** button to request a SAS token from the API app. The response shows the full URL to use to upload the file to Storage. 
     * Select the **Upload** button to send the image file directly to Storage.
     
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/web-browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and and a thumbnail of the file displayed.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/web-browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
