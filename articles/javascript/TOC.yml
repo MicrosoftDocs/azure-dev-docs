@@ -173,6 +173,16 @@
       - name: Get started
         href: core/automate-tasks-with-azure-cli.md
         displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
+  - name: End to end development
+    items: 
+      - name: Get started
+        href: contoso-real-estate-get-started.md
+      - name: Developer tools
+        href: contoso-real-estate-developer-tools.md
+      - name: Solutions
+        href: contoso-real-estate-developer-solutions.md
+    href: composable-cloud-contoso-real-estate.md 
+    displayName: contoso, composable, sample, example, real-estate
   - name: Authentication and identity
     items: 
       - name: Getting started
@@ -284,9 +294,6 @@
             href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
   - name: Training
     href: learn-azure-javascript.md  
-  - name: "Build 2023: Contoso Real Estate"
-    href: composable-cloud-contoso-real-estate.md 
-    displayName: contoso, composable, sample, example, real-estate
   - name: Samples
     items: 
       - name: Contoso Real Estate

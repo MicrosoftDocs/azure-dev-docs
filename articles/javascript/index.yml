@@ -132,6 +132,12 @@ landingContent:
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Azure Database Dev Guide
             url: database-developer-guide.md
+  - title: End to end development
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Contoso real estate sample
+            url: https://github.com/Azure-Samples/contoso-real-estate
   - title: Developer tools
     linkLists:
       - linkListType: get-started
