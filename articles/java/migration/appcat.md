@@ -80,6 +80,10 @@ To run the tool, open a terminal session and type the following command from the
 
 To run the tool from anywhere in your computer, configure the directory *$APPCAT_HOME/bin* into your `PATH` environment variable and then restart your terminal session.
 
+### Where can I see the documentation?
+
+The Azure AppCAT CLI Guide is shipped in the ZIP file, and it can also be read online at [azure.github.io/appcat-docs/cli/](https://azure.github.io/appcat-docs/cli/)
+
 ### How to discover technology usage without an Azure target in mind?
 
 Discovery of technologies is the first stage of application replatform and modernization. During the *discovery* phase, Azure AppCAT scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies. This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
