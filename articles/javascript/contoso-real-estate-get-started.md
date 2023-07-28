@@ -1,63 +1,54 @@
 ---
-title: Composable Cloud
-description: Enterprise-grade Reference Architecture for JavaScript including a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
-ms.topic: how-to
+title: Getting started with JavaScript Enterprise applications
+description: Enterprise-grade Reference Architecture for JavaScript including source code, deployment infrastructure, end to end testing.
+ms.topic: overview
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
+# CustomerIntent: As a Senior JavaScript Developer new to Azure, I want learn how to build and deploy complex architectures so that build and deploy my own architecture.
 ---
 
-# Enterprise-grade reference for composable architecture
+# Get started with Contoso real estate enterprise app
 
-This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
+The Contoso real estate enterprise app allows employees of the Contoso company to search for a reserve relocation housing through a web app. This web app is an internal tool used by Contoso HR and new hire or relocating employees. Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
 
-## What is Contoso?
+## Prerequisites
 
-Contoso Corporation is a fictional but representative global manufacturing conglomerate with its headquarters in Paris. The company deployed Microsoft 365 for enterprise with to accelerate its digital transformation by using cloud services to bring together its employees, partners, data, and processes to create customer value and maintain its competitive advantage in a digital-first world.
+To deploy this entire app solution to Azure, you need:
 
-Contoso is expanding to new countries/regions, which results in massive hiring. They offer relocation and have designed an application, to help HR and new hires find the right housing. This web app is an internal tool used by Contoso HR and new hire or relocating employees.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+* A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+* A Strapi account for headless CMS
+* A Stripe account for payments
 
-Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
+## Application architecture
 
-## Enterprise developer experience
+The Contoso real estate app has two client applications, the **portal** and the blog. The **blog** publicizes new real estate offerings and if visible without authentication. The portal app requires authentication to view, reserve, and pay for listings. Separate development teams have built and support this end-to-end architecture with their own choice of technical stack. 
 
-The developer experience for the HR app is: 
+Client apps:
 
-1. **Define** priority scenarios: What are the core application scenarios?
-2. **Design** reference architecture: with Cloud-native and Azure.
-3. **Develop** reference implementation: Project structure, code patterns, and best practices.
-4. **Deploy** Code-to-Cloud: Simplified developer experience for build-to-deploy.
-5. **Document** content resources: Training modules, documentation, and GitHub sample.
+* The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in Azure Blob Storage.
+* The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). 
 
-## Composable cloud native HR app
+:::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate/contoso-real-estate-application-sketchnote-small.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
 
-The architect designs a cloud native solution for the developer.
+Other Azure services used include: 
 
-:::image type="content" source="./media/contoso-real-estate/contoso-real-estate-application-sketchnote-small.png" lightbox="./media/contoso-real-estate/contoso-real-estate-application-sketchnote-small.png" alt-text="Diagram showing architect explaining composable cloud native to developer for JavaScript enterprise end-to-end application development and deployment. ":::
+* [Azure Key Vault](/azure/key-vault) to store keys, secrets, and certificates
+* [Azure Cosmos DB](/azure/cosmos-db) to store user data
+* [Azure API Management](/azure/api-management) to provide API to protect, accelerate, and observe APIs
 
-To see more detail, select the preceding image to zoom in, or browse to the [high resolution image](./media/contoso-real-estate/contoso-real-estate-application-sketchnote.png).
+## Packages
 
-## Simplified flow
+This application is divided into several packages. Each package describes a scenario of what is in the package and step-by-step instructions to help you build and deploy the package to Azure. 
 
-The HR app is built as:
+|Package|Time to complete|technology stack|
+|--|--|--|
+|Blog, Blob-CMS|15 minutes|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
+|Portal, API|15 minutes|Angular web portal with Azure Functions app.|
+|Stripe|15 minutes|Payment service API hosted in an Azure Container app.|
+|Testing|15 minutes|E2E testing with Playwright.|
 
-* UI for portal and blog front ends as vertical micro frontend splits - denoted as 1 and 2 in the diagram.
-* API layer to communicate between client and cloud.
-* Microservices for cloud integrations.
+## Next step
 
-:::image type="content" source="./media/contoso-real-estate/azure-architecture-contoso-rentals-with-numbering.png" alt-text="Diagram showing the Architecture of building an end to end solution for Contoso Real Estate on Azure.":::
-
-|#|Name|Description|
-|:--|:--|--|
-|1|**Blog** (UI)|Powered by Next.js front-end and Strapi back-end, both hosted from single Azure Container App. Azure Container App also hosted Stripe payment gateway integration.|
-|2|**Main portal** (UI)|The Angular front-end deployed to the Azure cloud via Static Web Apps.|
-|3|**APIs**|The API layer is build with Azure API Management to manage authorization, rate limiting, and caching.|
-|4|**Storage** (Backend)|The storage layer for blobs and data is built with several Azure services. PostgreSQL is used for read-only and searchable data, Azure Cosmos DB for MongoDB is used for read/write data. Azure Blob Storage is used for storing images and other artifacts.|
-|5|**Microservices** (Backend)| The microservices layer is built with Azure Functions and Node.js with Fastify, and the payment service is containerized and deployed to Azure Container Apps|
-|6|**Payments**|The payments layer is built with Stripe.|
-
-## Resources
-
-* [Announcement](https://aka.ms/contoso-real-estate/announcement)
-* [Source code](https://aka.ms/contoso-real-estate-github)
-* [Azure Developer CLI (azd) template](https://azure.github.io/awesome-azd/?operator=AND&tags=enterprisepatterns&tags=javascript)
-* [Learn Collection](https://aka.ms/javascript-e2e-serverless-learn-collection)
+> [!div class="nextstepaction"]
+> [Learn modern cloud development]()
