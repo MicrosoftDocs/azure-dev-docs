@@ -69,7 +69,7 @@ landingContent:
           - text: "Static web app: Analyze image with Computer Vision"
             url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
-            url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
+            url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Static web app: Login/Logoff button"
             url: /azure/active-directory/develop/tutorial-v2-react
           - text: "Express.js: Add Application Insights logging"
