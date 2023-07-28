@@ -18,11 +18,14 @@ This guide describes how to assess and replatform any type of Java applications 
 Azure AppCAT is a generic application and code assessment tool to replatform applications to Azure.
 It helps customers to modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
-Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure.
+Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. 
 
-Azure AppCAT is based on [WindUp](https://github.com/windup). WindUp is an open-source project created by Red Hat and published under the [Eclipse Public License](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html). It bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on).
+AppCAT bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on). It adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) and specific Azure replatforming rules.
 
-Azure AppCAT adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) and specific Azure replatforming rules.
+Azure AppCAT is based on [WindUp](https://github.com/windup), an open-source project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt). 
+
+> [!NOTE]
+> Azure AppCAT is in **Public Preview**. If you find issues, contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).
 
 ## When should I use Azure AppCAT?
 
@@ -37,7 +40,16 @@ With Azure AppCAT you can:
 
 You can run Azure AppCAT on Windows, Linux, or Mac. It requires Java 11 or Java 17.
 
-[Download Azure AppCAT](https://aka.ms/appcat/azure-appcat-cli-latest.zip) and unzip it in a folder of your choice. You then get the following directory structure:
+### Download Azure AppCAT
+
+The Azure AppCAT CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
+
+> [!div class="nextstepaction"]
+> [Download Azure AppCAT](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+
+### Run Azure AppCAT
+
+Unzip the zip file in a folder of your choice. You then get the following directory structure:
 
 ```
 azure-appcat-cli-<version>    # APPCAT_HOME
@@ -63,10 +75,14 @@ azure-appcat-cli-<version>    # APPCAT_HOME
 To run the tool, open a terminal session and type the following command from the *$APPCAT_HOME/bin* directory:
 
 ```bash
-appcat-cli --help
+./appcat-cli --help
 ```
 
 To run the tool from anywhere in your computer, configure the directory *$APPCAT_HOME/bin* into your `PATH` environment variable and then restart your terminal session.
+
+### Where can I see the documentation?
+
+The Azure AppCAT CLI Guide is shipped in the ZIP file.
 
 ### How to discover technology usage without an Azure target in mind?
 
@@ -75,7 +91,7 @@ Discovery of technologies is the first stage of application replatform and moder
 Use the following command to initiate discovery:
 
 ```bash
-appcat-cli \
+./appcat-cli \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target discovery
 ```
@@ -89,7 +105,8 @@ The assessment phase is where Azure AppCAT analyzes the application and its comp
 To check the available Azure targets, run the following command:
 
 ```bash
-appcat-cli --listTargetTechnologies
+./appcat-cli --listTargetTechnologies
+```
 
 This command produces output similar to the following example:
 
@@ -104,7 +121,7 @@ Available target technologies:
 Then, you can run Azure AppCAT using one of the available Azure targets, as shown in the following example:
 
 ```bash
-appcat-cli \
+./appcat-cli \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target azure-appservice
 ```
@@ -223,30 +240,30 @@ After executing this rule through Azure AppCAT, rerun the analysis to review the
 
 ## License
 
-Azure AppCAT is licensed under the [Eclipse Public License 2.0](https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html) (EPL). The EPL is a copyleft license, and is less restrictive than, for example, the GNU General Public License (GPL). The EPL allows you to use, modify, copy, and distribute AppCAT, but any modifications you make and distribute must also be licensed under the EPL. However, it does not require the entire combined work to be licensed under the EPL, only the components that are originally EPL-licensed.
+Azure AppCAT is free and at no-cost, licensed under the [Eclipse Public License 1.0](https://github.com/windup/windup/blob/master/LICENSE.txt) (EPLv1).
 
 ## Frequently asked questions
 
-Q: Where do I download Azure AppCAT from?
+#### Where do I download the latest version of Azure AppCAT from?
 
-A: You can download Azure AppCAT from https://aka.ms/appcat/azure-appcat-cli-latest.zip.
+You can download Azure AppCAT from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
-Q: Where can I find more information about Azure AppCAT?
+#### Where can I find more information about Azure AppCAT?
 
-A: When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started.
+When you download Azure AppCAT, you get a *docs* directory with all the information you need to get started.
 
-Q: Where can I find the specific Azure rules?
+#### Where can I find the specific Azure rules?
 
-A: All the Azure rules are available in the [Azure AppCAT Ruleset GitHub repository](https://github.com/Azure/appcat-rulesets).
+All the Azure rules are available in the [Azure AppCAT Rulesets GitHub repository](https://github.com/Azure/appcat-rulesets).
 
-Q: Where can I find more information about creating custom rules?
+#### Where can I find more information about creating custom rules?
 
-A: Because AppCAT is based on WindUp, you can check its dedicated guide to [create custom rules](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/rules_development_guide/index).
+Because AppCAT is based on WindUp, you can check its dedicated guide to [create custom rules](https://windup.github.io/windup-documentation/docs/rules-development-guide/master/index.html).
 
-Q: Where can I get some help when creating custom rules?
+#### Where can I get some help when creating custom rules?
 
-A: The best way to get help is to [create an issue on the AppCAT GitHub repository](https://github.com/Azure/appcat-rulesets/issues).
+The best way to get help is to [create an issue on the AppCAT GitHub repository](https://github.com/azure/appcat-rulesets/issues).
 
-Q: Where can I find more information on the EPL license?
+#### Where can I find more information on the EPL license?
 
-A: See the Eclipse Foundation [FAQ on EPL](https://www.eclipse.org/legal/epl-2.0/faq.php).
+See the Eclipse Foundation [FAQ on EPL](https://www.eclipse.org/legal/eplfaq.php).
