@@ -231,7 +231,7 @@ Because the browser is used to upload the file, the Azure Storage account needs 
 ## 6. Create upload container
 
 1. While still in the Azure portal storage account, in the **Data storage** section, select **Containers**.
-1. Select **+ Container** to create your `upload`` container with the following settings:
+1. Select **+ Container** to create your `upload` container with the following settings:
 
     * Name: `upload`
     * Public access Level: `Blob`
@@ -323,7 +323,7 @@ The Functions App to make sure it works correctly before deploying it to Azure.
 
 1. You should see the simple web app.
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Web browser showing web app with Select File button available.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Screenshot of web browser showing web app with Select File button available.":::
 
 1. Interact with the web app:
 
@@ -331,7 +331,7 @@ The Functions App to make sure it works correctly before deploying it to Azure.
     * Select the **Get a SAS** button to request a SAS token from the API app. The response shows the full URL to use to upload the file to Storage. 
     * Select the **Upload** button to send the image file directly to Storage.
     
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" lightbox="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" lightbox="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Screenshot of web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
@@ -423,7 +423,7 @@ This deletes all resources in the group, including your Storage and Static Web a
 
 ## Sample code 
 
-* [https://github.com/Azure-Samples/azure-typescript-e2e-apps/azure-upload-file-to-storage]
+* azure-upload-file-to-storage[https://github.com/Azure-Samples/azure-typescript-e2e-apps/azure-upload-file-to-storage]
 
 
 ## Related content
