@@ -25,7 +25,7 @@ AppCAT bundles a set of tools, engines, and rules to assess and replatform Java 
 Azure AppCAT is based on [WindUp](https://github.com/windup), an open-source project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt). 
 
 > [!NOTE]
-> Azure AppCAT is in **Public Preview**. If you find issues, please contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).
+> Azure AppCAT is in **Public Preview**. If you find issues, contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).
 
 ## When should I use Azure AppCAT?
 
@@ -40,16 +40,16 @@ With Azure AppCAT you can:
 
 You can run Azure AppCAT on Windows, Linux, or Mac. It requires Java 11 or Java 17.
 
-### Download
+### Download Azure AppCAT
 
 The Azure AppCAT CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
 > [!div class="nextstepaction"]
 > [Download Azure AppCAT](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
 
-### Running
+### Run Azure AppCAT
 
-Unzip it in a folder of your choice. You then get the following directory structure:
+Unzip the zip file in a folder of your choice. You then get the following directory structure:
 
 ```
 azure-appcat-cli-<version>    # APPCAT_HOME
@@ -82,7 +82,7 @@ To run the tool from anywhere in your computer, configure the directory *$APPCAT
 
 ### Where can I see the documentation?
 
-The Azure AppCAT CLI Guide is shipped in the ZIP file, and it can also be read online at [azure.github.io/appcat-docs/cli/](https://azure.github.io/appcat-docs/cli/)
+The Azure AppCAT CLI Guide is shipped in the ZIP file.
 
 ### How to discover technology usage without an Azure target in mind?
 
