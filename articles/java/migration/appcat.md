@@ -82,7 +82,7 @@ To run the tool from anywhere in your computer, configure the directory *$APPCAT
 
 ### Where can I see the documentation?
 
-The Azure AppCAT CLI Guide is shipped in the ZIP file.
+The Azure AppCAT CLI Guide is shipped in the ZIP file. You can also view the documentation at <https://azure.github.io/appcat-docs/cli/>.
 
 ### How to discover technology usage without an Azure target in mind?
 
