@@ -60,7 +60,7 @@ If your application has already selected some of the options such as frameworks 
 
 |Service|Suggested for|
 |--|--|
-|[App Service](/azure/app-service/overview)|Traditional web server with supported languages on LTS or a container|
-|[Container apps](/azure/container-apps)|Traditional containerized apps with much of the work of managing containers managed for you. Also bring your source code such as a Micro API to a container.|
+|[App Service](/azure/app-service/overview)|Traditional web server with supported languages on LTS or a container. This is a great choice when you are familiar with web servers and need to support your own stack choices.|
+|[Container apps](/azure/container-apps)|Traditional containerized apps with much of the work of managing containers managed for you. Also bring your source code such as a Micro API to a container. This is a great choice when you are familiar with containeraized apps and need to support your own stack.|
 |[VMs]Full Windows or Linux virtual machine and its runtime environment. This is a good solution for legacy apps or apps which are outside LTS support and not yet containerized.|
 
