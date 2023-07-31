@@ -51,6 +51,18 @@ Select your preferred pipeline provider to continue:
 
 To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principal stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
+
+1. Add [`azd` as a GitHub action](aka.ms/azd-gha). This action will install `azd`. To use it, add the following to `.github\workflows\azure-dev.yml`:
+   ```
+   on: [push]
+
+   jobs:
+      build:
+         runs-on: ubuntu-latest
+         steps:
+            - name: Install azd
+            uses: Azure/setup-azd@v0.1.0
+   ```
 1. Run the following command to create the Azure service principal and configure the pipeline:
 
     ```azdeveloper
