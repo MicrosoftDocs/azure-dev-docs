@@ -421,16 +421,17 @@ In Visual Studio Code, use the Azure explorer for Resource Groups, right-click o
 
 This deletes all resources in the group, including your Storage and Static Web app resources.
 
-## Troubleshooting and sample code 
+## Troubleshooting
 
-Report any issues with this sample in the GitHub repo noted below. Include the following with the issue:
+Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues) with this sample in the GitHub repo noted below. Include the following with the issue:
 
 * The URL of the article
 * The step or context within the article that was problematic
 * Your development environment
 
-* [Report issues here](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues)
-    * Get [azure-upload-file-to-storage](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/azure-upload-file-to-storage) sample code
+## Sample code
+
+* GitHub repository: [azure-upload-file-to-storage](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/azure-upload-file-to-storage)
 
 
 ## Related content
