@@ -78,7 +78,7 @@ Use another host to perform tasks that require the docker daemon. One option is 
 
 Upgrade Bicep CLI by running `az bicep upgrade`.
 
-## `azd up` or `az provision` fails
+## `azd up` or `azd provision` fails
 
 Things can sometimes go awry with `azd up` or `azd provision`. Common errors include:
 * "Can't provision certain resources in an Azure region because the region is out of capacity."
