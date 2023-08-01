@@ -164,7 +164,6 @@ Now you'll test the workflow by making a change to the repo.
 
 :::image type="content" source="media/github-actions-app-service/github-repo-make-small-change.png" alt-text="Screenshot showing how to go to the repo and branch where the GitHub Actions workflow is defined." lightbox="media/github-actions-app-service/github-repo-make-small-change.png":::
 
-
 **Step 2.** Make a small change.
 
 For example, if you used the VS Code Flask tutorial, you can
@@ -174,7 +173,7 @@ For example, if you used the VS Code Flask tutorial, you can
 
 **Step 3.** Commit the change directly to the branch you're working in.
 
-* On the bottom of the page you editing, select the **Commit** button.
+* On the upper-right of the page you're editing, select the **Commit changes ...** button. The **Commit changes** window opens. In the **Commit changes** window, modify the commnit message if desired and then select the **Commit changes** button.
 * The commit kicks off the GitHub Actions workflow.
 
 You can also kick off the workflow manually.
