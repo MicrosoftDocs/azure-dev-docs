@@ -134,3 +134,8 @@ Now convert the broad application scenario into specific user scenarios:
  - New Hire credentials for Portal App should not work for Admin App
 
 </details>
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Understand the developer solutions](contoso-real-estate-developer-solutions.md)

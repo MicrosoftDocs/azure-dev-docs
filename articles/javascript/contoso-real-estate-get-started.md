@@ -41,14 +41,15 @@ Other Azure services used include:
 
 This application is divided into several packages. Each package describes a scenario of what is in the package and step-by-step instructions to help you build and deploy the package to Azure. 
 
-|Package||technology stack|
+|Package|technology stack|
 |--|--|
-|Blog, Blob-CMS|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
-|Portal, API|Angular web portal hosted from Static Web Apps with Azure Functions API app for the backend.|
-|Stripe|Fastify API Payment service API in an Azure Container app.|
-|Testing|E2E testing with Playwright.|
+|[Blog](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog), [Blob-CMS](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog-cms)|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
+|[Portal](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal), [API](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/api)|Angular web portal hosted from Static Web Apps with Azure Functions API app for the backend.|
+|[Stripe](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/stripe)|Fastify API Payment service API in an Azure Container app.|
+|[Testing](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)|E2E testing with Playwright.|
+|[Docs](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/docs)|Learn more about this E2E solution.|
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn modern cloud development]()
+> [Understand the solution with User Scenarios](contoso-real-estate-user-scenarios.md)

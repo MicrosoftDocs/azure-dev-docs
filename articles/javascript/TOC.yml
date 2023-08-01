@@ -178,12 +178,12 @@
     - name: Get started
       href: contoso-real-estate-get-started.md
       displayName: contoso, composable, sample, example, real-estate
-    - name: Developer tools
-      href: contoso-real-estate-developer-tools.md
     - name: User Scenarios
       href: contoso-real-estate-user-scenarios.md
     - name: Solutions
       href: contoso-real-estate-developer-solutions.md
+    - name: Developer tools
+      href: contoso-real-estate-developer-tools.md      
   - name: Authentication and identity
     items: 
     - name: Getting started
