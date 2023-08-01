@@ -177,12 +177,11 @@
     items: 
     - name: Get started
       href: contoso-real-estate-get-started.md
+      displayName: contoso, composable, sample, example, real-estate
     - name: Developer tools
       href: contoso-real-estate-developer-tools.md
     - name: Solutions
       href: contoso-real-estate-developer-solutions.md
-    href: composable-cloud-contoso-real-estate.md 
-    displayName: contoso, composable, sample, example, real-estate
   - name: Authentication and identity
     items: 
     - name: Getting started
