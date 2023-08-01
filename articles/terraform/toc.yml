@@ -150,7 +150,7 @@
       - name: Security
         items:
           - name: Azure Attestation
-            href: create-attestation-provider.md
+            href: /azure/attestation/quickstart-terraform
       - name: Stream Analytics
         items:
           - name: Create a job

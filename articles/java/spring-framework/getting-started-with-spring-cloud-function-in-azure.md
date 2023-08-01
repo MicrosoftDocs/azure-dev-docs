@@ -80,7 +80,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
 ## Create Azure configuration files
 
-Create a *src/main/azure* folder and add the following Azure Functions configuration files to it.
+Create a *src/main/resources* folder and add the following Azure Functions configuration files to it.
 
 *host.json*:
 

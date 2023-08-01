@@ -1122,6 +1122,34 @@
       {
         "source_path":"articles/terraform/create-vm-cluster-module.md",
         "redirect_url": "/azure/virtual-machines/windows/quick-cluster-create-terraform"
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-01-overview.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-02-get-data.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-03-process-data.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-overview.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-provisioning.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-flow.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/configure-local-development-environment.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      {
+        "source_path":"articles/terraform/create-attestation-provider.md",
+        "redirect_url": "/azure/attestation/quickstart-terraform"
       }
     ]
   }
