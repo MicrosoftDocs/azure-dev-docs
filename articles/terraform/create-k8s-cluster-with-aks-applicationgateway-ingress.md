@@ -115,13 +115,13 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
-1. Create a file named `output.tf` and insert the following code.
+1. Create a file named `outputs.tf` and insert the following code.
 
-    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf":::
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/outputs.tf":::
 
-1. Create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `ssh.tf` and insert the following code.
 
-    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars":::
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/ssh.tf":::
 
     **Key points:**
 
