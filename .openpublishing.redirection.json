@@ -1142,6 +1142,10 @@
       },
       { "source_path": "articles/python/configure-local-development-environment.md",
         "redirect_url": "/azure/developer/python" 
+      },
+      {
+        "source_path":"articles/terraform/create-attestation-provider.md",
+        "redirect_url": "/azure/attestation/quickstart-terraform"
       }
     ]
   }
