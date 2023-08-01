@@ -41,12 +41,12 @@ Other Azure services used include:
 
 This application is divided into several packages. Each package describes a scenario of what is in the package and step-by-step instructions to help you build and deploy the package to Azure. 
 
-|Package|Time to complete|technology stack|
-|--|--|--|
-|Blog, Blob-CMS|15 minutes|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
-|Portal, API|15 minutes|Angular web portal with Azure Functions app.|
-|Stripe|15 minutes|Payment service API hosted in an Azure Container app.|
-|Testing|15 minutes|E2E testing with Playwright.|
+|Package||technology stack|
+|--|--|
+|Blog, Blob-CMS|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
+|Portal, API|Angular web portal hosted from Static Web Apps with Azure Functions API app for the backend.|
+|Stripe|Fastify API Payment service API in an Azure Container app.|
+|Testing|E2E testing with Playwright.|
 
 ## Next step
 

@@ -53,11 +53,27 @@ The development environment should allow the developer to quickly write code and
 
 ## 2. Developer Compute
 
-A developer's workstation can be located in the cloud or as a local physical machine. Regardless of where the compute resource is, is will easily integrate the components a modern cloud developer needs.
+A developer's workstation can be located in the cloud or as a physical machine. Regardless of where the compute resource is, is easily integrates the components a modern cloud developer needs.
 
 ### CodeSpaces
 
+**What is it?** 
+
+CodeSpaces is a developer container available with your GitHub repository. Open your repository in CodeSpaces, either in a browser, or your local IDE. Begin working immediately, in your typical developer flow, writing, debugging, testing, and pushing PRs back to the GitHub repository. CodeSpaces retains any specific changes to the environment such as environment variables, dependency installs, and CLIs. 
+
+**What do we provide?** 
+
+[Visual Studio Code](https://code.visualstudio.com/) integrates with Code Spaces. Open your CodeSpaces dev container inside your local running Visual Studio Code. 
+
 ### Azure Dev Box
+
+**What is it?** 
+
+[Azure Dev Box](/azure/dev-box) provides enterprise management for self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Access your dev box through [Remote Desktop App](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=non-Windows) for Windows and non-windows clients.
+
+**What do we provide?** 
+
+Azure Dev Box integrates with Visual Studio with features such as Visual Studio Cache, the Azure CLI extension, and integration with Azure deployment environments.
 
 ## 3. Cloud resources for developers
 
