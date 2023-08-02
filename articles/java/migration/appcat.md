@@ -11,18 +11,18 @@ keywords: java, azure, appCAT, assessment, replatform
 
 # Azure Application and Code Assessment Toolkit
 
-This guide describes how to assess and replatform any type of Java applications with *Azure AppCAT* (Azure Application and Code Assessment Toolkit) to evaluate their readiness to migrate to Azure.
+This guide describes how to assess and replatform any type of Java applications with *Azure AppCAT* (Azure Application and Code Assessment Toolkit) to evaluate their readiness to replatform and migrate to Azure.
 
-## What is Azure AppCAT?
+## What is Azure AppCAT for Java?
 
-Azure AppCAT is a generic application and code assessment tool to replatform applications to Azure.
+Azure AppCAT is a tool to assess Java applications (binaries) and source code to identify replatforming and migration opportunities for Azure.
 It helps customers to modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
 Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. 
 
 AppCAT bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on). It adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) and specific Azure replatforming rules.
 
-Azure AppCAT is based on [WindUp](https://github.com/windup), an open-source project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt). 
+Azure AppCAT is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt). 
 
 > [!NOTE]
 > Azure AppCAT is in **Public Preview**. If you find issues, contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).
