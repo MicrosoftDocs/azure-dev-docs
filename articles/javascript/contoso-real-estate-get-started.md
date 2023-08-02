@@ -1,7 +1,7 @@
 ---
 title: Getting started with JavaScript Enterprise applications
 description: Enterprise-grade Reference Architecture for JavaScript including source code, deployment infrastructure, end to end testing.
-ms.topic: overview
+ms.topic: get-started
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a Senior JavaScript Developer new to Azure, I want learn how to build and deploy complex architectures so that build and deploy my own architecture.

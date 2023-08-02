@@ -54,7 +54,7 @@ Once a user is logged in, their user information is stored in [Cosmos DB for Mon
 ## Scenario 4: Payments
 
 This scenario supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
-This scenario containerizes the [Fastify](https://fastify.dev/) payments application deployed to [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview)
+This scenario containerizes the [Fastify](https://fastify.dev/) payments application deployed to [Azure Container Apps](/azure/container-apps/overview)
 
 :::image type="content" source="./media/contoso-real-estate/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
 

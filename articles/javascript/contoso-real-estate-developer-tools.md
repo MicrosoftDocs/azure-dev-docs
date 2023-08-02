@@ -8,96 +8,87 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # What are modern cloud development tools and practices
 
-Modern cloud development includes tools to enable you to develop, debug, build, deploy, and test your application. 
+Modern cloud development used in the Contoso Real Estate solution includes tools to enable you to develop, debug, build, deploy, and test your application. 
 
-## 1. Developer Environment
+## Developer Environment
 
 An effective and efficient development team decides on and consistently maintains a development environment. 
 
-
 ### Development Containers
-
-**What is it?** 
 
 The development environment must be the same for every developer on your team. That environment also needs to mirror the production environment as much as possible. [Development Containers](https://containers.dev/) is the industry standard with community support, a specification, tools, guides and templates. The dev container should be maintained for operating system, languages, and other tools necessary for team efficiency.
 
-**What do we provide?** 
+[Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) provides a quick step-by-step dev container creation process to wrap around your source code, allowing you to write code instead of writing containers. If you want to develop your container, you can bring an existing container, or alter the provided dev container file.
 
-[Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) provides a quick step-by-step dev container creation process to wrap around your source code, allowing you to write code instead of writing containers. If you want to develop your container, you can bring an existing container, or alter the provided dev container file.|
+* Contoso Dev Container - [devcontainer.json](https://github.com/Azure-Samples/contoso-real-estate/blob/main/.devcontainer/devcontainer.json)
 
 ### IDEs
 
-**What is it?** 
-
 An integrated developer environment (IDE) is a software application that provides comprehensive tools and features to developers for writing, testing, and debugging code more efficiently. It's designed to streamline the development process by consolidating various aspects of software development into a single environment. In an integrated development environment IDE, when combined with a development container, allows you to quickly onboard new team members while still supporting the rest of the team. Any modifications to the IDE including settings, extensions and other integrations can be specified in the dev container so all team members have the same environment without having to rely on manual steps. 
 
-**What do we provide?** 
+For cross-platform developer teams, use [Visual Studio Code](https://code.visualstudio.com/):
 
-For cross-platform developer teams, use [Visual Studio Code](https://code.visualstudio.com/). For comprehensive .NET and C++ development on Windows, use [Visual Studio](/visualstudio/windows).
+* Environment settings for Visual Studio Code - [./vscode](https://github.com/Azure-Samples/contoso-real-estate/tree/main/.vscode)
+* Visual Studio Extensions installed in the [devcontainer.json](https://github.com/Azure-Samples/contoso-real-estate/blob/main/.devcontainer/devcontainer.json)
 
 ### Code quality tooling
 
-**What is it?** 
+Code quality tooling is applied during development to apply formatting and style guidelines and catch potential runtime issues by enforcing code standards. Code quality tools are unique the programming language and supported with a community to ensure support and progression. [Visual Studio Code](https://code.visualstudio.com/) provides integration with the common code quality tools.
 
-Code quality tooling is applied during development to apply formatting and style guidelines and catch potential runtime issues by enforcing code standards. Code quality tools are unique the programming language and supported with a community to ensure support and progression.<br><br>**What we provide**? Both [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](/visualstudio/windows) provide integration with the common code quality tools.
+Contoso uses the following code quality tools:
+
+* [TypeScript](https://www.typescriptlang.org/) settings in the package `tsconfig.json` file.
+* [Prettier](https://prettier.io/) settings in the root [package.json](https://github.com/Azure-Samples/contoso-real-estate/blob/main/package.json).
+* [ESLint](https://eslint.org/) in the root [.eslintrc.js](https://github.com/Azure-Samples/contoso-real-estate/blob/main/.eslintrc.js)
 
 ### Automated testing
 
-**What is it?** 
+The development environment should allow the developer to quickly write code and test the impact it has on the project without having to push the changes to the _build and test_ pipeline. [Visual Studio Code](https://code.visualstudio.com/) provides integration with the automated testing tools. Use [PlayWright](https://playwright.dev/docs/intro) for end-to-end testing including browser and API testing.
 
-The development environment should allow the developer to quickly write code and test the impact it has on the project without having to push the changes to the _build and test_ pipeline. <br><br>**What we provide**? Both [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](/visualstudio/windows) provide integration with the common code quality tools. Use [PlayWright](https://playwright.dev/docs/intro) for end-to-end testing including browser and API testing.
+Contoso uses:
+
+* [Jest](https://jestjs.io/) for unit tests
+* [Playwright](https://playwright.dev/docs/intro) for end to end testing
 
 ### CLIs
 
-### Emulators
+Command line interfaces allow developers to work quickly in their development environment and add the CLI to any automation tools for build and deploy pipelines. 
 
-## 2. Developer Compute
+Contoso uses the following CLIs:
+
+* [Static Web Apps (SWA) CLI](https://github.com/Azure/static-web-apps-cli)
+* [Azure Functions core tools CLI (FUNC)](https://github.com/Azure/azure-functions-core-tools)
+* [Azure Developer CLI (AZD)](https://github.com/Azure/azure-dev)
+* [git](https://git-scm.com/downloads)
+
+## Developer Compute
 
 A developer's workstation can be located in the cloud or as a physical machine. Regardless of where the compute resource is, is easily integrates the components a modern cloud developer needs.
 
 ### CodeSpaces
 
-**What is it?** 
-
 CodeSpaces is a developer container available with your GitHub repository. Open your repository in CodeSpaces, either in a browser, or your local IDE. Begin working immediately, in your typical developer flow, writing, debugging, testing, and pushing PRs back to the GitHub repository. CodeSpaces retains any specific changes to the environment such as environment variables, dependency installs, and CLIs. 
 
-**What do we provide?** 
+You can open the project from GitHub in a web browser, or you can open the container from a local version of [Visual Studio Code](https://code.visualstudio.com/). Both use the same dev container. 
 
-[Visual Studio Code](https://code.visualstudio.com/) integrates with Code Spaces. Open your CodeSpaces dev container inside your local running Visual Studio Code. 
-
-### Azure Dev Box
-
-**What is it?** 
-
-[Azure Dev Box](/azure/dev-box) provides enterprise management for self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Access your dev box through [Remote Desktop App](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=non-Windows) for Windows and non-windows clients.
-
-**What do we provide?** 
-
-Azure Dev Box integrates with Visual Studio with features such as Visual Studio Cache, the Azure CLI extension, and integration with Azure deployment environments.
-
-## 3. Cloud resources for developers
+## Cloud resources for developers
 
 Developers need access to cloud resources while developing. Depending on the resource, the development team may choose to use a local emulator (if available), or use the same infrastructure as code files to provide developer resources. 
 
-**Infrastructure as code**, with tools such as [Azure Dev CLI (AZD)](/azure/developer/azure-developer-cli/overview) allows you to create and tear down resources quickly. 
+**Infrastructure as code**, with tools such as [Azure Dev CLI (AZD)](/azure/developer/azure-developer-cli/overview) allows you to create and tear down cloud resources quickly. 
 
+This project has a root level file, [azure.yml](https://github.com/Azure-Samples/contoso-real-estate/blob/main/azure.yaml), defining the **_logical_ services**, which can be independently deployed. The resources supporting each service are defined in the [infra](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra) folder. 
 
-**Begin with one of templates**:
+* The [**infra/app**](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra/app) folder defines how the **_Azure_ services** are configured and stitched together.
+* The [**infra/core**](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra/core) folder has the [**Bicep**](/azure/azure-resource-manager/bicep/) files used to create each Azure service.
 
-* [C#](/azure/developer/azure-developer-cli/azd-templates?tabs=csharp#choose-a-template)
-* [Java](/azure/developer/azure-developer-cli/azd-templates?tabs=java#choose-a-template)
-* [Node.js](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs#choose-a-template)
-* [Python](/azure/developer/azure-developer-cli/azd-templates?tabs=python#choose-a-template)
-* [Starter templates](/azure/developer/azure-developer-cli/azd-templates?tabs=starter-IaC#choose-a-template)
-* [Community templates at Awesome AZD](https://aka.ms/awesome-azd)
+[Azure Developer CLI (AZD)](https://github.com/Azure/azure-dev) provides resource creation, for all resources or just a logical service, through the `azd provision` command.
 
-Learn more about AZD:
+## Source control, continuous integration and deployment
 
-* [AZD Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments#supported-azure-compute-services-host)
-* [AZD Supported programming languages](/azure/developer/azure-developer-cli/supported-languages-environments#supported-programming-languages)
+**Source control** provides the ability to track changes during the development cycle. Contoso uses [git](https://git-scm.com/downloads) to manage version control and [GitHub](https://github.com/Azure-Samples/contoso-real-estate) to store source code.
 
+**Continuous integration** allows for changes to source code to be verified before merging into the _main_ branch. Contoso uses the [.github/workflows](https://github.com/Azure-Samples/contoso-real-estate/tree/main/.github/workflows) file for continuous integration.
 
-## 4. Source control, continuous integration and deployment
-
-
+**Deployment** is the process of moving source code and related files to the cloud. [Azure Developer CLI (AZD)](https://github.com/Azure/azure-dev) provides that deployment through the `azd deploy` command.
 
