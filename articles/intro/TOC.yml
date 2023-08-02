@@ -50,7 +50,7 @@ items:
         items:
           - name: Create passwordless database connections
             href: /azure/service-connector/tutorial-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: Reference
+          - name: Database reference
             items:
               - name: SQL
                 href: /azure/service-connector/how-to-integrate-sql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
