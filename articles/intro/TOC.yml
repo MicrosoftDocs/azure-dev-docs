@@ -46,14 +46,18 @@ items:
             href: /azure/storage/common/migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Queues
             href: /azure/storage/queues/passwordless-migrate-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: Service Connector reference
+      - name: Service Connector
         items:
-          - name: SQL
-            href: /azure/service-connector/how-to-integrate-sql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: MySQL
-            href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: PostgreSQL
-            href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Create passwordless database connections
+            href: /azure/service-connector/tutorial-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Reference
+            items:
+              - name: SQL
+                href: /azure/service-connector/how-to-integrate-sql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: MySQL
+                href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: PostgreSQL
+                href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: .NET
         items:
           - name: Configure
