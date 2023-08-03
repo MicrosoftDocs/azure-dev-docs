@@ -1,6 +1,6 @@
 ---
-title: User scenarios with JavaScript Enterprise applications
-description: Understand how the implementation architecture maps to the User scenarios the solution is meant to solve.
+title: User scenarios with Contoso real estate
+description: Understand how the implementation architecture of Contoso real estate maps to the User scenarios the solution is meant to solve.
 ms.topic: conceptual
 ms.date: 8/1/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate

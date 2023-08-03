@@ -1,12 +1,12 @@
 ---
 title: Contoso real estate developer tools
-description: Modern cloud development includes tools to enable you to develop, debug, build, deploy, and test your application.
+description: Learn modern cloud development with Contoso real estate, including tools to enable you to develop, debug, build, deploy, and test your application.
 ms.topic: conceptual
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
-# What are modern cloud development tools and practices
+# Modern cloud development with Contoso real estate
 
 Modern cloud development used in the Contoso Real Estate solution includes tools to enable you to develop, debug, build, deploy, and test your application. 
 

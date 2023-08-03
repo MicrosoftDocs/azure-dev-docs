@@ -1,12 +1,12 @@
 ---
 title: Contoso real estate solution set
-description: Learn the reference architecture for this enterprise-grade modern composable cloud-native application and its scenarios.
+description: Learn the Contoso real estate reference architecture for this enterprise-grade modern composable cloud-native application and its scenarios.
 ms.topic: conceptual
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
-# Contoso real estate solution set
+# Solution set for Contoso real estate 
 
 This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
@@ -45,7 +45,7 @@ A database for user events and user profiles, integrated into the serverless API
 
 ## Scenario 3: User authentication
 
-User authentication is provided as built-in functionality in [Azure Static web apps](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers:
+User authentication is provided as built-in functionality in [Azure Static web apps](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers.
 
 :::image type="content" source="./media/contoso-real-estate/scenario-3-user-authentication-swa-cosmo-db-mongodb.png" alt-text="Architectural diagram of the user authentication in the portal application.":::
 
@@ -54,13 +54,11 @@ Once a user is logged in, their user information is stored in [Cosmos DB for Mon
 ## Scenario 4: Payments
 
 This scenario supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
-This scenario containerizes the [Fastify](https://fastify.dev/) payments application deployed to [Azure Container Apps](/azure/container-apps/overview)
+This scenario containerizes the payment processing functionality in a [Fastify](https://fastify.dev/) application deployed to [Azure Container Apps](/azure/container-apps/overview)
 
 :::image type="content" source="./media/contoso-real-estate/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
 
-When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the API. The API handles the incoming webhook event and performs the payment actions such as checkout, checkout completed, checkout expired. 
-
-Azure API Management is also used in this architecture to mediate the requests between the frontend portal and the backend portal API.
+When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the Fastify API. The API handles the incoming webhook event and performs the payment actions such as checkout, checkout completed, checkout expired. 
 
 ## Next step
 
