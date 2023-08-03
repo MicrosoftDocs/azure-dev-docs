@@ -76,6 +76,8 @@ When Azure API Management receives a request for the webhook endpoint URL from S
 
 This package provides the end to end testing for Contoso real estate. It uses [Playwright](https://playwright.dev/) to automate the browser and test the user experience of the application. 
 
+[Testing package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)
+
 ## Next step
 
 > [!div class="nextstepaction"]
