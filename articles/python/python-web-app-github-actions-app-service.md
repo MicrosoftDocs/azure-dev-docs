@@ -2,7 +2,7 @@
 title: Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 description: Use CI/CD with GitHub Actions to automatically build, test, and deploy Python web apps to Azure App Service on Linux.
 ms.topic: conceptual
-ms.date: 10/29/2022
+ms.date: 08/03/2023
 ms.custom: devx-track-python
 ---
 
