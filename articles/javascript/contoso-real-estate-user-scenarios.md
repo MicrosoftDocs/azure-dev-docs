@@ -1,7 +1,7 @@
 ---
 title: User scenarios with JavaScript Enterprise applications
-description: Userstand how the implementation architecture maps to the User sceenarios the solution is meant to solve.
-ms.topic: overview
+description: Understand how the implementation architecture maps to the User scenarios the solution is meant to solve.
+ms.topic: conceptual
 ms.date: 8/1/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a Senior JavaScript Developer new to the Contoso real estate enterprise pp, I want understand how the user scenarios the architecture solves for so that I can have a deeper understanding between the technical solution and the business solution.
@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # User scenarios for Contoso real estate
 
-To understand the solution implementation, it is important to identify the user's of the solution and what actions each can accomplish.
+To understand the solution implementation, it's important to identify the user's of the solution and what actions each can accomplish.
 
 ## User specification
 
@@ -28,7 +28,7 @@ Where user roles are tied to the relevant app:
  - **New Hires** are authenticated users on Portal app.
  - **Guests** are anonymous users that can only see Blog and Portal apps.
 
-By definition, _Guest_ roles can login on the Portal App to get upgraded to _New User_ roles. And _New User_ roles are downgraded to _Guest_ access when they log out. 
+By definition, _Guest_ roles can log in on the Portal App to get upgraded to _New User_ roles. And _New User_ roles are downgraded to _Guest_ access when they log out. 
 
 ## User Scenarios
 
@@ -36,17 +36,17 @@ Now convert the broad application scenario into specific user scenarios:
 
 ### HR Admin Role
 
-HR Admins **can** login on the **Admin App** and: 
+HR Admins **can** log in on the **Admin App** and: 
 
 * Create property listings with location, amenities, price
 * Update, delete, or view current rental listings
 * Toggle feature flag on a listing to feature it
 * Create blog posts with title, images, content
-* Update portal content seen on about page, tos page, home pages.
+* Update portal content seen on _About_ page, _Terms of service_ page, _Home_ pages.
 
 HR Admins **can't** login on the **Portal App**
 
-* HR Admins credentials for Admin App should not work on Portal App.
+* HR Admins credentials for Admin App shouldn't work on Portal App.
 * HR Admin can visit the Portal App anonymously, as a Guest.
 
 ### Guest Role
@@ -90,7 +90,7 @@ Guests can visit the Blog App page can:
 
 ### New Hire Role
 
-New Hires can login on the **Portal App** and: 
+New Hires can log in on the **Portal App** and: 
 
 * Get all default _Guest_ features except for the login button in navbar then see a:
     * Selectable _Profile_ button in navbar 
@@ -106,10 +106,10 @@ New Hires can login on the **Portal App** and:
     - _Logout_ item that logs user out (returns to Guest role)
 * Editable Reservation form details (dates) and select to submit request
 
-New Hires can't login on the **Admin App**
+New Hires can't log in on the **Admin App**
 
-* New Hires should not _see_ any links to Admin App in Portal App
-* New Hire credentials for Portal App should not work for Admin App
+* New Hires shouldn't _see_ any links to Admin App in Portal App
+* New Hire credentials for Portal App shouldn't work for Admin App
 
 ## Test role actions
 

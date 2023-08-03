@@ -1,7 +1,7 @@
 ---
 title: Contoso real estate solution set
-description: 
-ms.topic: concept
+description: Learn the reference architecture for this enterprise-grade modern composable cloud-native application and its scenarios.
+ms.topic: conceptual
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
@@ -23,7 +23,7 @@ There are two components that make up the architecture of this solution:
 
 - A Headless CMS, implemented using Strapi.
 - A frontend application, implemented using Next.js, that consumes the data from the Headless CMS and renders the blog pages.
-- A PostegreSQL database that stores the data for the Headless CMS. The CMS is hosted in Azure Container Apps, and the database will be hosted in Azure Database for PostgreSQL. They'll connect to each other via the endpoints built in the Strapi server implementation.
+- A PostegreSQL database that stores the data for the Headless CMS. The CMS is hosted in Azure Container Apps, and the database is hosted in Azure Database for PostgreSQL. They'll connect to each other via the endpoints built in the Strapi server implementation.
 
 Both of these applications are hosted in [Azure Container Apps](/azure/container-apps/overview).
 
@@ -58,7 +58,7 @@ This scenario containerizes the [Fastify](https://fastify.dev/) payments applica
 
 :::image type="content" source="./media/contoso-real-estate/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
 
-When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the API. The API handles the incoming webhook event and performs the payment actions such as check out, checkout completed, checkout expired. 
+When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the API. The API handles the incoming webhook event and performs the payment actions such as checkout, checkout completed, checkout expired. 
 
 Azure API Management is also used in this architecture to mediate the requests between the frontend portal and the backend portal API.
 

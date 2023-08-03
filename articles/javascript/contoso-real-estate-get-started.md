@@ -24,12 +24,20 @@ To deploy this entire app solution to Azure, you need:
 
 The Contoso real estate app has two client applications, the **portal** and the blog. The **blog** publicizes new real estate offerings and if visible without authentication. The portal app requires authentication to view, reserve, and pay for listings. Separate development teams have built and support this end-to-end architecture with their own choice of technical stack. 
 
-Client apps:
+**Micro frontend client**:
 
 * The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in Azure Blob Storage.
+
+    :::image type="content" source="./media/contoso-real-estate/browser-blog-landing.png" lightbox="./media/contoso-real-estate/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
+
+
 * The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). 
 
-:::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
+    :::image type="content" source="./media/contoso-real-estate/browser-portal-landing.png" lightbox="./media/contoso-real-estate/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
+
+    Once a user signs in, and selects a property, they can choose to reserve the property.
+
+    :::image type="content" source="./media/contoso-real-estate/browser-portal-reserve-property.png" lightbox="./media/contoso-real-estate/browser-portal-reserve-property.png" alt-text="Screenshot of Contoso portal property page showing property images, details, and offering a user the ability to reserve the property with a payment form.":::
 
 Other Azure services used include: 
 

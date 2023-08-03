@@ -1,7 +1,7 @@
 ---
 title: Contoso real estate developer tools
 description: Modern cloud development includes tools to enable you to develop, debug, build, deploy, and test your application.
-ms.topic: Overview
+ms.topic: conceptual
 ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
@@ -63,7 +63,7 @@ Contoso uses the following CLIs:
 
 ## Developer Compute
 
-A developer's workstation can be located in the cloud or as a physical machine. Regardless of where the compute resource is, is easily integrates the components a modern cloud developer needs.
+A developer's workstation can be located in the cloud or as a physical machine. Regardless of where the compute resource is, is easily integrates the components needed by a modern cloud developer.
 
 ### CodeSpaces
 
