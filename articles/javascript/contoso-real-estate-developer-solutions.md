@@ -6,16 +6,17 @@ ms.date: 05/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
-# Solution set for Contoso real estate 
+# Packaged solutions for Contoso real estate 
 
 This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
-
 :::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
 
-## Scenario 1: The blog
+The following packages are listed in order of learning priority.
 
-This scenario provides data authoring and storing capabilities for both vertical micro-frontend applications (Blog and Portal). We enable these capabilities, via the implementation of a Headless CMS, powered by Strapi. 
+## Package: The blog with Container Apps and Azure Database for PostgreSQL
+
+This package provides data authoring and storing capabilities for both vertical micro-frontend applications (Blog and Portal). We enable these capabilities, via the implementation of a Headless CMS, powered by Strapi. 
 
 :::image type="content" source="./media/contoso-real-estate/scenario-1-blog-cms-api.png" alt-text="Architectural diagram of the blog client and API scenario.":::
 
@@ -27,8 +28,12 @@ There are two components that make up the architecture of this solution:
 
 Both of these applications are hosted in [Azure Container Apps](/azure/container-apps/overview).
 
+Packages:
 
-## Scenario 2: The portal
+* [Blog package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog)
+* [Blob CMS package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog-cms)
+
+## Package: The portal with Static Web Apps and Azure Functions API
 
 This frontend application is the main entry point for the users, implementing Angular as a JavaScript framework. 
 
@@ -43,22 +48,33 @@ The database for content, integrated to the serverless API backend, is an [Azure
 
 A database for user events and user profiles, integrated into the serverless API backend is an [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), which is a fully managed NoSQL database service that offers multiple APIs, including the MongoDB API. 
 
-## Scenario 3: User authentication
+Packages:
 
-User authentication is provided as built-in functionality in [Azure Static web apps](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers.
+* [Portal package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal)
+* [Portal API package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/api)
+
+## User authentication with built-in functionality
+
+User authentication is provided as built-in functionality in the portal's [Azure Static web app](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers.
 
 :::image type="content" source="./media/contoso-real-estate/scenario-3-user-authentication-swa-cosmo-db-mongodb.png" alt-text="Architectural diagram of the user authentication in the portal application.":::
 
 Once a user is logged in, their user information is stored in [Cosmos DB for MongoDB API](/azure/cosmos-db/mongodb/choose-model) such as favorited-properties, and property reservations. 
 
-## Scenario 4: Payments
+## Package: Payments with Stripe
 
-This scenario supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
-This scenario containerizes the payment processing functionality in a [Fastify](https://fastify.dev/) application deployed to [Azure Container Apps](/azure/container-apps/overview)
+This package supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
+This package containerizes the payment processing functionality in a [Fastify](https://fastify.dev/) application deployed to [Azure Container Apps](/azure/container-apps/overview)
 
 :::image type="content" source="./media/contoso-real-estate/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
 
 When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the Fastify API. The API handles the incoming webhook event and performs the payment actions such as checkout, checkout completed, checkout expired. 
+
+[Stripe package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/stripe)
+
+## Package: Testing with Playwright
+
+This package provides the end to end testing for Contoso real estate. It uses [Playwright](https://playwright.dev/) to automate the browser and test the user experience of the application. 
 
 ## Next step
 

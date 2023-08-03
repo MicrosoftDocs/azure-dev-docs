@@ -28,7 +28,7 @@ Where user roles are tied to the relevant app:
  - **New Hires** are authenticated users on Portal app.
  - **Guests** are anonymous users that can only see Blog and Portal apps.
 
-By definition, _Guest_ roles can log in on the Portal App to get upgraded to _New User_ roles. And _New User_ roles are downgraded to _Guest_ access when they log out. 
+By definition, _Guest_ roles can sign in on the Portal App to get upgraded to _New User_ roles. And _New User_ roles are downgraded to _Guest_ access when they sign out. 
 
 ## User Scenarios
 
@@ -36,7 +36,7 @@ Now convert the broad application scenario into specific user scenarios:
 
 ### HR Admin Role
 
-HR Admins **can** log in on the **Admin App** and: 
+HR Admins **can** sign in on the **Admin App** and: 
 
 * Create property listings with location, amenities, price
 * Update, delete, or view current rental listings
@@ -44,7 +44,7 @@ HR Admins **can** log in on the **Admin App** and:
 * Create blog posts with title, images, content
 * Update portal content seen on _About_ page, _Terms of service_ page, _Home_ pages.
 
-HR Admins **can't** login on the **Portal App**
+HR Admins **can't** sign in on the **Portal App**
 
 * HR Admins credentials for Admin App shouldn't work on Portal App.
 * HR Admin can visit the Portal App anonymously, as a Guest.
@@ -66,7 +66,7 @@ Guests can visit the **Portal App** and:
 Guests on the **Portal App** _Home_ page can: 
 
 * Select the *login* button to start authentication workflow
-* Select *About, TOS, Home links* to visit those pages (routes)
+* Select *About*, *TOS*, *Home links* to visit those pages (routes)
 * Select the search button to visit the search page to make queries
 * Select the blog link to visit the **Blog App**
 * Select a featured listing image to visit the listing details page
@@ -77,7 +77,7 @@ Guests on the **Portal App** _Listing Details_ page can:
 * See related listing details (location, description, amenities)
 * See a listing reservation section (not enabled for input)
 * See the same navbar and footer sections as Home page
-* Select the navbar login button to start authentication workflow
+* Select the navbar sign in button to start authentication workflow
 * Select *About, TOS, Home links* to visit those pages (routes)
 
 Guests can visit the Blog App page can:
@@ -90,7 +90,7 @@ Guests can visit the Blog App page can:
 
 ### New Hire Role
 
-New Hires can log in on the **Portal App** and: 
+New Hires can sign in on the **Portal App** and: 
 
 * Get all default _Guest_ features except for the login button in navbar then see a:
     * Selectable _Profile_ button in navbar 
@@ -106,14 +106,14 @@ New Hires can log in on the **Portal App** and:
     - _Logout_ item that logs user out (returns to Guest role)
 * Editable Reservation form details (dates) and select to submit request
 
-New Hires can't log in on the **Admin App**
+New Hires can't sign in on the **Admin App**
 
 * New Hires shouldn't _see_ any links to Admin App in Portal App
 * New Hire credentials for Portal App shouldn't work for Admin App
 
 ## Test role actions
 
-When the user roles and abilities are defined, these can be validate with [Playwright](https://playwright.dev/docs/intro) end to end tests.
+When the user roles and abilities are defined, these can be validated with [Playwright](https://playwright.dev/docs/intro) end to end tests.
 
 ## Next step
 
