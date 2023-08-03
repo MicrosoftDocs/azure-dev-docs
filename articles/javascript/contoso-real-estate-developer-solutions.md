@@ -35,7 +35,7 @@ Packages:
 
 ## Package: The portal with Static Web Apps and Azure Functions API
 
-This frontend application is the main entry point for the users, implementing Angular as a JavaScript framework. 
+This frontend application is the main entry point for the users implementing Angular as a JavaScript framework. 
 
 :::image type="content" source="./media/contoso-real-estate/scenario-2-portal-swa-fn-api.png" alt-text="Architectural diagram of the portal client and API scenario.":::
 
@@ -77,6 +77,12 @@ When Azure API Management receives a request for the webhook endpoint URL from S
 This package provides the end to end testing for Contoso real estate. It uses [Playwright](https://playwright.dev/) to automate the browser and test the user experience of the application. 
 
 [Testing package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)
+
+## Package: Docs
+
+This package provides extensive documentation for the Contoso real estate reference architecture. It's built with [Docusaurus](https://docusaurus.io/), a modern static website generator. 
+
+[Documentation package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/docs)
 
 ## Next step
 

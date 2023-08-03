@@ -30,86 +30,28 @@ Where user roles are tied to the relevant app:
 
 By definition, _Guest_ roles can sign in on the Portal App to get upgraded to _New User_ roles. And _New User_ roles are downgraded to _Guest_ access when they sign out. 
 
-## User Scenarios
+## User Scenarios by role
 
 Now convert the broad application scenario into specific user scenarios:
 
-### HR Admin Role
+**HR Admin Role**
 
-HR Admins **can** sign in on the **Admin App** and: 
+* HR Admins **can** sign in on the **Admin App**:
+    * Manage property listings and feature certain listings
+    * Create blog posts 
+    * Manage portal content seen on _About_ page, _Terms of service_ page, _Home_ pages.
+* HR Admins **can't** sign in on the **Portal App**. HR Admin can visit the Portal App anonymously, as a Guest.
 
-* Create property listings with location, amenities, price
-* Update, delete, or view current rental listings
-* Toggle feature flag on a listing to feature it
-* Create blog posts with title, images, content
-* Update portal content seen on _About_ page, _Terms of service_ page, _Home_ pages.
+**Guest Role** 
 
-HR Admins **can't** sign in on the **Portal App**
+* Guests **can** visit the **Portal App** and see content, which doesn't require authentication such as the _Home_ page, _About_ page, _Terms of service_ page. Guests can also begin the authentication process to sign in to the Portal App.
+* Guests **can** visit the **Blog App** page can see and explore the blog posts.
+* Guests **can't** sign in on the **Admin App**
 
-* HR Admins credentials for Admin App shouldn't work on Portal App.
-* HR Admin can visit the Portal App anonymously, as a Guest.
+**New Hire Role** 
 
-### Guest Role
-
-Guests can visit the **Portal App** and:
-
-* See the *Home page* as their landing or entry point
-* See *navbar, footer and content* sections on Home page
-* See a selectable *login button* in the navbar 
-* See selectable *About, TOS, Home links* in footer
-* See a *"hero banner"* in content section of Home page 
-* See a selectable *visit blog* button in the hero banner 
-* See a selectable *"search" button* in content section of Home page 
-* See a *"featured" listings block* in content section of Home page 
-* See a selectable listing image for each item in the featured listings
-
-Guests on the **Portal App** _Home_ page can: 
-
-* Select the *login* button to start authentication workflow
-* Select *About*, *TOS*, *Home links* to visit those pages (routes)
-* Select the search button to visit the search page to make queries
-* Select the blog link to visit the **Blog App**
-* Select a featured listing image to visit the listing details page
-
-Guests on the **Portal App** _Listing Details_ page can:
-
-* See related listing images
-* See related listing details (location, description, amenities)
-* See a listing reservation section (not enabled for input)
-* See the same navbar and footer sections as Home page
-* Select the navbar sign in button to start authentication workflow
-* Select *About, TOS, Home links* to visit those pages (routes)
-
-Guests can visit the Blog App page can:
-
-* See the same navbar and footer as the Portal App
-* See a list of tags for exploring blog posts
-* See a list of currently published blog posts 
-* See a link to return to Portal App page
-* Select on a blog post in listing to visit Blog Article page.
-
-### New Hire Role
-
-New Hires can sign in on the **Portal App** and: 
-
-* Get all default _Guest_ features except for the login button in navbar then see a:
-    * Selectable _Profile_ button in navbar 
-    * Selectable _Favorite_ toggle button on listing cards in Home page
-    * Selectable _Favorite_ toggle button in Listing Detail page
-    * Editable _Reservation_ form section in Listing Detail page
-    * Selectable _Reserve_ button in Reservation form section
-* Select Profile button to see a dropdown menu with a selectable
-    - _Profile_ item leading to the user's profile page
-    - _Favorites_ item leading to the user's saved listings
-    - _Reservations_ item leading to the user's reservations 
-    - _Payments_ item leading to the user's payments history
-    - _Logout_ item that logs user out (returns to Guest role)
-* Editable Reservation form details (dates) and select to submit request
-
-New Hires can't sign in on the **Admin App**
-
-* New Hires shouldn't _see_ any links to Admin App in Portal App
-* New Hire credentials for Portal App shouldn't work for Admin App
+* New Hires **can** sign in on the **Portal App** and see, explore, and reserve listings.
+* New Hires **can't** sign in on the **Admin App**
 
 ## Test role actions
 
