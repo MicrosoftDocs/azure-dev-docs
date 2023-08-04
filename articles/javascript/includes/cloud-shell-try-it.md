@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 ## Launch Azure Cloud Shell
