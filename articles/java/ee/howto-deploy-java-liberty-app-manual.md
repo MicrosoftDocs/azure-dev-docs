@@ -51,6 +51,7 @@ az login
 ```
 
 > [!NOTE]
+> Most CLI commands can be run in PowerShell all the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.  
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
 ## Create a resource group
