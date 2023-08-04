@@ -3,7 +3,7 @@ title: include file graphql-basics.md
 description: include file graphql-basics.md 
 ms.topic: include
 ms.date: 07/20/2021
-ms.custom: devx-track-js, devx-graphql
+ms.custom: devx-graphql
 # used in several places to explain graphql basic concepts
 ---
 
