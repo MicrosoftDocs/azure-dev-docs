@@ -1,7 +1,7 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 04/22/2023
+ms.date: 07/30/2023
 ms.custom: devx-track-terraform
 ---
 

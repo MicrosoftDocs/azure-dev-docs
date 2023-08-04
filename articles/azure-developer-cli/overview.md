@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli, devx-track-azurecli, build-2023
+ms.custom: devx-track-azdevcli, build-2023
 ---
 
 # What is the Azure Developer CLI?
@@ -27,7 +27,8 @@ Once you've [installed Azure Developer CLI](./install-azd.md), you can get your 
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
+> [!VIDEO https://www.youtube.com/embed/9z3PiHSCcYs]
+Check out our [Azure Developer CLI playlist](https://www.youtube.com/watch?v=_MNndbEPvYQ&list=PLq8oMtzrBmrhdtmthuGO9pOHRUqD-BmWh&index=1)! 
 
 ## Next steps
 - [View supported languages and environments](./supported-languages-environments.md)

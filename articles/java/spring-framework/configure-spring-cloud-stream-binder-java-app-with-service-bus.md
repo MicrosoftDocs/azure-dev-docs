@@ -49,7 +49,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.8.0</version>
+        <version>4.9.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -58,7 +58,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Service Bus artifact:
@@ -182,8 +182,8 @@ Use the following steps to configure your application to use a Service Bus queue
     
         @Override
         public void run(String... args) {
-            LOGGER.info("Going to add message {} to Sinks.Many.", "Hello Word");
-            many.emitNext(MessageBuilder.withPayload("Hello Word").build(), Sinks.EmitFailureHandler.FAIL_FAST);
+            LOGGER.info("Going to add message {} to Sinks.Many.", "Hello World");
+            many.emitNext(MessageBuilder.withPayload("Hello World").build(), Sinks.EmitFailureHandler.FAIL_FAST);
         }
     
     }
@@ -194,8 +194,8 @@ Use the following steps to configure your application to use a Service Bus queue
 1. Start the application. Messages like the following example will be posted in your application log:
 
    ```output
-   New message received: 'Hello Word'
-   Message 'Hello Word' successfully checkpointed
+   New message received: 'Hello World'
+   Message 'Hello World' successfully checkpointed
    ```
 
 ## Next steps

@@ -27,7 +27,7 @@ To complete this tutorial, you need:
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
 
-Although Avalonia supports building on Mac or Windows, this tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Avalonia tutorial](https://docs.avaloniaui.net/tutorials/todo-list-app) to become acquainted with the development process for Avalonia.
+Although Avalonia supports building on Mac or Windows, this tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Avalonia tutorial](https://docs.avaloniaui.net/docs/next/get-started/test-drive/introduction) to become acquainted with the development process for Avalonia.
 
 ## Download the sample app
 

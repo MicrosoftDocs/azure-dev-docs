@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure PostgreSQL support
 
-**This article applies to:** ✔️ Version 4.8.0 ✔️ Version 5.1.0
+**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
@@ -123,7 +123,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. Use the following command to run the SQL script to create the Azure AD non-admin user:
 
       ```bash
-      psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=postgres port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user_sp.sql
+      psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_sp.sql
       ```
 
    1. Now use the following command to remove the temporary SQL script file:

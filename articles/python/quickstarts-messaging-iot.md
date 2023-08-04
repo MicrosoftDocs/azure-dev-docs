@@ -19,7 +19,7 @@ Messaging services on Azure provide the interconnectivity between components and
 
 - **Queues**
   - [Quickstart: Azure Queue Storage client library for Python](/azure/storage/queues/storage-quickstart-queues-python)
-  - [Develop with Queues: How to use Azure Queue Storage from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage)
+  - [Develop with Queues: How to use Azure Queue Storage from Python](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
   - [Quickstart: Send messages to and receive messages from Azure Service Bus queues (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
   - [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions)
 

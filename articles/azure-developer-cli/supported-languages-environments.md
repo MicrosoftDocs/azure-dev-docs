@@ -6,7 +6,7 @@ ms.author: gracekulin
 ms.date: 4/27/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli, devx-track-azurecli
+ms.custom: devx-track-azdevcli
 ---
 
 # Supported languages and environments
@@ -36,7 +36,7 @@ For more information about each feature stage, see [feature versioning and relea
 | Azure Container Apps     | Beta           |
 | Azure Functions          | Stable         |
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
-| Azure Spring Apps        | Alpha          |
+| Azure Spring Apps        | Beta           |
 
 ## Supported programming languages
 

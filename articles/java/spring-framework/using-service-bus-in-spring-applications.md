@@ -484,13 +484,6 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
    > [!Note]
    > If you're using a topic/subscription, change the `spring.cloud.azure.servicebus.entity-type` value to `topic`.
 
-1. Add the `spring.factories` for the autoconfiguration for `@ServiceBusListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
-   ```
-
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver.
 
    ```java

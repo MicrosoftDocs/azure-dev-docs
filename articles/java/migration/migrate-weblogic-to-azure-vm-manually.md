@@ -205,16 +205,16 @@ Oracle WebLogic 14c is certified to run on Oracle GraalVM Enterprise Edition. In
       Then, use the following commands to add the `oracle` user and group.
 
       ```bash
-      groupname="oracle"
-      username="oracle"
-      user_home_dir="/u01/oracle"
+      export groupname="oracle"
+      export username="oracle"
+      export user_home_dir="/u01/oracle"
       sudo mkdir -p ${user_home_dir}
       sudo groupadd $groupname
       sudo useradd -d ${user_home_dir} -g $groupname $username
       sudo chown ${username}:${groupname} ${user_home_dir} -R
 
-      JDK_PATH="/u01/app/jdk"
-      WLS_PATH="/u01/app/wls"
+      export JDK_PATH="/u01/app/jdk"
+      export WLS_PATH="/u01/app/wls"
       sudo mkdir -p $JDK_PATH
       sudo mkdir -p $WLS_PATH
 
@@ -357,7 +357,7 @@ The steps in this section show you how to connect PostgreSQL to the Oracle WebLo
 This section shows you how to download PostgreSQL JDBC driver and install it. This section assumes you're still on `adminVM` and signed in with the `oracle` user. If you're working with any other user, run `sudo su - oracle` to switch to `oracle`.
 
 ```bash
-DRIVER_PATH="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver/server/lib/postgresql-42.2.8.jar"
+export DRIVER_PATH="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver/server/lib/postgresql-42.2.8.jar"
 
 curl -L https://jdbc.postgresql.org/download/postgresql-42.2.8.jar -o ${DRIVER_PATH}
 ```
@@ -366,9 +366,9 @@ To load the driver successfully, you must include the driver jar in the classpat
 
 ```bash
 #Replace with your version
-GRAALVM_VERSION="22.2.0.1"
-JAVA_HOME=/u01/app/jdk/graalvm-ee-java11-${GRAALVM_VERSION}
-WL_HOME="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver"
+export GRAALVM_VERSION="22.2.0.1"
+export JAVA_HOME=/u01/app/jdk/graalvm-ee-java11-${GRAALVM_VERSION}
+export WL_HOME="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver"
 sed -i 's;^WEBLOGIC_CLASSPATH=\"${JAVA_HOME}.*;&\nWEBLOGIC_CLASSPATH="${WL_HOME}/server/lib/postgresql-42.2.8.jar:${WEBLOGIC_CLASSPATH}";' ${WL_HOME}/../oracle_common/common/bin/commExtEnv.sh
 ```
 
@@ -387,7 +387,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
    ```azurecli
-   ADMIN_OS_DISK_ID=$(az vm show \
+   export ADMIN_OS_DISK_ID=$(az vm show \
        --resource-group abc1110rg \
        --name adminVM \
        --query storageProfile.osDisk.managedDisk.id \
@@ -404,7 +404,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ```azurecli
    # Get the snapshot ID.
-   SNAPSHOT_ID=$(az snapshot show \
+   export SNAPSHOT_ID=$(az snapshot show \
        --name myAdminOSDiskSnapshot \
        --resource-group abc1110rg \
        --query [id] \
@@ -526,7 +526,7 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
    ```bash
    sudo su
 
-   DOMAIN_PATH="/u01/domains"
+   export DOMAIN_PATH="/u01/domains"
    mkdir -p ${DOMAIN_PATH}
    chown oracle:oracle -R ${DOMAIN_PATH}
    ```
@@ -678,7 +678,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
    chown oracle:oracle /tmp/cluster.jar
 
-   DOMAIN_PATH="/u01/domains"
+   export DOMAIN_PATH="/u01/domains"
    mkdir -p ${DOMAIN_PATH}
    chown oracle:oracle -R ${DOMAIN_PATH}
    ```
@@ -727,7 +727,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
    chown oracle:oracle /tmp/cluster.jar
 
-   DOMAIN_PATH="/u01/domains"
+   export DOMAIN_PATH="/u01/domains"
    mkdir -p ${DOMAIN_PATH}
    chown oracle:oracle -R ${DOMAIN_PATH}
 
@@ -1610,92 +1610,92 @@ Now, the managed servers start up automatically when the machine restarts.
 In order to remote connect to the Windows Server machines, all of them are assigned a public IP address. Now that the configuration is done, there's no need to keep the public IP address. For security, remove the public IP addresses from `adminVM`, `mspVM1`, and `mspVM2`, as shown in the following example. For more information, see [Dissociate a public IP address from an Azure VM](/azure/virtual-network/ip-services/remove-public-ip-address-vm).
 
 ```azurecli
-ADMINVM_NIC_ID=$(az vm show \
+export ADMINVM_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name adminVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-ADMINVM_NIC_NAME=$(az network nic show \
+export ADMINVM_NIC_NAME=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
     --query name \
     --output tsv)
-ADMINVM_NIC_IP_CONFIG=$(az network nic show \
+export ADMINVM_NIC_IP_CONFIG=$(az network nic show \
     --ids $ADMINVM_NIC_ID \
     --query ipConfigurations[0].name \
     --output tsv)
-ADMINVM_PUBLIC_IP=$(az network nic show \
+export ADMINVM_PUBLIC_IP=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
     --query ipConfigurations[0].publicIpAddress.id \
     --output tsv)
-ADMINVM_NSG_ID=$(az network nic show \
+export ADMINVM_NSG_ID=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
     --query networkSecurityGroup.id \
     --output tsv)
 
 az network nic ip-config update \
-   --name ${ADMINVM_NIC_IP_CONFIG} \
-   --resource-group abc1110rg \
-   --nic-name ${ADMINVM_NIC_NAME} \
-   --remove PublicIpAddress
+    --name ${ADMINVM_NIC_IP_CONFIG} \
+    --resource-group abc1110rg \
+    --nic-name ${ADMINVM_NIC_NAME} \
+    --remove PublicIpAddress
 az network public-ip delete --ids ${ADMINVM_PUBLIC_IP}
 az network nic update \
-   --resource-group abc1110rg \
-   --name ${ADMINVM_NIC_NAME} \
-   --remove networkSecurityGroup
+    --resource-group abc1110rg \
+    --name ${ADMINVM_NIC_NAME} \
+    --remove networkSecurityGroup
 az network nsg delete --ids ${ADMINVM_NSG_ID}
 
-MSPVM1VM_NIC_ID=$(az vm show \
+export MSPVM1VM_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-MSPVM1VM_NIC_NAME=$(az network nic show \
+export MSPVM1VM_NIC_NAME=$(az network nic show \
     --ids ${MSPVM1VM_NIC_ID} \
     --query name \
     --output tsv)
-MSPVM1VM_NIC_IP_CONFIG=$(az network nic show \
+export MSPVM1VM_NIC_IP_CONFIG=$(az network nic show \
     --ids ${MSPVM1VM_NIC_ID} \
     --query ipConfigurations[0].name \
     --output tsv)
-MSPVM1VM_PUBLIC_IP=$(az network nic show \
+export MSPVM1VM_PUBLIC_IP=$(az network nic show \
     --ids ${MSPVM1VM_NIC_ID} \
     --query ipConfigurations[0].publicIpAddress.id \
     --output tsv)
-MSPVM1VM_NSG_ID=$(az network nic show \
+export MSPVM1VM_NSG_ID=$(az network nic show \
     --ids ${MSPVM1VM_NIC_ID} \
     --query networkSecurityGroup.id \
     --output tsv)
 
 az network nic ip-config update \
- --name ${MSPVM1VM_NIC_IP_CONFIG} \
- --resource-group abc1110rg \
- --nic-name ${MSPVM1VM_NIC_NAME} \
- --remove PublicIpAddress
+    --name ${MSPVM1VM_NIC_IP_CONFIG} \
+    --resource-group abc1110rg \
+    --nic-name ${MSPVM1VM_NIC_NAME} \
+    --remove PublicIpAddress
 az network public-ip delete --ids ${MSPVM1VM_PUBLIC_IP}
 az network nic update \
-   --resource-group abc1110rg \
-   --name ${MSPVM1VM_NIC_NAME} \
-   --remove networkSecurityGroup
+    --resource-group abc1110rg \
+    --name ${MSPVM1VM_NIC_NAME} \
+    --remove networkSecurityGroup
 az network nsg delete --ids ${MSPVM1VM_NSG_ID}
 
-MSPVM2VM_NIC_ID=$(az vm show \
+export MSPVM2VM_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM2 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-MSPVM2VM_NIC_NAME=$(az network nic show \
+export MSPVM2VM_NIC_NAME=$(az network nic show \
     --ids ${MSPVM2VM_NIC_ID} \
     --query name \
     --output tsv)
-MSPVM2VM_NIC_IP_CONFIG=$(az network nic show \
+export MSPVM2VM_NIC_IP_CONFIG=$(az network nic show \
     --ids ${MSPVM2VM_NIC_ID} \
     --query ipConfigurations[0].name \
     --output tsv)
-MSPVM2VM_PUBLIC_IP=$(az network nic show \
+export MSPVM2VM_PUBLIC_IP=$(az network nic show \
     --ids ${MSPVM2VM_NIC_ID} \
     --query ipConfigurations[0].publicIpAddress.id \
     --output tsv)
-MSPVM2VM_NSG_ID=$(az network nic show \
+export MSPVM2VM_NSG_ID=$(az network nic show \
     --ids ${MSPVM2VM_NIC_ID} \
     --query networkSecurityGroup.id \
     --output tsv)
@@ -1707,9 +1707,9 @@ az network nic ip-config update \
     --remove PublicIpAddress
 az network public-ip delete --ids ${MSPVM2VM_PUBLIC_IP}
 az network nic update \
-   --resource-group abc1110rg \
-   --name ${MSPVM2VM_NIC_NAME} \
-   --remove networkSecurityGroup
+    --resource-group abc1110rg \
+    --name ${MSPVM2VM_NIC_NAME} \
+    --remove networkSecurityGroup
 az network nsg delete --ids ${MSPVM2VM_NSG_ID}
 ```
 
@@ -1734,30 +1734,30 @@ az network public-ip create \
 You add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands.
 
 ```azurecli
-ADMINVM_NIC_ID=$(az vm show \
+export ADMINVM_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name adminVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-ADMINVM_IP=$(az network nic show \
+export ADMINVM_IP=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
     --query ipConfigurations[0].privateIpAddress \
     --output tsv)
-MSPVM1_NIC_ID=$(az vm show \
+export MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-MSPVM1_IP=$(az network nic show \
+export MSPVM1_IP=$(az network nic show \
     --ids ${MSPVM1_NIC_ID} \
     --query ipConfigurations[0].privateIpAddress \
     --output tsv)
-MSPVM2_NIC_ID=$(az vm show \
+export MSPVM2_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM2 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-MSPVM2_IP=$(az network nic show \
+export MSPVM2_IP=$(az network nic show \
     --ids ${MSPVM2_NIC_ID} \
     --query ipConfigurations[0].privateIpAddress \
     --output tsv)
@@ -1862,7 +1862,7 @@ az network application-gateway rule update \
 You're now able to access the Administration Server with the URL `http://<gateway-public-ip-address>/console/`. Run the following commands to get the URL.
 
 ```azurecli
-APPGATEWAY_IP=$(az network public-ip show \
+export APPGATEWAY_IP=$(az network public-ip show \
     --resource-group abc1110rg \
     --name myAGPublicIPAddress \
     --query [ipAddress] \
@@ -1886,7 +1886,7 @@ This section shows you how to create a PostgreSQL instance on Azure and configur
 Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
 
 ```azurecli
-DB_SERVER_NAME="wlsdb$(date +%s)"
+export DB_SERVER_NAME="wlsdb$(date +%s)"
 az postgres server create \
     --resource-group abc1110rg \
     --name ${DB_SERVER_NAME}  \

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Data support
 
-**This article applies to:** ✔️ Version 4.8.0
+**This article applies to:** ✔️ Version 4.9.0
 
 This article describes how Spring Cloud Azure and Spring Data can be used together.
 
@@ -74,7 +74,7 @@ The following list shows the key concepts of the Spring Data support:
 
 * Custom collection names. By default, collection name will be class name of user domain class. To customize it, add annotation `@Document(collection="myCustomCollectionName")` to your domain class, that's all.
 
-* Supports [Azure Cosmos DB partition](/azure/cosmos-db/partitioning-overview). To specify a field of your domain class to be a partition key field, annotate it with `@PartitionKey`. When you do CRUD operations, specify your partition value. For more examples, see [AddressRepositoryIT.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos-test/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java) on GitHub.
+* Supports [Azure Cosmos DB partition](/azure/cosmos-db/partitioning-overview). To specify a field of your domain class to be a partition key field, annotate it with `@PartitionKey`. When you do CRUD operations, specify your partition value. For more examples, see [AddressRepositoryIT.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-data-cosmos/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java) on GitHub.
 
 * Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation.
 
@@ -246,4 +246,4 @@ This example includes an autowired `UserRepository` interface to support save, d
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos) on GitHub.
 
-Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos).
+Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-data-cosmos).

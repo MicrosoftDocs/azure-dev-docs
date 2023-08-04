@@ -77,7 +77,7 @@ To complete this tutorial, you'll need:
 
 ## Sample app
 
-The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. For an example of a web app using PostgreSQL, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
+The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. For an example of a web app using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
 
 At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure that looks like the screenshot below.
 

@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named `myResourceGroup` in the `eastus` location:
 
 ```azurecli-interactive
-RESOURCE_GROUP_NAME="myResourceGroup"
+export RESOURCE_GROUP_NAME="myResourceGroup"
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
@@ -87,7 +87,12 @@ az network vnet subnet create \
 Next, use the following command to get the AKS subnet resource ID and store it in a variable for use later in this article:
 
 ```azurecli-interactive
-AKS_SUBNET_ID=$(az network vnet subnet show --resource-group ${RESOURCE_GROUP_NAME} --vnet-name myVNet --name myAKSSubnet --query id -o tsv)
+export AKS_SUBNET_ID=$(az network vnet subnet show \
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --vnet-name myVNet \
+    --name myAKSSubnet \
+    --query id \
+    --output tsv)
 ```
 
 ## Create an AKS cluster in the virtual network
@@ -120,7 +125,7 @@ You can deploy a Java EE Application along with the WLS on AKS offer deployment.
 Create an Azure Storage Account using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, as shown in the following example:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT_NAME="stgwlsaks$(date +%s)"
+export STORAGE_ACCOUNT_NAME="stgwlsaks$(date +%s)"
 az storage account create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${STORAGE_ACCOUNT_NAME} \
@@ -132,10 +137,11 @@ az storage account create \
 Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. The following example uses the storage account key to authorize the operation to create the container. You can also use your Azure AD account to authorize the operation to create the container. For more information, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli).
 
 ```azurecli-interactive
-KEY=$(az storage account keys list \
+export KEY=$(az storage account keys list \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --account-name ${STORAGE_ACCOUNT_NAME} \
-    --query [0].value -o tsv)
+    --query [0].value \
+    --output tsv)
 
 az storage container create \
     --account-name ${STORAGE_ACCOUNT_NAME} \

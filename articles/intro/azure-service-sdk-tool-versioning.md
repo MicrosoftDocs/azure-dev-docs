@@ -1,8 +1,8 @@
 ---
 title: Versioning policy for Azure services, SDKs, and CLI tools
 description: Versioning policy for Azure services, SDKs, and CLI tools
-author: nickwalkmsft
-ms.author: nickwalk
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure
 ms.topic: overview
 ms.date: 02/24/2023

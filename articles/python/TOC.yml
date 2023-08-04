@@ -1,43 +1,23 @@
 - name: Azure for Python developers
   href: index.yml
 
-- name: Cloud development with Azure
-  items:
-    - name: What is Azure?
-      href: cloud-development-overview.md
-    - name: Create, access, and manage resources
-      href: cloud-development-provisioning.md
-    - name: The Azure development flow
-      href: cloud-development-flow.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md
+- name: Get started
+  href: get-started.md
 
 - name: Web
   items:
+  - name: Set up local web dev environment
+    href: configure-python-web-app-local-environment.md  
   - name: Web app solutions
     items:
     - name: Django/Flask
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Web app passwordless auth (service connector)
+    - name: Passwordless auth - system managed identity
       href: tutorial-python-managed-identity-cli.md
-    - name: Web app passwordless auth
-      items:
-      - name: 1. Overview
-        href: tutorial-python-managed-identity-01.md
-      - name: 2. Run the web app locally
-        href: tutorial-python-managed-identity-02.md
-      - name: 3. Create an App Service
-        href: tutorial-python-managed-identity-03.md
-      - name: 4. Create a storage account
-        href: tutorial-python-managed-identity-04.md
-      - name: 5. Create a PostgreSQL database
-        href: tutorial-python-managed-identity-05.md
-      - name: 6. Deploy the web app to Azure
-        href: tutorial-python-managed-identity-06.md
-      - name: 7. Clean up resources
-        href: tutorial-python-managed-identity-07.md
+    - name: Passwordless auth - user-assigned managed identity
+      href: tutorial-python-managed-identity-user-assigned-cli.md
     - name: Static websites
       items:
         - name: Hosting in Azure Storage
@@ -46,8 +26,6 @@
           href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Configure web apps
       items:
-      - name: Local dev environment
-        href: configure-python-web-app-local-environment.md
       - name: Codespaces dev environment
         href: configure-python-web-app-codespaces.md
       - name: Configure a startup file for App Service
@@ -84,20 +62,7 @@
   items:
 
   - name: Data engineering solutions
-    items:
-      - name: Serverless, Cloud ETL
-        items:
-          - name: 1. Overview
-            href: tutorial-deploy-azure-cloud-python-etl-01-overview.md
-          - name: 2. Get data and store 
-            href: tutorial-deploy-azure-cloud-python-etl-02-get-data.md
-          - name: 3. Transform and store
-            href: tutorial-deploy-azure-cloud-python-etl-03-process-data.md
-          - name: 4. Deploy solution to Azure
-            href: tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md
-      - name: More data and storage solutions
-        href: quickstarts-data-solutions.md
-
+    href: quickstarts-data-solutions.md
 
   - name: Data science solutions
     items:

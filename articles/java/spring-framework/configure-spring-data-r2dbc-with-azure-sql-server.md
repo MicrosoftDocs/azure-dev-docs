@@ -102,7 +102,7 @@ cat /etc/resolv.conf
 Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
 
 ```bash
-AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+export AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 ```
 
 Then, use the following command to open the server's firewall to your WSL-based app:

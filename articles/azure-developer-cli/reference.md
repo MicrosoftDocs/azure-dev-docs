@@ -3,10 +3,10 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/12/2023
+ms.date: 07/12/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
-ms.custom: devx-track-azdevcli, build-2023
+ms.custom: devx-track-azdevcli
 ---
 
 # Azure Developer CLI reference
@@ -22,6 +22,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 ```azdeveloper
   -C, --cwd string   Sets the current working directory.
       --debug        Enables debugging and diagnostics logging.
+      --docs         Opens the documentation for azd in your web browser.
   -h, --help         Gets help for azd.
       --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
 ```
@@ -34,12 +35,12 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd down](#azd-down): Delete Azure resources for an application.
 * [azd env](#azd-env): Manage environments.
 * [azd init](#azd-init): Initialize a new application.
-* [azd monitor](#azd-monitor): (Beta) Monitor a deployed application.
-* [azd package](#azd-package): (Beta) Packages the application's code to be deployed to Azure.
-* [azd pipeline](#azd-pipeline): (Beta) Manage and configure your deployment pipelines.
+* [azd monitor](#azd-monitor): Monitor a deployed application. (Beta)
+* [azd package](#azd-package): Packages the application's code to be deployed to Azure. (Beta)
+* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
 * [azd provision](#azd-provision): Provision the Azure resources for an application.
-* [azd restore](#azd-restore): Restores the application's dependencies.
-* [azd template](#azd-template): (Beta) Find and view template details.
+* [azd restore](#azd-restore): Restores the application's dependencies. (Beta)
+* [azd template](#azd-template): Find and view template details. (Beta)
 * [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
 
@@ -50,6 +51,7 @@ Authenticate with Azure.
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd auth in your web browser.
   -h, --help   Gets help for auth.
 ```
 
@@ -93,11 +95,12 @@ azd auth login [flags]
       --client-certificate string              The path to the client certificate for the service principal to authenticate with.
       --client-id string                       The client id for the service principal to authenticate with.
       --client-secret string                   The client secret for the service principal to authenticate with. Set to the empty string to read the value from the console.
+      --docs                                   Opens the documentation for azd auth login in your web browser.
       --federated-credential-provider string   The provider to use to acquire a federated token to authenticate with.
   -h, --help                                   Gets help for login.
       --redirect-port int                      Choose the port to be used as part of the redirect URI during interactive login.
       --tenant-id string                       The tenant id or domain name to authenticate with.
-      --use-device-code                 When true, log in by using a device code instead of a browser.
+      --use-device-code[=true]                 When true, log in by using a device code instead of a browser.
 ```
 
 ### Options inherited from parent commands
@@ -119,7 +122,7 @@ Log out of Azure.
 
 ### Synopsis
 
-Log out of Azure.
+Log out of Azure
 
 ```azdeveloper
 azd auth logout [flags]
@@ -128,6 +131,7 @@ azd auth logout [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd auth logout in your web browser.
   -h, --help   Gets help for logout.
 ```
 
@@ -166,6 +170,7 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config in your web browser.
   -h, --help   Gets help for config.
 ```
 
@@ -208,6 +213,7 @@ azd config get <path> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config get in your web browser.
   -h, --help   Gets help for get.
 ```
 
@@ -221,7 +227,7 @@ azd config get <path> [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config list
@@ -245,6 +251,7 @@ azd config list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -258,7 +265,7 @@ azd config list [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config list-alpha
@@ -272,6 +279,7 @@ azd config list-alpha [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config list-alpha in your web browser.
   -h, --help   Gets help for list-alpha.
 ```
 
@@ -285,7 +293,7 @@ azd config list-alpha [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config reset
@@ -309,6 +317,7 @@ azd config reset [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config reset in your web browser.
   -h, --help   Gets help for reset.
 ```
 
@@ -322,7 +331,7 @@ azd config reset [flags]
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config set
@@ -353,6 +362,7 @@ azd config set defaults.location eastus
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config set in your web browser.
   -h, --help   Gets help for set.
 ```
 
@@ -366,7 +376,7 @@ azd config set defaults.location eastus
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd config unset
@@ -396,6 +406,7 @@ azd config unset defaults.location
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd config unset in your web browser.
   -h, --help   Gets help for unset.
 ```
 
@@ -409,7 +420,7 @@ azd config unset defaults.location
 
 ### See also
 
-* [azd config](#azd-config): Manage azd user configuration (ex: default Azure subscription, location).
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [Back to top](#azd)
 
 ## azd deploy
@@ -424,6 +435,7 @@ azd deploy <service> [flags]
 
 ```azdeveloper
       --all                   Deploys all services that are listed in azure.yaml
+      --docs                  Opens the documentation for azd deploy in your web browser.
   -e, --environment string    The name of the environment to use.
       --from-package string   Deploys the application from an existing package.
   -h, --help                  Gets help for deploy.
@@ -443,7 +455,7 @@ azd deploy <service> [flags]
 
 ## azd down
 
-Delete Azure resources for an application. Running `azd down` will not delete application files on your local machine.
+Delete Azure resources for an application.
 
 ```azdeveloper
 azd down [flags]
@@ -452,6 +464,7 @@ azd down [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd down in your web browser.
   -e, --environment string   The name of the environment to use.
       --force                Does not require confirmation before it deletes resources.
   -h, --help                 Gets help for down.
@@ -477,6 +490,7 @@ Manage environments.
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env in your web browser.
   -h, --help   Gets help for env.
 ```
 
@@ -492,7 +506,7 @@ Manage environments.
 
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
-* [azd env new](#azd-env-new): Create a new environment.
+* [azd env new](#azd-env-new): Create a new environment and set it as the default.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
@@ -509,6 +523,7 @@ azd env get-values [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env get-values in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for get-values.
 ```
@@ -537,6 +552,7 @@ azd env list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -555,7 +571,7 @@ azd env list [flags]
 
 ## azd env new
 
-Create a new environment.
+Create a new environment and set it as the default.
 
 ```azdeveloper
 azd env new <environment> [flags]
@@ -564,6 +580,7 @@ azd env new <environment> [flags]
 ### Options
 
 ```azdeveloper
+      --docs                  Opens the documentation for azd env new in your web browser.
   -h, --help                  Gets help for new.
   -l, --location string       Azure location for the new environment
       --subscription string   Name or ID of an Azure subscription to use for the new environment
@@ -587,12 +604,13 @@ azd env new <environment> [flags]
 Refresh environment settings by using information from a previous infrastructure provision.
 
 ```azdeveloper
-azd env refresh [flags]
+azd env refresh <environment> [flags]
 ```
 
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env refresh in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for refresh.
 ```
@@ -621,6 +639,7 @@ azd env select <environment> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd env select in your web browser.
   -h, --help   Gets help for select.
 ```
 
@@ -648,6 +667,7 @@ azd env set <key> <value> [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd env set in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for set.
 ```
@@ -668,8 +688,6 @@ azd env set <key> <value> [flags]
 ## azd init
 
 Initialize a new application.
-- Running `azd init` without a template will prompt you to start with a minimal template or select from a curated list of presets.
-- To view all available sample templates, including those submitted by the `azd` community, visit: aka.ms/awesome-azd
 
 ```azdeveloper
 azd init [flags]
@@ -679,6 +697,7 @@ azd init [flags]
 
 ```azdeveloper
   -b, --branch string         The template branch to initialize from.
+      --docs                  Opens the documentation for azd init in your web browser.
   -e, --environment string    The name of the environment to use.
   -h, --help                  Gets help for init.
   -l, --location string       Azure location for the new environment
@@ -700,7 +719,7 @@ azd init [flags]
 
 ## azd monitor
 
-(Beta) Monitor a deployed application.  For more information, go to: https://aka.ms/azure-dev/monitor.
+Monitor a deployed application. (Beta)
 
 ```azdeveloper
 azd monitor [flags]
@@ -709,6 +728,7 @@ azd monitor [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd monitor in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for monitor.
       --live                 Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for Python apps.
@@ -730,11 +750,7 @@ azd monitor [flags]
 
 ## azd package
 
-(Beta) Packages the application's code to be deployed to Azure.
-- By default, packages all services listed in 'azure.yaml' in the current directory, or the service described in the project that matches the current directory.
-- When <service> is set, only the specific service is packaged.
-- After the packaging is complete, the package locations are printed.
-
+Packages the application's code to be deployed to Azure. (Beta)
 
 ```azdeveloper
 azd package <service> [flags]
@@ -744,6 +760,7 @@ azd package <service> [flags]
 
 ```azdeveloper
       --all                  Deploys all services that are listed in azure.yaml
+      --docs                 Opens the documentation for azd package in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for package.
 ```
@@ -762,13 +779,12 @@ azd package <service> [flags]
 
 ## azd pipeline
 
-(Beta) Manage integrating your application with build pipelines.
-- The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the `.github/workflows` folder) that deploys your application whenever code is pushed to the main branch.
-- For more information, go to: aka.ms/azure-dev/pipeline.
+Manage and configure your deployment pipelines. (Beta)
 
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd pipeline in your web browser.
   -h, --help   Gets help for pipeline.
 ```
 
@@ -782,12 +798,12 @@ azd package <service> [flags]
 
 ### See also
 
-* [azd pipeline config](#azd-pipeline-config): Create and configure your deployment pipeline by using GitHub or Azure Pipelines.
+* [azd pipeline config](#azd-pipeline-config): Configure your deployment pipeline to connect securely to Azure. (Beta)
 * [Back to top](#azd)
 
 ## azd pipeline config
 
-Create and configure your deployment pipeline by using GitHub or Azure Pipelines.
+Configure your deployment pipeline to connect securely to Azure. (Beta)
 
 ```azdeveloper
 azd pipeline config [flags]
@@ -796,13 +812,14 @@ azd pipeline config [flags]
 ### Options
 
 ```azdeveloper
-      --auth-type string        The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
-  -e, --environment string      The name of the environment to use.
-  -h, --help                    Gets help for config.
-      --principal-name string   The name of the service principal to use to grant access to Azure resources as part of the pipeline.
-      --principal-role string   The role to assign to the service principal. (default "contributor")
-      --provider string         The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
-      --remote-name string      The name of the git remote to configure the pipeline to run on. (default "origin")
+      --auth-type string             The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
+      --docs                         Opens the documentation for azd pipeline config in your web browser.
+  -e, --environment string           The name of the environment to use.
+  -h, --help                         Gets help for config.
+      --principal-name string        The name of the service principal to use to grant access to Azure resources as part of the pipeline.
+      --principal-role stringArray   The roles to assign to the service principal. By default the service principal will be granted the Contributor and User Access Administrator roles. (default [Contributor,User Access Administrator])
+      --provider string              The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
+      --remote-name string           The name of the git remote to configure the pipeline to run on. (default "origin")
 ```
 
 ### Options inherited from parent commands
@@ -815,28 +832,12 @@ azd pipeline config [flags]
 
 ### See also
 
-* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
+* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
 * [Back to top](#azd)
 
 ## azd provision
 
-Provision the Azure resources for an application. This step may take a while depending on the resources provisioned. You should run `azd provision` any time you update your Bicep or Terraform file.
-
-This command prompts you to input the following:
--  Environment name: The name of your environment (ex: dev, test, prod).
-- Azure location: The Azure location where your resources will be deployed.
-- Azure subscription: The Azure subscription where your resources will be deployed.
-
-### Synopsis
-
 Provision the Azure resources for an application.
-
-The command prompts you for the following values:
-- Environment name: The name of your environment.
-- Azure location: The Azure location where your resources will be deployed.
-- Azure subscription: The Azure subscription where your resources will be deployed.
-
-Depending on what Azure resources are created, running this command might take a while. To view progress, go to the Azure portal and search for the resource group that contains your environment name.
 
 ```azdeveloper
 azd provision [flags]
@@ -845,6 +846,7 @@ azd provision [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd provision in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
 ```
@@ -863,10 +865,7 @@ azd provision [flags]
 
 ## azd restore
 
-(Beta) Restore application dependencies.
-- Run this command to download and install all required dependencies so that you can build, run, and debug the application locally.
-- For the best local run and debug experience, go to aka.ms/azure-dev/vscode to learn how to use the Visual Studio Code extension.
->```
+Restores the application's dependencies. (Beta)
 
 ```azdeveloper
 azd restore <service> [flags]
@@ -876,6 +875,7 @@ azd restore <service> [flags]
 
 ```azdeveloper
       --all                  Restores all services that are listed in azure.yaml
+      --docs                 Opens the documentation for azd restore in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for restore.
 ```
@@ -894,15 +894,12 @@ azd restore <service> [flags]
 
 ## azd template
 
-(Beta) View details of your current template or browse a list of curated sample templates.
-
-- The azd CLI includes a curated list of sample templates viewable by running azd template list.
-- To view all available sample templates, including those submitted by the azd community visit: aka.ms/awesome-azd.
-- Running azd init without a template will prompt you to start with a minimal template or select from our curated list of samples.
+Find and view template details. (Beta)
 
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template in your web browser.
   -h, --help   Gets help for template.
 ```
 
@@ -916,13 +913,13 @@ azd restore <service> [flags]
 
 ### See also
 
-* [azd template list](#azd-template-list): Show list of sample azd templates.
-* [azd template show](#azd-template-show): Show details for a given template.
+* [azd template list](#azd-template-list): Show list of sample azd templates. (Beta)
+* [azd template show](#azd-template-show): Show details for a given template. (Beta)
 * [Back to top](#azd)
 
 ## azd template list
 
-Show list of sample azd templates.
+Show list of sample azd templates. (Beta)
 
 ```azdeveloper
 azd template list [flags]
@@ -931,6 +928,7 @@ azd template list [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template list in your web browser.
   -h, --help   Gets help for list.
 ```
 
@@ -944,12 +942,12 @@ azd template list [flags]
 
 ### See also
 
-* [azd template](#azd-template): Find and view template details.
+* [azd template](#azd-template): Find and view template details. (Beta)
 * [Back to top](#azd)
 
 ## azd template show
 
-Show details for a given template.
+Show details for a given template. (Beta)
 
 ```azdeveloper
 azd template show <template> [flags]
@@ -958,6 +956,7 @@ azd template show <template> [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd template show in your web browser.
   -h, --help   Gets help for show.
 ```
 
@@ -971,12 +970,12 @@ azd template show <template> [flags]
 
 ### See also
 
-* [azd template](#azd-template): Find and view template details.
+* [azd template](#azd-template): Find and view template details. (Beta)
 * [Back to top](#azd)
 
 ## azd up
 
-Executes the azd provision and azd deploy commands in a single step.
+Provision Azure resources, and deploy your project with a single command.
 
 ```azdeveloper
 azd up [flags]
@@ -985,6 +984,7 @@ azd up [flags]
 ### Options
 
 ```azdeveloper
+      --docs                 Opens the documentation for azd up in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for up.
 ```
@@ -1012,6 +1012,7 @@ azd version [flags]
 ### Options
 
 ```azdeveloper
+      --docs   Opens the documentation for azd version in your web browser.
   -h, --help   Gets help for version.
 ```
 
@@ -1026,3 +1027,4 @@ azd version [flags]
 ### See also
 
 * [Back to top](#azd)
+

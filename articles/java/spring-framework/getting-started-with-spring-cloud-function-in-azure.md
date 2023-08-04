@@ -44,7 +44,7 @@ The project is available in the [Spring Cloud Function in Azure](https://github.
 
 We're going to create an empty Maven project, and configure it with Spring Cloud Function and Azure Functions.
 
-In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure-Samples/hello-spring-function-azure/blob/master/pom.xml) file.
+In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure/azure-functions-java-worker/blob/dev/samples/spring-cloud-example/pom.xml) file.
 
 > [!NOTE]
 > This file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and it configures
@@ -80,7 +80,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
 ## Create Azure configuration files
 
-Create a *src/main/azure* folder and add the following Azure Functions configuration files to it.
+Create a *src/main/resources* folder and add the following Azure Functions configuration files to it.
 
 *host.json*:
 
@@ -89,7 +89,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.1.0)"
+    "version": "[4.*, 5.2.0)"
   },
   "functionTimeout": "00:10:00"
 }

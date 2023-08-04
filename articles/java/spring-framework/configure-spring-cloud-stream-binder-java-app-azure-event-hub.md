@@ -50,7 +50,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.8.0</version>
+        <version>4.9.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -59,7 +59,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
   ```
 
    > [!NOTE]
-   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`. 
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`. 
    > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
@@ -164,8 +164,8 @@ Use the following steps to configure your application to produce and consume mes
     
         @Override
         public void run(String... args) {
-            LOGGER.info("Going to add message {} to sendMessage.", "Hello Word");
-            many.emitNext(MessageBuilder.withPayload("Hello Word").build(), Sinks.EmitFailureHandler.FAIL_FAST);
+            LOGGER.info("Going to add message {} to sendMessage.", "Hello World");
+            many.emitNext(MessageBuilder.withPayload("Hello World").build(), Sinks.EmitFailureHandler.FAIL_FAST);
         }
     
     }
@@ -176,8 +176,8 @@ Use the following steps to configure your application to produce and consume mes
 1. Start the application. Messages like this will be posted in your application log, as shown in the following example output:
 
    ```output
-   New message received: 'Hello Word', partition key: 107207233, sequence number: 458, offset: 94256, enqueued time: 2023-02-17T08:27:59.641Z
-   Message 'Hello Word!' successfully checkpointed
+   New message received: 'Hello World', partition key: 107207233, sequence number: 458, offset: 94256, enqueued time: 2023-02-17T08:27:59.641Z
+   Message 'Hello World!' successfully checkpointed
    ```
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
