@@ -46,15 +46,9 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 
 If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
-### [Bash](#tab/in-bash)
 ```bash-interactive
 az login
 ```
-### [PowerShell](#tab/in-powershell)
-```powershell-interactive
-az login
-```
----
 
 > [!NOTE]
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
