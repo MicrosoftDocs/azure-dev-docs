@@ -27,9 +27,9 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
+* An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has been assigned with an appropriate role to your subscription.
 * An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
-* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
+* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action.
 
 ### Create an Azure Active Directory application and service principal
 
@@ -268,14 +268,14 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
     > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
     > `az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
 
-1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned the Contributor role.
+1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned with an appropriate role.
 
     ```azurecli-interactive
         az ad sp create-for-rbac --name "myApp" --role contributor \
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                                    --sdk-auth
+                                    --json-auth
     ```
-    
+   The parameter `--json-auth` outputs the result dictionary accepted by the login action, accessible in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth` with a deprecation warning.
 1. Copy the JSON object for your service principal.
 
     ```json
