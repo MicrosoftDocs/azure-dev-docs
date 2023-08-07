@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Offline data sync
 
-Offline data sync is an SDK capability of the Mobile Apps feature of Azure App Service. Data is stored in a local store. When your app is offline, you can still create, modify, and search the data. Data is synchronized with Mobile Apps when your device is online. The SDK supports conflict resolution when the same record is changed on both the client and the service.
+Offline data sync is an SDK feature of Azure Mobile Apps. Data is stored in a local store. When your app is offline, you can still create, modify, and search the data. Data is synchronized with your Azure Mobile Apps service when your device is online. The SDK supports conflict resolution when the same record is changed on both the client and the service.
 
 Offline sync has several benefits:
 
@@ -19,7 +19,7 @@ Offline sync has several benefits:
 * Limits network use on high-latency or metered networks
 * Supports disconnected use
 
-The following tutorials show how to add offline sync to your mobile clients by using Mobile Apps:
+The following tutorials show how to add offline sync to your mobile clients by using Azure Mobile Apps:
 
 * [Avalonia: Enable offline sync](../quickstarts/avalonia/offline.md)
 * [.NET MAUI: Enable offline sync](../quickstarts/maui/offline.md)
@@ -33,7 +33,7 @@ The following tutorials show how to add offline sync to your mobile clients by u
 
 ## What is a sync table?
 
-The Mobile Apps SDKs provide `IRemoteTable<T>`, which accesses the service directly. The operation fails if the device doesn't have a network connection. A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local store. The local store can then be synchronized with the service at a later time. Before you perform any operations, you must initialize the local store.
+The Azure Mobile Apps SDKs provide `IRemoteTable<T>`, which accesses the service directly. The operation fails if the device doesn't have a network connection. A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local store. The local store can then be synchronized with the service at a later time. Before you perform any operations, you must initialize the local store.
 
 ## What is a local store?
 
