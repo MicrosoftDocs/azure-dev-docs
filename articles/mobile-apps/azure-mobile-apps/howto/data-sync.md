@@ -8,18 +8,18 @@ ms.date: 05/06/2022
 ms.author: adhal
 ---
 
-# Offline Data Sync
+# Offline data sync
 
-Offline data sync is an SDK feature of Azure Mobile Apps. Data is stored in a local store.  When your app is offline, you can still create, modify, and search the data. Data is synchronized with your Azure Mobile Apps service when your device is online. The SDK supports conflict resolution, when the same record is changed on both the client and the service.
+Offline data sync is an SDK capability of the Mobile Apps feature of Azure App Service. Data is stored in a local store. When your app is offline, you can still create, modify, and search the data. Data is synchronized with Mobile Apps when your device is online. The SDK supports conflict resolution when the same record is changed on both the client and the service.
 
 Offline sync has several benefits:
 
-* Improves app responsiveness.
-* Improves app reliability when there's bad network connectivity.
-* Limits network use on high-latency or metered networks.
-* Supports disconnected use.
+* Improves app responsiveness
+* Improves app reliability when there's bad network connectivity
+* Limits network use on high-latency or metered networks
+* Supports disconnected use
 
-The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
+The following tutorials show how to add offline sync to your mobile clients by using Mobile Apps:
 
 * [Avalonia: Enable offline sync](../quickstarts/avalonia/offline.md)
 * [.NET MAUI: Enable offline sync](../quickstarts/maui/offline.md)
@@ -33,13 +33,13 @@ The following tutorials show how to add offline sync to your mobile clients usin
 
 ## What is a sync table?
 
-The Azure Mobile Apps SDKs provide an `IRemoteTable<T>` that accesses the service directly.  The operation fails if the device doesn't have a network connection.  A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local store.  The local store can then be synchronized with the service at a later time.  Before any operations can be performed, the local store must be initialized.
+The Mobile Apps SDKs provide `IRemoteTable<T>`, which accesses the service directly. The operation fails if the device doesn't have a network connection. A *sync table* (provided by `IOfflineTable<T>`) provides the same operations against a local store. The local store can then be synchronized with the service at a later time. Before you perform any operations, you must initialize the local store.
 
 ## What is a local store?
 
-A local store is the data persistence layer on the client device. Most platforms use SQLite for the local store, but iOS uses Core Data.  You can also implement your own local store. For example, use a version of SQLite with SQLCipher to produce an encrypted store.
+A local store is the data persistence layer on the client device. Most platforms use SQLite for the local store, but iOS uses Core Data. You can also implement your own local store. For example, use a version of SQLite with SQLCipher to produce an encrypted store.
 
-## How offline sync works
+## How does offline sync work?
 
 Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until you *push* local changes. Similarly, the local store is populated with new or updated data only when you *pull* data.
 
@@ -59,11 +59,13 @@ await table.PushItemsAsync();
 
 ### Synchronization
 
-The push operation sends all pending changes in the operations queue to the service.  The pending change is sent to the service using an HTTP REST call, which in turn modifies your database.  Push operations are done before any pull operations.  The pull operation pulls changed data from the service and stores it in the local store.
+The push operation sends all pending changes in the operations queue to the service. The pending change is sent to the service through an HTTP REST call, which in turn modifies your database.
 
-### Implicit Push
+Push operations are done before any pull operations. The pull operation pulls changed data from the service and stores it in the local store.
 
-If a pull is executed against a table that has pending local updates, the pull first executes a push for that table. This push helps minimize conflicts between changes that are already queued and new data from the server.  You may optionally configure a push of all tables by setting `PushOtherTables` in the `PullOptions`:
+### Implicit push
+
+If you execute a pull against a table that has pending local updates, the pull first executes a push for that table. This push helps minimize conflicts between changes that are already queued and new data from the server. You can optionally configure a push of all tables by setting `PushOtherTables` in `PullOptions`:
 
 ```csharp
 var pullOptions = new PullOptions { PushOtherTables = true };
@@ -72,22 +74,27 @@ await table.PullItemsAsync(pullOptions);
 
 ### Pulling a subset of records
 
-You may, optionally, specify a query that is used to determine which records should be included in the offline database.  For example:
+You can, optionally, specify a query that's used to determine which records should be included in the offline database. For example:
 
 ```csharp
 var query = table.CreateQuery().Where(x => x.Color == "Blue");
 await table.PullItemsAsync(query);
 ```
 
-### Incremental Sync
+### Incremental sync
 
-The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when processing large tables.
+The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when you're processing large tables.
 
 For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. The last `UpdatedAt` value is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
 
 ### Performance and consistency
 
-There are times when the synchronization terminates prematurely.  The network being used for synchronization becomes unavailable during the synchronization process; or the user may force-close the application during synchronization. To minimize the risk of a consistency problem within the offline database, each record is written to the database as it is received.  You may, optionally, decide to write the records to the database in batches.  Batched operations increase the performance of the offline database writes during the pull operation.  However, the risk of an inconsistency between the table metadata and the data within the table is increased.  
+Synchronization sometimes stops prematurely. For example:
+
+* The network that you're using for synchronization becomes unavailable during the synchronization process.
+* You force-close the application during synchronization.
+
+To minimize the risk of a consistency problem within the offline database, each record is written to the database as it's received. You can, optionally, decide to write the records to the database in batches. Batched operations increase the performance of the offline database writes during the pull operation. However, they also increase the risk of an inconsistency between the table metadata and the data within the table.
 
 You can tune the interval between writes as follows:
 
@@ -96,17 +103,17 @@ var pullOptions = new PullOptions { WriteDeltaTokenInterval = 25 };
 await table.PullItemsAsync(pullOptions);
 ```
 
-This code will batch writes into batches of 25 records.  Performance testing suggests that performance improves up to a value of 25. A `WriteDeltaTokenInterval` greater than 25 doesn't significantly improve performance.
+This code gathers writes into batches of 25 records. Performance testing suggests that performance improves up to a value of 25. A `WriteDeltaTokenInterval` value greater than 25 doesn't significantly improve performance.
 
 ### Purging
 
-You can clear the contents of the local store using `IOfflineTable<T>.PurgeItemsAsync`. Purging may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.  A purge clears a table from the local store.  To purge a table:
+You can clear the contents of the local store by using `IOfflineTable<T>.PurgeItemsAsync`. Purging might be necessary if you have stale data in the client database, or if you want to discard all pending changes. A purge clears a table from the local store. To purge a table:
 
 ```csharp
 await table.PurgeItemsAsync("", new PurgeOptions());
 ```
 
-The `PurgeItemsAsync()` method throws an `InvalidOperationException` if there are pending changes in the table.  You can force the purge to happen in this case:
+The `PurgeItemsAsync()` method throws an `InvalidOperationException` error if there are pending changes in the table. In this case, you can force the purge to happen:
 
 ```csharp
 await table.PurgeItemsAsync("", new PurgeOptions { DiscardPendingOperations = true });
