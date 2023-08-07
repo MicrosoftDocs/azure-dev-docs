@@ -83,7 +83,7 @@ await table.PullItemsAsync(query);
 
 ### Incremental sync
 
-The Datasync Framework implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when you're processing large tables.
+Azure Mobile Apps implements incremental sync. Only records that have changed since the last pull operation are pulled. Incremental sync saves time and bandwidth when you're processing large tables.
 
 For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store. The last `UpdatedAt` value is stored in the delta-token store. The delta-token store is implemented as a table in the offline store.
 
@@ -119,4 +119,4 @@ The `PurgeItemsAsync()` method throws an `InvalidOperationException` error if th
 await table.PurgeItemsAsync("", new PurgeOptions { DiscardPendingOperations = true });
 ```
 
-Purging is a "last resort" for cleaning up a table in the offline store.
+Purging is a last resort for cleaning up a table in the offline store, because it wipes all records from the cache and requires you to re-download them.
