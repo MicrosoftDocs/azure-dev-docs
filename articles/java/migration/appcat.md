@@ -60,7 +60,7 @@ You can use the following services as resource services:
 
 To use Azure AppCAT, you must download the ZIP file, and have a compatible JDK 11+ installation on your computer. Azure AppCAT runs on Windows, Linux, or Mac, both for X64 and Arm64/M1 hardware.
 
-You can use the [Microsoft Build of OpenJDK](https://learn.microsoft.com/java/openjdk) to run Azure AppCAT.
+You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run Azure AppCAT.
 
 ### Download Azure AppCAT
 
