@@ -10,7 +10,7 @@ ms.custom: devx-track-azdevcli
 ---
 
 # Resource Group Scoped Deployments [Alpha]
-Azure Developer CLI (azd) supports deployments at the subscription level as well as at a resource group scope. By default, `azd` will deploy to the subscription you choose and then create a resource group in that subscription to store your services in. If you would like to deploy to an existing resource group, you can use `azd to do so.`
+Azure Developer CLI (azd) supports deployments at the subscription level as well as at a resource group scope. By default, `azd` will deploy to the subscription you choose and then create a resource group in that subscription to store your services in. If you would like to deploy to an existing resource group, you can use `azd` to do so.
 
 > [!NOTE]
 > Resource Group Scoped Deployment is currently an alpha feature, so to deploy to a resource group, you need to enable it by running the following:
