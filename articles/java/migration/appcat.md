@@ -4,7 +4,7 @@ description: How to assess and replatform any type of Java applications with Azu
 author: KarlErickson
 ms.author: antoniomanug
 ms.service: azure
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
 ms.date: 07/27/2023
 keywords: java, azure, appCAT, assessment, replatform
