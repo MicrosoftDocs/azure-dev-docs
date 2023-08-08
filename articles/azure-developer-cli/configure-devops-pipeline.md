@@ -104,7 +104,7 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 1. Visit the web frontend URL to inspect the update.
 
 ### `azd` as a GitHub action
-Add [`azd` as a GitHub action](aka.ms/azd-gha). This action will install `azd`. To use it, add the following to `.github\workflows\azure-dev.yml`:
+Add [`azd` as a GitHub action](https://aka.ms/azd-gha). This action will install `azd`. To use it, add the following to `.github\workflows\azure-dev.yml`:
    ```
    on: [push]
 
