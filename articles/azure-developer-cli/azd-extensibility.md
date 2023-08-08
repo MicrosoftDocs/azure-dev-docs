@@ -135,4 +135,65 @@ services:
     host: appservice
 ```
 
+### Use environment variables with hooks
+
+Hooks can also use environment variables from the `.env` file or from your local device. `azd` automatically sets certain environment variables in the `.env` file. Output parameters from the `main.bicep` file are also set in the `.env` file. The [manage environment variables](/azure/developer/azure-developer-cli/manage-environment-variables) page includes more information about environment variable workflows. Hooks can use environment variables through referenced scripts or inline.
+
+```yml
+name: azure-search-openai-demo
+metadata:
+  template: azure-search-openai-demo@0.0.2-beta
+services:
+  backend:
+    project: ./app/backend
+    language: py
+    host: appservice
+hooks:
+  postprovision:
+    windows: # Run referenced script that uses environment variables (script shown below)
+      shell: pwsh
+      run: ./scripts/prepdocs.ps1
+      interactive: true
+      continueOnError: false
+    posix:
+      shell: sh
+      run: ./scripts/prepdocs.sh
+      interactive: true
+      continueOnError: false
+  postdeploy: # Pull environment variable inline from local device and set in .env file
+      shell: sh
+      run: azd env set REACT_APP_WEB_BASE_URL ${SERVICE_WEB_ENDPOINT_URL}
+```
+
+The referenced: `prepdocs.sh` script:
+
+```bash
+echo "Loading azd .env file from current environment"
+
+# Use the `get-values` azd command to retrieve environment variables from the `.env` file
+while IFS='=' read -r key value; do
+    value=$(echo "$value" | sed 's/^"//' | sed 's/"$//')
+    export "$key=$value"
+done <<EOF
+$(azd env get-values) 
+EOF
+
+echo 'Creating python virtual environment "scripts/.venv"'
+python3 -m venv scripts/.venv
+
+echo 'Installing dependencies from "requirements.txt" into virtual environment'
+./scripts/.venv/bin/python -m pip install -r scripts/requirements.txt
+
+echo 'Running "prepdocs.py"'
+./scripts/.venv/bin/python ./scripts/prepdocs.py './data/*' 
+    --storageaccount "$AZURE_STORAGE_ACCOUNT"
+    --container "$AZURE_STORAGE_CONTAINER"
+    --searchservice "$AZURE_SEARCH_SERVICE"
+    --openaiservice "$AZURE_OPENAI_SERVICE"
+    --openaideployment "$AZURE_OPENAI_EMB_DEPLOYMENT"
+    --index "$AZURE_SEARCH_INDEX"
+    --formrecognizerservice "$AZURE_FORMRECOGNIZER_SERVICE"
+    --tenantid "$AZURE_TENANT_ID" -v
+```
+
 [!INCLUDE [request-help](includes/request-help.md)]
