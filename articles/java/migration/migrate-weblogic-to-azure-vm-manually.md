@@ -1741,7 +1741,7 @@ export ADMINVM_NIC_ID=$(az vm show \
     --output tsv)
 export ADMINVM_IP=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
@@ -1750,7 +1750,7 @@ export MSPVM1_NIC_ID=$(az vm show \
     --output tsv)
 export MSPVM1_IP=$(az network nic show \
     --ids ${MSPVM1_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM2_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
@@ -1759,7 +1759,7 @@ export MSPVM2_NIC_ID=$(az vm show \
     --output tsv)
 export MSPVM2_IP=$(az network nic show \
     --ids ${MSPVM2_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 ```
 
