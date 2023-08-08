@@ -30,7 +30,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Install Azure CLI version 2.37.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an Oracle account. To create an Oracle account and accept the license agreement for WebLogic Server images, follow the steps in [Oracle Container Registry](https://aka.ms/wls-aks-ocr). Make note of your Oracle Account password and email.
@@ -1741,7 +1741,7 @@ export ADMINVM_NIC_ID=$(az vm show \
     --output tsv)
 export ADMINVM_IP=$(az network nic show \
     --ids ${ADMINVM_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
@@ -1750,7 +1750,7 @@ export MSPVM1_NIC_ID=$(az vm show \
     --output tsv)
 export MSPVM1_IP=$(az network nic show \
     --ids ${MSPVM1_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM2_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
@@ -1759,7 +1759,7 @@ export MSPVM2_NIC_ID=$(az vm show \
     --output tsv)
 export MSPVM2_IP=$(az network nic show \
     --ids ${MSPVM2_NIC_ID} \
-    --query ipConfigurations[0].privateIpAddress \
+    --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 ```
 

@@ -22,7 +22,7 @@ ms.date: 11/30/2022
        --output tsv)
    export ADMINVM_IP=$(az network nic show \
        --ids ${ADMINVM_NIC_ID} \
-       --query ipConfigurations[0].privateIpAddress \
+       --query ipConfigurations[0].privateIPAddress \
        --output tsv)
    export MSPVM1_NIC_ID=$(az vm show \
        --resource-group abc1110rg \
@@ -31,7 +31,7 @@ ms.date: 11/30/2022
        --output tsv)
    export MSPVM1_IP=$(az network nic show \
        --ids ${MSPVM1_NIC_ID} \
-       --query ipConfigurations[0].privateIpAddress \
+       --query ipConfigurations[0].privateIPAddress \
        --output tsv)
    export MSPVM2_NIC_ID=$(az vm show \
        --resource-group abc1110rg \
@@ -40,7 +40,7 @@ ms.date: 11/30/2022
        --output tsv)
    export MSPVM2_IP=$(az network nic show \
        --ids ${MSPVM2_NIC_ID} \
-       --query ipConfigurations[0].privateIpAddress \
+       --query ipConfigurations[0].privateIPAddress \
        --output tsv)
    echo "Private IP of adminVM: ${ADMINVM_IP}"
    echo "Private IP of mspVM1: ${MSPVM1_IP}"
