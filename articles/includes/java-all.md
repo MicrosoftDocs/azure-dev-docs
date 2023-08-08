@@ -423,6 +423,7 @@
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.1/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.1/jar/) |  |  |
+| Unknown Display Name | Maven [0.15.0-preview01](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/0.15.0-preview01/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
 | Application Insights - Agent | Maven [3.4.15](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.4.15/jar/) |  |  |
