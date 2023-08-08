@@ -49,7 +49,7 @@ This section will show you how to provision a WLS cluster with Azure Application
 
 To create the WLS cluster and Application Gateway, use the following steps.
 
-First, begin the process of deploying a WebLogic Server configured or dynamic cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach **Azure Application Gateway**, as shown here.
+First, begin the process of deploying a WebLogic Server configured or dynamic cluster as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534), but come back to this page when you reach **Azure Application Gateway**, as shown here.
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="Azure portal screenshot showing the Azure Application Gateway.":::
 
@@ -227,7 +227,7 @@ To request the deployment to perform these actions, use the following steps:
 
 ## Continue with deployment
 
-You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs).
+You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534).
 
 ## Validate successful deployment of WLS and App Gateway
 
