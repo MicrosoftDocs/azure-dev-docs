@@ -137,9 +137,9 @@ services:
 
 ### Use environment variables with hooks
 
-Hooks can get and set environment variables in the `.env` file using the `azd env get-values` and `azd set <key> <value>` commands. Hooks can also retrieve environment variables from the local device using the `${YOUR_ENVIRONMENT VARIABLE}` syntax. `azd` automatically sets certain environment variables in the `.env` file when commands are run, such as `AZURE_ENV_NAME` and `AZURE_LOCATION`. Output parameters from the `main.bicep` file are also set in the `.env` file. The [manage environment variables](/azure/developer/azure-developer-cli/manage-environment-variables) page includes more information about environment variable workflows.
+Hooks can get and set environment variables in the `.env` file using the `azd env get-values` and `azd set <key> <value>` commands. Hooks can also retrieve environment variables from your local environment using the `${YOUR_ENVIRONMENT VARIABLE}` syntax. `azd` automatically sets certain environment variables in the `.env` file when commands are run, such as `AZURE_ENV_NAME` and `AZURE_LOCATION`. Output parameters from the `main.bicep` file are also set in the `.env` file. The [manage environment variables](/azure/developer/azure-developer-cli/manage-environment-variables) page includes more information about environment variable workflows.
 
-The following hooks example demonstrates how to get and set environment variables inline or through referenced scripts:
+Hooks can get and set environment variables inline or through referenced scripts, as demonstrated in the following example:
 
 ```yml
 name: azure-search-openai-demo
