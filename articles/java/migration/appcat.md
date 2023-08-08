@@ -16,14 +16,13 @@ This guide describes how to assess and replatform any type of Java applications 
 
 ## What is Azure AppCAT for Java?
 
-Azure AppCAT is a tool to assess Java applications (binaries) and source code to identify replatforming and migration opportunities for Azure.
-It helps customers to modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
+Azure AppCAT is a tool to assess Java applications (binaries) and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
-Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. 
+Azure AppCAT discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure.
 
 AppCAT bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on). It adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) and specific Azure replatforming rules.
 
-Azure AppCAT is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt). 
+Azure AppCAT is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt).
 
 > [!NOTE]
 > Azure AppCAT is in **Public Preview**. If you find issues, contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).
@@ -39,29 +38,29 @@ With Azure AppCAT you can:
 
 ### Supported Azure targets
 
-The toolkit contains rules for helping customers replatform their applications to deploying to, and using the following Azure services:
+The toolkit contains rules for helping you replatform your applications so you can deploy to and use the following Azure services.
 
-#### Deployment targets
+You can use the following services as deployment targets:
 
-- Azure App Service
-- Azure Spring Apps
-- Azure Kubernetes Service
-- Azure Container Apps
+* Azure App Service
+* Azure Spring Apps
+* Azure Kubernetes Service
+* Azure Container Apps
 
-#### Resource services
+You can use the following services as resource services:
 
-- Azure Databases
-- Azure Service Bus
-- Azure Storage
-- Azure CDN
-- Azure Event Hub
-- Azure Key Vault
+* Azure Databases
+* Azure Service Bus
+* Azure Storage
+* Azure CDN
+* Azure Event Hub
+* Azure Key Vault
 
-## Using Azure AppCAT
+## Use Azure AppCAT
 
-To use Azure AppCAT, you must download the ZIP file, and have a compatible JDK 11+ installation on your computer. Azure AppCAT runs on Windows, Linux, or Mac; both for X64 and Arm64/M1 hardware.
+To use Azure AppCAT, you must download the ZIP file, and have a compatible JDK 11+ installation on your computer. Azure AppCAT runs on Windows, Linux, or Mac, both for X64 and Arm64/M1 hardware.
 
-You may use the [Microsoft Build of OpenJDK](https://learn.microsoft.com/java/openjdk) to run Azure AppCAT.
+You can use the [Microsoft Build of OpenJDK](https://learn.microsoft.com/java/openjdk) to run Azure AppCAT.
 
 ### Download Azure AppCAT
 
@@ -105,12 +104,12 @@ To run the tool from anywhere in your computer, configure the directory *$APPCAT
 
 ## Documentation
 
-Azure AppCAT for Java contains two main guides:
+The following guides provide the main documentation for Azure AppCAT for Java:
 
- - [CLI Usage Guide](https://azure.github.io/appcat-docs/cli/)
- - [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/)
+* [CLI Usage Guide](https://azure.github.io/appcat-docs/cli/)
+* [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/)
 
-### How to discover technology usage without an Azure target in mind?
+## Discover technology usage without an Azure target in mind
 
 Discovery of technologies is the first stage of application replatform and modernization. During the *discovery* phase, Azure AppCAT scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies. This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
 
@@ -124,7 +123,7 @@ Use the following command to initiate discovery:
 
 The discovery phase is useful when you don't have a specific Azure target in mind. Otherwise, AppCAT runs discovery implicitly for any Azure target.
 
-### How to assess a Java application for a specific Azure target?
+## Assess a Java application for a specific Azure target
 
 The assessment phase is where Azure AppCAT analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target.
 
@@ -152,13 +151,15 @@ Then, you can run Azure AppCAT using one of the available Azure targets, as show
     --target azure-appservice
 ```
 
-### What results can I get from Azure AppCAT?
+## Get results from Azure AppCAT
 
 The outcome of the discovery and assessment phases is a detailed report that provides a roadmap for the replatforming and modernization of the Java application, including recommendations for the Azure service and replatform approach. The report serves as the foundation for the next stages of the replatforming process. It helps organizations learn about the effort required for such transformation, and make decisions about how to modernize their applications for maximum benefits.
 
 The report generated by Azure AppCAT provides a comprehensive overview of the application and its components. You can use this report to gain insights into the structure and dependencies of the application, and to determine its suitability for replatform and modernization.
 
-#### Summary of the analysis
+The following sections provide more information about the report.
+
+### Summary of the analysis
 
 The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
 
@@ -184,7 +185,7 @@ These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional
 
 :::image type="content" source="media/appcat/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/appcat/report-assessment.png":::
 
-### Detail information for a specific issue
+### Detailed information for a specific issue
 
 For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by clicking on it. You also get the list of all the files affected by this incident.
 
