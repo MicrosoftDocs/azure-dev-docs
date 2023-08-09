@@ -19,6 +19,8 @@
       href: use-terraform-for-azd.md
     - name: Run and debug
       href: debug.md
+    - name: Resource Group Scoped Deployments
+      href: resource-group-scoped-deployments.md
     - name: Configure deployment pipeline
       href: configure-devops-pipeline.md
     - name: Customize workflows using command and event hooks

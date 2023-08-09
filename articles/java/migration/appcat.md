@@ -22,7 +22,7 @@ Azure AppCAT discovers application technology usage through static code analysis
 
 AppCAT bundles a set of tools, engines, and rules to assess and replatform Java applications to different targets (such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on). It adds Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) and specific Azure replatforming rules.
 
-Azure AppCAT is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE.txt).
+Azure AppCAT is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
 > [!NOTE]
 > Azure AppCAT is in **Public Preview**. If you find issues, contact us at [azure-appcat@microsoft.com](mailto:azure-appcat@microsoft.com).

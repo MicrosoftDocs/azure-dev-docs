@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/12/2023
+ms.date: 08/09/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -613,6 +613,7 @@ azd env refresh <environment> [flags]
       --docs                 Opens the documentation for azd env refresh in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for refresh.
+      --hint string          Hint to help identify the environment to refresh
 ```
 
 ### Options inherited from parent commands
@@ -696,7 +697,7 @@ azd init [flags]
 ### Options
 
 ```azdeveloper
-  -b, --branch string         The template branch to initialize from.
+  -b, --branch string         The template branch to initialize from. Must be used with a template argument (--template or -t).
       --docs                  Opens the documentation for azd init in your web browser.
   -e, --environment string    The name of the environment to use.
   -h, --help                  Gets help for init.
@@ -816,6 +817,7 @@ azd pipeline config [flags]
       --docs                         Opens the documentation for azd pipeline config in your web browser.
   -e, --environment string           The name of the environment to use.
   -h, --help                         Gets help for config.
+      --principal-id string          The client id of the service principal to use to grant access to Azure resources as part of the pipeline.
       --principal-name string        The name of the service principal to use to grant access to Azure resources as part of the pipeline.
       --principal-role stringArray   The roles to assign to the service principal. By default the service principal will be granted the Contributor and User Access Administrator roles. (default [Contributor,User Access Administrator])
       --provider string              The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
@@ -849,6 +851,7 @@ azd provision [flags]
       --docs                 Opens the documentation for azd provision in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
+      --preview              Preview changes to Azure resources.
 ```
 
 ### Options inherited from parent commands
