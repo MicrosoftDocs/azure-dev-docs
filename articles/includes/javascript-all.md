@@ -72,7 +72,7 @@
 | Monitor Ingestion | npm [1.0.0](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0/sdk/monitor/monitor-ingestion/) |
 | Monitor Query | npm [1.1.1](https://www.npmjs.com/package/@azure/monitor-query/v/1.1.1) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.1/sdk/monitor/monitor-query/) |
 | Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
-| OpenAI | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/openai/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.3/sdk/openai/openai/) |
+| OpenAI | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/openai/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.4/sdk/openai/openai/) |
 | OpenTelemetry Exporter | npm [1.0.0-beta.14](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.14) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.14](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.14/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest/) |
 | Purview Administration | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-administration/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-administration_1.0.0-beta.1/sdk/purview/purview-administration-rest/) |
@@ -395,7 +395,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230804.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230804.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230809.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230809.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
