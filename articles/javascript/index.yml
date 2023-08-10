@@ -136,7 +136,11 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Contoso real estate sample
+          - text: Contoso Solution
+            url: contoso-real-estate-get-started.md
+          - text: Developer tools
+            url: contoso-real-estate-developer-tools.md
+          - text: Sample
             url: https://github.com/Azure-Samples/contoso-real-estate
   - title: Developer tools
     linkLists:

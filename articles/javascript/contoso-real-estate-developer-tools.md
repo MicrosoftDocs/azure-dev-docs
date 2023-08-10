@@ -91,4 +91,3 @@ This project has a root level file, [azure.yml](https://github.com/Azure-Samples
 **Continuous integration** allows for changes to source code to be verified before merging into the _main_ branch. Contoso uses the [.github/workflows](https://github.com/Azure-Samples/contoso-real-estate/tree/main/.github/workflows) file for continuous integration.
 
 **Deployment** is the process of moving source code and related files to the cloud. [Azure Developer CLI (AZD)](https://github.com/Azure/azure-dev) provides that deployment through the `azd deploy` command.
-
