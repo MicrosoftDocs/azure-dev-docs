@@ -137,9 +137,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Contoso Solution
-            url: contoso-real-estate-get-started.md
+            url: end-to-end/contoso-real-estate-get-started.md
           - text: Developer tools
-            url: contoso-real-estate-developer-tools.md
+            url: end-to-end/contoso-real-estate-developer-tools.md
           - text: Sample
             url: https://github.com/Azure-Samples/contoso-real-estate
   - title: Developer tools

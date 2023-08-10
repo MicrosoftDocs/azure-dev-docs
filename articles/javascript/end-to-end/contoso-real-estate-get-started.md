@@ -1,5 +1,5 @@
 ---
-title: Getting started with E2E Contoso real estate
+title: Getting started with end to end Contoso real estate
 description: Enterprise-grade reference Architecture for JavaScript with Contoso real estate, including source code, deployment infrastructure, end to end testing.
 ms.topic: get-started
 ms.date: 05/23/2023
@@ -32,16 +32,16 @@ The Contoso real estate app has two client applications, the **portal** and the 
 
 * The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in [Azure Blob Storage](/azure/storage/blobs/).
 
-    :::image type="content" source="./media/contoso-real-estate/browser-blog-landing.png" lightbox="./media/contoso-real-estate/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
+    :::image type="content" source="./media/contoso-real-estate-get-started/browser-blog-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
 
 
 * The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). It also uses the listings held in the [Azure Database for PostrgreSQL](/azure/postgresql). The portal provides authentication through social providers such as Microsoft, Google, and Facebook.
 
-    :::image type="content" source="./media/contoso-real-estate/browser-portal-landing.png" lightbox="./media/contoso-real-estate/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
+    :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
 
     Once a user signs in, and selects a property, they can choose to reserve the property then pay for it with a Stripe integration. 
 
-    :::image type="content" source="./media/contoso-real-estate/browser-portal-reserve-property.png" lightbox="./media/contoso-real-estate/browser-portal-reserve-property.png" alt-text="Screenshot of Contoso portal property page showing property images, details, and offering a user the ability to reserve the property with a payment form.":::
+    :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" lightbox="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" alt-text="Screenshot of Contoso portal property page showing property images, details, and offering a user the ability to reserve the property with a payment form.":::
 
 Other Azure services used include: 
 
@@ -58,8 +58,8 @@ This application is divided into several packages. Each package describes a scen
 |[Blog](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog), [Blob-CMS](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog-cms)|Next.js app with a Strapi CMS, both hosted in an Azure Container app.|
 |[Portal](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal), [API](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/api)|Angular web portal hosted from Static Web Apps with Azure Functions API app for the backend.|
 |[Stripe](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/stripe)|Fastify API Payment service API in an Azure Container app.|
-|[Testing](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)|E2E testing with Playwright.|
-|[Docs](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/docs)|Learn more about this E2E solution.|
+|[Testing](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)|End to end testing with Playwright.|
+|[Docs](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/docs)|Learn more about this end to end solution.|
 
 ## Next step
 

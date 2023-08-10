@@ -3,7 +3,7 @@
       
       {
         "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
-        "redirect_url": "/azure/developer/javascript/contoso-real-estate-get-started.md"
+        "redirect_url": "/azure/developer/javascript/contoso-real-estate-get-started"
       },
       { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md",
         "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 

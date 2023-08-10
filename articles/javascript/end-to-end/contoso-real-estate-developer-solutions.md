@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
-:::image type="content" source="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate/e2e-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
+:::image type="content" source="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
 
 The following packages are listed in order of learning priority.
 
@@ -18,7 +18,7 @@ The following packages are listed in order of learning priority.
 
 This package provides data authoring and storing capabilities for both vertical micro-frontend applications (Blog and Portal). We enable these capabilities, via the implementation of a Headless CMS, powered by Strapi. 
 
-:::image type="content" source="./media/contoso-real-estate/scenario-1-blog-cms-api.png" alt-text="Architectural diagram of the blog client and API scenario.":::
+:::image type="content" source="./media/contoso-real-estate-developer-solutions/scenario-1-blog-cms-api.png" alt-text="Architectural diagram of the blog client and API scenario.":::
 
 There are two components that make up the architecture of this solution:
 
@@ -37,7 +37,7 @@ Packages:
 
 This frontend application is the main entry point for the users implementing Angular as a JavaScript framework. 
 
-:::image type="content" source="./media/contoso-real-estate/scenario-2-portal-swa-fn-api.png" alt-text="Architectural diagram of the portal client and API scenario.":::
+:::image type="content" source="./media/contoso-real-estate-developer-solutions/scenario-2-portal-swa-fn-api.png" alt-text="Architectural diagram of the portal client and API scenario.":::
 
 This service is deployed to [Azure Static Web Apps](/azure/static-web-apps/authentication-authorization), including capabilities like 
   - Authentication and Authorization with Easy Auth
@@ -57,7 +57,7 @@ Packages:
 
 User authentication is provided as built-in functionality in the portal's [Azure Static web app](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers.
 
-:::image type="content" source="./media/contoso-real-estate/scenario-3-user-authentication-swa-cosmo-db-mongodb.png" alt-text="Architectural diagram of the user authentication in the portal application.":::
+:::image type="content" source="./media/contoso-real-estate-developer-solutions/scenario-3-user-authentication-swa-cosmo-db-mongodb.png" alt-text="Architectural diagram of the user authentication in the portal application.":::
 
 Once a user is logged in, their user information is stored in [Cosmos DB for MongoDB API](/azure/cosmos-db/mongodb/choose-model) such as favorited-properties, and property reservations. 
 
@@ -66,7 +66,7 @@ Once a user is logged in, their user information is stored in [Cosmos DB for Mon
 This package supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
 This package containerizes the payment processing functionality in a [Fastify](https://fastify.dev/) application deployed to [Azure Container Apps](/azure/container-apps/overview)
 
-:::image type="content" source="./media/contoso-real-estate/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
+:::image type="content" source="./media/contoso-real-estate-developer-solutions/scenario-4-payment-string-api-management.png" alt-text="Architectural diagram of the payments service to the Stripe payment provider.":::
 
 When Azure API Management receives a request for the webhook endpoint URL from Stripe, it forwards the request to the Fastify API. The API handles the incoming webhook event and performs the payment actions such as checkout, checkout completed, checkout expired. 
 
