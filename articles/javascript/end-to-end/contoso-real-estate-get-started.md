@@ -2,7 +2,7 @@
 title: Getting started with end to end Contoso real estate
 description: Enterprise-grade reference Architecture for JavaScript with Contoso real estate, including source code, deployment infrastructure, end to end testing.
 ms.topic: get-started
-ms.date: 05/23/2023
+ms.date: 08/10/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a Senior JavaScript Developer new to Azure, I want learn how to build and deploy complex architectures so that build and deploy my own architecture.
 ---

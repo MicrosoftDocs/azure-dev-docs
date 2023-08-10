@@ -2,7 +2,7 @@
 title: User scenarios with Contoso real estate
 description: Understand how the implementation architecture of Contoso real estate maps to the User scenarios the solution is meant to solve.
 ms.topic: conceptual
-ms.date: 8/1/2023
+ms.date: 08/10/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a Senior JavaScript Developer new to the Contoso real estate enterprise pp, I want understand how the user scenarios the architecture solves for so that I can have a deeper understanding between the technical solution and the business solution.
 ---

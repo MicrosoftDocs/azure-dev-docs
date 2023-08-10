@@ -2,7 +2,7 @@
 title: Contoso real estate solution set
 description: Learn the Contoso real estate reference architecture for this enterprise-grade modern composable cloud-native application and its scenarios.
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 08/10/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
