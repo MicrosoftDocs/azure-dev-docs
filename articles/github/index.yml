@@ -48,7 +48,7 @@ landingContent:
             url: github-variable-substitution.md
 
   # Card (optional)
-  - title: Azure Developer CLI (azd) Preview
+  - title: Azure Developer CLI (azd)
     linkLists:
       - linkListType: deploy
         links:
