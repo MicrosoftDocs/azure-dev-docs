@@ -55,7 +55,7 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Enable continuous deployment to Azure App Service, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment), [Use CI/CD to deploy a Python web app to Azure App Service on Linux](/azure/devops/pipelines/ecosystems/python-webapp), and [Design a CI/CD pipeline using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture).
 
-* Create reusable infrastructure as code with [Azure Developer CLI (azd) Preview](../azure-developer-cli/overview.md). 
+* Create reusable infrastructure as code with [Azure Developer CLI (azd)](../azure-developer-cli/overview.md). 
 
 ## 3. Related Learn modules
 
