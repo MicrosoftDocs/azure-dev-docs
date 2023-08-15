@@ -1,5 +1,5 @@
 ---
-title: Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+title: Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
 recommendations: false
 description: Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
@@ -11,13 +11,13 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
 
-# Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+# Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
 
-This article demonstrates how to:
+This article explains how to:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Liberty container images.
-* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
+* Deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator.
 
 The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
 
@@ -42,16 +42,15 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 
 ### Sign in to Azure
 
-
-
 If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
-```bash-interactive
+```bash
 az login
 ```
 
 > [!NOTE]
-> Most CLI commands can be run in PowerShell all the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.  
+> Most CLI commands can be run in PowerShell all the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
+>
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
 ## Create a resource group
@@ -61,15 +60,19 @@ An Azure resource group is a logical group in which Azure resources are deployed
 Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
-```bash-interactive
+
+```bash
 export RESOURCE_GROUP_NAME=java-liberty-project
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
+
 ### [PowerShell](#tab/in-powershell)
-```powershell-interactive
+
+```powershell
 $Env:RESOURCE_GROUP_NAME = "java-liberty-project"
 az group create --name $Env:RESOURCE_GROUP_NAME --location eastus
 ```
+
 ---
 
 ## Create an ACR instance
@@ -77,15 +80,19 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 export REGISTRY_NAME=youruniqueacrname
 az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 $Env:REGISTRY_NAME = "youruniqueacrname"
 az acr create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:REGISTRY_NAME --sku Basic --admin-enabled
 ```
+
 ---
 
 After a short time, you should see a JSON output that contains:
@@ -101,6 +108,7 @@ After a short time, you should see a JSON output that contains:
 You'll need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
@@ -117,7 +125,9 @@ export PASSWORD=$(az acr credential show \
 
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 $Env:LOGIN_SERVER = $(az acr show -n $Env:REGISTRY_NAME --query 'loginServer' -o tsv)
 $Env:USER_NAME=$(az acr credential show -n $Env:REGISTRY_NAME --query 'username' -o tsv)
@@ -125,6 +135,7 @@ $Env:PASSWORD=$(az acr credential show -n $Env:REGISTRY_NAME --query 'passwords[
 
 docker login $Env:LOGIN_SERVER -u $Env:USER_NAME -p $Env:PASSWORD
 ```
+
 ---
 
 You should see `Login Succeeded` at the end of command output if you've logged into the ACR instance successfully.
@@ -134,15 +145,19 @@ You should see `Login Succeeded` at the end of command output if you've logged i
 Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This command will take several minutes to complete.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 export CLUSTER_NAME=myAKSCluster
 az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 $Env:CLUSTER_NAME = "myAKSCluster"
 az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
+
 ---
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following output:
@@ -165,13 +180,17 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing --admin
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 az aks get-credentials --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --overwrite-existing --admin
 ```
+
 ---
 
 > [!NOTE]
@@ -192,21 +211,26 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 ## Create an Azure SQL Database
 
-The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
+In this section, you create an Azure SQL Database single database for use with your app.
 
-1. Create a single database in Azure SQL Database by following the `Azure CLI` steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
 
    > [!NOTE]
+   > Write down all variables in the **Variable block**, including **location**, **resourceGroup**,**database**, **\*server**.database.windows.net*, **login** admin user and **password**. The database **resourceGroup** is referred to as `<db-resource-group>` later in this article.
    >
-   > * Write down all variables in the **Variable block**, including **location**, **resourceGroup**,**database**, ***server**.database.windows.net*, **login** admin user and **password**. The database **resourceGroup** will be referred to as `<db-resource-group>` later in this article.
-   > * After creating the database server, in the **Networking** blade, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
-   >   ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png)
-   >   In the **Networking** blade, under the **Public access** tab, ensure **Allow Azure services and resources to access this server** is checked.
-   >   ![Screenshot of firewall rules - allow Azure resources access.](./media/howto-deploy-java-liberty-app/sql-database-allow-access.png)
-   >   If you want to test the application locally, ensure your client IPv4 address is in the allow list of **Firewall rules**
-   >   ![Screenshot of firewall rules - allow client access.](./media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png)
+   > After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
+   >
+   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
+   >
+   > In the **Networking** pane, under the **Public access** tab, select **Allow Azure services and resources to access this server**.
+   >
+   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-allow-access.png" alt-text="Screenshot of firewall rules - allow Azure resources access.":::
+   >
+   > If you want to test the application locally, ensure your client IPv4 address is in the allow list of **Firewall rules**
+   >
+   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
 
-Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host Open Liberty.
+Now that you've created the database and AKS cluster, you can prepare AKS to host Open Liberty.
 
 ## Install Open Liberty Operator
 
@@ -215,6 +239,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/0.8.0#option-2-install-using-kustomize) by running the following commands.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 # Install Open Liberty Operator
 export OPERATOR_VERSION=0.8.2
@@ -228,7 +253,9 @@ wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/de
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-operator.yaml -q -P ./base
 kubectl apply -k overlays/watch-all-namespaces
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 # Install Open Liberty Operator
 $Env:OPERATOR_VERSION = "0.8.2"
@@ -242,10 +269,10 @@ Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-ope
 Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/$Env:OPERATOR_VERSION/kustomize/base/open-liberty-operator.yaml -OutFile ./base/open-liberty-operator.yaml
 kubectl apply -k overlays/watch-all-namespaces
 ```
+
 ---
 
 The output should be a series of lines following the format `<object type> created`. If you see any lines that don't conform to that format, troubleshoot and resolve the reason before continuing.
-
 
 ## Configure and build the application image
 
@@ -285,6 +312,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 cd <path-to-your-repo>/java-app
 
@@ -300,7 +328,9 @@ export DB_PASSWORD=<Server admin password>
 
 mvn clean install
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 cd <path-to-your-repo>/java-app
 
@@ -316,6 +346,7 @@ $Env:DB_PASSWORD = "<Server admin password>"
 
 mvn clean install
 ```
+
 ---
 
 ### (Optional) Test your project locally
@@ -326,7 +357,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
-   
+
    ```bash
    cd <path-to-your-repo>/java-app
    mvn liberty:run
@@ -360,6 +391,7 @@ You can now use the following steps to test the Docker image locally before depl
 1. Run the image using the following command. Note we're using the environment variables defined previously.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    docker run -it --rm -p 9080:9080 \
        -e DB_SERVER_NAME=${DB_SERVER_NAME} \
@@ -367,11 +399,14 @@ You can now use the following steps to test the Docker image locally before depl
        -e DB_USER=${DB_USER} \
        -e DB_PASSWORD=${DB_PASSWORD} \
        javaee-cafe:v1
-   ```   
+   ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=$Env:DB_SERVER_NAME -e DB_NAME=$Env:DB_NAME -e DB_USER=$Env:DB_USER -e DB_PASSWORD=$Env:DB_PASSWORD javaee-cafe:v1
    ```
+
    ---
 
 2. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
@@ -385,27 +420,35 @@ Now, we upload the built image to the ACR created in the previous steps.
 If you haven't already done so, log in to the container registry.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 docker login -u $Env:USER_NAME -p $Env:PASSWORD $Env:LOGIN_SERVER
 ```
+
 ---
 
 Tag and push the container image.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
 docker push ${LOGIN_SERVER}/javaee-cafe:v1
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 docker tag javaee-cafe:v1 $Env:LOGIN_SERVER/javaee-cafe:v1
 docker push $Env:LOGIN_SERVER/javaee-cafe:v1
 ```
+
 ---
 
 ## Deploy application on the AKS cluster
@@ -413,17 +456,22 @@ docker push $Env:LOGIN_SERVER/javaee-cafe:v1
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
 1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
+
    ### [Bash](#tab/in-bash)
+
    ```bash
    az aks update \
        --resource-group $RESOURCE_GROUP_NAME \
        --name $CLUSTER_NAME \
        --attach-acr $REGISTRY_NAME
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az aks update -n $Env:CLUSTER_NAME -g $Env:RESOURCE_GROUP_NAME --attach-acr $Env:REGISTRY_NAME
    ```
+
    ---
 
 2. Apply the DB secret and deployment file by running the following commands:
@@ -499,15 +547,19 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
+
 ---
 
 ## Next steps
