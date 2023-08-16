@@ -8,7 +8,7 @@ ms.service: azure-kubernetes-service
 ms.topic: conceptual
 ms.date: 12/22/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
@@ -30,15 +30,15 @@ This article is step-by-step manual guidance for running Open/WebSphere Liberty 
 ## Prerequisites
 
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with either Windows or Linux operation system installed.
-  * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)). The sample application requires Java 11.
+  * Prepare a local machine with either Windows or Linux installed.
+  * Install a Java SE implementation - for example, [Eclipse Open J9](https://www.eclipse.org/openj9/). The sample application requires Java 11.
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed. You may launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
+* This article requires at least version 2.31.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. You can launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
 
 ### Sign in to Azure
 
@@ -49,7 +49,7 @@ az login
 ```
 
 > [!NOTE]
-> Most CLI commands can be run in PowerShell all the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
+> You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
 >
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
@@ -95,7 +95,7 @@ az acr create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:REGISTRY_NAM
 
 ---
 
-After a short time, you should see a JSON output that contains:
+After a short time, you should see a JSON output that contains the following lines:
 
 ```output
   "provisioningState": "Succeeded",
@@ -213,22 +213,21 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Follow the directions below as you go through the article, then return to this document after you create and configure the database server.
 
-   > [!NOTE]
-   > Write down all variables in the **Variable block**, including **location**, **resourceGroup**,**database**, **\*server**.database.windows.net*, **login** admin user and **password**. The database **resourceGroup** is referred to as `<db-resource-group>` later in this article.
-   >
-   > After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
-   >
-   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
-   >
-   > In the **Networking** pane, under the **Public access** tab, select **Allow Azure services and resources to access this server**.
-   >
-   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-allow-access.png" alt-text="Screenshot of firewall rules - allow Azure resources access.":::
-   >
-   > If you want to test the application locally, ensure your client IPv4 address is in the allow list of **Firewall rules**
-   >
-   > :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
+When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
+
+After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
+
+:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
+
+In the **Networking** pane, under the **Public access** tab, select **Allow Azure services and resources to access this server**.
+
+:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-allow-access.png" alt-text="Screenshot of firewall rules - allow Azure resources access.":::
+
+If you want to test the application locally, ensure your client IPv4 address is in the allow list of **Firewall rules**
+
+:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
 
 Now that you've created the database and AKS cluster, you can prepare AKS to host Open Liberty.
 
