@@ -83,7 +83,11 @@ Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR 
 
 ```bash
 export REGISTRY_NAME=youruniqueacrname
-az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
+az acr create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $REGISTRY_NAME \
+    --sku Basic \
+    --admin-enabled
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -129,9 +133,9 @@ docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-$Env:LOGIN_SERVER = $(az acr show -n $Env:REGISTRY_NAME --query 'loginServer' -o tsv)
-$Env:USER_NAME=$(az acr credential show -n $Env:REGISTRY_NAME --query 'username' -o tsv)
-$Env:PASSWORD=$(az acr credential show -n $Env:REGISTRY_NAME --query 'passwords[0].value' -o tsv)
+$Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer' --output tsv)
+$Env:USER_NAME=$(az acr credential show --name $Env:REGISTRY_NAME --query 'username' --output tsv)
+$Env:PASSWORD=$(az acr credential show --name $Env:REGISTRY_NAME --query 'passwords[0].value' --output tsv)
 
 docker login $Env:LOGIN_SERVER -u $Env:USER_NAME -p $Env:PASSWORD
 ```
@@ -148,7 +152,12 @@ Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS c
 
 ```bash
 export CLUSTER_NAME=myAKSCluster
-az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
+az aks create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --enable-managed-identity
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -182,7 +191,11 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 ### [Bash](#tab/in-bash)
 
 ```bash
-az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing --admin
+az aks get-credentials \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --overwrite-existing \
+    --admin
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -362,9 +375,9 @@ You can now run and test the project locally before deploying to Azure. For conv
    mvn liberty:run
    ```
 
-2. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
 
-3. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Build image for AKS deployment
 
@@ -406,11 +419,9 @@ You can now use the following steps to test the Docker image locally before depl
    docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=$Env:DB_SERVER_NAME -e DB_NAME=$Env:DB_NAME -e DB_USER=$Env:DB_USER -e DB_PASSWORD=$Env:DB_PASSWORD javaee-cafe:v1
    ```
 
-   ---
+1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
-2. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
-
-3. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Upload image to ACR
 
@@ -468,12 +479,10 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   az aks update -n $Env:CLUSTER_NAME -g $Env:RESOURCE_GROUP_NAME --attach-acr $Env:REGISTRY_NAME
+   az aks update --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --attach-acr $Env:REGISTRY_NAME
    ```
 
-   ---
-
-2. Apply the DB secret and deployment file by running the following commands:
+1. Apply the DB secret and deployment file by running the following commands:
 
    ```bash
    cd <path-to-your-repo>/java-app/target
@@ -485,7 +494,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl apply -f openlibertyapplication.yaml
    ```
 
-3. Check if the OpenLibertyApplication instance is created by running the following command.
+1. Check if the OpenLibertyApplication instance is created by running the following command.
 
    ```bash
    kubectl get openlibertyapplication javaee-cafe-cluster
@@ -498,7 +507,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    javaee-cafe-cluster         youruniqueacrname.azurecr.io/javaee-cafe:1.0.25         True         59s
    ```
 
-4. Check if the deployment created by the Operator is ready by running the following command.
+1. Check if the deployment created by the Operator is ready by running the following command.
 
    ```bash
    kubectl get deployment javaee-cafe-cluster --watch
@@ -511,7 +520,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    javaee-cafe-cluster         0/3     3            0           20s
    ```
 
-5. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
+1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 ### Test the application
 
