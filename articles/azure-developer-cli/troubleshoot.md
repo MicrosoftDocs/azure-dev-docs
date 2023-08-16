@@ -79,6 +79,10 @@ Cloud Shell may time out during a long deployment or other long-running tasks. M
 Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
 like Visual Studio Code.
 
+### Cannot connect to the Docker daemon in Cloud Shell
+
+Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
+
 ## Install different version of azd in Cloud Shell
 
 In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
@@ -94,11 +98,6 @@ To revert to using the version of `azd` already installed on Cloud Shell in bash
 
 1. Run `rm ~/bin/azd`
 1. Run `rm -rf ~/azd`
-
-
-## Cannot connect to the Docker daemon in Cloud Shell
-
-Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
 
 ### Solution
 
