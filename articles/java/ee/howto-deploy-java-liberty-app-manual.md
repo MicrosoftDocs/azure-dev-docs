@@ -57,7 +57,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -105,7 +105,7 @@ After a short time, you should see a JSON output that contains the following lin
 
 ### Connect to the ACR instance
 
-You'll need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
+You need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
 
@@ -142,7 +142,7 @@ You should see `Login Succeeded` at the end of command output if you've logged i
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This command will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -213,21 +213,21 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Follow the directions below as you go through the article, then return to this document after you create and configure the database server.
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
 
-When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
+1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
 
-After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
+1. After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
 
-:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
+   :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
 
-In the **Networking** pane, under the **Public access** tab, select **Allow Azure services and resources to access this server**.
+1. In the **Networking** pane, under the **Public access** tab, select **Allow Azure services and resources to access this server**.
 
-:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-allow-access.png" alt-text="Screenshot of firewall rules - allow Azure resources access.":::
+   :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-allow-access.png" alt-text="Screenshot of firewall rules - allow Azure resources access.":::
 
-If you want to test the application locally, ensure your client IPv4 address is in the allow list of **Firewall rules**
+1. If you want to test the application locally, ensure your client IPv4 address is in the allowlist of **Firewall rules**
 
-:::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
+   :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
 
 Now that you've created the database and AKS cluster, you can prepare AKS to host Open Liberty.
 
@@ -281,7 +281,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. We'll use *java-app*. Here's the file structure of the application.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app*. Here's the file structure of the application.
 
 ```
 java-app
@@ -302,7 +302,7 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the *aks* directory, there are two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
 In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -350,12 +350,12 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
+You can now run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
-1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
+1. Start the application using `liberty:run`. `liberty:run` uses the environment variables defined in the previous step.
 
    ```bash
    cd <path-to-your-repo>/java-app
@@ -369,7 +369,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 ### Build image for AKS deployment
 
 > [!NOTE]
-> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [deploy application on the AKS cluster](#deploy-application-on-the-aks-cluster). If you selected to run commands locally, you may follow the guidance below.
+> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [deploy application on the AKS cluster](#deploy-application-on-the-aks-cluster). If you chose to run commands locally, you can use the following guidance.
 
 You can now run the `docker build` command to build the image.
 
@@ -387,7 +387,7 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 
 You can now use the following steps to test the Docker image locally before deploying to Azure.
 
-1. Run the image using the following command. Note we're using the environment variables defined previously.
+1. Run the image using the following command. This command uses the environment variables defined previously.
 
    ### [Bash](#tab/in-bash)
 
@@ -414,9 +414,9 @@ You can now use the following steps to test the Docker image locally before depl
 
 ### Upload image to ACR
 
-Now, we upload the built image to the ACR created in the previous steps.
+Next, upload the built image to the ACR you created in the previous steps.
 
-If you haven't already done so, log in to the container registry.
+If you haven't already done so, sign in to the container registry.
 
 ### [Bash](#tab/in-bash)
 
@@ -452,7 +452,7 @@ docker push $Env:LOGIN_SERVER/javaee-cafe:v1
 
 ## Deploy application on the AKS cluster
 
-Follow steps below to deploy the Liberty application on the AKS cluster.
+Use the following steps to deploy the Liberty application on the AKS cluster:
 
 1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
@@ -532,14 +532,14 @@ javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:317
 
 Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
-If some time has passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the note above regarding database pause.
+If some time has passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 
 Open a web browser to the external IP address of your service (`52.152.189.57` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS.":::
 
 >[!NOTE]
-> Currently the application is not using HTTPS. We recommend that you [ENABLE TLS with your own certificates](/azure/aks/ingress-tls).
+> Currently, the application doesn't use HTTPS. We recommend that you enable TLS with your own certificates. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-tls).
 
 ## Clean up the resources
 
