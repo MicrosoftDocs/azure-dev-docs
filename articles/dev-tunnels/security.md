@@ -27,6 +27,7 @@ Access to dev tunnels can be controlled by allowing or denying outbound access t
 - Dev Tunnels
   - `global.rel.tunnels.api.visualstudio.com`
   - `[clusterId].rel.tunnels.api.visualstudio.com`
+  - `[clusterId]-data.rel.tunnels.api.visualstudio.com`
   - `*.[clusterId].devtunnels.ms`
   - `*.devtunnels.ms`
 
