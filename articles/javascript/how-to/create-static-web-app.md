@@ -50,7 +50,7 @@ Create the Static Web App with one of the following:
 
 The [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli), also known as SWA CLI, serves as a local development tool for Azure Static Web Apps. It can:
 
-* Serve static static app assets, or proxy to your app dev server
+* Serve static app assets, or proxy to your app dev server
 * Serve API requests, or proxy to APIs running in Azure Functions Core Tools
 * Emulate authentication and authorization
 * Emulate Static Web Apps configuration, including routing
@@ -87,7 +87,7 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 
 ## Configure client environment variables
 
-The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](../../github/github-variable-substitution.md).
+The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be stored in GitHub secrets and pulled in to the `env` section.
 
 ```yml
 name: Azure Static Web Apps CI/CD

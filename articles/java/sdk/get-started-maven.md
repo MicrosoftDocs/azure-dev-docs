@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: jogiles
 ms.date: 03/16/2023
 ms.topic: article
+ms.custom: devx-track-extended-java
 ---
 
 # Get started with Azure SDK and Apache Maven
@@ -73,31 +74,27 @@ You can configure the build tool in a project Maven POM file as shown in the fol
       <groupId>com.azure.tools</groupId>
       <artifactId>azure-sdk-build-tool</artifactId>
       <version>{latest_version}</version>
-      <configuration>
-        ...
-      </configuration>
     </plugin>
   </plugins>
 </build>
 ```
 
-Within the `configuration` section, you can configure the settings shown in the following table, or use the default, recommended values.
+After adding the build tool into a Maven project, you can run the tool by calling `mvn compile azure:run`. Depending on the configuration provided, you can expect to see build failures or report files generated that can inform you about potential issues before they become more serious. We recommend that you run this tool as part of your CI/CD pipeline. As the build tool evolves, we'll publish new releases, and we recommend that developers [frequently check for new releases](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/versions) and update as appropriate.
 
-| Property name                              | Default value | Description                                                                                                                                                                                                                                                                       |
-|--------------------------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `validateAzureSdkBomUsed`                  | true          | Ensures that the build has the [azure-sdk-for-java BOM][azure-sdk-bom] referenced appropriately, so that Azure SDK for Java client library dependencies may take their versions from the BOM.                                                                                     |
-| `validateBomVersionsAreUsed`               | true          | Ensures that, where a dependency is available from the [azure-sdk-for-java BOM][azure-sdk-bom], the version isn't being manually overridden.                                                                                                                                      |
-| `validateNoDeprecatedMicrosoftLibraryUsed` | true          | Ensures that the project doesn't make use of previous-generation Azure libraries. Using the new and previous-generation libraries in a single project is unlikely to cause any issue, but results in a suboptimal developer experience.                                           |
-| `validateNoBetaLibraryUsed`                | false         | Some Azure SDK for Java client libraries have beta releases, with version strings in the form `x.y.z-beta.n`. Enabling this feature ensures that no beta libraries are being used.                                                                                                |
-| `validateNoBetaAPIUsed`                    | true          | Azure SDK for Java client libraries sometimes have GA releases with methods annotated with `@Beta`. This check looks to see if any such methods are being used.                                                                                                                   |
+It's possible to configure the build tool to enable or disable particular features. For this configuration, add a `configuration` section in the XML shown previously. Within that section, configure the settings shown in the following table. Any configuration that isn't explicitly mentioned takes the default value specified in the table.
+
+| Property name                              | Default value | Description |
+|--------------------------------------------|---------------|-------------|
+| `validateAzureSdkBomUsed`                  | true          | Ensures that the project has the [azure-sdk-for-java BOM][azure-sdk-bom] referenced appropriately, so that Azure SDK for Java client library dependencies may take their versions from the BOM. |
 | `validateLatestBomVersionUsed`             | true          | Ensures that dependencies are kept up to date by reporting back (or failing the build) if a newer [azure-sdk-for-java BOM][azure-sdk-bom] exists. You can always find the latest version [online](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). |
-| `reportFile`                               | -             | *(Optional)* Specifies the location to write the build report out to, in JSON format. If not specified, no report is written, and a summary of the build, or the appropriate build failures, is shown in the terminal.                                                            |
+| `validateBomVersionsAreUsed`               | true          | Ensures that, where a dependency is available from the [azure-sdk-for-java BOM][azure-sdk-bom], the version isn't being manually overridden. |
+| `validateNoDeprecatedMicrosoftLibraryUsed` | true          | Ensures that the project doesn't make use of previous-generation Azure libraries. Using the new and previous-generation libraries in a single project is unlikely to cause any issue, but results in a suboptimal developer experience. |
+| `validateNoBetaLibraryUsed`                | false         | Some Azure SDK for Java client libraries have beta releases, with version strings in the form `x.y.z-beta.n`. Enabling this feature ensures that no beta libraries are being used. |
+| `validateNoBetaApiUsed`                    | true          | Azure SDK for Java client libraries sometimes have GA releases with methods annotated with `@Beta`. This check looks to see if any such methods are being used. |
+| `sendToMicrosoft`                          | true          | Specifies whether to send the build report to Microsoft for telemetry purposes. This helps guide the development team on where to prioritize documentation, samples, and improved convenience APIs. No user-identifiable content is submitted. |
+| `reportFile`                               | -             | *(Optional)* Specifies the location to write the build report out to, in JSON format. If not specified, no report is written, and a summary of the build, or the appropriate build failures, is shown in the terminal. |
 
 [azure-sdk-bom]: #add-azure-sdk-for-java-to-an-existing-project
-
-After adding the build tool into a Maven project, you can run the tool by calling `mvn compile azure:run`. Depending on the configuration provided, you can expect to see build failures or report files generated that can inform you about potential issues before they become more serious.
-
-As the build tool evolves, we publish new releases, and we recommend that developers [frequently check for new releases](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/versions) and update as appropriate.
 
 ## Add Azure SDK for Java to an existing project
 

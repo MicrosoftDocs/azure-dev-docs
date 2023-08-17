@@ -5,14 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.topic: overview
 ms.date: 09/15/2022
-ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-jbosseap-vm
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-javaee-jbosseap-vm, devx-track-extended-java
 ---
 
 # Red Hat JBoss EAP on Azure
 
 This article describes the available solutions for hosting JBoss EAP on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
 
-There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift (ARO), and Azure Virtual Machines/VM Scale Sets. All three solutions are jointly developed and supported by Red Hat and Microsoft.
+There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines/VM Scale Sets. All three solutions are jointly developed and supported by Red Hat and Microsoft.
 
 ## JBoss EAP on Azure App Service
 
@@ -28,9 +28,9 @@ JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. Wh
 
 > [!VIDEO https://www.youtube.com/embed/8b_Wiuw8l-8]
 
-## JBoss EAP on Azure Red Hat OpenShift (ARO)
+## JBoss EAP on Azure Red Hat OpenShift
 
-[Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/#overview) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on ARO is a compelling option. Red Hat and Microsoft provide official guidance for running JBoss EAP on ARO. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app). The guidance uses JBoss EAP Helm Charts. The Helm Charts let you easily and reliably deploy Java applications to OpenShift. The guidance also demonstrates the recommended use of Bootable JAR deployments, the WildFly JAR Maven plugin, Galleon layers, the Galleon data sources feature pack, clustered state on Kubernetes, OpenShift secrets, and liveness/readiness probes.
+[Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/#overview) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on Azure Red Hat OpenShift is a compelling option. Red Hat and Microsoft provide official guidance for running JBoss EAP on Azure Red Hat OpenShift. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app). The guidance uses JBoss EAP Helm Charts. The Helm Charts let you easily and reliably deploy Java applications to OpenShift. The guidance also demonstrates the recommended use of Bootable JAR deployments, the WildFly JAR Maven plugin, Galleon layers, the Galleon data sources feature pack, clustered state on Kubernetes, OpenShift secrets, and liveness/readiness probes.
 
 ## JBoss EAP on Azure Virtual Machines
 
@@ -54,4 +54,4 @@ The following articles provide more information on getting started with these te
 
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
-- [Deploy a Java application with JBoss EAP on ARO](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)
+- [Deploy a Java application with JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)

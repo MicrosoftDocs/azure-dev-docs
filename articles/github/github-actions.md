@@ -83,7 +83,6 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 * [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan)
 * [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
 * [Trigger an Azure Pipelines run](https://github.com/Azure/pipelines)  
-* [Variable substitution](https://github.com/Microsoft/variable-substitution)
 
 ## Next Steps
 

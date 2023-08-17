@@ -6,7 +6,7 @@ ms.date: 08/25/2020
 ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Manage storage accounts by using the Azure Explorer for Eclipse

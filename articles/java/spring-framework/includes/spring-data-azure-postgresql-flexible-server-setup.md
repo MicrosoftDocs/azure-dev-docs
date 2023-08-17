@@ -18,25 +18,9 @@ Next, create a non-admin user and grant all permissions to the database.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-> [!IMPORTANT]
-> To use passwordless connections, configure the Azure AD admin user for your Azure Database for PostgreSQL Flexible Server instance. For more information, see [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
+You can use the following method to create a non-admin user that uses a passwordless connection.
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
-
-```bash
-cat << EOF > create_ad_user.sql
-select * from pgaadauth_create_principal('<your_postgresql_ad_non_admin_username>', false, false);
-EOF
-```
-
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
-
-```bash
-psql "host=postgresqlflexibletest.postgres.database.azure.com user=<your_postgresql_ad_admin_username> dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
-```
-
-> [!TIP]
-> To use Azure AD authentication to connect to Azure Database for PostgreSQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+[!INCLUDE [create-postgresql-flexible-server-non-admin-user.md](create-postgresql-flexible-server-non-admin-user.md)]
 
 ### [Password](#tab/password)
 
@@ -74,7 +58,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.10.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -83,7 +67,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.4.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC PostgreSQL artifact:

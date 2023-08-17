@@ -4,7 +4,7 @@ description: In this tutorial, you create a Spring Boot app that reads a value f
 ms.date: 04/06/2023
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
 ms.author: edburns
 ---
@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.10.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -57,7 +57,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.4.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Key Vault Starter artifact:

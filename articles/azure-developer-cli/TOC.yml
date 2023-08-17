@@ -5,7 +5,9 @@
     href: overview.md
   - name: Get started
     items: 
-    - name: Install azd
+    - name: Supported languages and environments
+      href: supported-languages-environments.md
+    - name: Install or update azd
       href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md
@@ -17,6 +19,8 @@
       href: use-terraform-for-azd.md
     - name: Run and debug
       href: debug.md
+    - name: Resource Group Scoped Deployments
+      href: resource-group-scoped-deployments.md
     - name: Configure deployment pipeline
       href: configure-devops-pipeline.md
     - name: Customize workflows using command and event hooks
@@ -25,8 +29,12 @@
       href: monitor-your-app.md
     - name: Make your project azd-compatible
       href: make-azd-compatible.md
+    - name: Manage environment variables
+      href: manage-environment-variables.md
   - name: Troubleshoot
-    href: troubleshoot.md   
+    href: troubleshoot.md
+  - name: Feature versioning and release strategy
+    href: feature-versioning.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
   - name: Reference

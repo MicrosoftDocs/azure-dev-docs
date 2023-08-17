@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ms.contributors: judubois-09162021
 ---
 
@@ -26,6 +26,8 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility)
+
+- [ODBC Driver](/sql/connect/odbc/download-odbc-driver-for-sql-server) 17 or 18.
 
 - If you don't have one, create an Azure SQL Server instance named `sqlservertest` and a database named `demo`. For instructions, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
@@ -54,7 +56,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.7.0</version>
+        <version>4.10.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -63,7 +65,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.0.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.4.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:

@@ -2,7 +2,7 @@
 title: Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 description: Use CI/CD with GitHub Actions to automatically build, test, and deploy Python web apps to Azure App Service on Linux.
 ms.topic: conceptual
-ms.date: 10/29/2022
+ms.date: 08/03/2023
 ms.custom: devx-track-python
 ---
 
@@ -164,7 +164,6 @@ Now you'll test the workflow by making a change to the repo.
 
 :::image type="content" source="media/github-actions-app-service/github-repo-make-small-change.png" alt-text="Screenshot showing how to go to the repo and branch where the GitHub Actions workflow is defined." lightbox="media/github-actions-app-service/github-repo-make-small-change.png":::
 
-
 **Step 2.** Make a small change.
 
 For example, if you used the VS Code Flask tutorial, you can
@@ -174,7 +173,7 @@ For example, if you used the VS Code Flask tutorial, you can
 
 **Step 3.** Commit the change directly to the branch you're working in.
 
-* On the bottom of the page you editing, select the **Commit** button.
+* On the upper-right of the page you're editing, select the **Commit changes ...** button. The **Commit changes** window opens. In the **Commit changes** window, modify the commit message if desired and then select the **Commit changes** button.
 * The commit kicks off the GitHub Actions workflow.
 
 You can also kick off the workflow manually.
@@ -219,10 +218,10 @@ Disconnecting GitHub Actions from your App Service allows you to reconfigure the
 
 ### [Azure CLI](#tab/azure-cli)
 
-Disconnect GitHub Actions with Azure CLI [az webapp deployment github-actions remote][15] command.
+Disconnect GitHub Actions with Azure CLI [az webapp deployment github-actions remove][15] command.
 
 ```bash
-az webapp deployment github-actions remote \
+az webapp deployment github-actions remove \
   --repo "<github-user>/<github-repo>" \
   --resource-group <resource-group-name> \
   --branch <branch-name> \

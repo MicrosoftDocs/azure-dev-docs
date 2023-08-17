@@ -6,7 +6,7 @@ ms.date: 10/31/2022
 ms.author: alexwolf
 ---
 
-Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [Todo Application with Node.js and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../overview.md#azure-developer-cli-templates).
+Run and debug apps on your local machine using the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (`azd`). In this guide, you'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../azd-templates.md).
 
 ## Prerequisites
 

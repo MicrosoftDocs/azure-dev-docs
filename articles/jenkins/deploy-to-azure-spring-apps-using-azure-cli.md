@@ -4,7 +4,7 @@ description: Learn how to use Azure CLI in a continuous integration and deployme
 keywords: jenkins, azure, devops, azure spring apps, azure cli
 ms.topic: tutorial
 ms.date: 01/28/2022
-ms.custom: devx-track-jenkins,devx-track-azurecli
+ms.custom: devx-track-jenkins, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Tutorial: Deploy apps to Azure Spring Apps using Jenkins and the Azure CLI

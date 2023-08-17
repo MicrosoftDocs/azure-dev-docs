@@ -25,3 +25,6 @@
       - name: Java EE, Jakarta EE, and MicroProfile
         tocHref: /azure/developer/java/migration
         topicHref: /azure/developer/java/ee/index
+      - name: Java EE, Jakarta EE, and MicroProfile
+        tocHref: /azure/aks
+        topicHref: /azure/developer/java/ee/index

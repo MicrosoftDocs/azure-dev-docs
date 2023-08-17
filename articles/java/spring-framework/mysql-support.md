@@ -5,12 +5,12 @@ ms.date: 04/06/2023
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure MySQL support
 
-**This article applies to:** ✔️ Version 4.7.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.10.0 ✔️ Version 5.4.0
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
@@ -112,11 +112,16 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. First, use the following commands to set up some environment variables.
 
       ```bash
-      export AZURE_MYSQL_AZURE_AD_SP_USERID=$(az ad sp list --display-name <service_principal-name> --query '[0].appId' -otsv)
+      export AZURE_MYSQL_AZURE_AD_SP_USERID=$(az ad sp list \
+          --display-name <service_principal-name> \
+          --query '[0].appId' 
+          --output tsv)
       export AZURE_MYSQL_AZURE_AD_SP_USERNAME=<YOUR_MYSQL_AZURE_AD_USERNAME>
       export AZURE_MYSQL_SERVER_NAME=<YOUR_MYSQL_SERVER_NAME>
       export AZURE_MYSQL_DATABASE_NAME=<YOUR_MYSQL_DATABASE_NAME>
-      export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+      export CURRENT_USERNAME=$(az ad signed-in-user show \
+          --query userPrincipalName \
+          --output tsv)
       ```
 
    1. Then, create a SQL script called *create_ad_user_sp.sql* for creating a non-admin user. Add the following contents and save it locally:
@@ -133,7 +138,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. Use the following command to run the SQL script to create the Azure AD non-admin user:
 
       ```bash
-      mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user_sp.sql
+      mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user_sp.sql
       ```
 
    1. Now use the following command to remove the temporary SQL script file:

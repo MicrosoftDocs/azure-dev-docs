@@ -53,14 +53,14 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "js-e2e-azure-function-upload-file",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
+      "path_to_root": "azure-typescript-e2e-apps",
+      "url": "https://github.com/Azure-Samples/azure-typescript-e2e-apps",
       "branch": "main",
       "branch_mapping": {}
     },
     {
-      "path_to_root": "js-e2e-azure-function-mongodb",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-mongodb",
+      "path_to_root": "js-e2e-azure-function-upload-file",
+      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -68,24 +68,6 @@
       "path_to_root": "js-e2e-azure-resource-management-functions",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions",
       "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-static-web-app-with-cli",
-      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-static-web-app-with-cli-1-basic-app-with-api",
-      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
-      "branch": "1-basic-app-with-api",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth",
-      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
-      "branch": "2-basic-app-with-api-and-auth",
       "branch_mapping": {}
     },
     {
@@ -237,6 +219,12 @@
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-fastapi-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -258,5 +246,8 @@
   },
   "docs_build_engine": {
     "name": "docfx_v3"
-  }
+  },
+    "redirection_files": [
+        "articles/java/.openpublishing.redirection.java.json"
+    ]
 }

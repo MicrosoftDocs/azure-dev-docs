@@ -1,15 +1,15 @@
 ---
-title: Migrate an application to use passwordless connections with Azure SQL Database
-description: Learn how to migrate existing applications using Azure SQL Database away from authentication patterns such as passwords to more secure approaches like Managed Identity.
+title: Migrate a Java application to use passwordless connections with Azure SQL Database
+description: Learn how to migrate a Java application to use passwordless connections with Azure SQL Database.
 ms.service: sql-database
 ms.topic: how-to
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/18/2023
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli
+ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Migrate an application to use passwordless connections with Azure SQL Database
+# Migrate a Java application to use passwordless connections with Azure SQL Database
 
 This article explains how to migrate from traditional authentication methods to more secure, passwordless connections with Azure SQL Database.
 
@@ -210,7 +210,7 @@ You can also assign managed identity on an Azure hosting environment using the A
 You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command, as shown in the following example:
 
 ```azurecli
-AZ_MI_OBJECT_ID=$(az webapp identity assign \
+export AZ_MI_OBJECT_ID=$(az webapp identity assign \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <service-instance-name> \
     --query principalId \
@@ -273,7 +273,7 @@ az containerapp connection create sql \
 You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command, as shown in the following example:
 
 ```azurecli
-AZ_MI_OBJECT_ID=$(az containerapp identity assign \
+export AZ_MI_OBJECT_ID=$(az containerapp identity assign \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <service-instance-name> \
     --query principalId \
@@ -285,7 +285,7 @@ AZ_MI_OBJECT_ID=$(az containerapp identity assign \
 You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
 
 ```azurecli
-AZ_MI_OBJECT_ID=$(az spring app identity assign \
+export AZ_MI_OBJECT_ID=$(az spring app identity assign \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <service-instance-name> \
     --service <service-name> \
@@ -298,7 +298,7 @@ AZ_MI_OBJECT_ID=$(az spring app identity assign \
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command, as shown in the following example:
 
 ```azurecli
-AZ_MI_OBJECT_ID=$(az vm identity assign \
+export AZ_MI_OBJECT_ID=$(az vm identity assign \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <service-instance-name> \
     --query principalId \
@@ -310,7 +310,7 @@ AZ_MI_OBJECT_ID=$(az vm identity assign \
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command, as shown in the following example:
 
 ```azurecli
-AZ_MI_OBJECT_ID=$(az aks update \
+export AZ_MI_OBJECT_ID=$(az aks update \
     --resource-group $AZ_RESOURCE_GROUP \
     --name <AKS-cluster-name> \
     --enable-managed-identity \
@@ -335,7 +335,10 @@ This step will create a database user for the managed identity and grant read an
 The following command will retrieve the display name of the managed identity and construct the commands to create a user for the managed identity and grant permissions:
 
 ```bash
-AZ_DATABASE_AD_MI_USERNAME=$(az ad sp show --id $AZ_MI_OBJECT_ID --query displayName --output tsv)
+export AZ_DATABASE_AD_MI_USERNAME=$(az ad sp show \
+    --id $AZ_MI_OBJECT_ID \
+    --query displayName \
+    --output tsv)
 cat << EOF
 CREATE USER "$AZ_DATABASE_AD_MI_USERNAME" FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER "$AZ_DATABASE_AD_MI_USERNAME";
