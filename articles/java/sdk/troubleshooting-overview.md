@@ -10,14 +10,14 @@ ms.author: jogiles
 
 # Troubleshooting
 
-The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. Despite the large number of libraries this entails, we ensure that all client libraries are built to a consistent standard. We take pains to ensure options related to configuration, logging, exception handling, and troubleshooting are common across all libraries. This document introduces a number of troubleshooting tools available to you, and links to other pages with further details.
+The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. We ensure that all client libraries are built to a consistent, high standard, with [common patterns](/azure/developer/java/sdk/overview) for configuration, logging, exception handling, and troubleshooting. This document introduces many troubleshooting tools available to you, and links to other pages with further details.
 
 Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
 
 * [Dependency Conflicts](/azure/developer/java/sdk/troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
 * [Network Issues](/azure/developer/java/sdk/troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
-Beyond the documents linked above, the following content gives guidance on making the best use of logging and exception handling, as it relates to the Azure SDK for Java.
+Beyond these documents, the following content gives guidance on making the best use of logging and exception handling, as it relates to the Azure SDK for Java.
 
 ## Logging in the Azure SDK for Java
 
@@ -27,7 +27,7 @@ To troubleshoot issues, it is important to first enable logging to monitor the b
 
 ### Enabling HTTP request / response logging
 
-Reviewing HTTP requests as they are sent and received between Azure services can be extremely useful in troubleshooting issues. To enable logging the HTTP request and response payload, almost all Azure SDK for Java client libraries can be configured in their client builders as shown below. In particular, pay special attention to the `httpLogOptions` method on the client builder, as well as the available enum values available in `HttpLogDetailLevel` (these levels are detailed in the table below):
+Reviewing HTTP requests as they are sent and received between Azure services can be useful in troubleshooting issues. To enable logging the HTTP request and response payload, almost all Azure SDK for Java client libraries can be configured in their client builders as shown. In particular, pay special attention to the `httpLogOptions` method on the client builder, as well as the available enum values available in `HttpLogDetailLevel`:
 
 ```java
 ConfigurationClient configurationClient = new ConfigurationClientBuilder()
@@ -36,7 +36,7 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
         .buildClient();
 ```
 
-The above code will change the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It is important to note that this change will enable logging for every Azure client that supports logging HTTP request/response.
+The above code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It is important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
 
 | Value            | Logging level                                                        |
 |------------------|----------------------------------------------------------------------|
@@ -46,7 +46,7 @@ The above code will change the http request / response logging for a single clie
 | body             | Logs everything in BASIC, plus all the request and response body.    |
 | body_and_headers | Logs everything in HEADERS and BODY.                                 |
 
-**NOTE**: When logging request and response bodies, please ensure that they do not contain confidential information. When logging headers, the client library has a default set of headers that are considered safe to log, but this set can be updated by updating the log options in the builder as shown below:
+**NOTE**: When logging request and response bodies, please ensure that they do not contain confidential information. When logging headers, the client library has a default set of headers that are considered safe to log. It is possible to add additional headers that are safe to log:
 
 ```java
 clientBuilder.httpLogOptions(new HttpLogOptions().addAllowedHeaderName("safe-to-log-header-name"))
@@ -54,7 +54,7 @@ clientBuilder.httpLogOptions(new HttpLogOptions().addAllowedHeaderName("safe-to-
 
 ## Exception handling in the Azure SDK for Java
 
-Most Azure SDK for Java client service methods throw a [HttpResponseException][http_response_exception] or a more-specific subclass on failure. The `HttpResponseException` type includes detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. This error information can be found inside the message property of the `HttpResponseException` object. Note that because this exception is a runtime exception, 
+Most Azure SDK for Java client service methods throw a [HttpResponseException][http_response_exception] or a more-specific subclass on failure. The `HttpResponseException` type includes detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. This error information can be found inside the message property of the `HttpResponseException` object. Because these exception are runtime exceptions, JavaDoc reference documentation does not explicitly call them out.
 
 Here's the example of how to catch it with a synchronous client
 
