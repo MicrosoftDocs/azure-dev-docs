@@ -147,6 +147,93 @@ The HTTP pipeline policy provides a convenient mechanism to modify or decorate t
 
 To create a custom HTTP pipeline policy, you just extend a base policy type and implement some abstract method. You can then plug the policy into the pipeline.
 
+### Custom headers in HTTP requests
+
+The Azure SDK for Java client libraries provide a consistent way to define customized headers through `Context` object in the public API:
+
+```java
+// Add your headers
+HttpHeaders headers = new HttpHeaders();
+headers.set("my-header1", "my-header1-value");
+headers.set("my-header2", "my-header2-value");
+headers.set("my-header3", "my-header3-value");
+
+// Call API by passing headers in Context.
+configurationClient.addConfigurationSettingWithResponse(
+    new ConfigurationSetting().setKey("key").setValue("value"),
+    new Context(AddHeadersFromContextPolicy.AZURE_REQUEST_HTTP_HEADERS_KEY, headers));
+
+// The above three headers will now be added to the outgoing HTTP request.
+```
+
+For more detail information, check out the [AddHeadersFromContextPolicy][add_headers_from_context_policy]
+
+### Default SSL library
+
+All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default SSL implementation within the JDK.
+
+#### Reduce Tomcat-Native SSL dependency size
+
+By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SDKs for java. To reduce the size of this dependency, you need to include the dependency with an `os`` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html).
+
+```xml
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-tcnative-boringssl-static</artifactId>
+      <version>2.0.25.Final</version>
+      <classifier>${os.detected.classifier}</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+  <build>
+    ...
+    <extensions>
+      <extension>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.4.0.Final</version>
+      </extension>
+    </extensions>
+    ...
+  </build>
+  ...
+</project>
+```
+
+#### Use JDK SSL
+
+If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then you need to exclude the Tomcat-native Boring SSL library. Note, based on our tests the performance of JDK SSL is 30% slower compared to Tomcat-Native Boring SSL. You can exclude this default SSL library, as such:
+
+```xml
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+     <groupId>com.azure</groupId>
+       <artifactId>azure-core</artifactId>
+       <version>1.1.0</version>
+       <exclusions>
+         <exclusion>
+           <groupId>io.netty</groupId>
+           <artifactId>netty-tcnative-boringssl-static</artifactId>
+         </exclusion>
+       </exclusions>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
+```
+
 ## Next steps
 
 Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client you're using.
+
+<!-- Links -->
+[add_headers_from_context_policy]: https://learn.microsoft.com/java/api/com.azure.core.http.policy.addheadersfromcontextpolicy
