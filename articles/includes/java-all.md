@@ -496,9 +496,9 @@
 | IoT Hub - X509 Provider | Maven [2.0.2](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/2.0.2/jar/)<br>Maven [2.0.0-preview-001](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/2.0.0-preview-001/jar/) |  |  |
 | IoT Plug and Play - Device Client | Maven [2.2.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.2.0/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.0.0-preview-002/jar/) |  |  |
 | IoT Service Client | Maven [2.1.6](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.1.6/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.0.0-preview-002/jar/) | [docs](/java/api/overview/azure/iot) |  |
-| Key Vault - Certificates | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-certificates/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-certificates_4.0.0-preview.4/sdk/keyvault/azure-keyvault-certificates/) |
-| Key Vault - Keys | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-keys/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-keys_4.0.0-preview.4/sdk/keyvault/azure-keyvault-keys/) |
-| Key Vault - Secrets | Maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-secrets/4.0.0-preview.4/jar/) |  | GitHub [4.0.0-preview.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-secrets_4.0.0-preview.4/sdk/keyvault/azure-keyvault-secrets/) |
+| Key Vault - Certificates | Maven [4.0.0-preview.5](https://search.maven.org/artifact/com.azure/azure-keyvault-certificates/4.0.0-preview.5/jar/) |  | GitHub [4.0.0-preview.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-certificates_4.0.0-preview.5/sdk/keyvault/azure-keyvault-certificates/) |
+| Key Vault - Keys | Maven [4.0.0-preview.5](https://search.maven.org/artifact/com.azure/azure-keyvault-keys/4.0.0-preview.5/jar/) |  | GitHub [4.0.0-preview.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-keys_4.0.0-preview.5/sdk/keyvault/azure-keyvault-keys/) |
+| Key Vault - Secrets | Maven [4.0.0-preview.5](https://search.maven.org/artifact/com.azure/azure-keyvault-secrets/4.0.0-preview.5/jar/) |  | GitHub [4.0.0-preview.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-secrets_4.0.0-preview.5/sdk/keyvault/azure-keyvault-secrets/) |
 | Kusto Data | Maven [5.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/5.0.1/jar/) |  |  |
 | Kusto Ingest | Maven [5.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/5.0.1/jar/) |  |  |
 | Kusto Spark | Maven [5.0.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/5.0.2/jar/) |  |  |
@@ -573,7 +573,7 @@
 | Document DB - Hadoop | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-hadoop/1.2.0/jar/) |  |  |
 | Document DB - Reactive Extension | Maven [0.9.0-rc2](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-rx/0.9.0-rc2/jar/) |  |  |
 | Elastic Database Tools | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azure-elasticdb-tools/1.0.0/jar/) |  |  |
-| kusto-log4j-appender | Maven [2.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/2.0.0/jar/) |  |  |
+| kusto-log4j-appender | Maven [2.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/2.0.1/jar/) |  |  |
 | Schema Registry - Kafka Avro | Maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.1.1/jar/) |  |  |
 | Service Bus - JMS | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0/jar/) |  |  |
 | Service Bus - JMS Connection Factory | Maven [0.0.1](https://search.maven.org/artifact/com.microsoft.azure/service-bus-jms-connection-factory/0.0.1/jar/) |  |  |

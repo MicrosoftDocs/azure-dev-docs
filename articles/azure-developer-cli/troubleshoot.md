@@ -62,9 +62,42 @@ azd auth login
 
 Follow the prompts from the `azd auth login` command to complete the sign-in process and update your cached credentials.
 
-## Cannot connect to the Docker daemon in Cloud Shell
+## Cloud Shell limitations for `azd`
+
+There are some limitations to running `azd` in Cloud Shell:
+
+### Docker support in Cloud Shell
+
+Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
+
+### Cloud Shell timeout
+
+Cloud Shell may time out during a long deployment or other long-running tasks. Make sure the session does not become idle. See [Cloud Shell Usage limits](/azure/cloud-shell/limitations#usage-limits).
+
+### Cloud Shell interface
+
+Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
+like Visual Studio Code.
+
+### Cannot connect to the Docker daemon in Cloud Shell
 
 Cloud Shell uses a container to host your shell environment, so tasks that require running the Docker daemon aren't allowed.
+
+## Install different version of azd in Cloud Shell
+
+In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
+
+1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
+1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
+1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released verison like `1.0.0` can also be specified).  
+
+Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
+version of `azd` symbolically linked in `/usr/local/bin`.
+
+To revert to using the version of `azd` already installed on Cloud Shell in bash:
+
+1. Run `rm ~/bin/azd`
+1. Run `rm -rf ~/azd`
 
 ### Solution
 
@@ -213,39 +246,6 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 ## Live metrics support for Python
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
-
-## Cloud Shell limitations for `azd`
-
-There are some limitations to running `azd` in Cloud Shell:
-
-### Docker support in Cloud Shell
-
-Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
-
-### Cloud Shell timeout
-
-Cloud Shell may time out during a long deployment or other long-running tasks. Make sure the session does not become idle. See [Cloud Shell Usage limits](/azure/cloud-shell/limitations#usage-limits).
-
-### Cloud Shell interface
-
-Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
-like Visual Studio Code.
-
-## Install different version of azd in Cloud Shell
-
-In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
-
-1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
-1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
-1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released verison like `1.0.0` can also be specified).  
-
-Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
-version of `azd` symbolically linked in `/usr/local/bin`.
-
-To revert to using the version of `azd` already installed on Cloud Shell in bash:
-
-1. Run `rm ~/bin/azd`
-1. Run `rm -rf ~/azd`
 
 ## Create a GitHub issue to request help
 
