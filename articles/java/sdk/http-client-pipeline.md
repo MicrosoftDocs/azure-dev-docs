@@ -236,4 +236,4 @@ If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then
 Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client you're using.
 
 <!-- Links -->
-[add_headers_from_context_policy]: https://learn.microsoft.com/java/api/com.azure.core.http.policy.addheadersfromcontextpolicy
+[add_headers_from_context_policy]: /java/api/com.azure.core.http.policy.addheadersfromcontextpolicy

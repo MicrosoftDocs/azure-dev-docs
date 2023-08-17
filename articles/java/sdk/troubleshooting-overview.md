@@ -14,8 +14,8 @@ The Azure SDK for Java consists of many client libraries, as we built one (or mo
 
 Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
 
-* [Dependency Conflicts](https://learn.microsoft.com/azure/developer/java/sdk/troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
-* [Network Issues](https://learn.microsoft.com/azure/developer/java/sdk/troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
+* [Dependency Conflicts](/azure/developer/java/sdk/troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
+* [Network Issues](/azure/developer/java/sdk/troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
 Beyond the documents linked above, the following content gives guidance on making the best use of logging and exception handling, as it relates to the Azure SDK for Java.
 
@@ -85,5 +85,5 @@ If the troubleshooting guidance above does not help to resolve issues when using
 
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[logging_overview]: https://docs.microsoft.com/azure/developer/java/sdk/logging-overview
+[logging_overview]:/azure/developer/java/sdk/logging-overview
 [http_response_exception]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java
