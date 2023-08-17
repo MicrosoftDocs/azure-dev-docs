@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.date: 04/06/2023
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ---
 
 ## Configure a firewall rule for your MySQL server

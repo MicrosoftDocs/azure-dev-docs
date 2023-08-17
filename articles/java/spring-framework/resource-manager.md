@@ -3,7 +3,7 @@ title: Spring Cloud Azure resource manager
 description: This article describes Spring Cloud Azure resource manager.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-arm-template
 ---
