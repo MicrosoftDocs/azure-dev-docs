@@ -1,24 +1,18 @@
 ---
 title: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
-keywords: azure devops terraform application gateway Ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 07/25/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
-
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, you can do such tasks as provisioning, upgrading, and scaling resources on-demand.
 
 An Application Gateway Ingress Controller (AGIC) provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes Ingress resources are used to configure the Ingress rules for individual Kubernetes services. An Ingress controller allows a single IP address to route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
+
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 In this article, you learn how:
 
@@ -42,7 +36,7 @@ In this article, you learn how:
   - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
   - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
 
-  You'll need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
+  You need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
@@ -70,7 +64,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Under **Azure services**, select **Storage accounts**. (If the **Storage accounts** option isn't visible on the main page, select **More services** to locate the option.)
 
-1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
+1. On the **Storage accounts** page, select the storage account to hold state information.
 
 1. On the **Storage account** page, in the left menu, in the **Security + networking** section, select **Access keys**.
 
@@ -106,7 +100,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `providers.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf)]
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf":::
 
     **Key points:**
 
@@ -115,19 +109,19 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
-1. Create a file named `output.tf` and insert the following code.
+1. Create a file named `outputs.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/outputs.tf":::
 
-1. Create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `ssh.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/ssh.tf":::
 
     **Key points:**
 
@@ -327,10 +321,10 @@ az ad sp delete --id <service_principal_object_id>
 
 ## Troubleshoot Terraform on Azure
 
-If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options will enable you to resolve the error:
+If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options enable you to resolve the error:
 
 - Create the service principal with the "Owner" role. As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
-- Create a custom role based on the role you want - such as Contributor. Depending on the base role you use, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+- Create a custom role based on the role you want - such as Contributor. Depending on the base role, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 

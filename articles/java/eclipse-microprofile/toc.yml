@@ -47,7 +47,7 @@
           - name: KumuluzEE Micro
             href: https://ee.kumuluz.com/microprofile
           - name: Payara Micro
-            href: https://payara.fish/payara_micro
+            href: https://www.payara.fish/products/payara-micro/
           - name: Red Hat JBoss EAP XP
             href: https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/
           - name: Azure Web App for Containers

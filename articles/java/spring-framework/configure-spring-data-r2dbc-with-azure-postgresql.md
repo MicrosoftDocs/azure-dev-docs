@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
 ms.contributors: judubois-09162021
 ---
 
@@ -38,7 +38,7 @@ export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_POSTGRESQL_ADMIN_USERNAME=spring
 export AZ_POSTGRESQL_ADMIN_PASSWORD=<YOUR_POSTGRESQL_ADMIN_PASSWORD>
-export AZ_POSTGRESQL_NON_ADMIN_USERNAME=spring_non_admin
+export AZ_POSTGRESQL_NON_ADMIN_USERNAME=nonspring
 export AZ_POSTGRESQL_NON_ADMIN_PASSWORD=<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
@@ -119,7 +119,7 @@ cat /etc/resolv.conf
 Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
 
 ```bash
-AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+export AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 ```
 
 Then, use the following command to open the server's firewall to your WSL-based app:
@@ -169,7 +169,7 @@ rm create_user.sql
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.9 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.11 -d javaVersion=17 | tar -xzvf -
 ```
 
 ## Add the reactive PostgreSQL driver implementation
@@ -193,15 +193,15 @@ Open the *src/main/resources/application.properties* file, and add the following
 logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:pool:postgres://$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com:5432/$AZ_DATABASE_NAME
-spring.r2dbc.username=$AZ_POSTGRESQL_NON_ADMIN_USERNAME
+spring.r2dbc.username=nonspring
 spring.r2dbc.password=$AZ_POSTGRESQL_NON_ADMIN_PASSWORD
 spring.r2dbc.properties.sslMode=REQUIRE
 ```
 
+Replace the `$AZ_DATABASE_SERVER_NAME`, `$AZ_DATABASE_NAME`, and `$AZ_POSTGRESQL_NON_ADMIN_PASSWORD` variables with the values that you configured at the beginning of this article.
+
 > [!WARNING]
 > For security reasons, Azure Database for PostgreSQL requires to use SSL connections. This is why you need to add the `spring.r2dbc.properties.sslMode=REQUIRE` configuration property, otherwise the R2DBC PostgreSQL driver will try to connect using an insecure connection, which will fail.
-
-Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_POSTGRESQL_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).

@@ -1,20 +1,20 @@
 ---
 title: Spring Cloud Stream support
 description: This article describes how Spring Cloud Azure and Spring Cloud Stream can be used together.
-ms.date: 01/18/2023
+ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Cloud Stream
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.10.0 ✔️ Version 5.4.0
 
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 
-The framework provides a flexible programming model built on already established and familiar Spring idioms and best practices, including support for persistent pub/sub semantics, consumer groups, and stateful partitions.
+The framework provides a flexible programming model built on already established and familiar Spring idioms and best practices. These best practices include support for persistent pub/sub semantics, consumer groups, and stateful partitions.
 
 Current binder implementations include:
 
@@ -36,7 +36,7 @@ Event Hubs provides similar support of consumer group as Apache Kafka, but with 
 
 #### Partitioning support
 
-Event Hubs provides a similar concept of physical partition as Kafka. But unlike Kafka's auto re-balancing between consumers and partitions, Event Hubs provides a kind of preemptive mode. The storage account acts as a lease to determine which partition is owned by which consumer. When a new consumer starts, it will try to steal some partitions from most heavy-loaded consumers to achieve the workload balancing.
+Event Hubs provides a similar concept of physical partition as Kafka. But unlike Kafka's auto rebalancing between consumers and partitions, Event Hubs provides a kind of preemptive mode. The storage account acts as a lease to determine which consumer owns which partition. When a new consumer starts, it tries to steal some partitions from the most heavily loaded consumers to achieve the workload balance.
 
 To specify the load balancing strategy, properties of `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.load-balancing.*` are provided. For more information, see the [Consumer properties](#consumer-properties) section.
 
@@ -44,15 +44,14 @@ To specify the load balancing strategy, properties of `spring.cloud.stream.event
 
 Spring Cloud Azure Stream Event Hubs binder supports [Spring Cloud Stream Batch Consumer feature](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_batch_consumers).
 
-To work with the batch-consumer mode, the property of `spring.cloud.stream.bindings.<binding-name>.consumer.batch-mode` should be set as `true`. When enabled, an **Message** of which the payload is a list of batched events will be received and passed to the `Consumer` function. Each message header is also converted as a list, of which the content is the associated header value parsed from each event. For the communal headers of partition ID, checkpointer and last enqueued properties, they are presented as a single value for the entire batch of events shares the same one. For more information, see the [Event Hubs message headers](spring-integration-support.md#event-hubs-message-headers) section of [Spring Cloud Azure support for Spring Integration](./spring-integration-support.md).
+To work with the batch-consumer mode, set the `spring.cloud.stream.bindings.<binding-name>.consumer.batch-mode` property to `true`. When enabled, a message with a payload of a list of batched events is received and passed to the `Consumer` function. Each message header is also converted to a list, of which the content is the associated header value parsed from each event. The communal headers of partition ID, checkpointer, and last enqueued properties are presented as a single value because the entire batch of events shares the same value. For more information, see the [Event Hubs message headers](spring-integration-support.md#event-hubs-message-headers) section of [Spring Cloud Azure support for Spring Integration](./spring-integration-support.md).
 
 > [!NOTE]
-> The checkpoint header only exists when **MANUAL** checkpoint mode is used.
+> The checkpoint header only exists when the `MANUAL` checkpoint mode is used.
 
-Checkpointing of batch consumer supports two modes: `BATCH` and `MANUAL`. `BATCH` mode is an auto checkpointing mode to checkpoint the entire batch of events together once they are received by the binder. `MANUAL` mode is to checkpoint the events by users. When used, the
-**Checkpointer** will be passed into the message header, and users could use it to do checkpointing.
+Checkpointing of batch consumer supports two modes: `BATCH` and `MANUAL`. `BATCH` mode is an auto checkpointing mode to checkpoint the entire batch of events together once the binder receives them. `MANUAL` mode is to checkpoint the events by users. When used, the `Checkpointer` is passed into the message header, and users could use it to do checkpointing.
 
-The batch size can be specified by properties of `max-size` and `max-wait-time` with prefix as `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.batch.`, where `max-size` is a necessary property while `max-wait-time` is optional. For more information, see the [Consumer properties](#consumer-properties) section.
+You can specify the batch size by setting the `max-size` and `max-wait-time`  properties that have a prefix of `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.batch.`. The `max-size` property is necessary and the `max-wait-time` property is optional. For more information, see the [Consumer properties](#consumer-properties) section.
 
 ### Dependency setup
 
@@ -74,7 +73,7 @@ Alternatively, you can also use the Spring Cloud Azure Stream Event Hubs Starter
 
 ### Configuration
 
-The binder provides the following 3 parts of configuration options:
+The binder provides the following three parts of configuration options:
 
 #### Connection configuration properties
 
@@ -97,7 +96,7 @@ Connection configurable properties of spring-cloud-azure-stream-binder-eventhubs
 > [!TIP]
 > Common Azure Service SDK configuration options are configurable for the Spring Cloud Azure Stream Event Hubs binder as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.eventhubs.`.
 
-The binder also supports [Spring Could Azure Resource Manager](resource-manager.md) by default. To learn about how to retrieve the connection string with security principals that are not granted with `Data` related roles, see the [Basic usage](resource-manager.md#basic-usage) section of [Spring Could Azure Resource Manager](resource-manager.md).
+The binder also supports [Spring Could Azure Resource Manager](resource-manager.md) by default. To learn about how to retrieve the connection string with security principals that aren't granted with `Data` related roles, see the [Basic usage](resource-manager.md#basic-usage) section of [Spring Could Azure Resource Manager](resource-manager.md).
 
 #### Checkpoint configuration properties
 
@@ -168,7 +167,7 @@ spring:
 
 ##### Advanced consumer configuration
 
-The above [connection](#connection-configuration-properties), [checkpoint](#checkpoint-configuration-properties) and [common Azure SDK client](configuration.md) configuration are supported to be customized for each binder consumer, which can be configured with the prefix `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.`.
+The above [connection](#connection-configuration-properties), [checkpoint](#checkpoint-configuration-properties), and [common Azure SDK client](configuration.md) configuration support customization for each binder consumer, which you can configure with the prefix `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.`.
 
 ##### Producer properties
 
@@ -184,7 +183,7 @@ Producer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
 ##### Advanced producer configuration
 
-The above [connection](#connection-configuration-properties) and [common Azure SDK client](configuration.md) configuration are supported to be customized for each binder producer, which can be configured with the prefix `spring.cloud.stream.eventhubs.bindings.<binding-name>.producer.`.
+The above [connection](#connection-configuration-properties) and [common Azure SDK client](configuration.md) configuration support customization for each binder producer, which you can configure with the prefix `spring.cloud.stream.eventhubs.bindings.<binding-name>.producer.`.
 
 ### Basic usage
 
@@ -205,9 +204,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                  container-name: ${CHECKPOINT_CONTAINER}
                  account-name: ${CHECKPOINT_STORAGE_ACCOUNT}
                  account-key: ${CHECKPOINT_ACCESS_KEY}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
@@ -239,9 +238,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
                  account-name: ${ACCOUNT_NAME}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
@@ -256,7 +255,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                      mode: MANUAL
      ```
 
-   * For credentials as managed identites, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
      ```yaml
      spring:
@@ -271,16 +270,16 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
                  account-name: ${ACCOUNT_NAME}
+         function:
+           definition: consume;supply
          stream:
-           function:
-             definition: consume;supply
            bindings:
              consume-in-0:
                destination: ${EVENTHUB_NAME}
                group: ${CONSUMER_GROUP}
              supply-out-0:
                destination: ${THE_SAME_EVENTHUB_NAME_AS_ABOVE}
-     
+
            eventhubs:
              bindings:
                consume-in-0:
@@ -322,20 +321,20 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
 #### Partitioning support
 
-A `PartitionSupplier` with user-provided partition information will be created to configure the partition information about the message to be sent, the following is the process of obtaining different priorities of the partition ID and key:
+A `PartitionSupplier` with user-provided partition information is created to configure the partition information about the message to be sent. The following flowchart shows the process of obtaining different priorities for the partition ID and key:
 
-:::image type="content" source="media/spring-cloud-azure/flowchart-partitioning-support.png" alt-text="Flowchart showing the partitioning support process." border="false":::)
+:::image type="content" source="media/spring-cloud-azure/flowchart-partitioning-support.png" alt-text="Diagram showing a flowchart of the partitioning support process." border="false":::
 
 #### Batch consumer support
 
-1. Fill the batch configuration options
+1. Provide the batch configuration options, as shown in the following example:
 
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume
        stream:
-         function:
-           definition: consume
          bindings:
            consume-in-0:
              destination: ${AZURE_EVENTHUB_NAME}
@@ -361,16 +360,15 @@ A `PartitionSupplier` with user-provided partition information will be created t
    @Bean
    public Consumer<Message<List<String>>> consume() {
        return message -> {
-               for (int i = 0; i < message.getPayload().size(); i++) {
-                   LOGGER.info("New message received: '{}', partition key: {}, sequence number: {}, offset: {}, enqueued time: {}",
-                           message.getPayload().get(i),
-                           ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_PARTITION_KEY)).get(i),
-                           ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_SEQUENCE_NUMBER)).get(i),
-                           ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_OFFSET)).get(i),
-                           ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_ENQUEUED_TIME)).get(i));
-               }
-
-           };
+           for (int i = 0; i < message.getPayload().size(); i++) {
+               LOGGER.info("New message received: '{}', partition key: {}, sequence number: {}, offset: {}, enqueued time: {}",
+                       message.getPayload().get(i),
+                       ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_PARTITION_KEY)).get(i),
+                       ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_SEQUENCE_NUMBER)).get(i),
+                       ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_OFFSET)).get(i),
+                       ((List<Object>) message.getHeaders().get(EventHubsHeaders.BATCH_CONVERTED_ENQUEUED_TIME)).get(i));
+           }
+       };
    }
 
    @Bean
@@ -415,51 +413,147 @@ A `PartitionSupplier` with user-provided partition information will be created t
    ```
 
 > [!NOTE]
-> In the batch-consuming mode, the default content type of Spring Cloud Stream binder is `application/json`, so make sure the message payload is aligned with the content type. For example, when using the default content type of `application/json` to receive messages with `String` payload, the payload should be JSON String, surrounded with double quotes for the original String text. While for `text/plain` content type, it can be a `String` object directly. For more information, see [Spring Cloud Stream Content Type Negotiation](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#content-type-management).
+> In the batch-consuming mode, the default content type of Spring Cloud Stream binder is `application/json`, so make sure the message payload is aligned with the content type. For example, when using the default content type of `application/json` to receive messages with `String` payload, the payload should be `JSON String`, surrounded with double quotes for the original `String` text. While for `text/plain` content type, it can be a `String` object directly. For more information, see [Spring Cloud Stream Content Type Negotiation](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#content-type-management).
 
-#### Error channels
+#### Handle error messages
 
-* Consumer error channel
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-  This channel is open by default, you can handle the error message in this way:
+* Handle outbound binding error messages
+
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error messages:
 
   ```java
-  // Replace destination with spring.cloud.stream.bindings.input.destination
-  // Replace group with spring.cloud.stream.bindings.input.group
-  @ServiceActivator(inputChannel = "{destination}.{group}.errors")
-  public void consumerError(Message<?> message) {
-      LOGGER.error("Handling customer ERROR: " + message);
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
   }
   ```
 
-* Producer error channel
+* Handle inbound binding error messages
 
-  This channel isn't open by default. You need to add a configuration in your *application.properties* file to enable it, like this:
+  Spring Cloud Stream Event Hubs Binder supports two solutions to handle errors for the inbound message bindings: custom error channels and handlers.
 
-  ```properties
-  spring.cloud.stream.default.producer.errorChannelEnabled=true
-  ```
+  **Error channel**:
 
-  You can handle the error message in this way:
+  Spring Cloud Stream provides an error channel for each inbound binding. An `ErrorMessage` is sent to the error channel. For more information, see [Handling Errors](https://docs.spring.io/spring-cloud-stream/docs/3.2.6/reference/html/spring-cloud-stream.html#polled-errors) in the Spring Cloud Stream documentation.
+
+  * Default error channel
+
+    You can use a global error channel named `errorChannel` to consume all inbound binding error messages. To handle these messages, configure the following message endpoint:
+
+    ```java
+    @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+    public void handleError(ErrorMessage message) {
+        LOGGER.error("Handling inbound binding error: " + message);
+    }
+    ```
+
+  * Binding-specific error channel
+
+    You can use a specific error channel to consume the specific inbound binding error messages with a higher priority than the default error channel. To handle these messages, configure the following message endpoint:
+
+    ```java
+    // Replace destination with spring.cloud.stream.bindings.<input-binding-name>.destination
+    // Replace group with spring.cloud.stream.bindings.<input-binding-name>.group
+    @ServiceActivator(inputChannel = "{destination}.{group}.errors")
+    public void handleError(ErrorMessage message) {
+        LOGGER.error("Handling inbound binding error: " + message);
+    }
+    ```
+
+    > [!NOTE]
+    > The binding-specific error channel is mutually exclusive with other provided error handlers and channels.
+
+  **Error Handler**:
+
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Error Handling](https://docs.spring.io/spring-cloud-stream/docs/3.2.6/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-error-handling) in the Spring Cloud Stream documentation.
+
+  > [!NOTE]
+  > When any binding error handler is configured, it can work with the default error channel.
+
+  * Binding-default error handler
+
+    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+  * Binding-specific error handler
+
+    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel and has a higher priority than the binding-default error handler:
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myErrorHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
+
+##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
+
+* Handle outbound binding error messages
+
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error messages.
 
   ```java
-  // Replace destination with spring.cloud.stream.bindings.output.destination
-  @ServiceActivator(inputChannel = "{destination}.errors")
-  public void producerError(Message<?> message) {
-      LOGGER.error("Handling Producer ERROR: " + message);
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
   }
   ```
 
-* Global default error channel:
+* Handle inbound binding error messages
 
-  A global error channel called "errorChannel" is created by default Spring Integration, which allows users to subscribe many endpoints to it.
+  Spring Cloud Stream Event Hubs Binder supports one solution to handle errors for the inbound message bindings: error handlers.
 
-  ```java
-  @ServiceActivator(inputChannel = "errorChannel")
-  public void producerError(Message<?> message) {
-      LOGGER.error("Handling ERROR: " + message);
-  }
-  ```
+  **Error Handler**:
+
+  Spring Cloud Stream exposes mechanism for you to provide custom error handler by adding `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
+
+  * Binding-default error handler
+
+    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel.
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+  * Binding-specific error handler
+
+    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel and has a higher priority than the binding-default error handler.
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myErrorHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
+
+---
 
 #### Event Hubs message headers
 
@@ -467,16 +561,16 @@ For the basic message headers supported, see the [Event Hubs message headers](sp
 
 #### Multiple binder support
 
-Connection to multiple Event Hubs namespaces is also supported by using multiple binders.This sample takes connection string as example. Credentials of service principals and managed identities are also supported, users can set related properties in each binder's environment settings.
+Connection to multiple Event Hubs namespaces is also supported by using multiple binders. This sample takes a connection string as example. Credentials of service principals and managed identities are also supported. You can set related properties in each binder's environment settings.
 
-1. To use multiple binders of EventHubs, configure the following properties in your *application.yml* file:
+1. To use multiple binders with Event Hubs, configure the following properties in your *application.yml* file:
 
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume1;supply1;consume2;supply2
        stream:
-         function:
-           definition: consume1;supply1;consume2;supply2
          bindings:
            consume1-in-0:
              destination: ${EVENTHUB_NAME_01}
@@ -578,7 +672,7 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
    }
    ```
 
-#### Resource provision
+#### Resource provisioning
 
 Event Hubs binder supports provisioning of event hub and consumer group, users could use the following properties to enable provisioning.
 
@@ -636,7 +730,7 @@ Alternatively, you can also use the Spring Cloud Azure Stream Service Bus Starte
 
 ### Configuration
 
-The binder provides the following 2 parts of configuration options:
+The binder provides the following two parts of configuration options:
 
 #### Connection configuration properties
 
@@ -658,7 +752,7 @@ Connection configurable properties of spring-cloud-azure-stream-binder-servicebu
 > [!NOTE]
 > Common Azure Service SDK configuration options are configurable for the Spring Cloud Azure Stream Service Bus binder as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.servicebus.`.
 
-The binder also supports [Spring Could Azure Resource Manager](resource-manager.md) by default. To learn about how to retrieve the connection string with security principals that are not granted with `Data` related roles, see the [Basic usage](resource-manager.md#basic-usage) section of [Spring Could Azure Resource Manager](resource-manager.md).
+The binder also supports [Spring Could Azure Resource Manager](resource-manager.md) by default. To learn about how to retrieve the connection string with security principals that aren't granted with `Data` related roles, see the [Basic usage](resource-manager.md#basic-usage) section of [Spring Could Azure Resource Manager](resource-manager.md).
 
 #### Azure Service Bus binding configuration properties
 
@@ -686,7 +780,7 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
 ##### Advanced consumer configuration
 
-The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration are supported to be customized for each binder consumer, which can be configured with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.`.
+The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration support customization for each binder consumer, which you can configure with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.`.
 
 ##### Producer properties
 
@@ -706,7 +800,7 @@ Producer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
 ##### Advanced producer configuration
 
-The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration are supported to be customized for each binder producer, which can be configured with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.producer.`.
+The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration support customization for each binder producer, which you can configure with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.producer.`.
 
 ### Basic usage
 
@@ -722,9 +816,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
              azure:
                servicebus:
                  connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -755,9 +849,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  tenant-id: ${AZURE_TENANT_ID}
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -786,9 +880,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
+             function:
+               definition: consume;supply
              stream:
-               function:
-                 definition: consume;supply
                bindings:
                  consume-in-0:
                    destination: ${SERVICEBUS_ENTITY_NAME}
@@ -814,7 +908,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
        return message -> {
            Checkpointer checkpointer = (Checkpointer) message.getHeaders().get(CHECKPOINTER);
            LOGGER.info("New message received: '{}'", message.getPayload());
-   
+
            checkpointer.success()
                    .doOnSuccess(success -> LOGGER.info("Message '{}' successfully checkpointed", message.getPayload()))
                    .doOnError(error -> LOGGER.error("Exception found", error))
@@ -835,7 +929,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
 The binder supports [Service Bus partitioning](/azure/service-bus-messaging/service-bus-partitioning) by allowing setting partition key and session ID in the message header. This section introduces how to set partition key for messages.
 
-Spring Cloud Stream provides a partition key SpEL expression property `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression`. For example, setting this property as `"'partitionKey-' + headers[<message-header-key>]"` and add a header called message-header-key. Spring Cloud Stream will use the value for this header when evaluating the above expression to assign a partition key. Here is an example producer code:
+Spring Cloud Stream provides a partition key SpEL expression property `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression`. For example, setting this property as `"'partitionKey-' + headers[<message-header-key>]"` and add a header called message-header-key. Spring Cloud Stream uses the value for this header when evaluating the expression to assign a partition key. The following code provides an example producer:
 
 ```java
 @Bean
@@ -866,63 +960,164 @@ public Supplier<Message<String>> generate() {
 ```
 
 > [!NOTE]
-> According to [Service Bus partitioning](/azure/service-bus-messaging/service-bus-partitioning), session ID has higher priority than partition key. So when both of `ServiceBusMessageHeaders#SESSION_ID` and `ServiceBusMessageHeaders#PARTITION_KEY` (or `AzureHeaders#PARTITION_KEY`) headers are set,
-the value of the session ID will eventually be used to overwrite the value of the partition key.
+> According to [Service Bus partitioning](/azure/service-bus-messaging/service-bus-partitioning), session ID has higher priority than partition key. So when both of `ServiceBusMessageHeaders#SESSION_ID` and `ServiceBusMessageHeaders#PARTITION_KEY` headers are set, the value of the session ID is eventually used to overwrite the value of the partition key.
 
-#### Error channels
+#### Handle error messages
 
-* Consumer error channel
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-This channel is open by default, and a default consumer error channel handler is used to send failed messages to the dead-letter queue when `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.requeue-rejected` is enabled, otherwise the failed messages will be abandoned.
+* Handle outbound binding error messages
 
-To customize the consumer error channel handler, you can register you own error handler to the related consumer error channel in this way:
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error message.
 
-```java
-// Replace destination with spring.cloud.stream.bindings.input.destination
-// Replace group with spring.cloud.stream.bindings.input.group
-@ServiceActivator(inputChannel = "{destination}.{group}.errors")
-public void consumerError(Message<?> message) {
-    LOGGER.error("Handling customer ERROR: " + message);
-}
-```
+  ```java
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
+  }
+  ```
 
-* Producer error channel
+* Handle inbound binding error messages
 
-This channel isn't open by default. You need to add a configuration in your *application.properties* file to enable it, like this:
+  Spring Cloud Stream Service Bus Binder supports three solutions to handle errors for the inbound message bindings: the binder error handler, custom error channels, and handlers.
 
-```properties
-spring.cloud.stream.default.producer.errorChannelEnabled=true
-```
+  **Binder error handler**:
 
-You can handle the error message in this way:
+  The default binder error handler handles the inbound binding. You use this handler to send failed messages to the dead-letter queue when `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.requeue-rejected` is enabled. Otherwise, the failed messages are abandoned. Except for configuring the binding-specific error channel, the binder error handler always takes effect regardless of whether there are other custom error handlers or channels.
 
-```java
-// Replace destination with spring.cloud.stream.bindings.output.destination
-@ServiceActivator(inputChannel = "{destination}.errors")
-public void producerError(Message<?> message) {
-    LOGGER.error("Handling Producer ERROR: " + message);
-}
-```
+  **Error channel**:
 
-* Global default error channel
+  Spring Cloud Stream provides an error channel for each inbound binding. An `ErrorMessage` is sent to the error channel. For more information, see [Handling Errors](https://docs.spring.io/spring-cloud-stream/docs/3.2.6/reference/html/spring-cloud-stream.html#polled-errors) in the Spring Cloud Stream documentation.
 
-A global error channel called "errorChannel" is created by default Spring Integration, which allows users to subscribe many endpoints to it.
+  * Default error channel
 
-```java
-@ServiceActivator(inputChannel = "errorChannel")
-public void producerError(Message<?> message) {
-    LOGGER.error("Handling ERROR: " + message);
-}
-```
+    You can use a global error channel named `errorChannel` to consume all inbound binding error messages. To handle these messages, configure the following message endpoint:
+
+    ```java
+    @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+    public void handleError(ErrorMessage message) {
+        LOGGER.error("Handling inbound binding error: " + message);
+    }
+    ```
+
+  * Binding-specific error channel
+
+    You can use a specific error channel to consume the specific inbound binding error messages with a higher priority than the default error channel. To handle these messages, configure the following message endpoint:
+
+    ```java
+    // Replace destination with spring.cloud.stream.bindings.<input-binding-name>.destination
+    // Replace group with spring.cloud.stream.bindings.<input-binding-name>.group
+    @ServiceActivator(inputChannel = "{destination}.{group}.errors")
+    public void handleError(ErrorMessage message) {
+        LOGGER.error("Handling inbound binding error: " + message);
+    }
+    ```
+
+    > [!NOTE]
+    > The binding-specific error channel is mutually exclusive with other provided error handlers and channels.
+
+  **Error handler**:
+
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Error Handling](https://docs.spring.io/spring-cloud-stream/docs/3.2.6/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-error-handling) in the Spring Cloud Stream documentation.
+
+  > [!NOTE]
+  > When any binding error handler is configured, it can work with the default error channel and the binder error handler.
+
+  * Binding-default error handler
+
+    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+  * Binding-specific error handler
+
+    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel with a higher priority than the binding-default error handler.
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
+
+##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
+
+* Handle outbound binding error messages
+
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error message.
+
+  ```java
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
+  }
+  ```
+
+* Handle inbound binding error messages
+
+  Spring Cloud Stream Service Bus Binder supports two solutions to handle errors for the inbound message bindings: the binder error handler and handlers.
+
+  **Binder error handler**:
+
+  The default binder error handler handles the inbound binding. You use this handler to send failed messages to the dead-letter queue when `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.requeue-rejected` is enabled. Otherwise, the failed messages are abandoned. The binder error handler is mutually exclusive with other provided error handlers.
+
+  **Error handler**:
+
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
+
+  * Binding-default error handler
+
+    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+  * Binding-specific error handler
+
+    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel with a higher priority than the binding-default error handler.
+
+    ```java
+    @Bean
+    public Consumer<ErrorMessage> myDefaultHandler() {
+        return message -> {
+            // consume the error message
+        };
+    }
+    ```
+
+    You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
+
+---
 
 #### Service Bus message headers
 
 For the basic message headers supported, see the [Service Bus message headers](spring-integration-support.md#service-bus-message-headers) section of [Spring Cloud Azure support for Spring Integration](spring-integration-support.md).
 
 > [!NOTE]
-> When setting the partiton key, the priority of message header is higher than Spring Cloud Stream property. So `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression` will take effect only when none of the headers of `ServiceBusMessageHeaders#SESSION_ID`, `ServiceBusMessageHeaders#PARTITION_KEY`, `AzureHeaders#PARTITION_KEY` is configured.
+> When setting the partition key, the priority of message header is higher than Spring Cloud Stream property. So `spring.cloud.stream.bindings.<binding-name>.producer.partition-key-expression` takes effect only when none of the `ServiceBusMessageHeaders#SESSION_ID` and `ServiceBusMessageHeaders#PARTITION_KEY` headers are configured.
 
-#### Multiple Binder support
+#### Multiple binder support
 
 Connection to multiple Service Bus namespaces is also supported by using multiple binders. This sample takes connection string as example. Credentials of service principals and managed identities are also supported, users can set related properties in each binder's environment settings.
 
@@ -931,9 +1126,9 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
    ```yaml
    spring:
      cloud:
+       function:
+         definition: consume1;supply1;consume2;supply2
        stream:
-         function:
-           definition: consume1;supply1;consume2;supply2
          bindings:
            consume1-in-0:
              destination: ${SERVICEBUS_TOPIC_NAME}
@@ -1025,11 +1220,11 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
                    .doOnError(e -> LOGGER.error("Error found", e))
                    .block();
        };
-   
+
    }
    ```
 
-#### Resource provision
+#### Resource provisioning
 
 Service bus binder supports provisioning of queue, topic and subscription, users could use the following properties to enable provisioning.
 

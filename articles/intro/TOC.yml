@@ -28,8 +28,18 @@ items:
         href: /azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: Delete passwords and migrate
         items:
-          - name: Azure SQL Database
+          - name: Azure SQL Database with .NET
+            href: /azure/azure-sql/database/azure-sql-passwordless-migration?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Azure SQL Database with Java & Spring
             href: ../java/spring-framework/migrate-sql-database-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Azure SQL Database with Node.js
+            href: /azure/azure-sql/database/azure-sql-passwordless-migration-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Azure SQL Database with Python
+            href: /azure/azure-sql/database/azure-sql-passwordless-migration-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Cosmos DB for NoSQL
+            href: /azure/cosmos-db/nosql/migrate-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Event Hubs
+            href: /azure/event-hubs/passwordless-migration-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs with Kafka
             href: ../java/spring-framework/migrate-kafka-to-passwordless-connection.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json            
           - name: MySQL
@@ -40,14 +50,20 @@ items:
             href: /azure/service-bus-messaging/service-bus-migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Blobs
             href: /azure/storage/common/migrate-azure-credentials?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: Service Connector reference
+          - name: Storage - Queues
+            href: /azure/storage/queues/passwordless-migrate-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+      - name: Service Connector
         items:
-          - name: SQL
-            href: /azure/service-connector/how-to-integrate-sql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: MySQL
-            href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-          - name: PostgreSQL
-            href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Create passwordless database connections
+            href: /azure/service-connector/tutorial-passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+          - name: Database reference
+            items:
+              - name: SQL
+                href: /azure/service-connector/how-to-integrate-sql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: MySQL
+                href: /azure/service-connector/how-to-integrate-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: PostgreSQL
+                href: /azure/service-connector/how-to-integrate-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: .NET
         items:
           - name: Configure
@@ -142,6 +158,10 @@ items:
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: PostgreSQL with JDBC
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus - Queues
+                href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Service Bus - Topics
+                href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?tabs=passwordless?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Blobs
                 href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Storage - Queues
@@ -156,14 +176,18 @@ items:
                 href: /azure/spring-apps/how-to-bind-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Azure Spring Apps with PostgreSQL
                 href: /azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: App Service with MySQL
+                href: /azure/service-connector/tutorial-java-jboss-connect-managed-identity-mysql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: App Service with PostgreSQL
                 href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
                 href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-      - name: JavaScript
+      - name: Node.js
         items:
         - name: Quickstarts
           items:
+          - name: Azure SQL Database with mssql
+            href: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/quickstart-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs
@@ -186,6 +210,8 @@ items:
         items:
         - name: Quickstarts
           items:
+          - name: Azure SQL Database with pyodbc
+            href: /azure/azure-sql/database/azure-sql-python-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Event Hubs

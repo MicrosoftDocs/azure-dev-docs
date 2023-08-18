@@ -59,8 +59,6 @@ landingContent:
             url: how-to/develop-serverless-apps.md          
           - text: "Server: Deploy Express.js"
             url: /learn/modules/javascript-deploy-expressjs-app-service/
-          - text: "Server from container"
-            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
           - text: "Server from VM: Express.js with NGINX"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
@@ -71,7 +69,7 @@ landingContent:
           - text: "Static web app: Analyze image with Computer Vision"
             url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
-            url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
+            url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Static web app: Login/Logoff button"
             url: /azure/active-directory/develop/tutorial-v2-react
           - text: "Express.js: Add Application Insights logging"
@@ -134,6 +132,16 @@ landingContent:
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Azure Database Dev Guide
             url: database-developer-guide.md
+  - title: End to end development
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Contoso Solution
+            url: end-to-end/contoso-real-estate-get-started.md
+          - text: Developer tools
+            url: end-to-end/contoso-real-estate-developer-tools.md
+          - text: Sample
+            url: https://github.com/Azure-Samples/contoso-real-estate
   - title: Developer tools
     linkLists:
       - linkListType: get-started
@@ -142,7 +150,7 @@ landingContent:
             url: https://code.visualstudio.com/docs/languages/javascript
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
-          - text: Azure Developer CLI (preview)
+          - text: Azure Developer CLI
             url: ../azure-developer-cli/overview.md
           - text: Azure Static Web Apps CLI
             url: https://github.com/Azure/static-web-apps-cli

@@ -1,16 +1,16 @@
 ---
 title: Spring Cloud Azure Spring Security support
 description: This article describes how Spring Cloud Azure and Spring Security can be used together.
-ms.date: 12/29/2022
+ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ms.topic: reference
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.6.0 ✔️ Version 5.0.0
+**This article applies to:** ✔️ Version 4.10.0 ✔️ Version 5.4.0
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
@@ -62,6 +62,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -158,6 +159,7 @@ spring:
  cloud:
    azure:
      active-directory:
+       enabled: true
        user-group:
          allowed-group-names: group1_name_1, group2_name_2
          # 1. If allowed-group-ids == all, then all group ID will take effect.
@@ -218,6 +220,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         base-uri: https://login.partner.microsoftonline.cn
         graph-base-uri: https://microsoftgraph.chinacloudapi.cn
 ```
@@ -237,6 +240,7 @@ spring:
  cloud:
    azure:
      active-directory:
+       enabled: true
        redirect-uri-template: ${REDIRECT-URI-TEMPLATE}
 ```
 
@@ -355,6 +359,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -395,6 +400,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -415,6 +421,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -491,6 +498,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         credential:
           client-id: ${AZURE_CLIENT_ID}
 ```
@@ -748,6 +756,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -810,6 +819,7 @@ spring:
   cloud:
     azure:
       active-directory:
+        enabled: true
         profile:
           tenant-id: ${AZURE_TENANT_ID}
         credential:
@@ -1019,6 +1029,8 @@ Grant admin consent for ***Graph*** permissions.
 
 Add the following dependencies to your *pom.xml* file.
 
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
 ```xml
 <dependencies>
    <dependency>
@@ -1044,6 +1056,35 @@ Add the following dependencies to your *pom.xml* file.
 </dependencies>
 ```
 
+##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
+
+```xml
+<dependencies>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.thymeleaf.extras</groupId>
+       <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+   </dependency>
+</dependencies>
+```
+
+---
+
 Add properties to your *application.yml* file using the values you created earlier, as shown in the following example:
 
 ```yaml
@@ -1052,6 +1093,7 @@ spring:
    azure:
      active-directory:
        b2c:
+         enabled: true
          authenticate-additional-parameters:
            domain_hint: xxxxxxxxx         # optional
            login_hint: xxxxxxxxx          # optional
@@ -1208,6 +1250,7 @@ spring:
    azure:
      active-directory:
        b2c:
+         enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
            tenant-id: ${AZURE_TENANT_ID}
@@ -1295,12 +1338,15 @@ spring:
    azure:
      active-directory:
        b2c:
+         enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
            tenant-id: ${AZURE_TENANT_ID}
          app-id-uri: ${APP_ID_URI}         # If you're using v1.0 token, configure app-id-uri for `aud` verification
          credential:
            client-id: ${AZURE_CLIENT_ID}           # If you're using v2.0 token, configure client-id for `aud` verification
+         user-flows:
+           sign-up-or-sign-in: ${SIGN_UP_OR_SIGN_IN_USER_FLOW_NAME}
 ```
 
 Write your Java code.
@@ -1322,7 +1368,7 @@ class Demo {
 }
 ```
 
-Fr your security configuration code, you can refer to the following example:
+For your security configuration code, you can refer to the following example:
 
 ##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
@@ -1352,13 +1398,14 @@ public class ResourceServerConfiguration {
     @Bean
     public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
         JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
-        authenticationConverter.setJwtGrantedAuthoritiesConverter(new AadJwtGrantedAuthoritiesConverter());
+        JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("APPROLE_");
+        authenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
         // @formatter:off
-        http.apply(AadResourceServerHttpSecurityConfigurer.aadResourceServer())
-                .and()
+        http.authorizeHttpRequests((requests) -> requests.anyRequest().authenticated())
             .oauth2ResourceServer()
-                .jwt()
-                    .jwtAuthenticationConverter(authenticationConverter);
+            .jwt()
+            .jwtAuthenticationConverter(authenticationConverter);
         // @formatter:on
         return http.build();
     }
@@ -1413,6 +1460,7 @@ spring:
    azure:
      active-directory:
        b2c:
+         enabled: true
          credential:
            client-secret: ${WEB_API_A_AZURE_CLIENT_SECRET}
          authorization-clients:

@@ -31,7 +31,7 @@ While Azure contains over 100 services, this article outlines the Azure services
 |----|-------|-----------|
 |![Azure SQL logo](media/azure-sql.png)| [Azure SQL](/azure/azure-sql/database/) |A fully managed, cloud-based version of SQL Server.|
 |![Azure Cosmos DB logo](media/azure-cosmos-db.png)| [Azure Cosmos DB](/azure/cosmos-db/) |A fully managed, cloud-based NoSQL database.  Azure Cosmos DB features multiple APIs, including APIs compatible [MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), [Cassandra](/azure/cosmos-db/cassandra/cassandra-introduction) and [Gremlin](/azure/cosmos-db/graph/gremlin-support).|
-|![Azure Database for PostgreSQL logo](media/azure-postgresql.png)| [Azure Database for PostgreSQL](/azure/postgresql/) |A fully managed, cloud-based PostreSQL database service based on PostgreSQL Community Edition. |
+|![Azure Database for PostgreSQL logo](media/azure-postgresql.png)| [Azure Database for PostgreSQL](/azure/postgresql/) |A fully managed, cloud-based PostgreSQL database service based on PostgreSQL Community Edition. |
 |![Azure Database for MySQL logo](media/azure-mysql.png)| [Azure Database for MySQL](/azure/mysql/) |A fully managed, cloud-based MySQL database service based in the MySQL Community Edition. |
 |![Azure Database for MariaDB logo](media/azure-mariadb.png)| [Azure Database for MariaDB](/azure/mariadb/) |A fully managed, cloud-based MariaDB database service based on the MariaDB community edition. |
 

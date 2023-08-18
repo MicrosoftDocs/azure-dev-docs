@@ -24,7 +24,9 @@ Whenever possible, we recommend you use managed identities to simplify overall m
 
 * [Quickstart: Send messages to and receive message from Azure Service Bus queues with passwordless connections](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
 
-* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)
+
+* [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md)
 
 The resources listed show how to use Azure Python SDK and passwordless connections with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
 

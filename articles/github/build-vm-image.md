@@ -6,8 +6,8 @@ ms.author: jukullam
 ms.topic: quickstart
 ms.service: virtual-machines 
 ms.subservice: imaging
-ms.date: 05/23/2022
-ms.custom: github-actions-azure, devx-track-azurecli, mode-portal
+ms.date: 06/09/2023
+ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-extended-java
 ---
 
 
@@ -27,9 +27,10 @@ The build virtual machine image action uses the [Azure Image Builder service](/a
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account with an active repository. If you don't have one, sign up for [free](https://github.com/join). 
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
-- A Shared Image Gallery.
-    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/share-gallery?tabs=cli)
-    - Create an Azure Shared Image Gallery using the portal (Windows, [Linux](/azure/virtual-machines/linux/shared-images-portal))
+- An Azure Compute Gallery with an image.
+    - [Create an Azure Compute Gallery](/azure/virtual-machines/create-gallery?tabs=cli).
+    - [Create an image](/azure/virtual-machines/image-version).
+
 
 ## Workflow file overview
 
@@ -77,10 +78,15 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
                 "notDataActions": []
             }
         ]
-    } } ```
+        } 
+    } 
+    ```
 
 1. Use this JSON code to create a [new custom role](/azure/role-based-access-control/custom-roles-portal#start-from-scratch#start-from-json) with JSON.
 
+1. In Azure portal, open your Azure Compute Gallery and go to **Access control (IAM)**. 
+
+1. Select **Add role assignment** and assign the Image Creation Role to your user-managed identity.
 
 ## Generate deployment credentials
 
@@ -150,27 +156,34 @@ Set up the Java environment with the [Java Setup SDK action](https://github.com/
 # [Service principal](#tab/principal)
 
 ```yaml
-
 on: [push]
 
 name: Create Custom VM Image
 
 jobs:
   build-image:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17' ]
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v2    
+      uses: actions/checkout@v3    
 
     - name: Login via Az module
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    - name: Setup Java 1.8.x
-      uses: actions/setup-java@v1
+    - name: Set up JDK ${{matrix.java}}
+      uses: actions/setup-java@v2
       with:
-        java-version: '1.8.x'
+        java-version: ${{matrix.java}}
+        distribution: 'adopt'
+        cache: maven
+    - name: Build with Maven Wrapper
+      run: ./mvnw -B package
         
     - name: Build Java
       run: mvn --batch-mode --update-snapshots verify
@@ -185,29 +198,34 @@ jobs:
 # [Open ID Connect](#tab/openid)
 
 ```yaml
-
 on: [push]
 
 name: Create Custom VM Image
 
 jobs:
   build-image:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17' ]
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v2    
+      uses: actions/checkout@v3    
 
     - name: Login via Az module
       uses: azure/login@v1
       with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    - name: Setup Java 1.8.x
-      uses: actions/setup-java@v1
+    - name: Set up JDK ${{matrix.java}}
+      uses: actions/setup-java@v2
       with:
-        java-version: '1.8.x'
+        java-version: ${{matrix.java}}
+        distribution: 'adopt'
+        cache: maven
+    - name: Build with Maven Wrapper
+      run: ./mvnw -B package
         
     - name: Build Java
       run: mvn --batch-mode --update-snapshots verify
@@ -226,6 +244,11 @@ ___
 Use the [Build Azure Virtual Machine Image action](https://github.com/marketplace/actions/build-azure-virtual-machine-image) to create a custom virtual machine image.
 
 Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with your subscription ID, resource group name, and managed identity name. Replace the values of `{galleryName}` and `{imageName}` with your image gallery name and your image name.
+
+> [!NOTE]
+> If the Create App Baked Image action fails with a permission error, verify that you have assigned the Image Creation Role to your user-managed identity.
+
+
 
 ```yaml
     - name: Create App Baked Image

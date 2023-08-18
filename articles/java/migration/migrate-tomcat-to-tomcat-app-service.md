@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 1/20/2020
-ms.custom: devx-track-java, migration-java
+ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 ---
 
@@ -129,6 +129,12 @@ In this case, you could change it as shown in the following example:
     username="${postgresdb.username}"
     password="${postgresdb.password}"
 />
+```
+
+To ensure that parameter substitution occurs for any *context.xml* file within the *META-INF* folder inside a deployed *.war* file, be sure to set the `CATALINA_OPTS` environment variable as shown in the following example:
+
+```bash
+export CATALINA_OPTS="-Dorg.apache.tomcat.util.digester.PROPERTY_SOURCE=org.apache.tomcat.util.digester.EnvironmentPropertySource"
 ```
 
 ### Provision an App Service plan

@@ -3,7 +3,7 @@ title: Deploy an Azure Resource Manage Template with the Azure SDK for Go
 description: In this tutorial, you'll learn how to use the Azure SDK for Go to deploy an Azure Resource Manager template.
 ms.topic: how-to
 ms.date: 12/20/2021
-ms.custom: devx-track-go
+ms.custom: devx-track-go, devx-track-arm-template
 ---
 
 # Deploy an Azure Resource Manage Template with the Azure SDK for Go

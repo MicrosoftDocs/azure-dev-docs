@@ -6,10 +6,6 @@
       href: overview.md
     - name: Terraform AzAPI provider
       href: overview-azapi-provider.md
-    - name: Terraform Azure provider versions
-      items:
-        - name: AzureRM provider versions
-          href: provider-version-history-azurerm.md
 - name: Install and Configure
   items:
     - name: Install and configure Terraform
@@ -18,8 +14,48 @@
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
+    - name: Create a Terraform base template using Yeoman
+      href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
       href: store-state-in-azure-storage.md
+    - name: Test Terraform projects
+      items:
+        - name: Compliance testing
+          href: best-practices-compliance-testing.md
+        - name: End-to-end testing
+          href: best-practices-end-to-end-testing.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
+    - name: Troubleshoot Terraform projects
+      items:
+        - name: Troubleshoot common problems
+          href: troubleshoot.md
+- name: Tools for Terraform
+  expanded: true
+  items:
+    - name: Azure Export for Terraform
+      items:
+        - name: Overview
+          items:
+            - name: Azure Export for Terraform
+              href: ./azure-export-for-terraform/export-terraform-overview.md
+        - name: Quickstarts
+          expanded: true
+          items:
+            - name: Export your first resources
+              href: ./azure-export-for-terraform/export-first-resources.md
+            - name: Export resources to HCL code
+              href: ./azure-export-for-terraform/export-resources-hcl.md
+        - name: How-to guides
+          items:
+            - name: Select custom resources
+              href: ./azure-export-for-terraform/select-custom-resources.md
+            - name: Advanced scenarios
+              href: ./azure-export-for-terraform/export-advanced-scenarios.md
+        - name: Concepts
+          items:
+            - name: Azure Export for Terraform concepts
+              href: ./azure-export-for-terraform/export-terraform-concepts.md
 - name: Quickstarts
   expanded: true
   items:
@@ -33,52 +69,110 @@
         href: get-started-azapi-resource.md
       - name: Learn how to use the AzAPI update resource
         href: get-started-azapi-update-resource.md
-    - name: Analysis Services
+    - name: Terraform Quickstarts for Azure services
       items:
-        - name: Create a server
-          href: /azure/analysis-services/analysis-services-create-terraform
-    - name: API Management
-      items:
-        - name: Create a service
-          href: /azure/api-management/quickstart-terraform?tabs=azure-cli
-    - name: Containers
-      items:
-        - name: Azure Container Instances
-          items:
-            - name: Create an instance with a public IP address
-              href: /azure/container-instances/container-instances-quickstart-terraform
-        - name: Azure Kubernetes Service
-          items:
-            - name: Create a cluster
-              href: create-k8s-cluster-with-tf-and-aks.md
-    - name: Database
-      items:
-        - name: MySQL Flexible Server
-          items:
-            - name: Create a MySQL Flexible Server instance
-              href: /azure/mysql/flexible-server/quickstart-create-terraform
-    - name: DevTest Labs
-      items:
-        - name: Create a Windows Server VM in a lab
-          href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
-    - name: DNS
-      items:
-        - name: Create an Azure DNS zone and record
-          href: /azure/dns/dns-get-started-terraform
-    - name: IoT Device Provisioning Service
-      items:
-        - name: Create a DPS instance
-          href: /azure/iot-dps/quick-setup-auto-provision-terraform
-    - name: Search
-      items:
-        - name: Create an Azure Cognitive Search service
-          href: /azure/search/search-get-started-terraform
-    - name: Virtual machines
-      items:
-      - name: Create a Linux VM
-        href: /azure/virtual-machines/linux/quick-create-terraform
+      - name: Azure Kubernetes Services (AKS)
+        items:
+          - name: Create a cluster and deploy a web app
+            href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+      - name: Analysis Services
+        items:
+          - name: Create a server
+            href: /azure/analysis-services/analysis-services-create-terraform
+      - name: API Management
+        items:
+          - name: Create a service
+            href: /azure/api-management/quickstart-terraform
+      - name: Batch
+        items:
+          - name: Create an account
+            href: /azure/batch/quick-create-terraform
+      - name: Cognitive Services
+        items:
+          - name: Create a resource
+            href: /azure/cognitive-services/create-account-terraform
+      - name: CDN
+        items:
+          - name: Create a profile and endpoint
+            href: /azure/cdn/create-profile-endpoint-terraform
+      - name: Containers
+        items:
+          - name: Azure Container Instances
+            items:
+              - name: Create an instance with a public IP address
+                href: /azure/container-instances/container-instances-quickstart-terraform
+          - name: Azure Kubernetes Service
+            items:
+              - name: Create a cluster
+                href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+      - name: Database
+        items:
+          - name: Azure SQL Database
+            items:
+              - name: Create a server and database
+                href: /azure/azure-sql/database/single-database-create-terraform-quickstart
+          - name: MySQL Flexible Server
+            items:
+              - name: Create a MySQL Flexible Server instance
+                href: /azure/mysql/flexible-server/quickstart-create-terraform
+      - name: DevTest Labs
+        items:
+          - name: Create a Windows Server VM in a lab
+            href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+      - name: DDoS
+        items:
+          - name: Create protection plan
+            href: /azure/ddos-protection/manage-ddos-protection-terraform
+      - name: DNS
+        items:
+          - name: Create an Azure DNS zone and record
+            href: /azure/dns/dns-get-started-terraform
+      - name: IoT Device Provisioning Service
+        items:
+          - name: Create a DPS instance
+            href: /azure/iot-dps/quick-setup-auto-provision-terraform
+      - name: Key Vault
+        items:
+          - name: Create a key vault and key
+            href: /azure/key-vault/keys/quick-create-terraform
+      - name: Networking
+        items:
+          - name: Create a mesh network topology with Azure Virtual Network Manager
+            href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
+      - name: Notification Hubs
+        items:
+          - name: Create a namespace and hub
+            href: /azure/notification-hubs/create-notification-hub-terraform
+      - name: Search
+        items:
+          - name: Create an Azure Cognitive Search service
+            href: /azure/search/search-get-started-terraform
+      - name: Security
+        items:
+          - name: Azure Attestation
+            href: /azure/attestation/quickstart-terraform
+      - name: Stream Analytics
+        items:
+          - name: Create a job
+            href: /azure/stream-analytics/quick-create-terraform
+      - name: Traffic Manager
+        items:
+          - name: Create a profile and endpoints
+            href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
+      - name: Virtual machines
+        items:
+        - name: Create a Linux VM
+          href: /azure/virtual-machines/linux/quick-create-terraform
+        - name: Create a Linux VM cluster
+          href: /azure/virtual-machines/linux/quick-cluster-create-terraform
+        - name: Create a Windows VM
+          href: /azure/virtual-machines/windows/quick-create-terraform
+        - name: Create a Windows VM cluster
+          href: /azure/virtual-machines/windows/quick-cluster-create-terraform
 - name: Samples
   items:
+    - name: Terraform samples
+      href: https://github.com/azure/terraform
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Concepts
@@ -87,94 +181,74 @@
       href: best-practices-testing-overview.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
-- name: Tutorials
-  items:
-    - name: Security
-      items:
-        - name: Azure Attestation
-          href: create-attestation-provider.md
 - name: How-to guides
   items:
-    - name: Test Terraform projects
+    - name: Terraform how-to guides for Azure services
       items:
-        - name: Compliance testing
-          href: best-practices-compliance-testing.md
-        - name: End-to-end testing
-          href: best-practices-end-to-end-testing.md
-        - name: Integration testing
-          href: best-practices-integration-testing.md
-    - name: Troubleshoot
-      items:
-        - name: Troubleshoot common problems
-          href: troubleshoot.md
-    - name: App Service
-      items:
-        - name: Terraform and Azure provider deployment slots
-          href: provision-infrastructure-using-azure-deployment-slots.md
-    - name: Containers
-      items:
-        - name: Application Gateway ingress controller in AKS
-          href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
-    - name: Database
-      items:
-        - name: Azure Cosmos DB
-          href: deploy-azure-cosmos-db-to-azure-container-instances.md
-        - name: PostgreSQL Flexible Server Database
-          href: deploy-postgresql-flexible-server-database.md
-    - name: Networks
-      items:
-      - name: Azure Network Watcher
-        href: create-network-watcher-nsg-flow-logs.md
-      - name: Azure Firewall Premium
-        href: firewall-upgrade-premium.md
-      - name: Deploy Azure Application Gateway v2
-        href: deploy-application-gateway-v2.md
-      - name: Hub and spoke topology
+      - name: App Service
         items:
-          - name: 1. Create hub and spoke topology
-            href: hub-spoke-introduction.md
-          - name: 2. Create on-premises virtual network
-            href: hub-spoke-on-prem.md
-          - name: 3. Create hub virtual network
-            href: hub-spoke-hub-network.md
-          - name: 4. Create hub virtual network appliance
-            href: hub-spoke-hub-nva.md
-          - name: 5. Create spoke network
-            href: hub-spoke-spoke-network.md
-          - name: 6. Validate network topology connectivity 
-            href: hub-spoke-validation.md
-    - name: Tools
-      items:
-        - name: Create a Terraform base template using Yeoman
-          href: create-base-template-using-yeoman.md
-    - name: Azure Virtual Desktop
-      items:
-        - name: Configure an Azure Virtual Desktop
-          href: configure-azure-virtual-desktop.md
-        - name: Create a Session Host
-          href: create-avd-session-host.md
-        - name: Configure RBAC permissions
-          href: configure-avd-rbac.md
-        - name: Configure Network Settings
-          href: configure-avd-network-settings.md
-        - name: Create Azure Files Storage
-          href: create-avd-azure-files-storage.md
-        - name: Create Azure Compute Gallery
-          href: create-avd-azure-compute-image-gallery.md
-        - name: Create Log Analytics Workspace
-          href: create-avd-log-analytics-workspace.md
-    - name: Virtual machines
-      items:
-        - name: Configure a virtual machine cluster
-          href: create-vm-cluster-module.md
-        - name: Virtual Machine cluster with Terraform and HCL
-          href: create-vm-cluster-with-infrastructure.md
-        - name: Virtual Machine Scale Set with infrastructure
-          href: create-vm-scaleset-network-disks-hcl.md
-        - name: Virtual Machine Scale Set from Packer image
-          href: create-vm-scaleset-network-disks-using-packer-hcl.md
+          - name: Terraform and Azure provider deployment slots
+            href: provision-infrastructure-using-azure-deployment-slots.md
+      - name: Containers
+        items:
+          - name: Application Gateway ingress controller in AKS
+            href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+      - name: Database
+        items:
+          - name: Azure Cosmos DB
+            href: deploy-azure-cosmos-db-to-azure-container-instances.md
+          - name: PostgreSQL Flexible Server Database
+            href: deploy-postgresql-flexible-server-database.md
+      - name: Networks
+        items:
+          - name: Azure Network Watcher
+            href: create-network-watcher-nsg-flow-logs.md
+          - name: Azure Firewall Premium
+            href: firewall-upgrade-premium.md
+          - name: Deploy Azure Application Gateway v2
+            href: deploy-application-gateway-v2.md
+          - name: Hub and spoke topology
+            items:
+              - name: 1. Create hub and spoke topology
+                href: hub-spoke-introduction.md
+              - name: 2. Create on-premises virtual network
+                href: hub-spoke-on-prem.md
+              - name: 3. Create hub virtual network
+                href: hub-spoke-hub-network.md
+              - name: 4. Create hub virtual network appliance
+                href: hub-spoke-hub-nva.md
+              - name: 5. Create spoke network
+                href: hub-spoke-spoke-network.md
+              - name: 6. Validate network topology connectivity 
+                href: hub-spoke-validation.md
+          - name: Azure Virtual Desktop
+            items:
+              - name: Configure an Azure Virtual Desktop
+                href: configure-azure-virtual-desktop.md
+              - name: Create a Session Host
+                href: create-avd-session-host.md
+              - name: Configure RBAC permissions
+                href: configure-avd-rbac.md
+              - name: Configure Network Settings
+                href: configure-avd-network-settings.md
+              - name: Create Azure Files Storage
+                href: create-avd-azure-files-storage.md
+              - name: Create Azure Compute Gallery
+                href: create-avd-azure-compute-image-gallery.md
+              - name: Create Log Analytics Workspace
+                href: create-avd-log-analytics-workspace.md
+          - name: Virtual machines
+            items:
+              - name: Virtual Machine Scale Set with infrastructure
+                href: create-vm-scaleset-network-disks-hcl.md
+              - name: Virtual Machine Scale Set from Packer image
+                href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Reference
   items:
+    - name: Terraform Azure provider versions
+      items:
+        - name: AzureRM provider versions
+          href: provider-version-history-azurerm.md
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider

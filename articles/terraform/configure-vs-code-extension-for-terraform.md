@@ -2,7 +2,7 @@
 title: Install the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 05/08/2023
 ms.custom: devx-track-terraform, mode-portal
 ---
 
@@ -45,7 +45,7 @@ In this article, you learn how to:
     - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension.
     - Azure Account is a dependency file for the Azure Terraform extension. This file is used to authenticate to Azure and Azure-related code extensions.
 
-1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension will appear in the list of installed extensions.
+1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension appear in the list of installed extensions.
 
     :::image type="content" source="media/configure-vs-code-extension-for-terraform/installed-extensions.png" alt-text="View installed Terraform extensions.":::
 
@@ -53,7 +53,11 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 ## 3. Implement the Terraform code
 
-1. Create a directory in which to test the sample Terraform code and open that directory in Visual Studio Code. The files you create in this section should be created in your new directory.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -63,18 +67,10 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-    **Key points:**
-
-    - The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
-
 1. Create a file named `outputs.tf` to contain the project variables and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/outputs.tf)]
 
-    **Key points:**
-
-    - The `outputs.tf` file displays the randomized resource group name.
-    
 ## 4. Push your code to Cloud Shell
 
 1. From the **View** menu, select **Command Palette...**.
@@ -97,12 +93,12 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     **Key points:**
 
-    - Selecting this option is the same as running [terraform init](https://www.terraform.io/docs/commands/init.html) from the command line and will initialize your Terraform deployment.
+    - Selecting this option is the same as running [terraform init](https://www.terraform.io/docs/commands/init.html) from the command line and initializes your Terraform deployment.
     - This command downloads the Azure modules required to create an Azure resource group.
 
 1. Follow the prompts to install any dependencies - such as the latest supported version of nodejs.
 
-1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
+1. If you're using Cloud Shell for the first time with your default Azure subscription, follow the prompts to configure the environment.
 
 ## 6. Create a Terraform execution plan within Visual Studio Code
 
