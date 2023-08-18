@@ -146,7 +146,7 @@ In the example, if both the first and second stores have the same configuration,
 
 ### Selecting configurations
 
-Configurations are loaded by their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `${spring.profiles.active}`. If `${spring.profiles.active}` isn't set, then configuration with the `null` label are loaded. The `null` label appears as `(No Label)` in the Azure portal.
+Configurations are loaded by their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `${spring.profiles.active}`. If `${spring.profiles.active}` isn't set, then configurations with the `null` label are loaded. The `null` label appears as `(No Label)` in the Azure portal.
 
 You can configure the configurations that are loaded by selecting different key and label filters, as shown in the following example:
 
@@ -157,22 +157,22 @@ spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter=[my-label]
 
 The `key-filter` property supports the following filters:
 
-| Key filter | Effect                                                                 |
-|------------|------------------------------------------------------------------------|
-| `*`        | Matches any key.                                                       |
-| `abc`      | Matches a key named `abc`.                                             |
-| `abc*`     | Matches key names that start with `abc`.                               |
-| `abc,xyz`  | Matches key names `abc` or `xyz`. Limited to 5 comma-separated values. |
+| Key filter | Effect                                                                    |
+|------------|---------------------------------------------------------------------------|
+| `*`        | Matches any key.                                                          |
+| `abc`      | Matches a key named `abc`.                                                |
+| `abc*`     | Matches key names that start with `abc`.                                  |
+| `abc,xyz`  | Matches key names `abc` or `xyz`. Limited to five comma-separated values. |
 
 The `label-filter` property supports the following filters:
 
-| Label    | Description                                                              |
-|----------|--------------------------------------------------------------------------|
-| `*`      | Matches any label, including `\0`.                                       |
-| `\0`     | Matches `null` labels, which appear as `(No Label)` in the Azure portal. |
-| `1.0.0`  | Matches label `1.0.0` exactly.                                           |
-| `1.0.*`  | Matches labels that start with `1.0.*`.                                  |
-| `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to 5 comma-separated values.  |
+| Label    | Description                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| `*`      | Matches any label, including `\0`.                                          |
+| `\0`     | Matches `null` labels, which appear as `(No Label)` in the Azure portal.    |
+| `1.0.0`  | Matches label `1.0.0` exactly.                                              |
+| `1.0.*`  | Matches labels that start with `1.0.*`.                                     |
+| `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to five comma-separated values.  |
 
 If you're using YAML with label filters, and you need to start with `null`, then the label filter needs to be surrounded by single quotes, as shown in the following example:
 
