@@ -79,6 +79,12 @@ asyncClient.getConfigurationSetting(setting)
         error -> System.out.println("Exception: 'getConfigurationSetting' could not be performed."));
 ```
 
+## Tracing in the Azure SDK for Java
+
+The Azure SDK for Java offers comprehensive tracing support, allowing you to see the flow of execution through your application code, as well as the client libraries you're using. You can enable tracing in Azure client libraries by using and configuring the [OpenTelemetry](https://opentelemetry.io) SDK or using an OpenTelemetry-compatible agent. OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
+
+For more detailed information on how to enable tracing in the Azure SDK for Java, see the [Azure SDK for Java tracing documentation](/azure/developer/java/sdk/tracing).
+
 ## Next Steps
 
 If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue on the projects GitHub page][azsdkjava_github_repo].
