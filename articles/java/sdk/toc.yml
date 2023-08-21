@@ -71,10 +71,12 @@
       items:
         - name: Overview
           href: troubleshooting-overview.md
+        - name: Authentication
+          href: troubleshooting-authentication.md
+        - name: Dependency conflicts
+          href: troubleshooting-dependency-version-conflict.md          
         - name: Network issues
           href: troubleshooting-network.md
-        - name: Dependency conflicts
-          href: troubleshooting-dependency-version-conflict.md
     - name: Code samples
       items:
         - name: Virtual machines
