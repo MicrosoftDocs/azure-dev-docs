@@ -72,7 +72,18 @@
         - name: Overview
           href: troubleshooting-overview.md
         - name: Authentication
-          href: troubleshooting-authentication.md
+          expanded: true
+          items:
+          - name: Overview
+            href: troubleshooting-authentication-overview.md
+          - name: Azure Hosted Application Auth
+            href: troubleshooting-authentication-azure-hosted.md  
+          - name: Development Environment Auth
+            href: troubleshooting-authentication-dev-env.md  
+          - name: Service Principal Auth
+            href: troubleshooting-authentication-service-principal.md  
+          - name: User Credential Auth
+            href: troubleshooting-authentication-user-credential.md  
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md          
         - name: Network issues
