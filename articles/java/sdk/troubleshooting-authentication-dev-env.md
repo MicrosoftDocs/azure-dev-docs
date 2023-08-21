@@ -12,9 +12,9 @@ ms.author: jogiles
 
 TODO
 
-## Troubleshoot `AzureCliCredential` authentication issues
+## `AzureCliCredential` authentication issues
 
-`CredentialUnavailableException`
+When using the `AzureCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
@@ -35,15 +35,16 @@ Once you've verified the Azure CLI is using correct account, you can validate th
 az account get-access-token --output json --resource https://management.core.windows.net
 ```
 
->Note that output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> [!WARNING]
+> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
 
-## Troubleshoot `AzureDeveloperCliCredential` authentication issues
+## `AzureDeveloperCliCredential` authentication issues
 
-`CredentialUnavailableException`
+When using the `AzureDeveloperCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
-|Azure Developer CLI not installed|The Azure Developer CLI isn't installed or couldn't be found.|<ul><li>Ensure the Azure Developer CLI is properly installed. Installation instructions can be found [here](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul>|
+|Azure Developer CLI not installed|The Azure Developer CLI isn't installed or couldn't be found.|<ul><li>Ensure the Azure Developer CLI is properly installed. Installation instructions can be found [here](/azure/developer/azure-developer-cli/install-azd).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul>|
 |Please run 'azd auth login' to set up account|No account is currently logged into the Azure Developer CLI, or the login has expired.|<ul><li>Log into the Azure Developer CLI using the `azd auth login` command.</li><li>Validate that the Azure Developer CLI can obtain tokens. See [below](#verify-the-azure-developer-cli-can-obtain-tokens) for instructions.</li></ul>|
 
 ### Verify the Azure Developer CLI can obtain tokens
@@ -60,17 +61,18 @@ Once you've verified the Azure Developer CLI is using correct account, you can v
 azd auth token --output json --scope https://management.core.windows.net/.default
 ```
 
->Note that output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> [!WARNING]
+> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
 
-## Troubleshoot `AzurePowerShellCredential` authentication issues
+## `AzurePowerShellCredential` authentication issues
 
-`CredentialUnavailableException`
+When using the `AzurePowerShellCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
-|PowerShell isn't installed.|No local installation of PowerShell was found.|Ensure that PowerShell is properly installed on the machine. Instructions for installing PowerShell can be found [here](tps://learn.microsoft.com/powershell/scripting/install/installing-powershell).|
-|Az.Account module >= 2.2.0 isn't installed.|The Az.Account module needed for authentication in Azure PowerShell isn't installed.|Install the latest Az.Account module. Installation instructions can be found [here](https://learn.microsoft.com/powershell/azure/install-az-ps).|
-|Please run 'Connect-AzAccount' to set up account.|No account is currently logged into Azure PowerShell.|<ul><li>Login to Azure PowerShell using the `Connect-AzAccount` command. More instructions for authenticating Azure PowerShell can be found [here](https://learn.microsoft.com/powershell/azure/authenticate-azureps)</li><li>Validate that Azure PowerShell can obtain tokens. See [below](#verify-azure-powershell-can-obtain-tokens) for instructions.</li></ul>|
+|PowerShell isn't installed.|No local installation of PowerShell was found.|Ensure that PowerShell is properly installed on the machine. Instructions for installing PowerShell can be found [here](/powershell/scripting/install/installing-powershell).|
+|Az.Account module >= 2.2.0 isn't installed.|The Az.Account module needed for authentication in Azure PowerShell isn't installed.|Install the latest Az.Account module. Installation instructions can be found [here](/powershell/azure/install-az-ps).|
+|Please run 'Connect-AzAccount' to set up account.|No account is currently logged into Azure PowerShell.|<ul><li>Login to Azure PowerShell using the `Connect-AzAccount` command. More instructions for authenticating Azure PowerShell can be found [here](/powershell/azure/authenticate-azureps)</li><li>Validate that Azure PowerShell can obtain tokens. See [below](#verify-azure-powershell-can-obtain-tokens) for instructions.</li></ul>|
 
 ### Verify Azure PowerShell can obtain tokens
 
@@ -90,13 +92,15 @@ Once you've verified Azure PowerShell is using correct account, you can validate
 Get-AzAccessToken -ResourceUrl "https://management.core.windows.net"
 ```
 
->Note that output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> [!WARNING]
+> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
 
-## Troubleshoot `VisualStudioCodeCredential` authentication issues
+## `VisualStudioCodeCredential` authentication issues
 
+> [!NOTE]
 > It's a [known issue](https://github.com/Azure/azure-sdk-for-java/issues/27364) that `VisualStudioCodeCredential` doesn't work with [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) versions newer than **0.9.11**. A long-term fix to this problem is in progress. In the meantime, consider [authenticating via the Azure CLI](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#authenticating-via-development-tools).
 
-`CredentialUnavailableException`
+When using the `VisualStudioCodeCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|

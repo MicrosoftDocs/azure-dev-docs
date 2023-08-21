@@ -14,7 +14,7 @@ TODO
 
 ## Troubleshoot `UsernamePasswordCredential` authentication issues
 
-`ClientAuthenticationException`
+When using the `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Code | Issue | Mitigation |
 |---|---|---|
