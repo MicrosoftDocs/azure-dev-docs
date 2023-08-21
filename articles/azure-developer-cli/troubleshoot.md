@@ -23,7 +23,7 @@ You can also report bugs by opening GitHub Issues in the [Azure Developer CLI Gi
 
 ## Using the `--debug` switch
 
-If you an encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
+If you encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
 
 ```bash
 azd up --debug
@@ -52,7 +52,7 @@ Run `azd auth login` to refresh the access token.
 
 ## Updated Azure account permissions do not refresh in `azd`
 
- By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`.To solve this issue, log out and then log back in to `azd` using the following commands:
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`. To solve this issue, log out and then log back in to `azd` using the following commands:
 
 ```bash
 azd auth logout
@@ -68,7 +68,7 @@ There are some limitations to running `azd` in Cloud Shell:
 
 ### Docker support in Cloud Shell
 
-Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
+Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information, see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
 
 ### Cloud Shell timeout
 
@@ -89,7 +89,7 @@ In some cases it may be necessary to install a different version of `azd` than t
 
 1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
 1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
-1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released verison like `1.0.0` can also be specified).  
+1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released version like `1.0.0` can also be specified).  
 
 Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
 version of `azd` symbolically linked in `/usr/local/bin`.
@@ -155,7 +155,7 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 ## Unable to authenticate in Codespaces environments
 
-If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in. You can see an example of this DockerFile configuration in the [sample Azure Developer CLI templates](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in.
 
 ## Static Web Apps fail to deploy despite success message
 
