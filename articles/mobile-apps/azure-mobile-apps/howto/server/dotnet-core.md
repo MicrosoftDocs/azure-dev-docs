@@ -284,7 +284,7 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Set up the Cosmos Container with a composite index that specifies the 'updatedAt' and 'id' fields.  Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+1. Set up the Cosmos Container with a composite index that specifies the 'UpdatedAt' and 'Id' fields.  Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
 
     ``` bicep
     resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
@@ -304,8 +304,8 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
                     ]
                     compositeIndexes: [
                         [
-                            { path: '/updatedAt', order: 'ascending' }
-                            { path: '/id', order: 'ascending' }
+                            { path: '/UpdatedAt', order: 'ascending' }
+                            { path: '/Id', order: 'ascending' }
                         ]
                     ]
                 }
@@ -314,7 +314,7 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-   You can also set up the container as part of the `OnModelCreating()` method using the standard Cosmos Client, or through your normal deployment mechanism (including ARM, Bicep, and Terraform).
+   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.  For more details, review the [Index Policy](/azure/cosmos-db/index-policy) documentation.
 
 2. Derive models from the `ETagEntityTableData` class:
 
