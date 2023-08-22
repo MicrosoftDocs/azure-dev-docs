@@ -330,7 +330,7 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.  For more details, review the [Index Policy](/azure/cosmos-db/index-policy) documentation.
+   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.
 
 2. Derive models from the `ETagEntityTableData` class:
 
@@ -350,7 +350,7 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
         builder.Entity<TodoItem>(builder =>
         {
             // Store this model in a container named "TodoItem"
-            builder.ToContainer("TodoItem");
+            builder.ToContainer("TodoItems");
             // Do not include a discriminator for the model.
             builder.HasNoDiscriminator();
             // Set the partition key to the Id of the record.
@@ -362,7 +362,11 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Azure Cosmos DB][cosmos-sample] available in the GitHub repository.  More information can be found in the [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following:
+
+* [Cosmos DB Sample][cosmos-sample].
+* [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.
+* [Cosmos DB index policy](/azure/cosmos-db/index-policy) documentation.
 
 ### PostgreSQL
 
