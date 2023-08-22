@@ -12,7 +12,7 @@ ms.author: jogiles
 
 This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we have split the troubleshooting guide into sections based on usage scenario. The following sections are available:
 
-* [Azure Hosted Applications Auth](/azure/developer/java/sdk/troubleshooting-authentication-azure-hosted)
+* [Azure-hosted Applications Auth](/azure/developer/java/sdk/troubleshooting-authentication-azure-hosted)
 * [Development Environment Auth](/azure/developer/java/sdk/troubleshooting-authentication-dev-env)
 * [Service Principal Auth](/azure/developer/java/sdk/troubleshooting-authentication-service-principal)
 * [User Credential Auth](/azure/developer/java/sdk/troubleshooting-authentication-user-credential)
@@ -77,7 +77,8 @@ The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authe
 
 ## Next Steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue on the projects GitHub page][azsdkjava_github_repo].
+If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
 
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
+[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose

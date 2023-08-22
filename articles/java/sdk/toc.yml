@@ -84,6 +84,8 @@
             href: troubleshooting-authentication-service-principal.md  
           - name: User Credential Authentication
             href: troubleshooting-authentication-user-credential.md  
+          - name: Multi-tenant Authentication
+            href: troubleshooting-authentication-multi-tenant.md  
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md          
         - name: Network issues
