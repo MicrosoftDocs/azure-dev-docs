@@ -16,6 +16,7 @@ This troubleshooting guide covers failure investigation techniques, common error
 * [Development Environment Auth](/azure/developer/java/sdk/troubleshooting-authentication-dev-env)
 * [Service Principal Auth](/azure/developer/java/sdk/troubleshooting-authentication-service-principal)
 * [User Credential Auth](/azure/developer/java/sdk/troubleshooting-authentication-user-credential)
+* [Multi-tenant Authentication](/azure/developer/java/sdk/troubleshooting-authentication-multi-tenant)
 
 The remainder of this document will cover general troubleshooting techniques and guidance that apply to all credential types.
 
