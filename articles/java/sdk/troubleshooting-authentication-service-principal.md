@@ -33,7 +33,7 @@ When using the `ClientCertificateCredential`, you may optionally try/catch for `
 
 ## Troubleshooting ClientAssertionCredential
 
-When using the `ClientAssertionCredential`, you may optionally try/catch for `AuthenticationRequiredException`. The table below shows the errors that this exception indicates, and methods of mitigation.
+When using the `ClientAssertionCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Code | Description | Mitigation |
 |---|---|---|
