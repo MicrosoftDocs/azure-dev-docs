@@ -288,24 +288,40 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
 
     ``` bicep
     resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
-        name: 'TodoAppContext'
+        name: 'TodoItems'
         parent: cosmosDatabase
         properties: {
             resource: {
-                id: 'TodoAppContext'
+                id: 'TodoItems'
                 partitionKey: {
-                    paths: [ '/id' ]
+                    paths: [
+                        '/Id'
+                    ]
                     kind: 'Hash'
                 }
                 indexingPolicy: {
-                    indexingMode: 'Consistent'
+                    indexingMode: 'consistent'
+                    automatic: true
                     includedPaths: [
-                        { path: '/*' }
+                        {
+                            path: '/*'
+                        }
+                    ]
+                    excludedPaths: [
+                        {
+                            path: '/"_etag"/?'
+                        }
                     ]
                     compositeIndexes: [
                         [
-                            { path: '/UpdatedAt', order: 'ascending' }
-                            { path: '/Id', order: 'ascending' }
+                            {
+                                path: '/UpdatedAt'
+                                order: 'ascending'
+                            }
+                            {
+                                path: '/Id'
+                                order: 'ascending'
+                            }
                         ]
                     ]
                 }
@@ -326,12 +342,22 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
+3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  You may optionally include other settings.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
 
     ``` csharp
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
+        builder.Entity<TodoItem>(builder =>
+        {
+            // Store this model in a container named "TodoItem"
+            builder.ToContainer("TodoItem");
+            // Do not include a discriminator for the model.
+            builder.HasNoDiscriminator();
+            // Set the partition key to the Id of the record.
+            builder.HasPartitionKey(model => model.Id);
+            // Set the concurrency tag to by the EntityTag property.
+            builder.Property(model => model.EntityTag).IsETagConcurrency();
+        });
         base.OnModelCreating(builder);
     }
     ```
