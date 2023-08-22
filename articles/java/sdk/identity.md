@@ -92,10 +92,7 @@ The `DefaultAzureCredential` used in this example authenticates an `AzureResourc
 
 ## Troubleshooting
 
-Credentials raise exceptions either when they fail to authenticate or can't execute authentication. When credentials fail to authenticate, the `ClientAuthenticationException` is raised and it has a `message` attribute that describes why authentication failed. When `ChainedTokenCredential` raises this exception, the chained execution of underlying list of credentials is stopped.
-
-When credentials can't execute authentication because one of the underlying resources required by the credential is unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
-describes why the credential is unavailable for authentication execution. When `ChainedTokenCredential` raises this exception, the message collects error messages from each credential in the chain.
+Refer to the [troubleshoot Azure Identity authentication issues](/azure/developer/java/sdk/troubleshooting-authentication-overview) documentation for guidance on troubleshooting Azure Identity authentication issues.
 
 ## Next steps
 

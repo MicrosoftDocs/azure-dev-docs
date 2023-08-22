@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot overview when using the Azure SDK for Java
-description: An overview of how to troubleshoot issues related to using the Azure SDK for Java
+title: Troubleshooting Service Principal Authentication
+description: An overview of how to troubleshoot service principal authentication issues
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

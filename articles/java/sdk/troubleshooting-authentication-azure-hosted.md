@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot overview when using the Azure SDK for Java
-description: An overview of how to troubleshoot issues related to using the Azure SDK for Java
+title: Troubleshooting Azure-hosted Applications Authentication
+description: An overview of how to troubleshoot Azure-hosted authentication issues
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -8,7 +8,7 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Azure Hosted Applications Authentication
+# Troubleshooting Azure-hosted Applications Authentication
 
 This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on Azure-hosted credential types](/azure/developer/java/sdk/identity-azure-hosted-auth).
 
@@ -16,7 +16,7 @@ This troubleshooting document provides guidance on dealing with issues encounter
 
 | Error |Description | Mitigation |
 |---|---|---|
-|`CredentialUnavailableException` raised with message "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging][logging_link] to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshooting-environmentcredential)</li><li>[ManagedIdentityCredential](#troubleshooting-managedidentitycredential)</li><li>[VisualStudioCodeCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-visualstudiocodecredential)</li><li>[AzureCLICredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azureclicredential)</li><li>[AzurePowershellCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azurepowershellcredentia)</li></ul> |
+|`CredentialUnavailableException` raised with message "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging][logging_link] to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshooting-environmentcredential)</li><li>[ManagedIdentityCredential](#troubleshooting-managedidentitycredential)</li><li>[VisualStudioCodeCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-visualstudiocodecredential)</li><li>[AzureCLICredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azureclicredential)</li><li>[AzurePowershellCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azurepowershellcredential)</li></ul> |
 |`HttpResponseException` raised from the client with a status code of 401 or 403|Authentication succeeded but the authorizing Azure service responded with a 401 (Authenticate), or 403 (Forbidden) status code. This can often be caused by the `DefaultAzureCredential` authenticating an account other than the intended or that the intended account does not have the correct permissions or roles assigned.| <ul><li>[Enable logging][logging_link] to determine which credential in the chain returned the authenticating token.</li><li>In the case a credential other than the expected is returning a token, look too bypass this by signing out of the corresponding development tool.`</li><li>Ensure that the correct role is assigned to the account being used. For example, a service specific role rather than the subscription Owner role.</li></ul>
 
 ## Troubleshooting EnvironmentCredential
@@ -33,11 +33,11 @@ The `ManagedIdentityCredential` is designed to work on a variety of Azure hosts 
 
 |Host Environment| | |
 |---|---|---|
-|Azure App Service and Azure Functions|[Configuration](/azure/app-service/overview-managed-identity)|[Troubleshooting](#azure-app-service-and-azure-functions-managed-identity)|
-|Azure Arc|[Configuration](/azure/azure-arc/servers/managed-identity-authentication)||
-|Azure Kubernetes Service|[Configuration](https://azure.github.io/aad-pod-identity/docs/)|[Troubleshooting](#azure-kubernetes-service-managed-identity)|
-|Azure Service Fabric|[Configuration](/azure/service-fabric/concepts-managed-identity)||
-|Azure Virtual Machines and Scale Sets|[Configuration]/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)|[Troubleshooting](#azure-virtual-machine-managed-identity)|
+|Azure App Service and Azure Functions | [Configuration](/azure/app-service/overview-managed-identity) | [Troubleshooting](#azure-app-service-and-azure-functions-managed-identity)|
+|Azure Arc | [Configuration](/azure/azure-arc/servers/managed-identity-authentication) | |
+|Azure Kubernetes Service | [Configuration](https://azure.github.io/aad-pod-identity/docs/) | [Troubleshooting](#azure-kubernetes-service-managed-identity)|
+|Azure Service Fabric  |[Configuration](/azure/service-fabric/concepts-managed-identity) | |
+|Azure Virtual Machines and Scale Sets  |[Configuration](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) | [Troubleshooting](#azure-virtual-machine-managed-identity)|
 
 ### Azure Virtual Machine Managed Identity
 
