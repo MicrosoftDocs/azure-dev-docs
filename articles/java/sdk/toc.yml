@@ -24,13 +24,13 @@
           items:
             - name: Overview
               href: identity.md
-            - name: Auth in development environments
-              href: identity-dev-env-auth.md
-            - name: Auth in Azure hosted applications
+            - name: Azure-hosted Application Authentication
               href: identity-azure-hosted-auth.md
-            - name: Auth with service principals
+            - name: Development Environment Authentication
+              href: identity-dev-env-auth.md              
+            - name: Service Principal Authentication
               href: identity-service-principal-auth.md
-            - name: Auth with user credentials
+            - name: User Credential Authentication
               href: identity-user-auth.md
         - name: Logging
           expanded: false
@@ -76,13 +76,13 @@
           items:
           - name: Overview
             href: troubleshooting-authentication-overview.md
-          - name: Azure Hosted Application Auth
+          - name: Azure-hosted Application Authentication
             href: troubleshooting-authentication-azure-hosted.md  
-          - name: Development Environment Auth
+          - name: Development Environment Authentication
             href: troubleshooting-authentication-dev-env.md  
-          - name: Service Principal Auth
+          - name: Service Principal Authentication
             href: troubleshooting-authentication-service-principal.md  
-          - name: User Credential Auth
+          - name: User Credential Authentication
             href: troubleshooting-authentication-user-credential.md  
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md          

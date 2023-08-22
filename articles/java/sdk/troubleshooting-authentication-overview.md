@@ -17,15 +17,13 @@ This troubleshooting guide covers failure investigation techniques, common error
 * [Service Principal Auth](/azure/developer/java/sdk/troubleshooting-authentication-service-principal)
 * [User Credential Auth](/azure/developer/java/sdk/troubleshooting-authentication-user-credential)
 
-## General Azure Identity troubleshooting guidance
+The remainder of this document will cover general troubleshooting techniques and guidance that apply to all credential types.
 
-The reminder of this document will cover general troubleshooting techniques and guidance that apply to all credential types.
-
-### Handling Azure Identity exceptions
+## Handling Azure Identity exceptions
 
 As noted in the [troubleshooting overview](/azure/developer/java/sdk/troubleshooting-overview#exception-handling-in-the-azure-sdk-for-java), there is a comprehensive set of exceptions and error codes that can be thrown by the Azure SDK for Java. For Azure Identity specifically, there are a few key exception types that are important to understand.
 
-#### ClientAuthenticationException
+### ClientAuthenticationException
 
 Exceptions arising from authentication errors can be raised on any service client method that makes a request to the service. This is because the token is requested from the credential on the first call to the service and on any subsequent requests to the service that need to refresh the token.
 
@@ -46,15 +44,15 @@ try {
 }
 ```
 
-#### CredentialUnavailableException
+### CredentialUnavailableException
 
 The `CredentialUnavailableExcpetion` is a special exception type derived from `ClientAuthenticationException`. This exception type is used to indicate that the credential can't authenticate in the current environment, due to lack of required configuration or setup. This exception is also used as a signal to chained credential types, such as `DefaultAzureCredential` and `ChainedTokenCredential`, that the chained credential should continue to try other credential types later in the chain.
 
-#### Permission issues
+### Permission issues
 
 Calls to service clients resulting in `HttpResponseException` with a `StatusCode` of 401 or 403 often indicate the caller doesn't have sufficient permissions for the specified API. Check the service documentation to determine which RBAC roles are needed for the specific request, and ensure the authenticated user or service principal have been granted the appropriate roles on the resource.
 
-### Finding relevant information in exception messages
+## Finding relevant information in exception messages
 
 `ClientAuthenticationException` is thrown when unexpected errors occurred while a credential is authenticating. This can include errors received from requests to the AAD STS and often contains information helpful to diagnosis. Consider the following `ClientAuthenticationException` message.
 
@@ -68,11 +66,11 @@ This error contains several pieces of information:
 
 * **Correlation ID and Timestamp**: The correlation ID and call Timestamp used to identify the request in server-side logs. This information can be useful to support engineers when diagnosing unexpected STS failures.
 
-### Enable and configure logging
+## Enable and configure logging
 
 Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](/azure/developer/java/sdk/logging-overview) and the [troubleshooting documentation](/azure/developer/java/sdk/troubleshooting-overview) for guidance on using logging.
 
-The underlying MSAL library, MSAL4J, also has detailed logging. It is highly verbose and will include all PII including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials which offer this logging will have a method called `enableUnsafeSupportLogging()`.
+The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java), also has detailed logging. It is highly verbose and will include all PII including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials which offer this logging will have a method called `enableUnsafeSupportLogging()`.
 
 > [!CAUTION]
 > Requests and responses in the Azure Identity library contain sensitive information. Precaution must be taken to protect logs when customizing the output to avoid compromising account security.
