@@ -284,7 +284,7 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Set up the Cosmos Container with a composite index that specifies the 'UpdatedAt' and 'Id' fields.  Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
 
     ``` bicep
     resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
@@ -349,13 +349,13 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     {
         builder.Entity<TodoItem>(builder =>
         {
-            // Store this model in a container named "TodoItem"
+            // Store this model in a specific container.
             builder.ToContainer("TodoItems");
-            // Do not include a discriminator for the model.
+            // Do not include a discriminator for the model in the partition key.
             builder.HasNoDiscriminator();
             // Set the partition key to the Id of the record.
             builder.HasPartitionKey(model => model.Id);
-            // Set the concurrency tag to by the EntityTag property.
+            // Set the concurrency tag to the EntityTag property.
             builder.Property(model => model.EntityTag).IsETagConcurrency();
         });
         base.OnModelCreating(builder);
