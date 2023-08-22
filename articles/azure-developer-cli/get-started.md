@@ -141,7 +141,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -340,7 +340,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -533,7 +533,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -726,7 +726,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-java-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
