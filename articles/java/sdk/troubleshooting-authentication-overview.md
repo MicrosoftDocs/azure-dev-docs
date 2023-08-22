@@ -23,7 +23,7 @@ The reminder of this document will cover general troubleshooting techniques and 
 
 ### Handling Azure Identity exceptions
 
-As noted in the [troubleshooting overview]((/azure/developer/java/sdk/troubleshooting-overview#exception-handling-in-the-azure-sdk-for-java), there is a comprehensive set of exceptions and error codes that can be thrown by the Azure SDK for Java. For Azure Identity specifically, there are a few key exception types that are important to understand.
+As noted in the [troubleshooting overview](/azure/developer/java/sdk/troubleshooting-overview#exception-handling-in-the-azure-sdk-for-java), there is a comprehensive set of exceptions and error codes that can be thrown by the Azure SDK for Java. For Azure Identity specifically, there are a few key exception types that are important to understand.
 
 #### ClientAuthenticationException
 
