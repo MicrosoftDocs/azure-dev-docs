@@ -10,9 +10,9 @@ ms.author: jogiles
 
 # Troubleshooting User Credential Authentication
 
-TODO
+This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications with user-provided credentials, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on user-provided credential types](/azure/developer/java/sdk/identity-user-auth).
 
-## Troubleshoot `UsernamePasswordCredential` authentication issues
+## Troubleshooting UsernamePasswordCredential
 
 When using the `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 

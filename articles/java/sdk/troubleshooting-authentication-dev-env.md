@@ -10,15 +10,15 @@ ms.author: jogiles
 
 # Troubleshooting Development Environment Authentication
 
-TODO
+This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications running locally on developer machines, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on development environment credential types](/azure/developer/java/sdk/identity-dev-env-auth).
 
-## `AzureCliCredential` authentication issues
+## Troubleshooting AzureCliCredential
 
 When using the `AzureCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
-|Azure CLI not installed|The Azure CLI isn't installed or couldn't be found.|<ul><li>Ensure the Azure CLI is properly installed. Installation instructions can be found [here](https://learn.microsoft.com/cli/azure/install-azure-cli).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul>|
+|Azure CLI not installed|The Azure CLI isn't installed or couldn't be found.|<ul><li>Ensure the Azure CLI is properly installed. Installation instructions can be found [here](/cli/azure/install-azure-cli).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul>|
 |Please run 'az login' to set up account|No account is currently logged into the Azure CLI, or the login has expired.|<ul><li>Log into the Azure CLI using the `az login` command. More information on authentication in the Azure CLI can be found [here](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).</li><li>Validate that the Azure CLI can obtain tokens. See [below](#verify-the-azure-cli-can-obtain-tokens) for instructions.</li></ul>|
 
 ### Verify the Azure CLI can obtain tokens
@@ -36,9 +36,9 @@ az account get-access-token --output json --resource https://management.core.win
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
 
-## `AzureDeveloperCliCredential` authentication issues
+## Troubleshooting AzureDeveloperCliCredential
 
 When using the `AzureDeveloperCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
@@ -62,9 +62,9 @@ azd auth token --output json --scope https://management.core.windows.net/.defaul
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
 
-## `AzurePowerShellCredential` authentication issues
+## Troubleshooting AzurePowerShellCredential
 
 When using the `AzurePowerShellCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
@@ -78,7 +78,7 @@ When using the `AzurePowerShellCredential`, you may optionally try/catch for `Cr
 
 You can manually verify that Azure PowerShell is properly authenticated, and can obtain tokens. First use the `Get-AzContext` command to verify the account which is currently logged in to the Azure CLI.
 
-```
+```ps
 PS C:\> Get-AzContext
 
 Name                                     Account             SubscriptionName    Environment         TenantId
@@ -93,9 +93,9 @@ Get-AzAccessToken -ResourceUrl "https://management.core.windows.net"
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
 
-## `VisualStudioCodeCredential` authentication issues
+## Troubleshooting VisualStudioCodeCredential
 
 > [!NOTE]
 > It's a [known issue](https://github.com/Azure/azure-sdk-for-java/issues/27364) that `VisualStudioCodeCredential` doesn't work with [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) versions newer than **0.9.11**. A long-term fix to this problem is in progress. In the meantime, consider [authenticating via the Azure CLI](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#authenticating-via-development-tools).

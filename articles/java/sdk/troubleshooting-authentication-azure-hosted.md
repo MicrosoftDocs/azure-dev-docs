@@ -10,16 +10,16 @@ ms.author: jogiles
 
 # Troubleshooting Azure Hosted Applications Authentication
 
-TODO
+This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on Azure-hosted credential types](/azure/developer/java/sdk/identity-azure-hosted-auth).
 
-## `DefaultAzureCredential` authentication issues
+## Troubleshooting DefaultAzureCredential
 
 | Error |Description | Mitigation |
 |---|---|---|
-|`CredentialUnavailableException` raised with message. "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging](#enable-and-configure-logging) to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshoot-environmentcredential-authentication-issues)</li><li>[ManagedIdentityCredential](#troubleshoot-managedidentitycredential-authentication-issues)</li><li>[VisualStudioCodeCredential](#troubleshoot-visualstudiocodecredential-authentication-issues)</li><li>[AzureCLICredential](#troubleshoot-azureclicredential-authentication-issues)</li><li>[AzurePowershellCredential](#troubleshoot-azurepowershellcredential-authentication-issues)</li></ul> |
-|`HttpResponseException` raised from the client with a status code of 401 or 403|Authentication succeeded but the authorizing Azure service responded with a 401 (Authenticate), or 403 (Forbidden) status code. This can often be caused by the `DefaultAzureCredential` authenticating an account other than the intended or that the intended account does not have the correct permissions or roles assigned.| <ul><li>[Enable logging](#enable-and-configure-logging) to determine which credential in the chain returned the authenticating token.</li><li>In the case a credential other than the expected is returning a token, look too bypass this by signing out of the corresponding development tool.`</li><li>Ensure that the correct role is assigned to the account being used. For example, a service specific role rather than the subscription Owner role.</li></ul>
+|`CredentialUnavailableException` raised with message "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging][logging_link] to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshooting-environmentcredential)</li><li>[ManagedIdentityCredential](#troubleshooting-managedidentitycredential)</li><li>[VisualStudioCodeCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-visualstudiocodecredential)</li><li>[AzureCLICredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azureclicredential)</li><li>[AzurePowershellCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azurepowershellcredentia)</li></ul> |
+|`HttpResponseException` raised from the client with a status code of 401 or 403|Authentication succeeded but the authorizing Azure service responded with a 401 (Authenticate), or 403 (Forbidden) status code. This can often be caused by the `DefaultAzureCredential` authenticating an account other than the intended or that the intended account does not have the correct permissions or roles assigned.| <ul><li>[Enable logging][logging_link] to determine which credential in the chain returned the authenticating token.</li><li>In the case a credential other than the expected is returning a token, look too bypass this by signing out of the corresponding development tool.`</li><li>Ensure that the correct role is assigned to the account being used. For example, a service specific role rather than the subscription Owner role.</li></ul>
 
-## `EnvironmentCredential` authentication issues
+## Troubleshooting EnvironmentCredential
 
 When using the `EnvironmentCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
@@ -27,7 +27,7 @@ When using the `EnvironmentCredential`, you may optionally try/catch for `Creden
 |---|---|---|
 |Environment variables aren't fully configured.|A valid combination of environment variables wasn't set.|Ensure the appropriate environment variables are set **prior to application startup** for the intended authentication method.</p><ul><li>To authenticate a service principal using a client secret, ensure the variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_CLIENT_SECRET` are properly set.</li><li>To authenticate a service principal using a certificate, ensure the variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_CLIENT_CERTIFICATE_PATH` and optionally `AZURE_CLIENT_CERTIFICATE_PASSWORD` are properly set.</li><li>To authenticate a user using a password, ensure the variables `AZURE_USERNAME` and `AZURE_PASSWORD` are properly set.</li></ul>|
 
-## `ManagedIdentityCredential` authentication issues
+## Troubleshooting ManagedIdentityCredential
 
 The `ManagedIdentityCredential` is designed to work on a variety of Azure hosts that provide managed identity. Configuring the managed identity and troubleshooting failures varies from hosts. The below table lists the Azure hosts that can be assigned a managed identity, and are supported by the `ManagedIdentityCredential`.
 
@@ -41,14 +41,14 @@ The `ManagedIdentityCredential` is designed to work on a variety of Azure hosts 
 
 ### Azure Virtual Machine Managed Identity
 
-`CredentialUnavailableException`
+When using the `ManagedIdentityCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
 |The requested identity hasn't been assigned to this resource.|The IMDS endpoint responded with a status code of 400, indicating the requested identity isn't assigned to the VM.|If using a user assigned identity, ensure the specified `clientId` is correct.<p/><p/>If using a system assigned identity, make sure it has been enabled properly. Instructions to enable the system assigned identity on an Azure VM can be found [here](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm).|
 |The request failed due to a gateway error.|The request to the IMDS endpoint failed due to a gateway error, 502 or 504 status code.|Calls via proxy or gateway aren't supported by IMDS. Disable proxies or gateways running on the VM for calls to the IMDS endpoint `http://169.254.169.254/`|
 |No response received from the managed identity endpoint.|No response was received for the request to IMDS or the request timed out.|<ul><li>Ensure managed identity has been properly configured on the VM. Instructions for configuring the manged identity can be found [here](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).</li><li>Verify the IMDS endpoint is reachable on the VM, see [below](#verify-imds-is-available-on-the-vm) for instructions.</li></ul>|
-|Multiple attempts failed to obtain a token from the managed identity endpoint.|Retries to retrieve a token from the IMDS endpoint have been exhausted.|<ul><li>Refer to inner exception messages for more details on specific failures. If the data has been truncated, more detail can be obtained by [collecting logs](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#enable-client-logging).</li><li>Ensure managed identity has been properly configured on the VM. Instructions for configuring the manged identity can be found [here](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).</li><li>Verify the IMDS endpoint is reachable on the VM, see [below](#verify-imds-is-available-on-the-vm) for instructions.</li></ul>|
+|Multiple attempts failed to obtain a token from the managed identity endpoint.|Retries to retrieve a token from the IMDS endpoint have been exhausted.|<ul><li>Refer to inner exception messages for more details on specific failures. If the data has been truncated, more detail can be obtained by [collecting logs][logging_link].</li><li>Ensure managed identity has been properly configured on the VM. Instructions for configuring the managed identity can be found [here](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).</li><li>Verify the IMDS endpoint is reachable on the VM, see [below](#verify-imds-is-available-on-the-vm) for instructions.</li></ul>|
 
 #### Verify IMDS is available on the VM
 
@@ -59,11 +59,11 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?resource=https://man
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
 
 ### Azure App Service and Azure Functions Managed Identity
 
-`CredentialUnavailableException`
+When using the `ManagedIdentityCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
@@ -78,23 +78,25 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?resource=https://man
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and SHOULD NOT BE SHARED to avoid compromising account security.
+> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
 
 ### Azure Kubernetes Service Managed Identity
 
 #### Pod Identity for Kubernetes
 
-`CredentialUnavailableException`
+When using the `ManagedIdentityCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Message |Description| Mitigation |
 |---|---|---|
 |No Managed Identity endpoint found|The application attempted to authenticate before an identity was assigned to its pod|Verify the pod is labeled correctly. This also occurs when a correctly labeled pod authenticates before the identity is ready. To prevent initialization races, configure NMI to set the Retry-After header in its responses (see [Pod Identity documentation](https://azure.github.io/aad-pod-identity/docs/configure/feature_flags/#set-retry-after-header-in-nmi-response)).|
 
-## `WorkloadIdentityCredential` authentication issues
+## Troubleshooting WorkloadIdentityCredential
+
+When using the `WorkloadIdentityCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error |Description| Mitigation |  
 |---|---|---|  
-|`CredentialUnavailableException` raised with message. "WorkloadIdentityCredential authentication unavailable. The workload options are not fully configured."|The `WorkloadIdentityCredential` requires `clientId`, `tenantId` and `tokenFilePath` to authenticate with Azure Active Directory.| <ul><li>If using `DefaultAzureCredential` then:</li><ul><li>Ensure client ID is specified via `workloadIdentityClientId` setter or `AZURE_CLIENT_ID` env variable.</li><li>Ensure tenant ID is specified via `AZURE_TENANT_ID` env variable.</li><li>Ensure token file path is specified via `AZURE_FEDERATED_TOKEN_FILE` env variable.</li><li>Ensure authority host is specified via `AZURE_AUTHORITY_HOST` env variable.</ul><li>If using `WorkloadIdentityCredential` then:</li><ul><li>Ensure tenant ID is specified via `tenantId` setter on credential builder or `AZURE_TENANT_ID` env variable.</li><li>Ensure client ID is specified via `clientId` setter on the credential builder or `AZURE_CLIENT_ID` env variable.</li><li>Ensure token file path is specified via `tokenFilePath` setter on the credential builder or `AZURE_FEDERATED_TOKEN_FILE` environment variable. </li></ul></li><li>Consult the [product troubleshooting guide](https://azure.github.io/azure-workload-identity/docs/troubleshooting.html) for other issues.</li></ul>
+|"WorkloadIdentityCredential authentication unavailable. The workload options are not fully configured."|The `WorkloadIdentityCredential` requires `clientId`, `tenantId` and `tokenFilePath` to authenticate with Azure Active Directory.| <ul><li>If using `DefaultAzureCredential` then:</li><ul><li>Ensure client ID is specified via `workloadIdentityClientId` setter or `AZURE_CLIENT_ID` env variable.</li><li>Ensure tenant ID is specified via `AZURE_TENANT_ID` env variable.</li><li>Ensure token file path is specified via `AZURE_FEDERATED_TOKEN_FILE` env variable.</li><li>Ensure authority host is specified via `AZURE_AUTHORITY_HOST` env variable.</ul><li>If using `WorkloadIdentityCredential` then:</li><ul><li>Ensure tenant ID is specified via `tenantId` setter on credential builder or `AZURE_TENANT_ID` env variable.</li><li>Ensure client ID is specified via `clientId` setter on the credential builder or `AZURE_CLIENT_ID` env variable.</li><li>Ensure token file path is specified via `tokenFilePath` setter on the credential builder or `AZURE_FEDERATED_TOKEN_FILE` environment variable. </li></ul></li><li>Consult the [product troubleshooting guide](https://azure.github.io/azure-workload-identity/docs/troubleshooting.html) for other issues.</li></ul>
 
 ## Next Steps
 
@@ -102,3 +104,4 @@ If the troubleshooting guidance above does not help to resolve issues when using
 
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
+[logging_link]: /azure/developer/java/sdk/troubleshooting-authentication-overview#enable-and-configure-logging

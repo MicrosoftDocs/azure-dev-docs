@@ -20,6 +20,8 @@ Topics covered in this article include:
 * [IntelliJ credential](#intellij-credential)
 * [Visual Studio Code credential](#visual-studio-code-credential)
 
+For troubleshooting development environment authentication issues, refer to the [troubleshooting development environment authentication](/azure/developer/java/sdk/troubleshooting-authentication-dev-env) documentation.
+
 ## Device code credential
 
 The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
@@ -193,6 +195,8 @@ This article covered authentication during development using credentials availab
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
+
+If you run into issues related to development environment authentication, you can refer to the [troubleshooting development environment authentication](/azure/developer/java/sdk/troubleshooting-authentication-dev-env) documentation.
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

@@ -10,9 +10,9 @@ ms.author: jogiles
 
 # Troubleshooting Service Principal Authentication
 
-TODO
+This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications via service principal, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on service principal credential types](/azure/developer/java/sdk/identity-service-principal-auth).
 
-## `ClientSecretCredential` authentication issues
+## Troubleshooting ClientSecretCredential
 
 When using the `ClientSecretCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
@@ -22,7 +22,7 @@ When using the `ClientSecretCredential`, you may optionally try/catch for `Crede
 |AADSTS7000222|An expired client secret was provided.|Create a new client secret using the Azure portal. Details on creating a new client secret can be found [here](/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).|
 |AADSTS700016|The specified application wasn't found in the specified tenant.|Ensure the specified `clientId` and `tenantId` are correct for your application registration.  For multi-tenant apps, ensure the application has been added to the desired tenant by a tenant admin. To add a new application in the desired tenant, follow the instructions [here](/azure/active-directory/develop/howto-create-service-principal-portal).|
 
-## `ClientCertificateCredential` authentication issues
+## Troubleshooting ClientCertificateCredential
 
 When using the `ClientCertificateCredential`, you may optionally try/catch for `CredentialUnavailableException`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
@@ -31,9 +31,9 @@ When using the `ClientCertificateCredential`, you may optionally try/catch for `
 |AADSTS700027|Client assertion contains an invalid signature.|Ensure the specified certificate has been uploaded to the AAD application registration. Instructions for uploading certificates to the application registration can be found [here](/azure/active-directory/develop/howto-create-service-principal-portal#option-1-upload-a-certificate).|
 |AADSTS700016|The specified application wasn't found in the specified tenant.| Ensure the specified `clientId` and `tenantId` are correct for your application registration. For multi-tenant apps, ensure the application has been added to the desired tenant by a tenant admin. To add a new application in the desired tenant, follow the instructions [here](/azure/active-directory/develop/howto-create-service-principal-portal).|
 
-## `ClientAssertionCredential` authentication issues
+## Troubleshooting ClientAssertionCredential
 
-### AuthenticationRequiredError
+When using the `ClientAssertionCredential`, you may optionally try/catch for `AuthenticationRequiredError`. The table below shows the errors that this exception indicates, and methods of mitigation.
 
 | Error Code | Description | Mitigation |
 |---|---|---|

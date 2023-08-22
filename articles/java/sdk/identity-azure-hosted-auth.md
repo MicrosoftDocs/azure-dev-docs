@@ -17,6 +17,8 @@ This article covers the following topics:
 * [Default Azure credential](#default-azure-credential)
 * [Managed Identity credential](#managed-identity-credential)
 
+For troubleshooting authentication issues related to Azure hosted applications, refer to the [troubleshooting Azure hosted applications authentication](/azure/developer/java/sdk/troubleshooting-authentication-azure-hosted) documentation.
+
 ## Default Azure credential
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
@@ -154,6 +156,8 @@ This article covered authentication for applications hosted in Azure. This form 
 * [Azure authentication in development environments](identity-dev-env-auth.md)
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
+
+If you run into issues related to Azure hosted application authentication, you can refer to the [troubleshooting Azure hosted application authentication](/azure/developer/java/sdk/troubleshooting-authentication-azure-hosted) documentation.
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

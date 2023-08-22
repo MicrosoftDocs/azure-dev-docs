@@ -18,6 +18,8 @@ This article covers the following topics:
 * [Interactive browser credential](#interactive-browser-credential)
 * [Username password credential](#username-password-credential)
 
+For troubleshooting user credential authentication issues, refer to the [troubleshooting user credential authentication](/azure/developer/java/sdk/troubleshooting-authentication-user-credential) documentation.
+
 ## Device code credential
 
 The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
@@ -120,6 +122,8 @@ This article covered authentication with user credentials. This form of authenti
 * [Azure authentication in development environments](identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with service principals](identity-service-principal-auth.md)
+
+If you run into issues related to user credential authentication, you can refer to the [troubleshooting user credential authentication](/azure/developer/java/sdk/troubleshooting-authentication-user-credential) documentation.
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
