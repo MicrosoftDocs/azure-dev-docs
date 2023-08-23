@@ -86,6 +86,29 @@
             href: troubleshooting-authentication-user-credential.md  
           - name: Multi-tenant Authentication
             href: troubleshooting-authentication-multi-tenant.md  
+        - name: Messaging
+          expanded: false
+          items:
+            - name: Overview
+              href: troubleshooting-messaging-overview.md
+            - name: Event Hubs
+              expanded: false
+              items:
+              - name: Event Producer
+                href: troubleshooting-messaging-event-hubs-event-producer.md
+              - name: Event Processor
+                href: troubleshooting-messaging-event-hubs-event-processor.md
+              - name: Performance
+                href: troubleshooting-messaging-event-hubs-performance.md
+            - name: Service Bus
+              expanded: false
+              items:
+              - name: Service Bus Receiver
+                href: troubleshooting-messaging-service-bus-receiver.md
+              - name: Service Bus Processor
+                href: troubleshooting-messaging-service-bus-processor.md
+              - name: Performance
+                href: troubleshooting-messaging-service-bus-performance.md
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md          
         - name: Network issues
