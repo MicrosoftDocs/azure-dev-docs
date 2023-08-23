@@ -8,7 +8,9 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshoot EventProcessorClient issues
+# Troubleshooting Event Processor issues
+
+This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-overview.md).
 
 ## 412 precondition failures when using an event processor
 
@@ -57,11 +59,11 @@ If you're on the container, then size the container to have an "additional ~1 GB
 
 ## Processor client stops receiving
 
-The processor client often is continually running in a host application for days on end.  Sometimes, they notice that EventProcessorClient is not processing one or more partitions.  Usually, this is not enough information to determine why the exception occurred.  The EventProcessorClient stopping is the symptom of an underlying cause (i.e. race condition) that occurred while trying to recover from a transient error.  Please see [Filing Github issues](#filing-github-issues) for the information we require.
+The processor client often is continually running in a host application for days on end. Sometimes, they notice that EventProcessorClient is not processing one or more partitions. Usually, this is not enough information to determine why the exception occurred. The EventProcessorClient stopping is the symptom of an underlying cause (i.e. race condition) that occurred while trying to recover from a transient error. Please see [Filing Github issues](#filing-github-issues) for the information we require.
 
 ## Duplicate EventData received when processor is restarted
 
-The `EventProcessorClient` and Event Hub service guarantees an "at least once" delivery. Customers can add metadata to discern duplicate events. The answer to [Does Azure Event Hub guarantee an at-least once delivery?][StackOverflowAtLeastOnce] provides additional information.  If customers require only-once delivery, they may consider Service Bus, which waits for an acknowledgement from the client.  A comparison of the messaging services is documented in [Choosing between Azure messaging services][CompareMessagingServices].
+The `EventProcessorClient` and Event Hub service guarantees an "at least once" delivery. Customers can add metadata to discern duplicate events. The answer to [Does Azure Event Hub guarantee an at-least once delivery?][StackOverflowAtLeastOnce] provides additional information. If customers require only-once delivery, they may consider Service Bus, which waits for an acknowledgement from the client. A comparison of the messaging services is documented in [Choosing between Azure messaging services][CompareMessagingServices].
 
 ## Migrate from legacy to new client library
 

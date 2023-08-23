@@ -8,7 +8,7 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshoot performance issues
+# Troubleshooting performance issues
 
 ## Performance considerations for EventProcessorClient
 
