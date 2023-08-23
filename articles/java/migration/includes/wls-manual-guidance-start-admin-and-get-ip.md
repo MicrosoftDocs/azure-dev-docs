@@ -4,7 +4,7 @@ ms.author: haiche
 ms.date: 11/30/2022
 ---
 
-1. Start **adminVM**.
+5. Start **adminVM**.
 
    Use the [az vm start](/cli/azure/vm#az-vm-start) command to start the VM.
 

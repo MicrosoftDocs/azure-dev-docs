@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-tr
 
 # Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually
 
-This tutorial shows the steps to install Red Hat JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux(RHEL).
+This tutorial shows the steps to install Red Hat JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux (RHEL).
 
 In this tutorial, you learn how to do the following tasks:
 
@@ -66,7 +66,7 @@ This tutorial configures a Red Hat JBoss EAP cluster in domain mode with an admi
 
 ### Sign in to Azure
 
-If you haven't already, sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
+If you haven't already, sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and following the on-screen directions.
 
 ```azurecli
 az login
@@ -120,9 +120,9 @@ az network vnet subnet create \
     --address-prefixes 192.168.0.128/25
 ```
 
-### Create a Network Security Group(NSG) and assign subnets to it
+### Create a network security group and assign subnets to it
 
-Before we create VMs with public IPs, to secure the virtual network and subnets created previously, let's create a network security group.
+Before you create VMs with public IPs, create a network security group (NSG) to secure the virtual network and subnets created previously.
 
 Create a network security group by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The following example creates a network security group named `mynsg`:
 
@@ -160,7 +160,7 @@ az network nsg rule create \
     --direction Inbound
 ```
 
-Associate the subnets created previously to this network security group by using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
+Associate the subnets created previously to this network security group by using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update), as shown in the following example:
 
 ```azurecli
 az network vnet subnet update \
@@ -183,11 +183,11 @@ az network vnet subnet update \
 The Marketplace image that you use to create the VMs is `RedHat:RHEL:8_6:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
 
 > [!NOTE]
-> You can query all the available Red Hat Enterprise Linux images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
+> You can query all the available Red Hat Enterprise Linux images provided by Oracle with the [az vm image list](/cli/azure/vm/image#az-vm-image-list) command - for example: `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 >
 > If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
-You create a basic VM, install all required tools on it, take a snapshot of it, and then create replicas based on the snapshot.
+Create a basic VM, install all required tools on it, take a snapshot of it, and then create replicas based on the snapshot.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
@@ -209,6 +209,8 @@ az vm create \
 
 #### Install OpenJDK 11 and Red Hat JBoss EAP 7.4
 
+Use the following steps to install:
+
 1. Use the following command to get the public IP of `adminVM`:
 
    ```azurecli
@@ -225,7 +227,7 @@ az vm create \
    ssh azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
-Provide `Secret123456` as password.
+1. Provide `Secret123456` as the password.
 
 1. Configure firewall for ports by using the following command:
 
@@ -311,7 +313,7 @@ Provide `Secret123456` as password.
    sudo yum install java-11-openjdk -y
    ```
 
-   You should see many lines of output, ending with `Complete!`.
+   You should see many lines of output, ending with `Complete!`
 
 1. Use the following commands to install Red Hat JBoss EAP 7.4:
 
@@ -321,7 +323,7 @@ Provide `Secret123456` as password.
    sudo yum groupinstall -y jboss-eap7
    ```
 
-   For the second and third commands, you should see many lines of output, ending with `Complete!`.
+   For the second and third commands, you should see many lines of output, ending with `Complete!`
 
 1. Use the following commands set permission and TCP configurations:
 
@@ -341,13 +343,13 @@ Provide `Secret123456` as password.
    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
    ```
 
-Exit from the ssh connection by typing `exit`.
+1. Exit from the SSH connection by typing *exit*.
 
 ### Create machines for managed servers
 
-You've installed OpenJDK 11, and Red Hat JBoss EAP 7.4 on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've installed OpenJDK 11 and Red Hat JBoss EAP 7.4 on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
-This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then follow these steps:
+This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then use the following steps:
 
 1. Use the following command to stop `adminVM`:
 
@@ -355,7 +357,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
    az vm stop --resource-group abc1110rg --name adminVM
    ```
 
-1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
+1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk, as shown in the following example:
 
    ```azurecli
    export ADMIN_OS_DISK_ID=$(az vm show \
@@ -480,7 +482,7 @@ Now, all three machines are ready. Next, you configure a Red Hat JBoss EAP clust
 
 Configure the cluster with session replication enabled. For more information, see [Session Replication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/development_guide/clustering_in_web_applications#session_replication).
 
-To enable session replication, we use Red Hat JBoss EAP High Availability for the cluster. Microsoft Azure doesn't support JGroups discovery protocols that are based on UDP multicast. Although you may use other JGroups discovery protocols (such as a static configuration (`TCPPING`), a shared database (`JDBC_PING`), shared file system-based ping (`FILE_PING`), or `TCPGOSSIP`), we strongly recommend that you use the shared file discovery protocol specifically developed for Azure: `AZURE_PING`. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper).
+To enable session replication, use Red Hat JBoss EAP High Availability for the cluster. Microsoft Azure doesn't support JGroups discovery protocols that are based on UDP multicast. Although you may use other JGroups discovery protocols (such as a static configuration (`TCPPING`), a shared database (`JDBC_PING`), shared file system-based ping (`FILE_PING`), or `TCPGOSSIP`), we strongly recommend that you use the shared file discovery protocol specifically developed for Azure: `AZURE_PING`. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper).
 
 #### Create Azure storage account and Blob container for AZURE_PING
 
@@ -529,7 +531,7 @@ You should see the following output:
 
 This tutorial uses the Red Hat JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
-The following steps set up the domain controller configuration on `adminVM`. Use ssh to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of the adminVM was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
+The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of the adminVM was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
 
 First, use the following commands to configure the HA profile and JGroups using **AZURE_PING** protocol:
 
@@ -537,7 +539,7 @@ First, use the following commands to configure the HA profile and JGroups using 
 export HOST_VM_IP=$(hostname -I)
 export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
 export CONTAINER_NAME=azurepingcontainerabc1110rg
-export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-TLS/SSH>
+export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
 #-Configure the HA profile and JGroups using AZURE_PING protocol
@@ -566,7 +568,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
 
-# Save a copy of the domain.xml, later we need to share it with all host controllers
+# Save a copy of the domain.xml, later you need to share it with all host controllers
 cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
 ```
 
@@ -642,7 +644,7 @@ The output should look similar to the following example:
 Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the ssh connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
 
 After starting the Red Hat JBoss EAP service, you can access the management console via `http://<adminVM-public-IP>:9990` in your web browser.  Sign in with the configured username: `jbossadmin` and password `Secret123456`.
 
@@ -654,7 +656,7 @@ Select **Runtime** tab. In the left navigation pane, select **Topology**. You sh
 
 #### Configure host controllers(worker nodes)
 
-Use TLS/SSH to connect to the `mspVM1` as the `azureuser` user. Get the public IP address of the VM with this command:
+Use SSH to connect to the `mspVM1` as the `azureuser` user. Get the public IP address of the VM with this command:
 
 ```bash
 az vm show \
@@ -757,9 +759,9 @@ The output should look similar to the following example:
 Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the ssh connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
 
-Use TLS/SSH to connect to the `mspVM2` as the `azureuser` user. Get the public IP address of the VM with this command:
+Use SSH to connect to the `mspVM2` as the `azureuser` user. Get the public IP address of the VM with this command:
 
 ```bash
 az vm show \
@@ -769,7 +771,7 @@ az vm show \
     --query publicIps
 ```
 
-Repeat the above steps on `mspVM2`, and then exit the ssh connection by typing `exit`.
+Repeat the above steps on `mspVM2`, and then exit the SSH connection by typing `exit`.
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 
@@ -791,7 +793,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-You add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands. We only have the host controllers (work nodes) configured as backend servers.
+Next, add the backend servers to Application Gateway backend pool. Query backend IP addresses by using the following commands. You only have the host controllers (work nodes) configured as backend servers.
 
 ```azureclire
 export MSPVM1_NIC_ID=$(az vm show \
@@ -842,7 +844,7 @@ After the application gateway is created, you can see these new features:
 > [!NOTE]
 > This example sets up simple access to the Red Hat JBoss EAP servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
-> This example exposes the host controllers at port 8080. We deploy a sample application with database connection to the cluster in later steps.
+> This example exposes the host controllers at port 8080. You deploy a sample application with a database connection to the cluster in later steps.
 
 ## Connect Azure Database for PostgreSQL
 
