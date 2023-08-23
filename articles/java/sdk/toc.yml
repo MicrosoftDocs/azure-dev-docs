@@ -91,7 +91,7 @@
           items:
             - name: Event Hubs
               expanded: false
-              items:
+              items: 
               - name: Overview
                 href: troubleshooting-messaging-event-hubs-overview.md
               - name: Event Producer

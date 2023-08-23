@@ -1,6 +1,6 @@
 ---
-title: Messaging troubleshooting overview when using the Azure SDK for Java
-description: An overview of how to troubleshoot messaging-related issues related to using the Azure SDK for Java
+title: Troubleshooting Event Processor
+description: A troubleshooting guide for Event Hubs EventProcessor issues related to using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -8,7 +8,7 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Event Processor issues
+# Troubleshooting Event Processor
 
 This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-overview.md).
 
@@ -31,7 +31,7 @@ The entire error message looks something like this:
 
 This error is expected when load balancing occurs after EventProcessorClient instances are added or removed.  Load balancing is an ongoing process.  When using the BlobCheckpointStore with your consumer, every ~30 seconds (by default), the consumer will check to see which consumers have a claim for each partition, then run some logic to determine whether it needs to 'steal' a partition from another consumer.  The service mechanism used to assert exclusive ownership over a partition is known as the [Epoch][Epoch].
 
-However, if no instances are being added or removed, there is an underlying issue that should be addressed. See [Partition ownership changes a lot](#partition-ownership-changes-a-lot) for additional information and [Filing GitHub issues](#filing-github-issues).
+However, if no instances are being added or removed, there is an underlying issue that should be addressed. See [Partition ownership changes a lot](#partition-ownership-changes-a-lot) for additional information and [Filing GitHub issues][azsdkjava_github_repo_new_issue].
 
 ## High CPU usage
 
@@ -59,7 +59,7 @@ If you're on the container, then size the container to have an "additional ~1 GB
 
 ## Processor client stops receiving
 
-The processor client often is continually running in a host application for days on end. Sometimes, they notice that EventProcessorClient is not processing one or more partitions. Usually, this is not enough information to determine why the exception occurred. The EventProcessorClient stopping is the symptom of an underlying cause (i.e. race condition) that occurred while trying to recover from a transient error. Please see [Filing Github issues](#filing-github-issues) for the information we require.
+The processor client often is continually running in a host application for days on end. Sometimes, they notice that EventProcessorClient is not processing one or more partitions. Usually, this is not enough information to determine why the exception occurred. The EventProcessorClient stopping is the symptom of an underlying cause (i.e. race condition) that occurred while trying to recover from a transient error. Please see [Filing Github issues][azsdkjava_github_repo_new_issue] for the information we require.
 
 ## Duplicate EventData received when processor is restarted
 
