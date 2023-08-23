@@ -95,9 +95,9 @@
               expanded: false
               items:
               - name: Event Producer
-                href: troubleshooting-messaging-event-hubs-event-producer.md
+                href: troubleshooting-messaging-event-hubs-producer.md
               - name: Event Processor
-                href: troubleshooting-messaging-event-hubs-event-processor.md
+                href: troubleshooting-messaging-event-hubs-processor.md
               - name: Performance
                 href: troubleshooting-messaging-event-hubs-performance.md
             - name: Service Bus
