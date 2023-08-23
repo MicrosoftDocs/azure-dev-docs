@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Event Hubs
-description: A troubleshooting guide for Events Hubs issues related to using the Azure SDK for Java
+description: A troubleshooting guide for Events Hubs issues when using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

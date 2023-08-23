@@ -1,6 +1,6 @@
 ---
-title: Messaging troubleshooting overview when using the Azure SDK for Java
-description: An overview of how to troubleshoot messaging-related issues related to using the Azure SDK for Java
+title: Troubleshooting Service Bus
+description: A troubleshooting guide for Service Bus issues when using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -9,6 +9,8 @@ ms.author: jogiles
 ---
 
 # Troubleshooting Service Bus
+
+This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Service Bus Java client library, and mitigation steps to resolve these errors.
 
 ## Enable and configure logging
 

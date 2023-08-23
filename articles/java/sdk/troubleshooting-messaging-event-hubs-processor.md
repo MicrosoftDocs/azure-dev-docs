@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Event Processor
-description: A troubleshooting guide for Event Hubs EventProcessor issues related to using the Azure SDK for Java
+description: A troubleshooting guide for Event Hubs EventProcessor issues when using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -10,28 +10,28 @@ ms.author: jogiles
 
 # Troubleshooting Event Processor
 
-This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](./troubleshooting-messaging-overview).
 
 ## 412 precondition failures when using an event processor
 
-412 precondition errors occur when the client tries to take or renew ownership of a partition, but the local version of the ownership record is outdated. This occurs when another processor instance steals partition ownership. See [Partition ownership changes a lot](#partition-ownership-changes-a-lot) for more information.
+412 precondition errors occur when the client tries to take or renew ownership of a partition, but the local version of the ownership record is outdated. This occurs when another processor instance steals partition ownership. See [Partition ownership changes frequently](#partition-ownership-changes-frequently) for more information.
 
 ## Partition ownership changes frequently
 
 When the number of EventProcessorClient instances changes (i.e. added or removed), the running instances try to load-balance partitions between themselves. For a few minutes after the number of processors changes, partitions are expected to change owners. Once balanced, partition ownership should be stable and change infrequently. If partition ownership is changing frequently when the number of processors is constant, this likely indicates a problem. It is recommended that a GitHub issue with logs and a repro be filed in this case.
 
-## "...current receiver '<RECEIVER_NAME>' with epoch '0' is getting disconnected"
+## "...current receiver '&lt;RECEIVER_NAME&gt;' with epoch '0' is getting disconnected"
 
 The entire error message looks something like this:
 
 > New receiver 'nil' with higher epoch of '0' is created hence current receiver 'nil' with epoch '0'
 > is getting disconnected. If you are recreating the receiver, make sure a higher epoch is used.
-> TrackingId:<GUID>, SystemTracker:<NAMESPACE>:eventhub:<EVENT_HUB_NAME>|<CONSUMER_GROUP>,
+> TrackingId:&lt;GUID&gt;, SystemTracker:&lt;NAMESPACE&gt;:eventhub:&lt;EVENT_HUB_NAME&gt;|&lt;CONSUMER_GROUP&gt;,
 > Timestamp:2022-01-01T12:00:00}"}
 
 This error is expected when load balancing occurs after EventProcessorClient instances are added or removed.  Load balancing is an ongoing process.  When using the BlobCheckpointStore with your consumer, every ~30 seconds (by default), the consumer will check to see which consumers have a claim for each partition, then run some logic to determine whether it needs to 'steal' a partition from another consumer.  The service mechanism used to assert exclusive ownership over a partition is known as the [Epoch][Epoch].
 
-However, if no instances are being added or removed, there is an underlying issue that should be addressed. See [Partition ownership changes a lot](#partition-ownership-changes-a-lot) for additional information and [Filing GitHub issues][azsdkjava_github_repo_new_issue].
+However, if no instances are being added or removed, there is an underlying issue that should be addressed. See [Partition ownership changes frequently](#partition-ownership-changes-frequently) for additional information and [Filing GitHub issues][azsdkjava_github_repo_new_issue].
 
 ## High CPU usage
 
@@ -76,14 +76,12 @@ If the troubleshooting guidance above does not help to resolve issues when using
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
 [azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
-
 [MigrationGuide]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
-
 [HealthyHeapPattern]: https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/eventhubs/azure-messaging-eventhubs/docs/images/healthyheappattern.png
 
 <!-- learn.microsoft.com links -->
 [Epoch]: /azure/event-hubs/event-hubs-event-processor-host#epoch
+[CompareMessagingServices]: /azure/event-grid/compare-messaging-services
 
 <!-- external links -->
-[CompareMessagingServices]: https://learn.microsoft.com/azure/event-grid/compare-messaging-services
 [StackOverflowAtLeastOnce]: https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018

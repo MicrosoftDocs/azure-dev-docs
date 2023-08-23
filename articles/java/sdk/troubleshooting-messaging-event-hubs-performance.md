@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Event Hubs Performance
-description: A troubleshooting guide for Events Hubs performance issues related to using the Azure SDK for Java
+description: A troubleshooting guide for Events Hubs performance issues when using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -9,6 +9,8 @@ ms.author: jogiles
 ---
 
 # Troubleshooting Event Hubs performance
+
+This troubleshooting guide provides solutions to common performance problems that you might encounter when using the Event Hubs library in the Azure SDK for Java. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](./troubleshooting-messaging-overview).
 
 ## Performance considerations for EventProcessorClient
 
