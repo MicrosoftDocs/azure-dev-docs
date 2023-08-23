@@ -71,8 +71,8 @@
       items:
         - name: Overview
           href: troubleshooting-overview.md
-        - name: Authentication
-          expanded: true
+        - name: Identity and authentication
+          expanded: false
           items:
           - name: Overview
             href: troubleshooting-authentication-overview.md
@@ -89,11 +89,11 @@
         - name: Messaging
           expanded: false
           items:
-            - name: Overview
-              href: troubleshooting-messaging-overview.md
             - name: Event Hubs
               expanded: false
               items:
+              - name: Overview
+                href: troubleshooting-messaging-event-hubs-overview.md
               - name: Event Producer
                 href: troubleshooting-messaging-event-hubs-producer.md
               - name: Event Processor
@@ -101,14 +101,7 @@
               - name: Performance
                 href: troubleshooting-messaging-event-hubs-performance.md
             - name: Service Bus
-              expanded: false
-              items:
-              - name: Service Bus Receiver
-                href: troubleshooting-messaging-service-bus-receiver.md
-              - name: Service Bus Processor
-                href: troubleshooting-messaging-service-bus-processor.md
-              - name: Performance
-                href: troubleshooting-messaging-service-bus-performance.md
+              href: troubleshooting-messaging-service-bus-overview.md
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md          
         - name: Network issues
