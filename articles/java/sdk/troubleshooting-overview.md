@@ -18,6 +18,11 @@ Because troubleshooting can span such a wide topic area, we have developed the f
 * [Dependency conflicts](/azure/developer/java/sdk/troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
 * [Network issues](/azure/developer/java/sdk/troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
+As well as these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
+
+* [Event Hubs](./troubleshooting-messaging-event-hubs-overview)
+* [Service Bus](./troubleshooting-messaging-service-bus-overview)
+
 Beyond these documents, the following content gives guidance on making the best use of logging and exception handling, as it relates to the Azure SDK for Java.
 
 ## Logging in the Azure SDK for Java
