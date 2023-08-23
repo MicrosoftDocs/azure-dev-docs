@@ -284,7 +284,55 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Derive models from the `ETagEntityTableData` class:
+1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+
+    ``` bicep
+    resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
+        name: 'TodoItems'
+        parent: cosmosDatabase
+        properties: {
+            resource: {
+                id: 'TodoItems'
+                partitionKey: {
+                    paths: [
+                        '/Id'
+                    ]
+                    kind: 'Hash'
+                }
+                indexingPolicy: {
+                    indexingMode: 'consistent'
+                    automatic: true
+                    includedPaths: [
+                        {
+                            path: '/*'
+                        }
+                    ]
+                    excludedPaths: [
+                        {
+                            path: '/"_etag"/?'
+                        }
+                    ]
+                    compositeIndexes: [
+                        [
+                            {
+                                path: '/UpdatedAt'
+                                order: 'ascending'
+                            }
+                            {
+                                path: '/Id'
+                                order: 'ascending'
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+    ```
+
+   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.
+
+2. Derive models from the `ETagEntityTableData` class:
 
     ``` csharp
     public class TodoItem : ETagEntityTableData
@@ -294,19 +342,31 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-2. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
+3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  You may optionally include other settings.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
 
     ``` csharp
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
+        builder.Entity<TodoItem>(builder =>
+        {
+            // Store this model in a specific container.
+            builder.ToContainer("TodoItems");
+            // Do not include a discriminator for the model in the partition key.
+            builder.HasNoDiscriminator();
+            // Set the partition key to the Id of the record.
+            builder.HasPartitionKey(model => model.Id);
+            // Set the concurrency tag to the EntityTag property.
+            builder.Property(model => model.EntityTag).IsETagConcurrency();
+        });
         base.OnModelCreating(builder);
     }
     ```
 
-You can also set the container, partition key, and other Azure Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following:
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Azure Cosmos DB][cosmos-sample] available in the GitHub repository.
+* [Cosmos DB Sample][cosmos-sample].
+* [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.
+* [Cosmos DB index policy](/azure/cosmos-db/index-policy) documentation.
 
 ### PostgreSQL
 
