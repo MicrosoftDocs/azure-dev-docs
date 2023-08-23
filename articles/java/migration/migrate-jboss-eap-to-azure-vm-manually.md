@@ -13,12 +13,12 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-tr
 
 This tutorial shows the steps to install Red Hat JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux(RHEL).
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 >
 > - Create a custom virtual network and create the VMs within the network.
-> - Install the desired JDK and Red Hat JBoss EAP on the VMs by using the command-line manually.
+> - Install the desired JDK and Red Hat JBoss EAP on the VMs by using the command line manually.
 > - Configure a Red Hat JBoss EAP cluster in domain mode using the command-line interface(CLI).
 > - Configure a PostgreSQL datasource connection in the cluster.
 > - Deploy and run a sample Java EE application in the cluster.
@@ -43,7 +43,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
 
-    :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
+     :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
