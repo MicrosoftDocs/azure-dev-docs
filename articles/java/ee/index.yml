@@ -77,7 +77,7 @@ landingContent:
         links:
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure VMs manual guidance
+          - text: WebLogic to Azure VMs step-by-step guidance
             url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to AKS within custom VNET
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
@@ -97,6 +97,8 @@ landingContent:
         links:
           - text: JBoss EAP to Azure App Service
             url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+          - text: JBoss EAP to Azure VMs step-by-step guidance
+            url: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
   - title: Migrate WebSphere to Azure
     linkLists:
       - linkListType: quickstart
