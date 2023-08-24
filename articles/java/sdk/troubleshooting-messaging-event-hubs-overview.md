@@ -12,9 +12,9 @@ ms.author: jogiles
 
 This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Event Hubs library, and mitigation steps to resolve these errors. In addition to the general troubleshooting techniques and guidance that apply regardless of Event Hubs use case, there are additional pages linked to below for specific features of the Event Hubs library:
 
-* [Event Producer Troubleshooting](./troubleshooting-messaging-event-hubs-producer.md)
-* [Event Processor Troubleshooting](./troubleshooting-messaging-event-hubs-processor.md)
-* [Performance Troubleshooting](./troubleshooting-messaging-event-hubs-performance.md)
+* [Event Producer Troubleshooting](troubleshooting-messaging-event-hubs-producer.md)
+* [Event Processor Troubleshooting](troubleshooting-messaging-event-hubs-processor.md)
+* [Performance Troubleshooting](troubleshooting-messaging-event-hubs-performance.md)
 
 The remainder of this document will cover general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
 
@@ -98,7 +98,7 @@ For more information about the `Azure.Identity` library, check out our [Authenti
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](/azure/developer/java/sdk/logging-overview) and the [troubleshooting documentation](/azure/developer/java/sdk/troubleshooting-overview) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. Below are sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 

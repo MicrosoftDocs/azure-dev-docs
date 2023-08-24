@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Troubleshooting Event Hubs Producer
 
-This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
 ## Cannot set multiple partition keys for events in EventDataBatch
 

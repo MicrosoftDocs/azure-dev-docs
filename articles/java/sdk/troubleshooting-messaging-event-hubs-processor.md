@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Troubleshooting Event Processor
 
-This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
 ## 412 precondition failures when using an event processor
 

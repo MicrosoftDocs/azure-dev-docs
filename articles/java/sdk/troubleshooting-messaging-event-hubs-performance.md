@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Troubleshooting Event Hubs performance
 
-This troubleshooting guide provides solutions to common performance problems that you might encounter when using the Event Hubs library in the Azure SDK for Java. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](./troubleshooting-messaging-overview.md).
+This troubleshooting guide provides solutions to common performance problems that you might encounter when using the Event Hubs library in the Azure SDK for Java. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
 ## Using `processEvent` or `processEventBatch`
 

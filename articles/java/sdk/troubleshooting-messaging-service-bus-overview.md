@@ -14,7 +14,7 @@ This troubleshooting guide covers failure investigation techniques, common error
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](/azure/developer/java/sdk/logging-overview) and the [troubleshooting documentation](/azure/developer/java/sdk/troubleshooting-overview) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. Below are sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 
