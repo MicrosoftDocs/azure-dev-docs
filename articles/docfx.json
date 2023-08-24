@@ -164,6 +164,13 @@
       "python": "azure-python",
       "javascript": "azure-javascript"
     },
-    "markdownEngineName": "markdig"
+    "markdownEngineName": "markdig",
+    "rules": {
+      "sensitive-language-sl": {
+        "exclude": [
+          "java/migration/migrate-jboss-eap-to-azure-vm-manually.md"
+        ]
+      }
+    }
   }
 }
