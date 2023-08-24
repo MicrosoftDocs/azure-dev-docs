@@ -14,9 +14,9 @@ The Azure SDK for Java consists of many client libraries, as we built one (or mo
 
 Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
 
-* [Authentication troubleshooting](/azure/developer/java/sdk/troubleshooting-authentication) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
-* [Dependency conflicts](/azure/developer/java/sdk/troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
-* [Network issues](/azure/developer/java/sdk/troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
+* [Authentication troubleshooting](./troubleshooting-authentication-overview) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
+* [Dependency conflicts](./troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
+* [Network issues](./troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
 As well as these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
 
@@ -52,10 +52,12 @@ The above code changes the http request / response logging for a single client i
 | body             | Logs everything in BASIC, plus all the request and response body.    |
 | body_and_headers | Logs everything in HEADERS and BODY.                                 |
 
-**NOTE**: When logging request and response bodies, please ensure that they do not contain confidential information. When logging headers, the client library has a default set of headers that are considered safe to log. It is possible to add additional headers that are safe to log:
+**NOTE**: When logging request and response bodies, please ensure that they do not contain confidential information. When logging query parameters and headers, the client library has a default set of query parameters and headers that are considered safe to log. It is possible to add additional query parameters and headers that are safe to log:
 
 ```java
-clientBuilder.httpLogOptions(new HttpLogOptions().addAllowedHeaderName("safe-to-log-header-name"))
+clientBuilder.httpLogOptions(new HttpLogOptions()
+    .addAllowedHeaderName("safe-to-log-header-name")
+    .addAllowedQueryParamName("safe-to-log-query-parameter-name"))
 ```
 
 ## Exception handling in the Azure SDK for Java
@@ -97,5 +99,5 @@ If the troubleshooting guidance above does not help to resolve issues when using
 
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[logging_overview]:/azure/developer/java/sdk/logging-overview
+[logging_overview]: ./logging-overview
 [http_response_exception]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java

@@ -33,9 +33,9 @@ To distinguish these failures from failures in the service client, Azure Identit
 ```java
 // Create a secret client using the DefaultAzureCredential
 SecretClient client = new SecretClientBuilder()
-        .vaultUrl("https://myvault.vault.azure.net/")
-        .credential(new DefaultAzureCredentialBuilder().build())
-        .buildClient();
+    .vaultUrl("https://myvault.vault.azure.net/")
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
 
 try {
     KeyVaultSecret secret = client.geSecret("secret1");
