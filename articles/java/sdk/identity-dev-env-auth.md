@@ -20,7 +20,7 @@ Topics covered in this article include:
 * [IntelliJ credential](#intellij-credential)
 * [Visual Studio Code credential](#visual-studio-code-credential)
 
-For troubleshooting development environment authentication issues, refer to the [troubleshooting development environment authentication](/azure/developer/java/sdk/troubleshooting-authentication-dev-env) documentation.
+For troubleshooting development environment authentication issues, refer to the [troubleshooting development environment authentication](troubleshooting-authentication-dev-env.md) documentation.
 
 ## Device code credential
 
@@ -196,7 +196,7 @@ This article covered authentication during development using credentials availab
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
 
-If you run into issues related to development environment authentication, you can refer to the [troubleshooting development environment authentication](/azure/developer/java/sdk/troubleshooting-authentication-dev-env) documentation.
+If you run into issues related to development environment authentication, you can refer to the [troubleshooting development environment authentication](troubleshooting-authentication-dev-env.md) documentation.
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

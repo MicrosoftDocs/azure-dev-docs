@@ -16,7 +16,7 @@ This article looks at how the Azure Identity library supports Azure Active Direc
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, refer to the [troubleshooting service principal authentication](/azure/developer/java/sdk/troubleshooting-authentication-service-principal) documentation.
+For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
 
 ## Create a service principal with the Azure CLI
 
@@ -111,7 +111,7 @@ This article covered authentication via service principal. This form of authenti
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with User Credentials](identity-user-auth.md)
 
-If you run into issues related to service principal authentication, you can refer to the [troubleshooting service principal authentication](/azure/developer/java/sdk/troubleshooting-authentication-service-principal) documentation.
+If you run into issues related to service principal authentication, you can refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

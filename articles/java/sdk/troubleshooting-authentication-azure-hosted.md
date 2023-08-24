@@ -10,13 +10,13 @@ ms.author: jogiles
 
 # Troubleshooting Azure-hosted Applications Authentication
 
-This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on Azure-hosted credential types](/azure/developer/java/sdk/identity-azure-hosted-auth).
+This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on Azure-hosted credential types](identity-azure-hosted-auth.md).
 
 ## Troubleshooting DefaultAzureCredential
 
 | Error |Description | Mitigation |
 |---|---|---|
-|`CredentialUnavailableException` raised with message "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging][logging_link] to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshooting-environmentcredential)</li><li>[ManagedIdentityCredential](#troubleshooting-managedidentitycredential)</li><li>[VisualStudioCodeCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-visualstudiocodecredential)</li><li>[AzureCLICredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azureclicredential)</li><li>[AzurePowershellCredential](/azure/developer/java/sdk/troubleshooting-authentication-dev-env#troubleshooting-azurepowershellcredential)</li></ul> |
+|`CredentialUnavailableException` raised with message "DefaultAzureCredential failed to retrieve a token from the included credentials."|All credentials in the `DefaultAzureCredential` chain failed to retrieve a token, each throwing a `CredentialUnavailableException`| <ul><li>[Enable logging][logging_link] to verify the credentials being tried, and get further diagnostic information.</li><li>Consult the troubleshooting guide for underlying credential types for more information.</li><ul><li>[EnvironmentCredential](#troubleshooting-environmentcredential)</li><li>[ManagedIdentityCredential](#troubleshooting-managedidentitycredential)</li><li>[VisualStudioCodeCredential](troubleshooting-authentication-dev-env.md#troubleshooting-visualstudiocodecredential)</li><li>[AzureCLICredential](troubleshooting-authentication-dev-env.md#troubleshooting-azureclicredential)</li><li>[AzurePowershellCredential](troubleshooting-authentication-dev-env.md#troubleshooting-azurepowershellcredential)</li></ul> |
 |`HttpResponseException` raised from the client with a status code of 401 or 403|Authentication succeeded but the authorizing Azure service responded with a 401 (Authenticate), or 403 (Forbidden) status code. This can often be caused by the `DefaultAzureCredential` authenticating an account other than the intended or that the intended account does not have the correct permissions or roles assigned.| <ul><li>[Enable logging][logging_link] to determine which credential in the chain returned the authenticating token.</li><li>In the case a credential other than the expected is returning a token, look to bypass this by signing out of the corresponding development tool.`</li><li>Ensure that the correct role is assigned to the account being used. For example, a service specific role rather than the subscription Owner role.</li></ul>
 
 ## Troubleshooting EnvironmentCredential
@@ -105,4 +105,4 @@ If the troubleshooting guidance above does not help to resolve issues when using
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
 [azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
-[logging_link]: /azure/developer/java/sdk/troubleshooting-authentication-overview#enable-and-configure-logging
+[logging_link]: troubleshooting-authentication-overview.md#enable-and-configure-logging

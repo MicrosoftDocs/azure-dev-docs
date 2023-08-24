@@ -92,7 +92,7 @@ The `DefaultAzureCredential` used in this example authenticates an `AzureResourc
 
 ## Troubleshooting
 
-Refer to the [troubleshoot Azure Identity authentication issues](/azure/developer/java/sdk/troubleshooting-authentication-overview) documentation for guidance on troubleshooting Azure Identity authentication issues.
+Refer to the [troubleshoot Azure Identity authentication issues](troubleshooting-authentication-overview.md) documentation for guidance on troubleshooting Azure Identity authentication issues.
 
 ## Next steps
 
@@ -105,14 +105,5 @@ This article introduced the Azure Identity functionality available in the Azure 
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure
-[azure_sub]: https://azure.microsoft.com/free/
-[source]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity
-[aad_doc]: /azure/active-directory/
-[code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
-[keys_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys
-[logging]: https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets
-[eventhubs_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs
 [azure_core_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
-[javadoc]: https://azure.github.io/azure-sdk-for-java
-[jdk_link]: /java/azure/jdk

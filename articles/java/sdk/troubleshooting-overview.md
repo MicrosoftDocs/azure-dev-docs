@@ -10,18 +10,18 @@ ms.author: jogiles
 
 # Troubleshooting Overview
 
-The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. We ensure that all client libraries are built to a consistent, high standard, with [common patterns](/azure/developer/java/sdk/overview) for configuration, logging, exception handling, and troubleshooting. This document introduces many troubleshooting tools available to you, and links to other pages with further details.
+The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. We ensure that all client libraries are built to a consistent, high standard, with [common patterns](overview.md) for configuration, logging, exception handling, and troubleshooting. This document introduces many troubleshooting tools available to you, and links to other pages with further details.
 
 Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
 
-* [Authentication troubleshooting](./troubleshooting-authentication-overview) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
-* [Dependency conflicts](./troubleshooting-dependency-version-conflict) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
-* [Network issues](./troubleshooting-network) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
+* [Authentication troubleshooting](troubleshooting-authentication-overview.md) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
+* [Dependency conflicts](troubleshooting-dependency-version-conflict.md) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
+* [Network issues](troubleshooting-network.md) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
 As well as these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
 
-* [Event Hubs](./troubleshooting-messaging-event-hubs-overview)
-* [Service Bus](./troubleshooting-messaging-service-bus-overview)
+* [Event Hubs](troubleshooting-messaging-event-hubs-overview.md)
+* [Service Bus](troubleshooting-messaging-service-bus-overview.md)
 
 Beyond these documents, the following content gives guidance on making the best use of logging and exception handling, as it relates to the Azure SDK for Java.
 
@@ -91,7 +91,7 @@ asyncClient.getConfigurationSetting(setting)
 
 The Azure SDK for Java offers comprehensive tracing support, allowing you to see the flow of execution through your application code, as well as the client libraries you're using. You can enable tracing in Azure client libraries by using and configuring the [OpenTelemetry](https://opentelemetry.io) SDK or using an OpenTelemetry-compatible agent. OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
-For more detailed information on how to enable tracing in the Azure SDK for Java, see the [Azure SDK for Java tracing documentation](/azure/developer/java/sdk/tracing).
+For more detailed information on how to enable tracing in the Azure SDK for Java, see the [Azure SDK for Java tracing documentation](./tracing.md).
 
 ## Next Steps
 
@@ -99,5 +99,5 @@ If the troubleshooting guidance above does not help to resolve issues when using
 
 <!-- LINKS -->
 [azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[logging_overview]: ./logging-overview
+[logging_overview]: logging-overview.md
 [http_response_exception]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java

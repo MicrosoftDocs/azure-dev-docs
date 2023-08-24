@@ -209,6 +209,7 @@ By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SD
 
 If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then you need to exclude the Tomcat-native Boring SSL library. Note, based on our tests the performance of JDK SSL is 30% slower compared to Tomcat-Native Boring SSL. When `com.azure:azure-core:1.28.0` or later is being used, the HttpClient-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following to your POM:
 
+```xml
 <project>
   ...
   <dependencies>
@@ -228,6 +229,7 @@ If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then
   </dependencies>
   ...
 </project>
+````
 
 ## Next steps
 
