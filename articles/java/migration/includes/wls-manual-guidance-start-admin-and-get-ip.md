@@ -4,9 +4,7 @@ ms.author: haiche
 ms.date: 11/30/2022
 ---
 
-5. Start **adminVM**.
-
-   Use the [az vm start](/cli/azure/vm#az-vm-start) command to start the VM.
+5. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
 
    ```azurecli
    az vm start --resource-group abc1110rg --name adminVM

@@ -19,7 +19,7 @@ In this tutorial, you learn how to do the following tasks:
 >
 > - Create a custom virtual network and create the VMs within the network.
 > - Install the desired JDK and Red Hat JBoss EAP on the VMs by using the command line manually.
-> - Configure a Red Hat JBoss EAP cluster in domain mode using the command-line interface(CLI).
+> - Configure a Red Hat JBoss EAP cluster in domain mode using the command-line interface (CLI).
 > - Configure a PostgreSQL datasource connection in the cluster.
 > - Deploy and run a sample Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
@@ -43,7 +43,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
 
-     :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
+     :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of the Red Hat account window that shows the Account Type options with Personal selected." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
@@ -283,7 +283,7 @@ Use the following steps to install:
    # Completed on Wed Mar 29 22:39:23 2023
    ```
 
-1. Use the following commands to register the admin host to your Red Hat Subscription Management(RHSM) account:
+1. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
 
    ```bash
    export RHSM_USER=<your-rhsm-username>
@@ -527,13 +527,13 @@ You should see the following output:
 }
 ```
 
-#### Configure domain controller(admin node)
+#### Configure domain controller (admin node)
 
 This tutorial uses the Red Hat JBoss EAP management CLI commands to configure the domain controller. For more information, see [Management CLI Guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index).
 
-The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of the adminVM was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
+The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of `adminVM` was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
 
-First, use the following commands to configure the HA profile and JGroups using **AZURE_PING** protocol:
+First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
 
 ```bash
 export HOST_VM_IP=$(hostname -I)
@@ -644,19 +644,19 @@ The output should look similar to the following example:
 Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
-After starting the Red Hat JBoss EAP service, you can access the management console via `http://<adminVM-public-IP>:9990` in your web browser.  Sign in with the configured username: `jbossadmin` and password `Secret123456`.
+After starting the Red Hat JBoss EAP service, you can access the management console via `http://<adminVM-public-IP>:9990` in your web browser. Sign in with the configured username `jbossadmin` and password `Secret123456`.
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
-Select **Runtime** tab. In the left navigation pane, select **Topology**. You should see that for now our cluster only contains one domain controller:
+Select the **Runtime** tab. In the navigation pane, select **Topology**. You should see that for now your cluster only contains one domain controller:
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of cluster topology with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
 
-#### Configure host controllers(worker nodes)
+#### Configure host controllers (worker nodes)
 
-Use SSH to connect to the `mspVM1` as the `azureuser` user. Get the public IP address of the VM with this command:
+Use SSH to connect to `mspVM1` as the `azureuser` user. Get the public IP address of the VM with the following command:
 
 ```bash
 az vm show \
@@ -759,9 +759,9 @@ The output should look similar to the following example:
 Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
-Use SSH to connect to the `mspVM2` as the `azureuser` user. Get the public IP address of the VM with this command:
+Use SSH to connect to `mspVM2` as the `azureuser` user. Get the public IP address of the VM with the following command:
 
 ```bash
 az vm show \
@@ -771,11 +771,11 @@ az vm show \
     --query publicIps
 ```
 
-Repeat the above steps on `mspVM2`, and then exit the SSH connection by typing `exit`.
+Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing *exit*.
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of cluster topology with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
 
 ## Expose Red Hat JBoss EAP cluster with Azure Application Gateway
 
@@ -793,7 +793,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Next, add the backend servers to Application Gateway backend pool. Query backend IP addresses by using the following commands. You only have the host controllers (work nodes) configured as backend servers.
+Next, add the backend servers to Application Gateway backend pool. Query for backend IP addresses by using the following commands. You only have the host controllers (work nodes) configured as backend servers.
 
 ```azureclire
 export MSPVM1_NIC_ID=$(az vm show \
@@ -843,7 +843,7 @@ After the application gateway is created, you can see these new features:
 
 > [!NOTE]
 > This example sets up simple access to the Red Hat JBoss EAP servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
-
+>
 > This example exposes the host controllers at port 8080. You deploy a sample application with a database connection to the cluster in later steps.
 
 ## Connect Azure Database for PostgreSQL
@@ -852,66 +852,68 @@ This section shows you how to create a PostgreSQL instance on Azure and configur
 
 ### Create an Azure Database for PostgreSQL instance
 
-Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
+Use the following steps to create the database instance:
 
-```azurecli
-export DATA_BASE_USER=jboss
-export DATA_BASE_PASSWORD=Secret123456
+1. Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
 
-DB_SERVER_NAME="jbossdb$(date +%s)"
-az postgres server create \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME}  \
-    --location eastus \
-    --admin-user ${DATA_BASE_USER} \
-    --ssl-enforcement Enabled \
-    --admin-password ${DATA_BASE_PASSWORD} \
-    --sku-name GP_Gen5_2
-```
+   ```azurecli
+   export DATA_BASE_USER=jboss
+   export DATA_BASE_PASSWORD=Secret123456
 
-Use the following commands to allow access from Azure services:
+   DB_SERVER_NAME="jbossdb$(date +%s)"
+   az postgres server create \
+       --resource-group abc1110rg \
+       --name ${DB_SERVER_NAME}  \
+       --location eastus \
+       --admin-user ${DATA_BASE_USER} \
+       --ssl-enforcement Enabled \
+       --admin-password ${DATA_BASE_PASSWORD} \
+       --sku-name GP_Gen5_2
+   ```
 
-```azurecli
-# Write down the following names for later use
-export fullyQualifiedDomainName=$(az postgres server show \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME} \
-    --query "fullyQualifiedDomainName" \
-    --output tsv)
-export name=$(az postgres server show \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME} \
-    --query "name" \
-    --output tsv)
+1. Use the following commands to allow access from Azure services:
 
-az postgres server firewall-rule create \
-    --resource-group abc1110rg \
-    --server ${DB_SERVER_NAME} \
-    --name "AllowAllAzureIps" \
-    --start-ip-address 0.0.0.0 \
-    --end-ip-address 0.0.0.0
-```
+   ```azurecli
+   # Write down the following names for later use
+   export fullyQualifiedDomainName=$(az postgres server show \
+       --resource-group abc1110rg \
+       --name ${DB_SERVER_NAME} \
+       --query "fullyQualifiedDomainName" \
+       --output tsv)
+   export name=$(az postgres server show \
+       --resource-group abc1110rg \
+       --name ${DB_SERVER_NAME} \
+       --query "name" \
+       --output tsv)
 
-Use the following command to create the database:
+   az postgres server firewall-rule create \
+       --resource-group abc1110rg \
+       --server ${DB_SERVER_NAME} \
+       --name "AllowAllAzureIps" \
+       --start-ip-address 0.0.0.0 \
+       --end-ip-address 0.0.0.0
+   ```
 
-```azurecli
-az postgres db create \
-    --resource-group abc1110rg \
-    --server ${DB_SERVER_NAME} \
-    --name testdb
-```
+1. Use the following command to create the database:
+
+   ```azurecli
+   az postgres db create \
+       --resource-group abc1110rg \
+       --server ${DB_SERVER_NAME} \
+       --name testdb
+   ```
 
 ### Install driver
 
 Use the following steps to install the JDBC driver with the JBoss management CLI. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
 
-1. SSH to the `adminVM` by using the following command. You can skip this step if you already have a connection opened.
+1. SSH to `adminVM` by using the following command. You can skip this step if you already have a connection opened.
 
    ```bash
    ssh azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
-1. Use the following commands to download JDBC driver. Here, you use `postgresql-42.5.2.jar`. For more information about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
+1. Use the following commands to download JDBC driver. Here, you use *postgresql-42.5.2.jar*. For more information about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
 
    ```bash
    jdbcDriverName=postgresql-42.5.2.jar
@@ -929,15 +931,15 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
-You've started the database server, obtained the necessary resource ID and installed the JDBC driver, the steps in this section use the JBoss CLI to configure a datasource connection with the PostgreSQL instance created previously.
+You've started the database server, obtained the necessary resource ID, and installed the JDBC driver. Next, the steps in this section show you how to use the JBoss CLI to configure a datasource connection with the PostgreSQL instance you created previously.
 
-1. Open a terminal and SSH to the `adminVM` by using the following command:
+1. Open a terminal and SSH to `adminVM` by using the following command:
 
-    ```bash
-    ssh azureuser@$ADMIN_VM_PUBLIC_IP
-    ```
+   ```bash
+   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ```
 
-1. Create data source by using the following JBoss CLI command:
+1. Create data source by using the following commands:
 
    ```bash
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
@@ -951,54 +953,54 @@ You've started the database server, obtained the necessary resource ID and insta
    "data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
    ```
 
-After the above steps, you've successfully configured a data source named `java:jboss/datasources/JavaEECafeDB`.
+After these steps, you've successfully configured a data source named `java:jboss/datasources/JavaEECafeDB`.
 
 ## Deploy Java EE Cafe sample application
 
-This section shows how to deploy Java EE Cafe sample application to the Red Hat JBoss EAP cluster.
+Use the following steps to deploy Java EE Cafe sample application to the Red Hat JBoss EAP cluster:
 
-1. Following these instructions to build Java EE Cafe, assume you have a local environment with **Git** and **Maven** installed:
+1. Use the following steps to build Java EE Cafe. These steps assume you have a local environment with Git and Maven installed:
 
-   Use the following command to clone the source code from GitHub:
+   1. Use the following command to clone the source code from GitHub:
 
-   ```bash
-   git clone https://github.com/Azure/rhel-jboss-templates.git
-   ```
+      ```bash
+      git clone https://github.com/Azure/rhel-jboss-templates.git
+      ```
 
-   Use the following command to build the source code:
+   1. Use the following command to build the source code:
 
-   ```bash
-   mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
-   ```
+      ```bash
+      mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
+      ```
 
-   This command creates the file *eap-coffee-app/target/javaee-cafe.war*. You upload this file in the next step.
+      This command creates the file *eap-coffee-app/target/javaee-cafe.war*. You upload this file in the next step.
 
 1. Open a web browser and go to the management console at `http://<adminVM-public-IP>:9990`, then sign in with username `jbossadmin` and password `Secret123456`.
 
-1. Upload the *javaee-cafe.war* to the **Content Repository**.
+1. Use the following steps to upload the *javaee-cafe.war* to the **Content Repository**:
 
-   1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the left navigation panel.
-   1. Select the **Add** button and select **Upload Content**.
+   1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the navigation pane.
+   1. Select the **Add** button and then select **Upload Content**.
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload_content.png" alt-text="Screenshot of Upload Content." lightbox="media/migrate-jboss-eap-to-vm-manually/upload_content.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload_content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload_content.png":::
 
    1. Use the browser file chooser to select the *javaee-cafe.war* file.
    1. Select **Next**.
-   1. Accept the defaults on the next screen and select **Finish**.
+   1. Accept the defaults on the next screen and then select **Finish**.
    1. Select **View content**.
 
-1. Deploy an Application to the `main-server-group`.
+1. Use the following steps to deploy an application to `main-server-group`:
 
-   1. From **Content Repository**, select the `javaee-cafe.war`.
+   1. From **Content Repository**, select *javaee-cafe.war*.
    1. On the drop-down menu, select **Deploy**.
-   1. Select `main-server-group` as the server group for deploying `javaee-cafe.war`.
-   1. Select **Deploy** to start the deployment. You should see a notice as shown here.
+   1. Select `main-server-group` as the server group for deploying *javaee-cafe.war*.
+   1. Select **Deploy** to start the deployment. You should see a notice similar to the following screenshot:
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
-You've now finished configuring the Red Hat JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
+You've now finished configuring the Red Hat JBoss EAP cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
 
 1. Use the following command to obtain the public IP address of the Azure Application Gateway:
 
@@ -1011,12 +1013,12 @@ You've now finished configuring the Red Hat JBoss EAP cluster and deploying the 
    ```
 
 1. Open a web browser.
-1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`.  Don't forget the trailing slash.
-1. Try to add/remove coffees.
+1. Navigate to the application with the URL `http://<gateway-public-ip-address>/javaee-cafe/`. Don't forget the trailing slash.
+1. Try to add and remove coffees.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the Red Hat JBoss EAP cluster deployed on Azure VM, unregister the Red Hat JBoss EAP servers and remove Azure resources.
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the Red Hat JBoss EAP cluster deployed on an Azure VM, unregister the Red Hat JBoss EAP servers and remove the Azure resources.
 
 Use the following commands to unregister the Red Hat JBoss EAP servers and VMs from Red Hat subscription management:
 
