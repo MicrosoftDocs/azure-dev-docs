@@ -59,7 +59,7 @@ When submitting a bug, log messages from classes in the following packages are i
   * The exception is that the onDelivery message in ReceiveLinkHandler can be ignored.
 * `com.azure.messaging.servicebus.implementation`
 
-## Next Steps
+## Next steps
 
 If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
 

@@ -107,13 +107,13 @@ Environments like Databricks or Apache Spark have custom dependency management a
 
 For details on `azure-core`-specific dependencies and their versions, see [azure-core](https://search.maven.org/artifact/com.azure/azure-core/) at the Maven Central Repository. The following table shows some general considerations:
 
-| Dependency | Supported versions |
-| ---------- | ------------------ |
-| Jackson    | 2.10.0 and newer minor versions are compatible. For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section. |
-| SLF4J      | 1.7.* |
-| netty-tcnative-boringssl-static | 2.0.* |
-| netty-common | 4.1.* |
-| reactor-core | 3.X.* - Major and minor version numbers must exactly match the ones your `azure-core` version depends on. For more information, see the Project Reactor [policy on deprecations](https://github.com/reactor/.github/blob/main/SUPPORT.adoc#our-policy-on-deprecations). |
+| Dependency                      | Supported versions                                                                                                                                                                                                                                                      |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Jackson                         | 2.10.0 and newer minor versions are compatible. For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section.                                                                                                  |
+| SLF4J                           | 1.7.*                                                                                                                                                                                                                                                                   |
+| netty-tcnative-boringssl-static | 2.0.*                                                                                                                                                                                                                                                                   |
+| netty-common                    | 4.1.*                                                                                                                                                                                                                                                                   |
+| reactor-core                    | 3.X.* - Major and minor version numbers must exactly match the ones your `azure-core` version depends on. For more information, see the Project Reactor [policy on deprecations](https://github.com/reactor/.github/blob/main/SUPPORT.adoc#our-policy-on-deprecations). |
 
 ### Support for multiple Jackson versions
 

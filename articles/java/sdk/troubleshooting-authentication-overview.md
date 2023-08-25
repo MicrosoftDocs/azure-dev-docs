@@ -76,7 +76,7 @@ The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authe
 > [!CAUTION]
 > Requests and responses in the Azure Identity library contain sensitive information. Precaution must be taken to protect logs when customizing the output to avoid compromising account security.
 
-## Next Steps
+## Next steps
 
 If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
 

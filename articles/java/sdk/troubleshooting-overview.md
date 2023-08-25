@@ -8,7 +8,7 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Overview
+# Troubleshooting overview
 
 The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. We ensure that all client libraries are built to a consistent, high standard, with [common patterns](overview.md) for configuration, logging, exception handling, and troubleshooting. This document introduces many troubleshooting tools available to you, and links to other pages with further details.
 
@@ -76,9 +76,9 @@ try {
 }
 ```
 
-With asynchronous clients, you can catch and handle exceptions in the error callbacks:
+With asynchronous clients, you can catch and handle exceptions in the error callbacks, as shown in the following example:
 
-```java readme-sample-troubleshootingExceptions-async
+```java
 ConfigurationSetting setting = new ConfigurationSetting().setKey("myKey").setValue("myValue");
 asyncClient.getConfigurationSetting(setting)
     .doOnSuccess(ignored -> System.out.println("Success!"))
@@ -93,7 +93,7 @@ The Azure SDK for Java offers comprehensive tracing support, allowing you to see
 
 For more detailed information on how to enable tracing in the Azure SDK for Java, see the [Azure SDK for Java tracing documentation](./tracing.md).
 
-## Next Steps
+## Next steps
 
 If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue on the projects GitHub page][azsdkjava_github_repo].
 

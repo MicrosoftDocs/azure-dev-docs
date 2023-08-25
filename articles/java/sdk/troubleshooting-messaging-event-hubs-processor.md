@@ -22,12 +22,14 @@ When the number of EventProcessorClient instances changes (i.e. added or removed
 
 ## "...current receiver '&lt;RECEIVER_NAME&gt;' with epoch '0' is getting disconnected"
 
-The entire error message looks something like this:
+The entire error message looks similar to the following output:
 
-> New receiver 'nil' with higher epoch of '0' is created hence current receiver 'nil' with epoch '0'
-> is getting disconnected. If you are recreating the receiver, make sure a higher epoch is used.
-> TrackingId:&lt;GUID&gt;, SystemTracker:&lt;NAMESPACE&gt;:eventhub:&lt;EVENT_HUB_NAME&gt;|&lt;CONSUMER_GROUP&gt;,
-> Timestamp:2022-01-01T12:00:00}"}
+```output
+New receiver 'nil' with higher epoch of '0' is created hence current receiver 'nil' with epoch '0'
+is getting disconnected. If you are recreating the receiver, make sure a higher epoch is used.
+TrackingId:&lt;GUID&gt;, SystemTracker:&lt;NAMESPACE&gt;:eventhub:&lt;EVENT_HUB_NAME&gt;|&lt;CONSUMER_GROUP&gt;,
+Timestamp:2022-01-01T12:00:00}"}
+```
 
 This error is expected when load balancing occurs after EventProcessorClient instances are added or removed.  Load balancing is an ongoing process.  When using the BlobCheckpointStore with your consumer, every ~30 seconds (by default), the consumer will check to see which consumers have a claim for each partition, then run some logic to determine whether it needs to 'steal' a partition from another consumer.  The service mechanism used to assert exclusive ownership over a partition is known as the [Epoch][Epoch].
 
@@ -69,7 +71,7 @@ The `EventProcessorClient` and Event Hub service guarantees an "at least once" d
 
 The [migration guide][MigrationGuide] includes steps on migrating from the legacy client and migrating legacy checkpoints.
 
-## Next Steps
+## Next steps
 
 If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
 

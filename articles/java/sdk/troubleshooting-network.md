@@ -36,7 +36,7 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 1. Open a Bash window and run the following command to import the certificate:
 
    ```bash
-   sudo keytool -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
+   sudo keytool -import -file <location-of-Fiddler-certificate> -keystore <location-of-cacert> -alias Fiddler
    ```
 
 1. Enter a password.
@@ -49,13 +49,13 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 1. Find the JRE's cacert (usually `jre\lib\security`).
 1. Open a PowerShell window in administrator mode and run the following command to import the certificate:
 
-   ```cmd
-   keytool.exe -import -trustcacerts -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
+   ```powershell
+   keytool.exe -import -trustcacerts -file <location-of-Fiddler-certificate> -keystore <location-of-cacert> -alias Fiddler
    ```
 
    For example, the following command uses some common values:
 
-   ```cmd
+   ```powershell
    keytool.exe -import -trustcacerts -file "C:\Users\username\Desktop\FiddlerRootCertificate.crt" -keystore "C:\Program Files\AdoptOpenJDK\jdk-8.0.275.1-hotspot\jre\lib\security\cacerts" -alias Fiddler
    ```
 
@@ -72,7 +72,7 @@ Capture filters reduce the number of network calls that are captured for analysi
 
 The following example adds a capture filter to capture network traffic sent to or received from a specific host.
 
-In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This filter will capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
+In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host-IP-or-hostname>`. This filter will capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
 ### Capture to disk
 
