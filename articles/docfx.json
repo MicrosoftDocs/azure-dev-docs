@@ -137,8 +137,10 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "javascript/**/*.md": "Azure"
-        
+        "javascript/**/*.md": "JavaScript on Azure",
+        "python/**/*.md": "Python on Azure",
+        "java/**/*.md": "Java on Azure",
+        "go/**/*.md": "Go on Azure"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
@@ -162,6 +164,13 @@
       "python": "azure-python",
       "javascript": "azure-javascript"
     },
-    "markdownEngineName": "markdig"
+    "markdownEngineName": "markdig",
+    "rules": {
+      "sensitive-language-sl": {
+        "exclude": [
+          "java/migration/migrate-jboss-eap-to-azure-vm-manually.md"
+        ]
+      }
+    }
   }
 }

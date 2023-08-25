@@ -17,7 +17,7 @@ metadata:
   author: KarlErickson #Required; your GitHub user alias, with correct capitalization.
   ms.author: fangjimmy #Required; microsoft alias of author; optional team alias.
   ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
-  ms.custom: devx-track-java, spring-cloud-azure
+  ms.custom: devx-track-java, devx-track-extended-java, spring-cloud-azure
 
 # highlightedContent section (optional)
 # Maximum of 8 items

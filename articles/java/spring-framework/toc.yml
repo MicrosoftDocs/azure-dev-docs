@@ -136,6 +136,8 @@ items:
       href: resource-handling.md
     - name: Secret management
       href: secret-management.md
+    - name: App configuration support
+      href: app-configuration-support.md
     - name: Spring Data support
       href: spring-data-support.md
     - name: Spring Security support
@@ -145,7 +147,11 @@ items:
     - name: Spring Cloud Stream support
       href: spring-cloud-stream-support.md
     - name: Spring JMS support
-      href: spring-jms-support.md
+      items:
+      - name: Use Azure Service Bus with JMS
+        href: spring-jms-support.md
+      - name: Troubleshooting guide
+        href: spring-jms-troubleshooting-guide.md
     - name: MySQL support
       href: mysql-support.md
     - name: PostgreSQL support

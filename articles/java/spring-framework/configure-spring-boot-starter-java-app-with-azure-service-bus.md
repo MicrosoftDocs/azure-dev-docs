@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/06/2023
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, passwordless-java
 ---
 
 # Use JMS in Spring to access Azure Service Bus
@@ -23,6 +23,12 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 > [!VIDEO https://www.youtube.com/embed/9O3CALyoZHE?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
+In this tutorial, we include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+
+Azure AD authentication is a mechanism for connecting to Azure Service Bus JMS using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+SAS authentication uses the connection string of your Azure Service Bus namespace for the delegated access to Service Bus JMS. If you choose to use Shared Access Signatures as credentials, you need to manage the connection string by yourself.
+
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
@@ -30,8 +36,6 @@ The following video describes how to integrate Spring JMS applications with Azur
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 
 - [Apache Maven](http://maven.apache.org/), version 3.2 or higher.
-
-- [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
 - A queue or topic for Azure Service Bus. If you don't have one, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
@@ -54,7 +58,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.8.0</version>
+        <version>4.10.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -63,7 +67,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.1.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.4.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Service Bus JMS Starter artifact:
@@ -83,33 +87,11 @@ Use the following steps to configure your application to use a Service Bus queue
 
    #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 
-   ```properties
-   spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
-   ```
-
-   The following table describes the fields in the configuration:
-
-   | Field                                     | Description                                                                                     |
-   |-------------------------------------------|-------------------------------------------------------------------------------------------------|
-   | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
-   | `spring.jms.servicebus.pricing-tier`      | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+   [!INCLUDE [spring-jms-passwordless-queue.md](includes/spring-jms-passwordless-queue.md)]
 
    #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
-   ```properties
-   spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-   spring.jms.servicebus.topic-client-id=<ServiceBusSubscriptionID>
-   spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
-   ```
-
-   The following table describes the fields in the configuration:
-
-   | Field                                     | Description                                                                                     |
-   |-------------------------------------------|-------------------------------------------------------------------------------------------------|
-   | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
-   | `spring.jms.servicebus.pricing-tier`      | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
-   | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.       |
+   [!INCLUDE [spring-jms-passwordless-topic.md](includes/spring-jms-passwordless-topic.md)]
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
     ---
@@ -146,7 +128,7 @@ Use the following steps to configure your application to use a Service Bus queue
        @Override
        public void run(String... args) {
            LOGGER.info("Sending message");
-           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello Word");
+           jmsTemplate.convertAndSend(QUEUE_NAME, "Hello World");
        }
 
        @JmsListener(destination = QUEUE_NAME, containerFactory = "jmsListenerContainerFactory")
@@ -190,7 +172,7 @@ Use the following steps to configure your application to use a Service Bus queue
        @Override
        public void run(String... args) {
            LOGGER.info("Sending message");
-           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello Word");
+           jmsTemplate.convertAndSend(TOPIC_NAME, "Hello World");
        }
 
        @JmsListener(destination = TOPIC_NAME, containerFactory = "topicJmsListenerContainerFactory",
@@ -209,14 +191,12 @@ Use the following steps to configure your application to use a Service Bus queue
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. You should see `Sending message` and `Hello Word` posted to your application log, as shown in the following example output:
+1. Start the application. You should see `Sending message` and `Hello World` posted to your application log, as shown in the following example output:
 
    ```output
    Sending message
-   Message received: Hello Word
+   Message received: Hello World
    ```
-
----
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 

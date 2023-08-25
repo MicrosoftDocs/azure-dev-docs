@@ -10,7 +10,7 @@ ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javae
 
 # Migrate JBoss EAP applications to Azure Red Hat OpenShift
 
-This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on Azure Red Hat OpenShift (ARO).
+This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on Azure Red Hat OpenShift.
 
 ## Pre-migration
 
@@ -20,11 +20,11 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Determine whether the prebuilt Azure Marketplace offer is a good starting point
 
-First, decide that Azure Red Hat OpenShift (ARO) is the appropriate deployment target. Next, decide whether or not the prebuilt [Azure Marketplace offer](https://aka.ms/eap-aro-portal) is a good starting point. Consider the following points about the prebuilt Azure Marketplace offer:
+First, decide that Azure Red Hat OpenShift is the appropriate deployment target. Next, decide whether or not the prebuilt [Azure Marketplace offer](https://aka.ms/eap-aro-portal) is a good starting point. Consider the following points about the prebuilt Azure Marketplace offer:
 
-- Red Hat and Microsoft created this offer to enable quickly provisioning JBoss EAP on ARO.
+- Red Hat and Microsoft created this offer to enable quickly provisioning JBoss EAP on Azure Red Hat OpenShift.
 - At a high level, the offer automates the following steps for you.
-  - Install the EAP Operator on ARO.
+  - Install the EAP Operator on Azure Red Hat OpenShift.
   - Build an application image using eap-s2i-build template. For more information about Source-to-image (S2I), see [Using OpenJDK 11 source-to-image for OpenShift](https://access.redhat.com/documentation/en-us/openjdk/11/html/using_openjdk_11_source-to-image_for_openshift/index).
   - Deploy the Java application using the EAP Operator. For more information, see the reference documentation for EAP Operator at [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_online/eap-operator-for-automating-application-deployment-on-openshift_default).
 
@@ -44,7 +44,7 @@ Document the hardware (memory, CPU, disk) of the current production server(s) an
 - To understand the amount of memory to be used by the container.
 - To know how many CPU shares the container needs.
 
-It's possible to resize node pools in ARO. For more information, see [Resizing a cluster--Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/manage_cluster/resizing-a-cluster#microsoft-azure) in the Red Hat documentation.
+It's possible to resize node pools in Azure Red Hat OpenShift. For more information, see [Resizing a cluster--Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/manage_cluster/resizing-a-cluster#microsoft-azure) in the Red Hat documentation.
 
 ### Inventory all secrets
 
@@ -97,7 +97,7 @@ Determine which of the following customizations have been made, and capture what
 - Are there any specific parameters passed to the JVM?
 - Are there JARs added to the server classpath?
 
-These customizations need to be captured in the container image running on ARO. For more information, see [Configuring the JBoss EAP for OpenShift Image for Your Java Application](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_container_platform/configuring_eap_openshift_image) in the Red Hat documentation.
+These customizations need to be captured in the container image running on Azure Red Hat OpenShift. For more information, see [Configuring the JBoss EAP for OpenShift Image for Your Java Application](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_container_platform/configuring_eap_openshift_image) in the Red Hat documentation.
 
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 

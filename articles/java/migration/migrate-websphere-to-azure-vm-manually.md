@@ -29,7 +29,7 @@ You might prefer a fully automated solution that does all of these steps on your
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Install Azure CLI version 2.43.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an IBMid. If you don't have one, create an IBM account at [Log in to IBM](https://myibm.ibm.com/dashboard/) and select **Create an IBMid**. Make note of your IBMid password and email.
@@ -272,9 +272,9 @@ You store all the installation files and configurations to the data disk. Use th
 1. Use the following commands to create directories for installation files and configuration files:
 
    ```bash
-   IM_INSTALL_DIRECTORY=/datadrive/IBM/InstallationManager/V1.9
-   WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V9
-   IM_SHARED_DIRECTORY=/datadrive/IBM/IMShared
+   export IM_INSTALL_DIRECTORY=/datadrive/IBM/InstallationManager/V1.9
+   export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V9
+   export IM_SHARED_DIRECTORY=/datadrive/IBM/IMShared
    mkdir -p ${IM_INSTALL_DIRECTORY}
    mkdir -p ${WAS_ND_INSTALL_DIRECTORY}
    mkdir -p ${IM_SHARED_DIRECTORY}
@@ -426,7 +426,7 @@ Use the following command to download PostgreSQL JDBC driver and store it. This 
 
 ```bash
 mkdir -p "/datadrive/externallibs"
-DRIVER_PATH="/datadrive/externallibs/postgresql-42.5.0.jar"
+export DRIVER_PATH="/datadrive/externallibs/postgresql-42.5.0.jar"
 curl -L https://jdbc.postgresql.org/download/postgresql-42.5.0.jar -o ${DRIVER_PATH}
 ```
 
@@ -447,7 +447,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
    ```azurecli
-   ADMIN_OS_DISK_ID=$(az vm show \
+   export ADMIN_OS_DISK_ID=$(az vm show \
        --resource-group abc1110rg \
        --name adminVM \
        --query storageProfile.osDisk.managedDisk.id \
@@ -461,7 +461,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk.
 
    ```azurecli
-   ADMIN_DATA_DISK_ID=$(az vm show \
+   export ADMIN_DATA_DISK_ID=$(az vm show \
        --resource-group abc1110rg \
        --name adminVM \
        --query 'storageProfile.dataDisks[0].managedDisk.id' \
@@ -476,13 +476,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ```azurecli
    # Get the snapshot ID.
-   OS_SNAPSHOT_ID=$(az snapshot show \
+   export OS_SNAPSHOT_ID=$(az snapshot show \
        --name myAdminOSDiskSnapshot \
        --resource-group abc1110rg \
        --query '[id]' \
        --output tsv)
 
-   DATA_SNAPSHOT_ID=$(az snapshot show \
+   export DATA_SNAPSHOT_ID=$(az snapshot show \
        --name myAdminDataDiskSnapshot \
        --resource-group abc1110rg \
        --query '[id]' \
@@ -662,12 +662,32 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
 1. Use the following commands to get and show the private IP addresses, which you use in later sections:
 
    ```azurecli
-   ADMINVM_NIC_ID=$(az vm show --resource-group abc1110rg --name adminVM --query networkProfile.networkInterfaces'[0]'.id --output tsv)
-   ADMINVM_IP=$(az network nic show --ids ${ADMINVM_NIC_ID} --query ipConfigurations'[0]'.privateIpAddress --output tsv)
-   MSPVM1_NIC_ID=$(az vm show --resource-group abc1110rg --name mspVM1 --query networkProfile.networkInterfaces'[0]'.id --output tsv)
-   MSPVM1_IP=$(az network nic show --ids ${MSPVM1_NIC_ID} --query ipConfigurations'[0]'.privateIpAddress --output tsv)
-   MSPVM2_NIC_ID=$(az vm show --resource-group abc1110rg --name mspVM2 --query networkProfile.networkInterfaces'[0]'.id --output tsv)
-   MSPVM2_IP=$(az network nic show --ids ${MSPVM2_NIC_ID} --query ipConfigurations'[0]'.privateIpAddress --output tsv)
+   export ADMINVM_NIC_ID=$(az vm show \
+       --resource-group abc1110rg \
+       --name adminVM \
+       --query networkProfile.networkInterfaces'[0]'.id \
+       --output tsv)
+   export ADMINVM_IP=$(az network nic show \
+       --ids ${ADMINVM_NIC_ID} 
+       --query ipConfigurations'[0]'.privateIPAddress \
+       --output tsv)
+   export MSPVM1_NIC_ID=$(az vm show \
+       --resource-group abc1110rg \
+       --name mspVM1 \
+       --query networkProfile.networkInterfaces'[0]'.id \
+       --output tsv)
+   export MSPVM1_IP=$(az network nic show \
+       --ids ${MSPVM1_NIC_ID} \
+       --query ipConfigurations'[0]'.privateIPAddress \
+       --output tsv)
+   export MSPVM2_NIC_ID=$(az vm show \
+       --resource-group abc1110rg \
+       --name mspVM2 --query networkProfile.networkInterfaces'[0]'.id \
+       --output tsv)
+   export MSPVM2_IP=$(az network nic show \
+       --ids ${MSPVM2_NIC_ID} \
+       --query ipConfigurations'[0]'.privateIPAddress \
+       --output tsv)
    echo "Private IP of adminVM: ${ADMINVM_IP}"
    echo "Private IP of mspVM1: ${MSPVM1_IP}"
    echo "Private IP of mspVM2: ${MSPVM2_IP}"
@@ -796,7 +816,7 @@ Use the following steps to create and configure the management profile:
 1. To start the deployment manager automatically at boot, create a Linux service for the process. Run the following commands to create a Linux service:
 
    ```bash
-   PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -944,7 +964,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
 1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
    ```bash
-   PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1084,7 +1104,7 @@ Now, use the following steps to configure a custom profile on `mspVM2`:
 1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
    ```bash
-   PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1192,7 +1212,7 @@ Run the following commands in the shell where you have Azure CLI installed. This
 Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
 
 ```azurecli
-DB_SERVER_NAME="wasdb$(date +%s)"
+export DB_SERVER_NAME="wasdb$(date +%s)"
 az postgres server create \
     --resource-group abc1110rg \
     --name ${DB_SERVER_NAME}  \
@@ -1311,7 +1331,7 @@ Use the following steps to create the gateway:
        --allocation-method Static \
        --sku Standard
 
-   APPGATEWAY_IP=$(az network public-ip show \
+   export APPGATEWAY_IP=$(az network public-ip show \
        --resource-group abc1110rg \
        --name myAGPublicIPAddress \
        --query '[ipAddress]' \
@@ -1472,7 +1492,7 @@ az network nic ip-config update \
     --nic-name adminVMVMNic \
     --public-ip-address myAdminVMPublicIPAddress
 
-ADMIN_PUBLIC_IP=$(az network public-ip show \
+export ADMIN_PUBLIC_IP=$(az network public-ip show \
     --resource-group abc1110rg \
     --name myAdminVMPublicIPAddress \
     --query '[ipAddress]' \

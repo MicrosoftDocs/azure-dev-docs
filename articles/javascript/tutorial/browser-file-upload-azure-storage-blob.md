@@ -1,554 +1,446 @@
 ---
 title: "JavaScript: Upload image to Blob Storage"
-description: Use a React Static Web App with TypeScript or JavaScript to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+titleSuffix: JavaScript on Azure
+description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 07/20/2023
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
+# CustomerIntent: As a JavaScript developer new to Azure, I want learn how to upload a file to Azure Storage in a web app so that know how to browser to do the actual file upload without exposing authentication secrets on the client.'
 ---
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and an Azure Storage SAS token. 
+Use a static web app to upload a file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package with an Azure Storage SAS token. 
 
-The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
+## Prerequisites
 
-## Application architecture and functionality
+* An Azure subscription; if you don't already have an Azure subscription, you can sign up for a [free Azure account].
+* [GitHub account](https://github.com/join) to fork and push to a repo.
 
-This article includes several top Azure tasks for JavaScript developers:
+## Application architecture 
 
-* Run a React app locally with Visual Studio Code
-* Create an **Azure Storage Blob** resource and configure for file uploads
-    * Configure CORS
-    * Create Shared access signatures (SAS) token
-* Configure code for Azure SDK client library to use SAS token to authenticate to service
-* Deploy to Static Web App with GitHub Action
+This application architecture includes two Azure resources:
 
-The sample React app consists of the following elements:
+* Azure Static Web Apps for the statically generated client application. The resource also provides the managed Azure Functions API. Managed means that the Static Web Apps resource manages the API resource for its own use.
+* Azure Storage for the blob storage. 
 
-#### [TypeScript](#tab/typescript)
+:::image type="content" source="media/browser-file-upload-azure-storage-blob/file-upload-request-flow.png" alt-text="Diagram showing how a customer interacts from their computer to use the website to upload a file to Azure Storage directly.":::
 
-* **[React app](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)** hosted on port 3000
-* **[Azure SDK client library script](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts)** to upload to Storage blobs
+|Step|Description|
+|:--|--|
+|1|The customer connects to the statically generated website. The website is hosted in [Azure Static Web Apps](/azure/static-web-apps/).|
+|2|The customer uses that website, to select a file to upload. For this tutorial, the front-end framework is [Vite React](https://vitejs.dev/guide/) and the file uploaded is an image file.|
+|3|The website calls the [Azure Functions](/azure/azure-functions/) API `sas` to get a SAS token based on the exact **filename** of the file to upload. The serverless API uses the Azure Blob Storage SDK to create the SAS token. The API returns the full URL to use to upload the file, which includes the SAS token as the query string.<br>`https://YOUR-STORAGE-NAME.blob.core.windows.net/YOUR-CONTAINER/YOUR-FILE-NAME?YOUR-SAS-TOKEN`|
+|4|The front-end website uses the SAS token URL to upload the file directly to [Azure Blob Storage](/azure/storage/blobs/).| 
 
+## Local and build environments
 
-#### [JavaScript](#tab/javascript)
+This tutorial uses the following environments:
 
-* **[React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.jsx)** hosted on port 3000
-* **[Azure SDK client library script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.js)** to upload to Storage blobs
+* Local development with GitHub CodeSpaces or Visual Studio Code.
+* Build and deploy with GitHub Actions.
 
---- 
+## 1. Fork sample application repository with GitHub
 
-:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Screenshot of web browser showing simple React app connected to Azure Storage blobs.":::
+This tutorial uses GitHub actions to deploy the sample application to Azure. You need a GitHub account and a fork of the sample application repository to complete that deployment. 
 
-## 1. Set up development environment
+1. In a web browser, use the following link to begin the fork for your own account of the sample repository: [Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps/fork).
+1. Complete the steps to fork the sample with the **main** branch only. 
 
-#### [TypeScript](#tab/typescript)
+## 2. Configure dev environment
 
-- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [TypeScript](https://www.typescriptlang.org/download)
-- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- Visual Studio Code extensions:
-    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
-    - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
+A [development container](https://containers.dev/) environment is available with all dependencies required to complete every exercise in this project. You can run the development container in GitHub Codespaces or locally using Visual Studio Code.
 
-#### [JavaScript](#tab/javascript)
+### [GitHub Codespaces](#tab/github-codespaces)
 
-- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- Visual Studio Code extensions:
-    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
-    - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this training module.
 
---- 
+> [!IMPORTANT]
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-## 2. Fork and clone the sample application
+1. In a web browser, on your GitHub fork of the sample repository, start the process to create a new GitHub Codespace on the `main` branch of your fork by selecting the **CODE** button.
 
-1. Open this GitHub sample URL in a web browser: 
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-button.png" alt-text="GitHub screenshot of Code Spaces buttons for a repository.":::
 
-    #### [TypeScript](#tab/typescript)
+1. On the **Codespaces** tab, select the ellipsis, `...`.
 
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-select.png" alt-text="GitHub screenshot of Code Spaces tab with ellipsis control highlighted.":::
+
+1. Select **+ New with options** to select a specific Codespaces dev container. 
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-select-new-with-options.png" alt-text="GitHub screenshot of Codespaces New with options menu item highlighted.":::
+
+1. Select the following options then select **Create codespace**.
+
+    * Branch: `main`
+    * Dev container configuration: `Tutorial: Upload file to storage with SAS Token`
+    * Region: accept default
+    * Machine type: accept default
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-new-with-options.png" alt-text="GitHub screenshot of Codespaces New with options menu with the following dev container highlighted, Tutorial: Upload file to storage with SAS Token.":::
+
+1. Wait for the codespace to start. This startup process can take a few minutes.
+
+1. Open a new terminal in the codespace.
+
+    > [!TIP]
+    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
+    >
+    > :::image type="content" source="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" lightbox="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" alt-text="Screenshot of the codespaces menu option to open a new terminal.":::
+
+1. Check the versions of the tools you use in this tutorial.
+
+    ```shell
+    node --version
+    npm --version
+    func --version
     ```
-    https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob
-    ```
 
-    #### [JavaScript](#tab/javascript)
-
-    ```
-    https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob
-    ```
-
-    ---
-
-1. Select **Fork** to create your own fork of this sample project. Your own GitHub fork is necessary to deploy this sample to Azure as a static web app.
-1. Select the **Code** button, then copy the Clone URL.
-1. In a bash terminal, clone your forked repository, replacing `REPLACE-WITH-YOUR-ACCOUNT-NAME` with your GitHub account name:
-
-    #### [TypeScript](#tab/typescript)
-
-    ```bash
-    git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/ts-e2e-browser-file-upload-storage-blob
-    ```
-
-    #### [JavaScript](#tab/javascript)
-
+    This tutorial requires the following versions of each tool, which are preinstalled in your environment:
     
-    ```bash
-    git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/js-e2e-browser-file-upload-storage-blob
-    ```
-    ---
+    | Tool | Version |
+    | --- | --- |
+    | Node.js | &ge; 18 |
+    | NPM | &ge; 9.5 |
+    | Azure Functions core tools| &ge; 4.5098|
 
+1. Close the terminal.
 
+1. The remaining steps in this tutorial take place in the context of this development container.
 
-1. Change into the new directory and open Visual Studio Code.
+### [Visual Studio Code](#tab/visual-studio-code)
 
-    #### [TypeScript](#tab/typescript)
+The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this training module.
 
-    ```bash
-    cd ts-e2e-browser-file-upload-storage-blob && code .
-    ```
+1. Open **Visual Studio Code** in the context of an empty directory.
 
-    #### [JavaScript](#tab/javascript)
+1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
 
-    ```bash
-    cd js-e2e-browser-file-upload-storage-blob && code .
-    ```
-    ---
+1. Open a new terminal in the editor.
 
+    > [!TIP]
+    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
+    >
+    > :::image type="content" source="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" lightbox="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
-
-## 3. Install dependencies and run local project
-
-1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, and run the following command to install the sample's dependencies.
-
-    ```bash
-    npm install
-    ```
-
-1. In the same terminal window, run the command to build and run the web app.
+1. Clone your fork into the current directory. Replace `YOUR-ACCOUNT` in the following command with your account name.
 
     ```bash
-    npm start
+    git clone https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps
     ```
 
-1. Open a web browser and use the following url to view the web app on your local computer.
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
-    ```url
-    http://localhost:3000/
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/reopen-container-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within the context of a development container.":::
+
+    > [!TIP]
+    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+    >
+    > :::image type="content" source="media/browser-file-upload-azure-storage-blob/reopen-container-toast.png" alt-text="Screenshot of a toast notification to reopen the current folder within the context of a development container.":::
+
+1. Check the versions of the tools you use in this tutorial.
+
+    ```shell
+    node --version
+    npm --version
+    func --version
     ```
 
-    If you see the simple web app in your browser with the text that the Storage isn't configured, you've succeeded with this section of the tutorial.
+     This tutorial requires the following versions of each tool, which are preinstalled in your environment:
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Screenshot of web browser showing simple Node.js app connected to MongoDB database.":::
+    | Tool | Version |
+    | --- | --- |
+    | Node.js | &ge; 18 |
+    | NPM | &ge; 9.5 |
+    | Azure Functions core tools| &ge; 4.5098|
 
-1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
+1. Close the terminal.
+
+1. The remaining steps in this tutorial take place in the context of this development container.
+
+---
+
+## 3. Install dependencies
+
+The sample app for this tutorial is in the `azure-upload-file-to-storage` folder. You won't need to use any other folders in the project. 
+
+1. In Visual Studio Code, open a terminal, and move to the project folder.
+
+    ```bash
+    cd azure-upload-file-to-storage
+    ``````
+
+1. Split the terminal so you have two terminals, one for the client app and one for the API app.
+1. In one of the terminals, run the following command to install the **API** app's dependencies and run the app.
+
+    ```bash
+    cd api && npm install
+    ```
+
+1. In the other terminal, run the command to install the **client app**.
+
+    ```bash
+    cd app && npm install
+    ```
 
 <a name="3-create-storage-resource-with-visual-studio-extension"></a>
 
 ## 4. Create Storage resource with Visual Studio extension
 
-1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
+Create the Storage resource to use with the sample app. Storage is used for:
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Screenshot of Visual Studio Code using the Azure extensions. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
+* Triggers in the Azure Functions app
+* Blob (file) storage
 
+1. Navigate to the Azure Storage extension.
+1. Sign in to Azure if necessary.
+1. Right-click on the subscription then select `Create Resource...`.
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-explorer-create-resource.png" alt-text="Screenshot of Visual Studio Code in the Azure Explorer with the right-click menu showing the Create Resource item highlighted.":::
+
+1. Select **Create Storage Account** from list.
 1. Follow the prompts using the following table to understand how to create your Storage resource.
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Select a location for new resources.|Use the recommended location.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="Screenshot of Visual Studio Code notification popup. When the app creation process is complete, a notification appears with information about the new resource.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-activity-log-storage-notification.png" lightbox="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-activity-log-storage-notification.png" alt-text="Screenshot of Visual Studio Code showing the Azure Activity Bar and the notification that the storage account was successfully created.":::
 
-## 5. Generate your shared access signature (SAS) token 
+## 5. Configure Storage CORS
 
-Create a SAS token for the container. A SAS token is a time-duration and permission limited token for delegating access to a container or blob in your Azure Storage account. 
+Because the browser is used to upload the file, the Azure Storage account needs to configure CORS to allow cross-origin requests.
 
-Select from the two available types:
+1. Navigate to the Azure Storage extension. Right-click on your storage resource and select **Open in Portal**.
+1. In the Azure portal storage account **Settings** section, select **Resource sharing (CORS)**. 
+1. Use the following properties to set CORS for this tutorial. 
 
-* User delegation SAS: Recommended. Signed with Azure AD account. Requires set up for role-based access control.
-* Service SAS: Signed with the storage account key.
+    * Allowed origins: `*`
+    * Allowed methods: All except patch
+    * Allowed headers: `*`
+    * Exposed headers: `*`
+    * Max age: 86400
 
-Once the SAS is created and distributed to a client, it's equally secure whether it's signed with the account key or with an Azure AD account. The user delegation SAS does have the advantage of being easier to revoke. 
+    These settings are used for this tutorial to simplify the steps and aren't meant to indicate best practices or security. Learn more about [CORS for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
-#### [User-delegated SAS (recommended)](#tab/user-delegated-sas)
+1. Select **Save**.
 
-Generate the [user-delegated SAS token](/rest/api/storageservices/create-user-delegation-sas) before configuring CORS. The **user-delegated SAS token** is recommended:
+## 6. Create upload container
 
-* To implement [least privileged access](/azure/active-directory/develop/secure-least-privileged-access) through Azure RBAC
-* To minimize access time range to 7 days or less
-* To reduce developer and devops access to resource key
-* To reduce burden of leaked key from key rotation to [revoking SAS token](/rest/api/storageservices/create-user-delegation-sas#revoke-a-user-delegation-sas)
+1. While still in the Azure portal storage account, in the **Data storage** section, select **Containers**.
+1. Select **+ Container** to create your `upload` container with the following settings:
 
-1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
-1. Create a container named **uploaded**. 
-1. Open the Cloud Shell in the portal.
+    * Name: `upload`
+    * Public access Level: `Blob`
+1. Select **Create**. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-cloud-shell-icon.png"alt-text="Screenshot of Azure portal icon bar with Cloud Shell button highlighted." :::
+## 7. Grant yourself Blob Data access
 
-1. Use the following command with your own values.
+While you created the resource, you don't have permission to view the contents of the container. That is reserved for specific IAM roles. Add your account so you can view the blobs in the containers.
 
-    ```azurecli
-    az storage account show --resource-group 'YOUR-RESOURCE-GROUP' --name 'YOUR-STORAGE-RESOURCE-NAME' --query id
-    ```
+1. Still in the Azure portal storage account, select **Access Control (IAM)**.
+1. Select **Add role assignments**. 
+1. Search and select **Storage Blob Data Contributor**. Select **Next**. 
+1. Select **+ Select members**. 
+1. Search and select your account.
+1. Select **Review + assign**.
+1. Select **Containers** then the **upload** container. You should be able to see there are no blobs in the container without authorization errors. 
 
-     This command returns a resource ID in the correct format: `/subscriptions/YOUR-SUBSCRIPTION/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/YOUR-STORAGE-RESOURCE-NAME`. 
+## 8. Get Storage resource credentials
 
-1. Copy the output, the resource ID, and use it in the following command to add role-based-access control to the storage account.
+The Storage resource credentials are used in the Azure Functions API app to connect to the Storage resource. 
 
-    ```azurecli
-    az role assignment create --assignee "YOUR-EMAIL" --role "Storage Blob Data Contributor" --scope "YOUR-RESOURCE-ID"
-    ```
+1. While still in the Azure portal, in the **Security + networking** section, select **Access keys**.
+1. Copy the resource key and paste it into the Functions app file `local.settings.json.sample` as the **Azure_Storage_AccountKey**. 
+1. Set the **Azure_Storage_AccountName** value in the `local.settings.json.sample` file as your Storage resource name. 
+1. While still on the same portal page, copy the connection string and paste it into the **AzureWebJobsStorage** property in the `local.settings.json` file.
 
-1. Select the container then right-click the row and select **Generate SAS**.
+It may seem like you entered the same credentials twice. You did, but specifically for this simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You'll need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-container-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
+## 9. Run the API app
 
-1. Configure the container **User delegation** SAS token with the following settings. If a setting isn't specified, don't change the setting.
+The Functions App to make sure it works correctly before deploying it to Azure.
 
-    | Property|Value|
-    |--|--|
-    |Signing method|User delegation key|
-    |Permissions|Read, create, write, list|
-    |Start and expiry date/time|Accept the start date/time and **set the expiry to 24 hours in the future**. A user-delgated SAS token can have a maximum expiry of 7 days after the start time.|
-    |HTTPS only|Selected|
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the user-delegated SAS token.":::
-
-1. Select **Generate SAS and URL**. 
-1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
-
-#### [Account key SAS](#tab/account-key-sas)
-
-Generate the [account SAS token](/rest/api/storageservices/create-account-sas) before configuring CORS. 
-
-1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
-1. Create a container named **uploaded**. 
-1. Select the container then right-click the row and select **Generate SAS**.
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-account-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-account-sas-token.png" alt-text="Screenshot of Azure portal with the container's right-click menu showing, with Generate SAS highlighted.":::
-
-1. Configure the container **Account** SAS token with the following settings. If a setting isn't specified, don't change the setting.
-
-    | Property|Value|
-    |--|--|
-    |Signing method|Account key|
-    |Permissions|Read, create, write, list|
-    |Start and expiry date/time|Accept the start date/time and **set the expiry to 24 hours in the future**. |
-    |HTTPS only|Selected|
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Screenshot of Azure portal for Azure Storage, configuring the service SAS token.":::
-
-1. Select **Generate SAS and URL**. 
-1. Immediately copy the **Blob SAS token**. You won't be able to list this token so if you don't have it copied, you'll need to regenerate a new SAS token. 
-
----
-
-<a name="set-sas-token-in-code-file"></a>
-
-## 6. Set Storage values in .env file
-
-The SAS token is used when queries are made to your cloud-based resource.
-1. Create a file name `.env` at the root of the project.
-1. Add two required variables with their storage values:
-
-    ```text
-    REACT_APP_AZURE_STORAGE_SAS_TOKEN=
-    REACT_APP_AZURE_STORAGE_RESOURCE_NAME=
-    ```
-
-    React builds the static files with these variables.
-
-1. If the token begins with a question mark, remove the `?`. The code file provides the `?` for you so you don't need it in the token.
-
-<a name="6-configure-cors-for-azure-storage-resource"></a>
-
-## 7. Configure CORS for Azure Storage resource
-
-Configure CORS for your resource so the client-side React code can access your storage account. 
-
-1. While still in the Azure portals, in the Settings section, select **Resource sharing (CORS)**. 
-1. Configure the Blob service CORS as show in the image. The settings are explained below the image. 
-
-    | Property|Value|
-    |--|--|
-    |Allowed origins|`*`|
-    |Allowed methods|All except patch.|
-    |Allowed headers|`*`|
-    |Exposed headers|`*`|
-    |Max age|86400|
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" lightbox="../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Screenshot showing the Azure portal for the Storage resource. Configure CORS as show in the image. The settings are explained below the image.":::
-
-    Once the application is deployed, you returned to this CORS form to add the URL for the static web app.
-
-1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings. 
-
-## 8. Run project locally to verify connection to Storage account
-
-Your SAS token and storage account name are pulled into the application from environment variables, so you're ready to run the application.
-
-1. If the app isn't running, start it again:
+1. Rename `local.settings.json.sample` to `local.settings.json`. 
+1. In the API app's terminal, run the following command to start the API app. 
 
     ```bash
-    npm start
+    npm run start
     ```
 
-1. Open the following URL in a browser:
+1. Wait until the Azure Functions app is started. You'll get a notice that the Azure Functions app's port, **7071** is now available. You should also see the APIs listed in the terminal for the API app.
 
-    `http://localhost:3000` 
+    ```console
+    Functions:
+    
+            list: [POST,GET] http://localhost:7071/api/list
+    
+            sas: [POST,GET] http://localhost:7071/api/sas
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="Screenshot showing web browser with the React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
+            status: [GET] http://localhost:7071/api/status
+    ```
 
-1. Select an image from the `images` folder to upload then select the **Upload!** button. 
+1. Select the **Ports** tab in the bottom pane then right-click the **7071** port and select **Port Visibility** then select **Public**.
 
-1. The React front-end client code calls into the `./src/azure-storage-blob` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+    If you don't expose this app as public, you'll get an error when you use the API from the client app. 
 
-## 9. Deploy static web app to Azure 
+1. To test that the API works and connects to storage, in the **Ports** tab in the bottom pane, select the globe icon in the **Local Address** area for port 7071. This opens a web browser to the functions app.
+1. Add the API route to the URL address bar: `/api/sas?container=upload&file=test.png`. 
+    It's ok that the file isn't in the container yet. The API creates the SAS token based on where you want it to be uploaded to. 
+1. The JSON response should look something like the following: 
+
+    ```JSON
+    {
+        "url":"https://YOUR-STORAGE-RESOURCE.blob.core.windows.net/upload/test.png?sv=2023-01-03&spr=https&st=2023-07-26T22%3A15%3A59Z&se=2023-07-26T22%3A25%3A59Z&sr=b&sp=w&sig=j3Yc..."
+    }
+    ```
+1. Copy the base of the API URL in the browser address bar (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`.
+
+## 10. Configure and run the client app
+
+1. Rename the `./azure-upload-file-to-storage/app/.env.sample` file to `.env`.
+1. Open the `.env` file and paste the base URL from the previous step as the value for the `VITE_API_SERVER`.
+1. In the other split terminal, start the client app with the following command:
+
+    ```bash
+    npm run dev
+    ```
+
+1. Wait until the terminal returns the following notice that the app is available on port **5173**.
+
+    ```console
+      VITE v4.4.4  ready in 410 ms
+    
+      ➜  Local:   https://localhost:5173/
+      ➜  Network: use --host to expose
+      ➜  press h to show help
+    ``` 
+
+1. Select the **Ports** tab in the bottom pane then right-click the **5173** port and select the globe icon.
+
+1. You should see the simple web app.
+
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Screenshot of web browser showing web app with Select File button available.":::
+
+1. Interact with the web app:
+
+    * Select an image file (*.jpg or *.png) from your local computer to upload. 
+    * Select the **Get a SAS** button to request a SAS token from the API app. The response shows the full URL to use to upload the file to Storage. 
+    * Select the **Upload** button to send the image file directly to Storage.
+    
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" lightbox="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Screenshot of web browser showing web app with the image file uploaded and a thumbnail of the file displayed.":::
+
+1. The client app and the API app successfully worked together in a containerized developer environment. 
+
+## 11. Deploy static web app to Azure 
+
+The Azure Functions app is using a preview feature, it must be deployed to **West US 2** to function properly.
 
 1. In Visual Studio Code, select the Azure explorer.
-1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes.
+1. Commit your changes in the Source Code explorer. 
+1. In the Azure Explorer, right-click on the subscription name then select `Create Resource...`.
+1. Select **Create Static Web App** from list.
+1. Follow the prompts using the following table to understand how to create your Static Web App resource.
 
-    To roll back the changes, in Visual Studio Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
-
-1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.    
+    |Property|Value|
+    |--|--|
+    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Select a location for new resources.|Use the recommended location.|
 
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
-    |*Enter the name for the new static web app.*|Create a unique name for your resource. For example, you can prepend your name to the repository name, such as `upload-file-to-storage`. |
     |*Select a resource group for new resources.*|Use the resource group that you created for your storage resource.|
-    |*Select a SKU*| Select the free SKU for this tutorial. If you already have a free Static Web App resource used, select the next pricing tier.|
-    |*Choose build preset to configure default project structure.*|Select **React**.|
-    |*Select the location of your application code*|`/` - This indicates the package.json file is at the root of the repository.|
-    |*Select the location of your Azure Functions code*|Accept the default value. While this sample doesn't use an API, you can add one later.|
-    |*Enter the path of your build output...*|`build`<br><br>This is the path from your app to your static (generated) files.|
+    |*Enter the name for the new static web app.*|Accept the default name.|
+    |*Select a SKU*| Select the free SKU for this tutorial. If you already have a free Static Web App resource in your subscription, select the next pricing tier.|
+    |*Choose build preset to configure default project structure.*|Select **Custom**.|
+    |*Select the location of your application code*|`azure-upload-file-to-storage/app`|
+    |*Select the location of your Azure Functions code*|`azure-upload-file-to-storage/api`|
+    |*Enter the path of your build output...*|`dist`<br><br>This is the path from your app to your static (generated) files.|
     |*Select a location for new resources.*|Select a region close to you.|
 
 1. When the process is complete, a notification pop-up displays. Select **View/Edit Workflow**.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visual-studio-code-static-web-app-view-edit-workflow.png" alt-text="Partial screenshot of Visual Studio Code notification pop-up with View/Edit Workflow button highlighted.":::
+1. Your remote fork has a new workflow file for deploying to Static Web Apps. Pull that file down to your environment with the following command in the terminal:
 
-## 10. Add Azure Storage secrets to GitHub secrets
-
-1. In a web browser, return to your GitHub fork of the sample project to add the two secrets and their values:
-
-    #### [TypeScript](#tab/typescript)
-
-    ```HTTP
-    https://github.com/YOUR-GITHUB-ACCOUNT/ts-e2e-browser-file-upload-storage-blob/settings/secrets/actions
+    ```bash
+    git pull origin main
     ```
 
-    #### [JavaScript](#tab/javascript)
+1. Open the workflow file located at `/.github/workflows/`. The section of the workflow specific to this tutorial's Static Web app should look like:
 
-    ```HTTP
-    https://github.com/YOUR-GITHUB-ACCOUNT/js-e2e-browser-file-upload-storage-blob/settings/secrets/actions
+    ```yml
+    ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+    # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+    app_location: "/azure-upload-file-to-storage/app" # App source code path
+    api_location: "/azure-upload-file-to-storage/api" # Api source code path - optional
+    output_location: "dist" # Built app content directory - optional
+    ###### End of Repository/Build Configurations ######
     ```
 
-     ---
+1. Go to your GitHub fork of the sample, `https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This may take a few minutes to complete.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" lightbox="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
+1. Go to your Azure portal for your app and view the **APIs** section of **Settings**. The **Backend Resource Name** in the production environment is `(managed)` indicating your APIs have been successfully deployed. 
+1. Select **(managed)** to see the list of APIs loaded in the app:
+    * list
+    * sas
+    * status
 
-## 11. Configure Static Web App to connect to storage resource
+1. Go to the Overview page to find the **URL** for your deployed app.
+1. The deployment of the app is complete.
 
-Edit the GitHub workflow and secrets to connect to Azure Storage.
+## 12. Configure API with Storage resource name and key
 
-1. In Visual Studio Code, open the `.github/workflows` workflow YAML file and add the two storage environment variables after the `with` section to the `build_and_deploy_job`.
+The app needs the Azure Storage resource name and key before the API works correctly.
 
-    :::code language="YAML" source="~/../js-e2e-browser-file-upload-storage-blob/build-and-deploy-sample-job.yml" highlight="23-25":::
+1. Still in the Azure Explorer, right-click on the **Static Web App resource** and select **Open in Portal**.
+1. Select **Configuration** in the **Settings** section.
+1. Select **+ Add** and create the **Azure_Storage_AccountName** environment setting. Paste your value from `local.settings.json` file in the API project. Select **OK** to save the setting. 
+1. Select **+ Add** and create the **Azure_Storage_AccountKey** environment setting. Paste your value from `local.settings.json` file in the API project. Select **OK** to save the setting.  
+1. Select **Save** on the Configuration page to save both settings.
 
-    This pulls in the secrets to the build process.
-
-1. In Visual Studio Code, select Source Control, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, then select the addition icon to add the changed *.yml file. 
-1. Enter a comment for your commit such as `Adding Storage secrets`.
-1. Push to your GitHub fork by selecting the **Synchronize changes** icon on the status bar. 
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/visual-studio-code-status-bar-synchronize-changes.png" alt-text="Partial screenshot of Visual Studio Code status bar.":::
-
-1. In the pop-up window to confirm if you want to push and pull from your remote repository, select **OK**.
-
-    If you get an error at this step, checkout your git remote to make sure you cloned _your fork_: `git remote -v`. 
-
-1. This push triggers a new build and deploy for your static web app.
-
-## 12. Verify build and deploy job completes
-
-1. In a web browser, return to your GitHub fork of the sample project.
-1. Select **Actions**, then select the **Azure Static Web Apps CI/CD** action. 
-1. Select the Build and Deploy Job to watch the process complete.
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/github-action-build-and-deploy-job-success.png" alt-text="Screenshot of web browser showing GitHub action success":::
+> [!NOTE]
+> You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same domain. 
 
 ## 13. Use the Azure-deployed static web app
 
-1. In Visual Studio Code, right-click your Static web app from the Azure explorer and select 
+Verify the deploy and configuration succeeded by using the web site. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visual-studio-code-browse-site.png" alt-text="Partial screenshot selecting Browse Site from the Azure Static web site.":::
+1. In Visual Studio Code, right-click your Static web app from the Azure explorer and select **Browse site**.
+1. In the new web browser window, select **Choose File** then select an image file (*.png or *.jpg) to upload. 
+1. Select **Get sas token**. This action passes the file name to the API and receives the SAS token URL necessary to upload the file.  
+1. Select **Upload file** to use the SAS token URL to upload the file. The browser displays the thumbnail and URL of the uploaded file. 
 
-1. In the new web browser window, choose a file and upload the file. 
-
-## Troubleshoot local connection to Storage account
-
-If you received an error or your file doesn't upload to the container, check the following:
-
-* Recreate your SAS token, making sure that your token is created at the Storage resource level and not the container level. Copy the new token into the code at the correct location.
-* Check that the token string you copied into the code doesn't contain the `?` (question mark) at the beginning of the string.
-* Verify your CORS setting for your Storage resource.
-
-## Upload button functionality
-
-#### [TypeScript](#tab/typescript)
-
-The `src/App.tsx` TypeScript file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
-
-The code connecting to the Azure Blob Storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="5,68":::
-
-#### [JavaScript](#tab/javascript)
-
-The `src/App.jsx` TypeScript file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
-
-The code connecting to the Azure Blob Storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.jsx" highlight="5,68":::
-
----
-
-
-
-## Upload file to Azure Storage blob with Azure SDK client library
-
-The code to upload the file to the Azure Storage is framework-agnostic. As the code is built for a tutorial, choices were made for simplicity and comprehension. These choices are explained; you should review your own project for intentional use, security, and efficiency. 
-
-The sample creates and uses a publicly accessible container and files. If you want to secure your files in your own project, you have many layers where you can control that from requiring overall authentication to your resource to very specific permissions on each blob object. 
-
-### Dependencies and variables
-
-#### [TypeScript](#tab/typescript)
-
-The [azure-storage-blob.ts](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
-
-| Variable | Description |
-|--|--|
-|`sasToken`|The SAS token created with the Azure portal. Remove the prepended `?` before setting it in your `sasToken` variable.| 
-|`container`|The name of the container in the storage account. You can think of this as equivalent to a folder or directory for a file system.|
-|`storageAccountName`|Your resource name.|
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_package":::
-
-#### [JavaScript](#tab/javascript)
-
-
-The [azure-storage-blob.js](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.js) file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
-
-| Variable | Description |
-|--|--|
-|`sasToken`|The SAS token created with the Azure portal is prepended with a `?`. Remove it before setting it in your `sasToken` variable.| 
-|`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
-|`storageAccountName`|Your resource name.|
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_package":::
-
-
----
-
-### Create Storage client and manage steps
-
-The client is created with a URL that includes both the storage resource name and the SAS token. The SAS token is in the query string, denoted with the question mark, `?`. When adding your SAS token to your environment variable, don't_ include the question mark because it's already included in the URL string.
-
-#### [TypeScript](#tab/typescript)
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_get_client":::
-
-#### [JavaScript](#tab/javascript)
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_get_client":::
-
----
-
-
-### Upload file to blob storage
-
-#### [TypeScript](#tab/typescript)
-
-The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_uploadFileToBlob":::
-
-#### [JavaScript](#tab/javascript)
-
-The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container.
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_uploadFileToBlob":::
-
----
-
-### Create blob in container
-
-#### [TypeScript](#tab/typescript)
-
-The `createBlobInContainer` function uploads the file to the container, using the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) class, [uploadData](/javascript/api/@azure/storage-blob/blockblobclient#uploadData_Buffer___Blob___ArrayBuffer___ArrayBufferView__BlockBlobParallelUploadOptions_) method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_createBlobInContainer":::
-
-#### [JavaScript](#tab/javascript)
-
-The `createBlobInContainer` function uploads the file to the container, using the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) class, [uploadData](/javascript/api/@azure/storage-blob/blockblobclient#uploadData_Buffer___Blob___ArrayBuffer___ArrayBufferView__BlockBlobParallelUploadOptions_) method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_createBlobInContainer":::
-
----
-
-### Get list of blobs
-
-#### [TypeScript](#tab/typescript)
-
-The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class, [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listBlobsFlat_ContainerListBlobsOptions_) method, for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
-
-:::code language="typescript" source="~/../ts-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" id="snippet_getBlobsInContainer":::
-
-#### [JavaScript](#tab/javascript)
-
-The `getBlobsInContainer` function gets a list of URLs, using the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class, [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listBlobsFlat_ContainerListBlobsOptions_) method, for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
-
-:::code language="javascript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.js" id="snippet_getBlobsInContainer":::
-
----
-
-## Clean up resources
+## 14. Clean up resources
 
 In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on your resource group then select **Delete**.
 
 This deletes all resources in the group, including your Storage and Static Web app resources.
 
-## Sample code 
+## Troubleshooting
 
-#### [TypeScript](#tab/typescript)
-* [**Sample code**](https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
+Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues) with this sample in the GitHub repo noted below. Include the following with the issue:
+
+* The URL of the article
+* The step or context within the article that was problematic
+* Your development environment
+
+## Sample code
+
+* GitHub repository: [azure-upload-file-to-storage](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/azure-upload-file-to-storage)
 
 
-#### [JavaScript](#tab/javascript)
-* [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme)
-
---- 
-
-## Next steps
+## Related content
 
 If you would like to continue with this app, learn how to deploy the app to Azure for hosting with one of the following choices:
 
-* [Upload as a static web app](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
-* Upload to a web app resource using the [Visual Studio code extension for the App service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
-* [Upload an app to an Azure VM](/azure/developer/javascript/tutorial/run-nodejs-virtual-machine)
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob
     * [NPM package](https://www.npmjs.com/package/@azure/storage-blob)
-    * [Reference documentation](/javascript/api/@azure/storage-blob/)
 * [Azure Static Web app](/azure/static-web-apps/)
+
+[free Azure account]: https://azure.microsoft.com/pricing/free-trial/

@@ -71,6 +71,10 @@
         href: get-started-azapi-update-resource.md
     - name: Terraform Quickstarts for Azure services
       items:
+      - name: Azure Kubernetes Services (AKS)
+        items:
+          - name: Create a cluster and deploy a web app
+            href: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - name: Analysis Services
         items:
           - name: Create a server
@@ -100,7 +104,7 @@
           - name: Azure Kubernetes Service
             items:
               - name: Create a cluster
-                href: create-k8s-cluster-with-tf-and-aks.md
+                href: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - name: Database
         items:
           - name: Azure SQL Database
@@ -131,6 +135,10 @@
         items:
           - name: Create a key vault and key
             href: /azure/key-vault/keys/quick-create-terraform
+      - name: Networking
+        items:
+          - name: Create a mesh network topology with Azure Virtual Network Manager
+            href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
       - name: Notification Hubs
         items:
           - name: Create a namespace and hub
@@ -142,7 +150,7 @@
       - name: Security
         items:
           - name: Azure Attestation
-            href: create-attestation-provider.md
+            href: /azure/attestation/quickstart-terraform
       - name: Stream Analytics
         items:
           - name: Create a job
@@ -156,7 +164,11 @@
         - name: Create a Linux VM
           href: /azure/virtual-machines/linux/quick-create-terraform
         - name: Create a Linux VM cluster
-          href: create-vm-cluster-with-infrastructure.md
+          href: /azure/virtual-machines/linux/quick-cluster-create-terraform
+        - name: Create a Windows VM
+          href: /azure/virtual-machines/windows/quick-create-terraform
+        - name: Create a Windows VM cluster
+          href: /azure/virtual-machines/windows/quick-cluster-create-terraform
 - name: Samples
   items:
     - name: Terraform samples
@@ -227,8 +239,6 @@
                 href: create-avd-log-analytics-workspace.md
           - name: Virtual machines
             items:
-              - name: Configure a virtual machine cluster
-                href: create-vm-cluster-module.md
               - name: Virtual Machine Scale Set with infrastructure
                 href: create-vm-scaleset-network-disks-hcl.md
               - name: Virtual Machine Scale Set from Packer image

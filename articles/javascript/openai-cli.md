@@ -3,23 +3,22 @@ title: Conversational CLI with Azure OpenAI
 description: Use Azure OpenAI in a TypeScript CLI to create a chatbot that generates text responses to user input.
 ms.topic: how-to
 ms.date: 05/30/2023
-ms.custom: devx-track-js, devx-track-ts, ai-gen-docs
+ms.custom: devx-track-js, devx-track-ts
+content_well_notification: 
+  - AI-contribution
 ---
 
-# Using Azure Open AI in a TypeScript CLI
+# Using Azure OpenAI in a TypeScript CLI
   
-> [!NOTE]
-> This article was partially created with the help of artificial intelligence. Before publishing, an author reviewed and revised the content as needed. See [Our principles for using AI-generated content in Microsoft Learn](https://aka.ms/ai-content-principles).
-
-In this tutorial, learn how to use Azure Open AI with JavaScript in an interactive CHAT CLI. Azure Open AI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure Open AI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
+In this tutorial, learn how to use Azure OpenAI with JavaScript in an interactive CHAT CLI. Azure OpenAI is a set of prebuilt AI models that you can use to add intelligent features to your applications. With Azure OpenAI, you can easily integrate natural language processing, computer vision, and other AI capabilities into your TypeScript applications.  
 
 > [!CAUTION]
-> This tutorial and the Azure OpenAI service are in preview. Both will update as the service evolves.
+> This tutorial and the Azure OpenAI Service are in preview. Both will update as the service evolves.
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
+- Access granted to the Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](/azure/cognitive-services/openai/how-to/create-resource).
@@ -39,7 +38,7 @@ The command line interface (CLI) application you'll build in this tutorial is a 
     cd openai
     ```
 
-1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-samples](https://github.com/azure-samples/azure-typescript-e2e-samples.git) samples repository related to this tutorial. 
+1. Use Git to get the 2 subdirectories in the [azure-typescript-e2e-apps](https://github.com/azure-samples/azure-typescript-e2e-apps.git) samples repository related to this tutorial. 
 
     ```bash
     git init

@@ -43,6 +43,8 @@ Select your preferred environment to continue:
     azd init --template todo-nodejs-mongo
     ```
 
+  Note: this command will initialize the application, including cloning the GitHub repo. 
+
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
 After you specify the environment, `azd` clones the template project to your machine and initializes the project.
@@ -139,7 +141,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -238,6 +240,9 @@ In this guide, the app uses Python Virtual Environments to isolate Python packag
     ```azdeveloper
     azd init --template todo-python-mongo
     ```
+  
+  Note: this command will initialize the application, including cloning the GitHub repo. 
+
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -335,7 +340,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -429,6 +434,8 @@ Select your preferred environment to continue:
     ```azdeveloper
     azd init --template todo-csharp-cosmos-sql
     ```
+
+  Note: this command will initialize the application, including cloning the GitHub repo. 
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -526,7 +533,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -620,6 +627,8 @@ Select your preferred environment to continue:
     ```azdeveloper
     azd init --template todo-java-mongo
     ```
+
+  Note: this command will initialize the application, including cloning the GitHub repo. 
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -717,7 +726,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-java-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 

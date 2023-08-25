@@ -93,10 +93,12 @@ landingContent:
   # Card
   - title: Manage AKS
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a cluster and deploy a web app
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - linkListType: how-to-guide
         links:
-          - text: Create a Kubernetes cluster with AKS
-            url: create-k8s-cluster-with-tf-and-aks.md
           - text: Create a Kubernetes cluster with Application Gateway
             url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
@@ -108,11 +110,13 @@ landingContent:
           - text: Create a Linux VM
             url: /azure/virtual-machines/linux/quick-create-terraform
           - text: Create a Linux VM cluster
-            url: create-vm-cluster-with-infrastructure.md
+            url: /azure/virtual-machines/linux/quick-cluster-create-terraform
+          - text: Create a Windows VM
+            url: /azure/virtual-machines/windows/quick-create-terraform
+          - text: Create a Windows VM cluster
+            url: /azure/virtual-machines/windows/quick-cluster-create-terraform
       - linkListType: how-to-guide
         links:
-          - text: Configure a VM cluster
-            url: create-vm-cluster-module.md
           - text: Provision VM scale set with infrastructure
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image

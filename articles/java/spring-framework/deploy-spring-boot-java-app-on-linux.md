@@ -139,7 +139,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
    ```azurecli
-   az acr login -n wingtiptoysregistry && mvn compile jib:build
+   az acr login --name wingtiptoysregistry && mvn compile jib:build
    ```
 
 > [!NOTE]
