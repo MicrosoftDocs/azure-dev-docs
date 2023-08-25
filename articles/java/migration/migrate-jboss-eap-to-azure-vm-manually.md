@@ -795,7 +795,7 @@ az network public-ip create \
 
 Next, add the backend servers to Application Gateway backend pool. Query for backend IP addresses by using the following commands. You only have the host controllers (work nodes) configured as backend servers.
 
-```azureclire
+```azurecli
 export MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
