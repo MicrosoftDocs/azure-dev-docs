@@ -19,11 +19,11 @@ When using the `AzureCliCredential`, you may optionally try/catch for `Credentia
 | Error message                             | Description                                                                  | Mitigation                                                                                                                                                                                                                                                                                                       |
 |-------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Azure CLI not installed`                 | The Azure CLI isn't installed or couldn't be found.                          | <ul><li>Ensure the Azure CLI is properly installed. Installation instructions can be found [here](/cli/azure/install-azure-cli).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul>                                                                         |
-| `Please run 'az login' to set up account` | No account is currently logged into the Azure CLI, or the login has expired. | <ul><li>Log into the Azure CLI using the `az login` command. More information on authentication in the Azure CLI can be found [here](/cli/azure/authenticate-azure-cli).</li><li>Validate that the Azure CLI can obtain tokens. See [below](#verify-the-azure-cli-can-obtain-tokens) for instructions.</li></ul> |
+| `Please run 'az login' to set up account` | No account is currently logged into the Azure CLI, or the login has expired. | <ul><li>Log into the Azure CLI using the `az login` command. More information on authentication in the Azure CLI can be found [here](/cli/azure/authenticate-azure-cli).</li><li>Validate that the Azure CLI can obtain tokens. See [below](#verify-that-the-azure-cli-can-obtain-tokens) for instructions.</li></ul> |
 
-### Verify the Azure CLI can obtain tokens
+### Verify that the Azure CLI can obtain tokens
 
-You can manually verify that the Azure CLI is properly authenticated, and can obtain tokens. First use the `account` command to verify the account which is currently logged in to the Azure CLI.
+You can manually verify that the Azure CLI is properly authenticated, and can obtain tokens. First use the `account` command to verify that the account which is currently logged in to the Azure CLI.
 
 ```azurecli
 az account show
@@ -47,11 +47,11 @@ When using the `AzureDeveloperCliCredential`, you may optionally try/catch for `
 | Error message                                   | Description                                                                            | Mitigation                                                                                                                                                                                                                                                             |
 |-------------------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Azure Developer CLI not installed`             | The Azure Developer CLI isn't installed or couldn't be found.                          | <ul><li>Ensure the Azure Developer CLI is properly installed. Installation instructions can be found [here](/azure/developer/azure-developer-cli/install-azd).</li><li>Validate the installation location has been added to the `PATH` environment variable.</li></ul> |
-| `Please run 'azd auth login' to set up account` | No account is currently logged into the Azure Developer CLI, or the login has expired. | <ul><li>Log into the Azure Developer CLI using the `azd auth login` command.</li><li>Validate that the Azure Developer CLI can obtain tokens. See [below](#verify-the-azure-developer-cli-can-obtain-tokens) for instructions.</li></ul>                               |
+| `Please run 'azd auth login' to set up account` | No account is currently logged into the Azure Developer CLI, or the login has expired. | <ul><li>Log into the Azure Developer CLI using the `azd auth login` command.</li><li>Validate that the Azure Developer CLI can obtain tokens. See [below](#verify-that-the-azure-developer-cli-can-obtain-tokens) for instructions.</li></ul>                               |
 
-### Verify that Azure Developer CLI can obtain tokens
+### Verify that the Azure Developer CLI can obtain tokens
 
-You can manually verify that the Azure Developer CLI is properly authenticated, and can obtain tokens. First use the `config` command to verify the account which is currently logged in to the Azure Developer CLI.
+You can manually verify that the Azure Developer CLI is properly authenticated, and can obtain tokens. First use the `config` command to verify that the account which is currently logged in to the Azure Developer CLI.
 
 ```bash
 azd config list
@@ -74,11 +74,11 @@ When using the `AzurePowerShellCredential`, you may optionally try/catch for `Cr
 |-----------------------------------------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PowerShell isn't installed.`                       | No local installation of PowerShell was found.                                       | Ensure that PowerShell is properly installed on the machine. Instructions for installing PowerShell can be found [here](/powershell/scripting/install/installing-powershell).                                                                                                                                                            |
 | `Az.Account module >= 2.2.0 isn't installed.`       | The Az.Account module needed for authentication in Azure PowerShell isn't installed. | Install the latest Az.Account module. Installation instructions can be found [here](/powershell/azure/install-az-ps).                                                                                                                                                                                                                    |
-| `Please run 'Connect-AzAccount' to set up account.` | No account is currently logged into Azure PowerShell.                                | <ul><li>Login to Azure PowerShell using the `Connect-AzAccount` command. More instructions for authenticating Azure PowerShell can be found [here](/powershell/azure/authenticate-azureps)</li><li>Validate that Azure PowerShell can obtain tokens. See [below](#verify-azure-powershell-can-obtain-tokens) for instructions.</li></ul> |
+| `Please run 'Connect-AzAccount' to set up account.` | No account is currently logged into Azure PowerShell.                                | <ul><li>Login to Azure PowerShell using the `Connect-AzAccount` command. More instructions for authenticating Azure PowerShell can be found [here](/powershell/azure/authenticate-azureps)</li><li>Validate that Azure PowerShell can obtain tokens. See [below](#verify-that-azure-powershell-can-obtain-tokens) for instructions.</li></ul> |
 
-### Verify Azure PowerShell can obtain tokens
+### Verify that Azure PowerShell can obtain tokens
 
-You can manually verify that Azure PowerShell is properly authenticated, and can obtain tokens. First use the `Get-AzContext` command to verify the account which is currently logged in to the Azure CLI.
+You can manually verify that Azure PowerShell is properly authenticated, and can obtain tokens. First use the `Get-AzContext` command to verify that the account which is currently logged in to the Azure CLI.
 
 ```powershell
 Get-AzContext
