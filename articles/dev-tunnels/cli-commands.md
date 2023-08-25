@@ -197,6 +197,9 @@ Here are some examples on use of these commands:
 | `devtunnel access create TUNNELID --tenant` | Enable the current AAD tenant access on the dev tunnel. |
 | `devtunnel access create TUNNELID --org ORG` | Enable a GitHub organization access by name on the dev tunnel. |
 
+> [!TIP]
+> GitHub organization access requires [installing the Dev Tunnels GitHub app into the org](./security.md#github-organization-access).
+
 ## Supplementary commands
 
 These commands can be used if you need to explicitly set or unset this local cache of last-used dev tunnel.
