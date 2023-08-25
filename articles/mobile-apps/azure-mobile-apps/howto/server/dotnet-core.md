@@ -93,7 +93,7 @@ The `ITableData` interface provides the ID of the record, together with extra pr
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-These Datasync library maintains these properties.  Do not modify these properties in your own code.
+The Data sync library maintains these properties.  Don't modify these properties in your own code.
 
 ### Update the `DbContext`
 
@@ -284,7 +284,7 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 Azure Cosmos DB is a fully managed NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here's an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
 
     ``` bicep
     resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
