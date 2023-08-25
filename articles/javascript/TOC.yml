@@ -21,8 +21,6 @@
       items: 
       - name: Configure app settings
         href: how-to/configure-web-app-settings.md
-      - name: Create secure domain name
-        href: how-to/add-custom-domain-to-web-app.md
       - name: Configure domain name
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
       - name: Use Key Vault secrets
