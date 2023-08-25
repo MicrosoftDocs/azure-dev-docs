@@ -93,7 +93,7 @@ The `ITableData` interface provides the ID of the record, together with extra pr
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-These properties are maintained by the server and must not be changed by your client code.
+These Datasync library maintains these properties.  Do not modify these properties in your own code.
 
 ### Update the `DbContext`
 
