@@ -282,7 +282,7 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 ### Azure Cosmos DB
 
-Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
+Azure Cosmos DB is a fully managed NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
 1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
 
