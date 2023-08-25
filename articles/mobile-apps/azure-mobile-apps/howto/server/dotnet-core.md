@@ -87,13 +87,13 @@ public class TodoItem : EntityTableData
 }
 ```
 
-The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with extra properties for handling data sync services:
+The `ITableData` interface provides the ID of the record, together with extra properties for handling data sync services:
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-Don't change these properties in your code.  They're maintained by the repository.
+These properties are maintained by the server and must not be changed by your client code.
 
 ### Update the `DbContext`
 
@@ -362,7 +362,7 @@ Azure Cosmos DB is a fully managed NoSQL database for high-performance applicati
     }
     ```
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following:
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following links:
 
 * [Cosmos DB Sample][cosmos-sample].
 * [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.
