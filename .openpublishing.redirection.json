@@ -1,7 +1,7 @@
 {
     "redirections": [
       {
-        "source_path":"articles/javascript/how-to/dd-custom-domain-to-web-app.md",
+        "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
       },
       {
