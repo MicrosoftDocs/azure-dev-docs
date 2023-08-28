@@ -57,7 +57,7 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?resource=https://man
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
+> The output of this command contains a valid access token. To avoid compromising account security, do not share this access token.
 
 ### Azure App Service and Azure Functions Managed Identity
 
@@ -76,7 +76,7 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?resource=https://man
 ```
 
 > [!WARNING]
-> The output of this command will contain a valid access token, and **should not be shared** to avoid compromising account security.
+> The output of this command contains a valid access token. To avoid compromising account security, do not share this access token.
 
 ### Azure Kubernetes Service Managed Identity
 
@@ -98,9 +98,7 @@ When using the `WorkloadIdentityCredential`, you may optionally try/catch for `C
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
 
 <!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
 [logging_link]: troubleshooting-authentication-overview.md#enable-and-configure-logging

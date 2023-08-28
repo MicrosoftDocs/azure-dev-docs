@@ -35,7 +35,7 @@ To authenticate a user through device code flow, use the following steps:
 3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select `yes` for `Treat application as a public client`.
 
-These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access, such as Azure Service Management, Key Vault, and so on.
+These steps enable the application to authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access, such as Azure Service Management, Key Vault, and so on.
 
 You also need to be the admin of your tenant to grant consent to your application when you log in for the first time.
 

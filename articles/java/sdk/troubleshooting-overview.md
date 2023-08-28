@@ -62,7 +62,7 @@ clientBuilder.httpLogOptions(new HttpLogOptions()
 
 ## Exception handling in the Azure SDK for Java
 
-Most Azure SDK for Java client service methods throw a [HttpResponseException][http_response_exception] or a more-specific subclass on failure. The `HttpResponseException` type includes detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. This error information can be found inside the message property of the `HttpResponseException` object. Because these exception are runtime exceptions, JavaDoc reference documentation does not explicitly call them out.
+Most Azure SDK for Java client service methods throw a [HttpResponseException](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java) or a more-specific subclass on failure. The `HttpResponseException` type includes detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. This error information can be found inside the message property of the `HttpResponseException` object. Because these exception are runtime exceptions, JavaDoc reference documentation does not explicitly call them out.
 
 Here's the example of how to catch it with a synchronous client
 
@@ -95,9 +95,4 @@ For more detailed information on how to enable tracing in the Azure SDK for Java
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue on the projects GitHub page][azsdkjava_github_repo].
-
-<!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[logging_overview]: logging-overview.md
-[http_response_exception]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

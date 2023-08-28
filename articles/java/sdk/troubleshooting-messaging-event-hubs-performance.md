@@ -28,9 +28,9 @@ Checkpointing after _every_ `EventData` is processed hinders performance due to 
 
 ## Using LoadBalancingStrategy.BALANCED or LoadBalancingStrategy.GREEDY
 
-When using `LoadBalancingStrategy.BALANCED`, the `EventProcessorClient` claims one partition for every load balancing cycle. If there are 32 partitions in an Event Hub, it will take 32 load-balancing iterations to claim all the partitions. If users know a set number of `EventProcessorClient` instances are running, they can use `LoadBalancingStrategy.GREEDY` to claim their share of the partitions in one load-balancing cycle.
+When using `LoadBalancingStrategy.BALANCED`, the `EventProcessorClient` claims one partition for every load balancing cycle. If there are 32 partitions in an Event Hub, it takes 32 load-balancing iterations to claim all the partitions. If users know a set number of `EventProcessorClient` instances are running, they can use `LoadBalancingStrategy.GREEDY` to claim their share of the partitions in one load-balancing cycle.
 
-[LoadBalancingStrategy javadocs][LoadBalancingStrategy] contains additional information about each strategy.
+[LoadBalancingStrategy javadocs](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/LoadBalancingStrategy.java) contains additional information about each strategy.
 
 ## Configuring prefetchCount
 
@@ -42,9 +42,4 @@ Configuring `prefetchCount` may have performance implications if the number is _
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
-
-<!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
-[LoadBalancingStrategy]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/LoadBalancingStrategy.java
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

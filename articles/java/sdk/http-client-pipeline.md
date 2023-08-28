@@ -52,11 +52,11 @@ The following example shows you how to exclude the Netty dependency from a real 
 ```
 
 > [!NOTE]
-> If you remove the Netty dependency but provide no implementation in its place, the application will fail to start. An `HttpClient` implementation must exist on the classpath.
+> If you remove the Netty dependency but provide no implementation in its place, the application fails to start. An `HttpClient` implementation must exist on the classpath.
 
 ### Configure HTTP clients
 
-When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
+When you build a service client, it defaults to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
 The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user *example* with password *weakPassword*.
 
@@ -107,7 +107,7 @@ The HTTP pipeline is one of the key components in achieving consistency and diag
 * An HTTP transport
 * HTTP pipeline policies
 
-You can provide your own custom HTTP pipeline when creating a client. If you don't provide a pipeline, the client library will create one configured to work with that specific client library.
+You can provide your own custom HTTP pipeline when creating a client. If you don't provide a pipeline, the client library creates one configured to work with that specific client library.
 
 ### HTTP transport
 
@@ -115,9 +115,9 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When you send a request, the policies execute in the order that they're added to the pipeline. When you receive a response from the service, the policies execute in the reverse order. All policies added to the pipeline execute before you send the request and after you receive a response. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and acts on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When you send a request, the policies execute in the order that they're added to the pipeline. When you receive a response from the service, the policies execute in the reverse order. All policies added to the pipeline execute before you send the request and after you receive a response. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy logs the request and response but the authentication policy is only interested in modifying the request.
 
-The Azure Core framework will provide the policy with the necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
+The Azure Core framework provides the policy with the necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
 ![HTTP pipeline diagram](./media/http-pipeline.svg)
 
@@ -149,7 +149,7 @@ To create a custom HTTP pipeline policy, you just extend a base policy type and 
 
 ### Custom headers in HTTP requests
 
-The Azure SDK for Java client libraries provide a consistent way to define customized headers through `Context` object in the public API:
+The Azure SDK for Java client libraries provide a consistent way to define customized headers through `Context` objects in the public API, as shown in the following example:
 
 ```java
 // Add your headers
@@ -163,18 +163,18 @@ configurationClient.addConfigurationSettingWithResponse(
     new ConfigurationSetting().setKey("key").setValue("value"),
     new Context(AddHeadersFromContextPolicy.AZURE_REQUEST_HTTP_HEADERS_KEY, headers));
 
-// The above three headers will now be added to the outgoing HTTP request.
+// The three headers are now be added to the outgoing HTTP request.
 ```
 
-For more detail information, check out the [AddHeadersFromContextPolicy][add_headers_from_context_policy]
+For more information, see the [AddHeadersFromContextPolicy Class](/java/api/com.azure.core.http.policy.addheadersfromcontextpolicy).
 
-### Default SSL library
+### Default TLS/SSL library
 
 All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default SSL implementation within the JDK.
 
 #### Reduce Tomcat-Native SSL dependency size
 
-By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SDKs for java. To reduce the size of this dependency, you need to include the dependency with an `os`` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html).
+By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SDKs for java. To reduce the size of this dependency, you need to include the dependency with an `os` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html).
 
 ```xml
 <project>
@@ -229,11 +229,8 @@ If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then
   </dependencies>
   ...
 </project>
-````
+```
 
 ## Next steps
 
 Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client you're using.
-
-<!-- Links -->
-[add_headers_from_context_policy]: /java/api/com.azure.core.http.policy.addheadersfromcontextpolicy

@@ -21,15 +21,15 @@ For troubleshooting authentication issues related to Azure hosted applications, 
 
 ## Default Azure credential
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
+The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. The `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order.
 
 ![DefaultAzureCredential authentication flow](./media/defaultazurecredential.svg)
 
-* Environment - The `DefaultAzureCredential` will read account information specified via [environment variables](#environment-variables) and use it to authenticate.
-* Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` will authenticate with that account.
-* IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` will authenticate with that account.
-* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` will authenticate with that account.
-* Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` will authenticate with that account.
+* Environment - The `DefaultAzureCredential` reads account information specified via [environment variables](#environment-variables) and use it to authenticate.
+* Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` authenticates with that account.
+* IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` authenticates with that account.
+* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` authenticates with that account.
+* Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` authenticates with that account.
 
 ### Configure DefaultAzureCredential
 
@@ -59,7 +59,7 @@ The following example demonstrates authenticating the `SecretClient` from the [a
 
 ```java
 /**
- * The default credential will use the user-assigned managed identity with the specified client ID.
+ * The default credential uses the user-assigned managed identity with the specified client ID.
  */
 DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
   .managedIdentityClientId("<managed identity client ID>")
@@ -80,7 +80,7 @@ For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolk
 
 ```java
 /**
- * The default credential will use the KeePass database path to find the user account in IntelliJ on Windows.
+ * The default credential uses the KeePass database path to find the user account in IntelliJ on Windows.
  */
 // KeePass configuration is required only for Windows. No configuration needed for Linux / Mac.
 DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
@@ -96,7 +96,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Managed Identity credential
 
-The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI`, `IMDS` endpoints, or both, then this credential will get your application authenticated, and offers a great secretless authentication experience.
+The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI`, `IMDS` endpoints, or both, then this credential gets your application authenticated, and offers a great secretless authentication experience.
 
 For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 

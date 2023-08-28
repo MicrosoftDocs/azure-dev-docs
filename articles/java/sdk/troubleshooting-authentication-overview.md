@@ -18,7 +18,7 @@ This troubleshooting guide covers failure investigation techniques, common error
 * [User Credential Auth](troubleshooting-authentication-user-credential.md)
 * [Multi-tenant Authentication](troubleshooting-authentication-multi-tenant.md)
 
-The remainder of this document will cover general troubleshooting techniques and guidance that apply to all credential types.
+The remainder of this document covers general troubleshooting techniques and guidance that apply to all credential types.
 
 ## Handling Azure Identity exceptions
 
@@ -69,17 +69,13 @@ This error contains several pieces of information:
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
 
-The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java), also has detailed logging. It is highly verbose and will include all PII including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials which offer this logging will have a method called `enableUnsafeSupportLogging()`.
+The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java), also has detailed logging. It is highly verbose and includes all personally-identifiable information (PII) including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials which offer this logging have a method called `enableUnsafeSupportLogging()`.
 
 > [!CAUTION]
 > Requests and responses in the Azure Identity library contain sensitive information. Precaution must be taken to protect logs when customizing the output to avoid compromising account security.
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
-
-<!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

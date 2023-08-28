@@ -49,7 +49,7 @@ There are two key concepts in understanding the Azure Identity library: the conc
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
-The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes that can acquire an Azure AD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
+The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes that can acquire an Azure AD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core), and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](identity-azure-hosted-auth.md).
 
@@ -59,7 +59,7 @@ As noted in [Use the Azure SDK for Java](overview.md#provision-and-manage-azure-
 
 ### Authenticate Azure client libraries
 
-The following example below demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
+The following example below demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library using the `DefaultAzureCredential`.
 
 ```java
 // Azure SDK client builders accept the credential as a parameter.
@@ -73,7 +73,7 @@ SecretClient client = new SecretClientBuilder()
 
 The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/training/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
-You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the following [Azure CLI][azure_cli] command to get subscription IDs:
+You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the following [Azure CLI](/cli/azure) command to get subscription IDs:
 
 ```azurecli
 az account list --output table
@@ -102,8 +102,3 @@ This article introduced the Azure Identity functionality available in the Azure 
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
-
-<!-- LINKS -->
-[azure_cli]: /cli/azure
-[secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets
-[azure_core_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core

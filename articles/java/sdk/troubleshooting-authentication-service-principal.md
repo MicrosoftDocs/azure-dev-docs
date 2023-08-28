@@ -20,7 +20,7 @@ When using the `ClientSecretCredential`, you may optionally try/catch for `Clien
 |---------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AADSTS7000215 | An invalid client secret was provided.                          | Ensure the `clientSecret` provided when constructing the credential is valid. If unsure, create a new client secret using the Azure portal. Details on creating a new client secret can be found [here](/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).                                    |
 | AADSTS7000222 | An expired client secret was provided.                          | Create a new client secret using the Azure portal. Details on creating a new client secret can be found [here](/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).                                                                                                                             |
-| AADSTS700016  | The specified application wasn't found in the specified tenant. | Ensure the specified `clientId` and `tenantId` are correct for your application registration.  For multi-tenant apps, ensure the application has been added to the desired tenant by a tenant admin. To add a new application in the desired tenant, follow the instructions [here](/azure/active-directory/develop/howto-create-service-principal-portal). |
+| AADSTS700016  | The specified application wasn't found in the specified tenant. | Ensure the specified `clientId` and `tenantId` are correct for your application registration. For multi-tenant apps, ensure the application has been added to the desired tenant by a tenant admin. To add a new application in the desired tenant, follow the instructions [here](/azure/active-directory/develop/howto-create-service-principal-portal). |
 
 ## Troubleshooting ClientCertificateCredential
 
@@ -43,8 +43,4 @@ When using the `ClientAssertionCredential`, you may optionally try/catch for `Cl
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
-
-<!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

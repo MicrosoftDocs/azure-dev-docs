@@ -68,11 +68,11 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 
 ### Configure a capture filter
 
-Capture filters reduce the number of network calls that are captured for analysis. Without capture filters, Wireshark will capture all traffic that goes through a network interface. This behavior can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation. For more information, see [Capturing Live Network Data](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) in the Wireshark documentation.
+Capture filters reduce the number of network calls that are captured for analysis. Without capture filters, Wireshark captures all traffic that goes through a network interface. This behavior can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation. For more information, see [Capturing Live Network Data](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) in the Wireshark documentation.
 
 The following example adds a capture filter to capture network traffic sent to or received from a specific host.
 
-In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host-IP-or-hostname>`. This filter will capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
+In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host-IP-or-hostname>`. This filter captures traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
 ### Capture to disk
 
@@ -80,7 +80,7 @@ You might need to run an application for a long time to reproduce an unexpected 
 
 The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50 MB in size.
 
-In Wireshark, navigate to **Capture > Options** and find the **Output** tab, then enter a file name to use. This configuration will cause Wireshark to persist captures to a single file. To enable capture to multiple files, select **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**. This configuration will have Wireshark create a new file when one of the predicates is matched. Each new file will use the same base name as the file name entered, and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**. This option will limit Wireshark to logging with only the specified number of files. When that number of files is reached, Wireshark will begin overwriting the files, starting with the oldest.
+In Wireshark, navigate to **Capture > Options** and find the **Output** tab, then enter a file name to use. This configuration causes Wireshark to persist captures to a single file. To enable capture to multiple files, select **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**. This configuration has Wireshark create a new file when one of the predicates is matched. Each new file uses the same base name as the file name entered and appends a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**. This option limits Wireshark to logging with only the specified number of files. When that number of files is reached, Wireshark begins overwriting the files, starting with the oldest.
 
 ### Filter captures
 
@@ -88,7 +88,7 @@ Sometimes you can't tightly scope the traffic that Wireshark captures - for exam
 
 The following example loads a persisted capture file, and filters on `ip.src_host==<IP>`.
 
-In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input will appear. In the filter input, enter `ip.src_host==<IP>`. This filter will limit the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
+In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input appears. In the filter input, enter `ip.src_host==<IP>`. This filter limits the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
 
 ## Next steps
 

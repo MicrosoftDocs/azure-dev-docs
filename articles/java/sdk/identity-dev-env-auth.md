@@ -37,7 +37,7 @@ To authenticate a user through device code flow, do the following steps:
 3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select *yes* for **Treat application as a public client**.
 
-These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
+These steps enable the application to authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
 
 You must also be the admin of your tenant to grant consent to your application when you log in for the first time.
 
@@ -94,7 +94,7 @@ The Azure CLI credential authenticates in a development environment with the ena
 
 ### Sign in Azure CLI for AzureCliCredential
 
-Sign in as a user with the following [Azure CLI][azure_cli] command:
+Sign in as a user with the following [Azure CLI](/cli/azure) command:
 
 ```azurecli
 az login
@@ -118,7 +118,7 @@ Before you use `AzureCliCredential` in code, run the following command to verify
 az account get-access-token
 ```
 
-You may need to repeat this process after a certain time period, depending on the refresh token validity in your organization. Generally, the refresh token validity period is a few weeks to a few months. `AzureCliCredential` will prompt you to sign in again.
+You may need to repeat this process after a certain time period, depending on the refresh token validity in your organization. Generally, the refresh token validity period is a few weeks to a few months. `AzureCliCredential` prompts you to sign in again.
 
 ### Authenticate a user account with Azure CLI
 
@@ -145,7 +145,7 @@ Follow the steps outlined below:
 1. In your IntelliJ window, open **File > Settings > Plugins**.
 1. Search for "Azure Toolkit for IntelliJ" in the marketplace. Install and restart IDE.
 1. Find the new menu item **Tools > Azure > Azure Sign In**
-1. **Device Login** will help you log in as a user account. Follow the instructions to log in on the `login.microsoftonline.com` website with the device code. IntelliJ will prompt you to select your subscriptions. Select the subscription with the resources that you want to access.
+1. **Device Login** helps you log in as a user account. Follow the instructions to log in on the `login.microsoftonline.com` website with the device code. IntelliJ prompts you to select your subscriptions. Select the subscription with the resources that you want to access.
 
 On Windows, you'll also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
 
@@ -172,7 +172,7 @@ The Visual Studio Code credential enables authentication in development environm
 
 ### Sign in Visual Studio Code Azure Account Extension for VisualStudioCodeCredential
 
-The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use this form of authentication, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command. This command opens a browser window and displays a page that allows you to sign in to Azure. After you've completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
+The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use this form of authentication, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command. This command opens a browser window and displays a page that allows you to sign in to Azure. After you've completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) uses the credential from your sign-in.
 
 ### Authenticate a user account with Visual Studio Code
 
@@ -201,5 +201,4 @@ If you run into issues related to development environment authentication, you ca
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
-[azure_cli]: /cli/azure
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

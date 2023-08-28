@@ -16,11 +16,11 @@ This troubleshooting guide covers failure investigation techniques, common error
 * [Event Processor Troubleshooting](troubleshooting-messaging-event-hubs-processor.md)
 * [Performance Troubleshooting](troubleshooting-messaging-event-hubs-performance.md)
 
-The remainder of this document will cover general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
+The remainder of this document covers general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
 
 ## Handling Event Hubs exceptions
 
-All Event Hubs exceptions are wrapped in an [AmqpException][AmqpException]. They often have an underlying AMQP error code which specifies whether an error should be retried. For retryable errors (ie. `amqp:connection:forced` or `amqp:link:detach-forced`), the client libraries will attempt to recover from these errors based on the retry options specified when instantiating the client. To configure retry options, follow the sample [publish events to specific partition][PublishEventsToSpecificPartition]. If the error is non-retryable, there is some configuration issue that needs to be resolved.
+All Event Hubs exceptions are wrapped in an [AmqpException][AmqpException]. They often have an underlying AMQP error code which specifies whether an error should be retried. For retryable errors (ie. `amqp:connection:forced` or `amqp:link:detach-forced`), the client libraries attempt to recover from these errors based on the retry options specified when instantiating the client. To configure retry options, follow the sample [publish events to specific partition][PublishEventsToSpecificPartition]. If the error is non-retryable, there is some configuration issue that needs to be resolved.
 
 The recommended way to solve the specific exception the AMQP exception represents is to follow the [Event Hubs Messaging Exceptions][EventHubsMessagingExceptions] guidance.
 
@@ -39,7 +39,7 @@ An [AmqpException][AmqpException] contains three fields which describe the error
 
 #### amqp:connection:forced and amqp:link:detach-forced
 
-When the connection to Event Hubs is idle, the service will disconnect the client after some time.  This is not a problem as the clients will re-establish a connection when a service operation is requested.  More information can be found in the [AMQP troubleshooting documentation][AmqpTroubleshooting].
+When the connection to Event Hubs is idle, the service disconnects the client after some time. This issue is not a problem because the clients re-establish a connection when a service operation is requested. For more information, see the [AMQP troubleshooting documentation][AmqpTroubleshooting].
 
 ## Permission issues
 
@@ -57,25 +57,25 @@ An `AmqpException` with an [`AmqpErrorCondition`][AmqpErrorCondition] of "amqp:u
 * Verify that the connection string or fully qualified domain name specified when creating the client is correct.  [Get an Event Hubs connection string][GetConnectionString] demonstrates how to acquire a connection string.
 * Check the firewall and port permissions in your hosting environment and that the AMQP ports 5671 and 5762 are open.
   * Make sure that the endpoint is allowed through the firewall.
-* Try using WebSockets, which connects on port 443.  See [configure web sockets][PublishEventsWithWebSocketsAndProxy] sample.
+* Try using WebSockets, which connects on port 443. See [configure web sockets][PublishEventsWithWebSocketsAndProxy] sample.
 * See if your network is blocking specific IP addresses.
   * [What IP addresses do I need to allow?][EventHubsIPAddresses]
-* If applicable, check the proxy configuration.  See [configure proxy][PublishEventsWithWebSocketsAndProxy] sample.
+* If applicable, check the proxy configuration. See [configure proxy][PublishEventsWithWebSocketsAndProxy] sample.
 * For more information about troubleshooting network connectivity is at [Event Hubs troubleshooting][EventHubsTroubleshooting]
 
 ### SSL handshake failures
 
-This error can occur when an intercepting proxy is used.  We recommend testing in your hosting environment with the proxy disabled to verify.
+This error can occur when an intercepting proxy is used. We recommend testing in your hosting environment with the proxy disabled to verify.
 
 ### Socket exhaustion errors
 
-Applications should prefer treating the Event Hubs clients as a singleton, creating and using a single instance through the lifetime of their application.  This is important as each client type manages its connection; creating a new Event Hub client results in a new AMQP connection, which uses a socket.  Additionally, it is essential to be aware that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it is finished using a client.
+Applications should prefer treating the Event Hubs clients as a singleton, creating and using a single instance through the lifetime of their application. This is important as each client type manages its connection; creating a new Event Hub client results in a new AMQP connection, which uses a socket. Additionally, it is essential to be aware that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it is finished using a client.
 
 To use the same AMQP connection when creating multiple clients, you can use the `EventHubClientBuilder.shareConnection()` flag, hold a reference to that `EventHubClientBuilder`, and create new clients from that same builder instance.
 
 ### Connect using an IoT connection string
 
-Because translating a connection string requires querying the IoT Hub service, the Event Hubs client library cannot use it directly.  The [IoTConnectionString.java][IoTConnectionString] sample describes how to query IoT Hub to translate an IoT connection string into one that can be used with Event Hubs.
+Because translating a connection string requires querying the IoT Hub service, the Event Hubs client library cannot use it directly. The [IoTConnectionString.java][IoTConnectionString] sample describes how to query IoT Hub to translate an IoT connection string into one that can be used with Event Hubs.
 
 Further reading:
 
@@ -84,7 +84,7 @@ Further reading:
 
 ### Cannot add components to the connection string
 
-The legacy Event Hub clients allowed customers to add components to the connection string retrieved from the portal.  The legacy clients are in packages [com.microsoft.azure:azure-eventhubs][MavenAzureEventHubs] and [com.microsoft.azure:azure-eventhubs-eph][MavenAzureEventHubsEPH].  The current generation supports connection strings only in the form published by the Azure portal.
+The legacy Event Hub clients allowed customers to add components to the connection string retrieved from the portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs][MavenAzureEventHubs] and [com.microsoft.azure:azure-eventhubs-eph][MavenAzureEventHubsEPH]. The current generation supports connection strings only in the form published by the Azure portal.
 
 #### Adding "TransportType=AmqpWebSockets"
 
@@ -98,7 +98,7 @@ For more information about the `Azure.Identity` library, check out our [Authenti
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. Below are sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 
@@ -140,17 +140,14 @@ When submitting a bug, log messages from classes in the following packages are i
 
 * `com.azure.core.amqp.implementation`
 * `com.azure.core.amqp.implementation.handler`
-  * The exception is that the onDelivery message in ReceiveLinkHandler can be ignored.
+  * The exception is that you can ignore the `onDelivery` message in `ReceiveLinkHandler`.
 * `com.azure.messaging.eventhubs.implementation`
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
 
 <!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
-
 [IoTConnectionString]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/IoTHubConnectionSample.java
 [log4j2]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml
 [logback]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/logback.xml

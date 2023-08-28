@@ -20,7 +20,7 @@ For more information, see [Application and service principal objects in Azure Ac
 
 ## Create a service principal with the Azure CLI
 
-Use the [Azure CLI][azure_cli] examples below to create or get client secret credentials.
+Use the [Azure CLI](/cli/azure) examples below to create or get client secret credentials.
 
 Use the following command to create a service principal and configure its access to Azure resources:
 
@@ -116,5 +116,4 @@ If you run into issues related to service principal authentication, you can refe
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
-[azure_cli]: /cli/azure
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

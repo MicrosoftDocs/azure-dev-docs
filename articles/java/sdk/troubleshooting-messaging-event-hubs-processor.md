@@ -31,13 +31,13 @@ TrackingId:&lt;GUID&gt;, SystemTracker:&lt;NAMESPACE&gt;:eventhub:&lt;EVENT_HUB_
 Timestamp:2022-01-01T12:00:00}"}
 ```
 
-This error is expected when load balancing occurs after EventProcessorClient instances are added or removed.  Load balancing is an ongoing process.  When using the BlobCheckpointStore with your consumer, every ~30 seconds (by default), the consumer will check to see which consumers have a claim for each partition, then run some logic to determine whether it needs to 'steal' a partition from another consumer.  The service mechanism used to assert exclusive ownership over a partition is known as the [Epoch][Epoch].
+This error is expected when load balancing occurs after `EventProcessorClient` instances are added or removed. Load balancing is an ongoing process. When using the `BlobCheckpointStore` with your consumer, every ~30 seconds (by default), the consumer checks to see which consumers have a claim for each partition, then runs some logic to determine whether it needs to 'steal' a partition from another consumer. The service mechanism used to assert exclusive ownership over a partition is known as the [Epoch][Epoch].
 
 However, if no instances are being added or removed, there is an underlying issue that should be addressed. See [Partition ownership changes frequently](#partition-ownership-changes-frequently) for additional information and [Filing GitHub issues][azsdkjava_github_repo_new_issue].
 
 ## High CPU usage
 
-High CPU usage is usually because an instance owns too many partitions.  We recommend no more than three partitions for every 1 CPU core; better to start with 1.5 partitions for each CPU core and test increasing the number of partitions owned.
+High CPU usage is usually because an instance owns too many partitions. We recommend no more than three partitions for every 1 CPU core; better to start with 1.5 partitions for each CPU core and test increasing the number of partitions owned.
 
 ## Out of memory and choosing the heap size
 
@@ -51,7 +51,7 @@ Run the application in an environment close to production, where the application
 
 Wait for the application to reach a steady state. At this stage, the application and JVM would have loaded all domain objects, class types, static instances, object pools (TCP, DB connection pools), etc.
 
-Under the steady state you will see the stable sawtooth-shaped pattern for the heap collection -
+Under the steady state you see the stable sawtooth-shaped pattern for the heap collection -
 
 ![healthy-heap-pattern][HealthyHeapPattern]
 
@@ -73,11 +73,9 @@ The [migration guide][MigrationGuide] includes steps on migrating from the legac
 
 ## Next steps
 
-If the troubleshooting guidance above does not help to resolve issues when using the Azure SDK for Java client libraries, it is recommended that you reach out to the development team by [filing an issue][azsdkjava_github_repo_new_issue] on the [Azure SDK for Java GitHub page][azsdkjava_github_repo].
+If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
 
 <!-- LINKS -->
-[azsdkjava_github_repo]: https://github.com/Azure/azure-sdk-for-java
-[azsdkjava_github_repo_new_issue]: https://github.com/Azure/azure-sdk-for-java/issues/new/choose
 [MigrationGuide]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
 [HealthyHeapPattern]: https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/eventhubs/azure-messaging-eventhubs/docs/images/healthyheappattern.png
 
