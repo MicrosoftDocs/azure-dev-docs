@@ -24,7 +24,7 @@ You can use the following modules independently or combine them for different us
 
 - [Spring Messaging Azure Service Bus](#use-spring-messaging-azure-service-bus) enables you to interact with Service Bus via the [Spring Messaging](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) API.
 
-- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/html/channel.html) with Service Bus.
+- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/channel.html) with Service Bus.
 
 - [Spring Cloud Stream Binder for Service Bus](#use-spring-cloud-stream-service-bus-binder) enables you to use Service Bus as a messaging middleware in Spring Cloud Stream applications.
 
