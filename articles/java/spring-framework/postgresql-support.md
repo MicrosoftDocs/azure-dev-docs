@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
-From version `4.5.0`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for PostgreSQL Flexible server.
+From version `4.5.0`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for PostgreSQL Flexible Server.
 
 ## Supported PostgreSQL version
 
