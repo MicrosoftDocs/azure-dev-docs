@@ -20,7 +20,7 @@ Spring Cloud Azure provides various modules for using Spring frameworks to send 
 
 - [Spring Messaging Azure Storage Queue](#use-spring-messaging-azure-storage-queue) lets you interact with Storage Queues via the [Spring Messaging](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) API.
 
-- [Spring Integration Azure Storage Queue](#use-spring-integration-azure-storage-queue) lets you connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/html/channel.html) with Storage Queues.
+- [Spring Integration Azure Storage Queue](#use-spring-integration-azure-storage-queue) lets you connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/channel.html) with Storage Queues.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Storage Queue Starter module, add the followin
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.10.0</version>
+         <version>4.11.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -237,7 +237,7 @@ To install the Spring Messaging Azure Storage Queue module, add the following de
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.10.0</version>
+         <version>4.11.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -339,7 +339,7 @@ To install the Spring Integration Azure Storage Queue module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.10.0</version>
+         <version>4.11.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
