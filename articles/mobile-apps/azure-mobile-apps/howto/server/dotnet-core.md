@@ -87,13 +87,13 @@ public class TodoItem : EntityTableData
 }
 ```
 
-The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with extra properties for handling data sync services:
+The `ITableData` interface provides the ID of the record, together with extra properties for handling data sync services:
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-Don't change these properties in your code.  They're maintained by the repository.
+The Data sync library maintains these properties.  Don't modify these properties in your own code.
 
 ### Update the `DbContext`
 
@@ -282,9 +282,9 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 ### Azure Cosmos DB
 
-Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
+Azure Cosmos DB is a fully managed NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here is an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here's an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
 
     ``` bicep
     resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
@@ -362,7 +362,7 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following:
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following links:
 
 * [Cosmos DB Sample][cosmos-sample].
 * [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.

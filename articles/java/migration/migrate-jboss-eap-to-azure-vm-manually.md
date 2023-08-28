@@ -33,7 +33,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
@@ -46,7 +46,8 @@ If you prefer a fully automated solution that does all of these steps on your be
      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of the Red Hat account window that shows the Account Type options with Personal selected." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
-  1. Select the first subscription from the **All purchased Subscriptions** table.
+  1. In the row of controls under **All purchased Subscriptions** table, select **Active**. This ensures only active subscriptions are shown.
+  1. Select the sortable column header for **End Date** until the value furthest in the future is shown as the first row.
   1. Copy and write down the value following **Master Pools** from **Pool IDs**.
 
 - A Java JDK, Version 11. In this guide, we recommend [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
@@ -167,13 +168,13 @@ az network vnet subnet update \
     --resource-group abc1110rg
     --vnet-name myVNet \
     --name mySubnet \
-    --network-security-group mynsg \
+    --network-security-group mynsg
 
 az network vnet subnet update \
     --resource-group abc1110rg
     --vnet-name myVNet \
     --name jbossVMGatewaySubnet \
-    --network-security-group mynsg \
+    --network-security-group mynsg
 ```
 
 ### Create a Red Hat Enterprise Linux machine for admin
@@ -533,6 +534,10 @@ This tutorial uses the Red Hat JBoss EAP management CLI commands to configure th
 
 The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of `adminVM` was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
 
+```bash
+ssh azureuser@$ADMIN_VM_PUBLIC_IP
+```
+
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
 
 ```bash
@@ -646,7 +651,7 @@ Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
-After starting the Red Hat JBoss EAP service, you can access the management console via `http://<adminVM-public-IP>:9990` in your web browser. Sign in with the configured username `jbossadmin` and password `Secret123456`.
+After starting the Red Hat JBoss EAP service, you can access the management console via `http://$ADMIN_VM_PUBLIC_IP:9990` in your web browser. Sign in with the configured username `jbossadmin` and password `Secret123456`.
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
@@ -665,6 +670,8 @@ az vm show \
     --show-details \
     --query publicIps
 ```
+
+Remember the password is the same as before, since `mspVM1` is simply a clone of `adminVM`.
 
 Use the following commands to set up the host controller on `mspVM1`:
 
@@ -795,7 +802,7 @@ az network public-ip create \
 
 Next, add the backend servers to Application Gateway backend pool. Query for backend IP addresses by using the following commands. You only have the host controllers (work nodes) configured as backend servers.
 
-```azureclire
+```azurecli
 export MSPVM1_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
