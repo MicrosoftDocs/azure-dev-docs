@@ -37,7 +37,7 @@
       href: end-to-end/contoso-real-estate-get-started.md
       displayName: contoso, composable, sample, example, real-estate
     - name: Run in CodeSpaces
-      href: CodeSpaces, GitHub, azd, best practices, enterprise
+      displayName: CodeSpaces, GitHub, azd, best practices, enterprise
     - name: User Scenarios
       href: end-to-end/contoso-real-estate-user-scenarios.md
     - name: Solutions

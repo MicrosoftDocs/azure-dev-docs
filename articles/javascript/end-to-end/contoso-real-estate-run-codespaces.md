@@ -120,7 +120,7 @@ Learn more:
 * [Contoso real estate](https://github.com/azure-samples/contoso-real-estate)
 * [Naming convention best practices](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 * [CodeSpaces](https://docs.github.com/codespaces)
-* [AZD CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli)
+* [AZD CLI](/azure/developer/azure-developer-cli)
 
 ## Next step
 
