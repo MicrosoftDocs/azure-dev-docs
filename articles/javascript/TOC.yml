@@ -31,6 +31,19 @@
       href: openai-cli.md
     - name: Azure OpenAI quickstart
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+  - name: End to end development
+    items: 
+    - name: Get started
+      href: end-to-end/contoso-real-estate-get-started.md
+      displayName: contoso, composable, sample, example, real-estate
+    - name: Run in CodeSpaces
+      href: CodeSpaces, GitHub, azd, best practices, enterprise
+    - name: User Scenarios
+      href: end-to-end/contoso-real-estate-user-scenarios.md
+    - name: Solutions
+      href: end-to-end/contoso-real-estate-developer-solutions.md
+    - name: Developer tools
+      href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
     items: 
     - name: Getting started
@@ -171,17 +184,6 @@
     - name: Get started
       href: core/automate-tasks-with-azure-cli.md
       displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
-  - name: End to end development
-    items: 
-    - name: Get started
-      href: end-to-end/contoso-real-estate-get-started.md
-      displayName: contoso, composable, sample, example, real-estate
-    - name: User Scenarios
-      href: end-to-end/contoso-real-estate-user-scenarios.md
-    - name: Solutions
-      href: end-to-end/contoso-real-estate-developer-solutions.md
-    - name: Developer tools
-      href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Authentication and identity
     items: 
     - name: Getting started
