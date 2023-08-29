@@ -89,7 +89,12 @@ To find the URLs for the frontends, use the following steps:
 1. In CodeSpaces, use the Azure explorer to find the resource group that was created. You may need to sign in to Azure to see the resource groups.
 1. If you have more than one subscription, select the subscription you used for the deployment.
 1. Find the Container Apps node, and expand it. Find the resource prefixed with **ca-blog** (meaning Container App blog), right-click it and select **Browse**. Complete the steps to open in a browser. The blog app opens in a new browser tab.
+
+    :::image type="content" source="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
+
 1. Find the Static Web Apps node, and expand it. Find the resource prefixed with **stapp-web** (meaning Static Web App), right-click it and select **Browse**. Complete the steps to open in a browser. The portal app opens in a new browser tab.
+
+    :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
 
 ## Contribute to the application
 
