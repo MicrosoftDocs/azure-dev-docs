@@ -36,7 +36,7 @@ Before using the CLI, it's helpful to understand the following terms that are re
 
 - **Tunnel host** - Accepts client connections to a dev tunnel via the dev tunnel relay service, and forwards those connections to local ports.
 
-- **Tunnel port** - An IP port number (1-65536) that is allowed through a dev tunnel. A dev tunnel only allows connections on ports that have been added. One dev tunnel can support multiple ports, and different ports within a dev tunnel may use different protocols (HTTP, HTTPS, etc.) and may have different access controls.
+- **Tunnel port** - An IP port number (1-65535) that is allowed through a dev tunnel. A dev tunnel only allows connections on ports that have been added. One dev tunnel can support multiple ports, and different ports within a dev tunnel may use different protocols (HTTP, HTTPS, etc.) and may have different access controls.
 
 - **Tunnel connection** - A duplex stream of packets between a dev tunnel client and dev tunnel host, through a dev tunnel port. A dev tunnel connection is most often linked to TCP connections on either side, but UDP-based protocols may also be supported. One tunnel port can support multiple simultaneous connections.
 
