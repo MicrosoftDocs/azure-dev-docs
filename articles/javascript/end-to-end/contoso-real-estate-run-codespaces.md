@@ -118,6 +118,26 @@ To clean up after you're finished using this tutorial, remove the Azure resource
 
     :::image type="content" source="./media/contoso-real-estate-run-codespaces/github-codespace-dashboard-delete-button.png" alt-text="Screenshot of browser showing CodeSpaces dashboard with delete option highlighted for single CodeSpace to delete.":::
 
+## Troubleshooting
+
+### Capture logs
+
+If you see any issues during provisioning or deployment, you can use the the `--debug` command combined with the `tee` command to capture logs in the development container to help understand the issue:
+
+
+```bash
+azd provision --debug 2>&1 | tee provision.log.txt
+```
+
+```bash
+azd deploy --debug 2>&1 | tee deploy.log.txt
+```
+
+### Report issues
+
+Report issues with the Contoso real estate sample in the [GitHub repository](https://github.com/Azure-Samples/contoso-real-estate/issues).
+
+
 ## Resources
 
 Learn more:
