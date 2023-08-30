@@ -57,15 +57,23 @@ Calls to service clients resulting in `HttpResponseException` with a `StatusCode
 
 `ClientAuthenticationException` is thrown when unexpected errors occurred while a credential is authenticating. This can include errors received from requests to the AAD STS and often contains information helpful to diagnosis. Consider the following `ClientAuthenticationException` message.
 
-![ClientAuthenticationException Message Example](https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/AuthFailedErrorMessageExample.png)
+```output
+ClientSecretCredential authentication failed: A configuration issue is preventing authentication - check the error message from the server for details. You can modify the configuration in the application registration portal. See https://aka.ms/msal-net-invalid-client for details.
 
-This error contains several pieces of information:
+Original exception:
+AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.
+Trace ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Correlation ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Timestamp: 2022-01-01 00:00:00Z
+```
 
-* **Failing Credential Type**: The type of credential that failed to authenticate. This can be helpful when diagnosing issues with chained credential types such as `DefaultAzureCredential` or `ChainedTokenCredential`.
+This error message contains the following information:
 
-* **STS Error Code and Message**: The error code and message returned from the Microsoft Entra ID STS. This can give insight into the specific reason the request failed. For instance, in this specific case because the provided client secret is incorrect. More information on STS error codes can be found [here](/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+* **Failing credential type**: The type of credential that failed to authenticate - in this case, `ClientSecretCredential`. This information is helpful when diagnosing issues with chained credential types, such as `DefaultAzureCredential` or `ChainedTokenCredential`.
 
-* **Correlation ID and Timestamp**: The correlation ID and call Timestamp used to identify the request in server-side logs. This information can be useful to support engineers when diagnosing unexpected STS failures.
+* **STS error code and message**: The error code and message returned from the Microsoft Entra ID STS - in this case, `AADSTS7000215: Invalid client secret provided.` This information can give insight into the specific reason the request failed. For instance, in this specific case, because the provided client secret is incorrect. For more information on STS error codes, see the [AADSTS error codes](/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes) section of [Azure AD Authentication and authorization error codes](/azure/active-directory/develop/reference-aadsts-error-codes).
+
+* **Correlation ID and timestamp**: The correlation ID and call timestamp used to identify the request in server-side logs. This information is useful to support engineers when diagnosing unexpected STS failures.
 
 ## Enable and configure logging
 

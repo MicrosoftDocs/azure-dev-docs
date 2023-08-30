@@ -18,7 +18,7 @@ This troubleshooting guide provides solutions to common problems that you might 
 
 ## Partition ownership changes frequently
 
-When the number of EventProcessorClient instances changes (i.e. added or removed), the running instances try to load-balance partitions between themselves. For a few minutes after the number of processors changes, partitions are expected to change owners. Once balanced, partition ownership should be stable and change infrequently. If partition ownership is changing frequently when the number of processors is constant, this likely indicates a problem. It is recommended that a GitHub issue with logs and a repro be filed in this case.
+When the number of EventProcessorClient instances changes (i.e. added or removed), the running instances try to load-balance partitions between themselves. For a few minutes after the number of processors changes, partitions are expected to change owners. After it's balanced, partition ownership should be stable and change infrequently. If partition ownership is changing frequently when the number of processors is constant, this likely indicates a problem. It is recommended that a GitHub issue with logs and a repro be filed in this case.
 
 ## "...current receiver '&lt;RECEIVER_NAME&gt;' with epoch '0' is getting disconnected"
 
@@ -51,11 +51,11 @@ Run the application in an environment close to production, where the application
 
 Wait for the application to reach a steady state. At this stage, the application and JVM would have loaded all domain objects, class types, static instances, object pools (TCP, DB connection pools), etc.
 
-Under the steady state you see the stable sawtooth-shaped pattern for the heap collection -
+Under the steady state you see the stable sawtooth-shaped pattern for the heap collection, as shown in the following screenshot:
 
-![healthy-heap-pattern](https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/eventhubs/azure-messaging-eventhubs/docs/images/healthyheappattern.png)
+:::image type="content" source="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png" alt-text="Screenshot of the heap memory collection showing the stable sawtooth pattern." lightbox="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png":::
 
-Once the application reaches the steady state, force a full GC using tools like JConsole. Observe the memory occupied after the full GC. You want to size the heap such that only 30% is occupied after the full GC. You can use this value to set the max heap size (-Xmx).
+After the application reaches the steady state, force a full GC using tools like JConsole. Observe the memory occupied after the full GC. You want to size the heap such that only 30% is occupied after the full GC. You can use this value to set the max heap size (-Xmx).
 
 If you're on the container, then size the container to have an "additional ~1 GB" of memory for the "non-heap" need for the JVM instance.
 

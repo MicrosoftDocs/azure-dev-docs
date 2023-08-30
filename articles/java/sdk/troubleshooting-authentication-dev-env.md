@@ -29,7 +29,7 @@ You can manually verify that the Azure CLI is properly authenticated, and can ob
 az account show
 ```
 
-Once you've verified the Azure CLI is using correct account, you can validate that it's able to obtain tokens for this account.
+After you've verified the Azure CLI is using correct account, you can validate that it's able to obtain tokens for this account.
 
 ```azurecli
 az account get-access-token \
@@ -57,7 +57,7 @@ You can manually verify that the Azure Developer CLI is properly authenticated, 
 azd config list
 ```
 
-Once you've verified the Azure Developer CLI is using correct account, you can validate that it's able to obtain tokens for this account.
+After you've verified the Azure Developer CLI is using correct account, you can validate that it's able to obtain tokens for this account.
 
 ```bash
 azd auth token --output json --scope https://management.core.windows.net/.default
@@ -92,7 +92,7 @@ Name                                     Account             SubscriptionName   
 Subscription1 (xxxxxxxx-xxxx-xxxx-xxx... test@outlook.com    Subscription1       AzureCloud          xxxxxxxx-x...
 ```
 
-Once you've verified Azure PowerShell is using correct account, you can validate that it's able to obtain tokens for this account.
+After you've verified Azure PowerShell is using correct account, you can validate that it's able to obtain tokens for this account.
 
 ```powershell
 Get-AzAccessToken -ResourceUrl "https://management.core.windows.net"
