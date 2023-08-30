@@ -10,9 +10,9 @@ ms.author: vigera
 
 # Authenticate Azure-hosted Java applications
 
-This article looks at how the Azure Identity library supports Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of `TokenCredential` implementations, which are discussed below.
+This article looks at how the Azure Identity library supports Microsoft Entra ID token authentication for applications hosted on Azure. This support is made possible through a set of `TokenCredential` implementations, which are discussed in this article.
 
-This article covers the following topics:
+This article covers the following subjects:
 
 * [Default Azure credential](#default-azure-credential)
 * [Managed Identity credential](#managed-identity-credential)
@@ -21,29 +21,29 @@ For troubleshooting authentication issues related to Azure hosted applications, 
 
 ## Default Azure credential
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. The `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order.
+`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order.
 
 ![DefaultAzureCredential authentication flow](./media/defaultazurecredential.svg)
 
-* Environment - The `DefaultAzureCredential` reads account information specified via [environment variables](#environment-variables) and use it to authenticate.
-* Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` authenticates with that account.
-* IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` authenticates with that account.
-* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` authenticates with that account.
-* Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` authenticates with that account.
+* Environment - `DefaultAzureCredential` reads account information specified via [environment variables](#environment-variables) and use it to authenticate.
+* Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, `DefaultAzureCredential` authenticates with that account.
+* IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, `DefaultAzureCredential` authenticates with that account.
+* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, `DefaultAzureCredential` authenticates with that account.
+* Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, `DefaultAzureCredential` authenticates with that account.
 
 ### Configure DefaultAzureCredential
 
 `DefaultAzureCredential` supports a set of configurations through setters on the `DefaultAzureCredentialBuilder` or environment variables.
 
-* Setting the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` as defined in [Environment variables](#environment-variables) configures the `DefaultAzureCredential` to authenticate as the service principal specified by the values.
-* Setting `.managedIdentityClientId(String)` on the builder or the environment variable `AZURE_CLIENT_ID` configures the `DefaultAzureCredential` to authenticate as a user-defined managed identity, while leaving them empty configures it to authenticate as a system-assigned managed identity.
-* Setting `.tenantId(String)` on the builder or the environment variable `AZURE_TENANT_ID` configures the `DefaultAzureCredential` to authenticate to a specific tenant for shared token cache, Visual Studio Code, and IntelliJ IDEA.
-* Setting the environment variable `AZURE_USERNAME` configures the `DefaultAzureCredential` to pick the corresponding cached token from the shared token cache.
-* Setting `.intelliJKeePassDatabasePath(String)` on the builder configures the `DefaultAzureCredential` to read a specific KeePass file when authenticating with IntelliJ credentials.
+* Setting the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` as defined in [Environment variables](#environment-variables) configures `DefaultAzureCredential` to authenticate as the service principal specified by the values.
+* Setting `.managedIdentityClientId(String)` on the builder or the environment variable `AZURE_CLIENT_ID` configures `DefaultAzureCredential` to authenticate as a user-defined managed identity, while leaving them empty configures it to authenticate as a system-assigned managed identity.
+* Setting `.tenantId(String)` on the builder or the environment variable `AZURE_TENANT_ID` configures `DefaultAzureCredential` to authenticate to a specific tenant for shared token cache, Visual Studio Code, and IntelliJ IDEA.
+* Setting the environment variable `AZURE_USERNAME` configures `DefaultAzureCredential` to pick the corresponding cached token from the shared token cache.
+* Setting `.intelliJKeePassDatabasePath(String)` on the builder configures `DefaultAzureCredential` to read a specific KeePass file when authenticating with IntelliJ credentials.
 
 ### Authenticate with DefaultAzureCredential
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using `DefaultAzureCredential`.
 
 ```java
 // Azure SDK client builders accept the credential as a parameter.
@@ -55,7 +55,7 @@ SecretClient client = new SecretClientBuilder()
 
 ### Authenticate a user assigned managed identity with DefaultAzureCredential
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential` deployed to an Azure resource with a user-assigned managed identity configured.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using `DefaultAzureCredential` deployed to an Azure resource with a user-assigned managed identity configured.
 
 ```java
 /**
@@ -74,7 +74,7 @@ SecretClient client = new SecretClientBuilder()
 
 ### Authenticate a user in Azure Toolkit for IntelliJ with DefaultAzureCredential
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using `DefaultAzureCredential`, on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
 For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](identity-dev-env-auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
 
@@ -127,27 +127,27 @@ You can configure `DefaultAzureCredential` and `EnvironmentCredential` with envi
 
 | Variable name         | Value                                                  |
 | --------------------- | ------------------------------------------------------ |
-| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application.           |
-| `AZURE_TENANT_ID`     | ID of the application's Azure Active Directory tenant. |
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.           |
+| `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra ID tenant. |
 | `AZURE_CLIENT_SECRET` | One of the application's client secrets.               |
 
 ### Service principal with certificate
 
 | Variable name         | Value                                                                                                |
 | --------------------- | ---------------------------------------------------------------------------------------------------- |
-| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application.                                                         |
-| `AZURE_TENANT_ID`     | ID of the application's Azure Active Directory tenant.                                               |
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.                                                         |
+| `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra ID tenant.                                               |
 | `AZURE_CLIENT_CERTIFICATE_PATH` | Path to a PEM-encoded certificate file including private key (without password protection).|
 
 ### Username and password
 
-| Variable name         | Value                                            |
-| --------------------- | ------------------------------------------------ |
-| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application.     |
-| `AZURE_USERNAME`      | A username (usually an email address).           |
-| `AZURE_PASSWORD`      | The associated password for the given username.  |
+| Variable name         | Value                                           |
+| --------------------- | ------------------------------------------------|
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.    |
+| `AZURE_USERNAME`      | A username (usually an email address).          |
+| `AZURE_PASSWORD`      | The associated password for the given username. |
 
-Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret is used.
+Configuration is attempted in this order. For example, if values for a client secret and certificate are both present, the client secret is used.
 
 ## Next steps
 

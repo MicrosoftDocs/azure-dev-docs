@@ -10,14 +10,14 @@ ms.author: vigera
 
 # Azure authentication with Java and Azure Identity
 
-This article provides an overview of the Java Azure Identity library, which provides Azure Active Directory token authentication support across the Azure SDK for Java. This library provides a set of `TokenCredential` implementations that you can use to construct Azure SDK clients that support Azure AD token authentication.
+This article provides an overview of the Java Azure Identity library, which provides Microsoft Entra ID token authentication support across the Azure SDK for Java. This library provides a set of `TokenCredential` implementations that you can use to construct Azure SDK clients that support Microsoft Entra ID token authentication.
 
 The Azure Identity library currently supports:
 
 * [Azure authentication in Java development environments](identity-dev-env-auth.md), which enables:
-  * IDEA IntelliJ authentication, with the login information retrieved from the [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml).
-  * Visual Studio Code authentication, with the login information saved in [Azure plugin for Visual Studio Code](https://code.visualstudio.com/docs/azure/extensions).
-  * Azure CLI authentication, with the login information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
+  * IDEA IntelliJ authentication, with the sign-in information retrieved from the [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml).
+  * Visual Studio Code authentication, with the sign-in information saved in [Azure plugin for Visual Studio Code](https://code.visualstudio.com/docs/azure/extensions).
+  * Azure CLI authentication, with the sign-in information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md), which enables:
   * Default Azure Credential Authentication
   * Managed Identity Authentication
@@ -29,7 +29,7 @@ The Azure Identity library currently supports:
   * Device code authentication
   * Username/password authentication
 
-Follow the links above to learn more about the specifics of each of these authentication approaches. In the rest of this article, we'll introduce the commonly used `DefaultAzureCredential` and related topics.
+Follow these links to learn more about the specifics of each of these authentication approaches. In the rest of this article, we introduce the commonly used `DefaultAzureCredential` and related subjects.
 
 ## Add the Maven dependencies
 
@@ -45,13 +45,13 @@ To add the Maven dependency, include the following XML in the project's *pom.xml
 
 ## Key concepts
 
-There are two key concepts in understanding the Azure Identity library: the concept of a credential, and the most common implementation of that credential, the `DefaultAzureCredential`.
+There are two key concepts in understanding the Azure Identity library: the concept of a credential, and the most common implementation of that credential, `DefaultAzureCredential`.
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
-The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes that can acquire an Azure AD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core), and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
+The Azure Identity library focuses on OAuth authentication with Microsoft Entra ID, and it offers various credential classes that can acquire a Microsoft Entra ID token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core), and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](identity-azure-hosted-auth.md).
+`DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](identity-azure-hosted-auth.md).
 
 ## Examples
 
@@ -59,7 +59,7 @@ As noted in [Use the Azure SDK for Java](overview.md#provision-and-manage-azure-
 
 ### Authenticate Azure client libraries
 
-The following example below demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library using the `DefaultAzureCredential`.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library using `DefaultAzureCredential`.
 
 ```java
 // Azure SDK client builders accept the credential as a parameter.
@@ -79,7 +79,7 @@ You can find the subscription IDs on the [Subscriptions page in the Azure portal
 az account list --output table
 ```
 
-You can set the subscription ID in the `AZURE_SUBSCRIPTION_ID` environment variable. This ID is picked up by `AzureProfile` as the default subscription ID during the creation of a `Manager` instance, as shown in the following example:
+You can set the subscription ID in the `AZURE_SUBSCRIPTION_ID` environment variable. `AzureProfile` picks up this ID as the default subscription ID during the creation of a `Manager` instance in the following example:
 
 ```java
 AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
@@ -88,7 +88,7 @@ AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
     .withDefaultSubscription();
 ```
 
-The `DefaultAzureCredential` used in this example authenticates an `AzureResourceManager` instance using the `DefaultAzureCredential`. You can also use other Token Credential implementations offered in the Azure Identity library in place of `DefaultAzureCredential`.
+`DefaultAzureCredential` used in this example authenticates an `AzureResourceManager` instance using `DefaultAzureCredential`. You can also use other Token Credential implementations offered in the Azure Identity library in place of `DefaultAzureCredential`.
 
 ## Troubleshooting
 
@@ -96,7 +96,7 @@ Refer to the [troubleshoot Azure Identity authentication issues](troubleshooting
 
 ## Next steps
 
-This article introduced the Azure Identity functionality available in the Azure SDK for Java. It described the `DefaultAzureCredential` as common and appropriate in many cases. The following articles describe other ways to authenticate using the Azure Identity library, and provide more information about the `DefaultAzureCredential`:
+This article introduced the Azure Identity functionality available in the Azure SDK for Java. It described `DefaultAzureCredential` as common and appropriate in many cases. The following articles describe other ways to authenticate using the Azure Identity library, and provide more information about `DefaultAzureCredential`:
 
 * [Azure authentication in development environments](identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)

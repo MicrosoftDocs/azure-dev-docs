@@ -15,8 +15,8 @@ The Azure SDK for Java consists of many client libraries, as we built one (or mo
 Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
 
 * [Authentication troubleshooting](troubleshooting-authentication-overview.md) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
-* [Dependency conflicts](troubleshooting-dependency-version-conflict.md) covers topics related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
-* [Network issues](troubleshooting-network.md) covers topics related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
+* [Dependency conflicts](troubleshooting-dependency-version-conflict.md) covers subjects related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
+* [Network issues](troubleshooting-network.md) covers subjects related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
 As well as these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
 
@@ -29,7 +29,7 @@ Beyond these documents, the following content gives guidance on making the best 
 
 ### Enabling client logging
 
-To troubleshoot issues, it is important to first enable logging to monitor the behavior of your application. The errors and warnings in the logs generally provide useful insights into what went wrong and sometimes include corrective actions to fix issues. The Azure SDK for Java has comprehensive logging support, with [conceptual documentation on logging configuration for various logging frameworks][logging_overview].
+To troubleshoot issues, it is important to first enable logging to monitor the behavior of your application. The errors and warnings in the logs generally provide useful insights into what went wrong and sometimes include corrective actions to fix issues. The Azure SDK for Java has comprehensive logging support, with [conceptual documentation on logging configuration for various logging frameworks](logging-overview.md).
 
 ### Enabling HTTP request / response logging
 
@@ -42,7 +42,7 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
         .buildClient();
 ```
 
-The above code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It is important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
+This code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It is important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
 
 | Value            | Logging level                                                        |
 |------------------|----------------------------------------------------------------------|

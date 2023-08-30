@@ -131,7 +131,7 @@ So, when building the HTTP pipeline, you should understand whether to execute a 
 
 ### Common HTTP pipeline policies
 
-HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying the request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that you can add to the pipeline.
+HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying the request ID in the header. Azure Core is preloaded with these commonly required HTTP policies that you can add to the pipeline.
 
 | Policy                | GitHub link        |
 |-----------------------|--------------------|
@@ -143,7 +143,7 @@ HTTP pipelines for REST-based services have configurations with policies for aut
 
 ### Custom HTTP pipeline policy
 
-The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that are either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
+The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that the user or the client library developer created. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
 
 To create a custom HTTP pipeline policy, you just extend a base policy type and implement some abstract method. You can then plug the policy into the pipeline.
 
@@ -170,9 +170,9 @@ For more information, see the [AddHeadersFromContextPolicy Class](/java/api/com.
 
 ### Default TLS/SSL library
 
-All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default SSL implementation within the JDK.
+All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for TLS/SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default TLS/SSL implementation within the JDK.
 
-#### Reduce Tomcat-Native SSL dependency size
+#### Reduce Tomcat-Native TLS/SSL dependency size
 
 By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SDKs for java. To reduce the size of this dependency, you need to include the dependency with an `os` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html).
 
@@ -205,9 +205,9 @@ By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SD
 </project>
 ```
 
-#### Use JDK SSL
+#### Use JDK TLS/SSL
 
-If you'd rather use the default JDK SSL instead of Tomcat-Native Boring SSL then you need to exclude the Tomcat-native Boring SSL library. Note, based on our tests the performance of JDK SSL is 30% slower compared to Tomcat-Native Boring SSL. When `com.azure:azure-core:1.28.0` or later is being used, the HttpClient-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following to your POM:
+If you'd rather use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL, then you need to exclude the Tomcat-native Boring SSL library. Note, based on our tests the performance of JDK TLS/SSL is 30% slower compared to Tomcat-Native Boring SSL. When `com.azure:azure-core:1.28.0` or later is being used, the HttpClient-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following to your POM:
 
 ```xml
 <project>

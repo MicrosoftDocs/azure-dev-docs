@@ -84,11 +84,11 @@ In Wireshark, navigate to **Capture > Options** and find the **Output** tab, the
 
 ### Filter captures
 
-Sometimes you can't tightly scope the traffic that Wireshark captures - for example, if your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark supports filter-like syntax for analyzing captures. For more information, see [Working With Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) in the Wireshark documentation.
+Sometimes you can't tightly scope the traffic that Wireshark captures - for example, if your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined previously, it's easier to run analysis after network capturing. Wireshark supports filter-like syntax for analyzing captures. For more information, see [Working With Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) in the Wireshark documentation.
 
 The following example loads a persisted capture file, and filters on `ip.src_host==<IP>`.
 
-In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input appears. In the filter input, enter `ip.src_host==<IP>`. This filter limits the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
+In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used previously. After the file has loaded underneath the menu bar, a filter input appears. In the filter input, enter `ip.src_host==<IP>`. This filter limits the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
 
 ## Next steps
 

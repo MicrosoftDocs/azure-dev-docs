@@ -12,11 +12,11 @@ ms.author: jogiles
 
 This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you are looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
-## Cannot set multiple partition keys for events in EventDataBatch
+## Can't set multiple partition keys for events in EventDataBatch
 
-When publishing messages, the Event Hubs service supports a single partition key for each EventDataBatch. Customers can consider using the buffered producer client `EventHubBufferedProducerClient` if they want that capability. Otherwise, they'll have to manage their batches.
+When publishing messages, the Event Hubs service supports a single partition key for each EventDataBatch. Customers can consider using the buffered producer client `EventHubBufferedProducerClient` if they want that capability. Otherwise, they have to manage their batches.
 
-## Setting partition key on EventData is not set in Kafka consumer
+## Setting partition key on EventData isn't set in Kafka consumer
 
 The partition key of the EventHubs event is available in the Kafka record headers, the protocol specific key being "x-opt-partition-key" in the header.
 

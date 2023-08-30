@@ -93,7 +93,7 @@ Sometimes there's no combination of libraries that work together, and shading co
 
 Shading enables you to include dependencies within a JAR at build time, renaming packages, and updating application code to use the code in the shaded location. Diamond dependency conflict is no longer an issue because there are two different copies of a dependency. You may shade a library that has a conflicting transitive dependency or a direct application dependency, as described in the following list:
 
-* **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9, which is not supported by Azure SDKs, and it's not possible to update `A`. Create a new module, which includes `A` and shades (relocates) Jackson 2.9 and, optionally, other dependencies of `A`.
+* **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9, which isn't supported by Azure SDKs, and it's not possible to update `A`. Create a new module, which includes `A` and shades (relocates) Jackson 2.9 and, optionally, other dependencies of `A`.
 * **Application dependency conflict**: your application uses Jackson 2.9 directly and while you're working on updating your code, you can shade and relocate  Jackson 2.9 into a new module with relocated Jackson classes instead.
 
 > [!NOTE]

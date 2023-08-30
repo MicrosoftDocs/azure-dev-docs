@@ -10,17 +10,17 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article looks at how the Azure Identity library supports Azure Active Directory token authentication via service principal. Topics covered in this article include:
+This article looks at how the Azure Identity library supports Microsoft Entra ID token authentication via service principal. This article covers the following subjects:
 
 * [Create a service principal with the Azure CLI](#create-a-service-principal-with-the-azure-cli)
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
+For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
 
 ## Create a service principal with the Azure CLI
 
-Use the [Azure CLI](/cli/azure) examples below to create or get client secret credentials.
+Use the following [Azure CLI](/cli/azure) examples to create or get client secret credentials.
 
 Use the following command to create a service principal and configure its access to Azure resources:
 

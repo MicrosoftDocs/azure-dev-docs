@@ -14,7 +14,7 @@ This troubleshooting document provides guidance on dealing with issues encounter
 
 ## Troubleshooting ClientSecretCredential
 
-When using the `ClientSecretCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
+When using the `ClientSecretCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code    | Issue                                                           | Mitigation                                                                                                                                                                                                                                                                                                                                                  |
 |---------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,7 +24,7 @@ When using the `ClientSecretCredential`, you may optionally try/catch for `Clien
 
 ## Troubleshooting ClientCertificateCredential
 
-When using the `ClientCertificateCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
+When using the `ClientCertificateCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code   | Description                                                     | Mitigation                                                                                                                                                                                                                                                                                                                                                 |
 |--------------|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,7 +33,7 @@ When using the `ClientCertificateCredential`, you may optionally try/catch for `
 
 ## Troubleshooting ClientAssertionCredential
 
-When using the `ClientAssertionCredential`, you may optionally try/catch for `ClientAuthenticationException`. The table below shows the errors that this exception indicates, and methods of mitigation.
+When using the `ClientAssertionCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code   | Description                                                                  | Mitigation                                                                                                                                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
