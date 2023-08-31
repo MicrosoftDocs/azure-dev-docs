@@ -11,15 +11,15 @@ ms.author: jogiles
 
 # Troubleshoot user credential authentication
 
-This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications with user-provided credentials, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on user-provided credential types](/azure/developer/java/sdk/identity-user-auth).
+This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications with user-provided credentials, through various `TokenCredential` implementations. For more information, see [Azure authentication with user credentials](identity-user-auth.md).
 
 ## Troubleshoot UsernamePasswordCredential
 
 When you use `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
-| Error code    | Issue                                        | Mitigation                                                                                |
-|---------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
-| `AADSTS50126` | The provided username or password is invalid | Ensure the `username` and `password` provided when constructing the credential are valid. |
+| Error code    | Issue                                        | Mitigation                                                                                     |
+|---------------|----------------------------------------------|------------------------------------------------------------------------------------------------|
+| `AADSTS50126` | The provided username or password is invalid | Ensure that the `username` and `password` provided when constructing the credential are valid. |
 
 ## Next steps
 

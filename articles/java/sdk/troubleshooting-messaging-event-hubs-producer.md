@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Event Hubs Producer
+title: Troubleshoot Azure Event Hubs producer
 titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Events Hubs producer issues when you use the Azure SDK for Java
 ms.date: 09/01/2023
@@ -9,9 +9,9 @@ author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshoot Azure Event Hubs Producer
+# Troubleshoot Azure Event Hubs producer
 
-This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to common problems that you might encounter when you use the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
+This article provides solutions to common problems that you might encounter when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to other common problems that you might encounter when you use Event Hubs, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
 
 ## Can't set multiple partition keys for events in EventDataBatch
 
@@ -19,7 +19,7 @@ When the Event Hubs service publishes messages, it supports a single partition k
 
 ## Setting partition key on EventData isn't set in Kafka consumer
 
-The partition key of the Event Hubs event is available in the Kafka record headers, the protocol specific key being "x-opt-partition-key" in the header.
+The partition key of the Event Hubs event is available in the Kafka record headers. The protocol-specific key is `x-opt-partition-key` in the header.
 
 By design, Event Hubs doesn't promote the Kafka message key to be the Event Hubs partition key nor the reverse because with the same value, the Kafka client and the Event Hubs client likely send the message to two different partitions. It might cause some confusion if we set the value in the cross-protocol communication case. Exposing the properties with a protocol specific key to the other protocol client should be good enough.
 

@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot Azure Event Hubs event processor
 
-This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventProcessorClient` type. If you're looking for solutions to common problems that you might encounter when you use Azure Event Hubs, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
+This article provides solutions to common problems that you might encounter when you use the `EventProcessorClient` type. If you're looking for solutions to other common problems that you might encounter when you use Azure Event Hubs, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
 
 ## 412 precondition failures when you use an event processor
 
@@ -42,21 +42,21 @@ High CPU usage is usually because an instance owns too many partitions. We recom
 
 ## Out of memory and choosing the heap size
 
-The Out of memory (OOM) can happen if the current max heap for the JVM is insufficient to run the application. You may want to measure the application's heap requirement. Then, based on the result, size the heap by setting the appropriate max heap memory (-Xmx JVM option).
+The out of memory (OOM) problem can happen if the current max heap for the JVM is insufficient to run the application. You may want to measure the application's heap requirement. Then, based on the result, size the heap by setting the appropriate max heap memory using the `-Xmx` JVM option.
 
 You shouldn't specify `-Xmx` as a value larger than the memory available or limit set for the host (the VM or container) - for example, the memory requested in the container's configuration. You should allocate enough memory for the host to support the Java heap.
 
-A typical way to measure the value for max Java Heap is -
+The following steps describe a typical way to measure the value for max Java Heap:
 
-Run the application in an environment close to production, where the application sends, receives, and processes events under the peak load expected in production.
+1. Run the application in an environment close to production, where the application sends, receives, and processes events under the peak load expected in production.
 
-Wait for the application to reach a steady state. At this stage, the application and JVM would have loaded all domain objects, class types, static instances, object pools (TCP, DB connection pools), etc.
+1. Wait for the application to reach a steady state. At this stage, the application and JVM would have loaded all domain objects, class types, static instances, object pools (TCP, DB connection pools), etc.
 
-Under the steady state, you see the stable sawtooth-shaped pattern for the heap collection, as shown in the following screenshot:
+   Under the steady state, you see the stable sawtooth-shaped pattern for the heap collection, as shown in the following screenshot:
 
-:::image type="content" source="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png" alt-text="Screenshot of the heap memory collection showing the stable sawtooth pattern." lightbox="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png":::
+   :::image type="content" source="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png" alt-text="Screenshot of the heap memory collection showing the stable sawtooth pattern." lightbox="media/troubleshooting-messaging-event-hubs-processor/healthy-heap-pattern.png":::
 
-After the application reaches the steady state, force a full GC using tools like JConsole. Observe the memory occupied after the full GC. You want to size the heap such that only 30% is occupied after the full GC. You can use this value to set the max heap size (-Xmx).
+1. After the application reaches the steady state, force a full garbage collection (GC) using tools like JConsole. Observe the memory occupied after the full GC. You want to size the heap such that only 30% is occupied after the full GC. You can use this value to set the max heap size (using `-Xmx`).
 
 If you're on the container, then size the container to have an extra ~1 GB of memory for the non-heap need for the JVM instance.
 
@@ -66,7 +66,7 @@ The processor client often continually runs in a host application for days on en
 
 ## Duplicate EventData received when processor is restarted
 
-The `EventProcessorClient` and Event Hubs service guarantees an "at least once" delivery. Customers can add metadata to discern duplicate events. The answer to [Does Azure Event Hubs guarantee an at-least once delivery?](https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018) provides additional information. If you require *only-once* delivery, you should consider Service Bus, which waits for an acknowledgment from the client. For a comparison of the messaging services, see [Choosing between Azure messaging services](/azure/event-grid/compare-messaging-services).
+The `EventProcessorClient` and Event Hubs service guarantees an *at-least-once* delivery. You can add metadata to discern duplicate events. For more information, see [Does Azure Event Hubs guarantee an at-least once delivery?](https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018) on Stack Overflow. If you require *only-once* delivery, you should consider Service Bus, which waits for an acknowledgment from the client. For a comparison of the messaging services, see [Choosing between Azure messaging services](/azure/event-grid/compare-messaging-services).
 
 ## Migrate from legacy to new client library
 

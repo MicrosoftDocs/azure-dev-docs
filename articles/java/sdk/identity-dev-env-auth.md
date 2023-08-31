@@ -38,7 +38,7 @@ To authenticate a user through device code flow, do the following steps:
 3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select *yes* for **Treat application as a public client**.
 
-These steps enable the application to authenticate, but it still doesn't have permission to log you into Microsoft Entra ID, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
+These steps enable the application to authenticate, but it still doesn't have permission to sign you into Microsoft Entra ID, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
 
 You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
 

@@ -11,13 +11,13 @@ ms.author: jogiles
 
 # Troubleshoot Azure Event Hubs
 
-This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Event Hubs library, and mitigation steps to resolve these errors. In addition to the general troubleshooting techniques and guidance that apply regardless of Event Hubs use case, the following articles cover specific features of the Event Hubs library:
+This article covers failure investigation techniques, common errors for the credential types in the Event Hubs library, and mitigation steps to resolve these errors. In addition to the general troubleshooting techniques and guidance that apply regardless of Event Hubs use case, the following articles cover specific features of the Event Hubs library:
 
-* [Troubleshoot Event Hubs Producer](troubleshooting-messaging-event-hubs-producer.md)
-* [Troubleshoot Event Processor](troubleshooting-messaging-event-hubs-processor.md)
-* [Troubleshoot Event Hubs performance](troubleshooting-messaging-event-hubs-performance.md)
+* [Troubleshoot Azure Event Hubs producer](troubleshooting-messaging-event-hubs-producer.md)
+* [Troubleshoot Azure Event Hubs event processor](troubleshooting-messaging-event-hubs-processor.md)
+* [Troubleshoot Azure Event Hubs performance](troubleshooting-messaging-event-hubs-performance.md)
 
-The remainder of this document covers general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
+The remainder of this article covers general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
 
 ## Handle Event Hubs exceptions
 
@@ -40,7 +40,7 @@ An [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception) contai
 
 #### amqp:connection:forced and amqp:link:detach-forced
 
-When the connection to Event Hubs is idle, the service disconnects the client after some time. This issue isn't a problem because the clients re-establish a connection when a service operation is requested. For more information, see the [AMQP troubleshooting documentation](/azure/service-bus-messaging/service-bus-amqp-troubleshoot).
+When the connection to Event Hubs is idle, the service disconnects the client after some time. This issue isn't a problem because the clients re-establish a connection when a service operation is requested. For more information, see [AMQP errors in Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot).
 
 ## Permission issues
 
@@ -58,10 +58,10 @@ An `AmqpException` with an [AmqpErrorCondition](/java/api/com.azure.core.amqp.ex
 * Verify that the connection string or fully qualified domain name specified when creating the client is correct. For more information, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string).
 * Check the firewall and port permissions in your hosting environment and that the AMQP ports 5671 and 5762 are open.
   * Make sure that the endpoint is allowed through the firewall.
-* Try using WebSockets, which connects on port 443. See [configure web sockets][PublishEventsWithWebSocketsAndProxy] sample.
+* Try using WebSockets, which connects on port 443. For more information, see the [PublishEventsWithWebSocketsAndProxy.java][PublishEventsWithWebSocketsAndProxy] sample.
 * See if your network is blocking specific IP addresses.
   * [What IP addresses do I need to allow?](/azure/event-hubs/troubleshooting-guide#what-ip-addresses-do-i-need-to-allow)
-* If applicable, check the proxy configuration. See [configure proxy][PublishEventsWithWebSocketsAndProxy] sample.
+* If applicable, check the proxy configuration. For more information, see the[PublishEventsWithWebSocketsAndProxy.java][PublishEventsWithWebSocketsAndProxy] sample.
 * For more information about troubleshooting network connectivity, see [Event Hubs troubleshooting](/azure/event-hubs/troubleshooting-guide).
 
 ### TLS/SSL handshake failures
@@ -89,7 +89,7 @@ The legacy Event Hubs clients allowed customers to add components to the connect
 
 #### Add "TransportType=AmqpWebSockets"
 
-To use web sockets, see the sample [PublishEventsWithSocketsAndProxy.java][PublishEventsWithWebSocketsAndProxy].
+To use web sockets, see the [PublishEventsWithSocketsAndProxy.java][PublishEventsWithWebSocketsAndProxy] sample.
 
 #### Add "Authentication=Managed Identity"
 
@@ -99,18 +99,18 @@ For more information about the `Azure.Identity` library, check out our [Authenti
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting over view](troubleshooting-overview.md).
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. The following sections show sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 
 ### Configure Log4J 2
 
-1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom] under the "Dependencies required for Log4j2" section.
+1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
 2. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml) to your *src/main/resources* folder.
 
 ### Configure logback
 
-1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom] under the "Dependencies required for logback" section.
+1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for logback" section.
 2. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/logback.xml) to your *src/main/resources* folder.
 
 ### Enable AMQP transport logging

@@ -18,11 +18,11 @@ This article covers the following subjects:
 * [Default Azure credential](#default-azure-credential)
 * [Managed Identity credential](#managed-identity-credential)
 
-For troubleshooting authentication issues related to Azure hosted applications, see [Troubleshoot Azure-hosted applications authentication](troubleshooting-authentication-azure-hosted.md).
+For troubleshooting authentication issues related to Azure-hosted applications, see [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md).
 
 ## Default Azure credential
 
-`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order.
+`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order:
 
 ![DefaultAzureCredential authentication flow](./media/defaultazurecredential.svg)
 
@@ -126,25 +126,25 @@ You can configure `DefaultAzureCredential` and `EnvironmentCredential` with envi
 
 ### Service principal with secret
 
-| Variable name         | Value                                                  |
-| --------------------- | ------------------------------------------------------ |
-| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.           |
+| Variable name         | Value                                              |
+|-----------------------|----------------------------------------------------|
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.            |
 | `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra ID tenant. |
-| `AZURE_CLIENT_SECRET` | One of the application's client secrets.               |
+| `AZURE_CLIENT_SECRET` | One of the application's client secrets.           |
 
 ### Service principal with certificate
 
-| Variable name         | Value                                                                                                |
-| --------------------- | ---------------------------------------------------------------------------------------------------- |
-| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.                                                         |
-| `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra ID tenant.                                               |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | Path to a PEM-encoded certificate file including private key (without password protection).|
+| Variable name                   | Value                                                                                       |
+|---------------------------------|---------------------------------------------------------------------------------------------|
+| `AZURE_CLIENT_ID`               | ID of a Microsoft Entra ID application.                                                     |
+| `AZURE_TENANT_ID`               | ID of the application's Microsoft Entra ID tenant.                                          |
+| `AZURE_CLIENT_CERTIFICATE_PATH` | Path to a PEM-encoded certificate file including private key (without password protection). |
 
 ### Username and password
 
 | Variable name         | Value                                           |
 | --------------------- | ------------------------------------------------|
-| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.    |
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.         |
 | `AZURE_USERNAME`      | A username (usually an email address).          |
 | `AZURE_PASSWORD`      | The associated password for the given username. |
 
@@ -158,7 +158,7 @@ This article covered authentication for applications hosted in Azure. This form 
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
 
-If you run into issues related to Azure-hosted application authentication, see [Troubleshoot Azure-hosted applications authentication](troubleshooting-authentication-azure-hosted.md).
+If you run into issues related to Azure-hosted application authentication, see [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md).
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

@@ -11,19 +11,19 @@ ms.author: jogiles
 
 # Troubleshoot Azure Identity authentication issues
 
-This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we've split the troubleshooting guide into sections based on usage scenario. The following sections are available:
+This article covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we've split the troubleshooting guide into sections based on usage scenario. The following sections are available:
 
-* [Azure-hosted Applications Auth](troubleshooting-authentication-azure-hosted.md)
-* [Development Environment Auth](troubleshooting-authentication-dev-env.md)
-* [Service Principal Auth](troubleshooting-authentication-service-principal.md)
-* [User Credential Auth](troubleshooting-authentication-user-credential.md)
-* [Multi-tenant Authentication](troubleshooting-authentication-multi-tenant.md)
+* [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md)
+* [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md)
+* [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md)
+* [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md)
+* [Troubleshoot multi-tenant authentication](troubleshooting-authentication-multi-tenant.md)
 
-The remainder of this document covers general troubleshooting techniques and guidance that apply to all credential types.
+The remainder of this article covers general troubleshooting techniques and guidance that apply to all credential types.
 
 ## Handle Azure Identity exceptions
 
-As noted in the [troubleshooting overview](troubleshooting-overview.md#exception-handling-in-the-azure-sdk-for-java), there's a comprehensive set of exceptions and error codes that the Azure SDK for Java can throw. For Azure Identity specifically, there are a few key exception types that are important to understand.
+As noted in the [Exception handling in the Azure SDK for Java](troubleshooting-overview.md#exception-handling-in-the-azure-sdk-for-java) section of [Troubleshooting overview](troubleshooting-overview.md), there's a comprehensive set of exceptions and error codes that the Azure SDK for Java can throw. For Azure Identity specifically, there are a few key exception types that are important to understand.
 
 ### ClientAuthenticationException
 
@@ -52,7 +52,7 @@ The `CredentialUnavailableException` is a special exception type derived from `C
 
 ### Permission issues
 
-Calls to service clients resulting in `HttpResponseException` with a `StatusCode` of 401 or 403 often indicate the caller doesn't have sufficient permissions for the specified API. Check the service documentation to determine which roles are needed for the specific request. Ensure the authenticated user or service principal has been granted the appropriate roles on the resource.
+Calls to service clients resulting in `HttpResponseException` with a `StatusCode` of 401 or 403 often indicate the caller doesn't have sufficient permissions for the specified API. Check the service documentation to determine which roles are needed for the specific request. Ensure that the authenticated user or service principal has been granted the appropriate roles on the resource.
 
 ## Find relevant information in exception messages
 
@@ -78,7 +78,7 @@ This error message contains the following information:
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. You can review the [logging conceptual documentation](logging-overview.md) and the [troubleshooting documentation](troubleshooting-overview.md) for guidance on using logging.
+Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting over view](troubleshooting-overview.md).
 
 The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java), also has detailed logging. This logging is highly verbose and includes all personal data including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials that offer this logging have a method called `enableUnsafeSupportLogging()`.
 

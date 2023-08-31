@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot development environment authentication
 
-This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications running locally on developer machines, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on development environment credential types](identity-dev-env-auth.md).
+This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications running locally on developer machines, through various `TokenCredential` implementations. For more information, see [Azure authentication in Java development environments](identity-dev-env-auth.md).
 
 ## Troubleshoot AzureCliCredential
 
@@ -47,7 +47,7 @@ When you use `AzureDeveloperCliCredential`, you may optionally try/catch for `Cr
 
 | Error message                                   | Description                                                                               | Mitigation                                                                                                                                                                                                                                    |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure Developer CLI not installed`             | The Azure Developer CLI isn't installed or couldn't be found.                             | * Ensure that you've properly installed the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd). <br>* Validate that the installation location has been added to the `PATH` environment variable.                         |
+| `Azure Developer CLI not installed`             | The Azure Developer CLI isn't installed or couldn't be found.                             | * Ensure that you've properly installed the [Azure Developer CLI](../../azure-developer-cli/install-azd.md). <br>* Validate that the installation location has been added to the `PATH` environment variable.                         |
 | `Please run 'azd auth login' to set up account` | No account is currently signed in to the Azure Developer CLI, or the sign-in has expired. | * Sign in to the Azure Developer CLI using the `azd auth login` command. <br>* Validate that the Azure Developer CLI can obtain tokens. For more information, see [the next section](#verify-that-the-azure-developer-cli-can-obtain-tokens). |
 
 ### Verify that the Azure Developer CLI can obtain tokens
