@@ -18,8 +18,6 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-      - text: Deploy to Azure Container Instances
-        url: deploy-microprofile-to-container-instances.md
       - text: Config Source for Azure Key Vault
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps
