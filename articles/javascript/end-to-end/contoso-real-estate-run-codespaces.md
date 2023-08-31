@@ -2,7 +2,7 @@
 title: "Tutorial: Contoso Real Estate run in Codespaces"
 description: In this tutorial, run the Contoso Real Estate in Codespaces for this enterprise-grade modern composable cloud-native application and its scenarios.aces
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 08//2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to learn how to run the Contoso Real Estate in Codespaces so that I can learn how to develop modern cloud solutions.
 ---
@@ -143,7 +143,7 @@ To clean up after you're finished using this tutorial, delete the Azure resource
 
 ### Capture logs
 
-If you see any issues during provisioning or deployment, you can use the the `--debug` command combined with the `tee` command to capture logs in the development container to help understand the issue:
+If you see any issues during provisioning or deployment, you can use the `--debug` command combined with the `tee` command to capture logs in the development container to help understand the issue:
 
 
 ```bash
