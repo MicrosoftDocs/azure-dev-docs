@@ -1,30 +1,31 @@
 ---
-title: Troubleshooting Event Hubs
+title: Troubleshoot Azure Event Hubs
+titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Events Hubs issues when you use the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Event Hubs
+# Troubleshoot Azure Event Hubs
 
 This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Event Hubs library, and mitigation steps to resolve these errors. In addition to the general troubleshooting techniques and guidance that apply regardless of Event Hubs use case, the following articles cover specific features of the Event Hubs library:
 
-* [Event Producer Troubleshooting](troubleshooting-messaging-event-hubs-producer.md)
-* [Event Processor Troubleshooting](troubleshooting-messaging-event-hubs-processor.md)
-* [Performance Troubleshooting](troubleshooting-messaging-event-hubs-performance.md)
+* [Troubleshoot Event Hubs Producer](troubleshooting-messaging-event-hubs-producer.md)
+* [Troubleshoot Event Processor](troubleshooting-messaging-event-hubs-processor.md)
+* [Troubleshoot Event Hubs performance](troubleshooting-messaging-event-hubs-performance.md)
 
 The remainder of this document covers general troubleshooting techniques and guidance that apply to all users of the Event Hubs library.
 
-## Handling Event Hubs exceptions
+## Handle Event Hubs exceptions
 
 All Event Hubs exceptions are wrapped in an [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception). They often have an underlying AMQP error code that specifies whether an error should be retried. For retryable errors (that is, `amqp:connection:forced` or `amqp:link:detach-forced`), the client libraries attempt to recover from these errors based on the retry options specified when instantiating the client. To configure retry options, follow the sample [publish events to specific partition](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsToSpecificPartition.java). If the error is nonretryable, there's some configuration issue that needs to be resolved.
 
 The recommended way to solve the specific exception the AMQP exception represents is to follow the [Event Hubs Messaging Exceptions](/azure/event-hubs/event-hubs-messaging-exceptions) guidance.
 
-### Finding relevant information in exception messages
+### Find relevant information in exception messages
 
 An [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception) contains the following three fields, which describe the error:
 
@@ -86,11 +87,11 @@ Further reading:
 
 The legacy Event Hubs clients allowed customers to add components to the connection string retrieved from the portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
 
-#### Adding "TransportType=AmqpWebSockets"
+#### Add "TransportType=AmqpWebSockets"
 
 To use web sockets, see the sample [PublishEventsWithSocketsAndProxy.java][PublishEventsWithWebSocketsAndProxy].
 
-#### Adding "Authentication=Managed Identity"
+#### Add "Authentication=Managed Identity"
 
 To authenticate with Managed Identity, see the sample [PublishEventsWithAzureIdentity.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsWithAzureIdentity.java).
 

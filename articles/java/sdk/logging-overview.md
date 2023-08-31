@@ -75,7 +75,7 @@ traces
 
 ## Next steps
 
-Now that you've seen how logging works in the Azure SDK for Java, consider reviewing the following links for guidance on how to configure some of the more popular Java logging frameworks to work with SLF4J and the Java client libraries:
+Now that you've seen how logging works in the Azure SDK for Java, consider reviewing the following articles. These articles provide guidance on how to configure some of the more popular Java logging frameworks to work with SLF4J and the Java client libraries:
 
 * [java.util.logging](logging-jul.md)
 * [Logback](logging-logback.md)

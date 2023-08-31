@@ -1,5 +1,6 @@
 ---
-title: Azure Authentication in Java development environments
+title: Azure authentication in Java development environments
+titleSuffix: Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
 ms.date: 02/02/2021
 ms.topic: conceptual
@@ -20,7 +21,7 @@ This article covers the following subjects:
 * [IntelliJ credential](#intellij-credential)
 * [Visual Studio Code credential](#visual-studio-code-credential)
 
-For troubleshooting development environment authentication issues, refer to the [troubleshooting development environment authentication](troubleshooting-authentication-dev-env.md) documentation.
+For troubleshooting development environment authentication issues, see [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md).
 
 ## Device code credential
 
@@ -200,7 +201,7 @@ This article covered authentication during development using credentials availab
 * [Authentication with service principals](identity-service-principal-auth.md)
 * [Authentication with user credentials](identity-user-auth.md)
 
-If you run into issues related to development environment authentication, you can refer to the [troubleshooting development environment authentication](troubleshooting-authentication-dev-env.md) documentation.
+If you run into issues related to development environment authentication, see [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md).
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

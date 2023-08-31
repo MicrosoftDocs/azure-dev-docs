@@ -1,5 +1,6 @@
 ---
 title: Azure authentication with service principal
+titleSuffix: Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 ms.date: 02/02/2021
 ms.topic: conceptual
@@ -16,7 +17,7 @@ This article looks at how the Azure Identity library supports Microsoft Entra ID
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
+For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
 
 ## Create a service principal with the Azure CLI
 
@@ -111,7 +112,7 @@ This article covered authentication via service principal. This form of authenti
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with User Credentials](identity-user-auth.md)
 
-If you run into issues related to service principal authentication, you can refer to the [troubleshooting service principal authentication](troubleshooting-authentication-service-principal.md) documentation.
+If you run into issues related to service principal authentication, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

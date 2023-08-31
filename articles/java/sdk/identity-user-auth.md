@@ -1,5 +1,6 @@
 ---
 title: Azure authentication with user credentials
+titleSuffix: Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to authenticating applications with user credentials
 ms.date: 02/02/2021
 ms.topic: conceptual
@@ -18,7 +19,7 @@ This article covers the following subjects:
 * [Interactive browser credential](#interactive-browser-credential)
 * [Username password credential](#username-password-credential)
 
-For troubleshooting user credential authentication issues, refer to the [troubleshooting user credential authentication](troubleshooting-authentication-user-credential.md) documentation.
+For troubleshooting user credential authentication issues, see [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md).
 
 ## Device code credential
 
@@ -123,7 +124,7 @@ This article covered authentication with user credentials. This form of authenti
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with service principals](identity-service-principal-auth.md)
 
-If you run into issues related to user credential authentication, you can refer to the [troubleshooting user credential authentication](troubleshooting-authentication-user-credential.md) documentation.
+If you run into issues related to user credential authentication, see [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md).
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 

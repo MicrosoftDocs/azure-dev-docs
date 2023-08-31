@@ -1,18 +1,19 @@
 ---
-title: Troubleshooting Development Environment Authentication
+title: Troubleshoot development environment authentication
+titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot development environment authentication issues
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Development Environment Authentication
+# Troubleshoot development environment authentication
 
 This troubleshooting document provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications running locally on developer machines, through various `TokenCredential` implementations. For more information, see the [conceptual documentation on development environment credential types](identity-dev-env-auth.md).
 
-## Troubleshooting AzureCliCredential
+## Troubleshoot AzureCliCredential
 
 When you use `AzureCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
@@ -40,7 +41,7 @@ az account get-access-token \
 > [!WARNING]
 > The output of this command contains a valid access token. To avoid compromising account security, do not share this access token.
 
-## Troubleshooting AzureDeveloperCliCredential
+## Troubleshoot AzureDeveloperCliCredential
 
 When you use `AzureDeveloperCliCredential`, you may optionally try/catch for `CredentialUnavailableException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
@@ -66,7 +67,7 @@ azd auth token --output json --scope https://management.core.windows.net/.defaul
 > [!WARNING]
 > The output of this command contains a valid access token. To avoid compromising account security, do not share this access token.
 
-## Troubleshooting AzurePowerShellCredential
+## Troubleshoot AzurePowerShellCredential
 
 When you use `AzurePowerShellCredential`, you may optionally try/catch for `CredentialUnavailableException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
@@ -101,7 +102,7 @@ Get-AzAccessToken -ResourceUrl "https://management.core.windows.net"
 > [!WARNING]
 > The output of this command contains a valid access token. To avoid compromising account security, do not share this access token.
 
-## Troubleshooting VisualStudioCodeCredential
+## Troubleshoot VisualStudioCodeCredential
 
 > [!NOTE]
 > It's a [known issue](https://github.com/Azure/azure-sdk-for-java/issues/27364) that `VisualStudioCodeCredential` doesn't work with [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) versions newer than **0.9.11**. A long-term fix to this problem is in progress. In the meantime, consider [authenticating via the Azure CLI](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#authenticating-via-development-tools).

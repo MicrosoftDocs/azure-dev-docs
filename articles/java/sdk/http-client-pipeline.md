@@ -170,11 +170,11 @@ For more information, see the [AddHeadersFromContextPolicy Class](/java/api/com.
 
 ### Default TLS/SSL library
 
-All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for TLS/SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default TLS/SSL implementation within the JDK.
+All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for TLS/SSL operations. The Boring SSL library is an uber JAR containing native libraries for Linux, macOS, and Windows, and provides better performance compared to the default TLS/SSL implementation within the JDK.
 
 #### Reduce Tomcat-Native TLS/SSL dependency size
 
-By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SDKs for java. To reduce the size of this dependency, you need to include the dependency with an `os` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html).
+By default, the uber JAR of the Tomcat-Native Boring SSL library is used in Azure SDKs for Java. To reduce the size of this dependency, you need to include the dependency with an `os` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html), as shown in the following example:
 
 ```xml
 <project>
@@ -207,7 +207,7 @@ By default, the uber jar of Tomcat-Native Boring SSL library is used in Azure SD
 
 #### Use JDK TLS/SSL
 
-If you'd rather use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL, then you need to exclude the Tomcat-native Boring SSL library. Note, based on our tests the performance of JDK TLS/SSL is 30% slower compared to Tomcat-Native Boring SSL. When `com.azure:azure-core:1.28.0` or later is being used, the HttpClient-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following to your POM:
+If you'd rather use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL, then you need to exclude the Tomcat-native Boring SSL library. Be aware that, based on our tests, the performance of JDK TLS/SSL is 30% slower compared to Tomcat-Native Boring SSL. When you use `com.azure:azure-core:1.28.0` or later, the `HttpClient`-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following configuration to your POM file:
 
 ```xml
 <project>
@@ -233,4 +233,4 @@ If you'd rather use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL,
 
 ## Next steps
 
-Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client you're using.
+Now that you're familiar with HTTP client functionality in the Azure SDK for Java, learn how to further customize the HTTP client you're using. For more information, see [Configure proxies in the Azure SDK for Java](proxying.md).

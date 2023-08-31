@@ -1,7 +1,8 @@
 ---
-title: Authentication troubleshooting overview when you use the Azure SDK for Java
+title: Troubleshoot Azure Identity authentication issues
+titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot authentication issues related to using the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -20,7 +21,7 @@ This troubleshooting guide covers failure investigation techniques, common error
 
 The remainder of this document covers general troubleshooting techniques and guidance that apply to all credential types.
 
-## Handling Azure Identity exceptions
+## Handle Azure Identity exceptions
 
 As noted in the [troubleshooting overview](troubleshooting-overview.md#exception-handling-in-the-azure-sdk-for-java), there's a comprehensive set of exceptions and error codes that the Azure SDK for Java can throw. For Azure Identity specifically, there are a few key exception types that are important to understand.
 
@@ -53,7 +54,7 @@ The `CredentialUnavailableException` is a special exception type derived from `C
 
 Calls to service clients resulting in `HttpResponseException` with a `StatusCode` of 401 or 403 often indicate the caller doesn't have sufficient permissions for the specified API. Check the service documentation to determine which roles are needed for the specific request. Ensure the authenticated user or service principal has been granted the appropriate roles on the resource.
 
-## Finding relevant information in exception messages
+## Find relevant information in exception messages
 
 `ClientAuthenticationException` is thrown when unexpected errors occur while a credential is authenticating. These errors can include errors received from requests to the Microsoft Entra ID security token service (STS) and often contain information helpful to diagnosis. Consider the following `ClientAuthenticationException` message:
 

@@ -1,14 +1,15 @@
 ---
-title: Troubleshooting Multi-tenant Authentication
+title: Troubleshoot multi-tenant authentication
+titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot multi-tenant authentication issues
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Multi-tenant Authentication
+# Troubleshoot multi-tenant authentication
 
 This troubleshooting document provides guidance on dealing with issues encountered when in a multi-tenant context.
 

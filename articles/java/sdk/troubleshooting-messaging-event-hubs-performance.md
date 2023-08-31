@@ -1,18 +1,19 @@
 ---
-title: Troubleshooting Event Hubs Performance
+title: Troubleshoot Azure Event Hubs performance
+titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Events Hubs performance issues when you use the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Event Hubs performance
+# Troubleshoot Azure Event Hubs performance
 
 This troubleshooting guide provides solutions to common performance problems that you might encounter when you use the Event Hubs library in the Azure SDK for Java. If you're looking for solutions to common problems that you might encounter when you use Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
-## Using processEvent or processEventBatch
+## Use processEvent or processEventBatch
 
 When you use the `processEvent` callback, each `EventData` instance received calls your code. This process works well with low or moderate traffic in the event hub.
 
@@ -26,13 +27,13 @@ When you use Azure Blob Storage as the checkpoint store, there's a network cost 
 
 Checkpointing after every `EventData` instance is processed hinders performance due to the cost of making these HTTP requests. Users shouldn't checkpoint if their callback processed no events or checkpoint after processing some number of events.
 
-## Using LoadBalancingStrategy.BALANCED or LoadBalancingStrategy.GREEDY
+## Use LoadBalancingStrategy.BALANCED or LoadBalancingStrategy.GREEDY
 
 When you use `LoadBalancingStrategy.BALANCED`, the `EventProcessorClient` claims one partition for every load balancing cycle. If there are 32 partitions in an event hub, it takes 32 load-balancing iterations to claim all the partitions. If users know a set number of `EventProcessorClient` instances are running, they can use `LoadBalancingStrategy.GREEDY` to claim their share of the partitions in one load-balancing cycle.
 
 For more information about each strategy, see [LoadBalancingStrategy.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/LoadBalancingStrategy.java) in the [azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java).
 
-## Configuring prefetchCount
+## Configure prefetchCount
 
 The default prefetch value is 500. When the AMQP receive link is opened, it places 500 credits on the link. Assuming that each `EventData` instance is one link credit, `EventProcessorClient` prefetches 500 `EventData` instances. When all the events are consumed, the processor client adds 500 credits to the link to receive more messages. This flow repeats while the `EventProcessorClient` still has ownership of a partition.
 

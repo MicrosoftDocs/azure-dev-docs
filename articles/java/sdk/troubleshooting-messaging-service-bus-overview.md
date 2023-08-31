@@ -1,14 +1,15 @@
 ---
-title: Troubleshooting Service Bus
+title: Troubleshoot Azure Service Bus
+titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Service Bus issues when you use the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Service Bus
+# Troubleshoot Azure Service Bus
 
 This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Service Bus Java client library, and mitigation steps to resolve these errors.
 

@@ -1,16 +1,17 @@
 ---
-title: Troubleshooting Event Processor
+title: Troubleshoot Azure Event Hubs event processor
+titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Event Hubs EventProcessor issues when you use the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Event Processor
+# Troubleshoot Azure Event Hubs event processor
 
-This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventProcessorClient` type. If you're looking for solutions to common problems that you might encounter when you use the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventProcessorClient` type. If you're looking for solutions to common problems that you might encounter when you use Azure Event Hubs, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
 
 ## 412 precondition failures when you use an event processor
 

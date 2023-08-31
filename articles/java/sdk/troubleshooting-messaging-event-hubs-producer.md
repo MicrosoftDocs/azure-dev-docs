@@ -1,14 +1,15 @@
 ---
-title: Troubleshooting Event Hubs Producer
+title: Troubleshoot Azure Event Hubs Producer
+titleSuffix: Azure SDK for Java
 description: A troubleshooting guide for Events Hubs producer issues when you use the Azure SDK for Java
-ms.date: 08/16/2023
+ms.date: 09/01/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jogiles
 ---
 
-# Troubleshooting Event Hubs Producer
+# Troubleshoot Azure Event Hubs Producer
 
 This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to common problems that you might encounter when you use the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 

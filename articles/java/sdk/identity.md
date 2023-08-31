@@ -1,5 +1,6 @@
 ---
 title: Azure authentication with Java and Azure Identity
+titleSuffix: Azure SDK for Java
 description: An overview of the Azure SDK authentication and identity functionality
 ms.date: 10/17/2022
 ms.topic: conceptual
@@ -92,7 +93,7 @@ AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
 
 ## Troubleshooting
 
-Refer to the [troubleshoot Azure Identity authentication issues](troubleshooting-authentication-overview.md) documentation for guidance on troubleshooting Azure Identity authentication issues.
+For guidance, see [Troubleshoot Azure Identity authentication issues](troubleshooting-authentication-overview.md).
 
 ## Next steps
 
