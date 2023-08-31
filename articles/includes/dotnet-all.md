@@ -331,9 +331,9 @@
 | Functions - Extensions | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-functions-dotnet-extensions) |
 | Functions extension for Azure Mobile Apps | NuGet [3.0.0-beta8](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/3.0.0-beta8) |  | GitHub [3.0.0-beta8](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v3.0.0-beta8/src/WebJobs.Extensions.MobileApps) |
 | Functions extension for Blob Storage | NuGet [5.2.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/5.2.0) | [docs](/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs-readme) |  |
-| Functions extension for Cosmos DB | NuGet [4.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.3.0) |  | GitHub [4.3.0](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/cosmos-v3.0.7/src/WebJobs.Extensions.CosmosDB) |
+| Functions extension for Cosmos DB | NuGet [4.3.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.3.1) |  | GitHub [4.3.1](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/cosmos-v3.0.7/src/WebJobs.Extensions.CosmosDB) |
 | Functions extension for DocumentDB | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.3.0) |  | GitHub [1.3.0](https://github.com/Azure/azure-webjobs-sdk-extensions) |
-| Functions extension for Durable Task Framework | NuGet [2.11.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.11.0) | [docs](https://learn.microsoft.com/dotnet/api/overview/azure/functions) | GitHub [2.11.0](https://github.com/Azure/azure-functions-durable-extension/tree/v2.2.2/src/WebJobs.Extensions.DurableTask) |
+| Functions extension for Durable Task Framework | NuGet [2.11.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.11.1) | [docs](https://learn.microsoft.com/dotnet/api/overview/azure/functions) | GitHub [2.11.1](https://github.com/Azure/azure-functions-durable-extension/tree/v2.2.2/src/WebJobs.Extensions.DurableTask) |
 | Functions extension for HTTP | NuGet [3.2.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/3.2.0) |  | GitHub [3.2.0](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v3.0.2/src/WebJobs.Extensions.Http) |
 | Functions extension for IoT Edge | NuGet [1.0.7](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EdgeHub/1.0.7) |  | GitHub [1.0.7](https://github.com/Azure/iotedge/tree/1.0.7/edge-hub) |
 | Functions extension for Kafka | NuGet [3.9.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka/3.9.0) |  | GitHub [3.9.0](https://github.com/Azure/azure-functions-kafka-extension/tree/3.0.0/src/Microsoft.Azure.WebJobs.Extensions.Kafka) |
@@ -460,11 +460,11 @@
 | Microsoft.Azure.Functions.Worker.Extensions.ServiceBus | NuGet [5.13.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.13.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.SignalRService | NuGet [1.7.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/1.7.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Sql | NuGet [3.0.343-preview](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/3.0.343-preview) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.Storage | NuGet [6.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/6.1.0) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs | NuGet [6.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/6.1.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.Storage | NuGet [6.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/6.2.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs | NuGet [6.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/6.2.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues | NuGet [5.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues/5.2.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Storage.Tables | NuGet [1.0.0-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Tables/1.0.0-preview1) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.Tables | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Tables/1.2.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.Tables | NuGet [1.2.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Tables/1.2.1) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Timer | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer/4.2.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Warmup | NuGet [4.0.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Warmup/4.0.2) |  |  |
 | Microsoft.Azure.Functions.Worker.Grpc | NuGet [1.14.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Grpc/1.14.0) |  |  |
