@@ -30,13 +30,13 @@ In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` p
 
 ### Enable AMQP transport logging
 
-If enabling client logging isn't enough to diagnose your issues. You can enable logging to a file in the underlying AMQP library, [Qpid Proton-J](https://qpid.apache.org/proton/). Qpid Proton-J uses `java.util.logging`. You can enable logging by creating a configuration file with the contents shown in the next section. Or, set `proton.trace.level=ALL` and whichever configuration options you want for the `java.util.logging.Handler` implementation. For the implementation classes and their options, see [Package java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) in the Java 8 SDK documentation.
+If enabling client logging isn't enough to diagnose your issues, you can enable logging to a file in the underlying AMQP library, [Qpid Proton-J](https://qpid.apache.org/proton/). Qpid Proton-J uses `java.util.logging`. You can enable logging by creating a configuration file with the contents shown in the next section. Or, set `proton.trace.level=ALL` and whichever configuration options you want for the `java.util.logging.Handler` implementation. For the implementation classes and their options, see [Package java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) in the Java 8 SDK documentation.
 
 To trace the AMQP transport frames, set the environment variable: `PN_TRACE_FRM=1`.
 
 #### Sample "logging.properties" file
 
-The following configuration file logs TRACE level output from proton-j to the file "proton-trace.log":
+The following configuration file logs TRACE level output from Proton-J to the file "proton-trace.log":
 
 ```properties
 handlers=java.util.logging.FileHandler
@@ -52,7 +52,7 @@ java.util.logging.SimpleFormatter.format=[%1$tF %1$tr] %3$s %4$s: %5$s %n
 
 One way to decrease logging is to change the verbosity. Another is to add filters that exclude logs from logger names packages like `com.azure.messaging.servicebus` or `com.azure.core.amqp`. For examples, see the XML files in the [Configure Log4J 2](#configure-log4j-2) and [Configure logback](#configure-logback) sections.
 
-When submitting a bug, log messages from classes in the following packages are interesting:
+When you submit a bug, the log messages from classes in the following packages are interesting:
 
 * `com.azure.core.amqp.implementation`
 * `com.azure.core.amqp.implementation.handler`

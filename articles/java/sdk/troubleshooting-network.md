@@ -26,13 +26,13 @@ To add an HTTP proxy, follow the guidance in [Configure proxies in the Azure SDK
 
 By default, Fiddler can capture only HTTP traffic. If your application uses HTTPS, you must take extra steps to trust Fiddler's certificate to allow it to capture HTTPS traffic. For more information, see [HTTPS Menu](https://docs.telerik.com/fiddler-everywhere/user-guide/settings/https) in the Fiddler documentation.
 
-The following procedures describe how to use the Java Runtime Environment (JRE) to trust the certificate. Without trusting the certificate, an HTTPS request through Fiddler may fail with security warnings.
+The following procedures describe how to use the Java Runtime Environment (JRE) to trust the certificate. If the certificate isn't trusted, an HTTPS request through Fiddler may fail with security warnings.
 
 **Linux/macOS**
 
 1. Export Fiddler's certificate.
-1. Find the JRE's keytool (usually `jre/bin`).
-1. Find the JRE's cacert (usually `jre/lib/security`).
+1. Find the JRE's keytool (usually in *jre/bin*).
+1. Find the JRE's cacert (usually in *jre/lib/security*).
 1. Open a Bash window and run the following command to import the certificate:
 
    ```bash
@@ -59,7 +59,7 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
    keytool.exe -import -trustcacerts -file "C:\Users\username\Desktop\FiddlerRootCertificate.crt" -keystore "C:\Program Files\AdoptOpenJDK\jdk-8.0.275.1-hotspot\jre\lib\security\cacerts" -alias Fiddler
    ```
 
-1. Enter a password. If you have not set a password before, the default is 'changeit'. For more information, see [Working with Certificates and SSL](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) in the Oracle documentation.
+1. Enter a password. If you have not set a password before, the default is `changeit`. For more information, see [Working with Certificates and SSL](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) in the Oracle documentation.
 1. Trust the certificate.
 
 ## Wireshark
@@ -76,7 +76,7 @@ In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter 
 
 ### Capture to disk
 
-You might need to run an application for a long time to reproduce an unexpected networking exception, and to see the traffic that leads up to it. Additionally, it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk so that they are available for post-processing. This approach avoids the risk of running out of memory while you reproduce an issue. For more information, see [File Input, Output, And Printing](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) in the Wireshark documentation.
+You might need to run an application for a long time to reproduce an unexpected networking exception, and to see the traffic that leads up to it. Additionally, it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk so that they're available for post-processing. This approach avoids the risk of running out of memory while you reproduce an issue. For more information, see [File Input, Output, And Printing](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) in the Wireshark documentation.
 
 The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50 MB in size.
 
@@ -92,4 +92,4 @@ In Wireshark, navigate to **File > Open** and load a persisted capture from the 
 
 ## Next steps
 
-This topic covered using various tools to diagnose networking issues when working with the Azure SDK for Java. Now that you're familiar with the high-level usage scenarios, you can begin exploring the SDK itself. For more information on the APIs available, see the [Azure SDK for Java libraries](azure-sdk-library-package-index.md).
+This article covered using various tools to diagnose networking issues when working with the Azure SDK for Java. Now that you're familiar with the high-level usage scenarios, you can begin exploring the SDK itself. For more information on the APIs available, see the [Azure SDK for Java libraries](azure-sdk-library-package-index.md).

@@ -120,7 +120,7 @@ To trace the AMQP transport frames, set the environment variable: `PN_TRACE_FRM=
 
 #### Sample "logging.properties" file
 
-The following configuration file logs TRACE level output from proton-j to the *proton-trace.log* file:
+The following configuration file logs TRACE level output from Proton-J to the *proton-trace.log* file:
 
 ```properties
 handlers=java.util.logging.FileHandler

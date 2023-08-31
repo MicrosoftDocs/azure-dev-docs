@@ -12,13 +12,13 @@ ms.author: jogiles
 
 The Azure SDK for Java consists of many client libraries, as we built one (or more!) libraries for each Azure Service that exists. We ensure that all client libraries are built to a consistent, high standard, with [common patterns](overview.md) for configuration, logging, exception handling, and troubleshooting. This document introduces many troubleshooting tools available to you, and links to other pages with further details.
 
-Because troubleshooting can span such a wide topic area, we have developed the following troubleshooting guides you may want to review:
+Because troubleshooting can span such a wide subject area, we've developed the following troubleshooting guides you may want to review:
 
 * [Authentication troubleshooting](troubleshooting-authentication-overview.md) covers authentication failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors.
-* [Dependency conflicts](troubleshooting-dependency-version-conflict.md) covers subjects related to diagnosing, mitigating, and minimizing dependency conflicts, when using the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
+* [Dependency conflicts](troubleshooting-dependency-version-conflict.md) covers subjects related to diagnosing, mitigating, and minimizing dependency conflicts. These conflicts can arise when you use the Azure SDK for Java client libraries in systems that are built with tools such as Maven and Gradle.
 * [Network issues](troubleshooting-network.md) covers subjects related to HTTP debugging *outside* of the client library, using tools like Fiddler and Wireshark.
 
-As well as these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
+Along with these general troubleshooting guides, we also provide library-specific troubleshooting guides. Right now, the following guides are available:
 
 * [Event Hubs](troubleshooting-messaging-event-hubs-overview.md)
 * [Service Bus](troubleshooting-messaging-service-bus-overview.md)
@@ -29,11 +29,11 @@ Beyond these documents, the following content gives guidance on making the best 
 
 ### Enabling client logging
 
-To troubleshoot issues, it is important to first enable logging to monitor the behavior of your application. The errors and warnings in the logs generally provide useful insights into what went wrong and sometimes include corrective actions to fix issues. The Azure SDK for Java has comprehensive logging support, with [conceptual documentation on logging configuration for various logging frameworks](logging-overview.md).
+To troubleshoot issues, it's important to first enable logging to monitor the behavior of your application. The errors and warnings in the logs generally provide useful insights into what went wrong and sometimes include corrective actions to fix issues. The Azure SDK for Java has comprehensive logging support, with [conceptual documentation on logging configuration for various logging frameworks](logging-overview.md).
 
 ### Enabling HTTP request / response logging
 
-Reviewing HTTP requests as they are sent and received between Azure services can be useful in troubleshooting issues. To enable logging the HTTP request and response payload, almost all Azure SDK for Java client libraries can be configured in their client builders as shown. In particular, pay special attention to the `httpLogOptions` method on the client builder, as well as the available enum values available in `HttpLogDetailLevel`:
+Reviewing HTTP requests as they're sent and received between Azure services can be useful in troubleshooting issues. To enable logging the HTTP request and response payload, almost all Azure SDK for Java client libraries can be configured in their client builders as shown. In particular, pay special attention to the `httpLogOptions` method on the client builder, and the available enum values available in `HttpLogDetailLevel`:
 
 ```java
 ConfigurationClient configurationClient = new ConfigurationClientBuilder()
@@ -42,7 +42,7 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
         .buildClient();
 ```
 
-This code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It is important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
+This code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It's important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
 
 | Value            | Logging level                                                        |
 |------------------|----------------------------------------------------------------------|
@@ -52,7 +52,8 @@ This code changes the http request / response logging for a single client instan
 | body             | Logs everything in BASIC, plus all the request and response body.    |
 | body_and_headers | Logs everything in HEADERS and BODY.                                 |
 
-**NOTE**: When logging request and response bodies, please ensure that they do not contain confidential information. When logging query parameters and headers, the client library has a default set of query parameters and headers that are considered safe to log. It is possible to add additional query parameters and headers that are safe to log:
+> [!NOTE]
+> When you log request and response bodies, ensure that they don't contain confidential information. When you log query parameters and headers, the client library has a default set of query parameters and headers that are considered safe to log. It's possible to add additional query parameters and headers that are safe to log, as shown in the following example:
 
 ```java
 clientBuilder.httpLogOptions(new HttpLogOptions()
@@ -62,7 +63,7 @@ clientBuilder.httpLogOptions(new HttpLogOptions()
 
 ## Exception handling in the Azure SDK for Java
 
-Most Azure SDK for Java client service methods throw a [HttpResponseException](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java) or a more-specific subclass on failure. The `HttpResponseException` type includes a detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. You can find this error information inside the message property of the `HttpResponseException` object. Because these exception are runtime exceptions, the JavaDoc reference documentation doesn't explicitly call them out.
+Most Azure SDK for Java client service methods throw a [HttpResponseException](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java) or a more-specific subclass on failure. The `HttpResponseException` type includes a detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. You can find this error information inside the message property of the `HttpResponseException` object. Because these exceptions are runtime exceptions, the JavaDoc reference documentation doesn't explicitly call them out.
 
 Here's the example of how to catch it with a synchronous client
 
@@ -89,7 +90,7 @@ asyncClient.getConfigurationSetting(setting)
 
 ## Tracing in the Azure SDK for Java
 
-The Azure SDK for Java offers comprehensive tracing support, allowing you to see the flow of execution through your application code, as well as the client libraries you're using. You can enable tracing in Azure client libraries by using and configuring the [OpenTelemetry](https://opentelemetry.io) SDK or using an OpenTelemetry-compatible agent. OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
+The Azure SDK for Java offers comprehensive tracing support, allowing you to see the flow of execution through your application code and the client libraries you're using. You can enable tracing in Azure client libraries by using and configuring the [OpenTelemetry](https://opentelemetry.io) SDK or using an OpenTelemetry-compatible agent. OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
 For more detailed information on how to enable tracing in the Azure SDK for Java, see the [Azure SDK for Java tracing documentation](./tracing.md).
 

@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Troubleshoot Azure Identity authentication issues
 
-This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we have split the troubleshooting guide into sections based on usage scenario. The following sections are available:
+This troubleshooting guide covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we've split the troubleshooting guide into sections based on usage scenario. The following sections are available:
 
 * [Azure-hosted Applications Auth](troubleshooting-authentication-azure-hosted.md)
 * [Development Environment Auth](troubleshooting-authentication-dev-env.md)
