@@ -179,4 +179,6 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - Integrate Liberty Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 
+- Tune WebSphere Liberty or Open Liberty to achieve better performance. For more information, see [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+
 - Use Velero to back up and restore the cluster. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup).
