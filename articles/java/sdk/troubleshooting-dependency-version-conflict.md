@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot dependency version conflicts when using the Azure SDK for Java
+title: Troubleshoot dependency version conflicts when you use the Azure SDK for Java
 description: An overview of how to troubleshoot dependency version conflicts related to using the Azure SDK for Java
 ms.date: 10/28/2021
 ms.topic: conceptual

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot overview when using the Azure SDK for Java
+title: Troubleshoot overview when you use the Azure SDK for Java
 description: An overview of how to troubleshoot issues related to using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
@@ -44,13 +44,13 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
 
 This code changes the http request / response logging for a single client instance. Alternatively, you can configure logging HTTP requests and responses for your entire application by setting the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable. It's important to note that this change enables logging for every Azure client that supports logging HTTP request/response.
 
-| Value            | Logging level                                                        |
-|------------------|----------------------------------------------------------------------|
-| none             | HTTP request/response logging is disabled                            |
-| basic            | Logs only URLs, HTTP methods, and time to finish the request.        |
-| headers          | Logs everything in BASIC, plus all the request and response headers. |
-| body             | Logs everything in BASIC, plus all the request and response body.    |
-| body_and_headers | Logs everything in HEADERS and BODY.                                 |
+| Value              | Logging level                                                        |
+|--------------------|----------------------------------------------------------------------|
+| `none`             | HTTP request/response logging is disabled                            |
+| `basic`            | Logs only URLs, HTTP methods, and time to finish the request.        |
+| `headers`          | Logs everything in BASIC, plus all the request and response headers. |
+| `body`             | Logs everything in BASIC, plus all the request and response body.    |
+| `body_and_headers` | Logs everything in HEADERS and BODY.                                 |
 
 > [!NOTE]
 > When you log request and response bodies, ensure that they don't contain confidential information. When you log query parameters and headers, the client library has a default set of query parameters and headers that are considered safe to log. It's possible to add additional query parameters and headers that are safe to log, as shown in the following example:
@@ -96,4 +96,4 @@ For more detailed information on how to enable tracing in the Azure SDK for Java
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

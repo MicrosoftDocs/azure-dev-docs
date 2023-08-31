@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Event Processor
-description: A troubleshooting guide for Event Hubs EventProcessor issues when using the Azure SDK for Java
+description: A troubleshooting guide for Event Hubs EventProcessor issues when you use the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -10,9 +10,9 @@ ms.author: jogiles
 
 # Troubleshooting Event Processor
 
-This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventProcessorClient` type. If you're looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventProcessorClient` type. If you're looking for solutions to common problems that you might encounter when you use the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
-## 412 precondition failures when using an event processor
+## 412 precondition failures when you use an event processor
 
 412 precondition errors occur when the client tries to take or renew ownership of a partition, but the local version of the ownership record is outdated. This problem occurs when another processor instance steals partition ownership. For more information, see the next section.
 
@@ -73,4 +73,4 @@ The [migration guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

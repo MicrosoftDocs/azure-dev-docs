@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Event Hubs Producer
-description: A troubleshooting guide for Events Hubs producer issues when using the Azure SDK for Java
+description: A troubleshooting guide for Events Hubs producer issues when you use the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Troubleshooting Event Hubs Producer
 
-This troubleshooting guide provides solutions to common problems that you might encounter when using the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to common problems that you might encounter when using the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
+This troubleshooting guide provides solutions to common problems that you might encounter when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to common problems that you might encounter when you use the Event Hubs, see [Troubleshooting Azure SDK for Java messaging issues](troubleshooting-messaging-event-hubs-overview.md).
 
 ## Can't set multiple partition keys for events in EventDataBatch
 
@@ -24,4 +24,4 @@ By design, Event Hubs doesn't promote the Kafka message key to be the Event Hubs
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

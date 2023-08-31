@@ -1,5 +1,5 @@
 ---
-title: Authentication troubleshooting overview when using the Azure SDK for Java
+title: Authentication troubleshooting overview when you use the Azure SDK for Java
 description: An overview of how to troubleshoot authentication issues related to using the Azure SDK for Java
 ms.date: 08/16/2023
 ms.topic: conceptual
@@ -86,4 +86,4 @@ The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authe
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).

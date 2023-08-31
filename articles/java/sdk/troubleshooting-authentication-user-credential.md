@@ -14,12 +14,12 @@ This troubleshooting document provides guidance on dealing with issues encounter
 
 ## Troubleshooting UsernamePasswordCredential
 
-When using the `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
-| Error code  | Issue                                        | Mitigation                                                                                |
-|-------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
-| AADSTS50126 | The provided username or password is invalid | Ensure the `username` and `password` provided when constructing the credential are valid. |
+| Error code    | Issue                                        | Mitigation                                                                                |
+|---------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
+| `AADSTS50126` | The provided username or password is invalid | Ensure the `username` and `password` provided when constructing the credential are valid. |
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when using the Azure SDK for Java client libraries, we recommended that you reach out to the development team by [filing an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
