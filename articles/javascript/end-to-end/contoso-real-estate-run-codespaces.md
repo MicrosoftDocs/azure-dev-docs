@@ -69,9 +69,9 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
 
     Wait for the process to complete which includes:
 
-    * Creating a resource group
+    * Creating a resource group: `rg-<environment-name>`
     * Creating resources
-    * Creating environment variables associated with the resources, found in `./.azure/\<resource-group-name>/.env`
+    * Creating environment variables associated with the resources, found in `.azure/<environment-name>/.env`
     * Restoring database from dump file
 
 1. Deploy the source code to the resources with the Azure Developer CLI command:
