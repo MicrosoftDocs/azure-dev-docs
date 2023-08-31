@@ -101,7 +101,7 @@ A [development container](https://containers.dev/) environment is available with
     | Tool | Version |
     | --- | --- |
     | Node.js | &ge; 18 |
-    | NPM | &ge; 9.5 |
+    | npm | &ge; 9.5 |
     | Azure Functions core tools| &ge; 4.5098|
 
 1. Close the terminal.
@@ -151,7 +151,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     | Tool | Version |
     | --- | --- |
     | Node.js | &ge; 18 |
-    | NPM | &ge; 9.5 |
+    | npm | &ge; 9.5 |
     | Azure Functions core tools| &ge; 4.5098|
 
 1. Close the terminal.
@@ -440,7 +440,7 @@ If you would like to continue with this app, learn how to deploy the app to Azur
 
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob
-    * [NPM package](https://www.npmjs.com/package/@azure/storage-blob)
+    * [npm package](https://www.npmjs.com/package/@azure/storage-blob)
 * [Azure Static Web app](/azure/static-web-apps/)
 
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
