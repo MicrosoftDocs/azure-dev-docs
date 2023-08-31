@@ -37,7 +37,7 @@ This application architecture includes two Azure resources:
 
 This tutorial uses the following environments:
 
-* Local development with GitHub CodeSpaces or Visual Studio Code.
+* Local development with GitHub Codespaces or Visual Studio Code.
 * Build and deploy with GitHub Actions.
 
 ## 1. Fork sample application repository with GitHub
