@@ -18,7 +18,7 @@ When using the `processEvent` callback, each `EventData` received calls the user
 
 If the Event Hub has high traffic and high throughput is expected, the aggregated cost of continuously calling the users' callback hinders performance of `EventProcessorClient`. In this case, users should use `processEventBatch`.
 
-For each partition, the users' callback is invoked one at a time, so high processing time in the callback hinders performance as the `EventProcessorClient` does not continue to push more events downstream nor request more `EventData` from Event Hubs service.
+For each partition, the users' callback is invoked one at a time, so high processing time in the callback hinders performance as the `EventProcessorClient` doesn't continue to push more events downstream nor request more `EventData` from Event Hubs service.
 
 ## Costs of checkpointing
 
@@ -30,7 +30,8 @@ Checkpointing after _every_ `EventData` is processed hinders performance due to 
 
 When using `LoadBalancingStrategy.BALANCED`, the `EventProcessorClient` claims one partition for every load balancing cycle. If there are 32 partitions in an Event Hub, it takes 32 load-balancing iterations to claim all the partitions. If users know a set number of `EventProcessorClient` instances are running, they can use `LoadBalancingStrategy.GREEDY` to claim their share of the partitions in one load-balancing cycle.
 
-[LoadBalancingStrategy javadocs](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/LoadBalancingStrategy.java) contains additional information about each strategy.
+For more information about each strategy, see 
+[LoadBalancingStrategy.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/LoadBalancingStrategy.java) in the [azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java).
 
 ## Configuring prefetchCount
 

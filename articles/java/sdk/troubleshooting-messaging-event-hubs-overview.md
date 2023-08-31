@@ -20,15 +20,15 @@ The remainder of this document covers general troubleshooting techniques and gui
 
 ## Handling Event Hubs exceptions
 
-All Event Hubs exceptions are wrapped in an [AmqpException][AmqpException]. They often have an underlying AMQP error code which specifies whether an error should be retried. For retryable errors (ie. `amqp:connection:forced` or `amqp:link:detach-forced`), the client libraries attempt to recover from these errors based on the retry options specified when instantiating the client. To configure retry options, follow the sample [publish events to specific partition](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsToSpecificPartition.java). If the error is non-retryable, there is some configuration issue that needs to be resolved.
+All Event Hubs exceptions are wrapped in an [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception). They often have an underlying AMQP error code that specifies whether an error should be retried. For retryable errors (that is, `amqp:connection:forced` or `amqp:link:detach-forced`), the client libraries attempt to recover from these errors based on the retry options specified when instantiating the client. To configure retry options, follow the sample [publish events to specific partition](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsToSpecificPartition.java). If the error is nonretryable, there's some configuration issue that needs to be resolved.
 
 The recommended way to solve the specific exception the AMQP exception represents is to follow the [Event Hubs Messaging Exceptions](/azure/event-hubs/event-hubs-messaging-exceptions) guidance.
 
 ### Finding relevant information in exception messages
 
-An [AmqpException][AmqpException] contains three fields which describe the error.
+An [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception) contains the following three fields, which describe the error:
 
-* **getErrorCondition**: The underlying AMQP error. A description of the errors can be found in the [AmqpErrorCondition][AmqpErrorCondition] javadocs or the [OASIS AMQP 1.0 spec](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-types-v1.0-os.html).
+* **getErrorCondition**: The underlying AMQP error. For a description of the errors, see the [AmqpErrorCondition Enum](/java/api/com.azure.core.amqp.exception.amqperrorcondition) documentation or the [OASIS AMQP 1.0 spec](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-types-v1.0-os.html).
 * **isTransient**: Whether or not trying to perform the same operation is possible. SDK clients apply the retry policy when the error is transient.
 * **getErrorContext**: Information about where the AMQP error originated:
   * [LinkErrorContext](/java/api/com.azure.core.amqp.exception.linkerrorcontext): Errors that occur in either the send/receive link.
@@ -43,9 +43,9 @@ When the connection to Event Hubs is idle, the service disconnects the client af
 
 ## Permission issues
 
-An `AmqpException` with an [AmqpErrorCondition][AmqpErrorCondition] of "amqp:unauthorized-access" means that the provided credentials do not allow for them to perform the action (receiving or sending) with Event Hubs.
+An `AmqpException` with an [AmqpErrorCondition](/java/api/com.azure.core.amqp.exception.amqperrorcondition) of `amqp:unauthorized-access` means that the provided credentials don't allow for them to perform the action (receiving or sending) with Event Hubs.
 
-* [Double check you have the correct connection string][GetConnectionString]
+* Double check you have the correct connection string. For more information, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string).
 * [Ensure your SAS token is generated correctly](/azure/event-hubs/authorize-access-shared-access-signature)
 
 [Troubleshoot authentication and authorization issues with Event Hubs](/azure/event-hubs/troubleshoot-authentication-authorization) lists other possible solutions.
@@ -54,7 +54,7 @@ An `AmqpException` with an [AmqpErrorCondition][AmqpErrorCondition] of "amqp:una
 
 ### Timeout when connecting to service
 
-* Verify that the connection string or fully qualified domain name specified when creating the client is correct. [Get an Event Hubs connection string][GetConnectionString] demonstrates how to acquire a connection string.
+* Verify that the connection string or fully qualified domain name specified when creating the client is correct. For more information, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string).
 * Check the firewall and port permissions in your hosting environment and that the AMQP ports 5671 and 5762 are open.
   * Make sure that the endpoint is allowed through the firewall.
 * Try using WebSockets, which connects on port 443. See [configure web sockets][PublishEventsWithWebSocketsAndProxy] sample.
@@ -69,7 +69,7 @@ This error can occur when an intercepting proxy is used. We recommend testing in
 
 ### Socket exhaustion errors
 
-Applications should prefer treating the Event Hubs clients as a singleton, creating and using a single instance through the lifetime of their application. This is important as each client type manages its connection; creating a new Event Hub client results in a new AMQP connection, which uses a socket. Additionally, it is essential to be aware that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it is finished using a client.
+Applications should prefer treating the Event Hubs clients as a singleton, creating and using a single instance through the lifetime of their application. This recommendation is important because each client type manages its connection. When you create a new Event Hubs client, it results in a new AMQP connection, which uses a socket. Additionally, it's essential that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it's finished using a client.
 
 To use the same AMQP connection when creating multiple clients, you can use the `EventHubClientBuilder.shareConnection()` flag, hold a reference to that `EventHubClientBuilder`, and create new clients from that same builder instance.
 
@@ -84,7 +84,7 @@ Further reading:
 
 ### Can't add components to the connection string
 
-The legacy Event Hub clients allowed customers to add components to the connection string retrieved from the portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
+The legacy Event Hubs clients allowed customers to add components to the connection string retrieved from the portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
 
 #### Adding "TransportType=AmqpWebSockets"
 
@@ -102,19 +102,19 @@ Azure SDK for Java offers a consistent logging story to help aid in troubleshoot
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. The following sections show sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 
-### Configuring Log4J 2
+### Configure Log4J 2
 
 1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom] under the "Dependencies required for Log4j2" section.
 2. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml) to your *src/main/resources* folder.
 
-### Configuring logback
+### Configure logback
 
 1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom] under the "Dependencies required for logback" section.
 2. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/logback.xml) to your *src/main/resources* folder.
 
 ### Enable AMQP transport logging
 
-If enabling client logging isn't enough to diagnose your issues. You can enable logging to a file in the underlying AMQP library, [Qpid Proton-J](https://qpid.apache.org/proton/). Qpid Proton-J uses `java.util.logging`. You can enable logging by creating a configuration file with the contents shown in the next section. Or set `proton.trace.level=ALL` and whichever configuration options you want for the `java.util.logging.Handler` implementation. The implementation classes and their options can be found in [Java 8 SDK javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html).
+If enabling client logging isn't enough to diagnose your issues, you can enable logging to a file in the underlying AMQP library, [Qpid Proton-J](https://qpid.apache.org/proton/). Qpid Proton-J uses `java.util.logging`. You can enable logging by creating a configuration file with the contents shown in the next section. Or, set `proton.trace.level=ALL` and whichever configuration options you want for the `java.util.logging.Handler` implementation. For the implementation classes and their options, see [Package java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) in the Java 8 SDK documentation.
 
 To trace the AMQP transport frames, set the environment variable: `PN_TRACE_FRM=1`.
 
@@ -134,9 +134,9 @@ java.util.logging.SimpleFormatter.format=[%1$tF %1$tr] %3$s %4$s: %5$s %n
 
 ### Reduce logging
 
-One way to decrease logging is to change the verbosity. Another is to add filters that exclude logs from logger names packages like `com.azure.messaging.eventhubs` or `com.azure.core.amqp`. Examples of this can be found in the XML files in [Configuring Log4J 2](#configuring-log4j-2) and [Configure logback](#configuring-logback).
+One way to decrease logging is to change the verbosity. Another is to add filters that exclude logs from logger names packages like `com.azure.messaging.eventhubs` or `com.azure.core.amqp`. For examples, see the XML files in the [Configuring Log4J 2](#configure-log4j-2) and [Configure logback](#configure-logback) sections.
 
-When submitting a bug, log messages from classes in the following packages are interesting:
+When you submit a bug, the log messages from classes in the following packages are interesting:
 
 * `com.azure.core.amqp.implementation`
 * `com.azure.core.amqp.implementation.handler`
@@ -150,8 +150,3 @@ If the troubleshooting guidance in this article doesn't help to resolve issues w
 <!-- LINKS -->
 [LoggingPom]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/pom.xml
 [PublishEventsWithWebSocketsAndProxy]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsWithWebSocketsAndProxy.java
-
-<!-- learn.microsoft.com links -->
-[AmqpErrorCondition]: /java/api/com.azure.core.amqp.exception.amqperrorcondition
-[AmqpException]: /java/api/com.azure.core.amqp.exception.amqpexception
-[GetConnectionString]: /azure/event-hubs/event-hubs-get-connection-string
