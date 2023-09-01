@@ -13,7 +13,7 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 [Azure EventGrid Service](/azure/event-grid/) is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols.
 
-This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to a topic and use Service Bus Queue as [Event Handler](https://learn.microsoft.com/azure/event-grid/event-handlers) to receive in a Spring Boot application.
+This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to a topic and use Service Bus Queue as [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to 
 
 - [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 
-- An Event Grid Topic instance. If you don't have one, see [Create a custom topic or a domain in Azure Event Grid](https://learn.microsoft.com/azure/event-grid/create-custom-topic).
+- An Event Grid Topic instance. If you don't have one, see [Create a custom topic or a domain in Azure Event Grid](/azure/event-grid/create-custom-topic).
 
-- A Service Bus Queue instance. If you don't have one, see [Create a queue in the Azure portal](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal).
+- A Service Bus Queue instance. If you don't have one, see [Create a queue in the Azure portal](/azure/service-bus-messaging/service-bus-quickstart-portal).
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and select Java version 8 or higher.
 
