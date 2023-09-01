@@ -1,6 +1,6 @@
 ---
-title: Use Azure EventGrid in Spring
-description: Configure a Spring Boot application created with the Spring Initializr to use the Azure EventGrid.
+title: Use Azure Event Grid in Spring
+description: Configure a Spring Boot application created with the Spring Initializr to use the Azure Event Grid.
 services: event-grid
 documentationcenter: java
 ms.date: 09/01/2023
@@ -9,11 +9,11 @@ ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
-# Use Azure EventGrid in Spring
+# Use Azure Event Grid in Spring
 
-[Azure EventGrid Service](/azure/event-grid/) is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols.
+[Azure Event Grid Service](/azure/event-grid/) is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols.
 
-This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to a topic and use Service Bus Queue as [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
+This tutorial demonstrates how to use Azure Event Grid to send an event to a topic and use Service Bus Queue as [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
 
 ## Prerequisites
 
@@ -29,11 +29,11 @@ This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to 
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and select Java version 8 or higher.
 
-## Send EventGridEvent by Azure EventGrid and receive by Azure Service Bus Queue
+## Send an event by Azure Event Grid and receive by Azure Service Bus Queue
 
 With an Azure Event Grid resource, you can send an event using Spring Cloud Azure Event Grid. With an Azure Service Bus Queue resource as an event handler, you can receive the event using Spring Cloud Azure Stream Binder for Service Bus.
 
-To install the Spring Cloud Azure EventGrid Starter module and the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your *pom.xml* file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -55,7 +55,7 @@ To install the Spring Cloud Azure EventGrid Starter module and the Spring Cloud 
   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.5.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
-- The Spring Cloud Azure EventGrid Starter artifact:
+- The Spring Cloud Azure Event Grid Starter artifact:
 
   ```xml
   <dependency>
@@ -75,9 +75,9 @@ To install the Spring Cloud Azure EventGrid Starter module and the Spring Cloud 
 
 ## Code the application
 
-Use the following steps to configure your application to send EventGridEvent by using EventGrid and receive by using Service Bus Queue.
+Use the following steps to configure your application to send an event by using Event Grid and receive by using Service Bus Queue.
 
-1. Configure Azure Event Grid and Service Bus credentials in the *application.properties* configuration file, as shown in the following example.
+1. Configure Azure Event Grid and Service Bus credentials in the *application.yaml* configuration file, as shown in the following example.
 
    ```properties
    spring:
@@ -169,4 +169,4 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 > [!div class="nextstepaction"]
 > [Azure for Spring developers](../spring/index.yml)
-> [Spring Cloud Azure EventGrid samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventgrid)
+> [Spring Cloud Azure Event Grid samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventgrid)
