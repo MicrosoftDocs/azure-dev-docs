@@ -31,7 +31,7 @@ This tutorial demonstrates how to use Azure EventGrid to send EventGridEvent to 
 
 ## Send EventGridEvent by Azure EventGrid and receive by Azure Service Bus Queue
 
-With an Azure EventGrid resource, you can send EventGridEvent using Spring Cloud Azure EventGrid. With an Azure Service Bus Queue resource as Event handlers, you can receive EventGridEvent using Spring Cloud Azure Stream Binder Service Bus.
+With an Azure Event Grid resource, you can send an event using Spring Cloud Azure Event Grid. With an Azure Service Bus Queue resource as an event handler, you can receive the event using Spring Cloud Azure Stream Binder for Service Bus.
 
 To install the Spring Cloud Azure EventGrid Starter module and the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your *pom.xml* file:
 
