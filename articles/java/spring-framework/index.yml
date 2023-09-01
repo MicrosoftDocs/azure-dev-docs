@@ -71,6 +71,8 @@ landingContent:
             url: ./configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
           - text: Use Azure Service Bus in Spring applications
             url: ./using-service-bus-in-spring-applications.md
+          - text: Use Azure Event Grid in Spring applications
+            url: ./configure-spring-boot-initializer-java-app-with-eventgrid.md.md
   - title: Storage
     linkLists:
       - linkListType: get-started
