@@ -7,7 +7,7 @@
         - name: Get started with Apache Maven
           href: get-started-maven.md
         - name: Get started with Gradle
-          href: get-started-gradle.md          
+          href: get-started-gradle.md
         - name: Eclipse and IntelliJ integration
           href: get-started-ide.md
         - name: Azure development using Java
@@ -27,7 +27,7 @@
             - name: Azure-hosted Application Authentication
               href: identity-azure-hosted-auth.md
             - name: Development Environment Authentication
-              href: identity-dev-env-auth.md              
+              href: identity-dev-env-auth.md
             - name: Service Principal Authentication
               href: identity-service-principal-auth.md
             - name: User Credential Authentication
@@ -76,34 +76,34 @@
           items:
           - name: Overview
             href: troubleshooting-authentication-overview.md
-          - name: Azure-hosted Application Authentication
-            href: troubleshooting-authentication-azure-hosted.md  
-          - name: Development Environment Authentication
-            href: troubleshooting-authentication-dev-env.md  
-          - name: Service Principal Authentication
-            href: troubleshooting-authentication-service-principal.md  
-          - name: User Credential Authentication
-            href: troubleshooting-authentication-user-credential.md  
-          - name: Multi-tenant Authentication
-            href: troubleshooting-authentication-multi-tenant.md  
+          - name: Azure-hosted application authentication
+            href: troubleshooting-authentication-azure-hosted.md
+          - name: Development environment authentication
+            href: troubleshooting-authentication-dev-env.md
+          - name: Service principal authentication
+            href: troubleshooting-authentication-service-principal.md
+          - name: User credential authentication
+            href: troubleshooting-authentication-user-credential.md
+          - name: Multi-tenant authentication
+            href: troubleshooting-authentication-multi-tenant.md
         - name: Messaging
           expanded: false
           items:
             - name: Event Hubs
               expanded: false
-              items: 
+              items:
               - name: Overview
                 href: troubleshooting-messaging-event-hubs-overview.md
-              - name: Event Producer
+              - name: Event producer
                 href: troubleshooting-messaging-event-hubs-producer.md
-              - name: Event Processor
+              - name: Event processor
                 href: troubleshooting-messaging-event-hubs-processor.md
               - name: Performance
                 href: troubleshooting-messaging-event-hubs-performance.md
             - name: Service Bus
               href: troubleshooting-messaging-service-bus-overview.md
         - name: Dependency conflicts
-          href: troubleshooting-dependency-version-conflict.md          
+          href: troubleshooting-dependency-version-conflict.md
         - name: Network issues
           href: troubleshooting-network.md
     - name: Code samples
