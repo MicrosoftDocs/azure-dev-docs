@@ -189,6 +189,10 @@
         items:
           - name: Terraform and Azure provider deployment slots
             href: provision-infrastructure-using-azure-deployment-slots.md
+      - name: Containers
+        items:
+          - name: Application Gateway ingress controller in AKS
+            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
       - name: Database
         items:
           - name: Azure Cosmos DB
