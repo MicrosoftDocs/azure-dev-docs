@@ -100,7 +100,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a Kubernetes cluster with Application Gateway
-            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
+            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
   - title: Manage infrastructure
@@ -148,7 +148,7 @@ landingContent:
           - text: Deploy Azure Application Gateway v2
             url: deploy-application-gateway-v2.md
           - text: Create a Kubernetes cluster with Application Gateway
-            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
+            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
   - title: Manage databases
