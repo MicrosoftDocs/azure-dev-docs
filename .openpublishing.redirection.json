@@ -1153,6 +1153,10 @@
       {
         "source_path":"articles/terraform/create-attestation-provider.md",
         "redirect_url": "/azure/attestation/quickstart-terraform"
+      },
+      {
+        "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
+        "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
       }
     ]
   }
