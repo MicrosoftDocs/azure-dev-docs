@@ -251,6 +251,8 @@
     href: database-developer-guide.md
   - name: GraphQL
     items: 
+    - name: GraphQL on Azure
+      href: graphql-developer-guide.md
     - name: Hello world with Functions
       href: how-to/with-web-app/graphql/azure-function-hello-world.md
     - name: CRUD with Functions
