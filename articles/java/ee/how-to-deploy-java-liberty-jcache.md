@@ -22,13 +22,15 @@ In this guide, you'll:
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
 * Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
 
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 * If you're running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
-  * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
+  * Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Be sure you've been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles for the subscription. You can verify your assignments by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group).
@@ -152,19 +154,26 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 ### Install Open Liberty Operator
 
-After creating and connecting to the cluster, install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/master/deploy/releases/0.7.1) by running the following commands.
+After creating and connecting to the cluster, install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by running the following commands.
 
 ```azurecli-interactive
+# Install cert-manager Operator
+CERT_MANAGER_VERSION=v1.11.2
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
+
 # Install Open Liberty Operator
+export OPERATOR_VERSION=1.2.2
 mkdir -p overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -q -P ./overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/overlays/watch-all-namespaces/kustomization.yaml -q -P ./overlays/watch-all-namespaces
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -q -P ./overlays/watch-all-namespaces
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/kustomization.yaml -q -P ./overlays/watch-all-namespaces
 mkdir base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/base/kustomization.yaml -q -P ./base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/base/open-liberty-crd.yaml -q -P ./base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/0.8.0/kustomize/base/open-liberty-operator.yaml -q -P ./base
-kubectl apply -k overlays/watch-all-namespaces
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/kustomization.yaml -q -P ./base
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-crd.yaml -q -P ./base
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-operator.yaml -q -P ./base
+wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-roles.yaml -q -P ./base
+kubectl create namespace open-liberty
+kubectl apply --server-side -k overlays/watch-all-namespaces
 ```
 
 ### Create an Azure Cache for Redis instance
@@ -185,7 +194,15 @@ Follow the steps in this section to build and containerize the sample applicatio
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article was written against the sample at git tag `20220921`. We'll use *java-app-jcache*. Here's the file structure of the application.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app-jcache*. Here's the file structure of the application.
+
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+git checkout 20230906
+```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
 
 ```text
 java-app-jcache/
@@ -311,7 +328,7 @@ javaee-cafe-jcache-cluster         LoadBalancer   10.0.50.29     20.84.16.169   
 
 Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use Ctrl+C to stop the `kubectl` watch process.
 
-Open a web browser to the external IP address of your service (`20.84.16.169` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page (`javaee-cafe-jcache-cluster-77d54bccd4-5xnzx` for this case).
+Open a web browser to the external IP address of your service (`20.84.16.169` for the above example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page (`javaee-cafe-jcache-cluster-77d54bccd4-5xnzx` for this case).
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/deploy-succeeded.png" alt-text="Screenshot of Java liberty application successfully deployed on A K S.":::
 
