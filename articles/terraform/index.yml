@@ -91,16 +91,16 @@ landingContent:
             url: best-practices-end-to-end-testing.md
 
   # Card
-  - title: Manage AKS
+  - title: Work with Containers (AKS, Application Gateway, ...)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a cluster and deploy a web app
+          - text: Create an AKS cluster and deploy a web app
             url: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - linkListType: how-to-guide
         links:
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+          - text: Create an Application Gateway ingress controller in AKS
+            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
   # Card
   - title: Manage infrastructure
@@ -147,8 +147,8 @@ landingContent:
         links:
           - text: Deploy Azure Application Gateway v2
             url: deploy-application-gateway-v2.md
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+          - text: Create an Application Gateway ingress controller in AKS
+            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
   # Card
   - title: Manage databases
