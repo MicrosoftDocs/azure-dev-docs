@@ -1,12 +1,13 @@
 ---
 title: GraphQL Developer Guide on Azure
 description: Understand how to use GraphQL on Azure. Learn how to use GraphQL with Azure Functions, Azure App Service, Azure Cosmos DB, and more.
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 09/06/2023
 ms.custom: devx-track-js, devx-graphql
+#CustomerIntent: As a developer new to Azure, I want to understand how to bring or build GraphQL applications with Azure. 
 ---
 
-# GraphQL Developer Guide on Azure
+# What is GraphQL on Azure?
 
 Understand how to use [GraphQL](https://graphql.org/) on Azure. 
 
@@ -40,7 +41,15 @@ When you build GraphQL endpoints to your existing data sources, consider the fol
 * **Custom API endpoints**: Use [Azure API Management](/azure/api-management/graphql-apis-overview) to build a GraphQL endpoint to your existing Azure data sources.
 * **Static data endpoints**: Use [Static Web Apps](/azure/static-web-apps/database-azure-cosmos-db?tabs=bash) and the `data-api` endpoint configued in the `staticwebapp.database.config.json` file to build a GraphQL endpoint available from your static client app to your existing Azure data sources.
 
+
 ## Resources
 
+Learn more about building GraphQL applications on Azure:
+
+* [Azure API Management](/azure/api-management/graphql-apis-overview)
+
+## Related content
+
+* [Azure Cosmos DB](/azure/cosmos-db/)
 * [Azure API Management](/azure/api-management/graphql-apis-overview)
 * [Static Web Apps](/azure/static-web-apps/database-azure-cosmos-db?tabs=bash)
