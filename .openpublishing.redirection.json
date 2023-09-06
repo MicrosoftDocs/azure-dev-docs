@@ -161,8 +161,38 @@
         "redirect_url": "/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal" 
       },
       { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
       },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/introduction.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/local-development.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-hello-world.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-crud-mutation.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
       {
         "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
         "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
