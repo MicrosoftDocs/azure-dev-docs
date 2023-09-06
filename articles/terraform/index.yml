@@ -95,10 +95,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create an AKS cluster and deploy a web app
+          - text: Create an AKS cluster
             url: /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create an ACI instance with a public IP address
+            url: /azure/container-instances/container-instances-quickstart-terraform
       - linkListType: how-to-guide
         links:
+          - text: Deploy Azure Application Gateway v2
+            url: deploy-application-gateway-v2.md
           - text: Create an Application Gateway ingress controller in AKS
             url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
@@ -139,16 +143,6 @@ landingContent:
             url: hub-spoke-spoke-network.md
           - text: 6. Validate network topology connectivity 
             url: hub-spoke-validation.md
-
-  # Card
-  - title: Manage Application Gateway
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy Azure Application Gateway v2
-            url: deploy-application-gateway-v2.md
-          - text: Create an Application Gateway ingress controller in AKS
-            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
   # Card
   - title: Manage databases
