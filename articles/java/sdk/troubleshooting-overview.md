@@ -58,12 +58,12 @@ This code changes the HTTP request/response logging for a single client instance
 
 > [!NOTE]
 > When you log request and response bodies, ensure that they don't contain confidential information. When you log query parameters and headers, the client library has a default set of query parameters and headers that are considered safe to log. It's possible to add additional query parameters and headers that are safe to log, as shown in the following example:
-
-```java
-clientBuilder.httpLogOptions(new HttpLogOptions()
-    .addAllowedHeaderName("safe-to-log-header-name")
-    .addAllowedQueryParamName("safe-to-log-query-parameter-name"))
-```
+>
+> ```java
+> clientBuilder.httpLogOptions(new HttpLogOptions()
+>     .addAllowedHeaderName("safe-to-log-header-name")
+>     .addAllowedQueryParamName("safe-to-log-query-parameter-name"))
+> ```
 
 ## Exception handling in the Azure SDK for Java
 
