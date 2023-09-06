@@ -71,10 +71,6 @@
         href: get-started-azapi-update-resource.md
     - name: Terraform Quickstarts for Azure services
       items:
-      - name: Azure Kubernetes Services (AKS)
-        items:
-          - name: Create a cluster and deploy a web app
-            href: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - name: Analysis Services
         items:
           - name: Create a server
@@ -191,8 +187,10 @@
             href: provision-infrastructure-using-azure-deployment-slots.md
       - name: Containers
         items:
+          - name: Deploy Azure Application Gateway v2
+            href: deploy-application-gateway-v2.md
           - name: Application Gateway ingress controller in AKS
-            href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
       - name: Database
         items:
           - name: Azure Cosmos DB
@@ -205,8 +203,6 @@
             href: create-network-watcher-nsg-flow-logs.md
           - name: Azure Firewall Premium
             href: firewall-upgrade-premium.md
-          - name: Deploy Azure Application Gateway v2
-            href: deploy-application-gateway-v2.md
           - name: Hub and spoke topology
             items:
               - name: 1. Create hub and spoke topology
