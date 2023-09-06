@@ -192,7 +192,7 @@
       - name: Containers
         items:
           - name: Application Gateway ingress controller in AKS
-            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress.md
+            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
       - name: Database
         items:
           - name: Azure Cosmos DB
