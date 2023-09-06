@@ -1,6 +1,6 @@
 ---
 title: Log with the Azure SDK for Java and Logback
-description: An overview of the Azure SDK for Java integration with Logback
+description: Provides an overview of the Azure SDK for Java integration with Logback.
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
