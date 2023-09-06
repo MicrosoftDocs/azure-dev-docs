@@ -1,9 +1,10 @@
 ---
 title: Use Azure Event Grid in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Azure Event Grid.
+author: KarlErickson
+ms.author: v-muyaofeng
 services: event-grid
-documentationcenter: java
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.service: event-grid
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -11,9 +12,9 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 # Use Azure Event Grid in Spring
 
-[Azure Event Grid Service](/azure/event-grid/) is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols.
+This article shows you how to use Azure Event Grid to send an event to a topic and use Service Bus Queue as an [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
 
-This tutorial demonstrates how to use Azure Event Grid to send an event to a topic and use Service Bus Queue as [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
+The [Azure Event Grid](/azure/event-grid/) service is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols.
 
 ## Prerequisites
 
@@ -77,7 +78,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
 
 Use the following steps to configure your application to send an event by using Event Grid and receive by using Service Bus Queue.
 
-1. Configure Azure Event Grid and Service Bus credentials in the *application.yaml* configuration file, as shown in the following example.
+1. Configure Azure Event Grid and Service Bus credentials in the *application.yaml* configuration file, as shown in the following example:
 
    ```properties
    spring:
