@@ -194,7 +194,7 @@ Follow the steps in this section to build and containerize the sample applicatio
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app-jcache*. Here's the file structure of the application.
+Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
@@ -203,6 +203,8 @@ git checkout 20230906
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+
+The application has the following file structure:
 
 ```text
 java-app-jcache/
