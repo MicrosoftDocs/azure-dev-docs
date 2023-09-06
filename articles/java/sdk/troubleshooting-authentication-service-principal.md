@@ -2,7 +2,7 @@
 title: Troubleshoot service principal authentication
 titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot service principal authentication issues
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -15,7 +15,7 @@ This article provides guidance on dealing with issues encountered when authentic
 
 ## Troubleshoot ClientSecretCredential
 
-When you use `ClientSecretCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use `ClientSecretCredential`, you can optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code      | Issue                                                           | Mitigation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,7 +25,7 @@ When you use `ClientSecretCredential`, you may optionally try/catch for `ClientA
 
 ## Troubleshoot ClientCertificateCredential
 
-When you use `ClientCertificateCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use `ClientCertificateCredential`, you can optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code     | Description                                                     | Mitigation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |----------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ When you use `ClientCertificateCredential`, you may optionally try/catch for `Cl
 
 ## Troubleshoot ClientAssertionCredential
 
-When you use `ClientAssertionCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use `ClientAssertionCredential`, you can optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code     | Description                                                                          | Mitigation                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

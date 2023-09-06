@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Identity authentication issues
 titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot authentication issues related to using the Azure SDK for Java
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot Azure Identity authentication issues
 
-This article covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. As there are many credential types available in the Azure SDK for Java, we've split the troubleshooting guide into sections based on usage scenario. The following sections are available:
+This article covers failure investigation techniques, common errors for the credential types in the Azure Identity Java client library, and mitigation steps to resolve these errors. Because there are many credential types available in the Azure SDK for Java, we've split the troubleshooting guide into sections based on usage scenario. The following sections are available:
 
 * [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md)
 * [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md)
@@ -29,7 +29,7 @@ As noted in the [Exception handling in the Azure SDK for Java](troubleshooting-o
 
 Any service client method that makes a request to the service can raise exceptions arising from authentication errors. These exceptions are possible because the token is requested from the credential on the first call to the service and on any subsequent requests to the service that need to refresh the token.
 
-To distinguish these failures from failures in the service client, Azure Identity classes raise the `ClientAuthenticationException` with details describing the source of the error in the exception message and possibly the error message. Depending on the application, these errors may or may not be recoverable.
+To distinguish these failures from failures in the service client, Azure Identity classes raise `ClientAuthenticationException` with details describing the source of the error in the exception message and possibly the error message. Depending on the application, these errors may or may not be recoverable. The following code shows an example of catching `ClientAuthenticationException`:
 
 ```java
 // Create a secret client using the DefaultAzureCredential
@@ -39,7 +39,7 @@ SecretClient client = new SecretClientBuilder()
     .buildClient();
 
 try {
-    KeyVaultSecret secret = client.geSecret("secret1");
+    KeyVaultSecret secret = client.getSecret("secret1");
 } catch (ClientAuthenticationException e) {
     //Handle Exception
     e.printStackTrace();
@@ -48,7 +48,7 @@ try {
 
 ### CredentialUnavailableException
 
-The `CredentialUnavailableException` is a special exception type derived from `ClientAuthenticationException`. This exception type is used to indicate that the credential can't authenticate in the current environment, due to lack of required configuration or setup. This exception is also used as a signal to chained credential types, such as `DefaultAzureCredential` and `ChainedTokenCredential`, that the chained credential should continue to try other credential types later in the chain.
+`CredentialUnavailableException` is a special exception type derived from `ClientAuthenticationException`. This exception type is used to indicate that the credential can't authenticate in the current environment due to lack of required configuration or setup. This exception is also used as a signal to chained credential types, such as `DefaultAzureCredential` and `ChainedTokenCredential`, that the chained credential should continue to try other credential types later in the chain.
 
 ### Permission issues
 
@@ -78,12 +78,12 @@ This error message contains the following information:
 
 ## Enable and configure logging
 
-Azure SDK for Java offers a consistent logging story to help aid in troubleshooting application errors and expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting over view](troubleshooting-overview.md).
+Azure SDK for Java offers a consistent logging story to help in troubleshooting application errors and to help expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting over view](troubleshooting-overview.md).
 
 The underlying MSAL library, [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java), also has detailed logging. This logging is highly verbose and includes all personal data including tokens. This logging is most useful when working with product support. As of v1.10.0, credentials that offer this logging have a method called `enableUnsafeSupportLogging()`.
 
 > [!CAUTION]
-> Requests and responses in the Azure Identity library contain sensitive information. Precaution must be taken to protect logs when customizing the output to avoid compromising account security.
+> Requests and responses in the Azure Identity library contain sensitive information. You must take precautions to protect logs when customizing the output to avoid compromising account security.
 
 ## Next steps
 

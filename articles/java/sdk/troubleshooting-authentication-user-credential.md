@@ -2,7 +2,7 @@
 title: Troubleshoot user credential authentication
 titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot user credential authentication issues
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -15,7 +15,7 @@ This article provides guidance on dealing with issues encountered when authentic
 
 ## Troubleshoot UsernamePasswordCredential
 
-When you use `UsernamePasswordCredential`, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use `UsernamePasswordCredential`, you can optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error code    | Issue                                        | Mitigation                                                                                     |
 |---------------|----------------------------------------------|------------------------------------------------------------------------------------------------|

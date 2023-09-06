@@ -2,7 +2,7 @@
 title: Troubleshoot multi-tenant authentication
 titleSuffix: Azure SDK for Java
 description: An overview of how to troubleshoot multi-tenant authentication issues
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -13,7 +13,7 @@ ms.author: jogiles
 
 This article provides guidance on dealing with issues encountered in a multi-tenant context.
 
-When you use credentials in a multi-tenant context, you may optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
+When you use credentials in a multi-tenant context, you can optionally try/catch for `ClientAuthenticationException`. The following table shows the errors that this exception indicates, and methods of mitigation:
 
 | Error message                                                                       | Description                                                                                        | Mitigation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

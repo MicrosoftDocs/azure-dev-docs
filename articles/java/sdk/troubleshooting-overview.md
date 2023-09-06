@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting overview when you use the Azure SDK for Java
 description: An overview of how to troubleshoot issues related to using the Azure SDK for Java
-ms.date: 09/01/2023
+ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -50,7 +50,7 @@ This code changes the HTTP request/response logging for a single client instance
 
 | Value              | Logging level                                                        |
 |--------------------|----------------------------------------------------------------------|
-| `none`             | HTTP request/response logging is disabled                            |
+| `none`             | HTTP request/response logging is disabled.                           |
 | `basic`            | Logs only URLs, HTTP methods, and time to finish the request.        |
 | `headers`          | Logs everything in BASIC, plus all the request and response headers. |
 | `body`             | Logs everything in BASIC, plus all the request and response body.    |
