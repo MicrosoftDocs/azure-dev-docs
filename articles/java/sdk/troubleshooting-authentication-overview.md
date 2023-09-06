@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Identity authentication issues
 titleSuffix: Azure SDK for Java
-description: An overview of how to troubleshoot authentication issues related to using the Azure SDK for Java
+description: Provides an overview of how to troubleshoot authentication issues related to using the Azure SDK for Java.
 ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Event Hubs producer
 titleSuffix: Azure SDK for Java
-description: A troubleshooting guide for Events Hubs producer issues when you use the Azure SDK for Java
+description: Helps you troubleshoot Events Hubs producer issues when you use the Azure SDK for Java.
 ms.date: 09/07/2023
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

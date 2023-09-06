@@ -1,7 +1,7 @@
 ---
 title: Authenticate Azure-hosted Java applications
 titleSuffix: Azure SDK for Java
-description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
+description: Provides an overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure.
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

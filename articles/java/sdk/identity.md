@@ -1,7 +1,7 @@
 ---
 title: Azure authentication with Java and Azure Identity
 titleSuffix: Azure SDK for Java
-description: An overview of the Azure SDK authentication and identity functionality
+description: Provides an overview of the Azure SDK authentication and identity functionality.
 ms.date: 10/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
