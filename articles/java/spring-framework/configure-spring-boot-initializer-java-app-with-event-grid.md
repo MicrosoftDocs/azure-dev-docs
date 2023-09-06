@@ -102,7 +102,7 @@ Use the following steps to configure your application to send an event by using 
                  auto-complete: false
    ```
 
-1. Edit the startup class file to show the following content. This code generate completions.
+1. Edit the startup class file to show the following content. This code generates completions.
 
    ```java
    import com.azure.core.util.BinaryData;
