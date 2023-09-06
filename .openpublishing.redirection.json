@@ -178,6 +178,9 @@
       { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md",
         "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
       },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/getting-started",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
       { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md",
         "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
       },      
