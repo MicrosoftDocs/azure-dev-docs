@@ -36,10 +36,11 @@ You can complete this tutorial on Mac or Windows. To complete this tutorial, you
   * System Image: Android 11 (API 30 with Google APIs)
 
 If compiling the iOS edition of the app, you must have an available Mac:
-  * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-  * Open Xcode after installing so that it can add any extra required components.
-  * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
-  * If completing the tutorial on Windows, follow the guide to [Pair to Mac](/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
+
+* Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+* Open Xcode after installing so that it can add any extra required components.
+* Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
+* If completing the tutorial on Windows, follow the guide to [Pair to Mac](/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
 ::: zone-end
 
@@ -49,6 +50,7 @@ If compiling the iOS edition of the app, you must have an available Mac:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 * An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
   * Phone: Any phone image - we use the Pixel 5 for testing.
   * System Image: Android 11 (API 30 with Google APIs)
