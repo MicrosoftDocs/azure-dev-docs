@@ -25,7 +25,7 @@ region and subscription of your choice. Finally, the Azure Developer CLI writes 
 
 You can run the `azd env get-values` command to see the SQL authentication information should you wish to access the database directly.
 
-If you have completed the steps with the Azure Developer CLI, [proceed to the next step](#azd-skip-step-mac).  If you don't wish to use the Azure Developer
+If you have completed the steps with the Azure Developer CLI, [proceed to the next step](#azd-skip-step-win).  If you don't wish to use the Azure Developer
 CLI, proceed with the manual steps.
 
 ### Create resources on Azure.
