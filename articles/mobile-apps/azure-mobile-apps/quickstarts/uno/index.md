@@ -4,7 +4,7 @@ description: Get up to speed with the Uno Platform and Azure Mobile Apps with ou
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/03/2023
+ms.date: 09/07/2023
 ms.author: adhal
 ---
 
@@ -30,6 +30,7 @@ To complete this tutorial, you need:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 * For Android support, an [Android Virtual Device](https://developer.android.com/studio/run/managing-avds) with the following settings:
   * Phone: Any phone image - we use the Pixel 5 for testing.
   * System Image: Android 11 (API 30 with Google APIs)

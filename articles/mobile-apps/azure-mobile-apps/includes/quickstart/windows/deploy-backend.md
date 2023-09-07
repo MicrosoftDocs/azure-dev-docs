@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/03/2022
+ms.date: 09/07/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -8,8 +8,25 @@ ms.prod: azure-mobile-apps
 
 To deploy the backend service, we will:
 
-* Use Azure Resource Manager and the Azure CLI to deploy an Azure App Service and Azure SQL Database to Azure.
-* Use Visual Studio to publish the service code to the newly created Azure App Service.
+* Provision an Azure App Service and Azure SQL Database to Azure.
+* Use Visual Studio to deploy the service code to the newly created Azure App Service.
+
+### Use the Azure Developer CLI to complete all steps
+
+The TodoApp sample is configured to support the Azure Developer CLI.  To complete all steps (provisioning and deploying):
+
+1. [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
+2. Open a terminal and change directory to the folder containing the `TodoApp.sln` file.  This directory also contains `azure.yaml`.
+3. Run `azd up`.
+
+If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.  You will then be prompted for a subscription
+and Azure region to use.  The Azure Developer CLI will then provision the necessary resources and deploy the service code to the Azure
+region and subscription of your choice. Finally, the Azure Developer CLI will write an appropriate `Constants.cs` file for you.
+
+You can run the `azd env get-values` command to see the SQL authentication information should you wish to access the database directly.
+
+If you have completed the steps with the Azure Developer CLI, [proceed to the next step](#azd-skip-step-win).  If you do not wish to use the Azure Developer
+CLI, proceed with the manual steps below.
 
 ### Create resources on Azure.
 
@@ -88,3 +105,5 @@ Open the `TodoApp.sln` in Visual Studio.
 18. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
     ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
+
+<a name="azd-skip-step-win"></a>

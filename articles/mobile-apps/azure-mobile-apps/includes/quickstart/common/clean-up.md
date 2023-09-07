@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 09/07/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -20,5 +20,7 @@ You can also use the Azure CLI:
 ``` azurecli
 az group delete -g quickstart
 ```
+
+If you used the Azure Developer CLI to deploy resources, you can use the `azd down` command instead.
 
 The deletion will take a few minutes to complete.
