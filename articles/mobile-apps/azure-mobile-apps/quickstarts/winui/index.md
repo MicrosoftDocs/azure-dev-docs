@@ -4,7 +4,7 @@ description: Get up to speed with Windows (WinUI3) and Azure Mobile Apps with ou
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2022
+ms.date: 09/07/2023
 ms.author: adhal
 ---
 
@@ -28,6 +28,7 @@ To complete this tutorial, you need:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
 For more information on the tools required for Windows App SDK development, see [Install tools for the Windows App SDK](/windows/apps/windows-app-sdk/set-up-your-development-environment).
 
