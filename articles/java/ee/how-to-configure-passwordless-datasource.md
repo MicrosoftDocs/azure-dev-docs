@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: how-to
 ms.date: 01/12/2023
 keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java, devx-track-azurecli, devx-track-extended-java, has-azure-ad-ps-ref
 ---
 
 # Configure passwordless database connections for Java apps on Oracle WebLogic Servers
@@ -42,7 +42,7 @@ The offers support passwordless connections for PostgreSQL, MySQL and Azure SQL 
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*. This example creates a resource group named `abc1228rg` in the `eastus` location:
 
 ```azurecli-interactive
-RESOURCE_GROUP_NAME="abc1228rg"
+export RESOURCE_GROUP_NAME="abc1228rg"
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
@@ -55,9 +55,9 @@ az group create \
 Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. This example creates a flexible server named `mysql20221201` with admin user `azureuser` and admin password `Secret123456`. Replace the password with yours. For more information, see [Create an Azure Database for MySQL Flexible Server using Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
 ```azurecli-interactive
-MYSQL_NAME="mysql20221201"
-MYSQL_ADMIN_USER="azureuser"
-MYSQL_ADMIN_PASSWORD="Secret123456"
+export MYSQL_NAME="mysql20221201"
+export MYSQL_ADMIN_USER="azureuser"
+export MYSQL_ADMIN_PASSWORD="Secret123456"
 
 az mysql flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -73,7 +73,7 @@ az mysql flexible-server create \
 Create a database with [az mysql flexible-server db create](/cli/azure/mysql/flexible-server/db#az-mysql-flexible-server-db-create).
 
 ```azurecli-interactive
-DATABASE_NAME="contoso"
+export DATABASE_NAME="contoso"
 
 # create mysql database
 az mysql flexible-server db create \
@@ -102,9 +102,9 @@ Creating database with utf8 charset and utf8_general_ci collation
 Create a flexible server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. This example creates a flexible server named `postgresql20221223` with admin user `azureuser` and admin password `Secret123456`. Replace the password with yours. For more information, see [Create an Azure Database for PostgreSQL Flexible Server using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
 
 ```azurecli-interactive
-POSTGRESQL_NAME="postgresql20221223"
-POSTGRESQL_ADMIN_USER="azureuser"
-POSTGRESQL_ADMIN_PASSWORD="Secret123456"
+export POSTGRESQL_NAME="postgresql20221223"
+export POSTGRESQL_ADMIN_USER="azureuser"
+export POSTGRESQL_ADMIN_PASSWORD="Secret123456"
 
 az postgres flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -121,7 +121,7 @@ az postgres flexible-server create \
 Create a database with [az postgres flexible-server db create](/cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create).
 
 ```azurecli-interactive
-DATABASE_NAME="contoso"
+export DATABASE_NAME="contoso"
 
 # create postgresql database
 az postgres flexible-server db create \
@@ -135,9 +135,9 @@ az postgres flexible-server db create \
 Create a server with the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command. This example creates a server named `myazuresql20130213` with admin user `azureuser` and admin password `Secret123456`. Replace the password with yours. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli).
 
 ```azurecli-interactive
-AZURESQL_SERVER_NAME="myazuresql20130213"
-AZURESQL_ADMIN_USER="azureuser"
-AZURESQL_ADMIN_PASSWORD="Secret123456"
+export AZURESQL_SERVER_NAME="myazuresql20130213"
+export AZURESQL_ADMIN_USER="azureuser"
+export AZURESQL_ADMIN_PASSWORD="Secret123456"
 
 az sql server create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -150,7 +150,7 @@ az sql server create \
 Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview).
 
 ```azurecli-interactive
-DATABASE_NAME="mysingledatabase20230213"
+export DATABASE_NAME="mysingledatabase20230213"
 
 az sql db create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -178,7 +178,7 @@ The following example configures the current Azure CLI user as an Azure AD admin
 First, create a managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign the identity to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
 
 ```azurecli-interactive
-MYSQL_UMI_NAME="id-mysql-aad-20221205"
+export MYSQL_UMI_NAME="id-mysql-aad-20221205"
 
 # create a User Assigned Managed Identity for MySQL to be used for AAD authentication
 az identity create \
@@ -195,8 +195,8 @@ az mysql flexible-server identity assign \
 Then, set the current Azure CLI user as the Azure AD administrator account with [az mysql flexible-server ad-admin create](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
 
 ```azurecli-interactive
-CURRENT_USER=$(az account show --query user.name --output tsv)
-CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv)
+export CURRENT_USER=$(az account show --query user.name --output tsv)
+export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv)
 
 az mysql flexible-server ad-admin create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -310,7 +310,7 @@ To configure the identity in the following steps, use the [az identity show](/cl
 
 ```azurecli-interactive
 # Get client ID of the user-assigned identity
-CLIENT_ID=$(az identity show \
+export CLIENT_ID=$(az identity show \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name myManagedIdentity \
     --query clientId \
@@ -326,7 +326,7 @@ Now, connect as the Azure AD administrator user to your MySQL database, and crea
 First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address.
 
 ```bash
-MY_IP=$(curl http://whatismyip.akamai.com)
+export MY_IP=$(curl http://whatismyip.akamai.com)
 ```
 
 If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command may return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). In any case, set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database.
@@ -345,7 +345,7 @@ az mysql flexible-server firewall-rule create \
 Then, prepare an *.sql* file to create a database user for the managed identity. The following example adds a user with login name `identity-contoso` and grants the user privileges to access database `contoso`.
 
 ```bash
-IDENTITY_LOGIN_NAME="identity-contoso"
+export IDENTITY_LOGIN_NAME="identity-contoso"
 
 cat <<EOF >createuser.sql
 SET aad_auth_validate_oids_in_tenant = OFF;
@@ -359,7 +359,7 @@ EOF
 Execute the *.sql* file with the command [az mysql flexible-server execute](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-execute). You can get your access token with the command [az account get-access-token](/cli/azure/account#az-account-get-access-token).
 
 ```azurecli-interactive
-RDBMS_ACCESS_TOKEN=$(az account get-access-token \
+export RDBMS_ACCESS_TOKEN=$(az account get-access-token \
     --resource-type oss-rdbms \
     --query accessToken \
     --output tsv) 
@@ -403,7 +403,7 @@ az mysql flexible-server firewall-rule delete \
 Finally, use the following command to get the connection string that you use in the next section.
 
 ```azurecli-interactive
-CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
+export CONNECTION_STRING="jdbc:mysql://${MYSQL_NAME}.mysql.database.azure.com:3306/${DATABASE_NAME}?useSSL=true"
 echo ${CONNECTION_STRING}
 ```
 
@@ -473,7 +473,7 @@ This example uses Azure Cloud Shell to connect to the database. Use the followin
 1. Finally, back in the Azure CLI shell you've been using, use the following command get the connection string that you use in the next section.
 
    ```azurecli-interactive
-   CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
+   export CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
    echo ${CONNECTION_STRING}
    ```
 
@@ -510,7 +510,7 @@ After the firewall rule is created, you can access the Azure SQL server from por
 Finally, use the following command to get the connection string that you use in the next section.
 
 ```azurecli-interactive
-CONNECTION_STRING="jdbc:sqlserver://myazuresql20130213.database.windows.net:1433;database=mysingledatabase20230213;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+export CONNECTION_STRING="jdbc:sqlserver://myazuresql20130213.database.windows.net:1433;database=mysingledatabase20230213;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
 echo ${CONNECTION_STRING}
 ```
 
@@ -523,7 +523,7 @@ This section shows you how to configure the passwordless data source connection 
 First, begin the process of deploying an offer. The following offers support passwordless database connections:
 
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
-  - [Quickstart](./weblogic-server-azure-kubernetes-service.md)
+  - [Quickstart](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
   - [Quickstart](./weblogic-server-azure-virtual-machine.md)
 - [Oracle WebLogic Server with Admin Server on VMs](https://aka.ms/wls-vm-admin)

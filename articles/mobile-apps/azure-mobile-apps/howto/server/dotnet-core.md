@@ -3,6 +3,7 @@ title: How to use the ASP.NET Core SDK for Azure Mobile Apps
 description: How to use the ASP.NET Core SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 12/17/2022
 ms.author: adhal
@@ -86,13 +87,13 @@ public class TodoItem : EntityTableData
 }
 ```
 
-The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with extra properties for handling data sync services:
+The `ITableData` interface provides the ID of the record, together with extra properties for handling data sync services:
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-Don't change these properties in your code.  They're maintained by the repository.
+The Data sync library maintains these properties.  Don't modify these properties in your own code.
 
 ### Update the `DbContext`
 
@@ -125,6 +126,7 @@ public class TodoItemController : TableController<TodoItem>
 ```
 
 > [!NOTE]
+>
 > * The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
 > * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
 > * Assign a repository based on the same type as your model.
@@ -167,7 +169,7 @@ public class MoodelController : TableController<Model>
 
 The options you can set include:
 
-* `PageSize` (`int`, default: 100) is the maximum number of items in a single page that will be returned by a query operation.
+* `PageSize` (`int`, default: 100) is the maximum number of items a query operation returned in a single page.
 * `MaxTop` (`int`, default: 512000) is the maximum number of items returned in a query operation without paging.
 * `EnableSoftDelete` (`bool`, default: false) enables soft-delete, which marks items as deleted instead of deleting them from the database.  Soft delete allows clients to update their offline cache, but requires that deleted items are purged from the database separately.
 * `UnauthorizedStatusCode` (`int`, default: 401 Unauthorized) is the status code returned when the user isn't allowed to do an action.
@@ -280,9 +282,57 @@ The following sections provide information on using Azure Mobile Apps with speci
 
 ### Azure Cosmos DB
 
-Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
+Azure Cosmos DB is a fully managed NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
 
-1. Derive models from the `ETagEntityTableData` class:
+1. Set up the Cosmos Container with a composite index that specifies the `UpdatedAt` and `Id` fields.  Composite indices can be added to a container through the Azure portal, ARM, Bicep, Terraform, or within code. Here's an example [bicep](/azure/azure-resource-manager/bicep/overview) resource definition:
+
+    ``` bicep
+    resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
+        name: 'TodoItems'
+        parent: cosmosDatabase
+        properties: {
+            resource: {
+                id: 'TodoItems'
+                partitionKey: {
+                    paths: [
+                        '/Id'
+                    ]
+                    kind: 'Hash'
+                }
+                indexingPolicy: {
+                    indexingMode: 'consistent'
+                    automatic: true
+                    includedPaths: [
+                        {
+                            path: '/*'
+                        }
+                    ]
+                    excludedPaths: [
+                        {
+                            path: '/"_etag"/?'
+                        }
+                    ]
+                    compositeIndexes: [
+                        [
+                            {
+                                path: '/UpdatedAt'
+                                order: 'ascending'
+                            }
+                            {
+                                path: '/Id'
+                                order: 'ascending'
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+    ```
+
+   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.
+
+2. Derive models from the `ETagEntityTableData` class:
 
     ``` csharp
     public class TodoItem : ETagEntityTableData
@@ -292,23 +342,35 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
     }
     ```
 
-2. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
+3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  You may optionally include other settings.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
 
     ``` csharp
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
+        builder.Entity<TodoItem>(builder =>
+        {
+            // Store this model in a specific container.
+            builder.ToContainer("TodoItems");
+            // Do not include a discriminator for the model in the partition key.
+            builder.HasNoDiscriminator();
+            // Set the partition key to the Id of the record.
+            builder.HasPartitionKey(model => model.Id);
+            // Set the concurrency tag to the EntityTag property.
+            builder.Property(model => model.EntityTag).IsETagConcurrency();
+        });
         base.OnModelCreating(builder);
     }
     ```
 
-You can also set the container, partition key, and other Azure Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. For more information, review the following links:
 
-Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Azure Cosmos DB][cosmos-sample] available in the GitHub repository.
+* [Cosmos DB Sample][cosmos-sample].
+* [EF Core Azure Cosmos DB Provider](/ef/core/providers/cosmos) documentation.
+* [Cosmos DB index policy](/azure/cosmos-db/index-policy) documentation.
 
 ### PostgreSQL
 
-PostgreSQL does not support "timestamp" row versions. If using PostgreSQL, create the following class:
+PostgreSQL doesn't support "timestamp" row versions. If using PostgreSQL, create the following class:
 
 ```csharp
 public class PgEntityTableData : EntityTableData
@@ -334,7 +396,7 @@ public class PgEntityTableData : EntityTableData
 }
 ```
 
-This will ensure the version property is correctly created and handled within the database.  Your model will now look similar to the following:
+The database maintains the `xmin` system column, which can be used for concurrency checks. Derive database models from the `PgEntityTableData` class:
 
 ```csharp
 public class TodoItem : PgEntityTableData
@@ -343,6 +405,8 @@ public class TodoItem : PgEntityTableData
     public bool Completed { get; set; }
 }
 ```
+
+For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
 ### SqLite
 
@@ -411,14 +475,16 @@ public void InitializeDatabase(DbContext context)
 
 [LiteDB](https://www.litedb.org/) is a serverless database delivered in a single small DLL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
-1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
+1. Install the `Microsoft.AspNetCore.Datasync.LiteDb` package from NuGet.
+
+2. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
     ``` csharp
     const connectionString = builder.Configuration.GetValue<string>("LiteDb:ConnectionString");
     builder.Services.AddSingleton<LiteDatabase>(new LiteDatabase(connectionString));
     ```
 
-2. Derive models from the `LiteDbTableData`:
+3. Derive models from the `LiteDbTableData`:
 
     ``` csharp
     public class TodoItem : LiteDbTableData
@@ -430,7 +496,7 @@ public void InitializeDatabase(DbContext context)
 
     You can use any of the `BsonMapper` attributes that are supplied with the LiteDb NuGet package.
 
-3. Create a controller using the `LiteDbRepository`:
+4. Create a controller using the `LiteDbRepository`:
 
     ``` csharp
     [Route("tables/[controller]")]
@@ -443,8 +509,6 @@ public void InitializeDatabase(DbContext context)
     }
     ```
 
-You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDB is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
-
 ## OpenAPI Support
 
 You can publish the API defined by data sync controllers using [NSwag](/aspnet/core/tutorials/getting-started-with-nswag) or [Swashbuckle](/aspnet/core/tutorials/getting-started-with-swashbuckle).  In both cases, start by setting up the service as you normally would for the chosen library.  
@@ -454,7 +518,7 @@ You can publish the API defined by data sync controllers using [NSwag](/aspnet/c
 Follow the basic instructions for NSwag integration, then modify as follows:
 
 1. Add packages to your project to support NSwag.  The following packages are required:
-   
+
     * [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore).
     * [Microsoft.AspNetCore.Datasync.NSwag](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.NSwag).
 
@@ -483,7 +547,7 @@ Follow the basic instructions for NSwag integration, then modify as follows:
     }
     ```
 
-With this configuration, browsing to the `/swagger` endpoint of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring NSwag, see [Get started with NSwag and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-nswag).
+Browsing to the `/swagger` endpoint of the web service allows you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring NSwag, see [Get started with NSwag and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-nswag).
 
 ### Swashbuckle
 
@@ -528,7 +592,7 @@ Follow the basic instructions for Swashbuckle integration, then modify as follow
     }
     ```
 
-With this configuration, browsing to the root of the web service will allow you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
+With this configuration, browsing to the root of the web service allows you to browse the API.  The OpenAPI definition can then be imported into other services (such as Azure API Management).  For more information on configuring Swashbuckle, see [Get started with Swashbuckle and ASP.NET Core](/aspnet/core/tutorials/getting-started-with-swashbuckle).
 
 ## Limitations
 

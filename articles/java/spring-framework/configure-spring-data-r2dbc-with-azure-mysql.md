@@ -8,7 +8,7 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
 ms.contributors: judubois-09162021
 ---
 
@@ -101,7 +101,7 @@ cat /etc/resolv.conf
 Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
 
 ```bash
-AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+export AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 ```
 
 Then, use the following command to open the server's firewall to your WSL-based app:
@@ -152,7 +152,7 @@ rm create_user.sql
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.9 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.11 -d javaVersion=17 | tar -xzvf -
 ```
 
 ## Add the reactive MySQL driver implementation

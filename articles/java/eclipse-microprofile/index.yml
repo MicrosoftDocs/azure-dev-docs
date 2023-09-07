@@ -10,7 +10,7 @@ metadata:
   ms.author: yoterada
   ms.date: 06/06/2022
   ms.topic: landing-page
-  ms.custom: team=cloud_advocates, kr2b-contr-experiment, devx-track-java
+  ms.custom: team=cloud_advocates, kr2b-contr-experiment, devx-track-java, devx-track-extended-java
   ms.contributors: yoterada-01202022
 
 landingContent:
@@ -18,8 +18,6 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-      - text: Deploy to Azure Container Instances
-        url: deploy-microprofile-to-container-instances.md
       - text: Config Source for Azure Key Vault
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps

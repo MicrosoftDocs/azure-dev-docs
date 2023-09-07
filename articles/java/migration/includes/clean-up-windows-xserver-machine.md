@@ -2,24 +2,25 @@
 author: KarlErickson
 ms.author: haiche
 ms.date: 04/27/2023
+ms.custom: devx-track-azurecli
 ---
 
 ```azurecli
-WINDOWSVM_NIC_ID=$(az vm show \
+export WINDOWSVM_NIC_ID=$(az vm show \
     --resource-group abc1110rg \
     --name myWindowsVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
-WINDOWSVM_NSG_ID=$(az network nic show \
+export WINDOWSVM_NSG_ID=$(az network nic show \
     --ids ${WINDOWSVM_NIC_ID} \
     --query networkSecurityGroup.id \
     --output tsv)
-WINDOWSVM_DISK_ID=$(az vm show \
+export WINDOWSVM_DISK_ID=$(az vm show \
     --resource-group abc1110rg \
     --name myWindowsVM \
     --query storageProfile.osDisk.managedDisk.id \
     --output tsv)
-WINDOWSVM_PUBLIC_IP=$(az network nic show \
+export WINDOWSVM_PUBLIC_IP=$(az network nic show \
     --ids ${WINDOWSVM_NIC_ID} \
     --query ipConfigurations[0].publicIpAddress.id \
     --output tsv)

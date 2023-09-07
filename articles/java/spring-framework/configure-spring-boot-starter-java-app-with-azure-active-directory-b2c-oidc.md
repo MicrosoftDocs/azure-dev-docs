@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ms.subservice: B2C
 ---
 
@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
    * Under **Project**, select **Maven Project**.
    * Under **Language**, select **Java**.
-   * Under **Spring Boot**, select **2.7.9**.
+   * Under **Spring Boot**, select **2.7.11**.
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill in some of these fields as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 

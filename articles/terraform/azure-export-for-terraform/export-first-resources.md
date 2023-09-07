@@ -3,9 +3,9 @@ title: 'Quickstart: Export your first resources using Azure Export for Terraform
 description: Export your first resources using Azure Export for Terraform on a resource group, both interactively and non-interactively. 
 author: stemamsft
 ms.topic: quickstart
-ms.date: 04/07/2023
+ms.date: 05/10/2023
 ms.author: stema
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform,devx-track-export-terraform
 ---
 
 # Quickstart: Export your first resources using Azure Export for Terraform

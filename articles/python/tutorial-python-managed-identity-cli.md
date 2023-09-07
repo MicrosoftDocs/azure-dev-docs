@@ -4,7 +4,7 @@ description: Use the Azure CLI to create and deploy a Flask Python web app to Az
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/23/2023
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Create and deploy a Flask Python web app to Azure with managed identity
@@ -13,7 +13,7 @@ In this tutorial, you deploy Python **[Flask](https://flask.palletsprojects.com/
 
 You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
-This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the command in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). For examples of using the Azure portal or Visual Studio Code to create and deploy, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
+This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). For examples of using a user-assigned managed identity, see [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md).
 
 ## Get the sample app
 
@@ -155,7 +155,7 @@ The sample Python app uses the [azure.identity](https://pypi.org/project/azure-i
 
     The restaurant and review information is stored in Azure Database for PostgreSQL and the photos are stored in Azure Storage. Here's an example screenshot:
 
-    :::image type="content" source="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed-small.png" lightbox="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed.png" alt-text="Screenshot of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
+    :::image type="content" source="./media/python-managed-identity/example-of-review-sample-app-production-deployed-small.png" lightbox="./media/python-managed-identity/example-of-review-sample-app-production-deployed.png" alt-text="Screenshot of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
 
 ## Clean up
 
@@ -169,6 +169,6 @@ You can optionally add the `--no-wait` argument to allow the command to return b
 
 ## Next steps
 
-* [Deploy a Python web app to Azure with PostgreSQL and managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md)
 
 * [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app)

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: manriem
 ms.topic: how-to
 ms.date: 06/03/2022
-ms.custom: devx-track-java, devx-track-azurecli, kr2b-contr-experiment, migration-java
+ms.custom: devx-track-java, devx-track-azurecli, kr2b-contr-experiment, migration-java, devx-track-extended-java
 recommendations: false
 ---
 

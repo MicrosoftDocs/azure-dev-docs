@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.date: 04/19/2023
-ms.author: v-yonghuiye
+ms.author: v-yeyonghui
 ---
 
 ### [Service Connector (Recommended)](#tab/service-connector)
@@ -36,7 +36,7 @@ ms.author: v-yonghuiye
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id -o tsv)
+export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;

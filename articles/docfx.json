@@ -78,16 +78,19 @@
       "author": {
         "**/*.md": "mcleanbyron",
         "**/*.yml": "mcleanbyron",
+        "ansible/**/*.md": "TomArcherMsft",
+        "azure-developer-cli/**/*.md": "alexwolfmsft",
+        "chef/**/*.md": "TomArcherMsft",
+        "github/**/*.md": "N-Usha",
+        "go/**/*.md": "bobtabor-msft",
         "java/**/*.md": "karlerickson",
         "java/**/*.yml": "karlerickson",
-        "go/**/*.md": "bobtabor-msft",
-        "python/**/*.md": "bobtabor-msft",
-        "ansible/**/*.md": "TomArcherMsft",
-        "chef/**/*.md": "TomArcherMsft",
-        "jenkins/**/*.md": "TomArcherMsft",
-        "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry"
+        "javascript/**/*.yml": "diberry",
+        "jenkins/**/*.md": "TomArcherMsft",
+        "mobile-apps/**/*.md": "mikeparker104",
+        "python/**/*.md": "bobtabor-msft",
+        "terraform/**/*.md": "TomArcherMsft"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -96,16 +99,19 @@
       "ms.author": {
         "**/*.md": "mcleans",
         "**/*.yml": "mcleans",
+        "ansible/**/*.md": "tarcher",
+        "azure-developer-cli/**/*.md": "alexwolf",
+        "chef/**/*.md": "tarcher",
+        "github/**/*.md": "ushan",
+        "go/**/*.md": "rotabor",
         "java/**/*.md": "karler",
         "java/**/*.yml": "karler",
-        "go/**/*.md": "rotabor",
-        "python/**/*.md": "rotabor",
-        "ansible/**/*.md": "tarcher",
-        "chef/**/*.md": "tarcher",
-        "jenkins/**/*.md": "tarcher",
-        "terraform/**/*.md": "tarcher",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry"
+        "javascript/**/*.yml": "diberry",
+        "jenkins/**/*.md": "tarcher",
+        "mobile-apps/**/*.md": "miparker",
+        "python/**/*.md": "rotabor",
+        "terraform/**/*.md": "tarcher"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -122,7 +128,8 @@
         "jenkins/**/*.md": "jenkins",
         "terraform/**/*.md": "terraform",
         "python/**/*.md": "azure-python",
-        "javascript/**/*.md": "azure-javascript"
+        "javascript/**/*.md": "azure-javascript",
+        "dev-tunnels/**/*.md": "dev-tunnels"
       },
       
       "titleSuffix": {
@@ -130,8 +137,10 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "javascript/**/*.md": "Azure"
-        
+        "javascript/**/*.md": "JavaScript on Azure",
+        "python/**/*.md": "Python on Azure",
+        "java/**/*.md": "Java on Azure",
+        "go/**/*.md": "Go on Azure"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
@@ -155,6 +164,13 @@
       "python": "azure-python",
       "javascript": "azure-javascript"
     },
-    "markdownEngineName": "markdig"
+    "markdownEngineName": "markdig",
+    "rules": {
+      "sensitive-language-sl": {
+        "exclude": [
+          "java/migration/migrate-jboss-eap-to-azure-vm-manually.md"
+        ]
+      }
+    }
   }
 }

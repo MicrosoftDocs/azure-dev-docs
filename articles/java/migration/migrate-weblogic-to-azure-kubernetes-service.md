@@ -6,7 +6,7 @@ ms.author: edburns
 ms.topic: conceptual
 ms.date: 09/30/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes, jcache, redisson
-ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks
+ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 #Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service
 ---
 
@@ -46,7 +46,7 @@ First, you have to understand the concept of the WLS "domain". A domain is a log
 
 The operator documentation also includes a useful table comparing the various options. For more information, see [Choose a domain home source type](https://aka.ms/wls-aks-docs-domain-home-source-type).
 
-To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal](../ee/weblogic-server-azure-kubernetes-service.md). For the reference documentation on the prebuilt Azure Marketplace offer, see [Oracle](https://aka.ms/wls-aks-docs).
+To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For the reference documentation on the prebuilt Azure Marketplace offer, see [Oracle](https://aka.ms/wls-aks-docs).
 
 To get a feel for using the operator directly, try the samples in [the operator documentation](https://aka.ms/wls-aks-samples).
 
@@ -201,7 +201,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. In the left navigation pane, in the **Settings** section, select **Deployments** to see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown in the following screenshot.
 
-   :::image type="content" source="../ee/media/weblogic-server-azure-kubernetes-service/resource-group-deployments.png" alt-text="Screenshot of Azure portal showing the resource group deployments list." lightbox="../ee/media/weblogic-server-azure-kubernetes-service/resource-group-deployments.png":::
+   :::image type="content" source="media/migrate-weblogic-to-azure-kubernetes-service/resource-group-deployments.png" alt-text="Screenshot of Azure portal showing the resource group deployments list." lightbox="media/migrate-weblogic-to-azure-kubernetes-service/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs. We're interested in the outputs that allow us to inspect the domain and interact with the operator. The other values in the outputs are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs#template-outputs).
 1. Locate the output named `shellCmdtoConnectAks`. Paste the value of the output in a Bash shell and run the command. This command enables you to use `kubectl` as described in [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster).

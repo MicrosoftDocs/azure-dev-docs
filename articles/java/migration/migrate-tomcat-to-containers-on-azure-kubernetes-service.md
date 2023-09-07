@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 1/20/2020
-ms.custom: devx-track-java, devx-track-azurecli, migration-java
+ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-extended-java
 recommendations: false
 ---
 
@@ -108,9 +108,18 @@ With the exception of the first step ("Provision container registry and AKS"), w
 Create a container registry and an Azure Kubernetes cluster whose Service Principal has the Reader role on the registry. Be sure to [choose the appropriate network model](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) for your cluster's networking requirements.
 
 ```azurecli
-az group create -g $resourceGroup -l eastus
-az acr create -g $resourceGroup -n $acrName --sku Standard
-az aks create -g $resourceGroup -n $aksName --attach-acr $acrName --network-plugin azure
+az group create \
+    --resource-group $resourceGroup \
+    --location eastus
+az acr create \
+    --resource-group $resourceGroup \
+    --name $acrName \
+    --sku Standard
+az aks create \
+    --resource-group $resourceGroup \
+    --name $aksName \
+    --attach-acr $acrName \
+    --network-plugin azure
 ```
 
 ### Prepare the deployment artifacts
@@ -166,7 +175,11 @@ For example:
 The simplest way to build and upload the image to Azure Container Registry (ACR) for use by AKS is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile above and the application package *petclinic.war* in the current directory, you can build the container image in ACR with one step:
 
 ```azurecli
-az acr build -t "${acrName}.azurecr.io/petclinic:{{.Run.ID}}" -r $acrName --build-arg APP_FILE=petclinic.war --build-arg=prod.server.xml .
+az acr build \
+    --image "${acrName}.azurecr.io/petclinic:{{.Run.ID}}" \
+    --registry $acrName \
+    --build-arg APP_FILE=petclinic.war \
+    --build-arg=prod.server.xml .
 ```
 
 You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named *ROOT.war*. You can omit the `--build-arg SERVER_XML...` parameter if your server XML file is named *server.xml*. Both files must be in the same directory as *Dockerfile*.
@@ -183,7 +196,7 @@ sudo docker run -d -p 8080:8080 "${acrName}.azurecr.io/petclinic:1"
 # Your application can now be accessed with a browser at http://localhost:8080.
 
 # Log into ACR
-sudo az acr login -n $acrName
+sudo az acr login --name $acrName
 
 # Push the image to ACR
 sudo docker push "${acrName}.azurecr.io/petclinic:1"
@@ -196,8 +209,18 @@ For more information, see the Learn module for [Building and storing container i
 If your application is to be accessible from outside your internal or virtual network(s), a public static IP address will be required. This IP address should be provisioned inside cluster's node resource group.
 
 ```azurecli
-nodeResourceGroup=$(az aks show -g $resourceGroup -n $aksName --query 'nodeResourceGroup' -o tsv)
-publicIp=$(az network public-ip create -g $nodeResourceGroup -n applicationIp --sku Standard --allocation-method Static --query 'publicIp.ipAddress' -o tsv)
+export nodeResourceGroup=$(az aks show \
+    --resource-group $resourceGroup \
+    --name $aksName \
+    --query 'nodeResourceGroup' \
+    --output tsv)
+export publicIp=$(az network public-ip create \
+    --resource-group $nodeResourceGroup \
+    --name applicationIp \
+    --sku Standard \
+    --allocation-method Static \
+    --query 'publicIp.ipAddress' \
+    --output tsv)
 echo "Your public IP address is ${publicIp}."
 ```
 

@@ -1,9 +1,9 @@
 ---
 title: Configure tracing in the Azure SDK for Java
-description: An overview of the Azure SDK for Java concepts related to tracing
+description: Provides an overview of the Azure SDK for Java concepts related to tracing.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: savaity
 ---

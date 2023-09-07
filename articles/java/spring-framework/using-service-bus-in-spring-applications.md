@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: seal
 ms.date: 04/21/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Azure Service Bus in Spring applications
@@ -24,7 +24,7 @@ You can use the following modules independently or combine them for different us
 
 - [Spring Messaging Azure Service Bus](#use-spring-messaging-azure-service-bus) enables you to interact with Service Bus via the [Spring Messaging](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) API.
 
-- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/html/channel.html) with Service Bus.
+- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/channel.html) with Service Bus.
 
 - [Spring Cloud Stream Binder for Service Bus](#use-spring-cloud-stream-service-bus-binder) enables you to use Service Bus as a messaging middleware in Spring Cloud Stream applications.
 
@@ -484,13 +484,6 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
    > [!Note]
    > If you're using a topic/subscription, change the `spring.cloud.azure.servicebus.entity-type` value to `topic`.
 
-1. Add the `spring.factories` for the autoconfiguration for `@ServiceBusListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
-   ```
-
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver.
 
    ```java
@@ -758,7 +751,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
 
      ```properties
       # name for the `Consumer` bean
-      spring.cloud.stream.function.definition=consume
+      spring.cloud.function.definition=consume
       spring.cloud.stream.bindings.consume-in-0.destination=<service-bus-queue-name>
      ```
 
@@ -789,7 +782,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
 
      ```properties
      # "consume" is added from the previous step
-     spring.cloud.stream.function.definition=consume;supply
+     spring.cloud.function.definition=consume;supply
      spring.cloud.stream.bindings.supply-out-0.destination=<your-servicebus-queue-name>
      spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
      ```

@@ -1,14 +1,14 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Developer CLI FAQ (preview)
+  title: Azure Developer CLI FAQ
   description: Get answers to commonly asked questions about Azure Developer CLI.
   author: alexwolfmsft
   ms.author: alexwolf
   ms.date: 07/11/2022
   ms.topic: conceptual
-  ms.custom: devx-track-azdevcli
+  ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli
-title: Azure Developer CLI FAQ (preview)
+title: Azure Developer CLI FAQ
 summary: This article answers commonly asked questions about Azure Developer CLI.
 sections:
   - name: General
@@ -26,18 +26,28 @@ sections:
           curl -fsSL https://aka.ms/uninstall-azd.sh | bash
           ```
 
+      - question: What's the difference between the Azure Developer CLI and the Azure CLI?
+
+        answer: | 
+          [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) and [Azure CLI](/cli/azure/what-is-azure-cli) (`az`) are both command-line tools, but they help you do different tasks.
+
+          [`azd`](./index.yml) focuses on the developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
+
+          Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
+
+
       - question: What is an environment name?
         answer: |
           Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
 
           ```txt	 
-          ├── .Azure                          [ This directory displays after you run add init or azd up ]
-          │   ├── <your environment1>         [ A directory to store all environment-related configurations]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
-          │   └── <your environment2>         [ A directory to store all environment-related configurations ]
-          │   │   ├── .env                    [ Contains environment variables ]
-          │   │   └── main.parameters.json    [ A parameter file ]
+          ├── .Azure                          [This directory displays after you run add init or azd up]
+          │   ├── <your environment1>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
+          │   └── <your environment2>         [A directory to store all environment-related configurations]
+          │   │   ├── .env                    [Contains environment variables]
+          │   │   └── main.parameters.json    [A parameter file]
           │   └──config.json 
           ```
 
@@ -53,15 +63,21 @@ sections:
         answer: |
           In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as `azd deploy` also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
           
+      - question: I have run `azd up` in Codespaces. Can I continue my work in a local development environment?
+        answer: |
+          Yes. You can continue development work locally.
+          1. Run `azd init -t <template repo>` to clone the template project to your local machine.
+          2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and location as before.
+      
       - question: How is the azure.yaml file used?
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
 
       - question: What is the behavior of the `secretOrRandomPassword` function?
         answer: |
-          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters are not provided or a secret cannot be retrieved, the function will instead return a randomly generated password to use instead.
+          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters aren't provided or a secret can't be retrieved, the function will instead return a randomly generated password to use instead.
           
-          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value cannot be retrieved, a random password will be generated and returned instead. 
+          The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value can't be retrieved, a random password is generated instead. 
 
           ```json
             "sqlAdminPassword": {
@@ -96,9 +112,9 @@ sections:
           
           This Bicep setup enables the following workflow for managing your secrets:
 
-          1. If the specified secret exists, it will be retrieved from Key Vault using the `secretOrRandomPassword` function.
-          2. If the secret does not exist, a Key Vault will be created, and the randomly generated secret will be stored inside of it. 
-          3. On future deploys, the stored secret will be retrieved by the `secretOrRandomPassword` method now that it exists in Key Vault. The Key Vault will not be recreated if it already exists, but the same secret value will be stored again for the next run.
+          1. If the specified secret exists, it's retrieved from Key Vault using the `secretOrRandomPassword` function.
+          2. If the secret doesn't exist, a Key Vault is created, and the randomly generated secret is stored inside of it. 
+          3. On future deploys, the `secretOrRandomPassword` method retrieves the stored secret now that it exists in Key Vault. The Key Vault won't be recreated if it already exists, but the same secret value will be stored again for the next run.
           
       - question: Can I use Azure Free Subscription?
         answer: |
@@ -110,6 +126,21 @@ sections:
 
           You can select a different Azure location to fix the issue.
 
+      - question: My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning, how can I fix it?
+        answer: |
+          This might happen because of our method for naming resources. 
+
+          Our 'Azure Dev' authored templates allow for configuring the name of the resource. To do so, you can add an entry to the `main.parameters.json` in the `infra` folder. For example: 
+          ```json
+            "webServiceName": {
+            "value": "my-unique-name"
+          }
+          ```
+
+          This entry creates a new resource named "my-unique-name" instead of a randomized value such as "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group using the Azure Portal or run `azd down` to remove all previous deployments. After removing the resources, run `azd provision` to create them again with the new name.
+
+          This name will need to be globally unique, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
+   
   - name: "Command: azd provision"
     questions:
       - question: How does the command know what resources to provision?
@@ -206,8 +237,8 @@ sections:
   
   - name: "Building a container application locally"
     questions: 
-      - question: Why am I unable to locally run the container app that I am building? 
+      - question: Why am I unable to locally run the container app that I'm building? 
         answer: | 
-          When building container applications locally, you'll need to run `azd auth login` in the container for the application to work 
+          When building container applications locally, you need to run `azd auth login` in the container for the application to work 
           with the `AzureDeveloperCliCredential`. Alternatively, you could configure your application to use a service principal 
           instead of the `AzureDeveloperCliCredential`.

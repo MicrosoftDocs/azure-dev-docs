@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Developer CLI (azd) Preview
+title: Azure Developer CLI (azd)
 summary: |
-  The Azure Developer CLI (azd) Preview is an open-source tool that accelerates the time it takes for you to get started on Azure. azd provides a set of developer-friendly commands that map to key stages in your workflow (code, build, deploy, monitor). The CLI allows you to work consistently in a repeatable way across the terminal, your editor/integrated development environment, GitHub Actions pipeline, and more.  
+  The Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get started on Azure. azd provides a set of developer-friendly commands that map to key stages in your workflow (code, build, deploy, monitor). The CLI allows you to work consistently in a repeatable way across the terminal, your editor/integrated development environment, GitHub Actions pipeline, and more.  
 
 metadata:
-  title: Azure Developer CLI (azd) Preview
+  title: Azure Developer CLI (azd)
   description: Get started developing Azure apps using Azure Developer CLI (azd).
   author: alexwolfmsft
   ms.author: alexwolf
@@ -13,8 +13,7 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   ms.service: azure-dev-cli
-  ms.custom: devx-track-azdevcli
-
+  ms.custom: devx-track-azdevcli, build-2023
 landingContent:
   - title:  Get started
     linkLists:

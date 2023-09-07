@@ -6,7 +6,7 @@ ms.author: edburns
 ms.topic: conceptual
 ms.date: 12/14/2021
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
 # Migrate WebLogic Server applications to Azure Virtual Machines
@@ -125,7 +125,7 @@ After you've provisioned the offer, you can examine the domain configuration and
 
 ### Connect the databases
 
-After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-n-node-configured-cluster.html). These instructions help you account for any database secrets and access strings involved.
+After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534). These instructions help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 

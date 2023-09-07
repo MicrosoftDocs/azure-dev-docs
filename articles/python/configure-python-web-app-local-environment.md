@@ -2,7 +2,7 @@
 title: "Configure your local environment for developing and deploying Python web apps to Azure using popular frameworks like Django, Flask, and FastAPI."
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 7/24/2023
 ms.custom: devx-track-python, devx-track-azurecli
 adobe-target: true
 ---
@@ -19,7 +19,7 @@ After you get your local environment setup for Python web app development, you'l
 
 * [Quickstart: Create a Python (Django or Flask) web app in Azure App Service](/azure/app-service/quickstart-python).
 * [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app)
-* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)
 
 ## Working with Visual Studio Code
 
@@ -28,7 +28,7 @@ The [Visual Studio Code](https://code.visualstudio.com/) integrated development 
 > [!TIP]
 > Make sure you have [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension installed. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
-In VS code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
+In VS Code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
  
 * The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension enables you to interact with Azure App Service from within Visual Studio Code. App Service provides fully managed hosting for web applications including websites and web APIs.
 
@@ -45,6 +45,40 @@ In VS code, you work with Azure resources through [VS Code extensions](https://c
 Extensions in Visual Studio Code are accessible as you would expect in a typical IDE interface and with rich keyword support using the [VS Code command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette). To access the command palette, use the key combination Ctrl+Shift+P. The command palette is a good way to see all the possible actions you can take on an Azure resource. The screenshot below shows some of the actions for App Service.
 
 :::image type="content" source="./media/configure-local-development-environment/visual-studio-command-palette-small.png" alt-text="A screenshot of the Visual Studio Code command palette for App Service." lightbox="./media/configure-local-development-environment/visual-studio-command-palette.png":::
+
+### Working with Dev Containers in Visual Studio Code
+
+Python developers often rely on virtual environments  to create an isolated and self-contained environment for a specific project. Virtual environments allow developers to manage dependencies, packages, and Python versions separately for each project, avoiding conflicts between different projects that might require different package versions.
+
+While there are popular options available in Python for managing environments like `virtualenv` or `venv`, the [*Visual Studio Code Dev Container*](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 
+extension (based on the [open Dev Container specification](https://containers.dev)) lets you use a [Docker container](https://docker.com/) as a full-featured containerized environment. It enables developers to define a consistent and easily reproducible toolchain with all the necessary tools, dependencies, and extensions pre-configured. This means if you have system requirements, shell configurations, or use other languages entirely you can use a Dev Container to explicity configure all of those parts of your project that might live outside of a basic Python environment.
+
+For example, a developer can configure a single Dev Container to include everything needed to work on a project, including a PostgreSQL database server along with the project database and sample data, a Redis server, Nginx, front-end code, client libraries like React, and so on. In addition, the container would contain the project code, the Python runtime, and all the Python project dependencies with the correct versions. Finally, the container can specify Visual Studio Code extensions to be installed so the entire team has the same tooling available. So when a new developer joins the team, the whole environment, including tooling, dependencies, and data, is ready to be cloned to their local machine, and they can begin working immediately.
+
+See [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers).
+
+
+## Working with Visual Studio 2022
+
+[Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
+on using Visual Studio Code, Visual Studio 2022 is a great option if you already
+have it installed, you're comfortable with using it, and are using it for .NET or 
+C++ projects.
+
+* In general, see [Visual Studio | Python documentation](/visualstudio/python/) for all documentation related to using Python on Visual Studio 2022.
+
+* For setup steps, see [Install Python support in Visual Studio](/visualstudio/python/installing-python-support-in-visual-studio) which walks you through the steps of installing the Python workload into Visual Studio 2022.
+
+* For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](/visualstudio/ide/quickstart-python). This article is useful for understanding how to build a Python web application
+from scratch (but does not include deployment to Azure).
+
+* For using Visual Studio 2022 to manage Azure resources and deploy to Azure, 
+see [Azure Development with Visual Studio](/visualstudio/azure/). While much of the documentation here specifically mentions 
+.NET, the tooling for managing Azure resources and deploying to Azure works the 
+same regardless of the programming language.
+
+* When there's no built-in tool available in Visual Studio 2022 for a given 
+Azure management or deployment task, you can always use [Azure CLI commands](#azure-cli-commands).
 
 ## Working with other IDEs
 
@@ -252,4 +286,4 @@ At this point, add a *requirements.txt* file and then you can deploy the web app
 
 * [Quickstart: Create a Python (Django or Flask) web app in Azure App Service](/azure/app-service/quickstart-python).
 * [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app)
-* [Tutorial: Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)
+* [Create and deploy a Flask web app to Azure with a system-assigned managed identity](./tutorial-python-managed-identity-cli.md)

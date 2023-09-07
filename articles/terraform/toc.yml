@@ -100,7 +100,7 @@
           - name: Azure Kubernetes Service
             items:
               - name: Create a cluster
-                href: create-k8s-cluster-with-tf-and-aks.md
+                href: /azure/aks/learn/quick-kubernetes-deploy-terraform
       - name: Database
         items:
           - name: Azure SQL Database
@@ -131,6 +131,10 @@
         items:
           - name: Create a key vault and key
             href: /azure/key-vault/keys/quick-create-terraform
+      - name: Networking
+        items:
+          - name: Create a mesh network topology with Azure Virtual Network Manager
+            href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
       - name: Notification Hubs
         items:
           - name: Create a namespace and hub
@@ -142,7 +146,7 @@
       - name: Security
         items:
           - name: Azure Attestation
-            href: create-attestation-provider.md
+            href: /azure/attestation/quickstart-terraform
       - name: Stream Analytics
         items:
           - name: Create a job
@@ -155,6 +159,12 @@
         items:
         - name: Create a Linux VM
           href: /azure/virtual-machines/linux/quick-create-terraform
+        - name: Create a Linux VM cluster
+          href: /azure/virtual-machines/linux/quick-cluster-create-terraform
+        - name: Create a Windows VM
+          href: /azure/virtual-machines/windows/quick-create-terraform
+        - name: Create a Windows VM cluster
+          href: /azure/virtual-machines/windows/quick-cluster-create-terraform
 - name: Samples
   items:
     - name: Terraform samples
@@ -177,8 +187,10 @@
             href: provision-infrastructure-using-azure-deployment-slots.md
       - name: Containers
         items:
+          - name: Deploy Azure Application Gateway v2
+            href: deploy-application-gateway-v2.md
           - name: Application Gateway ingress controller in AKS
-            href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
       - name: Database
         items:
           - name: Azure Cosmos DB
@@ -191,8 +203,6 @@
             href: create-network-watcher-nsg-flow-logs.md
           - name: Azure Firewall Premium
             href: firewall-upgrade-premium.md
-          - name: Deploy Azure Application Gateway v2
-            href: deploy-application-gateway-v2.md
           - name: Hub and spoke topology
             items:
               - name: 1. Create hub and spoke topology
@@ -225,10 +235,6 @@
                 href: create-avd-log-analytics-workspace.md
           - name: Virtual machines
             items:
-              - name: Configure a virtual machine cluster
-                href: create-vm-cluster-module.md
-              - name: Virtual Machine cluster with Terraform and HCL
-                href: create-vm-cluster-with-infrastructure.md
               - name: Virtual Machine Scale Set with infrastructure
                 href: create-vm-scaleset-network-disks-hcl.md
               - name: Virtual Machine Scale Set from Packer image

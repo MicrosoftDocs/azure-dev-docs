@@ -1,10 +1,11 @@
 ---
 title: Get started with Azure extensions for IntelliJ and Eclipse
-description: Learn how to install and use extensions into your IDE to be more productive
+description: Learn how to install and use extensions into your IDE to be more productive.
 author: KarlErickson
 ms.author: jogiles
 ms.date: 11/15/2021
 ms.topic: article
+ms.custom: devx-track-extended-java
 ---
 
 # Get started with Azure extensions for IntelliJ and Eclipse

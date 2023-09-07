@@ -1,9 +1,9 @@
 ---
 title: Log with the Azure SDK for Java and Log4j
-description: An overview of the Azure SDK for Java integration with log4j
+description: Provides an overview of the Azure SDK for Java integration with log4j.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: srnagar
 ---

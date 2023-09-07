@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: manriem
 ms.topic: article
 ms.date: 12/09/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Use Azure Key Vault to deliver TLS/SSL certificates to Apache Tomcat
@@ -62,19 +62,19 @@ set CLASSPATH=C:\xxx\azure-security-keyvault-jca.jar
 The following example of `JAVA_OPTS` covers local testing using a service principal:
 
 ```bash
-JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.client-id=xxx -Dazure.keyvault.client-secret=xxx -Dazure.keyvault.tenant-id=xxx'
+export JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.client-id=xxx -Dazure.keyvault.client-secret=xxx -Dazure.keyvault.tenant-id=xxx'
 ```
 
 This example covers cloud deployments using a user-assigned managed identity:
 
 ```bash
-JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>'
+export JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>'
 ```
 
 This example covers cloud deployments using a system-assigned managed identity:
 
 ```bash
-JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx'
+export JAVA_OPTS='-Djava.security.properties==/xxx/my.java.security -Dazure.keyvault.uri=xxx'
 ```
 
 For the meaning of each of these properties, see [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](./java-azure-keyvault-ssl-integration-jvm.md#how-to-run-your-application).

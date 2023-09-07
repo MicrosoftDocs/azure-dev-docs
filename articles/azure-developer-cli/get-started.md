@@ -1,5 +1,5 @@
 ---
-title: Get started using Azure Developer CLI (preview)
+title: Get started using Azure Developer CLI
 description: Learn how to get started with Azure Developer CLI with a template for Node.js.
 keywords: azure developer cli, azd
 author: alexwolfmsft
@@ -7,18 +7,18 @@ ms.author: alexwolf
 ms.date: 10/21/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
-ms.custom: devx-track-azdevcli
+ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---
 
-# Get started using Azure Developer CLI (preview)
+# Get started using Azure Developer CLI
 
 ::: zone pivot="programming-language-nodejs"
 
 ## Run a Node.js template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -42,6 +42,8 @@ Select your preferred environment to continue:
     ```azdeveloper
     azd init --template todo-nodejs-mongo
     ```
+
+  Note: this command will initialize the application, including cloning the GitHub repo. 
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -139,7 +141,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -209,7 +211,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a Python template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Python template applications. We'll use the [ToDo Application with a Python API and Azure Cosmos DB for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Python template applications. We'll use the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -238,6 +240,9 @@ In this guide, the app uses Python Virtual Environments to isolate Python packag
     ```azdeveloper
     azd init --template todo-python-mongo
     ```
+  
+  Note: this command will initialize the application, including cloning the GitHub repo. 
+
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -335,7 +340,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -405,7 +410,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a C# template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our C# template applications. We'll use the [ToDo Application with a C# API and Azure Cosmos DB for NoSQL](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our C# template applications. We'll use the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -429,6 +434,8 @@ Select your preferred environment to continue:
     ```azdeveloper
     azd init --template todo-csharp-cosmos-sql
     ```
+
+  Note: this command will initialize the application, including cloning the GitHub repo. 
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -526,7 +533,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -596,7 +603,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 ## Run a Java template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Java template applications. We'll use the [ToDo Application with a Java API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-java-mongo) for this guide.
+Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Java template applications. We'll use the [React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo) for this guide.
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
@@ -620,6 +627,8 @@ Select your preferred environment to continue:
     ```azdeveloper
     azd init --template todo-java-mongo
     ```
+
+  Note: this command will initialize the application, including cloning the GitHub repo. 
 
 1. You will be prompted for an environment name, which sets the prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -717,7 +726,7 @@ Upon successful completion of the `azd up` command:
 
 ## [DevContainer](#tab/devcontainer)
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-java-mongo/blob/main/.devcontainer/Dockerfile).
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine.
 
 ### Pre-requisites
 
@@ -791,6 +800,8 @@ When you no longer need the resources created in this article, run the following
 ```azdeveloper
 azd down
 ```
+
+[!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 

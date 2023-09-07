@@ -169,7 +169,7 @@
     {
       "path_to_root": "python-sample-vscode-flask-tutorial",
       "url": "https://github.com/microsoft/python-sample-vscode-flask-tutorial",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -246,5 +246,8 @@
   },
   "docs_build_engine": {
     "name": "docfx_v3"
-  }
+  },
+    "redirection_files": [
+        "articles/java/.openpublishing.redirection.java.json"
+    ]
 }

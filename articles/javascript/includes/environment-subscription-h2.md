@@ -3,7 +3,7 @@ title: include file completed.md
 description: include file completed.md
 ms.topic: include
 ms.date: 10/05/2021
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 ## Create or use an existing Azure subscription 

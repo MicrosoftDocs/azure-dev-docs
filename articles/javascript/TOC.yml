@@ -13,20 +13,38 @@
       href: core/configure-local-development-environment.md
   - name: Host and build web apps
     items:
-      - name: Select hosting service
-        href: how-to/select-hosting-service.md
-      - name: Select deployment process
-        href: how-to/deploy-web-app.md
-      - name: Configure
-        items: 
-        - name: Configure app settings
-          href: how-to/configure-web-app-settings.md
-        - name: Create secure domain name
-          href: how-to/add-custom-domain-to-web-app.md
-        - name: Configure domain name
-          href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
-        - name: Use Key Vault secrets
-          href: how-to/with-web-app/use-secret-environment-variables.md
+    - name: Select hosting service
+      href: how-to/select-hosting-service.md
+    - name: Select deployment process
+      href: how-to/deploy-web-app.md
+    - name: Configure
+      items: 
+      - name: Configure app settings
+        href: how-to/configure-web-app-settings.md
+      - name: Configure domain name
+        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
+      - name: Use Key Vault secrets
+        href: how-to/with-web-app/use-secret-environment-variables.md
+  - name: AI
+    items: 
+    - name: Build a conversational CLI
+      href: openai-cli.md
+    - name: Azure OpenAI quickstart
+      href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+  - name: End to end development
+    items: 
+    - name: Get started
+      href: end-to-end/contoso-real-estate-get-started.md
+      displayName: contoso, composable, sample, example, real-estate
+    - name: Run in Codespaces
+      href: end-to-end/contoso-real-estate-run-codespaces.md
+      displayName: Codespaces, GitHub, azd, best practices, enterprise
+    - name: User Scenarios
+      href: end-to-end/contoso-real-estate-user-scenarios.md
+    - name: Solutions
+      href: end-to-end/contoso-real-estate-developer-solutions.md
+    - name: Developer tools
+      href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
     items: 
     - name: Getting started
@@ -65,55 +83,53 @@
         href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
       - name: Add custom auth with MSAL.js
         items:
-          - name: Introduction
-            href: how-to/with-authentication/static-web-app-with-api/introduction.md
-          - name: Create app registration
-            href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-          - name: Create local Static web app
-            href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-          - name: Add MongoDB to API
-            href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-          - name: Deploy to Azure
-            href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
+        - name: Introduction
+          href: how-to/with-authentication/static-web-app-with-api/introduction.md
+        - name: Create app registration
+          href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
+        - name: Create local Static web app
+          href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
+        - name: Add MongoDB to API
+          href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
+        - name: Deploy to Azure
+          href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
 
     - name: GraphQL trivia game with React + APIs
       items: 
-        - name: 1. Introduction
-          href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-        - name: 2. GraphQL basics
-          href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
-        - name: 3. Local TypeScript development
-          href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
-        - name: 4. Create an Azure Cosmos DB resource
-          href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
-        - name: 5. Deploy to Azure Static Web Apps
-          href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
+      - name: 1. Introduction
+        href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+      - name: 2. GraphQL basics
+        href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
+      - name: 3. Local TypeScript development
+        href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
+      - name: 4. Create an Azure Cosmos DB resource
+        href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
+      - name: 5. Deploy to Azure Static Web Apps
+        href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
     - name: GraphQL trivia game with Next.js hybrid
       items: 
-        - name: 1. Getting started
-          href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-        - name: 2. Working with database
-          href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-        - name: 3. Working with translator
-          href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
-        - name: 4. Deploy to Static Web App
-          href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
+      - name: 1. Getting started
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
+      - name: 2. Working with database
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
+      - name: 3. Working with translator
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
+      - name: 4. Deploy to Static Web App
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
   - name: Migrate to Serverless
     items: 
     - name: "Training: Migrate to Azure Functions"
       href: /training/modules/shift-nodejs-express-apis-serverless
     - name: "Docs: Migrate to Azure Functions"
       href: /azure/azure-functions/shift-expressjs?tabs=javascript
-  - name: Azure Functions
+  - name: Serverless apps
     items: 
     - name: Develop Azure Functions
       href: how-to/develop-serverless-apps.md
     - name: Store data in MongoDB 
       href: tutorial/azure-function-cosmos-db-mongo-api.md
-    - name: Upload file to Storage
+    - name: Upload file to Storage - model v3
       items: 
-      - name: with SDK
-        href: how-to/with-web-app/azure-function-file-upload.md
       - name: with trigger and bindings
         href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
     - name: Resource management API
@@ -124,35 +140,19 @@
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: Data (CRUD) API
         href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
-  - name: Azure App service
+  - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
       href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+    - name: "Express.js with MERN"
+      href: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app?tabs=github-codespace
     - name: "Express.js convert text to speech"
       href: tutorial/convert-text-to-speech-cognitive-services.md
     - name: Add easy authentication
       href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
     - name: Use Microsoft Identity provider (MSAL.js)
       href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
-    - name: Express.js in container
-      items:
-        - name: Introduction and prerequisites
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-        - name: Use a container registry
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
-        - name: Create a local Node.js app
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
-        - name: Create the app image
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
-        - name: Deploy the app image
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
-        - name: Make changes and redeploy
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
-        - name: Stream logs
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
-        - name: Clean up resources
-          href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md                   
-  - name: Container Apps
+  - name: Containerized Apps
     items:
     - name: Backend microservice app
       href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote
@@ -166,88 +166,86 @@
       href: how-to/with-visual-studio-code/containerize-local-project.md              
   - name: Virtual machine web apps
     items:
-      - name: "Express.js VM"
-        href: tutorial/run-nodejs-virtual-machine.md
-      - name: "Create and delete VM with SDK"
-        href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-      - name: "Manage VM with SDK"
-        href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
-  - name: Visual Studio Code
+    - name: "Express.js VM"
+      href: tutorial/run-nodejs-virtual-machine.md
+    - name: "Create and delete VM with SDK"
+      href: how-to/with-azure-sdk/create-manage-virtual-machine.md
+    - name: "Manage VM with SDK"
+      href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
+  - name: Development with Visual Studio Code
     items:
-      - name: Install and debug local project
-        href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
-      - name: Clone a GitHub repo for changes
-        href: how-to/with-visual-studio-code/clone-github-repository.md
-      - name: Create an Azure database
-        href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Azure CLI
+    - name: Install and debug local project
+      href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
+    - name: Clone a GitHub repo for changes
+      href: how-to/with-visual-studio-code/clone-github-repository.md
+    - name: Create an Azure database
+      href: how-to/with-visual-studio-code/create-azure-database.md
+  - name: Automation with Azure CLI
     items:
-      - name: Get started
-        href: core/automate-tasks-with-azure-cli.md
-        displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
+    - name: Get started
+      href: core/automate-tasks-with-azure-cli.md
+      displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
   - name: Authentication and identity
     items: 
-      - name: Getting started
-        href: how-to/with-authentication/getting-started.md
-      - name: Static web apps
-        items: 
-          - name: Vanilla JS
-            href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-          - name: "React: Add a Login button for Microsoft Identity provider" 
-            href: /azure/active-directory/develop/tutorial-v2-react
-          - name: "Angular: Add a Login button for Microsoft Identity provider"
-            href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
-      - name: Azure Functions
-        items: 
-          - name: Triggers and bindings
-            href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
-      - name: App Service
-        items: 
-          - name: Express.js only
-            href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal
-          - name: Express.js upload file to Blob Storage
-          - name: Express.js to Key Vault with managed identity
-            href: /azure/app-service/tutorial-connect-msi-key-vault-javascript
-      - name: Electron
-        href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop
-      - name: Node.js console daemon
-        href: /azure/active-directory/develop/tutorial-v2-nodejs-console
-      - name: MSAL.js
-        href: https://github.com/AzureAD/microsoft-authentication-library-for-js
-      - name: Samples
-        href: /azure/active-directory/develop/sample-v2-code
+    - name: Getting started
+      href: how-to/with-authentication/getting-started.md
+    - name: Static web apps
+      items: 
+      - name: Vanilla JS
+        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
+      - name: "React: Add a Login button for Microsoft Identity provider" 
+        href: /azure/active-directory/develop/tutorial-v2-react
+      - name: "Angular: Add a Login button for Microsoft Identity provider"
+        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
+    - name: Azure Functions
+      items: 
+        - name: Triggers and bindings
+          href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
+    - name: App Service
+      items: 
+      - name: Express.js only
+        href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal
+      - name: Express.js upload file to Blob Storage
+      - name: Express.js to Key Vault with managed identity
+        href: /azure/app-service/tutorial-connect-msi-key-vault-javascript
+    - name: Electron
+      href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop
+    - name: Node.js console daemon
+      href: /azure/active-directory/develop/tutorial-v2-nodejs-console
+    - name: MSAL.js
+      href: https://github.com/AzureAD/microsoft-authentication-library-for-js
+    - name: Samples
+      href: /azure/active-directory/develop/sample-v2-code
   - name: Logging and metrics
     href: how-to/node-sdk-logging.md
   - name: Testing
     href: core/test-azure-sdk-integrated-code.md
   - name: Azure SDK for JavaScript
     items:
-      - name: Getting started  
-        href: core/use-azure-sdk.md    
-      - name: Install packages
-        href: sdk/azure-sdk-install.md
-      - name: Authentication
-        items:
-        - name: Overview
-          href: sdk/authentication/overview.md
-        - name: Local development apps
-          items: 
-            - name: With service principals
-              href: sdk/authentication/local-development-environment-service-principal.md
-            - name: With developer account
-              href: sdk/authentication/local-development-environment-developer-account.md            
-        - name: Azure-hosted apps
-          href: sdk/authentication/azure-hosted-apps.md
-        - name: On-premises apps
-          href: sdk/authentication/on-premises-apps.md
-
-
+    - name: Getting started  
+      href: core/use-azure-sdk.md    
+    - name: Install packages
+      href: sdk/azure-sdk-install.md
+    - name: Authentication
+      items:
+      - name: Overview
+        href: sdk/authentication/overview.md
+      - name: Local development apps
+        items: 
+        - name: With service principals
+          href: sdk/authentication/local-development-environment-service-principal.md
+        - name: With developer account
+          href: sdk/authentication/local-development-environment-developer-account.md            
+      - name: Azure-hosted apps
+        href: sdk/authentication/azure-hosted-apps.md
+      - name: On-premises apps
+        href: sdk/authentication/on-premises-apps.md
       - name: Resource management
         items: 
-          - name: "List subscriptions"
-            href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-          - name: "View subscription history"
-            href: how-to/with-azure-sdk/list-resource-operation-history.md 
+        - name: "List subscriptions"
+          href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
+        - name: "View subscription history"
+          href: how-to/with-azure-sdk/list-resource-operation-history.md 
   - name: Serverless developer guide
     href: /azure/azure-functions/functions-reference?tabs=blob
   - name: Storage developer guide
@@ -256,48 +254,55 @@
     href: database-developer-guide.md
   - name: GraphQL
     items: 
-      - name: Hello world with Functions
-        href: how-to/with-web-app/graphql/azure-function-hello-world.md
-      - name: CRUD with Functions
-        href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
-      - name: Trivia game with React + Cosmos DB
-        items: 
-          - name: 1. Introduction
-            href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-          - name: 2. GraphQL basics
-            href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
-          - name: 3. Local TypeScript development
-            href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-          - name: 4. Create an Azure Cosmos DB resource
-            href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
-          - name: 5. Deploy to Azure Static Web Apps
-            href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
-      - name: Trivia game with Next.js hybrid + Cosmos DB
-        items: 
-          - name: 1. Getting started
-            href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-          - name: 2. Working with database
-            href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-          - name: 3. Working with translator
-            href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
-          - name: 4. Deploy to Static Web App
-            href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
-      - name: Import GraphQL into APIM
-        href: /azure/api-management/graphql-api
-      - name: Import and resolve GraphQL schema
-        href: /azure/api-management/graphql-schema-resolve-api
-      - name: Samples
-        items: 
-          - name: Hello world
-            href: https://github.com/azure-samples/js-e2e-azure-function-graphql-hello
-          - name: Simple CRUD
-            href: https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations
-          - name: Trivia game
-            href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
+    - name: Hello world with Functions
+      href: how-to/with-web-app/graphql/azure-function-hello-world.md
+    - name: CRUD with Functions
+      href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
+    - name: Trivia game with React + Cosmos DB
+      items: 
+      - name: 1. Introduction
+        href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+      - name: 2. GraphQL basics
+        href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
+      - name: 3. Local TypeScript development
+        href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
+      - name: 4. Create an Azure Cosmos DB resource
+        href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
+      - name: 5. Deploy to Azure Static Web Apps
+        href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
+    - name: Trivia game with Next.js hybrid + Cosmos DB
+      items: 
+      - name: 1. Getting started
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
+      - name: 2. Working with database
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
+      - name: 3. Working with translator
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
+      - name: 4. Deploy to Static Web App
+        href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
+    - name: Import GraphQL into APIM
+      href: /azure/api-management/graphql-api
+    - name: Import and resolve GraphQL schema
+      href: /azure/api-management/graphql-schema-resolve-api
+    - name: Samples
+      items: 
+      - name: Hello world
+        href: https://github.com/azure-samples/js-e2e-azure-function-graphql-hello
+      - name: Simple CRUD
+        href: https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations
+      - name: Trivia game
+        href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
   - name: Training
-    href: learn-azure-javascript.md            
+    href: learn-azure-javascript.md  
   - name: Samples
-    href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
+    items: 
+    - name: Contoso Real Estate
+      items: 
+      - name: "GitHub: contoso-real-estate"
+        href: https://github.com/Azure-Samples/contoso-real-estate
+        displayName: contoso, composable, sample, example, real-estate
+    - name: Azure Samples browser
+      href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
