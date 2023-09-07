@@ -15,7 +15,60 @@ Azure provides a variety of different ways to host your app depending on your ne
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
 
+## Azure hosting criteria
 
+When choosing a hosting solution, consider the following factors to find your hosting solution:
+
+|Category|Range|
+|--|--|
+|[Responsibility](#responsibility)|Managed control - full responsibility|
+|[Code](#code-vs-container)|No code - low code - code-first - container-first|
+|[Assets](#static-vs-dynamic-assets)|Distributed static - static - dynamic|
+|[Compute location and availability](#compute-location-and-availability)| Client - server/serverless - detached/automated|
+|[Age](#legacy-vs-modern-apps)|Legacy - modern|
+|[Location](#on-premises-vs-hybrid-vs-cloud)|On-premises - hybrid - cloud|
+|[Language support](#language-support)|.NET - Java - JavaScript - Python - PHP - Go - Ruby - C++ - C# - PowerShell - R|
+
+The following are not criteria for choosing a hosting solution because they are available in all Azure hosting solutions:
+
+* Scalability: all hosting solutions can scale up and down
+* Security: all hosting solutions are secure, encrypted at rest and in transit
+* Monitoring: all hosting solutions have monitoring and logging
+* Availability: all hosting solutions have high availability
+* Deployment: all hosting solutions have deployment options including code, container, and CI/CD
+
+## Responsibility
+
+Managed control hosting solutions are fully managed by Azure.  You have no control over the underlying infrastructure.  You are responsible for your code and assets.  You are not responsible for the underlying infrastructure.  Managed control hosting solutions are the easiest to use and require the least amount of effort to maintain.
+
+Full responsibility hosting solutions give you full control over the underlying infrastructure.  You are responsible for your code, assets, and the underlying infrastructure.  Full responsibility hosting solutions are the most flexible and give you the most control over your environment.  Full responsibility hosting solutions require the most amount of effort to maintain.
+
+## Code vs container
+
+No-code hosting solutions are designed to allow you to compose solutions from prebuilt components or easily configured components.  You are not responsible for the code or the underlying infrastructure. 
+
+Low-code hosting solutions are designed to allow you to bring your code functionality without having to manage the application endpoints.
+
+Code-first hosting solutions are designed to host code.  You can deploy your code directly to the hosting solution.
+
+Container-first hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You are responsible for the compute used inside the container.
+
+## Static vs dynamic assets
+
+Static assets are files that are served directly to the client.  Static assets are typically HTML, CSS, JavaScript, images, and other files. 
+
+Dynamic assets are files that are processed by the server before being served to the client.  Dynamic assets are developed using back-end server frameworks. 
+
+## Compute location and availability
+
+## Legacy vs modern apps
+
+## On-premises vs hybrid vs cloud
+
+## Language support
+
+
+<!--
 ## Azure App Service
 
 [Azure App Service](/azure/app-service/) is the fastest and easiest way to host web applications and APIs in Azure.  Azure App Service provides a fully managed, platform as a service hosting solution that supports .NET, Java, JavaScript, and Python applications.  Hosting options are available on both Windows and Linux depending on the application runtime.
@@ -57,3 +110,5 @@ Azure Kubernetes Service allows you to build and run modern, portable, microserv
 [Azure Virtual Machines](/azure/virtual-machines/) provide an Infrastructure as a Service (IaaS) solution for hosting your applications on either Windows or Linux VMs in the cloud. With Azure Virtual Machines, you have total control over the configuration of the machine. When using VMs, you're responsible for all server software installation, configuration, maintenance, and operating system patches.
 
 Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don't fit into a PaaS model. For more information, see the [Virtual Machines documentation](/azure/virtual-machines/).
+
+-->
