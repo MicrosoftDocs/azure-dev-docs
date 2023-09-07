@@ -13,7 +13,7 @@ zone_pivot_groups: vs-platform-options
 
 # Build a Xamarin.Android app with Azure Mobile Apps
 
-This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using Xamarin and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using Xamarin and an Azure mobile app backend.  You create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before other Xamarin Android tutorials about using the Mobile Apps feature in Azure App Service.
 
@@ -104,20 +104,20 @@ To complete this tutorial, you need:
 
    ![Screenshot showing how to set the run configuration for a Xamarin Android app.](./media/win-configuration.png)
 
-4. If you see **Android Emulator** instead, you have not created an Android emulator.  See [Android emulator setup](/xamarin/android/get-started/installation/android-emulator/) for more information.  To create a new Android emulator:
+4. If you see **Android Emulator** instead, you haven't created an Android emulator.  For more information, see [Android emulator setup](/xamarin/android/get-started/installation/android-emulator/).  To create a new Android emulator:
 
    * Select **Tools** > **Android** > **Android Device Manager**.
    * Select **+ New**.
-   * Select the following on the left-hand side:
+   * Select the following settings on the left-hand side:
      * Name: `quickstart`
      * Base Device: **Pixel 5**
      * Processor: **x86_64**
      * OS: **Android 11.0 - API 30**
      * Google APIs: **Checked**
    * Select **Create**.
-   * If necessary, accept the license agreement.  The image will then be downloaded.
+   * If necessary, accept the license agreement.  The image is then downloaded.
    * Once the **Start** button appears, press **Start**.
-   * If you are prompted about Hyper-V hardware acceleration, read the documentation to enable hardware acceleration before continuing.  The emulator will be slow without enabling hardware acceleration.
+   * If you're prompted about Hyper-V hardware acceleration, read the documentation to enable hardware acceleration before continuing.
 
    Once complete, close the Android Device Manager.
 
@@ -126,7 +126,7 @@ To complete this tutorial, you need:
 
 5. Press **F5** to build and run the project.
 
-Once the app has started, you will see an empty list and a floating action button to add items in the emulator.  You can:
+Once the app has started, you see an empty list and a floating action button to add items in the emulator.  You can:
 
 * Press the floating action button, then enter some text to add an item.
 * Set or clear the check box to mark any item as done.
@@ -146,7 +146,7 @@ Once the app has started, you will see an empty list and a floating action butto
 
 4. In the top menu, select **Debug** > **Start Debugging**.
 
-Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+Once the app has started, you see an empty list and a text box to add items in the emulator.  You can:
 
 * Press the **+** button to add an item.
 * Select an item to set or clear the completed flag.
