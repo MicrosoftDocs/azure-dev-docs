@@ -38,7 +38,7 @@ CLI, proceed with the manual steps.
     az group create -l westus -g quickstart
     ```
 
-    This command will create the `quickstart` resource group in the West US region.  You can select any region that you wish, providing you can create resources there.  Ensure you use the same name and region wherever they're mentioned in this tutorial.
+    This command creates the `quickstart` resource group in the West US region.  You can select any region that you wish, providing you can create resources there.  Ensure you use the same name and region wherever they're mentioned in this tutorial.
 
 4. Create the resources using a group deployment:
 
@@ -46,21 +46,21 @@ CLI, proceed with the manual steps.
     az deployment group create -g quickstart --template-file azuredeploy.json --parameters sqlPassword=MyPassword1234
     ```
 
-    Pick a strong password for your SQL Administrator password.  You'll need it later on when accessing the database.
+    Pick a strong password for your SQL Administrator password.  You need it later on when accessing the database.
 
-5. Once the deployment is complete, get the output variables as these hold important information you'll need later on:
+5. Once the deployment is complete, get the output variables as these hold important information you need later on:
 
     ``` azurecli
     az deployment group show -g quickstart -n azuredeploy --query properties.outputs
     ```
 
-    An example output will be:
+    An example output is:
 
     ![Screenshot of command line results.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-backend-outputs.png)
 
 6. Make a note of each of the values in the outputs for later use.
 
-### Publish the service code.
+### Publish the service code
 
 Open the `TodoApp.sln` in Visual Studio.
 
@@ -102,7 +102,7 @@ Open the `TodoApp.sln` in Visual Studio.
 
     ![Screenshot showing the publish button.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-to-appservice.png)
 
-18. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
+18. Once the backend service is published, a browser is opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
     ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
 
