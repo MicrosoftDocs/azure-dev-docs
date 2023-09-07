@@ -19,9 +19,9 @@ The TodoApp sample is configured to support the Azure Developer CLI.  To complet
 2. Open a terminal and change directory to the folder containing the `TodoApp.sln` file.  This directory also contains `azure.yaml`.
 3. Run `azd up`.
 
-If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.  You will then be prompted for a subscription
-and Azure region to use.  The Azure Developer CLI will then provision the necessary resources and deploy the service code to the Azure
-region and subscription of your choice. Finally, the Azure Developer CLI will write an appropriate `Constants.cs` file for you.
+If you are not already signed-in to Azure, the browser launches to ask you to sign-in.  You are then be prompted for a subscription
+and Azure region to use.  The Azure Developer CLI then provisions the necessary resources and deploys the service code to the Azure
+region and subscription of your choice. Finally, the Azure Developer CLI writes an appropriate `Constants.cs` file for you.
 
 You can run the `azd env get-values` command to see the SQL authentication information should you wish to access the database directly.
 
