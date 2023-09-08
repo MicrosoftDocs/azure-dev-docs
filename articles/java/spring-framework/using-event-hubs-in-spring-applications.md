@@ -1,6 +1,6 @@
 ---
 title: Using Event Hubs in Spring applications
-description: This article demonstrates how to use Azure Event Hubs in Java applications built with Spring framework.
+description: This article shows you how to use Azure Event Hubs in Java applications built with Spring framework.
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.date: 09/11/2023
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, spring-cloud-azure
 
 # Use Event Hubs in Spring applications
 
-This article demonstrates how to use Azure Event Hubs in Java applications built with the [Spring Framework](https://spring.io/projects/spring-framework).
+This article shows you how to use Azure Event Hubs in Java applications built with the [Spring Framework](https://spring.io/projects/spring-framework).
 
 [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
@@ -92,16 +92,16 @@ The way of autowiring client beans from the Spring IoC container has the followi
 - You can delegate to the Spring Boot framework the process of learning the builder pattern and registering this client to the application context. This delegation enables you to focus on how to use the clients with your own business requirement.
 - You can use health indicator in an easy way to inspect the status and health of your application and internal components.
 
-The following sections provide code example that show you how to use `EventProcessorClient` and `EventHubProducerClient` with the two alternatives.
+The following sections provide code examples that show you how to use `EventProcessorClient` and `EventHubProducerClient` with the two alternatives.
 
 > [!NOTE]
-> Azure Java SDK for Event Hubs provides multiple clients to interact with Event Hubs. And the starter also provides autoconfiguration for all the Event Hubs clients as well as client builders. Here we only take `EventProcessorClient` and `EventHubProducerClient` as examples.
+> Azure Java SDK for Event Hubs provides multiple clients to interact with Event Hubs. The starter also provides autoconfiguration for all the Event Hubs clients as well as client builders. This article uses only `EventProcessorClient` and `EventHubProducerClient` as examples.
 
 #### Use Spring Boot Autoconfiguration
 
 To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
 
-1. Configure your Event Hubs namespace and event hub name.
+1. Use the following property settings to configure your Event Hubs namespace and event hub name:
 
    ```properties
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
@@ -111,7 +111,7 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    spring.cloud.azure.eventhubs.processor.consumer-group=$Default
    ```
 
-1. Create a new `EventHubProcessorClientConfiguration` Java class as shown in the following example. This class is used to register the message and error handler of `EventProcessorClient`.
+1. Create a new `EventHubProcessorClientConfiguration` Java class as shown in the following example. This class is used to register the message and error handler for `EventProcessorClient`.
 
    ```java
    import com.azure.spring.cloud.service.eventhubs.consumer.EventHubsErrorHandler;
@@ -143,7 +143,7 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    }
    ```
 
-1. Inject the `EventProcessorClient` and `EventHubProducerClient` in your Spring application, and call the related APIs to send and receive messages.
+1. Inject the `EventProcessorClient` and `EventHubProducerClient` in your Spring application, and call the related APIs to send and receive messages, as shown in the following example:
 
    ```java
    import com.azure.messaging.eventhubs.EventData;
@@ -191,7 +191,7 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    }
    ```
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Successfully sent a message to Event Hubs.
@@ -203,9 +203,9 @@ To send messages to and receive messages from Event Hubs, configure the applicat
 
 #### Build the client programmatically
 
-You can build those client beans by yourself, but the process is complicated. In Spring Boot applications, you have to manage properties, learn the builder pattern, and register the client to your Spring application context. The following code example shows how to do that:
+You can build the client beans by yourself, but the process is complicated. In Spring Boot applications, you have to manage properties, learn the builder pattern, and register the client to your Spring application context. The following steps show you how to do that:
 
-1. Create a new `EventHubClientConfiguration` Java class as shown in the following example. This class is used to declare the `EventProcessorClient` and `EventHubProducerClient` beans.
+1. Create a new `EventHubClientConfiguration` Java class as shown in the following example. This class is used to declare the `EventProcessorClient` and `EventHubProducerClient` beans. Be sure to replace the `<your event-hubs-namespace>`, `<your-event-hub-name>`, `<your-storage-account-name>`, and `<your-storage-account-container-name>` placeholders with your actual values.
 
    ```java
    import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -290,8 +290,6 @@ You can build those client beans by yourself, but the process is complicated. In
    }
    ```
 
-   Replace the `<your event-hubs-namespace>`,  `<your-event-hub-name>`, `<your-storage-account-name>` and `<your-storage-account-container-name>` placeholder value.
-
 1. Inject the `EventProcessorClient` and `EventHubProducerClient` in your Spring application, as shown in the following example:
 
    ```java
@@ -340,7 +338,7 @@ You can build those client beans by yourself, but the process is complicated. In
    }
    ```
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Successfully sent a message to Event Hubs.
@@ -350,15 +348,15 @@ You can build those client beans by yourself, but the process is complicated. In
    Stopping and closing the processor.
    ```
 
-The following list shows reasons why this code isn't flexible or graceful:
+The following list shows some reasons why this code isn't flexible or graceful:
 
 - The Event Hubs namespace and event hub name are hard coded.
 - If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your *application.properties* file.
-- If you have a microservice scenario, the code must be duplicated in each project, and it's easy to make mistakes and hard to be consistent.
+- If you have a microservice scenario, you must duplicate the code in each project, and it's easy to make mistakes and hard to be consistent.
 
-Fortunately, building the client beans by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject them and use the [configuration properties](spring-cloud-azure.md?tabs=maven#configuration-properties) that you're already familiar with to configure Storage queue.
+Fortunately, building the client beans by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject them and use the configuration properties that you're already familiar with to configure Storage queue. For more information, see [Spring Cloud Azure configuration](configuration.md).
 
-Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](spring-cloud-azure.md?tabs=maven#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](configuration.md#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure configuration](configuration.md).
 
 - Proxy options.
 - Retry options.
@@ -370,12 +368,12 @@ You can also connect to different Azure clouds. For more information, see [Conne
 
 The [Spring Messaging Azure Event Hubs](https://mvnrepository.com/artifact/com.azure.spring/spring-messaging-azure-eventhubs) module provides support for [Spring Messaging](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) framework with Event Hubs.
 
-If you're using Spring Messaging Azure Event Hubs, then you can use below features:
+If you're using Spring Messaging Azure Event Hubs, then you can use the following features:
 
-- **EventHubsTemplate**: Send messages to an Event Hubs asynchronously and synchronously.
-- **@EventHubsListener**: Mark a method to be the target of an Event Hubs message listener on the destination.
+- `EventHubsTemplate`: Send messages to an Event Hubs asynchronously and synchronously.
+- `@EventHubsListener`: Mark a method to be the target of an Event Hubs message listener on the destination.
 
-This guide demonstrates how to use Spring Messaging Azure Event Hubs to send messages to and receive messages from Event Hubs.
+This guide shows you how to use Spring Messaging Azure Event Hubs to send messages to and receive messages from Event Hubs.
 
 ### Add dependencies
 
@@ -416,7 +414,9 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
 
 ### Code the application to send and receive messages
 
-1. Configure the Event Hubs namespace and Storage Blob.
+To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
+
+1. Use the following property settings to configure the Event Hubs namespace and Storage Blob:
 
    ```properties
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
@@ -424,14 +424,14 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=<your-storage-account-container-name>
    ```
 
-1. Add the `spring.factories` for the autoconfiguration for `@EventHubsListener`. You need to create a directory called `META-INF` under the application's `resource` directory. Then create a file named `spring.factories` under the `META-INF` and add the following content:
+1. Add *spring.factories* for the autoconfiguration for `@EventHubsListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
 
    ```properties
    org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
    com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
    ```
 
-1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver.
+1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
    import com.azure.spring.messaging.eventhubs.implementation.core.annotation.EventHubsListener;
@@ -451,9 +451,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
    }
    ```
 
-   Replace the `<your-event-hub-name>` placeholder value.
-
-1. Wire up a sender and a receiver to send and receive messages with Spring.
+1. Wire up a sender and a receiver to send and receive messages with Spring, as shown in the following example. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
    import com.azure.spring.messaging.eventhubs.core.EventHubsTemplate;
@@ -482,12 +480,10 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
    }
    ```
 
-   Replace the `<your-event-hub-name>` placeholder value.
-
    > [!TIP]
-   > Remember to add `@EnableAzureMessaging` annotation which triggers the discovery of methods annotated with `@EventHubsListener`, creating the message listener container under the covers.
+   > Remember to add the `@EnableAzureMessaging` annotation, which triggers the discovery of methods annotated with `@EventHubsListener`, creating the message listener container under the covers.
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Sending a message to the Event Hubs.
@@ -496,14 +492,14 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
 
 ## Use Spring Integration Azure Event Hubs
 
-The [Spring Integration Azure Event Hubs](https://mvnrepository.com/artifact/com.azure.spring/spring-integration-azure-eventhubs) module provides support for [Spring Integration](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) framework with Event Hubs.
+The [Spring Integration Azure Event Hubs](https://mvnrepository.com/artifact/com.azure.spring/spring-integration-azure-eventhubs) module provides support for the [Spring Integration](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) framework with Event Hubs.
 
 If your Spring application uses Spring Integration message channels, you can route messages between your message channels and Event Hubs using channel adapters.
 
 An inbound channel adapter forwards messages from an event hub to a message channel.
 An outbound channel adapter publishes messages from a message channel to an event hub.
 
-This guide demonstrates how to use Spring Integration Azure Event Hubs to send messages to and receive messages from Event Hubs.
+This guide shows you how to use Spring Integration Azure Event Hubs to send messages to and receive messages from Event Hubs.
 
 ### Add dependencies
 
@@ -536,7 +532,9 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
 
 ### Code the application to send and receive messages
 
-1. Configure the Event Hubs namespace and Storage Blob.
+To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
+
+1. Use the following property settings to configure the Event Hubs namespace and Storage Blob:
 
    ```properties
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
@@ -544,7 +542,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=<your-storage-account-container-name>
    ```
 
-1. Create a new `MessageReceiveConfiguration` Java class as shown in the following example. This class is used to define a message receiver.
+1. Create a new `MessageReceiveConfiguration` Java class as shown in the following example. This class is used to define a message receiver. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
    import com.azure.spring.integration.eventhubs.inbound.EventHubsInboundChannelAdapter;
@@ -601,9 +599,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
    }
    ```
 
-   Replace the `<your-event-hub-name>` placeholder value.
-
-1. Create a new `MessageSendConfiguration` Java class as shown in the following example. This class is used to define a message sender.
+1. Create a new `MessageSendConfiguration` Java class as shown in the following example. This class is used to define a message sender. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
    import com.azure.spring.integration.core.handler.DefaultMessageHandler;
@@ -651,9 +647,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
    }
    ```
 
-   Replace the `<your-event-hub-name>` placeholder value.
-
-1. Wire up a sender and a receiver to send and receive messages with Spring.
+1. Wire up a sender and a receiver to send and receive messages with Spring, as shown in the following example:
 
    ```java
    import org.springframework.boot.SpringApplication;
@@ -676,9 +670,9 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
    ```
 
    > [!TIP]
-   > Remember to add `@EnableIntegration` annotation which enables Spring Integration infrastructure.
+   > Remember to add the `@EnableIntegration` annotation, which enables the Spring Integration infrastructure.
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Message was sent successfully.
@@ -689,7 +683,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
 
 To call the Event Hubs API in a [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream) application, use the Spring Cloud Azure Event Hubs Stream Binder module.
 
-This guide demonstrates how to use Spring Cloud Stream Event Hubs Binder to send messages to and receive messages from Event Hubs.
+This guide shows you how to use Spring Cloud Stream Event Hubs Binder to send messages to and receive messages from Event Hubs.
 
 ### Add dependencies
 
@@ -722,7 +716,9 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
 
 ### Code the application to send and receive messages
 
-1. Configure the Event Hubs namespace and Storage Blob.
+To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
+
+1. Use the following property settings to configure the Event Hubs namespace and Storage Blob:
 
    ```properties
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
@@ -745,7 +741,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
       }
       ```
 
-   - Add the configuration to specify the `Event Hub` name for consuming by replacing the `<your-event-hub-name>`.
+   - Add the following configuration to specify the `Event Hub` name for consuming. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
      ```properties
      # name for the above `Consumer` bean
@@ -759,7 +755,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
 
    To use your application as an event source, configure the output binder by completing the following tasks:
 
-   - Define a `Supplier` bean that defines where messages come from within your application.
+   - Define a `Supplier` bean that defines where messages come from within your application, as shown in the following example:
 
      ```java
      @Bean
@@ -771,7 +767,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
      }
      ```
 
-   - Add the configuration to specify the `Event Hub` name for sending by replacing the `<your-event-hub-name>`.
+   - Add the following configuration to specify the `Event Hub` name for sending. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
      ```properties
      # "consume" is added from the above step
@@ -779,7 +775,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
      spring.cloud.stream.bindings.supply-out-0.destination=<your-event-hub-name>
      ```
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Sending a message.
@@ -790,7 +786,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
 
 Event Hubs provides a Kafka endpoint that your existing Kafka based applications can use. This approach provides an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).
 
-This guide demonstrates how to use Azure Event Hubs and [Spring Kafka](https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka) to send messages to and receive messages from Event Hubs.
+This guide shows you how to use Azure Event Hubs and [Spring Kafka](https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka) to send messages to and receive messages from Event Hubs.
 
 ### Add dependencies
 
@@ -827,13 +823,15 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
 
 ### Code the application to send and receive messages
 
-1. Configure the Event Hubs namespace.
+To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
+
+1. Use the following property setting to configure the Event Hubs namespace:
 
    ```properties
    spring.kafka.bootstrap-servers=<your event-hubs-namespace>.servicebus.windows.net:9093
    ```
 
-1. Use `KafkaTemplate` to send messages and `@KafkaListener` to receive messages, as shown in the following example:
+1. Use `KafkaTemplate` to send messages and `@KafkaListener` to receive messages, as shown in the following example. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
    import org.slf4j.Logger;
@@ -874,9 +872,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
    }
    ```
 
-   Replace the `<your-event-hub-name>` placeholder value.
-
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Message was sent successfully.
@@ -887,7 +883,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
 
 Spring Cloud Stream is a framework that enables application developers to write message-driven microservices. The bridge between a messaging system and Spring Cloud Stream is through the binder abstraction. Binders exist for several messaging systems, but one of the most commonly used binders is for Apache Kafka.
 
-This guide demonstrates how to use Azure Event Hubs and [Spring Cloud Stream Kafka Binder](https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-kafka) to send messages to and receive messages from Event Hubs.
+This guide shows you how to use Azure Event Hubs and [Spring Cloud Stream Kafka Binder](https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-kafka) to send messages to and receive messages from Event Hubs.
 
 ### Add dependencies
 
@@ -924,7 +920,9 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
 
 ### Code the application to send and receive messages
 
-1. Configure the Kafka broker.
+To send messages to and receive messages from Event Hubs, configure the application by using the following steps:
+
+1. Use the following property setting to configure the Kafka broker:
 
    ```properties
    spring.cloud.stream.kafka.binder.brokers=<your event-hubs-namespace>.servicebus.windows.net:9093
@@ -945,7 +943,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
      }
      ```
 
-   - Add the configuration to specify the `Event Hub` name for consuming by replacing the `<your-event-hub-name>`.
+   - Add the following configuration to specify the `Event Hub` name for consuming. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
      ```properties
      # name for the above `Consumer` bean
@@ -958,7 +956,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
 
    To use your application as an event source, configure the output binder by completing the following tasks:
 
-   - Define a `Supplier` bean that defines where messages come from within your application.
+   - Define a `Supplier` bean that defines where messages come from within your application, as shown in the following example:
 
      ```java
      @Bean
@@ -970,7 +968,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
      }
      ```
 
-   - Add the configuration to specify the `Event Hub` name for sending by replacing the `<your-event-hub-name>`.
+   - Add the following configuration to specify the `Event Hub` name for sending. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
      ```properties
      # "consume" is added from the above step
@@ -978,7 +976,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
      spring.cloud.stream.bindings.supply-out-0.destination=<your-event-hub-name>
      ```
 
-1. Start the application, you see logs similar to the following example:
+1. Start the application. You're shown logs similar to the following example:
 
    ```output
    Sending a message.
