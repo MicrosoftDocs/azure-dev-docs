@@ -11,10 +11,10 @@ ms.date: 08/04/2022
 
 # Hosting applications on Azure
 
-Azure provides a variety of different ways to host your application depending on your needs. This article suggests service to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
+Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
-
 
 ## Responsibility
 
@@ -46,10 +46,12 @@ Full responsibility hosting solutions give you full control over the underlying 
 
 Simple container hosting without orchestration includes:
 
-* [Azure App Service][azure-app-service]: full-service web hosting
-* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
-* [Azure Container Apps][azure-container-apps]: serverless container hosting
-* [Azure Container Instances][azure-container-instances]: simple container hosting
+|Service|Use|
+|--|--|
+|[Azure App Service][azure-app-service]|full-service web hosting|
+|[Azure Spring Apps][azure-spring-apps]|Spring Boot applications|
+|[Azure Container Apps][azure-container-apps]|serverless container hosting|
+|[Azure Container Instances][azure-container-instances]|simple, single container hosting|
 
 Container orchestration hosting includes:
 
@@ -136,7 +138,7 @@ High-performance computing (HPC) is the use of parallel processing for running a
 |Service|Use|
 |--|--|
 |[Azure Batch][azure-batch]|Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. Developers can use Batch as a platform service to build SaaS applications or client apps where large-scale execution is required.|
-|[Azure BareMetal Instances]([azure-bare-metal])|Use when you need to run in a non-virtualized environment with root-level access to the operating system, storage and network.|
+|[Azure BareMetal Instances][azure-bare-metal]|Use when you need to run in a non-virtualized environment with root-level access to the operating system, storage and network.|
 |[Azure Quantum workspace][quantum]|Use when you need to develop and experiment with quantum algorithms.|
 |[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.
 
