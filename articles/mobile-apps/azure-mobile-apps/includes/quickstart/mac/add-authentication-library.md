@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/11/2022
+ms.date: 09/07/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -10,7 +10,7 @@ ms.prod: azure-mobile-apps
 2. Select the **Browse** tab.
 3. Enter `Microsoft.Identity.Client` in the search box, then press Enter.
 4. Select the `Microsoft.Identity.Client` result, then click **Install**.
-   
+
    ![Screenshot of selecting the M S A L NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/select-authentication-nuget.png)
 
 5. Accept the license agreement to continue the installation.

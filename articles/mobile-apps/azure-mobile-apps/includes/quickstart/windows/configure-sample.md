@@ -1,12 +1,14 @@
 ---
 ms.topic: include
-ms.date: 06/03/2022
+ms.date: 09/07/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
 ---
 
 Your client application needs to know the base URL of your backend so that it can communicate with it.
+
+> If you used `azd up` to provision and deploy the service, the `Constants.cs` file was created for you and you can skip this step.
 
 1. Expand the `TodoApp.Data` project.
 2. Right-click on the `TodoApp.Data` project, then select **Add** > **Class...**.
