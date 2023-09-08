@@ -154,25 +154,26 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 
 
 [azure-apim]:/azure/api-management
-[azure-app-service]:/azure/app-service/
-[azure-arc]:/azure/azure-arc/
-[azure-bare-metal]:/azure/baremetal-infrastructure/
+[azure-app-service]:/azure/app-service
+[azure-arc]:/azure/azure-arc
+[azure-bare-metal]:/azure/baremetal-infrastructure
 [azure-batch]:/azure/batch/batch-technical-overview
-[azure-container-apps]:/azure/container-apps/
-[azure-container-instances]:/azure/container-instances/
-[azure-container-registry]:/azure/container-registry/
-[azure-frontdoor]:/azure/frontdoor/
+[azure-container-apps]:/azure/container-apps
+[azure-container-instances]:/azure/container-instances
+[azure-container-registry]:/azure/container-registry
+[azure-frontdoor]:/azure/frontdoor
 [azure-functions]:/azure/azure-functions
-[azure-kubernetes]:/azure/aks/
-[azure-service-bus-messaging]:/azure/service-bus-messaging/
-[azure-service-fabric]:/azure/service-fabric/
-[azure-spring-apps]:/azure/spring-apps/
-[azure-static-web-apps]:/azure/static-web-apps/
-[azure-virtual-machines]:/azure/virtual-machines/
+[azure-kubernetes]:/azure/aks
+[azure-service-bus-messaging]:/azure/service-bus-messaging
+[azure-service-fabric]:/azure/service-fabric
+[azure-spring-apps]:/azure/spring-apps
+[azure-static-web-apps]:/azure/static-web-apps
+[azure-virtual-machines]:/azure/virtual-machines
 
 [microsoft-genomics]:/azure/genomics
-[power-apps]:/power-apps/
-[power-automate]:/power-automate/
-[power-virtual-agents]:/power-virtual-agents/
 
-[quantum]:/azure/quantum/
+[power-apps]:/power-apps
+[power-automate]:/power-automate
+[power-virtual-agents]:/power-virtual-agents
+
+[quantum]:/azure/quantum
