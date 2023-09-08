@@ -6,109 +6,173 @@ ms.service: azure-devops
 ms.subservice: azure-devops-reference
 ms.topic: overview
 ms.date: 08/04/2022
+#CustomerIntent: As an experienced developer, I want to select the correct hosting services for my applications so that I can get the level of control versus responsibility to meet my business and team needs.
 ---
 
 # Hosting applications on Azure
 
-Azure provides a variety of different ways to host your app depending on your needs.  
-
+Azure provides a variety of different ways to host your application depending on your needs. This article suggests service to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
 
-## Azure hosting criteria
-
-When choosing a hosting solution, consider the following factors to find your hosting solution:
-
-|Category|Range|
-|--|--|
-|[Responsibility](#responsibility)|Managed control - full responsibility|
-|[Code](#code-vs-container)|No code - low code - code-first - container-first|
-|[Assets](#static-vs-dynamic-assets)|Distributed static - static - dynamic|
-|[Compute location and availability](#compute-location-and-availability)| Client - server/serverless - detached/automated|
-|[Age](#legacy-vs-modern-apps)|Legacy - modern|
-|[Location](#on-premises-vs-hybrid-vs-cloud)|On-premises - hybrid - cloud|
-|[Language support](#language-support)|.NET - Java - JavaScript - Python - PHP - Go - Ruby - C++ - C# - PowerShell - R|
-
-The following are not criteria for choosing a hosting solution because they are available in all Azure hosting solutions:
-
-* Scalability: all hosting solutions can scale up and down
-* Security: all hosting solutions are secure, encrypted at rest and in transit
-* Monitoring: all hosting solutions have monitoring and logging
-* Availability: all hosting solutions have high availability
-* Deployment: all hosting solutions have deployment options including code, container, and CI/CD
 
 ## Responsibility
 
-Managed control hosting solutions are fully managed by Azure.  You have no control over the underlying infrastructure.  You are responsible for your code and assets.  You are not responsible for the underlying infrastructure.  Managed control hosting solutions are the easiest to use and require the least amount of effort to maintain.
+Managed control hosting solutions are fully managed by Azure. You're responsible for environment configuration, your code and assets. Azure manages the underlying infrastructure including updates and patches.
 
-Full responsibility hosting solutions give you full control over the underlying infrastructure.  You are responsible for your code, assets, and the underlying infrastructure.  Full responsibility hosting solutions are the most flexible and give you the most control over your environment.  Full responsibility hosting solutions require the most amount of effort to maintain.
+* [Azure App Service][azure-app-service]: full-service web hosting
+* [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps
+* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
+
+Full responsibility hosting solutions give you full control over the underlying infrastructure.  You're responsible for updates and patches as well as your code, assets, and environment configuration. 
+
+* [Azure Virtual Machines][azure-virtual-machines]: full control of VM
+* [Azure Kubernetes Service][azure-kubernetes]: full control of Kubernetes cluster
 
 ## Code vs container
 
-No-code hosting solutions are designed to allow you to compose solutions from prebuilt components or easily configured components.  You are not responsible for the code or the underlying infrastructure. 
+**Low-code** hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure.
 
-Low-code hosting solutions are designed to allow you to bring your code functionality without having to manage the application endpoints.
+* [Power apps][power-apps]: build apps without code
+* [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps
+* [Azure Functions][azure-functions]: deploy code functions in supported languages without having to manage the application infrastructure
 
-Code-first hosting solutions are designed to host code.  You can deploy your code directly to the hosting solution.
+**Code-first** hosting solutions are designed to host code.  You can deploy your code directly to the hosting solution.
 
-Container-first hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You are responsible for the compute used inside the container.
+* [Azure App Service][azure-app-service]: full-service web hosting
+* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
 
-## Static vs dynamic assets
+**Container-first** hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You're responsible for the compute used inside the container. The services which host containers move from managed control to full responsibility as well so you only take on the amount of container management you want.
 
-Static assets are files that are served directly to the client.  Static assets are typically HTML, CSS, JavaScript, images, and other files. 
+Simple container hosting without orchestration includes:
 
-Dynamic assets are files that are processed by the server before being served to the client.  Dynamic assets are developed using back-end server frameworks. 
+* [Azure App Service][azure-app-service]: full-service web hosting
+* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
+* [Azure Container Apps][azure-container-apps]: serverless container hosting
+* [Azure Container Instances][azure-container-instances]: simple container hosting
+
+Container orchestration hosting includes:
+
+|Service|Use|
+|--|--|
+|[Azure Kubernetes Service][azure-kubernetes]| Use for Kubernetes clusters with a **declarative** approach using configuration files and external artifacts.|
+|[Azure Service Fabric][azure-service-fabric]|Use for an imperative approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
+
+Azure provides a container registry to store and manage your container images or you can use a third-party container registry.
+
+|Service|Use|
+|--|--|
+|[Azure Container Registry][azure-container-registry]|Use when you build and host your own container images, which can be triggered with source code commits and base image updates.|
+
+## Serverless and microservices
+
+**Serverless** hosting solutions are designed to run code without having to manage the underlying infrastructure. **Microservices** hosting solutions are designed to run small, independent services that work together to make up a larger application.  Microservices are typically deployed as containers.
+
+|Service|Use|
+|--|--|
+|[Azure Container Apps][azure-container-apps]|Use for serverless containerized application.|
+|[Azure Functions][azure-functions]|Use for serverless code applications.|
 
 ## Compute location and availability
 
-## Legacy vs modern apps
+### Client compute
 
-## On-premises vs hybrid vs cloud
+**Client compute** is compute that runs on the client away from the Azure cloud.  Client compute is typically used for client-side rendering and client-side processing such as browser-based or mobile applications.
 
-## Language support
+|Service|Use|
+|--|--|
+|[Azure Static Web Apps][azure-static-web-apps]|Use for static web apps that use client-side rendering such as React, Angular, Svelte, Vue, and Blazor.|
+
+### Client availability
+
+|Service|Use|
+|--|--|
+|[Azure Front Door][azure-frontdoor]|Use for all internet-facing applications to provide a global cached and secure network to your static and dynamic assets including DDoS protection, end-to-end TLS encryption, application firewalls, and geo-filtering.|
+
+### Server compute
+
+**Server compute** assets are files that are processed by the server before being served to the client.  Dynamic assets are developed using back-end server compute, optionally integrated with other Azure services. 
+
+|Service|Use|
+|--|--|
+|[Azure App Service][azure-app-service]|Use this service for typical web hosting. This supports a wide set of functionality API endpoints, full-stack applications, and background tasks. This service comes with many programming language runtimes as well as the ability to provide your own stack, language, or workload from a container.|
+|[Azure Functions][azure-functions]|Use this service to provide your own code in the supported languages for either HTTP endpoints or event-based triggers from Azure services.|
+|[Azure Spring Apps][azure-spring-apps]|Use to deploy String Boot applications without code changes.|
+|[Azure Container Apps][azure-container-apps]|Use to host managed microservices and containerized applications on a serverless platform.|
+|[Azure Container Instances][azure-container-instances]|Use this for simple container scenarios that don't need container orchestration.|
+|[Azure Kubernetes Service][azure-kubernetes]|Use this service when you need a Kubernetes cluster. The control plane to manage the cluster is created and provided for you at no extra cost.|
+
+### Server availability
+
+|Service|Use|
+|--|--|
+|[Azure API Management][azure-apim]|Use this service when you productize your REST, OpenAPI, and GraphQL APIs with an API gateway including quotas and rate limits, authentication and authorization, transformation, and cached responses.|
+
+### Automated compute
+
+**Automated compute** is automated by an event such as a timed schedule or another Azure service and is typically used for background processing, batch processing, or long-running processes. 
+
+|Service|Use|
+|--|--|
+|[Power Automate][power-automate]| Use when you need to automate business processes and workflows.|
+|[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
+|Container services ([Azure Container Instances][azure-container-instances], [Azure Kubernetes Service][azure-kubernetes], [Azure Container Apps][azure-container-apps])|Use for standard automatable workloads|
+|[Azure Batch][azure-batch]|Use when you need high-performanc automation.|
+
+## Hybrid cloud
+
+Hybrid cloud is a computing environment that connects a company’s on-premises private cloud services and third-party public cloud into a single, flexible infrastructure for running the organization’s applications and workloads. 
+
+|Service|Use|
+|--|--|
+|[Azure Arc][azure-arc]|Use when need to manage your entire environment, both cloud and on-premises resources including security, governance, inventory, and management. |
+
+If you don't need to maintain your own infrastructure, you can use Azure Stack HCI to run virtual machines on-premises.
+
+## High performance computing
+
+High-performance computing (HPC) is the use of parallel processing for running advanced application programs efficiently, reliably and quickly. The term applies especially to systems that function above a teraflop or 10^12 floating-point operations per second. 
+
+|Service|Use|
+|--|--|
+|[Azure Batch][azure-batch]|Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. Developers can use Batch as a platform service to build SaaS applications or client apps where large-scale execution is required.|
+|[Azure BareMetal Instances]([azure-bare-metal])|Use when you need to run in a non-virtualized environment with root-level access to the operating system, storage and network.|
+|[Azure Quantum workspace][quantum]|Use when you need to develop and experiment with quantum algorithms.|
+|[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.
+
+Learn more about [High-performance computing on Azure](/azure/architecture/topics/high-performance-computing).
+
+## Event-based compute
+
+**Event-based compute** is compute that is triggered by an event such as a timed schedule or another Azure service.  Event-based compute is typically used for background processing, batch processing, or long-running processes.
+
+|Service|Use|
+|--|--|
+|[Power Virtual Agents][power-virtual-agents]|Use when you need to create chatbots with a no-code interface.|
+|[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
+|[Azure Service Bus Messaging][azure-service-bus-messaging]|Use when you need to decouple applications and services.|
 
 
-<!--
-## Azure App Service
+[azure-apim]:/azure/api-management
+[azure-app-service]:/azure/app-service/
+[azure-arc]:/azure/azure-arc/
+[azure-bare-metal]:/azure/baremetal-infrastructure/
+[azure-batch]:/azure/batch/batch-technical-overview
+[azure-container-apps]:/azure/container-apps/
+[azure-container-instances]:/azure/container-instances/
+[azure-container-registry]:/azure/container-registry/
+[azure-frontdoor]:/azure/frontdoor/
+[azure-functions]:/azure/azure-functions
+[azure-kubernetes]:/azure/aks/
+[azure-service-bus-messaging]:/azure/service-bus-messaging/
+[azure-service-fabric]:/azure/service-fabric/
+[azure-spring-apps]:/azure/spring-apps/
+[azure-static-web-apps]:/azure/static-web-apps/
+[azure-virtual-machines]:/azure/virtual-machines/
 
-[Azure App Service](/azure/app-service/) is the fastest and easiest way to host web applications and APIs in Azure.  Azure App Service provides a fully managed, platform as a service hosting solution that supports .NET, Java, JavaScript, and Python applications.  Hosting options are available on both Windows and Linux depending on the application runtime.
+[microsoft-genomics]:/azure/genomics
+[power-apps]:/power-apps/
+[power-automate]:/power-automate/
+[power-virtual-agents]:/power-virtual-agents/
 
-Azure App Service automatically patches and maintains the OS and language frameworks for you.  App Service also supports autoscaling, high availability and deployment slots so you can spend your time building great apps rather than worrying about infrastructure concerns.
-
-Azure App Service also supports running containerized web apps. Customized containers give apps hosted in app service full access to the underlying operating system and make it possible to host web apps using any application stack while still taking advantage of features like autoscaling and high availability provided by Azure App Service.
-
-## Static Web Apps
-
-[Azure Static Web Apps](/azure/static-web-apps/) is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Azure Static Web Apps interacts directly with GitHub or Azure DevOps to automatically monitor, build, and deploy changes from a code repository whenever a commit or pull request occurs on a specified branch.
-
-Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering isn't required. In addition, Azure Static Web Apps Azure support use of a serverless API architecture either through an integrated Azure Functions API or linking to an existing Azure Functions app.
-
-## Azure Functions
-
-[Azure Functions](/azure/azure-functions/) is a "serverless"-style offering that lets you write just the code you need to respond to events or run on a schedule.  Rather than worrying about building out and managing a whole application or the infrastructure to run your code, you write just the code you need to handle the event..With Functions, you can trigger code execution with HTTP requests, webhooks, cloud service events, or on a schedule. You can code in your development language of choice, such as C#, F#, Node.js, Python, or PHP. With consumption-based billing, you pay only for the time that your code executes, and Azure scales as needed.
-
-## Azure Spring Apps
-
-For Spring Boot microservices, [Azure Spring Apps](/azure/spring-apps/) provides a managed service that makes it easy to run these services in Azure.  No code changes are required to run these services in Azure. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
-
-## Azure Kubernetes Services
-
-[Azure Kubernetes Service (AKS)](/azure/aks/) is a fully managed container orchestration service that can be used to deploy, scale and manage Docker containers and container-based applications in a cluster environment. Azure Kubernetes Service simplifies the deployment of managed Kubernetes clusters in Azure by offloading the operational overhead like health monitoring and maintenance so you only have to manage and maintain the agent nodes.
-
-Azure Kubernetes Service allows you to build and run modern, portable, microservices-based applications using both stateless and stateful applications as teams progress through the adoption of microservices-based applications.
-
-## Azure Container Instances
-
-[Azure Container Instances (ACI)](/azure/container-instances/) is a managed service that allows you to run containers directly on Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Azure Container Instances is a solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
-
-## Azure Batch
-
-[Azure Batch](/azure/batch/batch-technical-overview) is used to run large-scale parallel and high-performance computing (HPC) jobs in Azure. Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. There's no cluster or job scheduler software to install, manage, or scale. Instead, you use Batch APIs and tools, command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.
-
-## Azure Virtual Machines
-
-[Azure Virtual Machines](/azure/virtual-machines/) provide an Infrastructure as a Service (IaaS) solution for hosting your applications on either Windows or Linux VMs in the cloud. With Azure Virtual Machines, you have total control over the configuration of the machine. When using VMs, you're responsible for all server software installation, configuration, maintenance, and operating system patches.
-
-Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don't fit into a PaaS model. For more information, see the [Virtual Machines documentation](/azure/virtual-machines/).
-
--->
+[quantum]:/azure/quantum/
