@@ -31,7 +31,7 @@ The following table lists properties common to multiple services:
 
 The configuration properties' prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
 
-| Azure service               | Configuration property prefix             | Configuration Properties Link                                                                                          |
+| Azure service               | Configuration property prefix             | Configuration properties link                                                                                          |
 |-----------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | Azure App Configuration     | *spring.cloud.azure*.appconfiguration     | [App Configuration configuration properties](configuration-properties-azure-app-configuration.md)                |
 | Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Azure Cosmos DB configuration properties](configuration-properties-azure-cosmos-db.md)                          |
