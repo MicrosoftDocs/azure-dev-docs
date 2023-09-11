@@ -24,8 +24,9 @@ Microsoft provides managed services for the following databases:
 |[MariaDB/MySQL](#mariadb-and-mysql-on-azure)|[Azure Database for MariaDB](/azure/mariadb/)|
 |[PostgreSQL](#postgresql-on-azure)|[Azure Database for PostgreSQL](/azure/postgresql/)|
 |[Redis](#redis-on-azure)|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|
-|[No-SQL]()|[Azure Cosmos DB](/azure/cosmos-db/)|
-|Tables|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[No-SQL](#nosql-on-azure)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[SQL](#sql-on-azure)|[Azure SQL DB](/azure/azure-sql/database/)|
+|Tables|[Azure Cosmos DB](/azure/cosmos-db/)<br>[Azure SQL DB](/azure/azure-sql/database/)|
 
 **Select database type**:
 
@@ -743,3 +744,127 @@ Use the following procedure to install the `ioredis` package and initialize your
 * [Azure Cache for Redis quickstart](/azure/azure-cache-for-redis/cache-nodejs-get-started)
 * [Azure Architecture Center - Best practices with Caching](/azure/architecture/best-practices/caching)
 * [Best practices with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-best-practices#client-library-specific-guidance)
+
+
+## SQL on Azure
+
+To create, move, or use a SQL database to Azure, you need a resource from the family of **Azure SQL** [services](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql). Learn how to create the Azure SQL Database resource and use your database.
+
+### Create an Azure SQL Database resource 
+
+Create a resource with the sample data included:
+
+* [Azure CLI](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-cli#create-a-single-database)
+* [Azure CLI (sql up)](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-cli-sql-up)
+* [Azure portal](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal#create-a-single-database)
+* [mssql (npm)](https://www.npmjs.com/package/mssql)
+
+
+
+### View and use your Azure SQL server on Azure
+While developing your Azure SQL database with JavaScript, use one of the following tools:
+
+* [Azure portal query editor](/azure/azure-sql/database/connect-query-portal?view=azuresql)
+* [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/connect-query-ssms?view=azuresql)
+
+### Use SDK packages to develop your Azure SQL database on Azure
+
+The Azure SQL database uses npm packages already available, such as:
+
+* [mssql](https://www.npmjs.com/package/mssql)
+
+### Use https://www.npmjs.com/package/mssql SDK to connect to Azure SQL on Azure
+
+To connect and use your SQL database on Azure with JavaScript, use the following procedure.
+
+1. Make sure Node.js and npm are installed.
+1. Create a Node.js project in a new folder:
+
+    ```bash
+    mkdir DbDemo && \
+        cd DbDemo && \
+        npm init -y && \
+        npm install pg && \
+        touch index.js && \
+        code .
+    ```
+
+    The command:
+    * Creates a project folder named `DbDemo`
+    * Changes the Bash terminal into that folder
+    * Initializes the project, which creates the `package.json` file
+    * Installs the pg npm package - to use async/await
+    * Creates the `index.js` script file
+    * Opens the project in Visual Studio Code
+
+1. Copy the following JavaScript code into `index.js`:
+
+
+```javascript
+const sql = require('mssql')
+
+// Environment variables 
+const tableName = process.env.AZURE_SQL_TABLE_NAME;
+const connectionString = process.env.AZURE_SQL_CONNECTION_STRING;
+
+const query = async (connString, table) => {
+
+    // connect 
+    const pool = await sql.connect(connString);
+
+    // build query
+    const queryString = `SELECT * from ${table}`;
+
+    // query
+    const {rowsAffected, recordset, recordsets, output} = await pool.query(queryString);
+    console.log(recordset);
+
+    return pool;
+}
+
+// Query for data
+query(connectionString, tableName)
+    .then((pool) => pool.close())
+    .catch((err) => console.log(err));
+``````
+
+
+1. Replace the `AZURE_SQL_CONNECTION_STRING`, and `AZURE_SQL_TABLE_NAME` with your values. 
+
+1. Run the script to connect to the SQL database and see the results.
+
+    ```bash
+    node index.js
+    ```
+
+1. View the results. The following data is queried from the sample database provided by Azure SQL.
+
+    ```bash
+    [
+    ...
+    {
+        ProductID: 803,
+        Name: 'ML Fork',
+        ProductNumber: 'FK-5136',
+        Color: null,
+        StandardCost: 77.9176,
+        ListPrice: 175.49,
+        Size: null,
+        Weight: null,
+        ProductCategoryID: 14,
+        ProductModelID: 105,
+        SellStartDate: 2006-07-01T00:00:00.000Z,
+        SellEndDate: 2007-06-30T00:00:00.000Z,
+        DiscontinuedDate: null,
+        ThumbnailPhotoFileName: 'fork_small.gif',
+        rowguid: 'F5FA4E2F-B976-48A4-BF79-85632F697D2E',
+        ModifiedDate: 2008-03-11T10:01:36.827Z
+    }, 
+    ...
+    ]
+```
+
+### Azure SQL resources
+
+* [Azure SQL Database documentation](/azure/azure-sql/database/)
+* [JavaScript and Node.js Samples](/samples/browse/?expanded=azure&products=azure-sql-database&languages=javascript%2Cnodejs)
