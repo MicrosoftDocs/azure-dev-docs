@@ -14,7 +14,7 @@ Bring or build your GraphQL applications on Azure, host your existing GraphQL ap
 Understand how to use [GraphQL](https://graphql.org/) on Azure. 
 
 * **Bring** GraphQL applications to the Azure web app hosting services such as Static Web Apps, App Service, and Azure Functions.
-* **Build** GraphQL endpoints to your existing data sources without adding GraphQL infrastructure. Integrate microservices, stitching together calls to existing backed services, using [API Managment](/azure/api-management/graphql-apis-overview) or access to database via GraphQL using [Data API builder](/azure/data-api-builder/overview-to-data-api-builder).
+* **Build** GraphQL endpoints to your existing data sources without adding GraphQL infrastructure. Integrate microservices, stitching together calls to existing backed services, using [API Management](/azure/api-management/graphql-apis-overview) or access to database via GraphQL using [Data API builder](/azure/data-api-builder/overview-to-data-api-builder).
 
 ## What is GraphQL?
 
