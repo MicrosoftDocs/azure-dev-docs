@@ -95,16 +95,15 @@ Use the following steps to configure your application to produce and consume mes
    | Field                                                                          | Description                                                                                   |
    |--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
    | `spring.cloud.azure.eventhubs.namespace`                                       | Specify the namespace you obtained in your event hub from the Azure portal.                   |
-   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
-   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`          | Specify the access-key of your storage account.                                               |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`         | Specify the storage account you created in this tutorial.                                     |
-   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
+   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
    | `spring.cloud.stream.bindings.consume-in-0.destination`                        | Specify the event hub you used in this tutorial.                                              |
    | `spring.cloud.stream.bindings.consume-in-0.group`                              | Specify the Consumer groups in your Event Hubs Instance.                                      |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                        | Specify the same event hub you used in this tutorial.                                         |
    | `spring.cloud.stream.eventhubs.bindings.consume-in-0.consumer.checkpoint.mode` | Specify `MANUAL`.                                                                             |
-   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.        |
+   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
    | `spring.cloud.stream.poller.initial-delay`                                     | Specify initial delay for periodic triggers. The default value is *0*.                        |
+   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.        |
 
 1. Edit the startup class file to show the following content.
 
