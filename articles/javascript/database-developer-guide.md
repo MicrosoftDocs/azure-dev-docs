@@ -826,7 +826,7 @@ const query = async (connString, table) => {
 query(connectionString, tableName)
     .then((pool) => pool.close())
     .catch((err) => console.log(err));
-``````
+```
 
 
 1. Replace the `AZURE_SQL_CONNECTION_STRING`, and `AZURE_SQL_TABLE_NAME` with your values. 
@@ -839,7 +839,7 @@ query(connectionString, tableName)
 
 1. View the results. The following data is queried from the sample database provided by Azure SQL.
 
-    ```bash
+    ```json
     [
     ...
     {
@@ -862,7 +862,7 @@ query(connectionString, tableName)
     }, 
     ...
     ]
-```
+    ```
 
 ### Azure SQL resources
 
