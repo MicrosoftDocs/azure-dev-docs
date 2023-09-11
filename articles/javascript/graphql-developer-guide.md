@@ -1,18 +1,20 @@
 ---
 title: GraphQL Developer Guide on Azure
-description: Understand how to use GraphQL on Azure. Learn how to use GraphQL with Azure Functions, Azure App Service, Azure Cosmos DB, and more.
+description: Bring or build your GraphQL applications on Azure, host your existing GraphQL applications or build GraphQL endpoints to data without changes to your code.
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.custom: devx-track-js, devx-graphql
-#CustomerIntent: As a developer new to Azure, I want to understand how to bring or build GraphQL applications with Azure. 
+#CustomerIntent: As a developer new to Azure, I want to understand how to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---
 
 # What is GraphQL on Azure?
 
+Bring or build your GraphQL applications on Azure, host your existing GraphQL applications or build GraphQL endpoints to data without changes to your code.
+
 Understand how to use [GraphQL](https://graphql.org/) on Azure. 
 
 * **Bring** GraphQL applications to the Azure web app hosting services such as Static Web Apps, App Service, and Azure Functions.
-* **Build** GraphQL endpoints to your existing data sources without adding GraphQL infrastructure.
+* **Build** GraphQL endpoints to your existing data sources without adding GraphQL infrastructure. Integrate microservices, stitching together calls to existing backed services, using [API Managment](/azure/api-management/graphql-apis-overview) or access to database via GraphQL using [Data API builder](/azure/data-api-builder/overview-to-data-api-builder).
 
 ## What is GraphQL?
 
@@ -30,7 +32,8 @@ When you bring your existing application to Azure, consider the following servic
         * Use [Azure Container Apps](/azure/container-apps/) for containerized applications.
     * **Serverless**: use [Azure Functions](/azure/azure-functions/).
 * **Authentication**: Use [Identity platform](/azure/active-directory/develop/) to add authentication to your application.
-* **Query and mutate data**: Use a data service to store, query and mutate data.
+* **Query and mutate data**: Use a data service to store data and take advantage of [Data API builder](/azure/data-api-builder/overview-to-data-api-builder) to use GraphQL to query and mutate data.
+    * **GraphQL for Databases**: Use [Data API builder](/azure/data-api-builder/overview-to-data-api-builder) to automatically turn your databases into GraphQL endpoints
     * **Relational data**: Use [Azure SQL Database](/azure/sql-database/) or [Azure Database for PostgreSQL](/azure/postgresql/).
     * **NoSQL data**: Use [Azure Cosmos DB](/azure/cosmos-db/).
 
@@ -50,6 +53,8 @@ Learn more about building GraphQL applications on Azure:
 
 ## Related content
 
+* [Azure SQL DB](/azure/azure-sql/)
 * [Azure Cosmos DB](/azure/cosmos-db/)
+* [Data API builder](/azure/data-api-builder/overview-to-data-api-builder)
 * [Azure API Management](/azure/api-management/graphql-apis-overview)
-* [Static Web Apps](/azure/static-web-apps/database-azure-cosmos-db?tabs=bash)
+* [Static Web Apps](/azure/static-web-apps/database-overview)
