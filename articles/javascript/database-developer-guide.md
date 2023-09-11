@@ -784,7 +784,7 @@ To connect and use your SQL database on Azure with JavaScript, use the following
     mkdir DbDemo && \
         cd DbDemo && \
         npm init -y && \
-        npm install pg && \
+        npm install mssql && \
         touch index.js && \
         code .
     ```
@@ -793,7 +793,7 @@ To connect and use your SQL database on Azure with JavaScript, use the following
     * Creates a project folder named `DbDemo`
     * Changes the Bash terminal into that folder
     * Initializes the project, which creates the `package.json` file
-    * Installs the pg npm package - to use async/await
+    * Installs the mssql npm package - to use async/await
     * Creates the `index.js` script file
     * Opens the project in Visual Studio Code
 
