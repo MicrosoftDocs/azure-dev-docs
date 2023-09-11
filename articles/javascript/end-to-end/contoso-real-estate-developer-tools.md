@@ -65,9 +65,9 @@ Contoso uses the following CLIs:
 
 A developer's workstation can be located in the cloud or as a physical machine. Regardless of where the compute resource is, is easily integrates the components needed by a modern cloud developer.
 
-### CodeSpaces
+### Codespaces
 
-CodeSpaces is a developer container available with your GitHub repository. Open your repository in CodeSpaces, either in a browser, or your local IDE. Begin working immediately, in your typical developer flow, writing, debugging, testing, and pushing PRs back to the GitHub repository. CodeSpaces retains any specific changes to the environment such as environment variables, dependency installs, and CLIs. 
+Codespaces is a developer container available with your GitHub repository. Open your repository in Codespaces, either in a browser, or your local IDE. Begin working immediately, in your typical developer flow, writing, debugging, testing, and pushing PRs back to the GitHub repository. Codespaces retains any specific changes to the environment such as environment variables, dependency installs, and CLIs. 
 
 You can open the project from GitHub in a web browser, or you can open the container from a local version of [Visual Studio Code](https://code.visualstudio.com/). Both use the same dev container. 
 

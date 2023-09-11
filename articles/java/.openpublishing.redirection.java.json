@@ -5,6 +5,10 @@
             "source_path": "eclipse-microprofile/cicd-microprofile-vsts.md",
             "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
         },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-to-container-instances.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
         { 
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
             "redirect_url": "/azure/aks/howto-deploy-java-wls-app"

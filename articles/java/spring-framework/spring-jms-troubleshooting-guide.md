@@ -5,6 +5,7 @@ ms.date: 08/17/2023
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.topic: reference
+ms.custom: devx-track-extended-java
 ---
 
 # Spring JMS troubleshooting guide

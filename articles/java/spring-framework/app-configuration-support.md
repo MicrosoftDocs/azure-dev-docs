@@ -6,8 +6,7 @@ ms.author: mametcal
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 08/18/2023
-ms.custom: mvc, devx-track-java, devx-track-extended-java
-
+ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
 ---
 

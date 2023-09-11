@@ -5,39 +5,42 @@ author: adrianhall
 ms.service: mobile-services
 ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 01/08/2023
+ms.date: 09/07/2023
 ms.author: adhal
 ---
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in iOS, Android, .NET MAUI, Windows (WPF, UWP, Windows App SDK with WinUI 3), or Xamarin applications.  
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including .NET MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
 
 If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
 
-* [.NET MAUI](../../quickstarts/maui/index.md)
-* [Windows App SDK (WinUI 3)](../../quickstarts/winui/index.md)
-* [WPF](../../quickstarts/wpf/index.md)
-* [Xamarin.Forms](../../quickstarts/xamarin-forms/index.md)
+* [AvaloniaUI](../../quickstarts/avalonia/index.md)
+* [.NET MAUI (Android and iOS)](../../quickstarts/maui/index.md)
+* [Uno Platform](../../quickstarts/uno/index.md)
+* [Windows (UWP)](../../quickstarts/uwp/index.md)
+* [Windows (WinUI3)](../../quickstarts/winui/index.md)
+* [Windows (WPF)](../../quickstarts/wpf/index.md)
+* [Xamarin (Android Native)](../../quickstarts/xamarin-android/index.md)
+* [Xamarin (iOS Native)](../../quickstarts/xamarin-ios/index.md)
+* [Xamarin Forms (Android and iOS)](../../quickstarts/xamarin-forms/index.md)
 
 > [!NOTE]
-> This article covers the latest (v5.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
+> This article covers the latest (v6.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
 
 ## Supported platforms
 
-The .NET client library supports .NET Standard 2.0, .NET 6, and the following platforms:
+The .NET client library supports any .NET Standard 2.0 or .NET 6 platform, including:
 
 * .NET MAUI for Android, iOS, and Windows platforms.
-* Android API level 19 and later (Xamarin and Android for .NET).
-* iOS version 8.0 and later (Xamarin and iOS for .NET).
+* Android API level 21 and later (Xamarin and Android for .NET).
+* iOS version 12.0 and later (Xamarin and iOS for .NET).
 * Universal Windows Platform builds 19041 and later.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
 * Xamarin.Forms
 
-In addition, samples have been created for [Avalonia](https://www.avaloniaui.net/) and [Uno Platform](https://platform.uno/).
-
-The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
+In addition, samples have been created for [Avalonia](https://www.avaloniaui.net/) and [Uno Platform](https://platform.uno/).  The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
 
@@ -140,7 +143,7 @@ var options = new DatasyncClientOptions
 
 #### UserAgent
 
-The data sync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers feel the user agent header leaks information about the client.  You can set the `UserAgent` property to any valid header value.
+The data sync client generates a suitable User-Agent header value based on the version of the library.  Some developers feel the user agent header leaks information about the client.  You can set the `UserAgent` property to any valid header value.
 
 ## Work with remote tables
 

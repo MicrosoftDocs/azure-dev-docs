@@ -4,7 +4,7 @@ description: Get up to speed with Windows (WPF) and Azure Mobile Apps with our t
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/06/2022
+ms.date: 09/07/2023
 ms.author: adhal
 ---
 
@@ -25,6 +25,7 @@ To complete this tutorial, you need:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
 This tutorial can only be completed on a Windows system.
 

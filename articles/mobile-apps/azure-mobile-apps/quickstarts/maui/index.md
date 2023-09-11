@@ -4,7 +4,7 @@ description: Get up to speed with .NET MAUI and Azure Mobile Apps with our tutor
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 09/30/2022
+ms.date: 09/07/2023
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
@@ -30,6 +30,7 @@ To complete this tutorial, you need:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 * An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
   * Phone: Any phone image - we use the Pixel 5 for testing.
   * System Image: Android 11 (API 30 with Google APIs)
@@ -53,6 +54,7 @@ A mac is required to compile the iOS version.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) v14.0 or later.
   * Open Xcode after installing so that it can download and install any extra required components.
   * Run `xcode-select --install` to install the command line tools.
