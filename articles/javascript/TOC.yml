@@ -31,6 +31,22 @@
       href: openai-cli.md
     - name: Azure OpenAI quickstart
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+  - name: Developer Guides
+    items: 
+    - name: GraphQL developer guide
+      href: graphql-developer-guide.md
+    - name: Serverless developer guide
+      href: /azure/azure-functions/functions-reference?tabs=blob
+    - name: Storage developer guide
+      href: /azure/storage/blobs/storage-blob-javascript-get-started
+    - name: Database developer guide
+      href: database-developer-guide.md
+    - name: Secrets
+      items: 
+      - name: Key Vault Keys
+        href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
+      - name: Key Vault Secrets
+        href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
   - name: End to end development
     items: 
     - name: Get started
@@ -220,12 +236,7 @@
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
         - name: "View subscription history"
           href: how-to/with-azure-sdk/list-resource-operation-history.md 
-  - name: Serverless developer guide
-    href: /azure/azure-functions/functions-reference?tabs=blob
-  - name: Storage developer guide
-    href: /azure/storage/blobs/storage-blob-javascript-get-started
-  - name: Database developer guide
-    href: database-developer-guide.md
+
   - name: Training
     href: learn-azure-javascript.md  
   - name: Samples
