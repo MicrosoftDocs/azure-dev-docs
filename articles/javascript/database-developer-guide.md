@@ -95,7 +95,6 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 
 #### Static Web apps with GraphQL
 
-* [Next.js: Trivia game with Cosmos DB](how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md)
 * [React.js: Trivia game with Cosmos DB](how-to/with-web-app/graphql/static-web-app-graphql/introduction.md)
 
 #### Azure Functions with GraphQL

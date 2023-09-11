@@ -31,6 +31,22 @@
       href: openai-cli.md
     - name: Azure OpenAI quickstart
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+  - name: Developer Guides
+    items: 
+    - name: GraphQL developer guide
+      href: graphql-developer-guide.md
+    - name: Serverless developer guide
+      href: /azure/azure-functions/functions-reference?tabs=blob
+    - name: Storage developer guide
+      href: /azure/storage/blobs/storage-blob-javascript-get-started
+    - name: Database developer guide
+      href: database-developer-guide.md
+    - name: Secrets
+      items: 
+      - name: Key Vault Keys
+        href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
+      - name: Key Vault Secrets
+        href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
   - name: End to end development
     items: 
     - name: Get started
@@ -94,28 +110,7 @@
         - name: Deploy to Azure
           href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
 
-    - name: GraphQL trivia game with React + APIs
-      items: 
-      - name: 1. Introduction
-        href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-      - name: 2. GraphQL basics
-        href: how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md
-      - name: 3. Local TypeScript development
-        href: how-to/with-web-app/graphql/static-web-app-graphql/local-development.md 
-      - name: 4. Create an Azure Cosmos DB resource
-        href: how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md                                     
-      - name: 5. Deploy to Azure Static Web Apps
-        href: how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md
-    - name: GraphQL trivia game with Next.js hybrid
-      items: 
-      - name: 1. Getting started
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-      - name: 2. Working with database
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-      - name: 3. Working with translator
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
-      - name: 4. Deploy to Static Web App
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
+                                  
   - name: Migrate to Serverless
     items: 
     - name: "Training: Migrate to Azure Functions"
@@ -134,12 +129,7 @@
         href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
     - name: Resource management API
       href: how-to/with-web-app/azure-function-resource-group-management.md
-    - name: Use GraphQL APIs
-      items:
-      - name: Hello world API
-        href: how-to/with-web-app/graphql/azure-function-hello-world.md
-      - name: Data (CRUD) API
-        href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
+            
   - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
@@ -246,52 +236,7 @@
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
         - name: "View subscription history"
           href: how-to/with-azure-sdk/list-resource-operation-history.md 
-  - name: Serverless developer guide
-    href: /azure/azure-functions/functions-reference?tabs=blob
-  - name: Storage developer guide
-    href: /azure/storage/blobs/storage-blob-javascript-get-started
-  - name: Database developer guide
-    href: database-developer-guide.md
-  - name: GraphQL
-    items: 
-    - name: Hello world with Functions
-      href: how-to/with-web-app/graphql/azure-function-hello-world.md
-    - name: CRUD with Functions
-      href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
-    - name: Trivia game with React + Cosmos DB
-      items: 
-      - name: 1. Introduction
-        href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-      - name: 2. GraphQL basics
-        href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
-      - name: 3. Local TypeScript development
-        href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-      - name: 4. Create an Azure Cosmos DB resource
-        href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
-      - name: 5. Deploy to Azure Static Web Apps
-        href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
-    - name: Trivia game with Next.js hybrid + Cosmos DB
-      items: 
-      - name: 1. Getting started
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md
-      - name: 2. Working with database
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md
-      - name: 3. Working with translator
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md 
-      - name: 4. Deploy to Static Web App
-        href: how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md                                     
-    - name: Import GraphQL into APIM
-      href: /azure/api-management/graphql-api
-    - name: Import and resolve GraphQL schema
-      href: /azure/api-management/graphql-schema-resolve-api
-    - name: Samples
-      items: 
-      - name: Hello world
-        href: https://github.com/azure-samples/js-e2e-azure-function-graphql-hello
-      - name: Simple CRUD
-        href: https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations
-      - name: Trivia game
-        href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
+
   - name: Training
     href: learn-azure-javascript.md  
   - name: Samples
