@@ -42,7 +42,7 @@ When you bring your existing application to Azure, consider the following servic
 When you build GraphQL endpoints to your existing data sources, consider the following services and their uses:
 
 * **Custom API endpoints**: Use [Azure API Management](/azure/api-management/graphql-apis-overview) to build a GraphQL endpoint to your existing Azure data sources.
-* **Static data endpoints**: Use [Static Web Apps](/azure/static-web-apps/database-azure-cosmos-db?tabs=bash) and the `data-api` endpoint configued in the `staticwebapp.database.config.json` file to build a GraphQL endpoint available from your static client app to your existing Azure data sources.
+* **Static data endpoints**: Use [Static Web Apps](/azure/static-web-apps/database-azure-cosmos-db?tabs=bash) and the `data-api` endpoint configured in the `staticwebapp.database.config.json` file to build a GraphQL endpoint available from your static client app to your existing Azure data sources.
 
 
 ## Resources
