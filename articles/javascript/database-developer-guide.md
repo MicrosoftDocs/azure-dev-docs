@@ -748,15 +748,15 @@ Use the following procedure to install the `ioredis` package and initialize your
 
 ## SQL on Azure
 
-To create, move, or use a SQL database to Azure, you need a resource from the family of **Azure SQL** [services](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql). Learn how to create the Azure SQL Database resource and use your database.
+To create, move, or use a SQL database to Azure, you need a resource from the family of **Azure SQL** [services](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). Learn how to create the Azure SQL Database resource and use your database.
 
 ### Create an Azure SQL Database resource 
 
 Create a resource with the sample data included:
 
-* [Azure CLI](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-cli#create-a-single-database)
-* [Azure CLI (sql up)](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-cli-sql-up)
-* [Azure portal](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal#create-a-single-database)
+* [Azure CLI](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
+* [Azure CLI (sql up)](/azure/azure-sql/database/single-database-create-quickstart)
+* [Azure portal](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
 * [mssql (npm)](https://www.npmjs.com/package/mssql)
 
 
@@ -764,8 +764,8 @@ Create a resource with the sample data included:
 ### View and use your Azure SQL server on Azure
 While developing your Azure SQL database with JavaScript, use one of the following tools:
 
-* [Azure portal query editor](/azure/azure-sql/database/connect-query-portal?view=azuresql)
-* [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/connect-query-ssms?view=azuresql)
+* [Azure portal query editor](/azure/azure-sql/database/connect-query-portal)
+* [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/connect-query-ssms)
 
 ### Use SDK packages to develop your Azure SQL database on Azure
 
