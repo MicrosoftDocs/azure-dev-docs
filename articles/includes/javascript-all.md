@@ -417,7 +417,7 @@
 | @autorest/system-requirements | npm [1.0.2](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.2) |  |  |
 | @autorest/test-utils | npm [0.5.3](https://www.npmjs.com/package/@autorest/test-utils/v/0.5.3) |  |  |
 | @autorest/testmodeler | npm [2.6.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.1) |  |  |
-| @autorest/typescript | npm [6.0.8](https://www.npmjs.com/package/@autorest/typescript/v/6.0.8) |  |  |
+| @autorest/typescript | npm [6.0.9](https://www.npmjs.com/package/@autorest/typescript/v/6.0.9) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -454,7 +454,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.15.0) |  |  |
+| @azure-tools/rlc-common | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.16.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.1) |  |  |
 | @azure-tools/test-recorder | npm [3.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.0.0) |  |  |
@@ -487,7 +487,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.56](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.56) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.641](https://www.npmjs.com/package/@autorest/powershell/v/4.0.641) |  | GitHub [4.0.641](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.510](https://www.npmjs.com/package/@autorest/powershell/v/3.0.510) |  | GitHub [3.0.510](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.7.4](https://www.npmjs.com/package/@autorest/python/v/6.7.4) |  | GitHub [6.7.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
