@@ -462,4 +462,4 @@ az ad sp delete --id <YOUR-SERVICE-PRINCIPAL-NAME>
 
 ## Next steps
 
-* [Convert text to speech in Express.js app](../tutorial/convert-text-to-speech-cognitive-services)
+* [Convert text to speech in Express.js app](../../tutorial/convert-text-to-speech-cognitive-services)
