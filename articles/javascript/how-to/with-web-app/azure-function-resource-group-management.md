@@ -462,4 +462,4 @@ az ad sp delete --id <YOUR-SERVICE-PRINCIPAL-NAME>
 
 ## Next steps
 
-* [Deploy a GraphQL API as an Azure Function](./graphql/azure-function-hello-world.md)
+* [Convert text to speech in Express.js app](../../tutorial/convert-text-to-speech-cognitive-services.md)
