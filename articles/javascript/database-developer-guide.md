@@ -773,7 +773,7 @@ The Azure SQL database uses npm packages already available, such as:
 
 * [mssql](https://www.npmjs.com/package/mssql)
 
-### Use https://www.npmjs.com/package/mssql SDK to connect to Azure SQL on Azure
+### Use mssql SDK to connect to Azure SQL on Azure
 
 To connect and use your SQL database on Azure with JavaScript, use the following procedure.
 
@@ -791,9 +791,9 @@ To connect and use your SQL database on Azure with JavaScript, use the following
 
     The command:
     * Creates a project folder named `DbDemo`
-    * Changes the Bash terminal into that folder
+    * Changes the terminal into that folder
     * Initializes the project, which creates the `package.json` file
-    * Installs the mssql npm package - to use async/await
+    * Installs the **mssql** npm package - to use async/await
     * Creates the `index.js` script file
     * Opens the project in Visual Studio Code
 
