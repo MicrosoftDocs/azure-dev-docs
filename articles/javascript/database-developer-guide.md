@@ -2,7 +2,7 @@
 title: Getting started with Azure Databases 
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 09/12/2023
 ms.custom: devx-track-js, devx-graphql, devx-track-azurecli
 ---
 
@@ -757,15 +757,13 @@ Create a resource with the sample data included:
 * [Azure CLI](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
 * [Azure CLI (sql up)](/azure/azure-sql/database/single-database-create-quickstart)
 * [Azure portal](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
-* [mssql (npm)](https://www.npmjs.com/package/mssql)
-
-
 
 ### View and use your Azure SQL server on Azure
 While developing your Azure SQL database with JavaScript, use one of the following tools:
 
 * [Azure portal query editor](/azure/azure-sql/database/connect-query-portal)
 * [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/connect-query-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/)
 
 ### Use SDK packages to develop your Azure SQL database on Azure
 
@@ -803,33 +801,41 @@ To connect and use your SQL database on Azure with JavaScript, use the following
 ```javascript
 const sql = require('mssql')
 
-// Environment variables 
-const tableName = process.env.AZURE_SQL_TABLE_NAME;
-const connectionString = process.env.AZURE_SQL_CONNECTION_STRING;
-
-const query = async (connString, table) => {
+const query = async (connString) => {
 
     // connect 
     const pool = await sql.connect(connString);
 
-    // build query
-    const queryString = `SELECT * from ${table}`;
+   // show tables in database
+   const tables = await pool.query('SELECT table_name FROM information_schema.tables where table_type=\'BASE TABLE\';');
+   console.log(tables.recordset);
 
-    // query
-    const {rowsAffected, recordset, recordsets, output} = await pool.query(queryString);
-    console.log(recordset);
-
-    return pool;
+   // show users configured for the server
+   const users = await pool.query('SELECT USER_NAME() AS user_name');
+   console.log(users.recordset);
+    
+    // close connection
+    pool.close();
 }
 
-// Query for data
-query(connectionString, tableName)
-    .then((pool) => pool.close())
+const SERVER_ADDRESS='YOUR_SERVER.database.windows.net'
+const DATABASE_NAME='YOUR_DB'
+const USER_ID='YOUR_USER_ID'
+const USER_PASSWORD='YOUR_USER_PASSWORD'
+
+var connString = `Server=${SERVER_ADDRESS},1433;Database=${DATABASE_NAME};User Id=${USER_ID};Password=${USER_PASSWORD};Encrypt=true`
+
+query(connString)
     .catch((err) => console.log(err));
 ```
 
 
-1. Replace the `AZURE_SQL_CONNECTION_STRING`, and `AZURE_SQL_TABLE_NAME` with your values. 
+1. Replace the following values with your values:
+
+    * `YOUR_SERVER`
+    * `YOUR_DB`
+    * `YOUR_USER_ID`
+    * `YOUR_USER_PASSWORD`
 
 1. Run the script to connect to the SQL database and see the results.
 
@@ -840,31 +846,12 @@ query(connectionString, tableName)
 1. View the results. The following data is queried from the sample database provided by Azure SQL.
 
     ```json
-    [
-    ...
-    {
-        ProductID: 803,
-        Name: 'ML Fork',
-        ProductNumber: 'FK-5136',
-        Color: null,
-        StandardCost: 77.9176,
-        ListPrice: 175.49,
-        Size: null,
-        Weight: null,
-        ProductCategoryID: 14,
-        ProductModelID: 105,
-        SellStartDate: 2006-07-01T00:00:00.000Z,
-        SellEndDate: 2007-06-30T00:00:00.000Z,
-        DiscontinuedDate: null,
-        ThumbnailPhotoFileName: 'fork_small.gif',
-        rowguid: 'F5FA4E2F-B976-48A4-BF79-85632F697D2E',
-        ModifiedDate: 2008-03-11T10:01:36.827Z
-    }, 
-    ...
-    ]
+    [ { table_name: 'Persons' } ]
+    [ { user_name: 'dbo' } ]
     ```
 
 ### Azure SQL resources
 
 * [Azure SQL Database documentation](/azure/azure-sql/database/)
+* [Connect to and query Azure SQL Database using Node.js and mssql npm package](/azure/azure-sql/database/azure-sql-javascript-mssql-quickstart)
 * [JavaScript and Node.js Samples](/samples/browse/?expanded=azure&products=azure-sql-database&languages=javascript%2Cnodejs)
