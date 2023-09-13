@@ -20,7 +20,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: What is Azure Developer CLI
-            url: overview.md
+            url: /training/paths/azure-developer-cli
       - linkListType: get-started
         links:
           - text: Get started
