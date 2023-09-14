@@ -1,19 +1,22 @@
 ---
-title: Getting started with end to end Contoso real estate
-description: Enterprise-grade reference Architecture for JavaScript with Contoso real estate, including source code, deployment infrastructure, end to end testing.
+title: Getting started with end to end Contoso Real Estate
+description: Enterprise-grade reference Architecture for JavaScript with Contoso Real Estate, including source code, deployment infrastructure, end to end testing.
 ms.topic: get-started
-ms.date: 08/10/2023
+ms.date: 09/13/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a Senior JavaScript Developer new to Azure, I want learn how to build and deploy complex architectures so that build and deploy my own architecture.
 ---
 
-# Get started with Contoso real estate enterprise app
+# Get started with Contoso Real Estate enterprise app
 
-The Contoso real estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
+The Contoso Real Estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
 
-## The Contoso real estate app
+## The Contoso Real Estate app
 
-The Contoso real estate enterprise app allows employees of the Contoso company to search for a reserve relocation housing through a web app. This web app is an internal tool used by Contoso HR and new hire or relocating employees. Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
+The Contoso Real Estate enterprise app allows employees of the Contoso company to search for a reserve relocation housing through a web app. This web app is an internal tool used by Contoso HR and new hire or relocating employees. Both authenticated Talent Managers, and new hires can interact with the application features, while nonauthenticated users can access some parts of it.
+
+* **Learn Live**: Learn more about this solution by watching the [Learn Live](https://azure.github.io/Cloud-Native/Fall-For-IA/LearnLive) sessions.
+* **Learn Collection**: Learn more about this solution with the [Learn Collection](https://aka.ms/contoso-real-estate/collection).
 
 ## Prerequisites
 
@@ -26,7 +29,7 @@ To deploy this entire app solution to Azure, you need:
 
 ## Application architecture
 
-The Contoso real estate app has two client applications, the **portal** and the blog. The **blog** publicizes new real estate offerings and if visible without authentication. The portal app requires authentication to view, reserve, and pay for listings. Separate development teams have built and support this end-to-end architecture with their own choice of technical stack. 
+The Contoso Real Estate app has two client applications, the **portal** and the blog. The **blog** publicizes new real estate offerings and if visible without authentication. The portal app requires authentication to view, reserve, and pay for listings. Separate development teams have built and support this end-to-end architecture with their own choice of technical stack. 
 
 **Micro frontend client**:
 
@@ -60,6 +63,7 @@ This application is divided into several packages. Each package describes a scen
 |[Stripe](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/stripe)|Fastify API Payment service API in an Azure Container app.|
 |[Testing](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)|End to end testing with Playwright.|
 |[Docs](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/docs)|Learn more about this end to end solution.|
+
 
 ## Next step
 

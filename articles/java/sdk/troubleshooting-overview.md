@@ -67,7 +67,7 @@ This code changes the HTTP request/response logging for a single client instance
 
 ## Exception handling in the Azure SDK for Java
 
-Most Azure SDK for Java client service methods throw an [HttpResponseException](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/xception/HttpResponseException.java) or a more-specific subclass on failure. The `HttpResponseException` type includes a detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. You can find this error information inside the message property of the `HttpResponseException` object. Because these exceptions are runtime exceptions, the JavaDoc reference documentation doesn't explicitly call them out.
+Most Azure SDK for Java client service methods throw an [HttpResponseException](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/exception/HttpResponseException.java) or a more-specific subclass on failure. The `HttpResponseException` type includes a detailed response error object that provides specific useful insights into what went wrong and includes corrective actions to fix common issues. You can find this error information inside the message property of the `HttpResponseException` object. Because these exceptions are runtime exceptions, the JavaDoc reference documentation doesn't explicitly call them out.
 
 The following example shows you how to catch this exception with a synchronous client:
 
