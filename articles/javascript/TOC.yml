@@ -58,7 +58,12 @@
     - name: User Scenarios
       href: end-to-end/contoso-real-estate-user-scenarios.md
     - name: Solutions
-      href: end-to-end/contoso-real-estate-developer-solutions.md
+      items: 
+      - name: Getting Started
+        href: end-to-end/contoso-real-estate-developer-solutions.md
+      - name: Serverless APIs
+        href: end-to-end/contoso-real-estate-serverless-api.md
+
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
