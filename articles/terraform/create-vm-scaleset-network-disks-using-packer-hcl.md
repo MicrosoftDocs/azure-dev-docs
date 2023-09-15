@@ -80,15 +80,15 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="../../terraform_samples/quickstart/101-windows-vm-with-iis-server/main.tf":::
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-vmss-packer-jumpbox/main.tf":::
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    :::code language="Terraform" source="../../terraform_samples/quickstart/101-windows-vm-with-iis-server/variables.tf":::
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-vmss-packer-jumpbox/variables.tf":::
 
 1. Create a file named `output.tf` to specify what values Terraform displays and insert the following code:
 
-    :::code language="Terraform" source="../../terraform_samples/quickstart/101-windows-vm-with-iis-server/output.tf":::
+    :::code language="Terraform" source="../../terraform_samples/quickstart/201-vmss-packer-jumpbox/output.tf":::
 
 ## 4. Initialize Terraform
 
