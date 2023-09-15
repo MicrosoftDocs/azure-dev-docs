@@ -794,7 +794,7 @@ public async Task<UserInformation> GetUserInformationAsync()
 
 ### Purging entities in the local database
 
-Under normal operation, purging entities is not required.  The synchronization process removes deleted entities and maintains the required metadata for local database tables.  However, there are times when purging entities within the database is helpful.  One such scenario is when you need to delete a large number of entities and it's more efficient to wipe data from the table locally.
+Under normal operation, purging entities isn't required.  The synchronization process removes deleted entities and maintains the required metadata for local database tables.  However, there are times when purging entities within the database is helpful.  One such scenario is when you need to delete a large number of entities and it's more efficient to wipe data from the table locally.
 
 To purge records from a table, use `table.PurgeItemsAsync()`:
 
