@@ -792,6 +792,36 @@ public async Task<UserInformation> GetUserInformationAsync()
 
 ## Advanced topics
 
+### Purging entities in the local database
+
+Under normal operation, purging entities isn't required.  The synchronization process removes deleted entities and maintains the required metadata for local database tables.  However, there are times when purging entities within the database is helpful.  One such scenario is when you need to delete a large number of entities and it's more efficient to wipe data from the table locally.
+
+To purge records from a table, use `table.PurgeItemsAsync()`:
+
+```csharp
+var query = table.CreateQuery();
+var purgeOptions = new PurgeOptions();
+await table.PurgeItermsAsync(query, purgeOptions, cancellationToken);
+```
+
+The query identifies the entities to be removed from the table.  Identify the entities to be purged using LINQ:
+
+```csharp
+var query = table.CreateQuery().Where(m => m.Archived == true);
+```
+
+The `PurgeOptions` class provides settings to modify the purge operation:
+
+* `DiscardPendingOperations` discards any pending operations for the table that are in the operations queue waiting to be sent to the server.
+* `QueryId` specifies a query ID that is used to identify the delta token to use for the operation.
+* `TimestampUpdatePolicy` specifies how to adjust the delta token at the end of the purge operation:
+  * `TimestampUpdatePolicy.NoUpdate` indicates the delta token must not be updated.
+  * `TimestampUpdatePolicy.UpdateToLastEntity` indicates the delta token should be updated to the `updatedAt` field for the last entity stored in the table.
+  * `TimestampUpdatePolicy.UpdateToNow` indicates the delta token should be updated to the current date/time.
+  * `TimestampUpdatePolicy.UpdateToEpoch` indicates the delta token should be reset to synchronize all data.
+
+Use the same `QueryId` value you used when calling `table.PullItemsAsync()` to synchronize data. The `QueryId` specifies the delta token to update when the purge is complete. 
+
 ### Customize request headers
 
 To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a custom header to every outgoing request or even change responses status codes. You can use a custom [DelegatingHandler], as in the following example:
