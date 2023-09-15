@@ -8,6 +8,12 @@
   items:
   - name: Set up local web dev environment
     href: configure-python-web-app-local-environment.md  
+  - name: Fastest/easiest way to get started
+    items:
+      - name: Start here
+        href: quickstart-azd-templates.md
+      - name: Django + PostgreSQL + ACA
+        href: quickstart-azd-django-postgres-aca.md
   - name: Web app solutions
     items:
     - name: Django/Flask
