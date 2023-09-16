@@ -59,7 +59,7 @@ In this article, you learn how to:
     az account show --query "{ subscription_id: id }"
     ```
 
-1. Create a Packer template file named `ubuntu.json` and insert the following code:
+1. Create a Packer template file named `ubuntu.json` and insert the following code. Update the highlighted lines with your service principal and Azure subscription information.
 
     :::code language="Terraform" source="../../terraform_samples/quickstart/201-vmss-packer-jumpbox/ubuntu.json" highlight="5-8":::
 
