@@ -30,13 +30,13 @@ Make sure you have an Azure account and available subscription.
 
 You must have the following installed on your local computer:
 
-> [!div class="checklist"]
-> * [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-> * [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-> * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-> * [Visual Studio Code](https://code.visualstudio.com/)
-> * [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-> * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+1. [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+1. [Visual Studio Code](https://code.visualstudio.com/)
+1. [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Choose a template
 
