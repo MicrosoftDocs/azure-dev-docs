@@ -21,6 +21,24 @@ Before you create a dev tunnel, you first need to download and install the `devt
 
 ## [Windows](#tab/windows)
 
+## Windows Package Manager (winget)
+
+### Install `devtunnel`
+
+```powershell
+winget install Microsoft.devtunnel
+```
+
+This command installs the latest version by default and removes the older version in the same location, which is %LOCALAPPDATA%\Microsoft\WinGet\Packages. To specify a version, add `--version <version_number>` with your desired version to the command.
+
+### Upgrade `devtunnel`
+
+```powershell
+winget upgrade Microsoft.devtunnel
+```
+
+## PowerShell
+
 ```powershell
 Invoke-WebRequest -Uri https://aka.ms/TunnelsCliDownload/win-x64 -OutFile devtunnel.exe
 .\devtunnel.exe -h
@@ -30,7 +48,7 @@ Direct download link:
 
 [Windows (x64) - https://aka.ms/TunnelsCliDownload/win-x64](https://aka.ms/TunnelsCliDownload/win-x64)
 
-To run commands with `devtunnel` instead of `./devtunnel`:
+Run commands with `devtunnel` instead of `./devtunnel`:
 
 1. Press the Windows key and type 'Environment variables'.
 2. Select the option 'Edit the system environment variables'.
