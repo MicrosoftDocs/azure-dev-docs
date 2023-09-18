@@ -45,15 +45,15 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 |Template|Web Framework|Database|Hosting Platform|Github Repo|
 |----------|----------|----------|----------|----------|
-|azure-django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|azure-django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
-|azure-django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](#prerequisites)|
-|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](#prerequisites)|
-|azure-fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|azd-flask-postgres|Flask|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
-|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|azure-django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-django-cosmos-postgres-aca)|
+|azure-django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-aca)|
+|azure-django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-django-postgres-flexible-appservice)|
+|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-fastapi-cosmos-postgres-aca)|
+|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-fastapi-postgres-flexible-appservice)|
+|azure-fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-fastapi-postgres-aca)|
+|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-cosmos-postgres-aca)|
+|azuse-flask-postgres-aca|Flask|PostgreSQL|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-postgres-aca)|
+|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-flask-postgres-flexible-appservice)|
 
 The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you hope to contributing changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
 
@@ -119,7 +119,7 @@ terminal and answer any prompts:
 
    If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
-5. When `azd up` completes successfully, you should output the resembles the following:
+5. When `azd up` completes successfully, you will see output that resembles the following:
 
    :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
 
@@ -183,12 +183,11 @@ The next step is to make a small change to the Django app and then redeploy.
 
 If you see errors during `azd up`, try the following:
 
-   - Run `azd down` to remove any resources that may have been created.
-   - Delete the *azdtest* folder and the quickstart instructions from the beginning.
+   - Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
+   - Delete the *azdtest* folder on your local computer.
    - In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
-   - Try the steps in this quickstart again.
-   - When prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
-   - Choose a different location.
+   - Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
+   - When retrying the quickstart steps, choose a different location.
 
 See the [FAQ](./quickstart-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
 
