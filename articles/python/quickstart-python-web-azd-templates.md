@@ -30,7 +30,6 @@ Make sure you have an Azure account and available subscription.
 
 You must have the following installed on your local computer:
 
-
 1. [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -46,15 +45,15 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 |Template|Web Framework|Database|Hosting Platform|Github Repo|
 |----------|----------|----------|----------|----------|
-|django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
-|django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](#prerequisites)|
-|fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](#prerequisites)|
-|fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
-|flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|azure-django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|azure-django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
+|azure-django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|azure-fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
 |azd-flask-postgres|Flask|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
-|flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](#prerequisites)|
 
 The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you hope to contributing changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
 
@@ -62,11 +61,11 @@ The GitHub repository (last column) is only provided for reference purposes. You
 
 Running an azd template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
 
-1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azd-quickstart*. This will store the local git repository containing the project files. Then, change into that directory using the `cd` command.
+1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azdtest*. This will store the local git repository containing the project files. Then, change into that directory using the `cd` command.
 
    ```shell
-   mkdir azd-quickstart
-   cd azd-quickstart
+   mkdir azdtest
+   cd azdtest
    ```
 
    Do not use Visual Studio Code's Terminal for this quickstart.
@@ -79,8 +78,9 @@ Running an azd template is the same across languages and frameworks. And, the sa
 
    Substitute `<template name>` with one of the templates from the [table above](#choose-a-template), such as *azure-django-postgres-aca* for example.
 
-   When prompted for an environment name, use *azd-quickstart-dev* or any other
-   name. This will be used when naming Azure resource groups and resources.
+   When prompted for an environment name, use *azdtest* or any other
+   name. This will be used when naming Azure resource groups and resources. For
+   best results, use a short name, lower case latters, no special characters.
 
 3. To authenticate azd to your Azure account, enter the following commands in your terminal and follow the prompt:
 
@@ -119,16 +119,9 @@ terminal and answer any prompts:
 
    If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
-5. When `azd up` completes successfully, you should see the following message.
+5. When `azd up` completes successfully, you should output the resembles the following:
 
-   ```shell
-   (✓) Done: Deploying service web
-   - Endpoint: https://azd-quickstart-dev-ca.<Unique identifier>.eastus2.azurecontainerapps.io/
-
-   SUCCESS: Your application was provisioned and deployed to Azure in 13 minutes 6 seconds.
-   You can view the resources created under the resource group azd-quickstart-dev-rg in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<Unique identifier>/resourceGroups/azd-quickstart-dev-rg/overview
-   ```
+   :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
 
    Copy the first URL after the word `- Endpoint:` and paste it into the location
    bar of a web browser to see the sample Django project running live in Azure.
@@ -182,15 +175,19 @@ The next step is to make a small change to the Django app and then redeploy.
    ```
 
    The `azd down` command deletes the Azure resources and the GitHub Actions workflow.
+   When prompted, agree to deleting all resources associated with the resource group.
 
-   You may also delete the *azd-quickstart* folder, or use it as the basis for your own application by modifying the files of the project.
+   You may also delete the *azdtest* folder, or use it as the basis for your own application by modifying the files of the project.
 
 ## Troubleshooting
 
 If you see errors during `azd up`, try the following:
 
-   - Delete the *azd-quickstart* folder and the quickstart instructions from the beginning.
-   - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
+   - Run `azd down` to remove any resources that may have been created.
+   - Delete the *azdtest* folder and the quickstart instructions from the beginning.
+   - In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
+   - Try the steps in this quickstart again.
+   - When prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
    - Choose a different location.
 
 See the [FAQ](./quickstart-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
