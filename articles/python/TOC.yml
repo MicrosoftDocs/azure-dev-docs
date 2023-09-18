@@ -12,7 +12,7 @@
     items:
       - name: Overview
         href: overview-azd-templates.md
-      - name: Quickstart Python Web azd Templates
+      - name: Quickstart
         href: quickstart-python-web-azd-templates.md
   - name: Web app solutions
     items:
