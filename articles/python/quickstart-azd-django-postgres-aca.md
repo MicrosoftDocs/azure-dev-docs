@@ -1,15 +1,16 @@
 ---
-title: Deploy a new Django + PostgreSQL web app to Azure Container Apps using azd templates
+title: Create and deploy a Python web app to Azure using an azd template
 description: Quickstart articles featuring the AZD template to help you get started with a complete project in 15 minutes.
 ms.date: 8/18/2023
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Quickstart: Create and deploy a Django + PostgreSQL app to Azure Container Apps using an azd template
+# Quickstart: Create and deploy a Python web app to Azure using an azd template
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
+- Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
 - Use CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
 - Edit the web app on your local computer and use an azd command to redeploy.
 - Use an azd command to clean up Azure resources.
@@ -36,6 +37,24 @@ You must have the following installed on your local computer:
   - [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
   - [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
+## Choose a template
+
+1. Select a template name (first column) from the following list of templates in the table below. You will use this in the next 
+
+|Template|Web Framework|Database|Hosting Platform|Github Repo|
+|----------|----------|----------|----------|----------|
+|django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps||
+|django-postgres-aca|Django|PostgreSQL|Azure Container Apps||
+|django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service||
+|fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps||
+|fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service||
+|fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps||
+|flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps||
+|azd-flask-postgres|Flask|PostgreSQL|Azure Container Apps||
+|flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service||
+
+The GitHub repository (last column) is only provided for refernce. You should only clone and use the repository directly if you plan on contributing changes to the template. Otherwise, follow the instructions to use the azd CLI to interact with the template in a normal workflow.
+
 ## Run the template
 
 Running an azd template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
@@ -52,8 +71,10 @@ Running an azd template is the same across languages and frameworks. And, the sa
 2. To setup the local development environment, enter the following commands in your terminal and answer any prompts:
 
    ```shell
-   azd init --template azure-django-postgres-aca
+   azd init --template <template name>
    ```
+
+   Substitute `<template name>` with one of the templates from the table above, such as *azure-django-postgres-aca* for example.
 
    When prompted for an environment name, use *azd-quickstart-dev* or any other
    name. This will be used when naming Azure resource groups and resources.

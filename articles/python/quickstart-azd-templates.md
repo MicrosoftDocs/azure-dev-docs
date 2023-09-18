@@ -26,14 +26,12 @@ The following table provides links to quickstart articles with steps describing 
 |[azd-flask-postgres](#index-of-quickstarts-and-templates)|Flask|PostgreSQL|Azure Container Apps|
 |[flask-postgres-flexible-appservice](#index-of-quickstarts-and-templates)|Flask|PostgreSQL|Azure App Service|
 
-
 ### Github - find a home for this stuff
 
 You can check out the GitHub repository here: [https://github.com/Azure-Samples/azure-django-postgres-aca](https://github.com/Azure-Samples/azure-django-postgres-aca)
 
 > [!NOTE]
 > In this Quickstart, we use a Dev Container which bundles everything you'll need to get started. Alternatively, [this article](./quickstart-azd-templates.md) walks you through using azd templates and making changes to the project using your existing local Python web development environment without containers. Also, please see the README.md file in the root template directory for environment setup instructions.
-
 
 - Pull a sample Django web app to your local computer. The sample Django web app communicates with the Postgres database using SQLAlchemy.
 - Create instances of Azure Container Apps and Azure PostgreSQL, and configure security, environment variable values, etc.
