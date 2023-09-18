@@ -39,21 +39,23 @@ You must have the following installed on your local computer:
 
 ## Choose a template
 
-1. Select a template name (first column) from the following list of templates in the table below. You will use this in the next 
+Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+
+1. Select a template name (first column) from the following list of templates in the table below. You will use this during the `azd init` step in the next section.
 
 |Template|Web Framework|Database|Hosting Platform|Github Repo|
 |----------|----------|----------|----------|----------|
 |django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps||
-|django-postgres-aca|Django|PostgreSQL|Azure Container Apps||
-|django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service||
-|fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps||
-|fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service||
-|fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps||
-|flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps||
-|azd-flask-postgres|Flask|PostgreSQL|Azure Container Apps||
-|flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service||
+|django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
+|django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](#prerequisites)|
+|fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
+|azd-flask-postgres|Flask|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
+|flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](#prerequisites)|
 
-The GitHub repository (last column) is only provided for refernce. You should only clone and use the repository directly if you plan on contributing changes to the template. Otherwise, follow the instructions to use the azd CLI to interact with the template in a normal workflow.
+The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you hope to contributing changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
 
 ## Run the template
 
