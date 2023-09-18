@@ -19,10 +19,10 @@ It should take less than 15 minutes to complete this tutorial. Upon completion, 
 
 To learn more about these azd templates for Python web app development:
 
-- [What is this?](./quickstart-azd-templates.md#what-is-this)
-- [How does this work?](./quickstart-azd-templates.md#how-does-it-work)
-- [Why would I want to do this?](./quickstart-azd-templates.md#why-would-i-want-to-use-this)
-- [What are my other options?](./quickstart-azd-templates.md#what-are-my-other-options)
+- [What is this?](./overview-azd-templates.md#what-is-this)
+- [How does this work?](./overview-azd-templates.md#how-does-it-work)
+- [Why would I want to do this?](./overview-azd-templates.md#why-would-i-want-to-use-this)
+- [What are my other options?](./overview-azd-templates.md#what-are-my-other-options)
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ You must have the following installed on your local computer:
 > [!div class="checklist"]
 > * [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 > * [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-> * - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+> * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 > * [Visual Studio Code](https://code.visualstudio.com/)
 > * [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 > * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
@@ -46,7 +46,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 |Template|Web Framework|Database|Hosting Platform|Github Repo|
 |----------|----------|----------|----------|----------|
-|django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps||
+|django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
 |django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](#prerequisites)|
 |django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](#prerequisites)|
 |fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](#prerequisites)|
@@ -117,7 +117,7 @@ terminal and answer any prompts:
    - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
    - Choose a different location.
 
-   If you still have problems, see the Troubleshooting section at the bottom of this document.
+   If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
 5. When `azd up` completes successfully, you should see the following message.
 
