@@ -30,12 +30,13 @@ Make sure you have an Azure account and available subscription.
 
 You must have the following installed on your local computer:
 
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-- [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-  - [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-  - [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+> [!div class="checklist"]
+> * [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+> * [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+> * - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+> * [Visual Studio Code](https://code.visualstudio.com/)
+> * [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+> * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Choose a template
 
@@ -76,7 +77,7 @@ Running an azd template is the same across languages and frameworks. And, the sa
    azd init --template <template name>
    ```
 
-   Substitute `<template name>` with one of the templates from the table above, such as *azure-django-postgres-aca* for example.
+   Substitute `<template name>` with one of the templates from the [table above](#choose-a-template), such as *azure-django-postgres-aca* for example.
 
    When prompted for an environment name, use *azd-quickstart-dev* or any other
    name. This will be used when naming Azure resource groups and resources.
@@ -94,7 +95,7 @@ Running an azd template is the same across languages and frameworks. And, the sa
 
    When you close the tab, you'll see a message in your shell:
 
-   ```shell
+   ```output
    Logged in to Azure.
    ```
 
@@ -186,7 +187,13 @@ The next step is to make a small change to the Django app and then redeploy.
 
 ## Troubleshooting
 
-See the [FAQ](./quickstart-azd-templates.md#frequently-asked-questions) for a list of possible issues and solutions.
+If you see errors during `azd up`, try the following:
+
+   - Delete the *azd-quickstart* folder and the quickstart instructions from the beginning.
+   - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
+   - Choose a different location.
+
+See the [FAQ](./quickstart-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
 
 ## Next steps
 
