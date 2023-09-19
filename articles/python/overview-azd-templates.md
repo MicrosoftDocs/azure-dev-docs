@@ -14,11 +14,11 @@ The best way to get started is to [follow the quickstart](./quickstart-python-we
 
 ## What are the Python web azd templates?
 
-There are many azd templates available on the [azd awesome GitHub repository](https://github.com/azure/awesome-azd), but this collection of Python web Azure Developer CLI is unique insomuch that the provide a sample web application with feature parity across many different popular combinations of Azure resources.
+There are many azd templates available on the [awesome azd GitHub repository](https://github.com/azure/awesome-azd), but this collection of Python web Azure Developer CLI is unique insomuch that they provide a sample web application with feature parity across many different popular combinations of Azure resources and Python web frameworks.
 
 When you run an Python web azd template, you'll:
 
-- **Create a starter application** - Specifically, a website for a fictitious company named Relecloud. The project code features all of the best practices for the given Python frameworks and packages that are required for that particular stack of technologies. The template is intended to be a starting point for your application. You add or remove application logic and Azure resources as needed.
+- **Create a starter application** - Specifically, a website for a fictitious company named Relecloud. The project code features many best practices for the given Python frameworks and packages that are required for that particular stack of technologies. The template is intended to be a starting point for your application. You add or remove application logic and Azure resources as needed.
 - **Provision Azure resources** - The template provisions Azure resources for hosting your web app and database using Bicep, a popular infrastructure-as-code tool. Again, you modify the Bicep templates if you need to add more Azure services.
 - **Deploy the starter application to the newly provisioned Azure resources** - The starter application is automatically deployed so you can see it all working in minutes and decide what you want to modify.
 - **Optional: Set up a GitHub repository and a CI/CD pipeline** - If you like, the template contains the logic to set up a GitHub repository for you including a GitHub Actions or an Azure Pipelines CI/CD pipeline. Within minutes, you're able to make changes to the web project code. When you merge those changes to the *main* branch of your GitHub repo, the CI/CD pipeline publishes them to your new Azure hosting environment.
@@ -48,7 +48,7 @@ The following table lists the available Python web azd template monikers to use 
 |azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-fastapi-postgres-flexible-appservice)|
 |azure-fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-fastapi-postgres-aca)|
 |azure-flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-cosmos-postgres-aca)|
-|azuse-flask-postgres-aca|Flask|PostgreSQL|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-postgres-aca)|
+|azure-flask-postgres-aca|Flask|PostgreSQL|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-postgres-aca)|
 |azure-flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-flask-postgres-flexible-appservice)|
 
 ### How do the templates work?
@@ -57,7 +57,7 @@ You use various `azd` commands to perform tasks defined by an azd template. Thes
 
 The azd template comprises a GitHub repo containing the application code (Python code utilizing a popular web framework) and the infrastructure-as-code (namely, [Bicep](/azure/azure-resource-manager/bicep/overview)) files to create the Azure resources. It also contains the configuration required to set up a GitHub repo with a CI/CD pipeline.
 
-Each quickstart walks you through the steps to use a specific azd template. But in general, it only requires you to execute five command line instructions to production hosting environment, and local development environment:
+The quickstart walks you through the steps to use a specific azd template. It only requires you to execute five command line instructions to production hosting environment, and local development environment:
 
 1. `azd init --template <template name>` - creates a new project from a template and creates a copy of the application code on your local computer. The command prompts you to provide an environment name (like "myapp") that is used as a prefix int the naming of the deployed resources.
 2. `azd auth login` - logs you in to Azure. The command opens a browser window where you can sign in to Azure. After you sign in, the browser window closes and the command completes. The `azd auth login` command is only required the first time you use the Azure Developer CLI (azd) per session.
@@ -68,7 +68,7 @@ Each quickstart walks you through the steps to use a specific azd template. But 
 > [!TIP]
 > Watch the output for `azd` prompts that you need to answer. For example, after executing the `azd up` command, you may be prompted to select a subscription if you belong to more than one. Furthermore, you will be prompted to select a region. You can change the answers to prompts by editing the environment variables stored in the */.azure/* folder of the template.
 
-Once the template has finished, you have a personal copy of the original template where you can modify every file as needed. At a minimum, you modify the Python project code so that the project has your design and application logic. You can also modify the infrastructure-as-code configuration if you need to change the Azure resources.  See the section titled [What can I edit or delete?](#what-can-i-edit-or-delete)
+Once the template has finished, you have a personal copy of the original template where you can modify every file as needed. At a minimum, you can modify the Python project code so that the project has your design and application logic. You can also modify the infrastructure-as-code configuration if you need to change the Azure resources.  See the section titled [What can I edit or delete?](#what-can-i-edit-or-delete)
 
 **Optional: Modify and reprovision Azure resources**
 
@@ -100,7 +100,7 @@ You can accomplish many of resource creation and deployment steps using one of t
 
 - [Azure portal](https://portal.azure.com)
 - [Azure CLI](/cli/azure/get-started-with-azure-cli)
-- Visual Studio Code with the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+- Visual Studio Code with the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 Or if you're looking for an end-to-end tutorial that features Python web development frameworks, check out:
 

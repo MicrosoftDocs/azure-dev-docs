@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
-- Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+- Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
 - Use CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
 - Edit the web app on your local computer and use an azd command to redeploy.
 - Use an azd command to clean up Azure resources.
@@ -26,7 +26,7 @@ To learn more about these azd templates for Python web app development:
 
 ## Prerequisites
 
-Make sure you have an Azure account and available subscription.
+An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 
 You must have the following installed on your local computer:
 
@@ -124,17 +124,17 @@ terminal and answer any prompts:
    :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
 
    Copy the first URL after the word `- Endpoint:` and paste it into the location
-   bar of a web browser to see the sample Django project running live in Azure.
+   bar of a web browser to see the sample web app project running live in Azure.
 
 6. In a separate tab of your web browser, copy the second URL from the prevous step and paste it into
-   the location bar of a web browser to see all of the services in your new
-   resource group that have been deployed to host the sample Django project,
-   including the database, a key value to securely keep important environment
+   the location bar to see all of the services in your new
+   resource group that have been deployed to host the sample web app project,
+   including the database, a Key Vault to securely keep important environment
    variables and connection information private, and more.
 
 ## Edit and redeploy
 
-The next step is to make a small change to the Django app and then redeploy.
+The next step is to make a small change to the web app and then redeploy.
 
 1. Open Visual Studio Code and open the *azd-quickstart* folder created earlier.
 
@@ -162,7 +162,7 @@ The next step is to make a small change to the Django app and then redeploy.
 
    Since you are using Dev Containers and are connected remotely into the container's shell, do not use Visual Studio Code's Terminal pane to run azd commands.
 
-5. Once the command completes, refresh your web browser to see the update.
+5. Once the command completes, refresh your web browser to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
 
    You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 
