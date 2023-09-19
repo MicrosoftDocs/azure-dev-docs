@@ -30,8 +30,8 @@ Make sure you have an Azure account and available subscription.
 
 You must have the following installed on your local computer:
 
-1. [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+1. [Azure CLI](/cli/azure/install-azure-cli)
+1. [Azure Developer CLI](../azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Docker for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
@@ -164,7 +164,7 @@ The next step is to make a small change to the Django app and then redeploy.
 
 5. Once the command completes, refresh your web browser to see the update.
 
-   You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./quickstart-azd-templates.md#what-can-i-edit-or-delete)
+   You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 
 ## Clean up resources
 
@@ -189,14 +189,14 @@ If you see errors during `azd up`, try the following:
    - Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
    - When retrying the quickstart steps, choose a different location.
 
-See the [FAQ](./quickstart-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
+See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
 
 ## Next steps
 
-- [Learn more about the Python azd templates](./quickstart-azd-templates.md)
-- [Learn more about the `azd` commands.](./quickstart-azd-templates.md#how-does-it-work)
-- Learn what each of the folders and files in the project do and [what you can edit or delete?](./quickstart-azd-templates.md#what-can-i-edit-or-delete)
+- [Learn more about the Python web azd templates](./overview-azd-templates.md)
+- [Learn more about the `azd` commands.](./overview-azd-templates.md#how-does-it-work)
+- Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 - [Learn more about Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 - Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
-- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./quickstart-azd-templates.md)
+- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
 - Set up monitoring so that you can [Monitor your app using the Azure Developer CLI](/azure/developer/azure-developer-cli/monitor-your-app)
