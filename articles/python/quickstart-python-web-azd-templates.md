@@ -19,8 +19,8 @@ It should take less than 15 minutes to complete this tutorial. Upon completion, 
 
 To learn more about these azd templates for Python web app development:
 
-- [What is this?](./overview-azd-templates.md#what-is-this)
-- [How does this work?](./overview-azd-templates.md#how-does-it-work)
+- [What are these templates?](./overview-azd-templates.md#what-are-the-python-web-azd-templates)
+- [How do the templates work?](./overview-azd-templates.md#how-do-the-templates-work)
 - [Why would I want to do this?](./overview-azd-templates.md#why-would-i-want-to-use-this)
 - [What are my other options?](./overview-azd-templates.md#what-are-my-other-options)
 
@@ -194,7 +194,7 @@ See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more
 ## Next steps
 
 - [Learn more about the Python web azd templates](./overview-azd-templates.md)
-- [Learn more about the `azd` commands.](./overview-azd-templates.md#how-does-it-work)
+- [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
 - Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 - [Learn more about Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 - Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
