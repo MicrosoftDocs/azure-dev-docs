@@ -559,13 +559,7 @@ Follow the basic instructions for Swashbuckle integration, then modify as follow
     * [Swashbuckle.AspNetCore.Newtonsoft](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Newtonsoft).
     * [Microsoft.AspNetCore.Datasync.Swashbuckle](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.Swashbuckle).
 
-2. Add the following to the top of your `Program.cs` file:
-
-    ```csharp
-    using Microsoft.AspNetCore.Datasync.Swashbuckle;
-    ```
-
-3. Add a service to generate an OpenAPI definition to your `Program.cs` file:
+2. Add a service to generate an OpenAPI definition to your `Program.cs` file:
 
     ```csharp
     builder.Services.AddSwaggerGen(options => 
@@ -578,7 +572,7 @@ Follow the basic instructions for Swashbuckle integration, then modify as follow
     > [!NOTE]
     > The `AddDatasyncControllers()` method takes an optional `Assembly` that corresponds to the assembly that contains your table controllers.  The `Assembly` parameter is only required if your table controllers are in a different project to the service.
 
-4. Enable the middleware for serving the generated JSON document and the Swagger UI, also in `Program.cs`:
+3. Enable the middleware for serving the generated JSON document and the Swagger UI, also in `Program.cs`:
 
     ```csharp
     if (app.Environment.IsDevelopment())
