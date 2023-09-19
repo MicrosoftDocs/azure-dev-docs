@@ -1,64 +1,57 @@
 ---
-title: Start here for the fastest, easiest way to build and deploy Python web apps on Azure
-description: Index of the quickstart articles featuring azd templates to help you get started with a complete project in 15 minutes.
-ms.date: 8/18/2023
+title: Overview of the Python Web azd Templates
+description: Conceptual overview of the Python web azd templates providing contextual background on how to get the most out of the Python web azd template experience.
+ms.date: 9/18/2023
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# The fastest, easiest way to get started with Python web development on Azure
+# Overview of the Python Web azd Templates
 
-Azure Developer CLI (azd) templates are the fastest and easiest way to get started with building and deploying Python web applications to Azure. This article links to a collection of Python web quickstart articles, each article helps you find the azd template tailored to the specific web framework, database and hosting platform you want to use.
+The Python web Azure Developer CLI (azd) templates are the fastest and easiest way to get started with building and deploying Python web applications to Azure. This article provides contextual background information as you're getting started.
 
-## Index of quickstarts and templates
+The best way to get started is to [follow the quickstart](./quickstart-python-web-azd-templates.md) to create your first Python web application and deploy it to azure in minutes with azd templates.
 
-The following table provides links to quickstart articles with steps describing how to use a given azd template.
+## What are the Python web azd templates?
 
-|Template|Web Framework|Database|Hosting Platform|
-|----------|----------|----------|----------|
-|[django-cosmos-postgres-aca](#index-of-quickstarts-and-templates)|Django|Cosmos DB|Azure Container Apps|
-|[django-postgres-aca](./quickstart-azd-django-postgres-aca.md)|Django|PostgreSQL|Azure Container Apps|
-|[django-postgres-flexible-appservice](#index-of-quickstarts-and-templates)|Django|PostgreSQL|Azure App Service|
-|[fastapi-cosmos-postgres-aca](#index-of-quickstarts-and-templates)|FastAPI|Cosmos DB|Azure Container Apps|
-|[fastapi-postgres-flexible-appservice](#index-of-quickstarts-and-templates)|FastAPI|PostgreSQL|Azure App Service|
-|[fastapi-postgres-aca](#index-of-quickstarts-and-templates)|FastAPI|Cosmos DB|Azure Container Apps|
-|[flask-cosmos-postgres-aca](#index-of-quickstarts-and-templates)|Flask|Cosmos DB|Azure Container Apps|
-|[azd-flask-postgres](#index-of-quickstarts-and-templates)|Flask|PostgreSQL|Azure Container Apps|
-|[flask-postgres-flexible-appservice](#index-of-quickstarts-and-templates)|Flask|PostgreSQL|Azure App Service|
+There are many azd templates available on the [azd awesome GitHub repository](https://github.com/azure/awesome-azd), but this collection of Python web Azure Developer CLI is unique insomuch that the provide a sample web application with feature parity across many different popular combinations of Azure resources.
 
-### Github - find a home for this stuff
-
-You can check out the GitHub repository here: [https://github.com/Azure-Samples/azure-django-postgres-aca](https://github.com/Azure-Samples/azure-django-postgres-aca)
-
-> [!NOTE]
-> In this Quickstart, we use a Dev Container which bundles everything you'll need to get started. Alternatively, [this article](./quickstart-azd-templates.md) walks you through using azd templates and making changes to the project using your existing local Python web development environment without containers. Also, please see the README.md file in the root template directory for environment setup instructions.
-
-- Pull a sample Django web app to your local computer. The sample Django web app communicates with the Postgres database using SQLAlchemy.
-- Create instances of Azure Container Apps and Azure PostgreSQL, and configure security, environment variable values, etc.
-- Deploy the web app from your local computer to Azure Container Apps and Azure PostgreSQL.
-
-
-   > [!NOTE]
-   > If you do not want to use Dev Containers, please see the README.md file in the root directory for environment setup instructions. Also, [this article](./quickstart-azd-templates.md) walks you through setting up your environment and making changes to the project using your existing local Python web development environment without containers.
-
-### What is this?
-
-Each link in the table navigates to a quickstart tutorial that guides you on how to use a Python web azd template. When you run the template, you'll:
+When you run an Python web azd template, you'll:
 
 - **Create a starter application** - Specifically, a website for a fictitious company named Relecloud. The project code features all of the best practices for the given Python frameworks and packages that are required for that particular stack of technologies. The template is intended to be a starting point for your application. You add or remove application logic and Azure resources as needed.
 - **Provision Azure resources** - The template provisions Azure resources for hosting your web app and database using Bicep, a popular infrastructure-as-code tool. Again, you modify the Bicep templates if you need to add more Azure services.
 - **Deploy the starter application to the newly provisioned Azure resources** - The starter application is automatically deployed so you can see it all working in minutes and decide what you want to modify.
 - **Optional: Set up a GitHub repository and a CI/CD pipeline** - If you like, the template contains the logic to set up a GitHub repository for you including a GitHub Actions or an Azure Pipelines CI/CD pipeline. Within minutes, you're able to make changes to the web project code. When you merge those changes to the *main* branch of your GitHub repo, the CI/CD pipeline publishes them to your new Azure hosting environment.
 
+### Who is this for?
+
+The templates are intended to be used by experienced Python web developers who want to start building a new Python web application targeting Azure deployment.
+
 ### Why would I want to use this?
 
 Using the azd templates provides several benefits:
 
 - **Fastest possible start** - With your local development environment and hosting environment setups out of the way, you can focus on building your application within minutes.
-- **Easiest possible start** - Execute just a few easy-to-remember command line instructions to build out an entire development, hosting and deployment environment. The workflow is easy to use and easy to remember.
+- **Easiest possible start** - Execute just a few command line instructions to build out an entire local development, hosting and deployment environment. The workflow is easy to use and easy to remember.
 - **Build on Best practices** - Each template is built and maintained by Python on Azure industry veterans. Add your code following their design approaches to build on top of a solid foundation.
 
-### How does it work?
+### Index of templates
+
+The following table lists the available Python web azd template monikers to use with the `azd init` command, the technologies implemented in each template, and a link to the GitHub repository if you want to contribute changes.
+
+|Template|Web Framework|Database|Hosting Platform|Github Repo|
+|----------|----------|----------|----------|----------|
+|azure-django-cosmos-postgres-aca|Django|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-django-cosmos-postgres-aca)|
+|azure-django-postgres-aca|Django|PostgreSQL|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-aca)|
+|azure-django-postgres-flexible-appservice|Django|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-django-postgres-flexible-appservice)|
+|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-fastapi-cosmos-postgres-aca)|
+|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-fastapi-postgres-flexible-appservice)|
+|azure-fastapi-postgres-aca|FastAPI|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-fastapi-postgres-aca)|
+|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-cosmos-postgres-aca)|
+|azuse-flask-postgres-aca|Flask|PostgreSQL|Azure Container Apps|[repo](https://github.com/azure-samples/azure-flask-postgres-aca)|
+|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL|Azure App Service|[repo](https://github.com/azure-samples/azure-flask-postgres-flexible-appservice)|
+
+### How do the templates work?
 
 You use various `azd` commands to perform tasks defined by an azd template. These commands are covered in detail in [Get started using Azure Developer CLI](/azure/developer/azure-developer-cli/get-started).
 
@@ -66,7 +59,7 @@ The azd template comprises a GitHub repo containing the application code (Python
 
 Each quickstart walks you through the steps to use a specific azd template. But in general, it only requires you to execute five command line instructions to production hosting environment, and local development environment:
 
-1. `azd init --template <template-url-goes-here>` - creates a new project from a template and creates a copy of the application code on your local computer. The command prompts you to provide an environment name (like "my-app") that is used as a prefix int the naming of the deployed resources.
+1. `azd init --template <template name>` - creates a new project from a template and creates a copy of the application code on your local computer. The command prompts you to provide an environment name (like "myapp") that is used as a prefix int the naming of the deployed resources.
 2. `azd auth login` - logs you in to Azure. The command opens a browser window where you can sign in to Azure. After you sign in, the browser window closes and the command completes. The `azd auth login` command is only required the first time you use the Azure Developer CLI (azd) per session.
 3. `azd up` - provisions the cloud resources and deploys the app to those resources.
 4. `azd deploy` - deploys changes to the application source code to resources already provisioned by `azd up`.
@@ -83,25 +76,40 @@ If you want to change the Azure resources that are provisioned, you can edit the
 
 6. `azd provision` - reprovisions Azure resources to the desired state as defined in the Bicep files.
 
+### Set up a CI/CD Pipeline
+
+The Azure Developer CLI (azd) provides an easy way to setup a CI/CD pipeline for your new Python web application. Each time you merge commits or pull requests into your main branch, the CI/CD pipeline will automatically build and publish your changes to your Azure resources. Both GitHub Actions and Azure Pipelines are supported.
+
 **Optional : Automatically set up the GitHub Actions CI/CD pipeline**
 
 If you want to implement the GitHub Actions CI/CD pipeline functionality, use the following command:
 
-7. `azd pipeline config` - Allows you to designate a GitHub repository and settings to enable the CI\CD pipeline. Once configured, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
+1. `azd pipeline config` - Allows you to designate a GitHub repository and settings to enable the CI\CD pipeline. Once configured, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
 
 **Optional : Automatically set up the Azure Pipelines CI/CD pipeline**
 
 If you want to implement the Azure Pipelines functionality, use the following command:
 
-8. `azd pipeline config --provider azdo` - Allows you to designate a GitHub repository and settings to enable the Azure Pipelines CI\CD pipeline. Once configured, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
-
+1. `azd pipeline config --provider azdo` - Allows you to designate a GitHub repository and settings to enable the Azure Pipelines CI\CD pipeline. Once configured, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
 
 ### What are my other options?
 
-If you don't want to use azd templates, you can deploy your Python app to Azure and create Azure resources in many ways. For example, you can use the [Azure CLI](/azure/developer/python/azure-sdk-overview). For an example of how to deploy a Flask app to Azure using Azure CLI commands to create the Azure resources and deploy the app, see [Create and deploy a Flask Python web app to Azure with managed identity](./tutorial-python-managed-identity-cli.md).
+If you don't want to use azd templates, you can deploy your Python app to Azure and create Azure resources in many ways.
 
-You can also accomplish many of the deployment and resource creation steps with the [Azure portal](https://portal.azure.com) and Visual Studio Code with the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+You can accomplish many of resource creation and deployment steps using one of the following:
 
+- [Azure portal](https://portal.azure.com)
+- [Azure CLI](/cli/azure/get-started-with-azure-cli)
+- Visual Studio Code with the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+
+Or if you're looking for an end-to-end tutorial that features Python web development frameworks, check out:
+
+- [Deploy a Flask or FastAPI web app on Azure App Service](./tutorial-containerize-simple-web-app-for-app-service.md)
+- [Containerized Python web app on Azure with MongoDB](./tutorial-containerize-deploy-python-web-app-azure-01.md)
+
+### Do I have to use Dev Containers?
+
+No. The Python web azd templates utilize [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) by default. Dev Containers provide many benefits, but require some prerequisite knowledge and software. If you do not want to use Dev Containers and prefer to use your local development environment instead, please see the README.md file in the root directory of the sample app for environment setup instructions.
 
 ### What can I edit or delete?
 
