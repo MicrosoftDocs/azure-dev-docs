@@ -1,5 +1,5 @@
 ---
-title: "Contoso Real Estate serverless APIs"
+title: "Develop Contoso Real Estate API-first"
 description: Understand the Contoso Real Estate API-first approach with Azure Functions, OpenAPI and TypeScript.
 ms.topic: conceptual
 ms.date: 09/18/2023
@@ -40,7 +40,7 @@ The team decided to apply the API-first design approach where the API layer is a
 
 The Contoso Real Estate REST API is designed with [TypeSpec](https://microsoft.github.io/typespec/). **TypeSpec** is a language for describing cloud service APIs and generating other API description languages, client and service code, documentation, and other assets. TypeSpec provides highly extensible core language primitives that can describe API shapes common among REST, GraphQL, gRPC, and other protocols. TypeSpec allows you to define the API with TypeScript and generate the OpenAPI specification. 
 
-The Contoso Real Estate team appreciated writing the API specification in TypeSpec using TypeScript code to define the API. Designing and defining the API in TypeScript allowed for easy tool integration and linting instead of using an OpenAPI toolset:
+The Contoso Real Estate team appreciated writing the API specification in TypeSpec using TypeScript code to define the API. Designing and defining the API in TypeScript allowed for easy tool integration and linting:
 
 * Define API layer including routes, versions, and servers with succint type-safe code
 * Create and maintain enums and models including the error model
@@ -49,12 +49,12 @@ The Contoso Real Estate team appreciated writing the API specification in TypeSp
 
 ### Create OpenAPI specification from TypeSpec
 
-The following procedure creates one of the routes, `listings`, from the Contoso Real Estate API with TypeSpec and generates the OpenAPI specification.
+The following procedure creates one of the routes for the API, `listings`, with TypeSpec and generates the OpenAPI specification.
 
 1. Install the [TypeSpec CLI](https://www.npmjs.com/package/@typespec/compiler) with npm.
 
     ```bash
-    npm install -g typespec
+    npm install -g @typespec/compiler
     ```
 2. Create a new project with the `init` command.
 
@@ -62,9 +62,15 @@ The following procedure creates one of the routes, `listings`, from the Contoso 
     tsp init
     ```
 
-    The `main.tsp` file is created for you.
+    Select the **generic Rest API** and @typespec/rest, @typespec/openapi3 are selected. The profile files are created for you
 
-3. Edit the TypeSpec (TypeScript) file with your API definition. The following is an example of the `/api/listings` API endpoint for the Contoso Real Estate application.
+3. Install dependencies.
+
+    ```bash
+    tsp install
+    ```
+
+4. Edit the `main.tsp` TypeSpec (TypeScript) file with your API definition. The following is an example of the `/api/listings` API endpoint for the Contoso Real Estate application.
     
     ```typescript
     import "@typespec/rest";
@@ -206,13 +212,13 @@ The following procedure creates one of the routes, `listings`, from the Contoso 
     }
     ``````
 
-4. Generate the OpenAPI specification with the `generate` command.
+5. Compile the project to create the OpenAPI specification file.
 
     ```bash
-    tsp compile main.tsp
+    tsp compile main.tsp --emit @typespec/openapi3
     ```
 
-5. Review the verbose OpenAPI file:
+6. Review the verbose OpenAPI file found at `./tsp-output/@typespec/openapi3/openapi.yaml`:
 
     ```yaml
     openapi: 3.0.0
@@ -571,7 +577,7 @@ The following procedure creates one of the routes, `listings`, from the Contoso 
         variables: {}
     ```
 
-6. Add TypeSpec information for the remaining APIS:
+7. Add TypeSpec information for the remaining APIS:
 
     | API | Method| Description |
     | --- | --- | ---|
@@ -602,31 +608,51 @@ The Contoso Real Estate API is developed with [Azure Functions](https://docs.mic
 
 ### Services integration
 
-1. Install the Azure Functions core tools CLI.
+The API package is part of the Contoso Real Estate monorepo which has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
 
-    ```bash
-    npm install -g azure-functions-core-tools@4
-    ```
+Use the following steps to prepare to develop locally. 
 
-2. Create a new Azure Functions project.
-
-    ```bash
-    func init
-    ```
-
-3. Install the dependencies.
+1. Go to the Contoso Real Estate project on GitHub and select [fork](https://github.com/Azure-Samples/contoso-real-estate/fork). Complete the steps to fork the `main` branch into your own GitHub account.
+1. Open the forked repository in GitHub Codespaces: select **Code** then select **Codespaces** tab, then select **New codespace**.
+1. Wait for the Codespace to be created. This may take a few minutes.
+1. In the development environment, install the dependencies.
 
     ```bash
     npm install
-    ```   
-
-4. Create the `listings` API.
-
-    ```bash
-    func new --language typescript --template "HTTP trigger" --name "listings"
     ```
 
-5. Create a config object that collects secrets from environment variables.
+1. The databases haven't started yet and there is an additional one-time step to restore the PostGreSQL database. In the terminal, run the following command to start and restore the local databases.
+
+    ```bash
+    npm run start:services
+    ```
+
+    Wait until the database is restored before continuing.
+
+1. To run the Azure Functions API in the `./packages/API` directory, run the following command:
+
+    ```bash
+    npm run start:api
+    ```
+
+    Wait until the APIs are displayed in the terminal before continuing. 
+
+1. From the **Ports** tab, select the _globe_ icon on the **7071** port to open the API in a new browser tab.
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api/visual-studio-code-codespaces-select-port.png" alt-text="Screenshot of the Codespace showing the Port tab with the API port, 7071, highlighted." lightbox="./media/contoso-real-estate-serverless-api/visual-studio-code-codespaces-select-port.png":::
+
+1. The Functions app home page is played. 
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api/azure-functions-app-home-page.png" alt-text="Screenshot of Azure Functions app home page." lightbox="./media/contoso-real-estate-serverless-api/azure-functions-app-home-page.png":::
+ 
+1. Change the URL by adding `/api/listings` to the end to use the **listings** API. 
+1. When you see the listings returned, you know the PostGreSQL database is working and the Azure Functions API is getting data from the database. 
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png" alt-text="Screenshot of Azure Functions app home page." lightbox="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png":::
+
+## Understand how the Functions app connects to the database
+
+1. Create a config object that collects secrets from environment variables.
 
     ```typescript
     let configCache = {
