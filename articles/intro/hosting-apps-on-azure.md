@@ -16,7 +16,48 @@ Azure provides a variety of different ways to host your application depending on
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
 
-## Responsibility
+## Simplicity and control
+
+Azure hosting services are provided with two considerations: 
+
+* **Simplicity versus control**
+    * Simplier hosting platforms require less configuration and management but provide less control over the underlying infrastructure.  
+    * More complex hosting platforms require more configuration and management but provide more control over the underlying infrastructure.
+* **Cloud-native versus Azure-native**
+    * Cloud-native can be thought of as cloud-portible using open-source workloads. The applications you build can be deployed to any cloud provider. 
+    * Azure-native is specific to Azure with an investment in Azure-specific tools and technologies to manage that infrastructure.
+
+```mermaid
+flowchart LR
+
+    subgraph Resources
+
+    subgraph Account
+        Account1[sally]
+    end
+
+    subgraph Container
+
+        Container1[pictures 🖼️]
+        Container2[movies 🎥]
+    end
+
+    subgraph Blob
+        Blob1[img001.jpg 🖼️]
+        Blob2[img002.jpg 🖼️]
+        Blob3[mov1.avi 🎥]
+    end
+    end
+
+    Account1 --> Container1
+    Account1 --> Container2
+
+    Container1 --> Blob1
+    Container1 --> Blob2
+
+    Container2 --> Blob3
+``````
+
 
 Managed control hosting solutions are fully managed by Azure. You're responsible for environment configuration, your code and assets. Azure manages the underlying infrastructure including updates and patches.
 
