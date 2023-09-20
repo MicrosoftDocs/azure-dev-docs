@@ -602,9 +602,6 @@ The following procedure creates one of the routes for the API, `listings`, with 
 
 The Contoso Real Estate API is developed with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
 
-### Environment variables
-
-### Database integration
 
 ### Services integration
 
@@ -850,7 +847,7 @@ When working with Azure resources, instead of local databases, the environment v
 1. Restart the Functions app locally from the `./packages/api` subfolder.
 
     ```bash
-    func start
+    npm run start
     ```
 
 1. Open the Functions app in the browser from the **PORTS** tab and add the API route, `/api/listings` and get the same data list of properties as when you used the local database.
