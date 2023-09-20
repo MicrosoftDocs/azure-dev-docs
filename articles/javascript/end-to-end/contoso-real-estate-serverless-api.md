@@ -650,33 +650,92 @@ Use the following steps to prepare to develop locally.
 
     :::image type="content" source="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png" alt-text="Screenshot of Azure Functions app home page." lightbox="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png":::
 
-## Understand how the Functions app connects to the database
+1. An example of a single listing returned is: 
 
-1. Create a config object that collects secrets from environment variables.
-
-    ```typescript
-    let configCache = {
-        observability: {
-          connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
-          roleName: process.env.APPLICATIONINSIGHTS_NAME,
-        },
-        database: {
-          connectionString: process.env.AZURE_COSMOS_CONNECTION_STRING_KEY || "mongodb://mongo:MongoPass@localhost:27017",
-          database: process.env.AZURE_COSMOS_DATABASE_NAME || "contosoportal",
-        },
-        strapi: {
-          database: process.env.STRAPI_DATABASE_NAME || "strapi",
-          user: process.env.STRAPI_DATABASE_USERNAME || "postgres",
-          password: process.env.STRAPI_DATABASE_PASSWORD || "PostgresPass",
-          host: process.env.STRAPI_DATABASE_HOST || "localhost",
-          port: process.env.STRAPI_DATABASE_PORT ? Number(process.env.STRAPI_DATABASE_PORT) : 5432,
-          ssl: !process.env.STRAPI_DATABASE_HOST || process.env.STRAPI_DATABASE_SSL === "false" ? false : true,
-        },
-        stripeServiceUrl: process.env.STRIPE_SERVICE_URL || "http://localhost:4242",
-      };
+    ```json
+    {
+        "id": 2,
+        "title": "Practical loft downtown",
+        "slug": "great-location-close-to-downtown",
+        "created_at": "2021-01-13T09:00:00.000Z",
+        "bathrooms": "2",
+        "bedrooms": "4",
+        "description": "Beautiful home in a great neighborhood. This home has a large yard and is close to downtown.",
+        "type": "Condo",
+        "is_featured": "1",
+        "is_recommended": "1",
+        "photos": [
+          "pic-green.png",
+          "pic-orange.png",
+          "pic-purple.png",
+          "pic-green.png",
+          "pic-yellowgreen.png"
+        ],
+        "capacity": "4",
+        "ammenities": [
+          "wifi|Wi-Fi",
+          "outdoor_garden|Garden",
+          "balcony|Balcony"
+        ],
+        "reviews_stars": "2",
+        "reviews_number": "290",
+        "is_favorited": "0",
+        "address": [
+          "53",
+          "Hanvegib",
+          "MN",
+          "FL",
+          "Dupit River",
+          "62077",
+          "(27.7827",
+          "37.10311)"
+        ],
+        "fees": [
+          "25",
+          "56",
+          "65",
+          "1936",
+          "36",
+          "GBP:£"
+        ],
+        "updated_at": "2023-01-23T15:31:31.874Z",
+        "published_at": "2023-01-23T15:31:31.706Z",
+        "created_by_id": null,
+        "updated_by_id": null
+      }
     ``````
 
-6. Create an authorized connection to Azure Database for PostgreSQL flexible server using the `strapi` connection information from the previous step.
+1. Kill the terminal where you ran `npm run start:api`. 
+
+## Understand how the Functions app connects to the database
+
+For local development, including using the database services in the local environment, the configuration file is already using default values.
+
+1. Open the `./packages/API/config/index.ts` file to view the **getConfig** function.
+
+    ```typescript
+    configCache = {
+      observability: {
+        connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+        roleName: process.env.APPLICATIONINSIGHTS_NAME,
+      },
+      database: {
+        connectionString: process.env.AZURE_COSMOS_CONNECTION_STRING_KEY || "mongodb://mongo:MongoPass@localhost:27017",
+        database: process.env.AZURE_COSMOS_DATABASE_NAME || "contosoportal",
+      },
+      strapi: {
+        database: process.env.STRAPI_DATABASE_NAME || "strapi",
+        user: process.env.STRAPI_DATABASE_USERNAME || "postgres",
+        password: process.env.STRAPI_DATABASE_PASSWORD || "PostgresPass",
+        host: process.env.STRAPI_DATABASE_HOST || "localhost",
+        port: process.env.STRAPI_DATABASE_PORT ? Number(process.env.STRAPI_DATABASE_PORT) : 5432,
+        ssl: !process.env.STRAPI_DATABASE_HOST || process.env.STRAPI_DATABASE_SSL === "false" ? false : true,
+      },
+      stripeServiceUrl: process.env.STRIPE_SERVICE_URL || "http://localhost:4242",
+    } as AppConfig;
+    ``````
+
+1. View the `./packages/API/config/pgclient.ts` file to understand how the authenticated PostGreSQL client is created and returned. 
 
     ```typescript
     import pg from "pg";
@@ -703,7 +762,7 @@ Use the following steps to prepare to develop locally.
     };
     ```
 
-7. Edit the `listings.ts` file to get the listings from the PostgreSQL databases.
+1. View the `./packages/API/get-listings/index.ts` file to see the Functions API to get the listings from the PostgreSQL databases.
 
     ```typescript
     import { AzureFunction, Context, HttpRequest } from "@azure/functions";
@@ -767,97 +826,32 @@ Use the following steps to prepare to develop locally.
     export default getListings;
     ``````
 
-8. An example of a single listing returned is: 
+## Understand how the Functions app connects to Azure resources
 
-    ```json
-    {
-        "id": 2,
-        "title": "Practical loft downtown",
-        "slug": "great-location-close-to-downtown",
-        "created_at": "2021-01-13T09:00:00.000Z",
-        "bathrooms": "2",
-        "bedrooms": "4",
-        "description": "Beautiful home in a great neighborhood. This home has a large yard and is close to downtown.",
-        "type": "Condo",
-        "is_featured": "1",
-        "is_recommended": "1",
-        "photos": [
-          "pic-green.png",
-          "pic-orange.png",
-          "pic-purple.png",
-          "pic-green.png",
-          "pic-yellowgreen.png"
-        ],
-        "capacity": "4",
-        "ammenities": [
-          "wifi|Wi-Fi",
-          "outdoor_garden|Garden",
-          "balcony|Balcony"
-        ],
-        "reviews_stars": "2",
-        "reviews_number": "290",
-        "is_favorited": "0",
-        "address": [
-          "53",
-          "Hanvegib",
-          "MN",
-          "FL",
-          "Dupit River",
-          "62077",
-          "(27.7827",
-          "37.10311)"
-        ],
-        "fees": [
-          "25",
-          "56",
-          "65",
-          "1936",
-          "36",
-          "GBP:£"
-        ],
-        "updated_at": "2023-01-23T15:31:31.874Z",
-        "published_at": "2023-01-23T15:31:31.706Z",
-        "created_by_id": null,
-        "updated_by_id": null
-      }
-    ``````
+When working with Azure resources, instead of local databases, the environment variables used in the Functions app need to change. To get the new values, you need to provision the Azure resources with Azure Developer CLI. Part of the provisioning process creates an environment file with the environment variables and secrets.
 
-9. Provision the Azure resources which creates the database and loads the environment variables and secrets into `./.azure/` in a file prefixed with your environment name entered during the `azd provision` step.
+
+1. Provision the Azure resources which creates the database and loads the environment variables and secrets into `./.azure/` in a file prefixed with your environment name entered during the `azd provision` step.
 
     ```bash
     azd auth login
     azd provision
-    npm install
     ```
 
-    This step also creates the database and restores the data from the backup.
+    This step also creates the database and restores the data from the backup in the Azure Database for PostgreSQL flexible server.
 
-10. After provisioning, create an environment file for the Azure Functions app.
+1. To use the Azure resources with local development, create an environment file for the Azure Functions app with the Azure resources.
 
     ```bash
     cd ./packages/api
     npm run env
     ``````
 
-10 . Run only the Azure Functions locally from the `./packages/api` subfolder.
+1. Restart the Functions app locally from the `./packages/api` subfolder.
 
     ```bash
     func start
     ```
 
-## Infrastructure development
+1. Open the Functions app in the browser from the **PORTS** tab and add the API route, `/api/listings` and get the same data list of properties as when you used the local database.
 
-* azd auth login
-* azd provision creates resources and restores database
-* azd deploy deploys source code to Azure Functions
-
-## Resource provisioning
-
-The API is contained within an npm workspace and deployed with Azure Developer CLI.
-
-## Source code deployment
-
-* ENABLE_ORYX_BUILD
-* SCM_DO_BUILD_DURING_DEPLOYMENT
-
-## API operations
