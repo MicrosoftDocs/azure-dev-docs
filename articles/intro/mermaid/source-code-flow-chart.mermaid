@@ -1,5 +1,12 @@
+%%{
+    init: {
+        'theme':'forest'
+    }}%%
+
+
 flowchart TB
-    
+  
+
     subgraph DeveloperPath[Source code]
     end 
     subgraph  NoLowCode[No code \nor low code]
@@ -13,29 +20,32 @@ flowchart TB
     end
     subgraph Client[Client \nor Client + API]
     end
-    subgraph SWA[Static Web Apps \n + Azure Functions Apps]
-    end
-
-    subgraph Full[Full stack\nor Server\nor Automation]
-    end
-
-    subgraph PowerLogic[Power Apps \nor Logic Apps]
-    end
-
-    subgraph Server[App Service]
-    end
-
-    subgraph ContainerApps[Container Apps]
-    end
-
-    subgraph FunctionApps[Function Apps]
-    end
 
     subgraph Stateful[Stateful]
     end
 
     subgraph Stateless[Stateless]
     end
+    subgraph Full[Full stack\nor Server\nor Automation]
+    end
+    subgraph SuggestedService[ ]
+
+        subgraph SWA[Azure Static Web Apps \n + Azure Functions Apps]
+        end
+
+        subgraph PowerLogic[Power Apps \nor Logic Apps]
+        end
+
+        subgraph Server[Azure App Service\nAzure Spring Apps]
+        end
+
+        subgraph ContainerApps[Azure Container Apps]
+        end
+
+        subgraph FunctionApps[Azure Functions Apps]
+        end
+    end
+
 
     DeveloperPath --> NoLowCode 
     DeveloperPath --> Code 
@@ -52,3 +62,4 @@ flowchart TB
 
     Containers --> Stateful --> ContainerApps
     Containers --> Stateless --> FunctionApps
+

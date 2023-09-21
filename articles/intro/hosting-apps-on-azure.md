@@ -1,5 +1,5 @@
 ---
-title: Hosting applications on Azure
+title: Hosting applications on Azure asdf
 description: An overview of the different ways to host your applications on Azure
 keywords: azure app service, azure functions, azure virtual machines, azure container instances, azure container registry
 ms.service: azure-devops
@@ -24,57 +24,50 @@ Azure hosting services are provided with two considerations:
     * Simplier hosting platforms require less configuration and management but provide less control over the underlying infrastructure.  
     * More complex hosting platforms require more configuration and management but provide more control over the underlying infrastructure.
 * **Cloud-native versus Azure-native**
-    * Cloud-native can be thought of as cloud-portible using open-source workloads. The applications you build can be deployed to any cloud provider. 
-    * Azure-native is specific to Azure with an investment in Azure-specific tools and technologies to manage that infrastructure.
+    * Cloud-native can be thought of as cloud-portible using open-source workloads such as containers and open-source technologies such as Dapr. The applications you build can be deployed to any cloud provider. 
+    * Azure-native is specific to Azure with an investment in Azure-specific tools and technologies to manage that infrastructure. While these services include container workloads, they also include code-first, low-code, and infrastructure tooling specific to Azure with an emphasis on connecting and integration between Azure services.
 
-```mermaid
-flowchart LR
+## Simplified hosting
 
-    subgraph Resources
+**Simplified** hosting solutions are fully managed by Azure. You're responsible for the functionality such as code and environment configuration. Azure manages the underlying runtime and infrastructure including updates and patches. Simplified hosting is the Azure-native approach.
 
-    subgraph Account
-        Account1[sally]
-    end
+* [Logic Apps][azure-logic-apps]: Create and run automated workflows with little to no code.
+* [Power Automate][power-automate]: Use when you need to automate business processes and workflows.
+* [Azure Static Web Apps][azure-static-web-apps]: Deploy generated static web apps such as Blazor and React.
+* [Azure Functions Apps][azure-functions]: serverless code or container hosting. 
 
-    subgraph Container
+## Balaced hosting
 
-        Container1[pictures 🖼️]
-        Container2[movies 🎥]
-    end
+**Balanced** hosting solutions balance the need for simplicity with the need for control.  You're responsible for the functionality such as code and environment configuration. Azure manages the underlying runtime and infrastructure including updates and patches. You can also bring your own container to the service. Balanced hosting is both Azure-native and Cloud-native.
 
-    subgraph Blob
-        Blob1[img001.jpg 🖼️]
-        Blob2[img002.jpg 🖼️]
-        Blob3[mov1.avi 🎥]
-    end
-    end
+* [Azure App Service][azure-app-service]: Full-service web hosting including language runtimes, containers, and automation workloads.
+* [Azure Container Apps][azure-container-apps]: Serverless container hosting. 
+* [Azure Spring Apps][azure-spring-apps]: Migrate Spring Boot applications to the Azure cloud.
 
-    Account1 --> Container1
-    Account1 --> Container2
+## Controlled hosting
 
-    Container1 --> Blob1
-    Container1 --> Blob2
+**Controlled** hosting solutions give you full control over the underlying infrastructure.  You're responsible for updates and patches as well as your code, assets, and environment configuration. Controlled hosting is the cloud-native approach.
 
-    Container2 --> Blob3
-``````
+* [Azure Virtual Machines][azure-virtual-machines]: Full control of VM.
+* [Azure Kubernetes Service][azure-kubernetes]: Full control of Kubernetes cluster. 
 
+## Source-code hosting
 
-Managed control hosting solutions are fully managed by Azure. You're responsible for environment configuration, your code and assets. Azure manages the underlying infrastructure including updates and patches.
+For developers new to Azure who want to start **new development**, use the following chart to find the suggested hosting solution.
 
-* [Azure App Service][azure-app-service]: full-service web hosting
-* [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps
-* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
+:::image type="content" source="media/source-code-suggested-compute.png" alt-text="Diagram showing no code, low code in the first box, code in the second box and container in the thrid box with recommended services for each box.":::
 
-Full responsibility hosting solutions give you full control over the underlying infrastructure.  You're responsible for updates and patches as well as your code, assets, and environment configuration. 
+### No code or low code
 
-* [Azure Virtual Machines][azure-virtual-machines]: full control of VM
-* [Azure Kubernetes Service][azure-kubernetes]: full control of Kubernetes cluster
+Azure supports no-code solutions are part of its Azure-Cloud approach. 
 
-## Code vs container
+* [Logic Apps][azure-logic-apps]: Use a visual designer with prebuilt operations to develop a workflow for your enterprise and business-to-business scenarios.
+* [Power Automate][power-automate] such as [Power apps][power-apps]: Use when you need to automate business processes and workflows within the Microsoft 365 organization.
+
+### Code vs container
 
 **Low-code** hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure.
 
-* [Power apps][power-apps]: build apps without code
 * [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps
 * [Azure Functions][azure-functions]: deploy code functions in supported languages without having to manage the application infrastructure
 
@@ -84,6 +77,8 @@ Full responsibility hosting solutions give you full control over the underlying 
 * [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
 
 **Container-first** hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You're responsible for the compute used inside the container. The services which host containers move from managed control to full responsibility as well so you only take on the amount of container management you want.
+
+:::image type="content" source="media/simple-container-orchestration.png" alt-text="Diagram showing how to determine which service you should choose based on simple or advanced container workloads.":::
 
 Simple container hosting without orchestration includes:
 
@@ -107,16 +102,25 @@ Azure provides a container registry to store and manage your container images or
 |--|--|
 |[Azure Container Registry][azure-container-registry]|Use when you build and host your own container images, which can be triggered with source code commits and base image updates.|
 
-## Serverless and microservices
+## Serverless 
 
-**Serverless** hosting solutions are designed to run code without having to manage the underlying infrastructure. **Microservices** hosting solutions are designed to run small, independent services that work together to make up a larger application.  Microservices are typically deployed as containers.
+**Serverless** hosting solutions are designed to run code without having to manage the underlying infrastructure. 
 
 |Service|Use|
 |--|--|
-|[Azure Container Apps][azure-container-apps]|Use for serverless containerized application.|
-|[Azure Functions][azure-functions]|Use for serverless code applications.|
+|[Azure Container Apps][azure-container-apps]|Container hosting.|
+|[Azure Functions][azure-functions]|Code or container hosting.|
 
-## Compute location and availability
+## Microservices
+
+**Microservices** hosting solutions are designed to run small, independent services that work together to make up a larger application.  Microservices are typically deployed as containers.
+
+|Service|Use|
+|--|--|
+|[Azure Container Apps][azure-container-apps]|Use for serverless containerized microservices.|
+|[Azure Functions][azure-functions]|Use for serverless code or containerized microservices.|
+
+## Cloud edge
 
 ### Client compute
 
@@ -207,6 +211,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [azure-frontdoor]:/azure/frontdoor
 [azure-functions]:/azure/azure-functions
 [azure-kubernetes]:/azure/aks
+[azure-logic-apps]:/azure/logic-apps/logic-apps-overview
 [azure-service-bus-messaging]:/azure/service-bus-messaging
 [azure-service-fabric]:/azure/service-fabric
 [azure-spring-apps]:/azure/spring-apps
