@@ -1,7 +1,7 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 04/22/2023
+ms.date: 09/21/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -21,7 +21,7 @@ Create a Linux VM.
     az vm create \
       --resource-group myResourceGroup \
       --name myVM \
-      --image Debian \
+      --image Debian11 \
       --admin-username azureadmin \
       --generate-ssh-keys \
       --public-ip-sku Standard
@@ -42,7 +42,7 @@ Create a Linux VM.
         -ResourceGroupName 'myResourceGroup' `
         -Name 'myVM' `
         -Location 'East US' `
-        -Image Debian `
+        -Image Debian11 `
         -size Standard_B2s `
         -PublicIpAddressName myPubIP `
         -OpenPorts 80 `
