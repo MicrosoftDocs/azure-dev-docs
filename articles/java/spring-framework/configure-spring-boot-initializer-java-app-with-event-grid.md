@@ -30,6 +30,16 @@ The [Azure Event Grid](/azure/event-grid/) service is a highly scalable, fully m
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and select Java version 8 or higher.
 
+## Subscribe to custom topic
+
+Use the following steps to create an event subscription to tell the Event Grid to send events to the Service Bus Queue:
+
+1. In the Azure portal, navigate to your Event Grid Topic instance.
+1. Select **Event Subscriptions** on the toolbar.
+1. On the **Create Event Subscription page**, enter a **name** value for the event subscription.
+1. For **Endpoint Type**, select **Service Bus Queue**.
+1. Choose **Select an endpoint** and then select the Service Bus Queue instance you created earlier.
+
 ## Send an event by Azure Event Grid and receive by Azure Service Bus Queue
 
 With an Azure Event Grid resource, you can send an event using Spring Cloud Azure Event Grid. With an Azure Service Bus Queue resource as an event handler, you can receive the event using Spring Cloud Azure Stream Binder for Service Bus.
