@@ -61,6 +61,8 @@
       items: 
       - name: Getting Started
         href: end-to-end/contoso-real-estate-developer-solutions.md
+      - name: API-first development with TypeSpec
+        href: end-to-end/contoso-real-estate-typespec.md
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
 
