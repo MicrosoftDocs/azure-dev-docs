@@ -1,0 +1,54 @@
+flowchart TB
+    
+    subgraph DeveloperPath[Source code]
+    end 
+    subgraph  NoLowCode[No code \nor low code]
+    end
+    subgraph Code[Code]
+    end
+    subgraph Containers[Container]
+    end
+
+    subgraph Enterprise[Enterprise or \nBusiness to business]
+    end
+    subgraph Client[Client \nor Client + API]
+    end
+    subgraph SWA[Static Web Apps \n + Azure Functions Apps]
+    end
+
+    subgraph Full[Full stack\nor Server\nor Automation]
+    end
+
+    subgraph PowerLogic[Power Apps \nor Logic Apps]
+    end
+
+    subgraph Server[App Service]
+    end
+
+    subgraph ContainerApps[Container Apps]
+    end
+
+    subgraph FunctionApps[Function Apps]
+    end
+
+    subgraph Stateful[Stateful]
+    end
+
+    subgraph Stateless[Stateless]
+    end
+
+    DeveloperPath --> NoLowCode 
+    DeveloperPath --> Code 
+    DeveloperPath --> Containers 
+
+    NoLowCode --> Enterprise --> PowerLogic
+    Code --> Client
+    Code --> Full
+
+
+    Full --> Server
+
+    Client --> SWA
+
+    Containers --> Stateful --> ContainerApps
+    Containers --> Stateless --> FunctionApps
