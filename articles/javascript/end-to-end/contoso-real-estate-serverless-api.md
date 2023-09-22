@@ -7,9 +7,9 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to develop a API layer with modern tools so that I can build scalable and efficient APIs that can handle high traffic loads and integrate with other Azure services seamlessly.
 ---
 
-## API development with Azure Functions
+# API development with Azure Functions
 
-The Contoso Real Estate API is developed with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
+The Contoso Real Estate API is developed with [Azure Functions](/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
 
 
 ### Services integration
@@ -54,7 +54,7 @@ Use the following steps to prepare to develop locally.
 1. Change the URL by adding `/api/listings` to the end to use the **listings** API. 
 1. When you see the listings returned, you know the PostGreSQL database is working and the Azure Functions API is getting data from the database. 
 
-    :::image type="content" source="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png" alt-text="Screenshot of Azure Functions app home page." lightbox="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png":::
+    :::image type="content" source="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png" alt-text="Screenshot of Azure Functions property list as JavaScript Object Notation (JSON) result." lightbox="./media/contoso-real-estate-serverless-api/contoso-real-estate-property-listings-json-result.png":::
 
 1. An example of a single listing returned is: 
 
