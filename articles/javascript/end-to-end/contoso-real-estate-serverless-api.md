@@ -1,15 +1,15 @@
 ---
-title: "Develop Contoso Real Estate Serverless development"
-description: Understand the Contoso Real Estate serverless development with Azure Functions.
+title: "Tutorial: Develop Contoso Real Estate Serverless APIs"
+description: Understand the Contoso Real Estate serverless API development with Azure Functions, which connect to PostGreSQL for property listings.
 ms.topic: tutorial
-ms.date: 09/18/2023
+ms.date: 09/22/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to develop a API layer with modern tools so that I can build scalable and efficient APIs that can handle high traffic loads and integrate with other Azure services seamlessly.
 ---
 
-# API development with Azure Functions
+# Tutorial: API development with Azure Functions
 
-The Contoso Real Estate API is developed with [Azure Functions](/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
+In this tutorial, you will learn how the Contoso Real Estate API is developed with [Azure Functions](/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
 
 
 ### Services integration
