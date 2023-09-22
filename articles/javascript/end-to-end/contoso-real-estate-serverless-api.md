@@ -14,7 +14,7 @@ The Contoso Real Estate API is developed with [Azure Functions](/azure/azure-fun
 
 ### Services integration
 
-The API package is part of the Contoso Real Estate monorepo which has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
+The API package is part of the Contoso Real Estate monorepo, which has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
 
 Use the following steps to prepare to develop locally. 
 
@@ -27,7 +27,7 @@ Use the following steps to prepare to develop locally.
     npm install
     ```
 
-1. The databases haven't started yet and there is an additional one-time step to restore the PostGreSQL database. In the terminal, run the following command to start and restore the local databases.
+1. The databases haven't started yet and there's an additional one-time step to restore the PostGreSQL database. In the terminal, run the following command to start and restore the local databases.
 
     ```bash
     npm run start:services
@@ -237,7 +237,7 @@ For local development, including using the database services in the local enviro
 When working with Azure resources, instead of local databases, the environment variables used in the Functions app need to change. To get the new values, you need to provision the Azure resources with Azure Developer CLI. Part of the provisioning process creates an environment file with the environment variables and secrets.
 
 
-1. Provision the Azure resources which creates the database and loads the environment variables and secrets into `./.azure/` in a file prefixed with your environment name entered during the `azd provision` step.
+1. Provision the Azure resources, which create the database and loads the environment variables and secrets into `./.azure/` in a file prefixed with your environment name entered during the `azd provision` step.
 
     ```bash
     azd auth login
