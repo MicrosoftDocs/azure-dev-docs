@@ -55,7 +55,7 @@ In this article, you learn how to:
     az vm create \
     --resource-group QuickstartAnsible-rg \
     --name QuickstartAnsible-vm \
-    --image OpenLogic:CentOS:7.7:latest \
+    --image CentOS85Gen2 \
     --admin-username azureuser \
     --admin-password <password>
     ```
@@ -72,7 +72,7 @@ In this article, you learn how to:
     New-AzVM `
     -ResourceGroupName QuickstartAnsible-rg `
     -Location eastus `
-    -Image OpenLogic:CentOS:7.7:latest `
+    -Image CentOS85Gen2 `
     -Name QuickstartAnsible-vm `
     -OpenPorts 22 `
     -Credential $credential
