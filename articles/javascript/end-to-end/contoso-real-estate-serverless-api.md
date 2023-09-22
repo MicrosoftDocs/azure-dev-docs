@@ -12,7 +12,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 In this tutorial, you will learn how the Contoso Real Estate API is developed with [Azure Functions](/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
 
 
-## Services integration
+## Start API in Codespaces against local database
 
 The API package is part of the Contoso Real Estate monorepo, which has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
 
@@ -232,7 +232,7 @@ For local development, including using the database services in the local enviro
     export default getListings;
     ``````
 
-## Understand how the Functions app connects to Azure resources
+## Start API in Codespaces against Azure database
 
 When working with Azure resources, instead of local databases, the environment variables used in the Functions app need to change. To get the new values, you need to provision the Azure resources with Azure Developer CLI. Part of the provisioning process creates an environment file with the environment variables and secrets.
 
