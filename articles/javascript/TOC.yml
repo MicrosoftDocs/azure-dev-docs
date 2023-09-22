@@ -57,7 +57,7 @@
       displayName: Codespaces, GitHub, azd, best practices, enterprise
     - name: User Scenarios
       href: end-to-end/contoso-real-estate-user-scenarios.md
-    - name: Solutions
+    - name: Solution
       items: 
       - name: Getting Started
         href: end-to-end/contoso-real-estate-developer-solutions.md
