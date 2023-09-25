@@ -198,6 +198,18 @@ This is a known issue. While we address this issue, try the following command:
 git update-index --chmod=+x src/api/mvnw && git commit -m "Fix executable bit permissions" && git push
 ```
 
+## `failed packaging service 'api': failed invoking action 'package', failed to run NPM script build, signal: segmentation fault` failure after upgrading `azd` on Apple Silicon (M1/M2)
+
+In some situations, upgrading from the x86_64 version of `azd` to an ARM64 binary may result in failures for templates
+which have been built with the x86_64 version of `azd`. This is because the template uses a version of
+`v8-compile-cache` which may try to load bytecode built under x86_64 into an ARM64 process.
+
+To fix this issue, upgrade the `v8-compile-cache` package in the affected project:
+
+1. Change directory to the service which failed (`src/api` in the case of `failed packaging service 'api'`)
+2. Run `npm upgrade v8-compile-cache`
+3. Change directory to the root of the repo and run the `azd` command (e.g. `azd package` or `azd up`) again
+
 ## `azd pipeline config` failure due to Conditional Access Policy
 
 When running `azd pipeline config`, you may receive an error like the following:
