@@ -28,6 +28,7 @@
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
 | Confidential Ledger | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0/sdk/confidentialledger/confidential-ledger-rest/) |
 | Container Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/container-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/) |
+| Content Safety | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1) |  |  |
 | Core - Client - Abort Controller | npm [1.1.0](https://www.npmjs.com/package/@azure/abort-controller/v/1.1.0) | [docs](/javascript/api/overview/azure/abort-controller-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.1.0/sdk/core/abort-controller/) |
 | Core - Client - AMQP | npm [3.3.0](https://www.npmjs.com/package/@azure/core-amqp/v/3.3.0) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.3.0/sdk/core/core-amqp/) |
 | Core - Client - Auth | npm [1.5.0](https://www.npmjs.com/package/@azure/core-auth/v/1.5.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.5.0/sdk/core/core-auth/) |
@@ -407,7 +408,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230922.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230922.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20230924.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230924.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -436,11 +437,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.8.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.8.1) |  |  |
+| @azure-tools/cadl-ranch | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.0) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.3.0) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.7.0) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.22.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.22.1) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.22.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.22.2) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -487,7 +488,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.56](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.56) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.648](https://www.npmjs.com/package/@autorest/powershell/v/4.0.648) |  | GitHub [4.0.648](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.649](https://www.npmjs.com/package/@autorest/powershell/v/4.0.649) |  | GitHub [4.0.649](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.7.7](https://www.npmjs.com/package/@autorest/python/v/6.7.7) |  | GitHub [6.7.7](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
