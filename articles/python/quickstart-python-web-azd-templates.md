@@ -126,6 +126,9 @@ terminal and answer any prompts:
    azd up
    ```
 
+   >[!IMPORTANT]
+   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
+
    Follow the instructions when prompted to choose Azure Subscription to use for payment, then
    select an Azure location to use. Choose a region that is close to you geographically.
 
@@ -137,6 +140,9 @@ terminal and answer any prompts:
    - Choose a different location.
 
    If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
+
+   >[!IMPORTANT]
+   >Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
 
 6. When `azd up` completes successfully, the following output is displayed:
 
