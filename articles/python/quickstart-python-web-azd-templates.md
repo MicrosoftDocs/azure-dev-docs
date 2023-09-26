@@ -39,11 +39,11 @@ You must have the following installed on your local computer:
 
 Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
 
-1. Select a template name (first column) from the following list of templates in the tables below. You will use this during the `azd init` step in the next section.
+1. Select a template name (first column) from the following list of templates in the following tables. You'll use the template name during the `azd init` step in the next section.
 
 **Django**
 
-|Template|Web Framework|Database|Hosting Platform|Github Repo|
+|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
 |azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
 |azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)|
@@ -53,7 +53,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 **FastAPI**
 
-|Template|Web Framework|Database|Hosting Platform|Github Repo|
+|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
 |azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
 |azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)|
@@ -63,7 +63,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 **Flask**
 
-|Template|Web Framework|Database|Hosting Platform|Github Repo|
+|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
 |azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
 |azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)|
@@ -73,31 +73,31 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
 |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
 
-   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you hope to contributing changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
+   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
 
 ## Run the template
 
 Running an azd template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
 
-1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azdtest*. This will store the local git repository containing the project files. Then, change into that directory using the `cd` command.
+1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azdtest*. Then, change into that directory using the `cd` command.
 
    ```shell
    mkdir azdtest
    cd azdtest
    ```
 
-   Do not use Visual Studio Code's Terminal for this quickstart.
+   Don't use Visual Studio Code's Terminal for this quickstart.
 
-2. To setup the local development environment, enter the following commands in your terminal and answer any prompts:
+2. To set up the local development environment, enter the following commands in your terminal and answer any prompts:
 
    ```shell
    azd init --template <template name>
    ```
 
-   Substitute `<template name>` with one of the templates from the [tables above](#choose-a-template), such as *azure-django-postgres-aca* for example.
+   Substitute `<template name>` with one of the templates from the [tables](#choose-a-template) you selected in a previous step, such as *azure-django-postgres-aca* for example.
 
    When prompted for an environment name, use *azdtest* or any other
-   name. This will be used when naming Azure resource groups and resources. For
+   name. The environment name is used when naming Azure resource groups and resources. For
    best results, use a short name, lower case latters, no special characters.
 
 3. To authenticate azd to your Azure account, enter the following commands in your terminal and follow the prompt:
@@ -106,12 +106,12 @@ Running an azd template is the same across languages and frameworks. And, the sa
    azd auth login
    ```
 
-   You'll be prompted to "Pick an account" or log into your Azure account. Once
-   you have successfully authenticated, you will see a web page with the message:
+   Follow the instructions when prompted to "Pick an account" or log into your Azure account. Once
+   you have successfully authenticated, the following message is displayed in a web page:
    "Authentication complete. You can return to the application. Feel free to close
    this browser tab."
 
-   When you close the tab, you'll see a message in your shell:
+   When you close the tab, the shell displays the message:
 
    ```output
    Logged in to Azure.
@@ -126,12 +126,11 @@ terminal and answer any prompts:
    azd up
    ```
 
-   You'll be prompted to select an Azure Subscription to use for payment, then
+   Follow the instructions when prompted to choose Azure Subscription to use for payment, then
    select an Azure location to use. Choose a region that is close to you geographically.
 
    Executing `azd up` could take several minutes since it's provisioning and
-   deploying multiple Azure services. You'll see the progress. Look out for errors
-   during this process. If you see errors, try the following:
+   deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, try the following to fix the problem:
 
    - Delete the *azd-quickstart* folder and the quickstart instructions from the beginning.
    - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
@@ -139,18 +138,16 @@ terminal and answer any prompts:
 
    If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
-6. When `azd up` completes successfully, you will see output that resembles the following:
+6. When `azd up` completes successfully, the following output is displayed:
 
    :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
 
    Copy the first URL after the word `- Endpoint:` and paste it into the location
    bar of a web browser to see the sample web app project running live in Azure.
 
-7. In a separate tab of your web browser, copy the second URL from the prevous step and paste it into
-   the location bar to see all of the services in your new
-   resource group that have been deployed to host the sample web app project,
-   including the database, a Key Vault to securely keep important environment
-   variables and connection information private, and more.
+7. Open a new tab in your web browser, copy the second URL from the previous step and paste it into
+   the location bar. The Azure Portal displays all of the services in your new
+   resource group that have been deployed to host the sample web app project.
 
 ## Edit and redeploy
 
@@ -180,7 +177,7 @@ The next step is to make a small change to the web app and then redeploy.
    azd deploy
    ```
 
-   Since you are using Dev Containers and are connected remotely into the container's shell, do not use Visual Studio Code's Terminal pane to run azd commands.
+   Since you're using Dev Containers and are connected remotely into the container's shell, don't use Visual Studio Code's Terminal pane to run azd commands.
 
 5. Once the command completes, refresh your web browser to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
 
@@ -201,7 +198,7 @@ The next step is to make a small change to the web app and then redeploy.
 
 ## Troubleshooting
 
-If you see errors during `azd up`, try the following:
+If you see errors during `azd up`, try the following steps:
 
 - Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
 - Delete the *azdtest* folder on your local computer.
