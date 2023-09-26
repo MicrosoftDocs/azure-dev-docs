@@ -21,7 +21,7 @@ This article provides solutions to common problems that you might encounter when
 
 When the number of `EventProcessorClient` instances changes (that is, are added or removed), the running instances try to load-balance partitions between themselves. For a few minutes after the number of processors changes, partitions are expected to change owners. After it's balanced, partition ownership should be stable and change infrequently. If partition ownership is changing frequently when the number of processors is constant, it likely indicates a problem. We recommended that you file a GitHub issue with logs and a repro.
 
-Partition ownership is determined via the ownership records in the `CheckpointStore`.  Every load balancing interval it will:
+Partition ownership is determined via the ownership records in the `CheckpointStore`. On every load balancing interval it will:
 
 1. Fetch the latest ownership records.
 2. Check the records to see which ones have not updated its timestamp within the partition ownership expiration interval.  Records matching this criteria are considered.
