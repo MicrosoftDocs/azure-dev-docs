@@ -211,7 +211,7 @@ If you see errors during `azd up`, try the following:
 
 See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
 
-## Next steps
+## Related Content
 
 - [Learn more about the Python web azd templates](./overview-azd-templates.md)
 - [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
