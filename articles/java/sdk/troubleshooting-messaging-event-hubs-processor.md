@@ -24,7 +24,7 @@ When the number of `EventProcessorClient` instances changes (that is, are added 
 Partition ownership is determined via the ownership records in the `CheckpointStore`. On every load balancing interval it will:
 
 1. Fetch the latest ownership records.
-2. Check the records to see which ones have not updated its timestamp within the partition ownership expiration interval.  Records matching this criteria are considered.
+2. Check the records to see which records have not updated their timestamp within the partition ownership expiration interval. Only records matching this criteria are considered.
    1. If there are any unowned partitions and the load is not balanced between instances of `EventProcessorClient`, the event processor client will try to claim a partition.
 3. Update the ownership record for the partitions it owns that have an active link to that partition.
 
