@@ -14,7 +14,7 @@ The best way to get started is to [follow the quickstart](./quickstart-python-we
 
 ## What are the Python web azd templates?
 
-There are many azd templates available on the [awesome azd GitHub repository](https://github.com/azure/awesome-azd), but this collection of Python web Azure Developer CLI is unique insomuch that they provide a sample web application with feature parity across many different popular combinations of Azure resources and Python web frameworks.
+There are many azd templates available on the [Awesome AZD Templates gallery](https://azure.github.io/awesome-azd/), but this collection of Python web Azure Developer CLI is unique insomuch that they provide a sample web application with feature parity across many different popular combinations of Azure resources and Python web frameworks.
 
 When you run an Python web azd template, you'll:
 
