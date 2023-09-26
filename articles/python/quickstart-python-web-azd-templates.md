@@ -117,7 +117,9 @@ Running an azd template is the same across languages and frameworks. And, the sa
    Logged in to Azure.
    ```
 
-4. To create the necessary Azure resources, enter the following commands in your
+4. Ensure that Docker Desktop is open and running in the background before attempting the next step.
+
+5. To create the necessary Azure resources, enter the following commands in your
 terminal and answer any prompts:
 
    ```shell
@@ -137,14 +139,14 @@ terminal and answer any prompts:
 
    If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
-5. When `azd up` completes successfully, you will see output that resembles the following:
+6. When `azd up` completes successfully, you will see output that resembles the following:
 
    :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
 
    Copy the first URL after the word `- Endpoint:` and paste it into the location
    bar of a web browser to see the sample web app project running live in Azure.
 
-6. In a separate tab of your web browser, copy the second URL from the prevous step and paste it into
+7. In a separate tab of your web browser, copy the second URL from the prevous step and paste it into
    the location bar to see all of the services in your new
    resource group that have been deployed to host the sample web app project,
    including the database, a Key Vault to securely keep important environment
