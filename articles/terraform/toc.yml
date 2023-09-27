@@ -79,6 +79,10 @@
         items:
           - name: Create a service
             href: /azure/api-management/quickstart-terraform
+      - name: Application Gateway
+        items:
+          - name: Create an application gateway
+            href: /azure/application-gateway/quick-create-terraform
       - name: Batch
         items:
           - name: Create an account
@@ -187,8 +191,6 @@
             href: provision-infrastructure-using-azure-deployment-slots.md
       - name: Containers
         items:
-          - name: Deploy Azure Application Gateway v2
-            href: /azure/application-gateway/quick-create-terraform
           - name: Application Gateway ingress controller in AKS
             href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
       - name: Database

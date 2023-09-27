@@ -99,10 +99,10 @@ landingContent:
             url: /azure/aks/learn/quick-kubernetes-deploy-terraform
           - text: Create an ACI instance with a public IP address
             url: /azure/container-instances/container-instances-quickstart-terraform
-      - linkListType: how-to-guide
-        links:
           - text: Deploy Azure Application Gateway v2
             url: /azure/application-gateway/quick-create-terraform
+      - linkListType: how-to-guide
+        links:
           - text: Create an Application Gateway ingress controller in AKS
             url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
