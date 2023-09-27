@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: v-yeyonghui
 ms.date: 09/11/2023
 ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure
+ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Use Event Hubs in Spring applications
