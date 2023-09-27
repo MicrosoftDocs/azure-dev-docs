@@ -3,7 +3,7 @@ title: GraphQL Developer Guide on Azure
 description: Bring or build your GraphQL applications on Azure, host your existing GraphQL applications or build GraphQL endpoints to data without changes to your code.
 ms.topic: conceptual
 ms.date: 09/06/2023
-ms.custom: devx-track-js, devx-graphql
+ms.custom: devx-graphql
 #CustomerIntent: As a developer new to Azure, I want to understand how to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---
 
