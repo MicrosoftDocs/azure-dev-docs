@@ -140,11 +140,11 @@ The contents of each azd template can vary depending on the type of project and 
 |/.cruft.json|template generation file|Used internally to generate the azd templates. You can safely delete this file.|
 |/.gitattributes|git attributes|Provides git with important configuration about handling files and folders. You can modify this file as needed.|
 |/.gitignore|git ignore|Tells git to ignore files and folders from being included in the repository. You can modify this file as needed.|
-|/azure.yaml|azd configuration file|Contains the configuration settings for `azd up`. This file MUST NOT be deleted.|
+|/azure.yaml|azd configuration file|Contains the configuration settings for `azd up` declaring what services and project folders will be deployed. This file MUST NOT be deleted.|
 |/*.md|markdown files|There are several markdown files for different purposes. You can safely delete these files.|
 |/docker-compose.yml|Docker compose|Creates the container package for the application before it's deployed to Azure.|
 |/pyproject.toml|Python build system|Contains the build system requirements of Python projects. You can modify this file to including your preferred tools (for example, to use a linter and unit testing framework).|
-|/requirements-dev.in|pip-tools requirements file|Used to create a development environment version of the requirements using various pip-tools commands. You can modify this file to include other packages as needed.|
+|/requirements-dev.in|pip requirements file|Used to create a development environment version of the requirements using `pip install -r` command. You can modify this file to include other packages as needed.|
 
 > [!TIP]
 > Use good version control practices so you are able to get back to a point in time when the project was working in case you inexplicably break something.
