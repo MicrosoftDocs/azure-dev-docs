@@ -264,5 +264,4 @@ This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can con
 
 * Continue to learn and use the [Microsoft Identity](/azure/active-directory/develop/v2-overview) Provider
     * [MSAL SDK on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) includes a huge number of samples. 
-    * [Tutorial: Sign in users and call the Microsoft Graph API from a React single-page app (SPA) using auth code flow](/azure/active-directory/develop/tutorial-v2-react)
     * [Use App service easy auth](/azure/app-service/scenario-secure-app-authentication-app-service-as-user)
