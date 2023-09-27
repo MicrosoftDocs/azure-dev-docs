@@ -26,7 +26,7 @@ You can use the following modules independently or combine them for different us
 
 - [Spring Cloud Azure Stream Event Hubs Binder](#use-spring-cloud-azure-stream-event-hubs-binder) enables you to use Event Hubs as a messaging middleware in Spring Cloud Stream applications.
 
-- [Spring Kafka with Azure Event Hubs](#use-spring-kafka-with-azure-event-hubs) enables you to use [Spring Kafka](https://docs.spring.io/spring-kafka/reference/html/) to send messages to and receive messages from Event Hubs.
+- [Spring Kafka with Azure Event Hubs](#use-spring-kafka-with-azure-event-hubs) enables you to use [Spring Kafka](https://docs.spring.io/spring-kafka/reference/index.html) to send messages to and receive messages from Event Hubs.
 
 - [Spring Cloud Stream Kafka Binder with Azure Event Hubs](#use-spring-cloud-stream-kafka-binder-with-azure-event-hubs) enables you to send and receive message via Spring Cloud Stream Kafka Binder with Event Hubs.
 
