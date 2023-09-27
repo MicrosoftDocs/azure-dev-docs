@@ -8,6 +8,12 @@
   items:
   - name: Set up local web dev environment
     href: configure-python-web-app-local-environment.md  
+  - name: Python Web azd Templates
+    items:
+      - name: Overview
+        href: overview-azd-templates.md
+      - name: Quickstart
+        href: quickstart-python-web-azd-templates.md
   - name: Web app solutions
     items:
     - name: Django/Flask
