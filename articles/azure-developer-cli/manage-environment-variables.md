@@ -6,7 +6,7 @@ ms.author: alexwolf
 ms.date: 05/11/2023
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, devx-track-bicep
+ms.custom: devx-track-azdevcli
 ---
 
 # Manage environment variables
