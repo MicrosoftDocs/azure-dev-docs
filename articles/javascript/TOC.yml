@@ -98,8 +98,6 @@
         href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
       - name: Vanilla JS
         href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-      - name: "React: Add a Login button for Microsoft Identity provider" 
-        href: /azure/active-directory/develop/tutorial-v2-react
       - name: "Angular: Add a Login button for Microsoft Identity provider"
         href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
       - name: Add custom auth with MSAL.js
@@ -188,8 +186,6 @@
       items: 
       - name: Vanilla JS
         href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-      - name: "React: Add a Login button for Microsoft Identity provider" 
-        href: /azure/active-directory/develop/tutorial-v2-react
       - name: "Angular: Add a Login button for Microsoft Identity provider"
         href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
     - name: Azure Functions

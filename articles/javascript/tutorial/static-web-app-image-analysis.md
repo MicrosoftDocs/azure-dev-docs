@@ -354,4 +354,4 @@ Add methods to the React `app.js`. The image analysis and display of results are
 
 ## Next steps
 
-* [Add a login button for Microsoft Identity](/azure/active-directory/develop/tutorial-v2-react) 
+* [SPA that signs in users and calls web API](/azure/active-directory/develop/scenario-spa-overview) 
