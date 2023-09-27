@@ -102,7 +102,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure Application Gateway v2
-            url: /azure/application-gateway/quick-create-terraform.md
+            url: /azure/application-gateway/quick-create-terraform
           - text: Create an Application Gateway ingress controller in AKS
             url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
