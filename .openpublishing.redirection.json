@@ -1190,6 +1190,10 @@
       {
         "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
         "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
+      },
+      {
+        "source_path":"articles/terraform/deploy-application-gateway-v2.md",
+        "redirect_url": "/azure/application-gateway/quick-create-terraform"
       }
     ]
   }
