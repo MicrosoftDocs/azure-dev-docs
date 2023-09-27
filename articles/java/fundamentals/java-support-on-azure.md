@@ -38,6 +38,8 @@ For the following services the Java runtime is managed, or provided by default, 
 * Azure Cognitive Search
 * Azure Cloud Shell
 * Azure DevOps
+* Azure Managed Instance for Apache Cassandra
+* Azure Cosmos DB for Apache Cassandra
 
 For some of the services above, you may be able to change the Java runtime from the one provided by default. For more information, see the documentation of the service.
 
