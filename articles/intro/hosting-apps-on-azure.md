@@ -5,7 +5,7 @@ keywords: azure app service, azure functions, azure virtual machines, azure cont
 ms.service: azure-devops
 ms.subservice: azure-devops-reference
 ms.topic: overview
-ms.date: 08/04/2022
+ms.date: 09/28/2022
 #CustomerIntent: As an experienced developer, I want to select the correct hosting services for my applications so that I can get the level of control versus responsibility to meet my business and team needs.
 ---
 
@@ -199,6 +199,15 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 |[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
 |[Azure Service Bus Messaging][azure-service-bus-messaging]|Use when you need to decouple applications and services.|
 
+## CI/CD computer
+
+**CI/CD compute** is compute that is used to build and deploy your application. 
+
+| Service| Description| 
+|--|--|
+|[Azure DevOps][azure-devops]|Use Azure DevOps for tight integration with the Azure cloud including authentication and authorization to the hosted agents which build and deploy your application.|
+|[GitHub Actions][github-actions]| Use GitHub Actions to build and deploy your GitHub repository applications. Use the Azure CLI to securely access Azure withing the action.|
+|[Azure Virtual Machines][azure-virtual-machines]|If you use another CI/CD system, you can use Azure Virtual Machines to host your CI/CD system.|
 
 [azure-apim]:/azure/api-management
 [azure-app-service]:/azure/app-service
@@ -208,6 +217,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [azure-container-apps]:/azure/container-apps
 [azure-container-instances]:/azure/container-instances
 [azure-container-registry]:/azure/container-registry
+[azure-devops]:/azure/devops
 [azure-frontdoor]:/azure/frontdoor
 [azure-functions]:/azure/azure-functions
 [azure-kubernetes]:/azure/aks
@@ -217,6 +227,8 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [azure-spring-apps]:/azure/spring-apps
 [azure-static-web-apps]:/azure/static-web-apps
 [azure-virtual-machines]:/azure/virtual-machines
+
+[github-actions](/azure/developer/github/github-actions)
 
 [microsoft-genomics]:/azure/genomics
 
