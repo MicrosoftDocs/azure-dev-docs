@@ -130,7 +130,7 @@ To begin the provisioning and deployment process:
     azd deploy
     ```
     This command uses the services listed in the `azure.yml` to understand where the code is, how it is built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a predeploment step is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites to access other sites 
-    ``````
+
 
 ## Local and cloud experience
 
