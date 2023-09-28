@@ -18,7 +18,7 @@ An enterprise app should be able to allow:
 
 To achieve these goals, the Contoso Real Estate application uses several tools to manage the developer experience. These tools are:
 
-## Local developer expirence
+## Local developer experience
 
 To manage the developer experience, the monorepo has different files to help the development process. These files are:
 
