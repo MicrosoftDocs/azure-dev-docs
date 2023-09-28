@@ -18,7 +18,7 @@ An enterprise app should be able to allow:
 
 To achieve these goals, the Contoso Real Estate application uses several tools to manage the developer experience. These tools are:
 
-## Local developer expierence
+## Local developer expirence
 
 To manage the developer experience, the monorepo has different files to help the development process. These files are:
 
@@ -26,8 +26,8 @@ Local development includes:
 
 | File | Description |
 |--|--|
-|`package.json`|The root `package.json` file contains the configuration for the entire monorepo. This file contains the configuration for the npm workspaces feature. It also contains the configuration for the Azure Developer CLI. The `workspaces` properties is used by [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) to allow you to manage multiple packages in a single repository.|
-|`docker-compose.yml`|The `docker-compose.yml` file contains the configuration for the Docker containers that are used for local development. Docker in docker is used for dependencies. This allows you to run services such as Postgres and MongoDB in Docker containers without needing to have them installed on your local (host) computer. You don't need to manage updating these dependencies you local computer. |
+|`package.json`|The root `package.json` file contains the configuration for the entire monorepo. This file contains the configuration for the npm workspaces feature. It also contains the configuration for the Azure Developer CLI. The `workspaces` property is used by [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) to allow you to manage multiple packages in a single repository.|
+|`docker-compose.yml`|The `docker-compose.yml` file contains the configuration for the Docker containers that are used for local development. Docker in docker is used for dependencies. This allows you to run services such as Postgres and MongoDB in Docker containers without needing to have them installed on your local (host) computer. You don't need to manage the update process for these dependencies your local computer because that process is managed by docker. |
 |`.devcontainer`|The `.devcontainer` folder contains the configuration for the DevContainers. These [DevContainers](https://containers.dev/) are used by [Visual Studio Code](https://code.visualstudio.com/) to run the application locally such as IDE configurations, environment configurations such as opening ports and installing additional tools.|
 |`.vscode`|The `.vscode` folder contains the configuration for Visual Studio Code to allow you to debug the separate applications such as the blog, portal, and API.|
 
@@ -56,14 +56,14 @@ To get started with local development:
     * The **blog** is the public-only website. 
         * Blob posts are managed by the **Strapi CMS** backed by the PostGreSQL DB.
         * Hosting is provided by **Azure Container Apps** for the Blob UI, Strapi CMS, and Stripe API.
-1. When you are done exploring the annd and ready to stop the services, run `npm run stop` to stop the Docker containers.
+1. When you are done exploring the and and ready to stop the services, run `npm run stop` to stop the Docker containers.
 1. Create a new branch. 
 1. Start the underlying services with the following command.
 
     ```bash
     npm run start:services
     ```
-1. Use the Visual Studio Code debugger to start the application(s) you are interesting in debugging into.
+1. Use the Visual Studio Code debugger to start the application(s) you are interested in debugging into.
 
 
 
@@ -73,7 +73,7 @@ To get started with local development:
     * Hooks for pre- and post- actions. These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code.
     * Authentication to Azure. The Azure Developer CLI uses the Azure CLI to authenticate to Azure. This allows you to use the same authentication method for both the Azure Developer CLI and the Azure CLI.
 
-Cloud provisioning and deployment includes:
+Cloud provisioning and deployment include:
 
 | File |Description |
 |--|--|
@@ -88,8 +88,8 @@ Azure Developer CLI uses bicep files to allow you to define the infrastructure a
 1. Once you complete the quickstart, you can review the bicep files for this project.
 
     * [`./infra`](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra)
-        * `main.bicep`: used to control the resource privisioning.
-        * `main.parameters.bicep`: this file, unique to each repository, contains the parameters that are used to configure the resources. Typically, a file has the minimum varaiables needed for Azure Developer CLI:
+        * `main.bicep`: used to control the resource provisioning.
+        * `main.parameters.bicep`: this file, unique to each repository, contains the parameters that are used to configure the resources. Typically, a file has the minimum variables needed for Azure Developer CLI:
             ```json
             "environmentName": {
               "value": "${AZURE_ENV_NAME}"
