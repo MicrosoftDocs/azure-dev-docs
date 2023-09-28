@@ -67,7 +67,7 @@ To get started with local development:
 
 
 
-## Cloud devops expierence
+## Cloud devops experience
 
 [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an "infrastructure as code" tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision and deploy test and production resources.
     * Hooks for pre- and post- actions. These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code.
@@ -80,7 +80,38 @@ Cloud provisioning and deployment includes:
 |`azure.yml`|The `azure.yml` file contains the configuration for the Azure Developer CLI. This file contains the configuration for the Azure resources that are provisioned and deployed by the Azure Developer CLI. This file also contains the configuration for the pre- and post- hooks that are run before and after provisioning and deployment. |
 |`infra`|The `infra` folder contains the configuration for the Azure resources that are provisioned and deployed by the Azure Developer CLI. This folder contains the configuration for the pre- and post- hooks that are run before and after provisioning and deployment.|
 
+### Developing infrastructure as code
+
+Azure Developer CLI uses bicep files to allow you to define the infrastructure as code. Bicep is a domain-specific language (DSL) that is used to define Azure resources. Bicep is a declarative language that allows you to define the desired state of the infrastructure. 
+
+1. If you are new to Azure Developer CLI and bicep, use the [Azure Developer CLI quickstart](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs). This quickstart uses fewer resources and a smaller code base so it is a great first step to learning about Azure Developer CLI.
+1. Once you complete the quickstart, you can review the bicep files for this project.
+
+    * [`./infra`](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra)
+        * `main.bicep`: used to control the resource privisioning.
+        * `main.parameters.bicep`: this file, unique to each repository, contains the parameters that are used to configure the resources. Typically, a file has the minimum varaiables needed for Azure Developer CLI:
+            ```json
+            "environmentName": {
+              "value": "${AZURE_ENV_NAME}"
+            },
+            "location": {
+              "value": "${AZURE_LOCATION}"
+            },
+            "principalId": {
+              "value": "${AZURE_PRINCIPAL_ID}"
+            },
+            ``````
+
+            The environment name is used to create a unique name for the resource group and its resources. The location is the Azure region where the resources are deployed. The principal ID is the ID of the service principal that is used to authenticate to Azure. This service principal is created by the Azure Developer CLI.
+
+        * `abbreviations.json`: this file contains the abbreviations that are used to simplify the configuration of the resources. This is a standard file and should be managed as part of the team's guidance for naming conventions.
+    
+As you add each resource, its setup and configuration, you add bicep files to the `infra` folder. Use bicep modules in subfolders to organize the bicep files. 
+
+### Deploying with infrastructure as code 
+
 To begin the provisioning and deployment process:
+
 1. Log into Azure with"
     
     ```bash
@@ -98,8 +129,7 @@ To begin the provisioning and deployment process:
     ```bash 
     azd deploy
     ```
-
-    ``````
+    This command uses the services listed in the `azure.yml` to understand where the code is, how it is built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a predeploment step is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites to access other sites 
     ``````
 
 ## Local and cloud experience
@@ -108,7 +138,7 @@ The following files and folders are used for both local development and cloud pr
 
 | File | Description |
 |--|--|
-|`scripts`|The `scripts` folder contains the scripts that are run by the pre- and post- hooks. These scripts are used to update configuration settings and url strings in source code. Some scripts are necessary for both local development and cloud deployment. One example is restoring a database from a dump. Both the local PostGreSQL database and the Azure PostGreSQL database need to be restored from the same dump.| 
+|`scripts`|The `scripts` folder contains the scripts that are run to prepare local services or cloud resources. These scripts are used to update configuration settings and url strings in source code. One example is restoring a database from a dump. Both the local PostGreSQL database and the Azure PostGreSQL database need to be restored from the same dump.| 
 |`packages`|The `packages` folder contains the source code for the application, separated out into individual packages. Each individual package is built and deployed independently. This allows you to develop and deploy features and bug fixes independently.|
 
 ## CI/CD experience
@@ -119,4 +149,5 @@ The following files and folders are used when changes are pushed to the GitHub r
 |--|--
 |`.github/workflows`| The `.github/workflows` folder contains the configuration for the GitHub Actions workflows. These actions run when changes are pushed to the GitHub repository. These workflows are used to build, test, and deploy the application.|
 |`.azdo/pipelines`| The `.azdo/pipelines` folder contains the configuration for the Azure DevOps workflows. These actions run when changes are pushed to the Azure DevOps repository. These workflows are used to build, test, and deploy the application.|
+
 
