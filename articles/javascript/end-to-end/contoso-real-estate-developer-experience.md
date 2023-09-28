@@ -65,8 +65,6 @@ To get started with local development:
     ```
 1. Use the Visual Studio Code debugger to start the application(s) you are interested in debugging into.
 
-
-
 ## Cloud devops experience
 
 [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an "infrastructure as code" tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision and deploy test and production resources.
@@ -107,6 +105,19 @@ Azure Developer CLI uses bicep files to allow you to define the infrastructure a
         * `abbreviations.json`: this file contains the abbreviations that are used to simplify the configuration of the resources. This is a standard file and should be managed as part of the team's guidance for naming conventions.
     
 As you add each resource, its setup and configuration, you add bicep files to the `infra` folder. Use bicep modules in subfolders to organize the bicep files. 
+
+#### Environment variables
+
+Environment variables allow your source code to access configuration settings and variables which are necessary to run and may be shared across applications. 
+
+* For **local development**, the environment variables have default values provided by the dependency such as a database user and password, and those default values are set in source code for the package that uses them. In this way, the application can run without any additional configuration.
+* For **cloud development**, the environment variables are part of the provisioning and deployment process. 
+    * **Secrets**: Any values that are secrets need to use the `@secure()` attribute so it isn't used in logs or other places where it could be exposed. Because a variable, including a secret, may be created by one resource and necessary to be used by another, the order of privision needs to be considered. For example, the database user and password are created by the database resource and used by the application resource. 
+    * **Resource creation order**: Azure Developer CLI typically works in parallel where possible. When a bicep file's resource uses the `dependsOn` parameter or needs an input parameter, Azure Developer CLI uses a dependency graph to understand the order of resource creation.
+    * **Local environment file for cloud resources**: After provisioning, a local file contains these variables in the `./.azure/` folder, named for the environment you entered when you begin the initial provisioning process. 
+        * Don't check into source control.
+        * Do use for building source code for deployment.
+        * Use the `azd env set` and `azd env get` commands to access the variables programmatically.
 
 ### Deploying with infrastructure as code 
 
