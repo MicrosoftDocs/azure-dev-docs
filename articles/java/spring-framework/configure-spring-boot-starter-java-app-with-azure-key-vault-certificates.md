@@ -34,7 +34,7 @@ Spring Boot apps typically enable TLS by installing the certificates. The certif
 
 - [cURL](https://curl.se/) or a similar HTTP utility to test functionality.
 
-- An Azure virtual machine (VM) instance. If you don't have one, use the [az vm create](/cli/azure/vm?view=azure-cli-latest&preserve-view=true#az-vm-create) command and the Ubuntu2204 image provided by UbuntuServer to create a VM instance with a system-assigned managed identity enabled. Grant the `Contributor` role to the system-assigned managed identity, and then set the access `scope` to your subscription.
+- An Azure virtual machine (VM) instance. If you don't have one, use the [az vm create](/cli/azure/vm?view=azure-cli-latest&preserve-view=true#az-vm-create) command and the Ubuntu image provided by UbuntuServer to create a VM instance with a system-assigned managed identity enabled. Grant the `Contributor` role to the system-assigned managed identity, and then set the access `scope` to your subscription.
 
 - An Azure Key Vault instance. If you don't have one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 

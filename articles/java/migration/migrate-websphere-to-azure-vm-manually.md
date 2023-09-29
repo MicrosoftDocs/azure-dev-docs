@@ -101,7 +101,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 The following sections describe the steps for installing WAS on GNU/Linux. You can choose the operating system, and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
 
-The Marketplace image that you use to create the VMs is `RedHat:RHELRaw8LVMGen2:84-gen2:latest`.
+The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
 
 > [!NOTE]
 > You can query all the available Red Hat Enterprise Linux images provided by Red Hat by using [az vm image list](/cli/azure/vm/image#az-vm-image-list), as shown in the following example:
@@ -131,7 +131,7 @@ Next, use the following steps to create a basic VM, install all required tools o
        --resource-group abc1110rg \
        --name adminVM \
        --availability-set myAvailabilitySet \
-       --image RedHat:RHELRaw8LVMGen2:84-gen2:latest \
+       --image RedHat:rhel-raw:86-gen2:latest \
        --size Standard_DS1_v2  \
        --admin-username azureuser \
        --admin-password Secret123456 \

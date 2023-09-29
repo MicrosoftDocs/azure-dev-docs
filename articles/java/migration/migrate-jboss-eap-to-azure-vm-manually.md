@@ -181,7 +181,7 @@ az network vnet subnet update \
 
 #### Create the admin VM
 
-The Marketplace image that you use to create the VMs is `RedHat:RHELRaw8LVMGen2:8_6:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
+The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
 
 > [!NOTE]
 > You can query all the available Red Hat Enterprise Linux images provided by Oracle with the [az vm image list](/cli/azure/vm/image#az-vm-image-list) command - for example: `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
@@ -198,7 +198,7 @@ The following example creates a Red Hat Enterprise Linux VM using user name and 
 az vm create \
     --resource-group abc1110rg \
     --name adminVM \
-    --image RedHat:RHELRaw8LVMGen2:8_6:latest \
+    --image RedHat:rhel-raw:86-gen2:latest \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
