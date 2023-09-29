@@ -16,7 +16,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart.md).
+- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
   - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
   - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
@@ -180,7 +180,7 @@ Azure Database for PostgreSQL is a managed service to run, manage, and scale hig
 | **Admin username** | *quarkus*                | The sample code assumes this value.                                                                                                        |
 | **Password**       | `${DB_PASSWORD}`         | Your password must be at least 8 characters and at most 128 characters. Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.). Your password cannot contain all or part of the login name. Part of a login name is defined as three or more consecutive alphanumeric characters. |
 
-With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/single-server/quickstart-create-server-database-portal.md) up to the "Configure a firewall rule" section. Then, in the "Configure a firewall rule" section, be sure to select **Yes** for **Allow access to Azure services**, then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
+With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/single-server/quickstart-create-server-database-portal) up to the "Configure a firewall rule" section. Then, in the "Configure a firewall rule" section, be sure to select **Yes** for **Allow access to Azure services**, then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
 
 After you complete the steps in the quickstart through the "Configure a firewall rule" section, including the step to allow access to Azure services, return to this article.
 
@@ -474,7 +474,7 @@ You might also want to use `docker rmi` to delete the `postgres` and `testcontai
 ## Next steps
 
 - [Azure Container Apps](https://azure.microsoft.com/products/container-apps/)
-- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app.md)
-- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus.md)
+- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
+- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
 - [Quarkus](https://quarkus.io/)
 - [Jakarta EE on Azure](/azure/developer/java/ee)
