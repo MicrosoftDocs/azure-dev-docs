@@ -228,7 +228,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [azure-static-web-apps]:/azure/static-web-apps
 [azure-virtual-machines]:/azure/virtual-machines
 
-[github-actions](/azure/developer/github/github-actions)
+[github-actions]:/azure/developer/github/github-actions
 
 [microsoft-genomics]:/azure/genomics
 
