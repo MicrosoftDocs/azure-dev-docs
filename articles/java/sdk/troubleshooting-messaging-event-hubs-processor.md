@@ -21,6 +21,22 @@ This article provides solutions to common problems that you might encounter when
 
 When the number of `EventProcessorClient` instances changes (that is, are added or removed), the running instances try to load-balance partitions between themselves. For a few minutes after the number of processors changes, partitions are expected to change owners. After it's balanced, partition ownership should be stable and change infrequently. If partition ownership is changing frequently when the number of processors is constant, it likely indicates a problem. We recommended that you file a GitHub issue with logs and a repro.
 
+Partition ownership is determined via the ownership records in the `CheckpointStore`. On every load balancing interval, the `EventProcessorClient` will perform the following tasks:
+
+1. Fetch the latest ownership records.
+1. Check the records to see which records haven't updated their timestamp within the partition ownership expiration interval. Only records matching this criteria are considered.
+1. If there are any unowned partitions and the load is not balanced between instances of `EventProcessorClient`, the event processor client will try to claim a partition.
+1. Update the ownership record for the partitions it owns that have an active link to that partition.
+
+You can configure the load balancing and ownership expiration intervals when you create the `EventProcessorClient` via the `EventProcessorClientBuilder`, as described in the following list:
+
+- The [loadBalancingUpdateInterval(Duration)](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder#com-azure-messaging-eventhubs-eventprocessorclientbuilder-loadbalancingupdateinterval(java-time-duration)) method indicates how often the load balancing cycle runs.
+- The [partitionOwnershipExpirationInterval(Duration)](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder#com-azure-messaging-eventhubs-eventprocessorclientbuilder-partitionownershipexpirationinterval(java-time-duration)) method indicates the minimum amount of time since the ownership record has been updated, before the processor considers a partition unowned.
+
+For example, if an ownership record was updated at 9:30am and `partitionOwnershipExpirationInterval` is 2 mins. When a load balance cycle occurs and it notices that the ownership record has not been updated in the last 2 min or by 9:32am, it will consider the partition unowned.
+
+If an error occurs in one of the partition consumers, it will close the corresponding consumer but will not try to reclaim it until the next load balancing cycle.
+
 ## "...current receiver '&lt;RECEIVER_NAME&gt;' with epoch '0' is getting disconnected"
 
 The entire error message looks similar to the following output:
