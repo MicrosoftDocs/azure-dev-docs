@@ -113,7 +113,7 @@ conceptualContent:
           url: /azure/spring-apps/overview
         - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart
+          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
         - text: Enterprise tier
           itemType: overview
           url: /azure/spring-apps/overview#enterprise-tier-overview
@@ -131,7 +131,7 @@ conceptualContent:
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart
+          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
       footerLink:
         text: See more
         url: spring-framework/index.yml
