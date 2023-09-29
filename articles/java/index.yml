@@ -113,7 +113,7 @@ conceptualContent:
           url: /azure/spring-apps/overview
         - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart?tabs=Azure-CLI&pivots=programming-language-java
+          url: /azure/spring-apps/quickstart
         - text: Enterprise tier
           itemType: overview
           url: /azure/spring-apps/overview#enterprise-tier-overview
@@ -130,8 +130,8 @@ conceptualContent:
           itemType: how-to-guide
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
-          itemType: tutorial
-          url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
+          itemType: quickstart
+          url: /azure/spring-apps/quickstart
       footerLink:
         text: See more
         url: spring-framework/index.yml
