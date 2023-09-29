@@ -199,7 +199,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 |[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
 |[Azure Service Bus Messaging][azure-service-bus-messaging]|Use when you need to decouple applications and services.|
 
-## CI/CD computer
+## CI/CD compute
 
 **CI/CD compute** is compute that is used to build and deploy your application. 
 
