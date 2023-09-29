@@ -428,7 +428,7 @@
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.1/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.1/jar/) |  |  |
-| Unknown Display Name | Maven [0.16.0-preview01](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/0.16.0-preview01/jar/) |  |  |
+| Unknown Display Name | Maven [0.17.0-preview01](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/0.17.0-preview01/jar/) |  |  |
 | Unknown Display Name | Maven [0.37.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cognitiveservices-lib/0.37.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-monitor/1.0.0-beta.1/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
