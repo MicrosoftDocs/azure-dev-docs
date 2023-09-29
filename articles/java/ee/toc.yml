@@ -18,6 +18,8 @@
         href: jboss-eap-single-server-azure-vm.md
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
         href: jboss-eap-on-aro.md
+      - name: Red Hat Quarkus on Azure Container Apps
+        href: deploy-java-quarkus-app.md
   - name: Java application servers on Azure
     expanded: true
     items:
