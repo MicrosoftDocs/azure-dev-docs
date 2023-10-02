@@ -334,7 +334,7 @@
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
 | AutoRest | npm [3.6.3](https://www.npmjs.com/package/autorest/v/3.6.3) |  |  |
-| Azure Functions | npm [3.5.1](https://www.npmjs.com/package/@azure/functions/v/3.5.1)<br>npm [4.0.0-alpha.11](https://www.npmjs.com/package/@azure/functions/v/4.0.0-alpha.11) |  | GitHub [3.5.1](https://github.com/Azure/azure-functions-nodejs-library) |
+| Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [11.0.0](https://www.npmjs.com/package/@azure/batch/v/11.0.0) |  | GitHub [11.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.16.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.16.3) |  | GitHub [1.16.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
@@ -352,6 +352,7 @@
 | Custom Vision Prediction | npm [5.1.2](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction/v/5.1.2) |  | GitHub [5.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customvision-prediction) |
 | Custom Vision Training | npm [5.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training/v/5.2.0) |  | GitHub [5.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customvision-training) |
 | Device Provisioning Services | npm [1.11.2](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.11.2) |  | GitHub [1.11.2](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/mqtt) |
+| Durable Functions | npm [3.0.0](https://www.npmjs.com/package/durable-functions/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-functions-durable-js) |
 | Entity Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch/v/3.0.1) |  |  |
 | Face | npm [5.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-face/v/5.0.0) |  | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-face) |
 | Image Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch/v/3.0.1) |  |  |
