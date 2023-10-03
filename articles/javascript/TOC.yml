@@ -52,8 +52,10 @@
     - name: What is Contoso Real Estate? 
       href: end-to-end/contoso-real-estate-get-started.md
       displayName: contoso, composable, sample, example, real-estate
-    - name: User Scenarios
-      href: end-to-end/contoso-real-estate-user-scenarios.md
+    - name: Define
+      items: 
+      - name: User Scenarios
+        href: end-to-end/contoso-real-estate-user-scenarios.md
     - name: Develop
       items: 
       - name: Getting Started
@@ -61,11 +63,11 @@
       - name: Run in Codespaces
         href: end-to-end/contoso-real-estate-run-codespaces.md
         displayName: Codespaces, GitHub, azd, best practices, enterprise
-      - name: Infrastructure management
-        href: end-to-end/contoso-real-estate-Infrastructure.md
-        displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
+    - name: Deploy
+      href: end-to-end/contoso-real-estate-Infrastructure.md
+      isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
 
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
