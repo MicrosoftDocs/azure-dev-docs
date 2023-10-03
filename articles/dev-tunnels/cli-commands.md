@@ -56,7 +56,7 @@ Here are some examples on use of these commands:
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host`     | Host a temporary dev tunnel, if the dev tunnel ID is not specified a new dev tunnel will be created. |
+| `devtunnel host`     | Host a dev tunnel. If a dev tunnel ID is not specified, a new _temporary_ dev tunnel will be created that will be deleted once the connection is closed. |
 
 Here are some examples on use of this command:
 
