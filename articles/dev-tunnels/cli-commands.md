@@ -56,7 +56,7 @@ Here are some examples on use of these commands:
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host`     | Host a dev tunnel. If a dev tunnel ID is not specified, a new _temporary_ dev tunnel will be created that will be deleted once the connection is closed. |
+| `devtunnel host`     | Host a dev tunnel. If a dev tunnel ID isn't specified, a new _temporary_ dev tunnel is created that is deleted once the connection is closed. |
 
 Here are some examples on use of this command:
 
@@ -73,7 +73,7 @@ Here are some examples on use of this command:
 > Allowing anonymous access to a dev tunnel means anyone on the internet is able to connect to your local server, if they can guess the dev tunnel ID.
 
 Press **Control-C** to stop the dev tunnel host process and terminate any client connections through the dev tunnel.
-If an existing dev tunnel was not provided, the dev tunnel that was automatically created by the process will be deleted on process exit.
+If an existing dev tunnel wasn't provided, the dev tunnel that was automatically created by the process will be deleted on process exit.
 
 ## Connect to a dev tunnel
 
@@ -89,11 +89,11 @@ The displayed `https:` URI is unique to the dev tunnel port: the first component
 
 If the hosted port connects to a web server, then that URI can be opened directly in a browser, from anywhere. If access to the dev tunnel requires authorization, then the initial request to the URI will redirect to a login page, and return to the site after the user is authorized.
 
-If the hosted port connects to a web service, then that URI can be used as the base URI by a web service client application. However, if the dev tunnel doesn't allow anonymous access then the web service client normally will not know how to authenticate. If the web service is safe to expose publicly, consider allowing anonymous access. Otherwise, a web service client may add a request header with a dev tunnel access token to authorize the connection.
+If the hosted port connects to a web service, then that URI can be used as the base URI by a web service client application. However, if the dev tunnel doesn't allow anonymous access then the web service client normally won't know how to authenticate. If the web service is safe to expose publicly, consider allowing anonymous access. Otherwise, a web service client may add a request header with a dev tunnel access token to authorize the connection.
 
 **Using the CLI:**
 
-Instead of having a client browser or application connect directly to a dev tunnel relay URI, the CLI may be used to forward connections from a port on the client to a dev tunnel port. The client may also need to login, if the dev tunnel doesn't allow anonymous access.
+Instead of having a client browser or application connect directly to a dev tunnel relay URI, the CLI may be used to forward connections from a port on the client to a dev tunnel port. The client may also need to log in, if the dev tunnel doesn't allow anonymous access.
 
 ```powershell
 devtunnel connect TUNNELID
