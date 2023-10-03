@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: reference
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 10/03/2023 
 ---
 
 # Dev tunnels command-line reference
@@ -56,23 +56,24 @@ Here are some examples on use of these commands:
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host`     | Host a dev tunnel, if the dev tunnel ID is not specified a new dev tunnel will be created. |
+| `devtunnel host`     | Host a dev tunnel. If a dev tunnel ID isn't specified, a new _temporary_ dev tunnel is created that is deleted once the connection is closed. |
 
 Here are some examples on use of this command:
 
 | Examples     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host -p 3000`     | Host a dev tunnel for a server listening port 3000 on the host system. |
-| `devtunnel host -p 3000 --allow-anonymous`  | Host a dev tunnel and enable anonymous client access. |
-| `devtunnel host -p 3000 5000`  | Host a dev tunnel for local servers listening on ports 3000 and 5000. |
-| `devtunnel host -p 8443 --protocol https`  | Host a dev tunnel for a server listening on port 8443 that uses the HTTPS protocol. |
+| `devtunnel host -p 3000`     | Host a temporary dev tunnel for a server listening port 3000 on the host system. |
+| `devtunnel host -p 3000 --allow-anonymous`  | Host a temporary dev tunnel and enable anonymous client access. |
+| `devtunnel host -p 3000 5000`  | Host a temporary dev tunnel for local servers listening on ports 3000 and 5000. |
+| `devtunnel host -p 8443 --protocol https`  | Host a temporary dev tunnel for a server listening on port 8443 that uses the HTTPS protocol. |
+| `devtunnel host -p 8000 --expiration 2d`     | Host a temporary dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel host TUNNELID`  | Host an existing dev tunnel that has previously been configured. |
 
 > [!WARNING]
 > Allowing anonymous access to a dev tunnel means anyone on the internet is able to connect to your local server, if they can guess the dev tunnel ID.
 
 Press **Control-C** to stop the dev tunnel host process and terminate any client connections through the dev tunnel.
-If an existing dev tunnel was not provided, the dev tunnel that was automatically created by the process will be deleted on process exit.
+If an existing dev tunnel wasn't provided, the dev tunnel that was automatically created by the process will be deleted on process exit.
 
 ## Connect to a dev tunnel
 
@@ -88,11 +89,11 @@ The displayed `https:` URI is unique to the dev tunnel port: the first component
 
 If the hosted port connects to a web server, then that URI can be opened directly in a browser, from anywhere. If access to the dev tunnel requires authorization, then the initial request to the URI will redirect to a login page, and return to the site after the user is authorized.
 
-If the hosted port connects to a web service, then that URI can be used as the base URI by a web service client application. However, if the dev tunnel doesn't allow anonymous access then the web service client normally will not know how to authenticate. If the web service is safe to expose publicly, consider allowing anonymous access. Otherwise, a web service client may add a request header with a dev tunnel access token to authorize the connection.
+If the hosted port connects to a web service, then that URI can be used as the base URI by a web service client application. However, if the dev tunnel doesn't allow anonymous access then the web service client normally won't know how to authenticate. If the web service is safe to expose publicly, consider allowing anonymous access. Otherwise, a web service client may add a request header with a dev tunnel access token to authorize the connection.
 
 **Using the CLI:**
 
-Instead of having a client browser or application connect directly to a dev tunnel relay URI, the CLI may be used to forward connections from a port on the client to a dev tunnel port. The client may also need to login, if the dev tunnel doesn't allow anonymous access.
+Instead of having a client browser or application connect directly to a dev tunnel relay URI, the CLI may be used to forward connections from a port on the client to a dev tunnel port. The client may also need to log in, if the dev tunnel doesn't allow anonymous access.
 
 ```powershell
 devtunnel connect TUNNELID
@@ -121,7 +122,7 @@ It's possible to create a dev tunnel without yet hosting it. This is useful for 
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel create`     | Create a dev tunnel |
+| `devtunnel create`     | Create a persistent dev tunnel |
 | `devtunnel list`     | List dev tunnels |
 | `devtunnel show`     | Show dev tunnel details |
 | `devtunnel update`     | Update dev tunnel properties |
@@ -132,15 +133,17 @@ Here are some examples on use of these commands:
 
 | Examples     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel create -a`     | Create a dev tunnel that allows anonymous access. |
-| `devtunnel create -d 'my tunnel description'`     | Create a dev tunnel with a non-searchable description. |
-| `devtunnel create --tags my-web-app v1`     | Create a dev tunnel and apply searchable tags. |
+| `devtunnel create -a`     | Create a persistent dev tunnel that allows anonymous access. |
+| `devtunnel create -d 'my tunnel description'`     | Create a persistent dev tunnel with a non-searchable description. |
+| `devtunnel create --expiration 4h`     | Create a persistent dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
+| `devtunnel create --tags my-web-app v1`     | Create a persistent dev tunnel and apply searchable tags. |
 | `devtunnel list --tags my-web-app`     | List dev tunnels that have any of the specified tags. |
 | `devtunnel list --all-tags my-web-app v1`     | List dev tunnels that have all the specified tags. |
 | `devtunnel show`     | Show details of the last-used dev tunnel. |
 | `devtunnel show TUNNELID`     | Show details for a dev tunnel. |
 | `devtunnel update TUNNELID -d 'my new tunnel description'`     | Update the description of a dev tunnel. |
 | `devtunnel update TUNNELID --remove-tags`     | Remove all tags from a dev tunnel. |
+| `devtunnel update TUNNELID --expiration 10d`     | Update a dev tunnel with a new custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel delete TUNNELID`     | Delete a dev tunnel. |
 | `devtunnel delete-all`     | Delete all your dev tunnels. |
 
