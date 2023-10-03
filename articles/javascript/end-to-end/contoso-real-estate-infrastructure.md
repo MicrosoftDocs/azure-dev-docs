@@ -1,5 +1,5 @@
 ---
-title: "Service management for Contoso Real Estate"
+title: "Infrastructure management for Contoso Real Estate"
 description: Understand how Contoso Real Estate manages local and cloud services for you when you use this reference architecture.
 ms.topic: conceptual
 ms.date: 09/26/2023
@@ -7,7 +7,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to understand how to manage the services of a complex end to end cloud application.
 ---
 
-# Service management for Contoso Real Estate
+# Infrastructure management for Contoso Real Estate
 
 The Contoso Real Estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
 
@@ -18,7 +18,7 @@ An enterprise developer experience allows:
 * Consistent local development experience
 * Consistent deployment experience
 
-To achieve these goals for services, the Contoso Real Estate application uses several tools:
+To achieve these goals for Infrastructure, the Contoso Real Estate application uses several tools:
 
 * [Local developer experience](#local-developer-experience)
 * [Cloud devops experience](#cloud-devops-experience)
