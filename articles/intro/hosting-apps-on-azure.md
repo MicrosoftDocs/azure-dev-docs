@@ -36,7 +36,7 @@ Azure hosting services are provided with two considerations:
 * [Azure Static Web Apps][azure-static-web-apps]: Deploy generated static web apps such as Blazor and React.
 * [Azure Functions Apps][azure-functions]: serverless code or container hosting. 
 
-## Balaced hosting
+## Balanced hosting
 
 **Balanced** hosting solutions balance the need for simplicity with the need for control.  You're responsible for the functionality such as code and environment configuration. Azure manages the underlying runtime and infrastructure including updates and patches. You can also bring your own container to the service. Balanced hosting is both Azure-native and Cloud-native.
 
@@ -55,7 +55,7 @@ Azure hosting services are provided with two considerations:
 
 For developers new to Azure who want to start **new development**, use the following chart to find the suggested hosting solution.
 
-:::image type="content" source="media/source-code-suggested-compute.png" alt-text="Diagram showing no code, low code in the first box, code in the second box and container in the thrid box with recommended services for each box.":::
+:::image type="content" source="media/source-code-suggested-compute.png" alt-text="Diagram showing no code, low code in the first box, code in the second box and container in the third box with recommended services for each box.":::
 
 ### No code or low code
 
@@ -183,7 +183,7 @@ High-performance computing (HPC) is the use of parallel processing for running a
 |Service|Use|
 |--|--|
 |[Azure Batch][azure-batch]|Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. Developers can use Batch as a platform service to build SaaS applications or client apps where large-scale execution is required.|
-|[Azure BareMetal Instances][azure-bare-metal]|Use when you need to run in a non-virtualized environment with root-level access to the operating system, storage and network.|
+|[Azure BareMetal Instances][azure-bare-metal]|Use when you need to run in a nonvirtualized environment with root-level access to the operating system, storage and network.|
 |[Azure Quantum workspace][quantum]|Use when you need to develop and experiment with quantum algorithms.|
 |[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.
 
@@ -205,7 +205,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 
 | Service| Description| 
 |--|--|
-|[Azure DevOps][azure-devops]|Use Azure DevOps for tight integration with the Azure cloud including authentication and authorization to the hosted agents which build and deploy your application.|
+|[Azure DevOps][azure-devops]|Use Azure DevOps for tight integration with the Azure cloud including authentication and authorization to the hosted agents, which build and deploy your application.|
 |[GitHub Actions][github-actions]| Use GitHub Actions to build and deploy your GitHub repository applications. Use the Azure CLI to securely access Azure withing the action.|
 |[Azure Virtual Machines][azure-virtual-machines]|If you use another CI/CD system, you can use Azure Virtual Machines to host your CI/CD system.|
 
