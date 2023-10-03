@@ -199,13 +199,13 @@ Documentation includes:
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 * [Bicep](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs)
 * [GitHub Actions](https://docs.github.com/en/actions)
-* [Azure DevOps](/azure/devops/pipelines/?view=azure-devops)
+* [Azure DevOps](/azure/devops/pipelines/)
 
 Training includes: 
 
 * [Build and deploy applications with the Azure Developer CLI](/training/paths/azure-developer-cli/)
 * [Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
-* [Introduction to Docker Containers](training/modules/intro-to-docker-containers/)
+* [Introduction to Docker Containers](/training/modules/intro-to-docker-containers/)
 * [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images/)
 * [Use a Docker container as a development environment with Visual Studio Code](/training/modules/use-docker-container-dev-env-vs-code/)
 
