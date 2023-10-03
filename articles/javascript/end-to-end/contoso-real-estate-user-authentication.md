@@ -17,7 +17,7 @@ The portal application is found in the [**portal** package](https://github.com/A
 
 During local development, use the Static Web Apps CLI to mock the social providers.
 
-During deployed use, there's no additional configuration required to turn on social authentication. 
+When deployed to Azure, there's no additional configuration required to turn on social authentication. 
 
 ## Use routes for social providers
 
