@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: reference
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 10/03/2023 
 ---
 
 # Dev tunnels command-line reference
@@ -56,7 +56,7 @@ Here are some examples on use of these commands:
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host`     | Host a dev tunnel, if the dev tunnel ID is not specified a new dev tunnel will be created. |
+| `devtunnel host`     | Host a temporary dev tunnel, if the dev tunnel ID is not specified a new dev tunnel will be created. |
 
 Here are some examples on use of this command:
 
@@ -66,6 +66,7 @@ Here are some examples on use of this command:
 | `devtunnel host -p 3000 --allow-anonymous`  | Host a dev tunnel and enable anonymous client access. |
 | `devtunnel host -p 3000 5000`  | Host a dev tunnel for local servers listening on ports 3000 and 5000. |
 | `devtunnel host -p 8443 --protocol https`  | Host a dev tunnel for a server listening on port 8443 that uses the HTTPS protocol. |
+| `devtunnel host -p 8000 --expiration 2d`     | Create a dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel host TUNNELID`  | Host an existing dev tunnel that has previously been configured. |
 
 > [!WARNING]
@@ -121,7 +122,7 @@ It's possible to create a dev tunnel without yet hosting it. This is useful for 
 
 | Command     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel create`     | Create a dev tunnel |
+| `devtunnel create`     | Create a persistent dev tunnel |
 | `devtunnel list`     | List dev tunnels |
 | `devtunnel show`     | Show dev tunnel details |
 | `devtunnel update`     | Update dev tunnel properties |
@@ -134,6 +135,7 @@ Here are some examples on use of these commands:
 |-------------------|-------------------------------------------------------------------|
 | `devtunnel create -a`     | Create a dev tunnel that allows anonymous access. |
 | `devtunnel create -d 'my tunnel description'`     | Create a dev tunnel with a non-searchable description. |
+| `devtunnel create --expiration 4h`     | Create a dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel create --tags my-web-app v1`     | Create a dev tunnel and apply searchable tags. |
 | `devtunnel list --tags my-web-app`     | List dev tunnels that have any of the specified tags. |
 | `devtunnel list --all-tags my-web-app v1`     | List dev tunnels that have all the specified tags. |
@@ -141,6 +143,7 @@ Here are some examples on use of these commands:
 | `devtunnel show TUNNELID`     | Show details for a dev tunnel. |
 | `devtunnel update TUNNELID -d 'my new tunnel description'`     | Update the description of a dev tunnel. |
 | `devtunnel update TUNNELID --remove-tags`     | Remove all tags from a dev tunnel. |
+| `devtunnel update TUNNELID --expiration 10d`     | Update a dev tunnel with a new custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel delete TUNNELID`     | Delete a dev tunnel. |
 | `devtunnel delete-all`     | Delete all your dev tunnels. |
 

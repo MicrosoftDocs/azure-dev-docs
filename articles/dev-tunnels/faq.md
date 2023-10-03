@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: reference
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 06/07/2023 
+ms.date: 10/03/2023 
 ---
 
 # Frequently asked questions (FAQ)
@@ -32,7 +32,11 @@ Please see the dev tunnels limits [here](https://aka.ms/devtunnels/limits).
 
 ## When are unused dev tunnels deleted?
 
-After 30 days of no activity.
+After 30 days of no activity. You can set a custom expiration by appending `--expiration 5d` to the create, host, or update command. Minimum that you can set is 1 hour (1h) and the maximum you can set is 30 days (30d). Please see examples [here](cli-commands.md).
+
+## How can I create a persistent tunnel?
+
+Run `devtunnel create` to create a persistent tunnel. If you run `devtunnel host` without running `devtunnel create` before that, the `devtunnel host` command will create a temporary tunnel that will be deleted once the connection is closed.
 
 ## Is it better to recreate dev tunnels or reuse the same dev tunnel?
 
@@ -49,6 +53,7 @@ When using the `devtunnel` CLI for the first time, you'll see a link to the dev 
 ## Where else is dev tunnels used?
 
 - [How to use dev tunnels in Visual Studio 2022 with ASP.NET Core apps](/aspnet/core/test/dev-tunnels)
+- [Local Port Forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding)
 - [Teams Toolkit for Visual Studio Code Update – April 2023](https://devblogs.microsoft.com/microsoft365dev/teams-toolkit-for-visual-studio-code-update-april-2023/)
 - [Debug and test your web APIs within Microsoft Power Automate or Power Apps](/connectors/custom-connectors/port-tunneling)
 - [Azure Communication Services - Appointment Reminder Sample](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_AppointmentReminder/CallAutomation_AppointmentReminder)
