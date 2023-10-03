@@ -13,6 +13,20 @@ The Contoso Real app has two front-end applications: blog and portal. The blob i
 
 The portal application is found in the [**portal** package](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal). The portal is a single-page application (SPA) built with Angular. The portal uses [Azure Static Web Apps](/azure/static-web-apps/) for hosting and authentication. The portal uses the [Azure Functions API](/azure/azure-functions/) for data access.
 
+## Use social providers for authentication
+
+The Contoso Real Estate app uses social providers for authentication. 
+
+:::image type="content" source="media/contoso-real-estate-user-authentication/social-provider-login-screen.png" lightbox="media/contoso-real-estate-user-authentication/social-provider-login-screen.png" alt-text="Screenshot displaying web page with links to several social authentication providers such as Microsoft, Facebook, and Google.":::
+
+Each social provider has its own authentication flow which includes granting access to the Contoso Real Estate app. The following consent is specific to Google authentication.
+
+:::image type="content" source="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" lightbox="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" alt-text="Screenshot displaying web page with request to give consent to the Contoso Real Estate app to have access to specific properties of your account from the social provider.":::
+
+Once authentication is complete, the user has access to a profile page in the portal, which include social profile data and app-specific data such as saved listings, payment history, and reservations.
+
+:::image type="content" source="media/contoso-real-estate-user-authentication/profile-page.png" lightbox="media/contoso-real-estate-user-authentication/profile-page.png" alt-text="Screenshot displaying web page with profile information.":::
+
 ## Configure social providers
 
 During local development, use the Static Web Apps CLI to mock the social providers.
