@@ -337,7 +337,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [11.0.0](https://www.npmjs.com/package/@azure/batch/v/11.0.0) |  | GitHub [11.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.16.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.16.3) |  | GitHub [1.16.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.17.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.17.1) |  | GitHub [1.17.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.20](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.20) |  | GitHub [1.0.0-beta.20](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  | GitHub [8.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-computervision) |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-contentmoderator) |
@@ -410,7 +410,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20230928.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20230928.1) |  |  |
+| @autorest/csharp | npm [3.0.0-alpha.20231002.5.x](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-alpha.20231002.5.x) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
