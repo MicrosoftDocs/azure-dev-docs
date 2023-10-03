@@ -58,12 +58,12 @@
       items: 
       - name: Getting Started
         href: end-to-end/contoso-real-estate-developer-solutions.md
-      - name: Developer experience
-        href: end-to-end/contoso-real-estate-developer-experience.md
-        displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
       - name: Run in Codespaces
         href: end-to-end/contoso-real-estate-run-codespaces.md
         displayName: Codespaces, GitHub, azd, best practices, enterprise
+      - name: Service management
+        href: end-to-end/contoso-real-estate-service-management.md
+        displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
 

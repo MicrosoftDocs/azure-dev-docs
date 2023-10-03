@@ -1,13 +1,13 @@
 ---
-title: "Developer experience for Contoso Real Estate"
-description: Understand the Contoso Real Estate developer experience provided for you when you use this reference architecture.
+title: "Service management for Contoso Real Estate"
+description: Understand how Contoso Real Estate manages local and cloud services for you when you use this reference architecture.
 ms.topic: conceptual
 ms.date: 09/26/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
-# CustomerIntent: As a senior developer new to Azure, I want to understand how to manage the developer experience of a complex end to end cloud application.
+# CustomerIntent: As a senior developer new to Azure, I want to understand how to manage the services of a complex end to end cloud application.
 ---
 
-# Developer experience for Contoso Real Estate
+# Service management for Contoso Real Estate
 
 The Contoso Real Estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
 
@@ -18,7 +18,7 @@ An enterprise developer experience allows:
 * Consistent local development experience
 * Consistent deployment experience
 
-To achieve these goals, the Contoso Real Estate application uses several tools to manage the developer experience:
+To achieve these goals for services, the Contoso Real Estate application uses several tools:
 
 * [Local developer experience](#local-developer-experience)
 * [Cloud devops experience](#cloud-devops-experience)
@@ -28,7 +28,7 @@ To achieve these goals, the Contoso Real Estate application uses several tools t
 
 ## Local developer experience
 
-To manage the Contoso Real Estate developer experience, the monorepo has several files and folders to help the development process. Each of these has been manually configured for this project. You can use these as a starting point for your own projects. These files are:
+To manage the Contoso Real Estate services, the monorepo has several files and folders to help the development process. Each of these has been manually configured for this project. You can use these as a starting point for your own projects. These files are:
 
 | File | Description |
 |--|--|
@@ -76,7 +76,7 @@ To start local development:
         * Blob posts are managed by the **Strapi CMS** backed by the PostGreSQL DB.
         * Hosting is provided by **Azure Container Apps** for the Blob UI, Strapi CMS, and Stripe API.
 
-1. When you are done exploring the code and ready to stop the services, use <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the services.
+1. When you're done exploring the code and ready to stop the services, use <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the services.
 
 1. Create a new branch. 
 
@@ -93,10 +93,10 @@ To start local development:
 
 ## Cloud devops experience
 
-[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an "infrastructure as code" tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision and deploy test and production resources.
+[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision and deploy test and production resources.
 
-* **Hooks for pre- and post- actions**: These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code.
 * **Authentication to Azure**: The Azure Developer CLI uses the Azure CLI to authenticate to Azure. This allows you to use the same authentication method for both the Azure Developer CLI and the Azure CLI.
+* **Hooks for pre- and post- actions**: These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code.
 
 Cloud provisioning and deployment include:
 
@@ -109,7 +109,7 @@ Cloud provisioning and deployment include:
 
 Azure Developer CLI uses bicep files to allow you to define the infrastructure as code. Bicep is a domain-specific language (DSL) that is used to define Azure resources.
 
-1. If you are new to Azure Developer CLI and bicep, use the [Azure Developer CLI quickstart](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs). This quickstart uses fewer resources and a smaller code base so it is a great first step to learning about Azure Developer CLI.
+1. If you're new to Azure Developer CLI and bicep, use the [Azure Developer CLI quickstart](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs). This quickstart uses fewer resources and a smaller code base so it's a great first step to learning about Azure Developer CLI.
 1. Once you complete the quickstart, you can review the bicep files for the Contoso Real Estate project.
 
     * [`./.azure.yml`](https://github.com/Azure-Samples/contoso-real-estate/blob/main/azure.yaml): this contains the postprovision hook to restore the database. It also includes the individual applications and their build and deployment configuration.
@@ -129,8 +129,11 @@ Azure Developer CLI uses bicep files to allow you to define the infrastructure a
             * The **location** is the Azure region where the resources are deployed. 
 
         * `abbreviations.json`: this file contains the abbreviations that are used to simplify the configuration of the resources. This is a standard file and should be managed as part of the team's guidance for naming conventions.
+    * [`./infra/app`](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra/app): bicep files **specific to the application**. They call the modules in the `./infra/core` folder. 
+    * [`./infra/core`](https://github.com/Azure-Samples/contoso-real-estate/tree/main/infra/core): bicep files for the core resources that are used by all the applications. Think of these as **templates you copy** but shouldn't need to alter. 
+
     
-As you add each resource, its setup and configuration, you add bicep files to the `infra` folder. Use bicep modules in subfolders to organize the bicep files. 
+As you add a new service, along with its setup and configuration, you add bicep files to the `infra` folder. Use bicep modules in subfolders to organize the bicep files for reusability. 
 
 #### Environment variables
 
@@ -160,13 +163,13 @@ To begin the provisioning and deployment process:
     ```bash
     azd provision
     ```
-    This step creates the Azure resources that are needed to deploy the application. Once provisioning is complete, the database for the listings content is restored with a postprovision step noted in the [azure.yml](https://github.com/Azure-Samples/contoso-real-estate/blob/main/azure.yaml) file which uses the [scripts/database/restore.sh](https://github.com/Azure-Samples/contoso-real-estate/blob/main/scripts/database/restore.sh) script.
+    This step creates the Azure resources that are needed to deploy the application. Once provisioning is complete, the database for the listings content is restored with a **postprovision step** noted in the [azure.yml](https://github.com/Azure-Samples/contoso-real-estate/blob/main/azure.yaml) file, which uses the [scripts/database/restore.sh](https://github.com/Azure-Samples/contoso-real-estate/blob/main/scripts/database/restore.sh) script.
 
 1. Use the following command to deploy the application:
     ```bash 
     azd deploy
     ```
-    This command uses the services listed in the `azure.yml` to understand where the code is, how it is built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a predeploment step is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites.
+    This command uses the services listed in the `azure.yml` to understand where the code is, how it's built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a **predeploment step** is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites.
 
 
 ## Local and cloud experience
@@ -175,10 +178,8 @@ The following files and folders are used for both local development and cloud pr
 
 | File | Description |
 |--|--|
-|`scripts`|The `scripts` folder contains the scripts that are run to prepare local services or cloud resources. These scripts are used to update configuration settings and url strings in source code. One example is restoring a database from a dump. Both the local database and the Azure database need to be restored from the same dump.| 
+|`scripts`|The `scripts` folder contains the scripts that are run to prepare local services or cloud resources. One example is restoring a database from a dump. Both the local database and the Azure database need to be restored from the same dump.| 
 |`packages`|The `packages` folder contains the source code for the application, separated out into individual packages. Each individual package is built and deployed independently. This allows you to develop and deploy features and bug fixes independently. This build information is found by the deployment process in the `./azure.yml` file.|
-
-
 
 ## CI/CD experience
 
@@ -189,8 +190,26 @@ The following files and folders are used when changes are pushed to the GitHub r
 |`.github/workflows`| The `.github/workflows` folder contains the configuration for the GitHub Actions workflows. These actions run when changes are pushed to the GitHub repository. These workflows are used to build, test, and deploy the application.|
 |`.azdo/pipelines`| The `.azdo/pipelines` folder contains the configuration for the Azure DevOps workflows. These actions run when changes are pushed to the Azure DevOps repository. These workflows are used to build, test, and deploy the application.|
 
-Common CI/CD tasks include:
+The current workflows include provisioning and deployment with Azure Developer CLI.
 
-* **Lint**: The lint process checks the source code for common errors and coding standards. This process is run as part of the build process. Include linting of your bicep files. 
-* **Build**: The build process compiles the source code and creates the artifacts that are used.
-* **Test**: The test process runs the unit tests and integration tests.
+## Additional resources
+
+Documentation includes:
+
+* [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
+* [Bicep](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs)
+* [GitHub Actions](https://docs.github.com/en/actions)
+* [Azure DevOps](/azure/devops/pipelines/?view=azure-devops)
+
+Training includes: 
+
+* [Build and deploy applications with the Azure Developer CLI](/training/paths/azure-developer-cli/)
+* [Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
+* [Introduction to Docker Containers](training/modules/intro-to-docker-containers/)
+* [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images/)
+* [Use a Docker container as a development environment with Visual Studio Code](/training/modules/use-docker-container-dev-env-vs-code/)
+
+Videos include: 
+
+* [Azure Developer CLI](/shows/azure-developers/?languages=azdeveloper)
+* [Bicep](/shows/learn-live/?terms=bicep)
