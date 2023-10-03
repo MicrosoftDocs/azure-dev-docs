@@ -15,6 +15,8 @@ The Contoso Real app has two front-end applications: blog and portal. The blob i
 
 To provide user authentication with social providers, the Contoso Real Estate app uses Azure Static Web Apps, which provides a built-in authentication mechanism. This allows you get up and running quickly with authentication without having to write any code for the authentication steps. 
 
+The Static Web Apps in-built authentication mechanism intercepts the request and checks if the user is authenticated. If the user is not authenticated, the Static Web Apps in-built authentication mechanism redirects the user to the authentication provider. The user is then redirected back to the frontend application, and the Static Web Apps in-built authentication mechanism intercepts the request again. This time, the user is authenticated, and the Static Web Apps in-built authentication mechanism allows the request to proceed.
+
 ## Configure user authentication for Static Web Apps
 
 ## Locally develop with Static Web Apps CLI
