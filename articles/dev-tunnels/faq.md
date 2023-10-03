@@ -32,7 +32,7 @@ Please see the dev tunnels limits [here](https://aka.ms/devtunnels/limits).
 
 ## When are unused dev tunnels deleted?
 
-After 30 days of no activity. You can set a custom expiration by appending `--expiration 5d` to the create, host, or update command. Minimum that you can set is 1 hour (1h) and the maximum you can set is 30 days (30d). Please see examples [here](cli-commands.md).
+The default is after 30 days of no activity. You can set a custom expiration by appending `--expiration 5d` to the create, host, or update command. Minimum that you can set is 1 hour (1h) and the maximum you can set is 30 days (30d). The custom expiration you set is after a period of inactivity, just like the default expiration. This means it is not a fixed expiration time, but instead a sliding window that is automatically pushed out by any new activity. Please see examples [here](cli-commands.md).
 
 ## How can I create a persistent tunnel?
 

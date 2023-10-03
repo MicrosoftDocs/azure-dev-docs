@@ -62,11 +62,11 @@ Here are some examples on use of this command:
 
 | Examples     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel host -p 3000`     | Host a dev tunnel for a server listening port 3000 on the host system. |
-| `devtunnel host -p 3000 --allow-anonymous`  | Host a dev tunnel and enable anonymous client access. |
-| `devtunnel host -p 3000 5000`  | Host a dev tunnel for local servers listening on ports 3000 and 5000. |
-| `devtunnel host -p 8443 --protocol https`  | Host a dev tunnel for a server listening on port 8443 that uses the HTTPS protocol. |
-| `devtunnel host -p 8000 --expiration 2d`     | Create a dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
+| `devtunnel host -p 3000`     | Host a temporary dev tunnel for a server listening port 3000 on the host system. |
+| `devtunnel host -p 3000 --allow-anonymous`  | Host a temporary dev tunnel and enable anonymous client access. |
+| `devtunnel host -p 3000 5000`  | Host a temporary dev tunnel for local servers listening on ports 3000 and 5000. |
+| `devtunnel host -p 8443 --protocol https`  | Host a temporary dev tunnel for a server listening on port 8443 that uses the HTTPS protocol. |
+| `devtunnel host -p 8000 --expiration 2d`     | Host a temporary dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel host TUNNELID`  | Host an existing dev tunnel that has previously been configured. |
 
 > [!WARNING]
@@ -133,10 +133,10 @@ Here are some examples on use of these commands:
 
 | Examples     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel create -a`     | Create a dev tunnel that allows anonymous access. |
-| `devtunnel create -d 'my tunnel description'`     | Create a dev tunnel with a non-searchable description. |
-| `devtunnel create --expiration 4h`     | Create a dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
-| `devtunnel create --tags my-web-app v1`     | Create a dev tunnel and apply searchable tags. |
+| `devtunnel create -a`     | Create a persistent dev tunnel that allows anonymous access. |
+| `devtunnel create -d 'my tunnel description'`     | Create a persistent dev tunnel with a non-searchable description. |
+| `devtunnel create --expiration 4h`     | Create a persistent dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
+| `devtunnel create --tags my-web-app v1`     | Create a persistent dev tunnel and apply searchable tags. |
 | `devtunnel list --tags my-web-app`     | List dev tunnels that have any of the specified tags. |
 | `devtunnel list --all-tags my-web-app v1`     | List dev tunnels that have all the specified tags. |
 | `devtunnel show`     | Show details of the last-used dev tunnel. |
