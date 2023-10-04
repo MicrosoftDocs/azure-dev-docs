@@ -1,6 +1,6 @@
 ---
-title: Remote Environment Support
-description: How to deploy templates that target resource group scope instead of subscription scope with the Azure Developer CLI (azd)
+title: Remote Environments Support
+description: How to use remote environments in `azd` via remote state
 author: gkulin
 ms.author: gracekulin
 ms.date: 10/04/2023
@@ -10,7 +10,7 @@ ms.custom: devx-track-azdevcli
 ---
 
 
-# Remote Environment Support
+# Remote Environments Support
 
 ## How do remote environments work?
 To use remote environments, you can enable remote state to ensure the environment state automatically persists to the configured remote store. Meaning any `azd` command that writes to your `azd` `.env` or `config.json` file will automatically persist. 
