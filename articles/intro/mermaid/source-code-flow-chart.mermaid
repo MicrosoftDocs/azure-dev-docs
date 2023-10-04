@@ -1,6 +1,14 @@
 %%{
     init: {
-        'theme':'forest'
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#0072C6',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#00A3E0',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#006100',
+      'tertiaryColor': '#8E8E8E'
+    }
     }}%%
 
 
@@ -26,24 +34,26 @@ flowchart TB
 
     subgraph Stateless[Stateless]
     end
-    subgraph Full[Full stack\nor Server\nor Automation]
+    subgraph Full[Full stack\nor API\nor Server\nor Automation]
     end
     subgraph SuggestedService[ ]
 
-        subgraph SWA[Azure Static Web Apps \n + Azure Functions Apps]
+        subgraph PowerLogic[Power Apps \nor Logic Apps]
         end
 
-        subgraph PowerLogic[Power Apps \nor Logic Apps]
+        subgraph SWA[Azure Static Web Apps \n + Azure Functions Apps]
         end
 
         subgraph Server[Azure App Service\nAzure Spring Apps]
         end
 
+        subgraph FunctionApps[Azure Functions Apps]
+        end
+
         subgraph ContainerApps[Azure Container Apps]
         end
 
-        subgraph FunctionApps[Azure Functions Apps]
-        end
+
     end
 
 
@@ -53,13 +63,11 @@ flowchart TB
 
     NoLowCode --> Enterprise --> PowerLogic
     Code --> Client
+    Code --> Stateless
     Code --> Full
 
-
-    Full --> Server
-
     Client --> SWA
+    Full --> Server
 
     Containers --> Stateful --> ContainerApps
     Containers --> Stateless --> FunctionApps
-

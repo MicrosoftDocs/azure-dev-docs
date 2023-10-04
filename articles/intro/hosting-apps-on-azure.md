@@ -76,11 +76,16 @@ Azure supports no-code solutions are part of its Azure-Cloud approach.
 * [Azure App Service][azure-app-service]: full-service web hosting
 * [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
 
-**Container-first** hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You're responsible for the compute used inside the container. The services which host containers move from managed control to full responsibility as well so you only take on the amount of container management you want.
+**Container-first** hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You're responsible for the compute used inside the container. The services which host containers move from managed control to full responsibility so you only take on the amount of container management you want.
 
-:::image type="content" source="media/simple-container-orchestration.png" alt-text="Diagram showing how to determine which service you should choose based on simple or advanced container workloads.":::
+**Kubernetes-centric** orchestration hosting includes:
 
-Simple container hosting without orchestration includes:
+|Service|Focus|Use|
+|--|--|--|
+|[Azure Kubernetes Service][azure-kubernetes]|Cloud-native| Use for Kubernetes clusters with a **declarative** approach using configuration files and external artifacts.|
+|[Azure Service Fabric][azure-service-fabric]|Azure-native|Use an **imperative**approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
+
+**Preconfigured** container hosting means the orchestration options are preconfigured for you. Your ability to communicate between containers or container clusters may require an additional service such as [Dapr](https://docs.dapr.io/).
 
 |Service|Use|
 |--|--|
@@ -88,13 +93,6 @@ Simple container hosting without orchestration includes:
 |[Azure Spring Apps][azure-spring-apps]|Spring Boot applications|
 |[Azure Container Apps][azure-container-apps]|serverless container hosting|
 |[Azure Container Instances][azure-container-instances]|simple, single container hosting|
-
-Container orchestration hosting includes:
-
-|Service|Use|
-|--|--|
-|[Azure Kubernetes Service][azure-kubernetes]| Use for Kubernetes clusters with a **declarative** approach using configuration files and external artifacts.|
-|[Azure Service Fabric][azure-service-fabric]|Use for an imperative approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
 
 Azure provides a container registry to store and manage your container images or you can use a third-party container registry.
 
@@ -104,7 +102,7 @@ Azure provides a container registry to store and manage your container images or
 
 ## Serverless 
 
-**Serverless** hosting solutions are designed to run code without having to manage the underlying infrastructure. 
+**Serverless** hosting solutions are designed to run stateless code, which includes a consumption-based pricing tier that scales to zero when not used. 
 
 |Service|Use|
 |--|--|
@@ -213,6 +211,10 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 
 * [Java hosting options](/azure/architecture/guide/technology-choices/service-for-java-comparison)
 * [Java migration to Azure](/azure/developer/java/migration/)
+
+## Additional resources
+
+* [Azure Architecture Center: Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 [azure-apim]:/azure/api-management
 [azure-app-service]:/azure/app-service
