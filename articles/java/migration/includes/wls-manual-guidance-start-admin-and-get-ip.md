@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: haiche
 ms.date: 11/30/2022
+ms.custom: devx-track-azurecli
 ---
 
 5. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
