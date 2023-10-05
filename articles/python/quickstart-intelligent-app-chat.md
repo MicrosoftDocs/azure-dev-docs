@@ -211,14 +211,14 @@ The front-end application is a Vite React application. The code is located in th
 
 |File|Description|
 |---|---|
-|[`package.json`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
-|`vite.config.ts`|This file contains the configuration for the Vite application. This file includes the proxies to both the `/ask` and `/chat` APIs for the backend for local development. |
-|`index.html`|This is the main HTML file for the application.|
-|`src/index.tsx`|This is the main application file.|
-|[`pages/`](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/pages)|This folder contains the React components for the pages in the application.|
-|[`pages/chat/Chat.tsx`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/pages/chat/Chat.tsx)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
-|[`components/`](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/components)|This folder contains the React components for the application.|
-|[`api/`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/api/api.ts)|This folder contains the requests to the clients API backend.|
+|[package.json](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
+|vite.config.ts|This file contains the configuration for the Vite application. This file includes the proxies to both the `/ask` and `/chat` APIs for the backend for local development. |
+|index.html|This is the main HTML file for the application.|
+|src/index.tsx|This is the main application file.|
+|[pages/](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/pages)|This folder contains the React components for the pages in the application.|
+|[pages/chat/Chat.tsx](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/pages/chat/Chat.tsx)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
+|[components/](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/components)|This folder contains the React components for the application.|
+|[api/](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/api/api.ts)|This folder contains the requests to the clients API backend.|
 
 The **Chat** page has several functions and components that are used to provide the chat functionality. 
 
@@ -320,11 +320,11 @@ The back-end application is a Python application supporting the [Chat App protoc
 
 |File|Description|
 |---|---|
-|[`requirements.txt`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/requirements.txt)|This file contains the dependencies for the back-end python application.|
+|[requirements.txt](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/requirements.txt)|This file contains the dependencies for the back-end python application.|
 
-|`app.py`|This is the main Python file for the application.|
-|[`core/`](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/backend/core)|This folder contains the core functionality for the API.|
-|[`approaches`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches)|This file integrates with Azure Cognitive Search to get the answers. This is accomplished in several steps: 1) generate an optimized keyword search query based on the chat history and the last question, 2) retrieve relevant documents from the search index with the GPT optimized query, 3) generate a contextual and content specific answer using the search results and chat history|
+|app.py|This is the main Python file for the application.|
+|[core/](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/backend/core)|This folder contains the core functionality for the API.|
+|[approaches](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches)|This file integrates with Azure Cognitive Search to get the answers. This is accomplished in several steps: 1) generate an optimized keyword search query based on the chat history and the last question, 2) retrieve relevant documents from the search index with the GPT optimized query, 3) generate a contextual and content specific answer using the search results and chat history|
 
 ```python
 async def run_until_final_call(
