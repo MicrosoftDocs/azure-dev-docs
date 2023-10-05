@@ -242,8 +242,5 @@ When working with an out of date version of `azd`, you will see a warning to upg
 
 > [!div class="nextstepaction"]
 > [Choose an azd template](./azd-templates.md)
-
-## Next steps
-
 > [!div class="nextstepaction"]
 > [Azure Developer CLI FAQ](./faq.yml)
