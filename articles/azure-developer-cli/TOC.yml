@@ -32,7 +32,7 @@
     - name: Manage environment variables
       href: manage-environment-variables.md
     - name: Remote Environment Support
-      href: remote-environments-support
+      href: remote-environments-support.md
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Feature versioning and release strategy
