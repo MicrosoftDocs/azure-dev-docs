@@ -1,6 +1,6 @@
 ---
 title: Deploy an Azure OpenAI Chat app with your data in Python
-description: Quickstart to deploy and use an Azure OpenAI Chat app supplimented with your data in Python. Easily deploy with Azure Developer CLI.
+description: Quickstart to deploy and use an Azure OpenAI Chat app supplemented with your data in Python. Easily deploy with Azure Developer CLI.
 ms.date: 10/05/2023
 ms.topic: quickstart
 ms.custom: devx-track-python
@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Quickstart: Deploy an Azure OpenAI Chat app with your data in Python
 
-In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expections. By following the instructions in this quickstart, you will:
+In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
 
 - Deploy an intelligent Chat app to Azure.
 - Use intelligent Chat app to get answers about employee benefits.
@@ -29,7 +29,7 @@ A simple architecture of the intelligent Chat app is shown in the following diag
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search service to provid search of the PDF file catalog.
+* An Azure Cognitive Search service to provide search of the PDF file catalog.
 * An Azure Cognitive Services account to use the OpenAI model.
 
 A more complete architectural overview is available later in this quickstart: [Understand architecture of Azure resources]().
@@ -105,7 +105,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd init -t azure-search-openai-demo
     ```
 
-    You do not need to clone this repository.
+    You don't need to clone this repository.
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
@@ -134,8 +134,8 @@ The sample repository contains all the code and configuration files you need to 
     azd up
     ```
 
-1. When you are prompted to select a location the first time, select a location near you. This location is used for the majority of the resources including hosting.
-1. When you are prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
+1. When you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
@@ -188,26 +188,170 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 
 1. What is the difference in the answers?
 
-    The answer which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
+    The answer, which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
 
-    The answer without semantic ranking returned an answer which required additional work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
+    The answer without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
 
 ## Understand architecture of Azure resources 
 
 
 
+
 ## Review code of intelligent Chat app
+
+The app is separated out into 2 apps:
+
+* a front-end application
+* a backend application. 
+
+### Review front-end application code
+
+The front-end application is a Vite React application. The code is located in the [`./app/frontend`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend) folder. The following table describes the key files in the front-end application:
+
+|File|Description|
+|---|---|
+|[`package.json`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
+|`vite.config.ts`|This file contains the configuration for the Vite application. This file includes the proxies to both the `/ask` and `/chat` APIs for the backend for local development. |
+|`index.html`|This is the main HTML file for the application.|
+|`src/index.tsx`|This is the main application file.|
+|[`pages/`](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/pages)|This folder contains the React components for the pages in the application.|
+|[`pages/chat/Chat.tsx`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/pages/chat/Chat.tsx)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
+|[`components/`](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/frontend/src/components)|This folder contains the React components for the application.|
+|[`api/`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/frontend/src/api/api.ts)|This folder contains the requests to the clients API backend.|
+
+The **Chat** page has several functions and components that are used to provide the chat functionality. 
+
+### Ask a question
+
+The **QuestionInput** component is used to provide the input box for the user to ask a question and sends in the function to call the API to get the answer.
+
+```tsx
+<QuestionInput
+    clearOnSend
+    placeholder="Type a new question (e.g. does my plan cover annual eye exams?)"
+    disabled={isLoading}
+    onSend={question => makeApiRequest(question)}
+/>
+```
+The **makeApiRequest** function calls the **getAnswer** function in the **api** folder. 
+
+```tsx
+const makeApiRequest = async (question: string) => {
+    lastQuestionRef.current = question;
+
+    error && setError(undefined);
+    setIsLoading(true);
+    setActiveCitation(undefined);
+    setActiveAnalysisPanelTab(undefined);
+
+    const token = client ? await getToken(client) : undefined;
+
+    try {
+        const history: ChatTurn[] = answers.map(a => ({ user: a[0], bot: a[1].answer }));
+        const request: ChatRequest = {
+            history: [...history, { user: question, bot: undefined }],
+            shouldStream: shouldStream,
+            overrides: {
+                promptTemplate: promptTemplate.length === 0 ? undefined : promptTemplate,
+                excludeCategory: excludeCategory.length === 0 ? undefined : excludeCategory,
+                top: retrieveCount,
+                retrievalMode: retrievalMode,
+                semanticRanker: useSemanticRanker,
+                semanticCaptions: useSemanticCaptions,
+                suggestFollowupQuestions: useSuggestFollowupQuestions,
+                useOidSecurityFilter: useOidSecurityFilter,
+                useGroupsSecurityFilter: useGroupsSecurityFilter
+            },
+            idToken: token?.accessToken
+        };
+
+        const response = await chatApi(request);
+        if (!response.body) {
+            throw Error("No response body");
+        }
+        if (shouldStream) {
+            const parsedResponse: AskResponse = await handleAsyncRequest(question, answers, setAnswers, response.body);
+            setAnswers([...answers, [question, parsedResponse]]);
+        } else {
+            const parsedResponse: AskResponse = await response.json();
+            if (response.status > 299 || !response.ok) {
+                throw Error(parsedResponse.error || "Unknown error");
+            }
+            setAnswers([...answers, [question, parsedResponse]]);
+        }
+    } catch (e) {
+        setError(e);
+    } finally {
+        setIsLoading(false);
+    }
+};
+```
+
+The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
+
+```tsx
+{isStreaming &&
+    streamedAnswers.map((streamedAnswer, index) => (
+        <div key={index}>
+            <UserChatMessage message={streamedAnswer[0]} />
+            <div className={styles.chatMessageGpt}>
+                <Answer
+                    isStreaming={true}
+                    key={index}
+                    answer={streamedAnswer[1]}
+                    isSelected={false}
+                    onCitationClicked={c => onShowCitation(c, index)}
+                    onThoughtProcessClicked={() => onToggleTab(AnalysisPanelTabs.ThoughtProcessTab, index)}
+                    onSupportingContentClicked={() => onToggleTab(AnalysisPanelTabs.SupportingContentTab, index)}
+                    onFollowupQuestionClicked={q => makeApiRequest(q)}
+                    showFollowupQuestions={useSuggestFollowupQuestions && answers.length - 1 === index}
+                />
+            </div>
+        </div>
+    ))}
+`````` 
+
+### Review backend application code
+
+
 
 
 ## Troubleshooting
 
-* My chat app didn't deploy successfully?
-* My chat app doesn't display in a web browser? 
-* My chat app doesn't return the expected answer?
+Log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues) so this quickstart can be improved.
 
 ## Clean up resources
 
+## [GitHub Codespaces](#tab/github-codespaces)
 
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
+> [!IMPORTANT]
+> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running codespaces sourced from the [`azure-samples/cosmosdb-chatgpt`](https://github.com/azure-samples/cosmosdb-chatgpt) GitHub repository.
+
+    :::image type="content" source="../media/codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+    :::image type="content" source="../media/codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+
+## [Visual Studio Code](#tab/visual-studio-code)
+
+You aren't necessarily required to cleanup your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
+    :::image type="content" source="../media/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
+> [!TIP]
+> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
+---
 
 ## Related Content
+
