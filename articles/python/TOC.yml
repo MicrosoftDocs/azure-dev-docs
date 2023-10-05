@@ -3,7 +3,11 @@
 
 - name: Get started
   href: get-started.md
-
+- name: Intelligent apps
+  items: 
+  - name: Chat with your data
+    href: quickstart-intelligent-app-chat.md
+    display: Azure OpenAI, OpenAI, FastApi
 - name: Web
   items:
   - name: Set up local web dev environment
