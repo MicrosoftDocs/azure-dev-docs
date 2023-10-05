@@ -28,12 +28,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Spring Boot to Azure App Service
-            url: migrate-spring-boot-to-app-service.md
-          - text: Spring Boot to Azure Container Apps
-            url: migrate-spring-boot-to-azure-container-apps.md
-          - text: Spring Boot to AKS
-            url: migrate-spring-boot-to-azure-kubernetes-service.md
           - text: Spring Boot to Azure Spring Apps
             url: migrate-spring-boot-to-azure-spring-apps.md
           - text: Spring Cloud to Azure Spring Apps
