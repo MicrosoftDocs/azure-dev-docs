@@ -316,15 +316,14 @@ isStreaming &&
 
 ### Review backend application code
 
-The back-end application is a Python application supporting the [Chat App protocol](https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md). The code is located in the [`./app/backend`](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend) folder. The following table describes the key files in the back-end application:
+The back-end application is a Python application supporting the [Chat App protocol][Chat_API_protocol]. The code is located in the [./app/backend][Chat_Backend_Folder] folder. The following table describes the key files in the back-end application:
 
 |File|Description|
 |---|---|
-|[requirements.txt](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/requirements.txt)|This file contains the dependencies for the back-end python application.|
-
+|requirements.txt|This file contains the dependencies for the back-end python application.|
 |app.py|This is the main Python file for the application.|
-|[core/](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/backend/core)|This folder contains the core functionality for the API.|
-|[approaches](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches)|This file integrates with Azure Cognitive Search to get the answers. This is accomplished in several steps: 1) generate an optimized keyword search query based on the chat history and the last question, 2) retrieve relevant documents from the search index with the GPT optimized query, 3) generate a contextual and content specific answer using the search results and chat history|
+|core/|This folder contains the core functionality for the API.|
+|approaches|This file integrates with Azure Cognitive Search to get the answers. This is accomplished in several steps: 1) generate an optimized keyword search query based on the chat history and the last question, 2) retrieve relevant documents from the search index with the GPT optimized query, 3) generate a contextual and content specific answer using the search results and chat history|
 
 ```python
 async def run_until_final_call(
@@ -514,3 +513,5 @@ You aren't necessarily required to cleanup your local environment, but you can s
 
 ## Related Content
 
+[Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
+[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend
