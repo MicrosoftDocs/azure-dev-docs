@@ -102,7 +102,7 @@ brew tap azure/azd && brew install azd
 
 The `brew tap azure/azd` command only needs to be run once to configure the tap in `brew`.
 
-If using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually.
+If using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
 
 ### Update `azd`
 ```bash
@@ -118,7 +118,7 @@ brew uninstall azd
 ### [Script](#tab/script-mac)
 ### Install `azd`
 
-The install script can be used to install `azd` at the machine scope.
+The install script can be used to install the correct version of `azd` at the machine scope. 
 
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
@@ -214,17 +214,6 @@ yum remove -y azd
 > [!NOTE]
 > You may need to use `sudo` when running `yum`.
 
-### [ARM64 (beta, manual)](#tab/manual-linux)
-### Install `azd` 
-
-> [!NOTE]
-> There is an ARM64 build of `azd` available for ARM64 Linux. Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
-
-1. Download `azd-linux-arm64-beta.tar.gz` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Extract the `.tar.gz` file
-1. Ensure that `azd-linux-arm64-beta` is executable (`chmod +x azd-linux-arm64-beta`)
-1. Copy `azd-linux-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
-
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
@@ -253,3 +242,8 @@ When working with an out of date version of `azd`, you will see a warning to upg
 
 > [!div class="nextstepaction"]
 > [Choose an azd template](./azd-templates.md)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Azure Developer CLI FAQ](./faq.yml)
