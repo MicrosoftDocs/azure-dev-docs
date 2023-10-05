@@ -195,7 +195,7 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 
 ## Understand architecture of Azure resources 
 
-
+TBD
 
 
 ## Review code of intelligent Chat app
@@ -234,6 +234,7 @@ The **QuestionInput** component is used to provide the input box for the user to
     onSend={question => makeApiRequest(question)}
 />
 ```
+
 The **makeApiRequest** function calls the **getAnswer** function in the **api** folder. 
 
 ```tsx
@@ -288,6 +289,35 @@ const makeApiRequest = async (question: string) => {
 };
 ```
 
+The **chatAPI** submits the question along with the chat history for context.
+
+```tsx
+export async function chatApi(options: ChatRequest): Promise<Response> {
+    const url = options.shouldStream ? "chat_stream" : "chat";
+    return await fetch(`${BACKEND_URI}/${url}`, {
+        method: "POST",
+        headers: getHeaders(options.idToken),
+        body: JSON.stringify({
+            history: options.history,
+            overrides: {
+                retrieval_mode: options.overrides?.retrievalMode,
+                semantic_ranker: options.overrides?.semanticRanker,
+                semantic_captions: options.overrides?.semanticCaptions,
+                top: options.overrides?.top,
+                temperature: options.overrides?.temperature,
+                prompt_template: options.overrides?.promptTemplate,
+                prompt_template_prefix: options.overrides?.promptTemplatePrefix,
+                prompt_template_suffix: options.overrides?.promptTemplateSuffix,
+                exclude_category: options.overrides?.excludeCategory,
+                suggest_followup_questions: options.overrides?.suggestFollowupQuestions,
+                use_oid_security_filter: options.overrides?.useOidSecurityFilter,
+                use_groups_security_filter: options.overrides?.useGroupsSecurityFilter
+            }
+        })
+    });
+}
+```
+
 The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
 
 ```tsx
@@ -321,9 +351,50 @@ The back-end application is a Python application supporting the [Chat App protoc
 |File|Description|
 |---|---|
 |requirements.txt|This file contains the dependencies for the back-end python application.|
-|app.py|This is the main Python file for the application.|
+|app.py|This is the main Python file for the application. The backend supports both streaming and nonstreaming return to the client application. This quickstart shows the code for streaming.|
 |core/|This folder contains the core functionality for the API.|
 |approaches|This file integrates with Azure Cognitive Search to get the answers. This is accomplished in several steps: 1) generate an optimized keyword search query based on the chat history and the last question, 2) retrieve relevant documents from the search index with the GPT optimized query, 3) generate a contextual and content specific answer using the search results and chat history|
+
+The `/chat` API gets the request and authentication then gets the answer.
+
+```python
+@bp.route("/chat_stream", methods=["POST"])
+async def chat_stream():
+    if not request.is_json:
+        return jsonify({"error": "request must be json"}), 415
+    request_json = await request.get_json()
+    auth_helper = current_app.config[CONFIG_AUTH_CLIENT]
+    auth_claims = await auth_helper.get_auth_claims_if_enabled(request.headers)
+    try:
+        impl = current_app.config[CONFIG_CHAT_APPROACH]
+        response_generator = impl.run_with_streaming(
+            request_json["history"], request_json.get("overrides", {}), auth_claims
+        )
+        response = await make_response(format_as_ndjson(response_generator))
+        response.timeout = None  # type: ignore
+        return response
+    except Exception as e:
+        logging.exception("Exception in /chat")
+        return jsonify({"error": str(e)}), 500
+```
+
+The API gets the intelligent answer in the **run_with_streaming** function uses an AsyncGenerator to get the answer and stream back.
+
+```python
+async def run_with_streaming(
+    self, history: list[dict[str, str]], overrides: dict[str, Any], auth_claims: dict[str, Any]
+) -> AsyncGenerator[dict, None]:
+    extra_info, chat_coroutine = await self.run_until_final_call(
+        history, overrides, auth_claims, should_stream=True
+    )
+    yield extra_info
+    async for event in await chat_coroutine:
+        # "2023-07-01-preview" API version has a bug where first response has empty choices
+        if event["choices"]:
+            yield event
+``````
+
+The **run_until_final_call** function gets the answer from the Azure Cognitive Search index and then generates the answer.
 
 ```python
 async def run_until_final_call(
