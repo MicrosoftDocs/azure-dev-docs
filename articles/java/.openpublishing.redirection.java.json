@@ -119,7 +119,7 @@
         },
         {
             "source_path": "migrate-java-se-to-java-se-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service"
+            "redirect_url": "/azure/developer/java/migration/index"
         },
         {
             "source_path": "migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md",
@@ -155,7 +155,19 @@
         },
         {
             "source_path": "migration/migrate-java-se-to-java-se-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service"
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-app-service.md",
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/index"
         },
         {
             "source_path": "migration/migrate-spring-boot-to-azure-spring-cloud.md",
