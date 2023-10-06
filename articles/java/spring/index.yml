@@ -33,10 +33,6 @@ highlightedContent:
       itemType: quickstart
       url: /azure/spring-apps/quickstart
     # Card
-    - title: Migrate Spring Boot applications to AKS
-      itemType: tutorial
-      url: ../migration/migrate-spring-boot-to-azure-kubernetes-service.md
-    # Card
     - title: Secure your app using the Spring Boot Starter for Azure Active Directory
       itemType: tutorial
       url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
@@ -256,9 +252,6 @@ conceptualContent:
             - url: ../migration/migrate-spring-cloud-to-azure-spring-cloud.md
               itemType: get-started
               text: Migrate Spring Cloud applications to Azure Spring Apps
-            - url: ../migration/migrate-spring-boot-to-azure-kubernetes-service.md
-              itemType: get-started
-              text: Migrate Spring Boot applications to AKS
 
 
 # tools section (optional)
