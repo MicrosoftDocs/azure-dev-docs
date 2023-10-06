@@ -24,13 +24,15 @@ This quickstart is part of a collection of quickstarts that show you how to buil
 
 A simple architecture of the intelligent Chat app is shown in the following diagram:
 
-:::image type="content" source="media/quickstart-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="./media/quickstart-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search service to provide search of the PDF file catalog.
-* An Azure Cognitive Services account to use the OpenAI model.
+* An Azure Cognitive Search to provide answers from your own data.
+* An Azure Cognitive Services to provide: 
+    * keywords to enhance the the search over your own data.
+    * answers from the OpenAI model.
 
 A more complete architectural overview is available later in this quickstart: [Understand architecture of Azure resources]().
 
@@ -66,11 +68,11 @@ To use this quickstart, you need the following prerequisites:
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
 
     > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=start&repo=599293758)
+    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&repo=599293758)
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="../media/codespace-configuration.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -89,7 +91,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="../media/open-terminal-option.png" lightbox="../media/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/quickstart-intelligent-app-chat/open-terminal-option.png" lightbox="./media/quickstart-intelligent-app-chat/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -109,13 +111,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
-    :::image type="content" source="../media/reopen-container-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within the context of a development container.":::
-
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
-    >
-    > :::image type="content" source="../media/reopen-container-toast.png" alt-text="Screenshot of a toast notification to reopen the current folder within the context of a development container.":::
-
 
 1. The remaining exercises in this project take place in the context of this development container.
 
@@ -140,18 +137,24 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
 
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app.":::
+
 ## Use intelligent Chat app to get answers from PDF file catalog
 
 The chat app is preloaded with employee benefits information from a [PDF file catalog](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
 1. In the browser, enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
 
-    * Do my benefits include legal services?
     * Does my plan cover annual eye exams?
     * What is my deductible?
     * How do I switch roles? 
 
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-initial-answer.png" alt-text="Screenshot of intelligent chat app's first answer.":::
+
 1. From the answer, select one of the citations.
+
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of intelligent chat app's first answer with its citation highlighted in a red box.":::
+
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
     |Tab|Description|
@@ -193,17 +196,12 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
     The answer without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
 
-## Understand architecture of Azure resources 
-
-TBD
-
-
 ## Review code of intelligent Chat app
 
 The app is separated out into 2 apps:
 
-* a front-end application
-* a backend application. 
+* a front-end JavaScript application using the React frawework with the Vite build tool.
+* a back-end Python application. 
 
 ### Review front-end application code
 
