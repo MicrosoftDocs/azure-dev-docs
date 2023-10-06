@@ -160,6 +160,8 @@ The chat app is preloaded with employee benefits information from a [PDF file ca
     |**Supporting content**|This includes the information to answer your question and the source material.|
     |**Citation**|This displays the PDF page that contains the citation.|
 
+1. When you are done, select the selected tab again to close the pane.
+
 ## Use intelligent Chat app settings to change behavior of responses
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. The following steps walk you through the process of changing the settings.
