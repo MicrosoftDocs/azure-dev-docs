@@ -11,9 +11,8 @@ ms.custom: devx-track-python
 In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
 
 - Deploy an intelligent Chat app to Azure.
-- Use intelligent Chat app to get answers about employee benefits.
-- Use intelligent Chat app settings to change behavior of responses.
-- Understand architecture of Azure resources.
+- Get answers about employee benefits.
+- Change settings to change behavior of responses.
 - Review code of intelligent Chat app.
 
 It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
@@ -29,9 +28,9 @@ A simple architecture of the intelligent Chat app is shown in the following diag
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search to provide answers from your own data.
+* An Azure Cognitive Search to get answers from your own data.
 * An Azure Cognitive Services to provide: 
-    * keywords to enhance the the search over your own data.
+    * keywords to enhance the search over your own data.
     * answers from the OpenAI model.
 
 ## Prerequisites
@@ -120,7 +119,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 The sample repository contains all the code and configuration files you need to deploy an intelligent Chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
-[!Caution] 
+[!IMPORTANT]
 > Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
@@ -198,7 +197,7 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 
 The app is separated out into 2 apps:
 
-* a front-end JavaScript application using the React frawework with the Vite build tool.
+* a front-end JavaScript application using the React framework with the Vite build tool.
 * a back-end Python application. 
 
 ### Review front-end application code
@@ -573,7 +572,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-You aren't necessarily required to cleanup your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
@@ -585,6 +584,10 @@ You aren't necessarily required to cleanup your local environment, but you can s
 ---
 
 ## Related Content
+
+* [Azure Developer CLI templates](overview-azd-templates.md)
+* [Containerized Python web app on Azure with MongoDB](tutorial-containerize-deploy-python-web-app-azure-01.md)
+* [Browse Python + AI code samples](/samples/browse/?branch=main&languages=python&products=azure-cognitive-services)
 
 [Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
 [Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend
