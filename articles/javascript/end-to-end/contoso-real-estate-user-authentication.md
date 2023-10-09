@@ -19,7 +19,7 @@ The Contoso Real Estate app uses social providers for authentication.
 
 :::image type="content" source="media/contoso-real-estate-user-authentication/social-provider-login-screen.png" lightbox="media/contoso-real-estate-user-authentication/social-provider-login-screen.png" alt-text="Screenshot displaying web page with links to several social authentication providers such as Microsoft, Facebook, and Google.":::
 
-Each social provider has its own authentication flow which includes granting access to the Contoso Real Estate app. The following consent is specific to Google authentication.
+Each social provider has its own authentication flow, which includes granting access to the Contoso Real Estate app. The following consent is specific to Google authentication.
 
 :::image type="content" source="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" lightbox="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" alt-text="Screenshot displaying web page with request to give consent to the Contoso Real Estate app to have access to specific properties of your account from the social provider.":::
 
@@ -103,6 +103,18 @@ export class AuthenticationComponent implements OnInit {
   }
 }
 ```
+
+## Use Azure Static Web Apps CLI for local development
+
+During local development, use the Static Web Apps CLI to mock the social providers. The CLI allows you to mock and read authentication and authorization credentials.
+
+When you start the SWA emulator with `swa start`, the Static Web Apps CLI provides a local development environment on port **4280**, that mimics the environment in Azure. This allows you to test your application locally before deploying to Azure.
+
+When the user selects a social provider link, the CLI redirects to the mock authentication page.
+
+:::image type="content" source="media/contoso-real-estate-user-authentication/swa-cli-local-social-provider-authentication.png" alt-text="{alt-text}":::
+
+This allows the user to fill in the mock authentication form and select **Login**. The client app then receives the authentication information from the CLI.
 
 ## Secure access to API with authentication
 
@@ -197,3 +209,8 @@ The API saves the user information to the Cosmos DB for MongoDB database in the 
 ```
 
 In the Contoso application, this information is used to display the user's name in the header and on the profile page. 
+
+## Next steps
+
+* [Azure Static Web Apps Authentication](/azure/static-web-apps/authentication-authorization)
+* [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/docs/cli/local-auth)
