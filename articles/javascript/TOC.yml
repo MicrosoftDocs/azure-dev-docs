@@ -49,20 +49,25 @@
         href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
   - name: End to end development
     items: 
-    - name: Get started
+    - name: What is Contoso Real Estate? 
       href: end-to-end/contoso-real-estate-get-started.md
       displayName: contoso, composable, sample, example, real-estate
-    - name: Run in Codespaces
-      href: end-to-end/contoso-real-estate-run-codespaces.md
-      displayName: Codespaces, GitHub, azd, best practices, enterprise
-    - name: User Scenarios
-      href: end-to-end/contoso-real-estate-user-scenarios.md
-    - name: Solution
+    - name: Define
+      items: 
+      - name: User Scenarios
+        href: end-to-end/contoso-real-estate-user-scenarios.md
+    - name: Develop
       items: 
       - name: Getting Started
         href: end-to-end/contoso-real-estate-developer-solutions.md
+      - name: Run in Codespaces
+        href: end-to-end/contoso-real-estate-run-codespaces.md
+        displayName: Codespaces, GitHub, azd, best practices, enterprise
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
+    - name: Deploy
+      href: end-to-end/contoso-real-estate-Infrastructure.md
+      isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
 
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
