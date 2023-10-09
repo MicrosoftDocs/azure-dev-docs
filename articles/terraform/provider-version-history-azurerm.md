@@ -3,7 +3,7 @@ title: Terraform AzureRM provider version history
 description: View the Terraform AzureRM provider version history
 keywords: azure devops terraform change log release history what's new
 ms.topic: reference
-ms.date: 09/10/2023
+ms.date: 10/09/2023
 ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history
 ---
