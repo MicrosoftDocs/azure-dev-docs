@@ -61,11 +61,11 @@ To start local development:
 
     | Application    | URL                                                      | Port |
     | -------------- | -------------------------------------------------------- | ---- |
-    | Portal (UI)    | https://YOUR-REPO-4280.preview.app.github.dev:4280       | 4280 |
-    | Blog   (UI)    | https://YOUR-REPO-3000.preview.app.github.dev:3000       | 3000 |
-    | Strapi CMS     | https://YOUR-REPO-1337.preview.app.github.dev:1337/admin | 1337 |
-    | Serverless API | https://YOUR-REPO-7071.preview.app.github.dev:7071/api/  | 7071 |
-    | Stripe API     | https://YOUR-REPO-4242.preview.app.github.dev:4242       | 4242 |
+    | Portal (UI)    | `https://YOUR-REPO-4280.preview.app.github.dev:4280`       | 4280 |
+    | Blog   (UI)    | `https://YOUR-REPO-3000.preview.app.github.dev:3000`       | 3000 |
+    | Strapi CMS     | `https://YOUR-REPO-1337.preview.app.github.dev:1337/admin` | 1337 |
+    | Serverless API | `https://YOUR-REPO-7071.preview.app.github.dev:7071/api/`  | 7071 |
+    | Stripe API     | `https://YOUR-REPO-4242.preview.app.github.dev:4242`       | 4242 |
     
 
     * The **portal** is the property listing website. Once logged on with a social provider, the listings are available for viewing and reservations.
