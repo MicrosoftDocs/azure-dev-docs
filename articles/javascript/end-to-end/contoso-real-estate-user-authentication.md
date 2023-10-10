@@ -111,7 +111,7 @@ When you start the SWA emulator with `swa start`, the Static Web Apps CLI provid
 
 When the user selects a social provider link, the CLI redirects to the mock authentication page.
 
-:::image type="content" source="media/contoso-real-estate-user-authentication/static-web-aapp-cli-local-social-provider-authentication.png" alt-text="Screenshot of Static Web App CLI displaying mocked social provider login page.":::
+:::image type="content" source="media/contoso-real-estate-user-authentication/static-web-app-cli-local-social-provider-authentication.png" alt-text="Screenshot of Static Web App CLI displaying mocked social provider login page.":::
 
 This allows the user to fill in the mock authentication form and select **Login**. The client app then receives the authentication information from the CLI.
 
