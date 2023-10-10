@@ -54,7 +54,7 @@
 | Event Hubs | npm [5.11.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.2) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.2/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
-| Identity | npm [3.3.0](https://www.npmjs.com/package/@azure/identity/v/3.3.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.3.0/sdk/identity/identity/) |
+| Identity | npm [3.3.1](https://www.npmjs.com/package/@azure/identity/v/3.3.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [3.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.3.1/sdk/identity/identity/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
 | Key Vault - Administration | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.4.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0/sdk/keyvault/keyvault-admin/) |
 | Key Vault - Certificates | npm [4.7.0](https://www.npmjs.com/package/@azure/keyvault-certificates/v/4.7.0) | [docs](/javascript/api/overview/azure/keyvault-certificates-readme) | GitHub [4.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.7.0/sdk/keyvault/keyvault-certificates/) |
@@ -409,7 +409,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20231008.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231008.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20231009.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231009.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
