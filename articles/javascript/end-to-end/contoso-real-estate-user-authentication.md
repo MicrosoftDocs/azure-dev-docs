@@ -1,5 +1,5 @@
 ---
-title: User authentication with Contoso real estate
+title: User authentication with Contoso Real Estate
 description: Understand how user authentication is implemented in the enterprise portal for Contoso real estate.
 ms.topic: conceptual
 ms.date: 10/03/2023
@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # User authentication with Contoso Real Estate
 
-The Contoso Real app has two front-end applications: blog and portal. The blob is publicly available, but the portal requires authentication to see Real Estate listings. 
+The Contoso Real Estate app has two front-end applications: blog and portal. The blob is publicly available, but the portal requires authentication to see Real Estate listings. 
 
 The portal application is found in the [**portal** package](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal). The portal is a single-page application (SPA) built with Angular. The portal uses [Azure Static Web Apps](/azure/static-web-apps/) for hosting and authentication. The portal uses the [Azure Functions API](/azure/azure-functions/) for data access.
 
@@ -23,7 +23,7 @@ Each social provider has its own authentication flow, which includes granting ac
 
 :::image type="content" source="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" lightbox="media/contoso-real-estate-user-authentication/grant-social-provider-access.png" alt-text="Screenshot displaying web page with request to give consent to the Contoso Real Estate app to have access to specific properties of your account from the social provider.":::
 
-Once authentication is complete, the user has access to a profile page in the portal, which include social profile data and app-specific data such as saved listings, payment history, and reservations.
+Once authentication is complete, the user has access to a profile page in the portal, which includes social profile data and app-specific data such as saved listings, payment history, and reservations.
 
 :::image type="content" source="media/contoso-real-estate-user-authentication/profile-page.png" lightbox="media/contoso-real-estate-user-authentication/profile-page.png" alt-text="Screenshot displaying web page with profile information.":::
 
@@ -35,13 +35,13 @@ When deployed to Azure, there's no additional configuration required to turn on 
 
 ## Use routes for social providers
 
-To provide user authentication with social providers, the Contoso Real Estate app uses Azure Static Web Apps, which provides built-in authentication to the hosting service. This allows you get up and running quickly with authentication without having to write any code for the authentication to social providers. 
+To provide user authentication with social providers, the Contoso Real Estate app uses Azure Static Web Apps, which provides built-in authentication to the hosting service. This allows you to get up and running quickly with authentication without having to write any code for the authentication to social providers. 
 
 The Static Web Apps **built-in authentication** provides several routes your front-end application can use to provide authentication to your users, and provides the redirection to the social authentication providers:
 
 Routes for authentication:
 
-* `/.auth/login/aad` - Redirects to Azure Active Directory (AAD) login page.
+* `/.auth/login/aad` - Redirects to Azure Active Directory (Azure AD) login page.
 * `/.auth/login/facebook` - Redirects to Facebook login page.
 * `/.auth/login/github` - Redirects to GitHub login page.
 * `/.auth/login/google` - Redirects to Google login page.
@@ -80,7 +80,6 @@ export class AuthenticationComponent implements OnInit {
     { name: "Microsoft", id: "microsoft", icon: faMicrosoft },
     { name: "Facebook", id: "facebook", icon: faFacebook },
     { name: "Google", id: "google", icon: faGoogle },
-    { name: "Twitter", id: "twitter", icon: faTwitter },
     { name: "GitHub", id: "github", icon: faGithub },
     { name: "Apple", id: "apple", icon: faApple }
   ];
@@ -112,7 +111,7 @@ When you start the SWA emulator with `swa start`, the Static Web Apps CLI provid
 
 When the user selects a social provider link, the CLI redirects to the mock authentication page.
 
-:::image type="content" source="media/contoso-real-estate-user-authentication/swa-cli-local-social-provider-authentication.png" alt-text="{alt-text}":::
+:::image type="content" source="media/contoso-real-estate-user-authentication/static-web-aapp-cli-local-social-provider-authentication.png" alt-text="Screenshot of Static Web App CLI displaying mocked social provider login page.":::
 
 This allows the user to fill in the mock authentication form and select **Login**. The client app then receives the authentication information from the CLI.
 
