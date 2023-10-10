@@ -1,60 +1,54 @@
 ---
-title: Quickstart - Create an Azure resource group using Terraform
-description: Learn how to create an Azure resource group using Terraform
-keywords: azure devops terraform azure resource group
+title: 'Quickstart: Create an Azure resource group using Terraform'
+description: In this article, you learn how to create an Azure resource group using Terraform
 ms.topic: quickstart
-ms.date: 03/18/2023
-ms.custom: devx-track-terraform, mode-portal
+ms.date: 10/10/2023
+ms.custom: devx-track-terraform
 adobe-target: true
-# Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure resource group using Terraform
 
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+This article shows how to create an Azure resource group using Terraform.
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
-
-This article shows how to create an Azure resource group using Terraform.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure resource group to hold other Azure resources
-> * Verify (using Azure CLI and Azure PowerShell) the resource group was created
-> * Delete the resource group when finished using it
-
-> [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+- [Install and configure Terraform](quickstart-configure.md)
 
 ## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-resource-group/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-resource-group/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-resource-group/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/outputs.tf)]
+    :::code language="Terraform" source="~/../terraform_samples/quickstart/101-resource-group/outputs.tf":::
 
 ## Initialize Terraform
 
@@ -78,19 +72,31 @@ echo "$(terraform output resource_group_name)"
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az group show](/cli/azure/group#az-group-show) to display the resource group.
+1. Get the Azure resource group name.
 
-```azurecli
-az group show --name <resource_group_name>
-```
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [az group show](/cli/azure/group#az-group-show) to display the resource group.
+
+    ```azurecli
+    az group show --name $resource_group_name
+    ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+1. Get the Azure resource group name.
 
-```azurepowershell
-Get-AzResourceGroup -Name <resource_group_name>
-```
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+
+    ```azurepowershell
+    Get-AzResourceGroup -Name <resource_group_name>
+    ```
 
 ---
 
