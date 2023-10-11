@@ -95,7 +95,7 @@ echo "$(terraform output resource_group_name)"
 1. Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
 
     ```azurepowershell
-    Get-AzResourceGroup -Name <resource_group_name>
+    Get-AzResourceGroup -Name $resource_group_name
     ```
 
 ---
