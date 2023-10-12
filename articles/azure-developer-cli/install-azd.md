@@ -94,7 +94,7 @@ Once you've installed the MSI versions, using the uninstall script to remove `az
 > [!NOTE] 
 > On Apple Silicon Macs (M1 and M2) `azd` requires Rosetta 2. If Rosetta 2 is not already installed run `softwareupdate --install-rosetta` from the terminal.
 >
-> The `azd` install process will automatically choose the correct binary for the architecture of the machine.
+> The `azd` install process will automatically choose the correct binary for the architecture of your machine.
 
 ### Install `azd`
 
