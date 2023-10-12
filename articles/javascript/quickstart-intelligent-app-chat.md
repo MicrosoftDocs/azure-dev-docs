@@ -339,40 +339,73 @@ The **makeApiRequest** function calls the backend API.
 
 ```
 
+The [**chatAPI**](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/api/api.ts) submits the question along with the chat history for context.
+
+```javascript
+export async function chatApi(options: ChatRequest): Promise<Response> {
+    const url = options.shouldStream ? "chat_stream" : "chat";
+    return await fetch(`${BACKEND_URI}/${url}`, {
+        method: "POST",
+        headers: getHeaders(options.idToken),
+        body: JSON.stringify({
+            history: options.history,
+            overrides: {
+                retrieval_mode: options.overrides?.retrievalMode,
+                semantic_ranker: options.overrides?.semanticRanker,
+                semantic_captions: options.overrides?.semanticCaptions,
+                top: options.overrides?.top,
+                temperature: options.overrides?.temperature,
+                prompt_template: options.overrides?.promptTemplate,
+                prompt_template_prefix: options.overrides?.promptTemplatePrefix,
+                prompt_template_suffix: options.overrides?.promptTemplateSuffix,
+                exclude_category: options.overrides?.excludeCategory,
+                suggest_followup_questions: options.overrides?.suggestFollowupQuestions,
+                use_oid_security_filter: options.overrides?.useOidSecurityFilter,
+                use_groups_security_filter: options.overrides?.useGroupsSecurityFilter
+            }
+        })
+    });
+}
+```
+
 The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
 
 ```javascript
-{
-isStreaming &&
-    streamedAnswers.map((streamedAnswer, index) => (
-        <div key={index}>
-            <UserChatMessage message={streamedAnswer[0]} />
-            <div className={styles.chatMessageGpt}>
-                <Answer
-                    isStreaming={true}
-                    key={index}
-                    answer={streamedAnswer[1]}
-                    isSelected={false}
-                    onCitationClicked={c => onShowCitation(c, index)}
-                    onThoughtProcessClicked={() => onToggleTab(AnalysisPanelTabs.ThoughtProcessTab, index)}
-                    onSupportingContentClicked={() => onToggleTab(AnalysisPanelTabs.SupportingContentTab, index)}
-                    onFollowupQuestionClicked={q => makeApiRequest(q)}
-                    showFollowupQuestions={useSuggestFollowupQuestions && answers.length - 1 === index}
-                />
-            </div>
+{ answers.map((answer, index) => (
+    <div key={index}>
+        <UserChatMessage message={answer[0]} />
+        <div className={styles.chatMessageGpt}>
+        <Answer
+            key={index}
+            answer={answer[1]}
+            isSelected={selectedAnswer === index && activeAnalysisPanelTab !== undefined}
+            onCitationClicked={(c) => onShowCitation(c, index)}
+            onThoughtProcessClicked={() => onToggleTab(AnalysisPanelTabs.ThoughtProcessTab, index)}
+            onSupportingContentClicked={() => onToggleTab(AnalysisPanelTabs.SupportingContentTab, index)}
+            onFollowupQuestionClicked={(q) => makeApiRequest(q)}
+            showFollowupQuestions={useSuggestFollowupQuestions && answers.length - 1 === index}
+        />
         </div>
+    </div>
     ))
 }
 `````` 
 
+### Review chat component code
+
+
+
 ### Review backend application code
 
-The back-end application is a JavaScript application supporting the [Chat App protocol][Chat_API_protocol]. The code is located in the [./app/backend][Chat_Backend_Folder] folder. The following table describes the key files in the back-end application:
+The back-end application is a Fastify JavaScript application supporting the [Chat App protocol][Chat_API_protocol]. The code is located in the [./packages/search][Chat_Backend_Folder] folder. The following table describes the key files in the back-end application:
 
 |File|Description|
 |---|---|
-|||
-
+|[./package.json](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/package.json)|This file contains the dependencies for the Fastify backend-end application.|
+|[./Dockerfile](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/Dockerfile)|Dockerfile used to deploy to Azure Container apps.|
+|[./.env.example](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/.env.example)|Example environment file for settings.|
+|[./src/routes/root.ts](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/src/routes/root.ts)|API routes and their handlers.|
+|[./src/plugins](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/search/src/plugins)|This folder integrates with Azure Cognitive Search to get the answers. |
 
 ## Related content
 
@@ -381,4 +414,4 @@ The back-end application is a JavaScript application supporting the [Chat App pr
 * [Browse JavaScript + AI code samples](/samples/browse/?branch=main&languages=javascript&products=azure-cognitive-services)
 
 [Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
-[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/app/backend
+[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/search
