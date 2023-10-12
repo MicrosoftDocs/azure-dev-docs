@@ -91,10 +91,10 @@ Once you've installed the MSI versions, using the uninstall script to remove `az
 ::: zone pivot="os-mac"
 ### [Homebrew (recommended)](#tab/brew-mac)
 
-> [!NOTE]
+> [!NOTE] 
 > On Apple Silicon Macs (M1 and M2) `azd` requires Rosetta 2. If Rosetta 2 is not already installed run `softwareupdate --install-rosetta` from the terminal.
 >
-> The `azd` install process will automatically choose the correct version for your device hardware.
+> The `azd` install process will automatically choose the correct binary for the architecture of the machine.
 
 ### Install `azd`
 
@@ -120,7 +120,7 @@ brew uninstall azd
 ### [Script](#tab/script-mac)
 
 > [!NOTE]
-> The `azd` install process will automatically choose the correct version for your device hardware.
+> The `azd` install process will automatically choose the correct binary for the architecture of the machine.
 
 The install script can be used to install the correct version of `azd` at the machine scope. 
 
