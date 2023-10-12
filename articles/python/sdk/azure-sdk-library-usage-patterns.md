@@ -76,7 +76,7 @@ The full example is on GitHub at [use_blob_auth_async.py](https://github.com/Mic
 
 ### Long running operations
 
-Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.operations.webappsoperations#azure-mgmt-web-v2021-02-01-operations-webappsoperations-begin-create-or-update) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
+Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and `WebSiteManagementClient.web_apps.begin_create_or_update` return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
 > You may notice differences in method names in a library, which is due to
@@ -88,7 +88,7 @@ The following code, taken from [Example: Create and deploy a web app](./examples
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
-In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_02_01.models.site) object.
+In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a Site object.
 
 ## Exceptions
 
