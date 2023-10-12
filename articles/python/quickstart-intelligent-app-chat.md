@@ -115,9 +115,11 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Deploy intelligent Chat app to Azure
+## Deploy and run
 
 The sample repository contains all the code and configuration files you need to deploy an intelligent Chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+
+### Deploy intelligent Chat app to Azure
 
 [!IMPORTANT]
 > Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
@@ -136,7 +138,7 @@ The sample repository contains all the code and configuration files you need to 
 
     :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app.":::
 
-## Use intelligent Chat app to get answers from PDF file catalog
+### Use intelligent Chat app to get answers from PDF file catalog
 
 The chat app is preloaded with employee benefits information from a [PDF file catalog](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
@@ -162,7 +164,7 @@ The chat app is preloaded with employee benefits information from a [PDF file ca
 
 1. When you are done, select the selected tab again to close the pane.
 
-## Use intelligent Chat app settings to change behavior of responses
+### Use intelligent Chat app settings to change behavior of responses
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. The following steps walk you through the process of changing the settings.
 
@@ -194,6 +196,45 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 
     The answer without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
+
+
+## Troubleshooting
+
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
+
+If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues) so this quickstart can be improved.
+
+## Clean up resources
+
+## [GitHub Codespaces](#tab/github-codespaces)
+
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
+> [!IMPORTANT]
+> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running codespaces sourced from the [`azure-samples/cosmosdb-chatgpt`](https://github.com/azure-samples/cosmosdb-chatgpt) GitHub repository.
+
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+
+## [Visual Studio Code](#tab/visual-studio-code)
+
+You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
+> [!TIP]
+> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
+---
 
 ## Review code of intelligent Chat app
 
@@ -547,43 +588,6 @@ async def run_until_final_call(
     return (extra_info, chat_coroutine)
 ```
 
-## Troubleshooting
-
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
-
-If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues) so this quickstart can be improved.
-
-## Clean up resources
-
-## [GitHub Codespaces](#tab/github-codespaces)
-
-Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
-
-> [!IMPORTANT]
-> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-
-1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
-
-1. Locate your currently running codespaces sourced from the [`azure-samples/cosmosdb-chatgpt`](https://github.com/azure-samples/cosmosdb-chatgpt) GitHub repository.
-
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
-
-1. Open the context menu for the codespace and then select **Delete**.
-
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
-
-## [Visual Studio Code](#tab/visual-studio-code)
-
-You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
-
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
-
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
-
-> [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
-
----
 
 ## Related Content
 
