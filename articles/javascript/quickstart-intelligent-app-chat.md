@@ -241,25 +241,26 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 The app is separated out into 2 apps:
 
-* a front-end JavaScript application using the React framework with the Vite build tool.
-* a back-end JavaScript application. 
+* A front-end JavaScript application using the React framework with the Vite build tool.
+* A chat web component built with LitElement used to interact with the Azure OpenAI API.
+* A back-end JavaScript application. 
 
 ### Review front-end application code
 
-The front-end application is a Vite React application. The code is located in the [`./app/frontend`](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/app/frontend) folder. The following table describes the key files in the front-end application:
+The front-end application is a Vite React application. The code is located in the [`./packages/webapp`](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp) folder. The following table describes the key files in the front-end application:
 
 |File|Description|
 |---|---|
-|[package.json](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/app/frontend/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
-|vite.config.ts|This file contains the configuration for the Vite application. This file includes the proxies to both the `/ask` and `/chat` APIs for the backend for local development. |
-|index.html|This is the main HTML file for the application.|
-|src/index.tsx|This is the main application file.|
-|[pages/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/app/frontend/src/pages)|This folder contains the React components for the pages in the application.|
-|[pages/chat/Chat.tsx](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/app/frontend/src/pages/chat/Chat.tsx)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
-|[components/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/app/frontend/src/components)|This folder contains the React components for the application.|
-|[api/](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/app/frontend/src/api/api.ts)|This folder contains the requests to the clients API backend.|
+|[package.json](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
+|[vite.config.ts](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/vite.config.ts)|This file contains the configuration for the Vite application. This file includes the proxies to `/ask`, `/chat`, and `/content` APIs for the backend for local development. |
+|[index.html](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/index.html)|This is the main HTML file for the application.|
+|[src/index.tsx](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/index.tsx)|This is the main application file and contains the routes.|
+|[pages/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/pages)|This folder contains the React components for the pages in the application.|
+|[pages/chat/Chat.tsx](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/pages/chat)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
+|[components/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/components)|This folder contains the React components for the application.|
+|[api/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/api)|This folder contains the requests to the clients API backend.|
 
-The **Chat** page has several functions and components that are used to provide the chat functionality. 
+The [**Chat**](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/pages/chat/Chat.tsx) page has several functions and components that are used to provide the chat functionality. 
 
 ### Ask a question
 
@@ -274,87 +275,68 @@ The **QuestionInput** component is used to provide the input box for the user to
 />
 ```
 
-The **makeApiRequest** function calls the **getAnswer** function in the **api** folder. 
+The **makeApiRequest** function calls the backend API. 
 
 ```javascript
-const makeApiRequest = async (question: string) => {
-    lastQuestionRef.current = question;
+  const makeApiRequest = async (question: string) => {
+    lastQuestionReference.current = question;
 
     error && setError(undefined);
     setIsLoading(true);
     setActiveCitation(undefined);
     setActiveAnalysisPanelTab(undefined);
 
-    const token = client ? await getToken(client) : undefined;
-
     try {
-        const history: ChatTurn[] = answers.map(a => ({ user: a[0], bot: a[1].answer }));
-        const request: ChatRequest = {
-            history: [...history, { user: question, bot: undefined }],
-            shouldStream: shouldStream,
-            overrides: {
-                promptTemplate: promptTemplate.length === 0 ? undefined : promptTemplate,
-                excludeCategory: excludeCategory.length === 0 ? undefined : excludeCategory,
-                top: retrieveCount,
-                retrievalMode: retrievalMode,
-                semanticRanker: useSemanticRanker,
-                semanticCaptions: useSemanticCaptions,
-                suggestFollowupQuestions: useSuggestFollowupQuestions,
-                useOidSecurityFilter: useOidSecurityFilter,
-                useGroupsSecurityFilter: useGroupsSecurityFilter
-            },
-            idToken: token?.accessToken
+      const history: ChatTurn[] = answers.map((a) => ({ user: a[0], bot: a[1].answer }));
+      const request: ChatRequest = {
+        history: [...history, { user: question, bot: undefined }],
+        approach: Approaches.ReadRetrieveRead,
+        stream: useStream,
+        overrides: {
+          promptTemplate: promptTemplate.length === 0 ? undefined : promptTemplate,
+          excludeCategory: excludeCategory.length === 0 ? undefined : excludeCategory,
+          top: retrieveCount,
+          retrievalMode: retrievalMode,
+          semanticRanker: useSemanticRanker,
+          semanticCaptions: useSemanticCaptions,
+          suggestFollowupQuestions: useSuggestFollowupQuestions,
+        },
+      };
+
+      const chatResponse = await chatApi(request);
+      if (useStream) {
+        const response = chatResponse as Response;
+        const askResponse: AskResponse = {
+          answer: '',
+          data_points: [],
+          thoughts: '',
         };
 
-        const response = await chatApi(request);
-        if (!response.body) {
-            throw Error("No response body");
+        const chunks = await getChunksFromResponse<Partial<AskResponse> & { id: string }>(response);
+        for await (const chunk of chunks) {
+          if (chunk.data_points) {
+            askResponse.data_points = chunk.data_points;
+            askResponse.thoughts = chunk.thoughts ?? '';
+          } else if (chunk.answer) {
+            askResponse.answer += chunk.answer;
+            setIsLoading(false);
+            // Disable batching
+            flushSync(() => {
+              setAnswers([...answers, [question, { ...askResponse }]]);
+            });
+          }
         }
-        if (shouldStream) {
-            const parsedResponse: AskResponse = await handleAsyncRequest(question, answers, setAnswers, response.body);
-            setAnswers([...answers, [question, parsedResponse]]);
-        } else {
-            const parsedResponse: AskResponse = await response.json();
-            if (response.status > 299 || !response.ok) {
-                throw Error(parsedResponse.error || "Unknown error");
-            }
-            setAnswers([...answers, [question, parsedResponse]]);
-        }
-    } catch (e) {
-        setError(e);
+      } else {
+        const result = chatResponse as AskResponse;
+        setAnswers([...answers, [question, result]]);
+      }
+    } catch (error_) {
+      setError(error_);
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
-};
-```
+  };
 
-The **chatAPI** submits the question along with the chat history for context.
-
-```javascript
-export async function chatApi(options: ChatRequest): Promise<Response> {
-    const url = options.shouldStream ? "chat_stream" : "chat";
-    return await fetch(`${BACKEND_URI}/${url}`, {
-        method: "POST",
-        headers: getHeaders(options.idToken),
-        body: JSON.stringify({
-            history: options.history,
-            overrides: {
-                retrieval_mode: options.overrides?.retrievalMode,
-                semantic_ranker: options.overrides?.semanticRanker,
-                semantic_captions: options.overrides?.semanticCaptions,
-                top: options.overrides?.top,
-                temperature: options.overrides?.temperature,
-                prompt_template: options.overrides?.promptTemplate,
-                prompt_template_prefix: options.overrides?.promptTemplatePrefix,
-                prompt_template_suffix: options.overrides?.promptTemplateSuffix,
-                exclude_category: options.overrides?.excludeCategory,
-                suggest_followup_questions: options.overrides?.suggestFollowupQuestions,
-                use_oid_security_filter: options.overrides?.useOidSecurityFilter,
-                use_groups_security_filter: options.overrides?.useGroupsSecurityFilter
-            }
-        })
-    });
-}
 ```
 
 The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
