@@ -63,6 +63,8 @@
       - name: Run in Codespaces
         href: end-to-end/contoso-real-estate-run-codespaces.md
         displayName: Codespaces, GitHub, azd, best practices, enterprise
+      - name: User authentication
+        href: end-to-end/contoso-real-estate-user-authentication.md
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
     - name: Deploy
