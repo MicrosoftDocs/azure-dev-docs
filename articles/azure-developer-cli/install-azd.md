@@ -91,8 +91,10 @@ Once you've installed the MSI versions, using the uninstall script to remove `az
 ::: zone pivot="os-mac"
 ### [Homebrew (recommended)](#tab/brew-mac)
 
-> [!NOTE] 
+> [!NOTE]
 > On Apple Silicon Macs (M1 and M2) `azd` requires Rosetta 2. If Rosetta 2 is not already installed run `softwareupdate --install-rosetta` from the terminal.
+>
+> The `azd` install process will automatically choose the correct version for your device hardware.
 
 ### Install `azd`
 
@@ -116,7 +118,9 @@ brew uninstall azd
 ```
 
 ### [Script](#tab/script-mac)
-### Install `azd`
+
+> [!NOTE]
+> The `azd` install process will automatically choose the correct version for your device hardware.
 
 The install script can be used to install the correct version of `azd` at the machine scope. 
 
@@ -134,17 +138,6 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 ```bash
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
-
-### [Apple Silicon (beta, manual)](#tab/manual-mac)
-### Install `azd` 
-
-> [!NOTE]
-> There is an ARM64 build of `azd` available for Apple Silicon Macs (M1 and M2). Support for ARM64 `azd` is beta. Report issues with ARM64 builds by [filing an issue in the Azure Developer CLI GitHub repo](https://github.com/Azure/azure-dev/issues).
-
-1. Download `azd-darwin-arm64-beta.zip` from [Azure Developer CLI GitHub Releases](https://github.com/Azure/azure-dev/releases)
-1. Unzip the the `.zip` file 
-1. Ensure that `azd-darwin-arm64-beta` is executable (`chmod +x azd-darwin-arm64-beta`)
-1. Copy `azd-darwin-arm64-beta` to a location in `$PATH` (e.g. `/usr/local/bin/azd`)
 
 ::: zone-end
 
