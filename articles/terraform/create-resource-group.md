@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure resource group using Terraform'
 description: In this article, you learn how to create an Azure resource group using Terraform
 ms.topic: quickstart
-ms.date: 10/10/2023
+ms.date: 10/11/2023
 ms.custom: devx-track-terraform
 adobe-target: true
 content_well_notification: 
@@ -63,12 +63,6 @@ In this article, you learn how to:
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
 ## Verify the results
-
-To see the resource group name, run the following command:
-
-```console
-echo "$(terraform output resource_group_name)"
-```
 
 #### [Azure CLI](#tab/azure-cli)
 
