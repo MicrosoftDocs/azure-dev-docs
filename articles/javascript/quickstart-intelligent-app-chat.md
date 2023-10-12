@@ -137,7 +137,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggetions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use intelligent Chat app to get answers from PDF file catalog
 
@@ -163,7 +163,7 @@ The chat app is preloaded with employee benefits information from a [PDF file ca
     |**Supporting content**|This includes the information to answer your question and the source material.|
     |**Citation**|This displays the PDF page that contains the citation.|
 
-1. When you are done, select the selected tab again to close the pane.
+1. When you're done, select the selected tab again to close the pane.
 
 ### Use intelligent Chat app settings to change behavior of responses
 
@@ -472,6 +472,99 @@ overrides?: ChatApproachOverrides,
         yield responseChunk;
         id++;
     }
+}
+```
+
+The **this.baserun** calls the Azure Cognitive Search to get the answer:
+
+1. Generate an optimized keyword search query based on the chat history and the last question.
+1. Retrieve relevant documents from the search index with the GPT optimized query.
+1. Generate a contextual and content specific answer using the search results and chat history.
+
+```typescript
+private async baseRun(history: HistoryMessage[], overrides?: ChatApproachOverrides) {
+    const userQuery = 'Generate search query for: ' + history[history.length - 1].user;
+
+    // STEP 1: Generate an optimized keyword search query based on the chat history and the last question
+    // -----------------------------------------------------------------------
+
+    const messages = this.getMessagesFromHistory(
+      QUERY_PROMPT_TEMPLATE,
+      this.chatGptModel,
+      history,
+      userQuery,
+      QUERY_PROMPT_FEW_SHOTS,
+      this.chatGptTokenLimit - userQuery.length,
+    );
+
+    const openAiChat = await this.openai.getChat();
+    const chatCompletion = await openAiChat.completions.create({
+      model: this.chatGptModel,
+      messages,
+      temperature: 0,
+      max_tokens: 32,
+      n: 1,
+    });
+
+    let queryText = chatCompletion.choices[0].message.content?.trim();
+    if (queryText === '0') {
+      // Use the last user input if we failed to generate a better query
+      queryText = history[history.length - 1].user;
+    }
+
+    // STEP 2: Retrieve relevant documents from the search index with the GPT optimized query
+    // -----------------------------------------------------------------------
+
+    const { query, results, content } = await this.searchDocuments(queryText, overrides);
+    const followUpQuestionsPrompt = overrides?.suggest_followup_questions ? FOLLOW_UP_QUESTIONS_PROMPT_CONTENT : '';
+
+    // STEP 3: Generate a contextual and content specific answer using the search results and chat history
+    // -----------------------------------------------------------------------
+
+    // Allow client to replace the entire prompt, or to inject into the exiting prompt using >>>
+    const promptOverride = overrides?.prompt_template;
+    let systemMessage: string;
+    if (promptOverride?.startsWith('>>>')) {
+      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
+        '{follow_up_questions_prompt}',
+        followUpQuestionsPrompt,
+      ).replace('{injected_prompt}', promptOverride.slice(3) + '\n');
+    } else if (promptOverride) {
+      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
+        '{follow_up_questions_prompt}',
+        followUpQuestionsPrompt,
+      ).replace('{injected_prompt}', promptOverride);
+    } else {
+      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
+        '{follow_up_questions_prompt}',
+        followUpQuestionsPrompt,
+      ).replace('{injected_prompt}', '');
+    }
+
+    const finalMessages = this.getMessagesFromHistory(
+      systemMessage,
+      this.chatGptModel,
+      history,
+      // Model does not handle lengthy system messages well.
+      // Moving sources to latest user conversation to solve follow up questions prompt.
+      `${history[history.length - 1].user}\n\nSources:\n${content}`,
+      [],
+      this.chatGptTokenLimit,
+    );
+
+    const messageToDisplay = messagesToString(messages);
+
+    return {
+      completionRequest: {
+        model: this.chatGptModel,
+        messages: finalMessages,
+        temperature: Number(overrides?.temperature ?? 0.7),
+        max_tokens: 1024,
+        n: 1,
+      },
+      dataPoints: results,
+      thoughts: `Searched for:<br>${query}<br><br>Conversations:<br>${messageToDisplay.replace('\n', '<br>')}`,
+    };
 }
 ```
 
