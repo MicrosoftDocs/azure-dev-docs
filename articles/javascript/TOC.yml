@@ -31,6 +31,9 @@
       href: openai-cli.md
     - name: Azure OpenAI quickstart
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+    - name: Chat with your data
+    href: quickstart-intelligent-app-chat.md
+    display: Azure OpenAI, OpenAI
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
