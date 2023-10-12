@@ -81,9 +81,8 @@ A managed identity is assigned a role in Azure using the [az role assignment cre
 
 ```azurecli
 az role assignment create --assignee "{managedIdentityId}" \
-    --scope /subscriptions/"{subscriptionName}" \
+    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
     --role "{roleName}" \
-    --resource-group "{resourceGroupName}"
 ```
 
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -94,13 +93,12 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-python-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with an ID of `00000000-0000-0000-0000-000000000000`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
 az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
-    --scope /subscriptions/"Storage Blob Data Subscriber" \
+    --scope /subscriptions/00000000-0000-0000-0000/resourceGroups/msdocs-python-sdk-auth-example \
     --role "Storage Blob Data Contributor" \
-    --resource-group "msdocs-python-sdk-auth-example"
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
