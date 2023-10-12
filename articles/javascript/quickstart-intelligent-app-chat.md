@@ -242,7 +242,6 @@ You aren't necessarily required to clean up your local environment, but you can 
 The app is separated out into 2 apps:
 
 * A front-end JavaScript application using the React framework with the Vite build tool.
-* A chat web component built with LitElement used to interact with the Azure OpenAI API.
 * A back-end JavaScript application. 
 
 ### Review front-end application code
@@ -266,7 +265,7 @@ The [**Chat**](https://github.com/Azure-Samples/azure-search-openai-javascript/b
 
 The **QuestionInput** component is used to provide the input box for the user to ask a question and sends in the function to call the API to get the answer.
 
-```javascript
+```typescript
 <QuestionInput
     clearOnSend
     placeholder="Type a new question (e.g. does my plan cover annual eye exams?)"
@@ -277,7 +276,7 @@ The **QuestionInput** component is used to provide the input box for the user to
 
 The **makeApiRequest** function calls the backend API. 
 
-```javascript
+```typescript
   const makeApiRequest = async (question: string) => {
     lastQuestionReference.current = question;
 
@@ -341,7 +340,7 @@ The **makeApiRequest** function calls the backend API.
 
 The [**chatAPI**](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/api/api.ts) submits the question along with the chat history for context.
 
-```javascript
+```typescript
 export async function chatApi(options: ChatRequest): Promise<Response> {
     const url = options.shouldStream ? "chat_stream" : "chat";
     return await fetch(`${BACKEND_URI}/${url}`, {
@@ -370,7 +369,7 @@ export async function chatApi(options: ChatRequest): Promise<Response> {
 
 The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
 
-```javascript
+```typescript
 { answers.map((answer, index) => (
     <div key={index}>
         <UserChatMessage message={answer[0]} />
@@ -391,10 +390,6 @@ The chat keeps a history of the answers in the **answers** array and displays th
 }
 `````` 
 
-### Review chat component code
-
-
-
 ### Review backend application code
 
 The back-end application is a Fastify JavaScript application supporting the [Chat App protocol][Chat_API_protocol]. The code is located in the [./packages/search][Chat_Backend_Folder] folder. The following table describes the key files in the back-end application:
@@ -407,10 +402,82 @@ The back-end application is a Fastify JavaScript application supporting the [Cha
 |[./src/routes/root.ts](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/src/routes/root.ts)|API routes and their handlers.|
 |[./src/plugins](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/search/src/plugins)|This folder integrates with Azure Cognitive Search to get the answers. |
 
+The `/chat` API gets the request then gets the answer.
+
+```typescript
+  fastify.post('/chat', {
+    schema: {
+      description: 'Chat with the bot',
+      tags: ['chat'],
+      body: { $ref: 'chatRequest' },
+      response: {
+        // 200: { $ref: 'approachResponse' },
+        400: { $ref: 'httpError' },
+        500: { $ref: 'httpError' },
+      },
+    } as const,
+    handler: async function (request, reply) {
+      const { approach } = request.body;
+      const chatApproach = fastify.approaches.chat[approach];
+      if (!chatApproach) {
+        return reply.badRequest(`Chat approach "${approach}" is unknown or not implemented.`);
+      }
+
+      const { history, overrides, stream } = request.body;
+      try {
+        if (stream) {
+          const buffer = new Readable();
+          // Dummy implementation needed
+          buffer._read = () => {};
+          reply.type('application/x-ndjson').send(buffer);
+
+          const chunks = await chatApproach.runWithStreaming(history, overrides ?? {});
+          for await (const chunk of chunks) {
+            buffer.push(JSON.stringify(chunk) + '\n');
+          }
+          // eslint-disable-next-line unicorn/no-null
+          buffer.push(null);
+        } else {
+          return await chatApproach.run(history, overrides ?? {});
+        }
+      } catch (_error: unknown) {
+        const error = _error as Error;
+        fastify.log.error(error);
+        return reply.internalServerError(error.message);
+      }
+    },
+  });
+```
+
+The API gets the intelligent answer in the **chatApproach.runWithStreaming** function to get the answer.
+
+```typescript
+async *runWithStreaming(
+history: HistoryMessage[],
+overrides?: ChatApproachOverrides,
+): AsyncGenerator<ApproachResponseChunk, void> {
+    const { completionRequest, dataPoints, thoughts } = await this.baseRun(history, overrides);
+    const openAiChat = await this.openai.getChat();
+    const chatCompletion = await openAiChat.completions.create({
+        ...completionRequest,
+        stream: true,
+    });
+    let id = 0;
+    for await (const chunk of chatCompletion) {
+        const responseChunk = {
+        data_points: id === 0 ? dataPoints : undefined,
+        thoughts: id === 0 ? thoughts : undefined,
+        answer: chunk.choices[0].delta.content ?? '',
+        };
+        yield responseChunk;
+        id++;
+    }
+}
+```
+
 ## Related content
 
-* [Azure Developer CLI templates](overview-azd-templates.md)
-* [Containerized JavaScript web app on Azure with MongoDB](tutorial-containerize-deploy-javascript-web-app-azure-01.md)
+* [Azure Developer CLI templates for JavaScript](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs)
 * [Browse JavaScript + AI code samples](/samples/browse/?branch=main&languages=javascript&products=azure-cognitive-services)
 
 [Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
