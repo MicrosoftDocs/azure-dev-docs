@@ -4,6 +4,7 @@ description: Quickstart to deploy and use an Azure OpenAI Chat app supplemented 
 ms.date: 10/05/2023
 ms.topic: quickstart
 ms.custom: devx-track-python
+# CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
 # Quickstart: Deploy an Azure OpenAI Chat app with your data in Python
@@ -136,7 +137,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app.":::
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggetions for chat input and the chat text box to enter a question.":::
 
 ### Use intelligent Chat app to get answers from PDF file catalog
 
