@@ -589,7 +589,7 @@ async def run_until_final_call(
 ```
 
 
-## Related Content
+## Related content
 
 * [Azure Developer CLI templates](overview-azd-templates.md)
 * [Containerized Python web app on Azure with MongoDB](tutorial-containerize-deploy-python-web-app-azure-01.md)
