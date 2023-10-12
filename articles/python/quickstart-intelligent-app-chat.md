@@ -389,10 +389,10 @@ The back-end application is a Python application supporting the [Chat App protoc
 
 |File|Description|
 |---|---|
-|requirements.txt|This file contains the dependencies for the back-end python application.|
-|app.py|This is the main Python file for the application. The backend supports both streaming and nonstreaming return to the client application. This quickstart shows the code for streaming.|
-|core/|This folder contains the core functionality for the API.|
-|approaches|This file integrates with Azure Cognitive Search to get the answers. |
+|[requirements.in](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/requirements.in)|This file contains the dependencies for the back-end python application.|
+|[app.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/app.py)|This is the main Python file for the application. The backend supports both streaming and nonstreaming return to the client application. This quickstart shows the code for streaming.|
+|[core/](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/backend/core)|This folder contains the core functionality for the API.|
+|[approaches](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/app/backend/approaches)|This file integrates with Azure Cognitive Search to get the answers. |
 
 The `/chat` API gets the request and authentication then gets the answer.
 
