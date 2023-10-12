@@ -53,7 +53,7 @@ To use this quickstart, you need the following prerequisites:
 
 ---
 
-## Open sample project in development environment
+## Open development environment
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -236,7 +236,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ---
 
-## Review code of intelligent Chat app
+## Review code
 
 The app is separated out into 2 apps:
 
