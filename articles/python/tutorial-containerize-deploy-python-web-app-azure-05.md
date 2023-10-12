@@ -3,7 +3,7 @@ title: Clean up Azure resources used in Python container tutorial
 description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/24/2022
+ms.date: 10/09/2023
 ms.custom: devx-track-python
 ---
 
@@ -15,15 +15,11 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure CLI](#tab/azure-cli)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to delete a resource group.
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-1-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-1.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-3.md>)] | |
+[!INCLUDE [Clean up resources CLI](<./includes/general-clean-up-steps/clean-up-resources-cli.md>)]
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -33,11 +29,15 @@ To work with Azure resources in VS Code, you must have the [Azure Tools extensio
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group Visual Studio Code 1](<./includes/general-clean-up-steps/remove-resource-group-visual-studio-code-1.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-visual-studio-code-1-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-visual-studio-code-1.png" alt-text="A screenshot showing how to delete a resource group in Visual Studio Code." ::: |
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure portal](#tab/azure-portal)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to delete a resource group.
 
-[!INCLUDE [Clean up resources CLI](<./includes/general-clean-up-steps/clean-up-resources-cli.md>)]
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-1-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-1.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-3.md>)] | |
 
 ----
 

@@ -1,10 +1,13 @@
 ---
 ms.topic: include
-ms.date: 08/19/2022
+ms.date: 10/09/2023
 ---
 
-To set browse the site, use the [az webapp browse](/cli/azure/webapp#az-webapp-browse) command.
+If you're running the Azure CLI locally, you can use the [az webapp browse](/cli/azure/webapp#az-webapp-browse) command to browse to the web site. If you're using Cloud Shell, open a browser window and navigate to the website URL.
 
 ```azurecli
-az webapp browse  --name <app-service-name> --resource-group <resource-group-name> 
+az webapp browse  --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME 
 ```
+
+> [!NOTE]
+> The `az webapp browse` command isn't supported in Cloud Shell. Open a broser window and navigate to the website URL instead.
