@@ -1,6 +1,6 @@
 ---
 title: Add authentication to your mobile apps with Visual Studio App Center and Azure services
-description: Learn about the services such as Visual Studio App Center that help set up user authentication and enable mobile applications to authenticate with social accounts, Azure Active Directory, and custom authentication.
+description: Learn about the services such as Visual Studio App Center that help set up user authentication and enable mobile applications to authenticate with social accounts, Microsoft Entra ID, and custom authentication.
 author: codemillmatt
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
 ms.service: mobile-services
@@ -38,23 +38,29 @@ Use the following services to enable user authentication in your mobile apps.
 - [Quickstarts](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Samples](/azure/active-directory-b2c/code-samples)
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is Microsoft's cloud-based identity and access management service, which helps your employees to sign in and gain access to:
+## Microsoft Entra ID
+
+[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) is Microsoft's cloud-based identity and access management service, which helps your employees to sign in and gain access to:
 
 - External resources, such as Microsoft 365, the Azure portal, and thousands of other software as a service (SaaS) applications.
 - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
 
-### Azure Active Directory features
+<a name='azure-active-directory-features'></a>
+
+### Microsoft Entra features
 
 - Seamless, highly secure access by connecting users to the applications they need.
 - Comprehensive identity protection and enhanced security for identities and access based on user, location, device, data, and application context.
 - Thousands of pre-integrated apps for both commercial and custom applications, such as Microsoft 365, Salesforce.com, and Box.
 - Ability to manage access at scale.
 
-### Azure Active Directory references
+<a name='azure-active-directory-references'></a>
+
+### Microsoft Entra ID references
 
 - [Azure portal](https://portal.azure.com/)
-- [What is Azure AD?](/azure/active-directory/fundamentals/active-directory-whatis)
-- [Get started with Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Get started with Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Quickstarts](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)

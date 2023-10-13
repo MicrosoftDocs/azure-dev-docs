@@ -36,7 +36,7 @@ Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL](https
 5. In the right hand panel, select each of the `TodoApp.Uno` projects.
 6. Select **Install**.
 
-   ![Screenshot of selecting the Uno M S A L NuGet in Visual Studio.](./media/select-uno-msal-nuget.png)
+   ![Screenshot of selecting the Uno MSAL NuGet in Visual Studio.](./media/select-uno-msal-nuget.png)
 
 7. Accept the license agreement to continue the installation.
 
@@ -47,7 +47,7 @@ Use the same technique to add the [Microsoft.Identity.Client](/azure/active-dire
 3. In the right hand panel, select each of the `TodoApp.Uno` projects.
 4. Select **Install**.
 
-   ![Screenshot of selecting the M S A L NuGet in Visual Studio.](./media/select-msal-nuget.png)
+   ![Screenshot of selecting the MSAL NuGet in Visual Studio.](./media/select-msal-nuget.png)
 
 5. Accept the license agreement to continue the installation.
 
@@ -84,7 +84,7 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
   }
 ```
 
-Replace the `<client-id>` with the _Native Client Application ID_ you received when registering the client application in Azure Active Directory, and the `<scope>` with the _Web API Scope_ you copied when you used **Expose an API** while registering the service application.
+Replace the `<client-id>` with the _Native Client Application ID_ you received when registering the client application in Microsoft Entra ID, and the `<scope>` with the _Web API Scope_ you copied when you used **Expose an API** while registering the service application.
 
 Open the `MainPage.xaml.cs` file in the top folder of the `TodoApp.Uno` project.  
 
