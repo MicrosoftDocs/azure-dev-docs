@@ -11,12 +11,12 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including .NET MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
 
 If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
 
 * [AvaloniaUI](../../quickstarts/avalonia/index.md)
-* [.NET MAUI (Android and iOS)](../../quickstarts/maui/index.md)
+* [MAUI (Android and iOS)](../../quickstarts/maui/index.md)
 * [Uno Platform](../../quickstarts/uno/index.md)
 * [Windows (UWP)](../../quickstarts/uwp/index.md)
 * [Windows (WinUI3)](../../quickstarts/winui/index.md)
@@ -200,7 +200,7 @@ public class MyTodoItemClass : DatasyncClientData
 }
 ```
 
-Alternatively,specify the name of the table in the `GetRemoteTable()` call:
+Alternatively, specify the name of the table in the `GetRemoteTable()` call:
 
 ``` csharp
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable("todoitem");
@@ -521,14 +521,14 @@ Store initialization is normally done immediately after the client is created.  
 * To use an in-memory cache, use `file:inmemory.db?mode=memory&cache=private`.
 * To use a file, use `file:/path/to/file.db`
 
-You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin.Essentials File System Helpers](/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
+You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin Essentials File System Helpers](/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
 var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
-If you're using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
+If you're using MAUI, you can use the [MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
@@ -751,9 +751,9 @@ public async Task<AuthenticationToken> GetTokenAsync()
 
 For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
 
-### Use Xamarin.Essentials or .NET MAUI WebAuthenticator
+### Use Xamarin Essentials or MAUI WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or the [MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or the [MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
