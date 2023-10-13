@@ -11,7 +11,7 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article looks at how the Azure Identity library supports Microsoft Entra ID token authentication via service principal. This article covers the following subjects:
+This article looks at how the Azure Identity library supports Microsoft Entra token authentication via service principal. This article covers the following subjects:
 
 * [Create a service principal with the Azure CLI](#create-a-service-principal-with-the-azure-cli)
 * [Client secret credential](#client-secret-credential)

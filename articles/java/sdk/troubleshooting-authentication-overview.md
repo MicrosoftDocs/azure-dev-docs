@@ -56,7 +56,7 @@ Calls to service clients resulting in `HttpResponseException` with a `StatusCode
 
 ## Find relevant information in exception messages
 
-`ClientAuthenticationException` is thrown when unexpected errors occur while a credential is authenticating. These errors can include errors received from requests to the Microsoft Entra ID security token service (STS) and often contain information helpful to diagnosis. Consider the following `ClientAuthenticationException` message:
+`ClientAuthenticationException` is thrown when unexpected errors occur while a credential is authenticating. These errors can include errors received from requests to the Microsoft Entra security token service (STS) and often contain information helpful to diagnosis. Consider the following `ClientAuthenticationException` message:
 
 ```output
 ClientSecretCredential authentication failed: A configuration issue is preventing authentication - check the error message from the server for details. You can modify the configuration in the application registration portal. See https://aka.ms/msal-net-invalid-client for details.
@@ -72,7 +72,7 @@ This error message contains the following information:
 
 * **Failing credential type**: The type of credential that failed to authenticate - in this case, `ClientSecretCredential`. This information is helpful when diagnosing issues with chained credential types, such as `DefaultAzureCredential` or `ChainedTokenCredential`.
 
-* **STS error code and message**: The error code and message returned from the Microsoft Entra ID STS - in this case, `AADSTS7000215: Invalid client secret provided.` This information can give insight into the specific reason the request failed. For instance, in this specific case, because the provided client secret is incorrect. For more information on STS error codes, see the [AADSTS error codes](/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes) section of [Microsoft Entra ID authentication and authorization error codes](/azure/active-directory/develop/reference-aadsts-error-codes).
+* **STS error code and message**: The error code and message returned from the Microsoft Entra STS - in this case, `AADSTS7000215: Invalid client secret provided.` This information can give insight into the specific reason the request failed. For instance, in this specific case, because the provided client secret is incorrect. For more information on STS error codes, see the [AADSTS error codes](/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes) section of [Microsoft Entra authentication and authorization error codes](/azure/active-directory/develop/reference-aadsts-error-codes).
 
 * **Correlation ID and timestamp**: The correlation ID and call timestamp used to identify the request in server-side logs. This information is useful to support engineers when diagnosing unexpected STS failures.
 
