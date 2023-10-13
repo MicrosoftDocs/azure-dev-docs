@@ -34,11 +34,13 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 ::: zone-end
 
-## Add authentication to the app
+## Register your app with the identity service
 
 The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add The Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.
 
