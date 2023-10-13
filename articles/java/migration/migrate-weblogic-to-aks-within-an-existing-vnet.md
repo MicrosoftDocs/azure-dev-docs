@@ -134,7 +134,7 @@ az storage account create \
     --kind StorageV2
 ```
 
-Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. The following example uses the storage account key to authorize the operation to create the container. You can also use your Azure AD account to authorize the operation to create the container. For more information, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli).
+Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. The following example uses the storage account key to authorize the operation to create the container. You can also use your Microsoft Entra account to authorize the operation to create the container. For more information, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli).
 
 ```azurecli-interactive
 export KEY=$(az storage account keys list \

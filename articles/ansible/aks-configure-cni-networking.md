@@ -245,4 +245,4 @@ localhost                  : ok=9    changed=4    unreachable=0    failed=0    s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure Azure Active Directory in AKS using Ansible](./aks-configure-rbac.md)
+> [Tutorial: Configure Microsoft Entra ID in AKS using Ansible](./aks-configure-rbac.md)

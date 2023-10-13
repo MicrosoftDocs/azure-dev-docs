@@ -86,7 +86,7 @@ Direct download link:
 
 ## Login
 
-To start a dev tunnel, you first need to log in with either a Microsoft Azure Active Directory (Azure AD), Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
+To start a dev tunnel, you first need to log in with either a Microsoft Entra ID, Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
 
 ```bash
 devtunnel user login
