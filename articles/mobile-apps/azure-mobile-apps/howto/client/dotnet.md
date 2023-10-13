@@ -112,7 +112,7 @@ var options = new DatasyncClientOptions
 
 #### InstallationId
 
-A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
+If an `InstallationId` is set, a custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, the `InstallationId` is not set.  If you use `InstallationId`, the ID should be stored in persistent storage on the device so that unique installations can be tracked.
 
 #### OfflineStore
 
