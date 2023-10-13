@@ -13,10 +13,10 @@ zone_pivot_groups: vs-platform-options
 
 # Add authentication to your Xamarin.Android app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 

@@ -12,13 +12,13 @@ zone_pivot_groups: vs-platform-options
 
 # Add authentication to your Xamarin.Forms app
 
-In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to your app using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
