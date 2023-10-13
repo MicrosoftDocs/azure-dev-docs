@@ -15,7 +15,7 @@ This article shows you have to configure and use the ASP.NET Core backend server
 
 ## Supported platforms
 
-The ASP.NET Core backend server supports ASP.NET Core 6.0.
+The ASP.NET Core backend server supports ASP.NET 6.0 or later.
 
 Database servers must meet the following criteria have a `DateTime` or `Timestamp` type field that is stored with millisecond accuracy.  Repository implementations are provided for [Entity Framework Core][5] and [LiteDb][6].
 
@@ -30,7 +30,7 @@ For specific database support, see the following sections:
 
 A data sync server uses the normal ASP.NET Core mechanisms for creating the server.  It consists of three steps:
 
-1. Create an ASP.NET Core server project.
+1. Create an ASP.NET 6.0 (or later) server project.
 1. Add Entity Framework Core
 1. Add Data sync Services
 
@@ -255,10 +255,53 @@ Logging is handled through [the normal logging mechanism][3] for ASP.NET Core.  
 [Route("tables/[controller]")]
 public class ModelController : TableController<Model>
 {
-    public ModelsController(AppDbContext context, Ilogger<ModelController> logger) : base()
+    public ModelController(AppDbContext context, Ilogger<ModelController> logger) : base()
     {
         Repository = new EntityTableRepository<Model>(context);
         Logger = logger;
+    }
+}
+```
+
+## Monitor repository changes
+
+When the repository is changed, you can trigger workflows, log the response to the client, or do other work in one of two methods:
+
+### Option 1: Implement a PostCommitHookAsync
+
+The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  This is called after the data has been written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client is not changed in this method.  The signature of a `PostCommitHookAsync()` method is shown below:
+
+```csharp
+public class MyAccessControlProvider<T> : AccessControlProvider<T> where T : ITableData
+{
+    public override async Task PostCommitHookAsync(TableOperation op, T entity, CancellationToken cancellationToken = default)
+    {
+        // Do any work you need to here.
+        // Make sure you await any asynchronous operations.
+    }
+}
+```
+
+Use this option if you are running asynchronous tasks as part of the hook.
+
+### Option 2: Use the RepositoryUpdated event handler
+
+The `TableController<T>` base class contains an event handler that is called at the same time as the `PostCommitHookAsync()` method.
+
+```csharp
+[Authorize]
+[Route(tables/[controller])]
+public class ModelController : TableController<Model>
+{
+    public ModelController(AppDbContext context) : base()
+    {
+        Repository = new EntityTableRepository<Model>(context);
+        RepositoryUpdated += OnRepositoryUpdated;
+    }
+
+    internal void OnRepositoryUpdated(object sender, RepositoryUpdatedEventArgs e) 
+    {
+        // The RepositoryUpdatedEventArgs contains Operation, Entity, EntityName
     }
 }
 ```

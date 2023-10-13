@@ -120,7 +120,7 @@ The `OfflineStore` is used when configuring offline data access.  For more infor
 
 #### ParallelOperations
 
-Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads.
 
 #### SerializerSettings
 
@@ -128,9 +128,7 @@ If you've changed the serializer settings on the data sync server, you need to m
 
 #### TableEndpointResolver
 
-By convention, tables are located on the remote service at the `/tables/{tableName}` path (as specified by the `Route` attribute in the server
-code).  However, tables can exist at any endpoint path.  The `TableEndpointResolver` is a function that turns a table name into a path for 
-communicating with the remote service.
+By convention, tables are located on the remote service at the `/tables/{tableName}` path (as specified by the `Route` attribute in the server code).  However, tables can exist at any endpoint path.  The `TableEndpointResolver` is a function that turns a table name into a path for communicating with the remote service.
 
 For example, the following changes the assumption so that all tables are located under `/api`:
 
@@ -380,6 +378,16 @@ The `GetItemAsync` function can be used to look up objects from the database wit
 
 ```csharp
 TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
+```
+
+If the item you are trying to retrieve has been soft-deleted, you must use the `includeDeleted` parameter:
+
+```csharp
+// The following code will throw a DatasyncClientException if the item is soft-deleted.
+TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
+
+// This code will retrieve the item even if soft-deleted.
+TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D", includeDeleted: true);
 ```
 
 ### Insert data on the remote server
@@ -681,7 +689,7 @@ Authentication tokens are cached in memory (never written to device) and refresh
 
 ### Use the Microsoft Identity Platform
 
-The Microsoft Identity Platform allows you to easily integrate with Azure Active Directory.  See the quick start tutorials for a complete tutorial on how to implement Azure Active Directory authentication.  The following code shows an example of retrieving the access token:
+The Microsoft Identity Platform allows you to easily integrate with Microsoft Entra ID.  See the quick start tutorials for a complete tutorial on how to implement Microsoft Entra ID authentication.  The following code shows an example of retrieving the access token:
 
 ``` csharp
 private readonly string[] _scopes = { /* provide your AAD scopes */ };
@@ -929,7 +937,6 @@ The properties within `args` are either `null` or `-1` when the property isn't r
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
 [Microsoft.Datasync.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Datasync.Client.SQLiteStore
-[System.Linq.Async]: https://www.nuget.org/packages/System.Linq.Async/
 
 <!-- DOTNET API References -->
 [DelegatingHandler]: /dotnet/api/system.net.http.delegatinghandler
