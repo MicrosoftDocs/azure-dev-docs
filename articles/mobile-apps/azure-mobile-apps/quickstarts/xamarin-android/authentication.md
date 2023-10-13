@@ -174,7 +174,7 @@ Replace `{client-id}` with the application ID of the native client (which is the
 
 Run or restart the app.
 
-When the app runs, a browser is opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser closes and your app runs as before.
+When the app runs, a browser is opened to ask you for authentication.  If you haven't authenticated with the app before, the app asks you to consent.  Once authentication is complete, the system browser closes and your app runs as before.
 
 ## Next steps
 
