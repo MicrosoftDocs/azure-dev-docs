@@ -9,7 +9,9 @@ ms.custom: devx-track-javascript
 
 # Quickstart: Deploy an Azure OpenAI Chat app with your data in JavaScript
 
-In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
+In this quickstart, you deploy and use an intelligent Chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+
+By following the instructions in this quickstart, you will:
 
 - Deploy an intelligent Chat app to Azure.
 - Get answers about employee benefits.
@@ -139,15 +141,15 @@ The sample repository contains all the code and configuration files you need to 
 
     :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
-### Use intelligent Chat app to get answers from PDF file catalog
+### Use intelligent Chat app to get answers from markdown file catalog
 
-The chat app is preloaded with employee benefits information from a [PDF file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
+The chat app is preloaded with rental information from a [markdown file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
 1. In the browser, enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
 
-    * Does my plan cover annual eye exams?
-    * What is my deductible?
-    * How do I switch roles? 
+    * What happens if the rental doesn't fit the description?
+    * What is the refund policy?
+    * How to contact a representative? 
 
     :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-initial-answer.png" alt-text="Screenshot of intelligent chat app's first answer.":::
 
