@@ -10,10 +10,10 @@ ms.prod: azure-mobile-apps
 
 You can register native clients to allow authentication to Web APIs hosted in your app using a client library such as the Microsoft Identity Library (MSAL).
 
-1. In the [Azure portal](https://portal.azure.com), select **Active Directory** > **App registrations** > **New registration**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **App registrations** > **New registration**.
 2. In the **Register an application** page:
     * enter a **Name** for your app registration.  You may want to use the name `native-quickstart` to distinguish this one from the one used by your backend service.
-    * Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+    * Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
     * In **Redirect URI**:
         * Select **Public client (mobile & desktop)**
         * Enter the URL `quickstart://auth`

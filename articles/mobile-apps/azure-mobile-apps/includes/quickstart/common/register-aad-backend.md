@@ -10,22 +10,22 @@ ms.prod: azure-mobile-apps
 
 Your backend service is a standard ASP.NET 6 service.  Any tutorial that shows you how to enable authentication for an ASP.NET 6 service will work with Azure Mobile Apps.
 
-To enable Azure Active Directory authentication for your backend service, you need to:
+To enable Microsoft Entra ID authentication for your backend service, you need to:
 
-* Register an application with Azure Active Directory.
+* Register an application with Microsoft Entra ID.
 * Add authentication checking to the ASP.NET 6 backend project.
 
 ### Register the application
 
-First, register the web API in your Azure Active Directory tenant and add a scope by following these steps:
+First, register the web API in your Microsoft Entra ID tenant and add a scope by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
-3. Search for and select **Azure Active Directory**.
+3. Search for and select **Microsoft Entra ID**.
 4. Under **Manage**, select **App registrations** > **New registration**.
 
    * **Name**: enter a name for your application; for example, **TodoApp Quickstart**.  Users of your app will see this name.  You can change it later.
-   * **Supported account types**: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
+   * **Supported account types**: **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 
 5. Select **Register**.
 6. Under **Manage**, select **Expose an API** > **Add a scope**.
