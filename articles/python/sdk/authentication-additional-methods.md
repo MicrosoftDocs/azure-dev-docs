@@ -20,7 +20,7 @@ Interactive browser authentication enables the application for all operations al
 
 Perform the following steps to enable the application to authenticate through the interactive browser flow. These steps also work for [device code authentication](#device-code-authentication) described later. Following this process is necessary only if using `InteractiveBrowserCredential` in your code.
 
-1. On the [Azure portal](https://portal.azure.com), navigate to Azure Active Directory and select **App registrations** on the left-hand menu.
+1. On the [Azure portal](https://portal.azure.com), navigate to Microsoft Entra ID and select **App registrations** on the left-hand menu.
 1. Select the registration for your app, then select **Authentication**.
 1. Under **Advanced settings**, select **Yes** for **Allow public client flows**.
 1. Select **Save** to apply the changes.
@@ -56,6 +56,6 @@ This method authenticates an application using previous-collected credentials an
 
 This method of authentication is discouraged because it's less secure than other flows. Also, this method is not interactive and is therefore **not compatible with any form of multi-factor authentication or consent prompting.** The application must already have consent from the user or a directory administrator.
 
-Furthermore, this method authenticates only work and school accounts; Microsoft accounts are not supported. For more information, see [Sign up your organization to use Azure Active Directory](/azure/active-directory/fundamentals/sign-up-organization).
+Furthermore, this method authenticates only work and school accounts; Microsoft accounts are not supported. For more information, see [Sign up your organization to use Microsoft Entra ID](/azure/active-directory/fundamentals/sign-up-organization).
 
 :::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_username_password.py":::

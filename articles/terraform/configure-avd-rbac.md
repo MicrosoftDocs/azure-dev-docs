@@ -16,13 +16,13 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-This article will walk through adding our users and Azure AD group and then assign the group to the "Desktop Virtualization User" role, scoped to our host pool.  
+This article will walk through adding our users and Microsoft Entra group and then assign the group to the "Desktop Virtualization User" role, scoped to our host pool.  
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Use Terraform to read Azure Active Directory existing users
-> * Use Terraform to create Azure Active Directory group
+> * Use Terraform to read Microsoft Entra existing users
+> * Use Terraform to create Microsoft Entra group
 > * Role assignment for Azure Virtual Desktop
 
 ## 1. Configure your environment

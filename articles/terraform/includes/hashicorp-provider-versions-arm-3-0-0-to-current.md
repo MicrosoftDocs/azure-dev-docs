@@ -1551,7 +1551,7 @@ ENHANCEMENTS:
 
 BUG FIXES:
 
-* Data Source: `azurerm_aadb2c_directory` - fixing a bug where the Data Source didn't return an error when the AAD B2C was not found ([#20479](https://github.com/hashicorp/terraform-provider-azurerm/issues/20479))
+* Data Source: `azurerm_aadb2c_directory` - fixing a bug where the Data Source didn't return an error when the Azure AD B2C was not found ([#20479](https://github.com/hashicorp/terraform-provider-azurerm/issues/20479))
 * Data Source: `azurerm_app_service_environment_v3` - fixing a bug where the Data Source didn't return an error when the App Service Environment was not found ([#20479](https://github.com/hashicorp/terraform-provider-azurerm/issues/20479))
 * Data Source: `azurerm_consumption_budget_resource_group` - using the correct timeout value ([#20479](https://github.com/hashicorp/terraform-provider-azurerm/issues/20479))
 * Data Source: `azurerm_consumption_budget_resource_group` - fixing a bug where the Data Source didn't return an error when the Consumption Budget Resource Group was not found ([#20479](https://github.com/hashicorp/terraform-provider-azurerm/issues/20479))
@@ -2620,7 +2620,7 @@ ENHANCEMENTS:
 
 BUG FIXES:
 
-* `azurerm_kubernetes_cluster` - `kube_config` is now set when AAD is enabled for a `v1.24` cluster ([#18142](https://github.com/hashicorp/terraform-provider-azurerm/issues/18142))
+* `azurerm_kubernetes_cluster` - `kube_config` is now set when Microsoft Entra ID is enabled for a `v1.24` cluster ([#18142](https://github.com/hashicorp/terraform-provider-azurerm/issues/18142))
 * `azurerm_redis_cache` - will now recreate the cache when downgrading the SKU ([#17767](https://github.com/hashicorp/terraform-provider-azurerm/issues/17767))
 * `azurerm_spring_cloud_service` - ignore the default zero value for `read_timeout_seconds` ([#18161](https://github.com/hashicorp/terraform-provider-azurerm/issues/18161))
 
@@ -2640,7 +2640,7 @@ ENHANCEMENTS:
 
 BUG FIXES:
 
-* `data.azurerm_kubernetes_cluster` - `kube_config` is now set when AAD is enabled for a v1.24 cluster ([#18131](https://github.com/hashicorp/terraform-provider-azurerm/issues/18131))
+* `data.azurerm_kubernetes_cluster` - `kube_config` is now set when Microsoft Entra ID is enabled for a v1.24 cluster ([#18131](https://github.com/hashicorp/terraform-provider-azurerm/issues/18131))
 * `azurerm_cosmosdb_sql_database` - prevent panic in autoacale settings ([#18070](https://github.com/hashicorp/terraform-provider-azurerm/issues/18070))
 * `azurerm_kubernetes_cluster_node_pool`  - fixa crash in expanding upgrade settings ([#18074](https://github.com/hashicorp/terraform-provider-azurerm/issues/18074))
 * `azurerm_mssql_elastic_pool` - list of values for `maintenance_configuration_name` is now correct ([#18041](https://github.com/hashicorp/terraform-provider-azurerm/issues/18041))

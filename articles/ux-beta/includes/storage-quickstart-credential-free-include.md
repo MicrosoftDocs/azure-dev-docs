@@ -26,7 +26,9 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
-### Assign roles to your Azure AD user
+<a name='assign-roles-to-your-azure-ad-user'></a>
+
+### Assign roles to your Microsoft Entra user
 
 [!INCLUDE [assign-roles](assign-roles.md)]
 
@@ -34,7 +36,7 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
     [!INCLUDE [defaultazurecredential-sign-in](default-azure-credential-sign-in.md)]
 
