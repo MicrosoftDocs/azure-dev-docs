@@ -165,7 +165,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
     |**Supporting content**|This includes the information to answer your question and the source material.|
     |**Citation**|This displays the PDF page that contains the citation.|
 
-1. When you're done, select the selected tab again to close the pane.
+1. When you're done, select the tab again to close the pane.
 
 ### Use intelligent Chat app settings to change behavior of responses
 
@@ -175,31 +175,16 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
 
     ```
-    What is my deductible?
+    What happens if the rental doesn't fit the description?
     ```
 
     The chat returned suggested follow-up questions such as the following:
 
     ```
-    1. What is the cost sharing for out-of-network services?
-    2. Are preventive care services subject to the deductible?
-    3. How does the prescription drug deductible work?
+    1. Would you like to see the refund policy? 
+    2. Would you like to see contact information? 
+    3. Would you like to see the privacy policy? 
     ```
-
-1. In the **Settings** tab, deselect **Use semantic ranker for retrieval**.
-1. Ask the same question again? 
-
-    ```
-    What is my deductible?
-    ```
-
-1. What is the difference in the answers?
-
-    The answer, which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
-
-    The answer without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
-
-
 
 ## Troubleshooting
 
