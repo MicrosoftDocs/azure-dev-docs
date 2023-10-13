@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 10/09/2023
 ---
 
 Create application settings:
@@ -10,11 +10,7 @@ Create application settings:
     * CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
     * DB_NAME &rarr; Use "restaurants_reviews".
     * COLLECTION_NAME &rarr; Use "restaurants_reviews".
-    * WEBSITES_PORT &rarr; Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
-    
+
 1. Confirm you have three settings with the correct values.
 
 1. Select **Save** to apply the settings.
-
-
-

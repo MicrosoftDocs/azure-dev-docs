@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.date: 08/07/2022
+ms.date: 10/09/2023
 ---
 
 Select **F1** or **CTRL+SHIFT+P** to open the command palette.
 
-* Type "registries".
+* Type "registry".
 
 * Select the task **Azure Container Registry: Create Registry...**
 
