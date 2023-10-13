@@ -37,7 +37,7 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 ## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
@@ -214,19 +214,19 @@ Update the builder to the following code:
         });
 ```
 
-If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
+If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler picks the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
 
-When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
+When the Android requires authentication, it obtains an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The `MsalActivity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper to complete the transaction.
 
 ## Test the Android app
 
-Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ::: zone pivot="vs2022-windows"
 
 ## Test the Windows app
 
-Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ::: zone-end
 
@@ -264,7 +264,7 @@ Update the builder to the following code:
         });
 ```
 
-If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
+If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler picks the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
 
 > In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
 
