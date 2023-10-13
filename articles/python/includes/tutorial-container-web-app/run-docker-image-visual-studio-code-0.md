@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 10/09/2023
 ---
 
-In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.</br></br>If you're using a local MongoDB database:
+In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.<br><br>If you're using a local MongoDB database:
 
 * Replace both instances of `<YOUR_IP_ADDRESS>` with your IP address.
 
