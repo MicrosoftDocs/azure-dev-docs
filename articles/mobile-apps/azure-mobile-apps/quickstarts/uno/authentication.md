@@ -25,7 +25,7 @@ The Microsoft Data sync Framework has built-in support for any authentication pr
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-## Add The Microsoft Identity Client to your app
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL](https://platform.uno/docs/articles/interop/MSAL.html) to each of the `TodoApp.Uno` projects:
 
