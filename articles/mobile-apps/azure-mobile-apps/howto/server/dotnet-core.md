@@ -269,7 +269,7 @@ When the repository is changed, you can trigger workflows, log the response to t
 
 ### Option 1: Implement a PostCommitHookAsync
 
-The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  This is called after the data has been written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client is not changed in this method.  The signature of a `PostCommitHookAsync()` method is shown below:
+The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  Th `PostCommitHookAsync()` method is called after the data has been written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client isn't changed in this method.
 
 ```csharp
 public class MyAccessControlProvider<T> : AccessControlProvider<T> where T : ITableData
@@ -282,7 +282,7 @@ public class MyAccessControlProvider<T> : AccessControlProvider<T> where T : ITa
 }
 ```
 
-Use this option if you are running asynchronous tasks as part of the hook.
+Use this option if you're running asynchronous tasks as part of the hook.
 
 ### Option 2: Use the RepositoryUpdated event handler
 
@@ -385,7 +385,7 @@ Azure Cosmos DB is a fully managed NoSQL database for high-performance applicati
     }
     ```
 
-3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  You may optionally include other settings.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
+3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
 
     ``` csharp
     protected override void OnModelCreating(ModelBuilder builder)

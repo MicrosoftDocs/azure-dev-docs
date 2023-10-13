@@ -189,7 +189,7 @@ The `DatasyncClientData` object includes:
 
 The service maintains these fields.  Don't adjust these fields as part of your client application.
 
-Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
+Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  The name of the table can be specified by using the `DataTable` attribute:
 
 ``` csharp
 [DataTable("todoitem")]
@@ -200,13 +200,13 @@ public class MyTodoItemClass : DatasyncClientData
 }
 ```
 
-Alternatively, you can specify the name of the table in the `GetRemoteTable()` call:
+Alternatively,specify the name of the table in the `GetRemoteTable()` call:
 
 ``` csharp
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable("todoitem");
 ```
 
-The client uses the path `/tables/tablename` as the URI, and the table name is the name of the offline table in the SQLite database.
+The client uses the path `/tables/{tablename}` as the URI. The table name is also the name of the offline table in the SQLite database.
 
 ### Supported types
 
@@ -304,7 +304,7 @@ Predicate-driven modifications can be used in event handlers when the index of t
 
 #### Filtering data
 
-You can use a `.Where()` clause to filter data.  Multiple `.Where()` clauses are combined with "AND".  For example:
+You can use a `.Where()` clause to filter data.  For example:
 
 ``` csharp
 var items = await remoteTable.Where(x => !x.IsComplete).ToListAsync();
@@ -380,7 +380,7 @@ The `GetItemAsync` function can be used to look up objects from the database wit
 TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
-If the item you are trying to retrieve has been soft-deleted, you must use the `includeDeleted` parameter:
+If the item you're trying to retrieve has been soft-deleted, you must use the `includeDeleted` parameter:
 
 ```csharp
 // The following code will throw a DatasyncClientException if the item is soft-deleted.
@@ -425,7 +425,7 @@ await todoTable.DeleteItemAsync(item);
 
 ### Conflict resolution and optimistic concurrency
 
-Two or more clients may write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore doesn't use any resource locking.  Optimistic concurrency control verifies that no other transaction has modified the data before committing the data. If the data has been modified, the transaction is rolled back.
+Two or more clients can write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore doesn't use any resource locking.  Optimistic concurrency control verifies that no other transaction has modified the data before committing the data. If the data has been modified, the transaction is rolled back.
 
 Azure Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request, the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request doesn't match the backend, then the client library raises a `DatasyncConflictException<T>` exception. The type included with the exception is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update request again with the correct `version` value from the backend to commit changes.
 
@@ -753,7 +753,7 @@ For more information on integrating the Microsoft Identity Platform with ASP.NET
 
 ### Use Xamarin.Essentials or .NET MAUI WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or [.NET MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or the [MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
@@ -832,7 +832,7 @@ Use the same `QueryId` value you used when calling `table.PullItemsAsync()` to s
 
 ### Customize request headers
 
-To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a custom header to every outgoing request or even change responses status codes. You can use a custom [DelegatingHandler], as in the following example:
+To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you can add a custom header to every outgoing request or change response status codes before returning to the user. Use a custom [DelegatingHandler], as in the following example:
 
 ```csharp
 public async Task CallClientWithHandler()
