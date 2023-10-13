@@ -15,7 +15,7 @@ Learn how to deploy an Express.js app, integrated with Microsoft Authentication 
 
 ## Server authentication with Microsoft Authentication Library
 
-The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) npm package to provide:
+The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the [@azure/MSAL-node](https://www.npmjs.com/package/@azure/msal-node) npm package to provide:
 
 * Sign in and sign out
 * Route restrictions to only authenticated users
@@ -49,7 +49,7 @@ Once your authentication is completed through the MSAL SDK, the web browser is r
 
 Make sure the following are installed on your local developer workstation:
 
-- An Azure account with **an active subscription, which you own**. [Create an account for free](https://azure.microsoft.com/free/). Ownership is required to provide the correct Azure Active Directory permissions to complete these steps.
+- An Azure account with **an active subscription, which you own**. [Create an account for free](https://azure.microsoft.com/free/). Ownership is required to provide the correct Microsoft Entra permissions to complete these steps.
 - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.
 - [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
@@ -121,7 +121,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 Create an Active Directory app to authenticate users with the Microsoft Identity provider. 
 
-1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar, then select **Open in portal**. In the search bar, enter **Azure Active Directory**. In the Azure Active Directory section, then select **App registrations**. 
+1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar, then select **Open in portal**. In the search bar, enter **Microsoft Entra ID**. In the Microsoft Entra ID section, then select **App registrations**. 
 
     As an alternative, you can use this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
 
@@ -134,10 +134,10 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
     |Setting|Value|
     |--|--|
     |Name|Enter a name such as `msal-express-sample` and postpend your name at the end so you can easily search for it later.|
-    |Supported account types|Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).|
+    |Supported account types|Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).|
     |Web Redirect URI|Enter your local redirect URL:`http://localhost:8080/redirect`|
 
-    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-app-service-add-identity-provider-any-directory.png" alt-text="Screenshot of Azure portal. Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
+    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-app-service-add-identity-provider-any-directory.png" alt-text="Screenshot of Azure portal. Configure Authentication for the Microsoft provider with a new app registration for any Microsoft Entra Directory and personal account.":::
 
 1. Select **Register** to finish the process. 
 
@@ -173,7 +173,7 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
     The hard-coded strings will be used in local development only for this tutorial. Once you are done with the tutorial, create local environment settings for these values on your development workstation. You set the cloud settings, `process.env.[variable]`, in the next section. 
 
 > [!CAUTION]
-> Azure App service's app versus Azure Active Directory app - what's the difference? 
+> Azure App service's app versus Microsoft Entra app - what's the difference? 
 > The **App service is your web site hosting environment**. This is where you upload your source code. **Active Directory is your Identity solution for validating users**. These two services can be used completely independently but both can be referred to as **apps**. 
 
 ## Configure App service environment variables for authentication
@@ -239,7 +239,7 @@ The [sample code](https://github.com/Azure-Samples/js-e2e-web-app-server-auth) p
 
 You created: 
 * A new Azure web app - to host your source code.
-* A new Azure Active Directory app - to authenticate your users.
+* A new Microsoft Entra app - to authenticate your users.
 
 You used VSCode to:
 * Run the Express.js app locally.

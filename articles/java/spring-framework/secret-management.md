@@ -135,7 +135,7 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].proxy            |               | Proxy related properties.                                                                              |
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].retry            |               | Retry related properties.                                                                              |
 
-* See [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
+* See [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
 * If common properties like `client`, `credential`, `profile`, `proxy`, `retry` aren't configured in `spring.cloud.azure.keyvault.secret.property-sources[].xxx`, `spring.cloud.azure.xxx` will be used. See [Spring Cloud Azure configuration](configuration-properties-global.md) to get more information about these common properties.
 * See [Spring Cloud Azure configuration properties](configuration-properties-all.md) to get more information about nested properties.
 

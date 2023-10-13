@@ -41,7 +41,7 @@ The Static Web Apps **built-in authentication** provides several routes your fro
 
 Routes for authentication:
 
-* `/.auth/login/aad` - Redirects to Azure Active Directory (Azure AD) login page.
+* `/.auth/login/aad` - Redirects to Microsoft Entra login page.
 * `/.auth/login/facebook` - Redirects to Facebook login page.
 * `/.auth/login/github` - Redirects to GitHub login page.
 * `/.auth/login/google` - Redirects to Google login page.
