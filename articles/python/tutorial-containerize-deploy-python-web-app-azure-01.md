@@ -2,7 +2,7 @@
 title: Deploy a containerized Python web app on Azure with MongoDB
 description: An overview of how to create and deploy a containerized Python web app (Django or Flask) on Azure App Service with MongoDB.
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 10/09/2023
 ms.custom: devx-track-python
 ---
 
@@ -62,7 +62,7 @@ To complete this tutorial, you'll need:
 
   * [Azure Container Registry][11]
   * [Azure App Service][1]
-  * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create an Azure Cosmos DB for MongoDB database, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
+  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database, we recommend you follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure).
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
 

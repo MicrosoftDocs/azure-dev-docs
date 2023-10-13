@@ -2,7 +2,7 @@
 title: Build and run a containerized Python web app locally with MongoDB
 description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB in preparation for deployment to Azure App Service.
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 10/09/2023
 ms.custom: devx-track-python
 ---
 
@@ -78,7 +78,10 @@ Images that are built from VS Code or from using the Docker CLI directly can als
 
 ## 3. Set up MongoDB
 
-This tutorial assumes you have MongoDB installed locally or you have MongoDB hosted in Azure or elsewhere that you have access to. Don't use a MongoDB database you'll use in production.
+For this tutorial, you need a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews*. The steps in this section show you how to use a local installation of MongoDB or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection.
+
+> [!IMPORTANT]
+> Don't use a MongoDB database you'll use in production. In this tutorial, you'll store the MongoDB connection string in an environment variable. This makes it observable by anyone capable of inspecting your container (for example, using `docker inspect`).
 
 ### [Local MongoDB](#tab/mongodb-local)
 
@@ -113,7 +116,7 @@ For the MongoDB shell, here are example commands to create the database and coll
 ```
 > help
 > use restaurants_reviews
-> db.restaurants_reviews.insertOne()
+> db.restaurants_reviews.insertOne({})
 > show dbs
 > exit
 ```
@@ -122,17 +125,68 @@ At this point, your local MongoDB connection string is "mongodb://127.0.0.1:2701
 
 ### [Azure Cosmos DB for MongoDB](#tab/mongodb-azure)
 
-**Step 1:** If needed, create a MongoDB database.
+You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection for this tutorial. If you haven't used the Azure CLI before, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
+Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you've arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
 
-**Step 2:** Create or ensure that a database and collection exists in the database.
+The script assumes that you're using a Bash shell. If you want to use a different shell, you'll need to change the variable declaration and substitution syntax. The script might take a few minutes to run.
 
-Create a database named "restaurants_reviews" and a collection named "restaurants_reviews". You can do this using the [Azure Cloud Shell](/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use the VS Code [Azure Database](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to create databases and collections.
+```azurecli
+#!/bin/bash
 
-At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`. 
+# LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
+# RESOURCE_GROUP_NAME: The resource group name. Can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
+# ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name. Can contain lowercase letters, hyphens, and numbers.
+LOCATION='eastus'
+RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+ACCOUNT_NAME='<cosmos-db-account-name>'
 
-If you are working in VS Code, you can right-click on the MongoDB server and get the connection string.
+# Create a resource group
+echo "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
+
+# Create a Cosmos account for MongoDB API
+echo "Creating $ACCOUNT_NAME. This command may take a while to complete."
+az cosmosdb create --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --kind MongoDB
+
+# Create a MongoDB API database
+echo "Creating database restaurants_reviews"
+az cosmosdb mongodb database create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --name restaurants_reviews
+
+# Create a MongoDB API collection
+echo "Creating collection restaraunts_reviews"
+az cosmosdb mongodb collection create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --database-name restaurants_reviews --name restaurants_reviews
+
+# Get the connection string for the MongoDB database
+echo "Get the connection string for the MongoDB account"
+az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --type connection-strings
+
+echo "Copy the Primary MongoDB Connection String from the list above"
+```
+
+When the script completes, copy the *Primary MongoDB Connection String* from the output of the last command.
+
+```output
+{
+  "connectionStrings": [
+    {
+      "connectionString": "<your connection string>",
+      "description": "Primary MongoDB Connection String",
+      "keyKind": "Primary",
+      "type": "MongoDB"
+    },
+
+    ...
+  ]
+}
+```
+
+At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`.
+
+For more detail about using the Azure CLI to create a Cosmos DB for MongoDB account and to create databases and collections, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), the VS Code [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), and [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python).
+
+> [!TIP]
+> In the VS Code Azure Databases extension, you can right-click on the MongoDB server and get the connection string.
 
 ----
 
