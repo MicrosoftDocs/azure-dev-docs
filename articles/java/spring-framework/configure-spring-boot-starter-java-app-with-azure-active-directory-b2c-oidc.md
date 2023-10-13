@@ -1,6 +1,6 @@
 ---
 title: Add sign-in with Azure Active Directory B2C to a Spring Web App
-description: Shows you how to create a Java app with sign-in capability by using the Spring Boot Starter for Azure Active Directory.
+description: Shows you how to create a Java app with sign-in capability by using the Spring Boot Starter for Microsoft Entra ID.
 services: active-directory-b2c
 documentationcenter: java
 manager: kevinzha
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Add sign-in with Azure Active Directory B2C to a Spring web app
 
-This article shows you how to create a Java app with sign-in capability by using [Spring Initializr](https://start.spring.io/) with the Spring Boot Starter for Azure Active Directory (Azure AD).
+This article shows you how to create a Java app with sign-in capability by using [Spring Initializr](https://start.spring.io/) with the Spring Boot Starter for Microsoft Entra ID.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Secure the application with Spring Boot classes and annotations
 > * Build and test your Java application
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-scale enterprise identity solution. [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) compliments the feature set of Azure Active Directory, allowing you to manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications.
+[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-scale enterprise identity solution. [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) compliments the feature set of Microsoft Entra ID, allowing you to manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications.
 
 ## Prerequisites
 
@@ -80,7 +80,9 @@ In this tutorial, you learn how to:
                        └── YourProjectApplicationTests.java
    ```
 
-## Create and initialize an Azure Active Directory instance
+<a name='create-and-initialize-an-azure-active-directory-instance'></a>
+
+## Create and initialize a Microsoft Entra instance
 
 ### Create the Active Directory instance
 
@@ -241,7 +243,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    >           user-name-attribute-name:
    > ```
    >
-   > The *application.yml* file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
+   > The *application.yml* file is available in [spring-cloud-azure-starter-active-directory-b2c sample: Microsoft Entra ID-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
 
 1. Save and close the *application.yml* file.
 
@@ -333,7 +335,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-1. Copy the *home.html* file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+1. Copy the *home.html* file from [spring-cloud-azure-starter-active-directory-b2c sample: Microsoft Entra ID-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 

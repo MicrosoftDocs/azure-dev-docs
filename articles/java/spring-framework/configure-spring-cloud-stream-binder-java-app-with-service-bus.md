@@ -30,7 +30,7 @@ Azure provides an asynchronous messaging platform called [Azure Service Bus](/az
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` role to the Azure AD account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
+> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
