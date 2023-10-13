@@ -5,7 +5,7 @@ ms.date: 10/09/2023
 ---
 
 
-**Step 1.** If your running the Azure CLI locally, log into registry if you haven't done so already with the [az acr login](/cli/azure/acr#az-acr-login) command.
+**Step 1.** If you're running the Azure CLI locally, log into registry if you haven't done so already with the [az acr login](/cli/azure/acr#az-acr-login) command.
 
 ```azurecli
 az acr login -n $REGISTRY_NAME
@@ -22,7 +22,7 @@ If you're accessing the registry from a subscription different from the one in w
 az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
 ```
 
-Note:
+In this command:
 
 * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
 

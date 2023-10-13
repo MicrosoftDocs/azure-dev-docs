@@ -78,7 +78,7 @@ Images that are built from VS Code or from using the Docker CLI directly can als
 
 ## 3. Set up MongoDB
 
-For this tutorial, you'll need a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews*. The steps in this section show you how to use a local installation of MongoDB or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection.
+For this tutorial, you need a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews*. The steps in this section show you how to use a local installation of MongoDB or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection.
 
 > [!IMPORTANT]
 > Don't use a MongoDB database you'll use in production. In this tutorial, you'll store the MongoDB connection string in an environment variable. This makes it observable by anyone capable of inspecting your container (for example, using `docker inspect`).
@@ -127,9 +127,9 @@ At this point, your local MongoDB connection string is "mongodb://127.0.0.1:2701
 
 You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection for this tutorial. If you haven't used the Azure CLI before, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you are finished with the tutorial. If you've arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
+Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you've arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
 
-The script assumes that you're using a Bash shell. If you want to use a different shell, you'll need to change the variable declaration and substitution syntax. The script may take a few minutes to run.
+The script assumes that you're using a Bash shell. If you want to use a different shell, you'll need to change the variable declaration and substitution syntax. The script might take a few minutes to run.
 
 ```azurecli
 #!/bin/bash
@@ -157,8 +157,8 @@ az cosmosdb mongodb database create --account-name $ACCOUNT_NAME --resource-grou
 echo "Creating collection restaraunts_reviews"
 az cosmosdb mongodb collection create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --database-name restaurants_reviews --name restaurants_reviews
 
-# Get the connection string for the Mongo DB database
-echo "Get the connection string for the Mongo DB account"
+# Get the connection string for the MongoDB database
+echo "Get the connection string for the MongoDB account"
 az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --type connection-strings
 
 echo "Copy the Primary MongoDB Connection String from the list above"

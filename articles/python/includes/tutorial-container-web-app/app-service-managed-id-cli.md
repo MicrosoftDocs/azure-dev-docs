@@ -13,7 +13,7 @@ az webapp config set \
   --generic-configurations '{"acrUseManagedIdentityCreds": true}'
 ```
 
-Becuase you enabled the system-assigned managed identity when you created the web app, it will be the managed identity used to pull from the Azure Container Registry.
+Because you enabled the system-assigned managed identity when you created the web app, it will be the managed identity used to pull from the Azure Container Registry.
 
 **Step 2.** Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 

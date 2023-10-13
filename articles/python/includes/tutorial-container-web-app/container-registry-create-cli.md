@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 10/09/2023
 ---
 
-**Step 1.** Create a resource group if needed with the [az group create](/cli/azure/group#az-group-create) command. If you've already set up an Azure Cosmos DB for Mongo DB account in part **2. Build and test container locally** of this tutorial, set RESOURCE_GROUP_NAME to the name of the resource group you used for that account and move on to Step 2.
+**Step 1.** Create a resource group if needed with the [az group create](/cli/azure/group#az-group-create) command. If you've already set up an Azure Cosmos DB for MongoDB account in part **2. Build and test container locally** of this tutorial, set RESOURCE_GROUP_NAME to the name of the resource group you used for that account and move on to Step 2.
 
 ```azurecli
 RESOURCE_GROUP_NAME='msdocs-web-app-rg'

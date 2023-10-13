@@ -10,4 +10,4 @@ az webapp browse  --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME
 ```
 
 > [!NOTE]
-> The `az webapp browse` command isn't supported in Cloud Shell. Open a broser window and navigate to the website URL instead.
+> The `az webapp browse` command isn't supported in Cloud Shell. Open a browser window and navigate to the website URL instead.
