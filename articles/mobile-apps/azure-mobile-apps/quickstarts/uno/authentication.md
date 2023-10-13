@@ -4,7 +4,7 @@ description: Add authentication to your Uno Platform app using Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/03/2023
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 
@@ -200,6 +200,19 @@ namespace TodoApp.Uno.Droid
 ```
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
+
+If your project targets Android version 11 (API version 30) or later, you must update your `AndroidManifest.xml` to meet the [Android package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).  Open `TodoApp.Uno.Mobile/Android/AndroidManifest.xml` and add the following `queries/intent` nodes to the `manifest` node:
+
+```xml
+<manifest>
+  ...
+  <queries>
+    <intent>
+      <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+  </queries>
+</manifest>
+```
 
 Edit the `MainActivity.Android.cs` class; add the `OnActivityResult` method:
 

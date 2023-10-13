@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.iOS app using Azure Mobile Apps 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2022
+ms.date: 10/13/2023
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json

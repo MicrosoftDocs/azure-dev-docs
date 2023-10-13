@@ -4,7 +4,7 @@ description: Add authentication to your Avalonia app using Azure Mobile Apps wit
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/22/2022
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 

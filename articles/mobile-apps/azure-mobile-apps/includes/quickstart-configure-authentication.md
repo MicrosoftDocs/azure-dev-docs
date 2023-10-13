@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/05/2021
+ms.date: 10/13/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps

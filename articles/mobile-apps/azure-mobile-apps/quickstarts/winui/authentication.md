@@ -4,7 +4,7 @@ description: Add authentication to your Windows (WinUI3) app using Azure Mobile 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2022
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 

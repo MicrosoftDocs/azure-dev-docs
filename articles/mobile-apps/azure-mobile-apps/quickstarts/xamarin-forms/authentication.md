@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.Forms app using Azure Mobile App
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/17/2021
+ms.date: 10/13/2023
 ms.author: adhal
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
 zone_pivot_groups: vs-platform-options
@@ -181,6 +181,19 @@ namespace TodoApp.Forms.Droid
 ```
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
+
+If your project targets Android version 11 (API version 30) or later, you must update your `AndroidManifest.xml` to meet the [Android package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).  Open `TodoApp.Forms.Android/Properties/AndroidManifest.xml` and add the following `queries/intent` nodes to the `manifest` node:
+
+```xml
+<manifest>
+  ...
+  <queries>
+    <intent>
+      <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+  </queries>
+</manifest>
+```
 
 Open `MainActivity.cs`.  Add `IPlatform` to the definition of the `MainActivity` class:
 
