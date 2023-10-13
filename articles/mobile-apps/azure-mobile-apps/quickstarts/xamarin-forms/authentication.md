@@ -312,13 +312,13 @@ Add the custom entitlements to the project:
 
 ## Test the Android app
 
-Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app
 
 [!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
 
-Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

@@ -39,7 +39,7 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 ## Register your app with the identity service
 
-The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
@@ -184,8 +184,8 @@ Add keychain access to the `Entitlements.plist`:
 
 1. Open the `Entitlements.plist` file.
 2. If necessary, switch from the **Source** view to the **Entitlements** view.  The selector is in the top-right corner of the window.
-3. Scroll down until you find the **Keychain** panel. 
-4. Turn the **Keychain** switch on.
+3. Scroll down until you find the **Keychain** panel.
+4. Turn on the **Keychain** switch.
 5. Select the green **+** icon.
 6. Enter `com.microsoft.adalcache` in the provided box (overwriting whatever is already there), then press Enter.
 
@@ -198,7 +198,7 @@ Add the custom entitlements to the project:
 3. Select the **...** button next to the **Custom Entitlements** field.
 4. Select `TodoApp.iOS` > `Entitlements.plist`, then select **Open**.
 5. Select **OK**.
-   
+
    ![Screenshot showing the i O S bundle signing properties.](./media/mac-bundle-signing.png)
 
 ::: zone-end
@@ -208,7 +208,7 @@ Add the custom entitlements to the project:
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up a provisioning profile.  A provisioning profile requires either a real device or a paid Apple Developer Account (if using the simulator).  
 
-Set `TodoApp.iOS` as the startup project, then build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.iOS` as the startup project, then build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

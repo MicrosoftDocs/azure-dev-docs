@@ -34,7 +34,7 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 ## Register your app with the identity service
 
-The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
@@ -174,7 +174,7 @@ Replace `{client-id}` with the application ID of the native client (which is the
 
 Run or restart the app.
 
-When the app runs, a browser will be opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser will close and your app will run as before.
+When the app runs, a browser is opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser closes and your app runs as before.
 
 ## Next steps
 
