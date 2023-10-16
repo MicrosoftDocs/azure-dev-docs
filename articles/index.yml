@@ -30,7 +30,7 @@ highlightedContent:
       url: ./intro/connect-to-azure-services.md
     - title: Develop Azure AI-powered applications
       itemType: overview
-      url: ./intro/azure-ai-for-developers-resources.md
+      url: ./intro/azure-ai-for-developers.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
