@@ -197,7 +197,7 @@ This article includes links to a curated list of the official Microsoft SDKs, sa
 
 ## Applied AI/Decision
 
-- [Azure Form Recognizer SDKs for .NET/C#, Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview?view=form-recog-3.0.0&tabs=csharp)
+- [Azure Form Recognizer SDKs for .NET/C#, Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)
 
 - Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python), [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400), [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/typescript/README.md#azure-form-recognizer-client-library-samples-for-typescript), [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md#azure-form-recognizer-client-library-samples-for-javascript), and [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java) 
 
