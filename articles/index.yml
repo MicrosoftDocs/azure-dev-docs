@@ -19,9 +19,6 @@ highlightedContent:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
-    - title: Resources for developing Azure AI solutions
-      itemType: concept
-      url: ./intro/azure-ai-for-developers-resources.md
     - title: Key Azure services for developers
       itemType: overview
       url: ./intro/azure-developer-key-services.md
@@ -31,6 +28,9 @@ highlightedContent:
     - title: Connect apps to Azure services
       itemType: overview
       url: ./intro/connect-to-azure-services.md
+    - title: Develop Azure AI-powered applications
+      itemType: overview
+      url: ./intro/azure-ai-for-developers-resources.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
