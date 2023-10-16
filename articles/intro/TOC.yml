@@ -2,25 +2,34 @@ items:
   - name: Introduction to Azure for developers
     href: index.yml
   - name: Overview
-    items:
-      - name: Azure for developers
-        href: azure-developer-overview.md
-      - name: Key Azure services for developers
-        href: azure-developer-key-services.md
-      - name: Host applications on Azure
-        href: hosting-apps-on-azure.md
-      - name: Connect apps to Azure services
-        href: connect-to-azure-services.md
-      - name: Create Azure resources
-        href: azure-developer-create-resources.md
-      - name: Key concepts for building Azure apps
-        href: azure-developer-key-concepts.md
-      - name: Overview of Azure billing
-        href: azure-developer-billing.md
-      - name: Versioning policy for Azure services, SDKs, and CLI tools
-        href: azure-service-sdk-tool-versioning.md
+    href: azure-developer-overview.md
+  - name: Key Azure services for developers
+    href: azure-developer-key-services.md
+  - name: Host applications on Azure
+    href: hosting-apps-on-azure.md
   - name: Develop Azure AI-powered applications
     href: azure-ai-for-developers.md
+  - name: Connect apps to Azure services
+    href: connect-to-azure-services.md
+  - name: Create Azure resources
+    href: azure-developer-create-resources.md
+  - name: Key concepts for building Azure apps
+    href: azure-developer-key-concepts.md
+  - name: Overview of Azure billing
+    href: azure-developer-billing.md
+  - name: Azure developer centers
+    expanded: true
+    items:
+      - name: .NET on Azure
+        href: /dotnet/azure/
+      - name: Java on Azure 
+        href: ../java/index.yml
+      - name: JavaScript on Azure
+        href: ../javascript/index.yml
+      - name: Python on Azure
+        href: ../python/index.yml
+      - name: Go on Azure
+        href: ../go/index.yml
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
@@ -233,13 +242,5 @@ items:
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Queues
             href: /azure/storage/queues/storage-quickstart-queues-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-  - name: .NET on Azure
-    href: /dotnet/azure/
-  - name: Java on Azure 
-    href: ../java/index.yml
-  - name: JavaScript on Azure
-    href: ../javascript/index.yml
-  - name: Python on Azure
-    href: ../python/index.yml
-  - name: Go on Azure
-    href: ../go/index.yml
+  - name: Versioning policy for Azure services, SDKs, and CLI tools
+    href: azure-service-sdk-tool-versioning.md
