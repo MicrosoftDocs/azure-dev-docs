@@ -50,7 +50,7 @@
 | Digital Twins - Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
-| Event Grid | npm [4.14.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.14.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.14.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.14.0/sdk/eventgrid/eventgrid/) |
+| Event Grid | npm [4.15.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.15.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.15.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.15.0/sdk/eventgrid/eventgrid/) |
 | Event Hubs | npm [5.11.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.2) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.2/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
@@ -410,7 +410,7 @@
 | @autorest/codemodel | npm [4.19.3](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.3) |  |  |
 | @autorest/common | npm [1.5.6](https://www.npmjs.com/package/@autorest/common/v/1.5.6) |  |  |
 | @autorest/configuration | npm [1.11.0](https://www.npmjs.com/package/@autorest/configuration/v/1.11.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20231012.6](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231012.6) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20231013.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231013.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.2) |  |  |
 | @autorest/fixer | npm [1.1.1](https://www.npmjs.com/package/@autorest/fixer/v/1.1.1) |  |  |
@@ -490,7 +490,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.57](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.57) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.653](https://www.npmjs.com/package/@autorest/powershell/v/4.0.653) |  | GitHub [4.0.653](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.654](https://www.npmjs.com/package/@autorest/powershell/v/4.0.654) |  | GitHub [4.0.654](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.9.1](https://www.npmjs.com/package/@autorest/python/v/6.9.1) |  | GitHub [6.9.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |

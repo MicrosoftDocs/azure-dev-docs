@@ -170,7 +170,7 @@ When the script completes, copy the *Primary MongoDB Connection String* from the
 {
   "connectionStrings": [
     {
-      "connectionString": "<your connection string>",
+      "connectionString": ""mongodb://msdocs-cosmos-db:pnaMGVtGIRAZHUjsg4GJBCZMBJ0trV4eg2IcZf1TqV...5oONz0WX14Ph0Ha5IeYACDbuVrBPA==@msdocs-cosmos-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@msdocs-cosmos-db@"",
       "description": "Primary MongoDB Connection String",
       "keyKind": "Primary",
       "type": "MongoDB"
