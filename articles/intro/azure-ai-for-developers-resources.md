@@ -1,17 +1,16 @@
 ---
-title: Resources for developing Azure AI solutions
+title: Develop Azure AI-powered applications
 description: This article provides an organized list of resources about Azure AI scenarios for developers, including documentation and code samples.
 keywords: ai, azure openai service
-ms.service: azure-devops
-ms.subservice: azure-devops-reference
+ms.service: azure
 ms.topic: overview
 ms.date: 10/16/2023
 ms.custom: overview
 ---
 
-# Resources for developing Azure AI solutions
+# Develop Azure AI-powered applications
 
-This article includes links to a curated list of the official Microsoft SDKs, samples and other guidance around Azure OpenAI and other Cognitive Services. 
+This article provides documentation, samples and other resources for learning how to develop applications that use Azure OpenAI Service and other Cognitive Services.
 
 ## Get started with Azure OpenAI ChatGPT Copilots
 

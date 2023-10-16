@@ -1,8 +1,10 @@
 items:
   - name: Introduction to Azure for developers
     href: index.yml
+  - name: Overview
+    expanded: true
     items:
-      - name: Azure for developers overview
+      - name: Azure for developers
         href: azure-developer-overview.md
       - name: Key Azure services for developers
         href: azure-developer-key-services.md
@@ -18,7 +20,7 @@ items:
         href: azure-developer-billing.md
       - name: Versioning policy for Azure services, SDKs, and CLI tools
         href: azure-service-sdk-tool-versioning.md
-  - name: Resources for developing Azure AI solutions
+  - name: Developing Azure AI-powered applications
     href: azure-ai-for-developers-resources.md
   - name: Passwordless connections for Azure services
     items:
