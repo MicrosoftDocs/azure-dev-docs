@@ -21,7 +21,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure for developers overview
+          - text: Azure for developers
             url: ./azure-developer-overview.md
           - text: Key Azure services for developers
             url: ./azure-developer-key-services.md
@@ -47,7 +47,7 @@ landingContent:
             url: ./passwordless-overview.md
 
   # Card
-  - title: Language-specific guidance
+  - title: Developer centers
     linkLists:
       - linkListType: overview
         links:
