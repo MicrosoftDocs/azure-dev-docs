@@ -54,10 +54,10 @@ landingContent:
           - text: .NET on Azure
             url: /dotnet/azure/
           - text: Java on Azure 
-            url: ./java/index.yml
+            url: ../java/index.yml
           - text: JavaScript on Azure
-            url: ./javascript/index.yml
+            url: ../javascript/index.yml
           - text: Python on Azure 
-            url: ./python/index.yml
+            url: ../python/index.yml
           - text: Go on Azure
-            url: ./go/index.yml
+            url: ../go/index.yml

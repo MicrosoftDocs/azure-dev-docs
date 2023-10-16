@@ -8,9 +8,9 @@ items:
         href: azure-developer-overview.md
       - name: Key Azure services for developers
         href: azure-developer-key-services.md
-      - name: Hosting applications on Azure
+      - name: Host applications on Azure
         href: hosting-apps-on-azure.md
-      - name: Connecting apps to Azure services
+      - name: Connect apps to Azure services
         href: connect-to-azure-services.md
       - name: Create Azure resources
         href: azure-developer-create-resources.md
@@ -20,7 +20,7 @@ items:
         href: azure-developer-billing.md
       - name: Versioning policy for Azure services, SDKs, and CLI tools
         href: azure-service-sdk-tool-versioning.md
-  - name: Developing Azure AI-powered applications
+  - name: Develop Azure AI-powered applications
     href: azure-ai-for-developers-resources.md
   - name: Passwordless connections for Azure services
     items:
