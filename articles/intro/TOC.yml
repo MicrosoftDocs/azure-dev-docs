@@ -18,6 +18,8 @@ items:
         href: azure-developer-billing.md
       - name: Versioning policy for Azure services, SDKs, and CLI tools
         href: azure-service-sdk-tool-versioning.md
+  - name: Resources for Azure AI development scenarios
+    href: azure-ai-for-developers-resources.md
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
