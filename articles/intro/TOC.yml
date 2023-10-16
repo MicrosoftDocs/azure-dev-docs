@@ -2,7 +2,6 @@ items:
   - name: Introduction to Azure for developers
     href: index.yml
   - name: Overview
-    expanded: true
     items:
       - name: Azure for developers
         href: azure-developer-overview.md
@@ -234,17 +233,13 @@ items:
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Storage - Queues
             href: /azure/storage/queues/storage-quickstart-queues-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
-  - name: Azure developer centers
-    items:
-      - name: Azure developer home
-        href: /azure/developer
-      - name: .NET on Azure
-        href: /dotnet/azure/
-      - name: Java on Azure 
-        href: ../java/index.yml
-      - name: JavaScript on Azure
-        href: ../javascript/index.yml
-      - name: Python on Azure
-        href: ../python/index.yml
-      - name: Go on Azure
-        href: ../go/index.yml
+  - name: .NET on Azure
+    href: /dotnet/azure/
+  - name: Java on Azure 
+    href: ../java/index.yml
+  - name: JavaScript on Azure
+    href: ../javascript/index.yml
+  - name: Python on Azure
+    href: ../python/index.yml
+  - name: Go on Azure
+    href: ../go/index.yml
