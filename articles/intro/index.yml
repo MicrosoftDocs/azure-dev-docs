@@ -44,7 +44,7 @@ landingContent:
           - text: Develop Azure AI-powered applications
             url: ./azure-ai-for-developers-resources.md
           - text: Passwordless connections for Azure Services
-            url: ./passworless-overview.md
+            url: ./passwordless-overview.md
 
   # Card
   - title: Language-specific guidance
