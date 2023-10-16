@@ -19,6 +19,9 @@ highlightedContent:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
+    - title: Resources for developing Azure AI solutions
+      itemType: concept
+      url: ./intro/azure-ai-for-developers-resources.md
     - title: Key Azure services for developers
       itemType: overview
       url: ./intro/azure-developer-key-services.md
@@ -34,9 +37,6 @@ highlightedContent:
     - title: Key concepts for building Azure apps
       itemType: architecture
       url: ./intro/azure-developer-key-concepts.md
-    - title: Understand Azure billing
-      itemType: concept
-      url: ./intro/azure-developer-billing.md
     - title: Versioning policy for Azure services, SDKs, and CLI tools
       itemType: concept
       url: ./intro/azure-service-sdk-tool-versioning.md
