@@ -54,7 +54,7 @@ services:
 | `name` | Y | _(string)_ Name of the application. |
 | `resourceGroup` | N | _(string)_ Name of the Azure resource group. When specified, will override the resource group name used for infrastructure provisioning. |
 | `metadata` | N | _(object)_ See [metadata properties](#metadata-properties) for more details. |
-| `infra` | N | _(object)_ Provides extra configuration for Azure infrastruction provisioning. See [infra properties](#infra-properties) for more details. |
+| `infra` | N | _(object)_ Provides extra configuration for Azure infrastructure provisioning. See [infra properties](#infra-properties) for more details. |
 | `services` | Y | _(object)_ Definition of services that comprise the application. See [services properties](#services-properties) for more details. |
 | `pipeline` | N | _(object)_ Definition of continuous integration pipeline. See [pipeline properties](#pipeline-properties) for more details. |
 | `hooks` | N | Command level hooks. Hooks should match `azd` command names prefixed with `pre` or `post` depending on when the script should execute. When specifying paths they should be relative to the project path. See [Customize your Azure Developer CLI workflows using command and event hooks](./azd-extensibility.md) for more details. |
