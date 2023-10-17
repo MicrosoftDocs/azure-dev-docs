@@ -1,3 +1,5 @@
+# YamlMime:ZonePivotGroups
+groups:
 - id: intelligent-apps-languages
   title: Intelligent Apps Languages
   prompt: Choose a programming language

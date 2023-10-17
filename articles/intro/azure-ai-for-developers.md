@@ -6,6 +6,7 @@ ms.service: azure
 ms.topic: overview
 ms.date: 10/16/2023
 ms.custom: overview
+zone_pivot_group_filename: zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages
 ---
 
