@@ -6,6 +6,7 @@ ms.service: azure
 ms.topic: overview
 ms.date: 10/16/2023
 ms.custom: overview
+zone_pivot_groups: intelligent-apps-languages
 ---
 
 # Develop Azure AI-powered applications
@@ -14,17 +15,39 @@ This article provides documentation, samples and other resources for learning ho
 
 ## Get started with Azure OpenAI ChatGPT Copilots
 
+:::zone pivot="dotnet"
+
+- [ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)
+
+- [ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)
+
+:::zone-end
+
+:::zone pivot="python"
+
 - [Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)
 
 - [Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)
 
 - [ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)
 
-- [Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)
-
-- [ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)
-
 - [ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)
+
+:::zone-end
+
+:::zone pivot="javascript"
+
+- [ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)
+
+:::zone-end
+
+:::zone pivot="java"
+
+- [ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)
+
+:::zone-end
+
+- [Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)
 
 - [More Azure OpenAI Service Docs](/azure/cognitive-services/openai/)
 
@@ -204,4 +227,4 @@ This article provides documentation, samples and other resources for learning ho
 
 - Metrics Advisor SDK samples in [Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/), [.NET](/samples/azure/azure-sdk-for-net/azure-metrics-advisor-client-sdk-samples/), [TypeScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-typescript/), [JavaScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-javascript/) and [Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)
 
-- Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py), [.NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs) , [Javascript](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detection.js) and [Java ](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)
+- Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py), [.NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs) , [Javascript](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detection.js) and [Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)
