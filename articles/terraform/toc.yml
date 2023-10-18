@@ -69,18 +69,6 @@
           href: get-started-azapi-resource.md
         - name: Learn how to use the AzAPI update resource
           href: get-started-azapi-update-resource.md
-    - name: Terraform Quickstarts for Azure services
-      items:
-        - name: AI + Machine Learning
-          items:
-            - name: Azure AI services
-              items:
-                - name: Create a resource
-                  href: /azure/ai-services/create-account-terraform
-            - name: Azure Cognitive Search
-              items:
-                - name: Create an Azure Cognitive Search service
-                  href: /azure/search/search-get-started-terraform
 - name: Samples
   items:
     - name: Terraform samples
