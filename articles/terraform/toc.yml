@@ -149,6 +149,24 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+        - name: Internet of Things
+          items:
+            - name: API Management
+              items:
+                - name: Create a service
+                  href: /azure/api-management/quickstart-terraform
+            - name: Azure Stream Analytics
+              items:
+                - name: Create a job
+                  href: /azure/stream-analytics/quick-create-terraform
+            - name: IoT Hub
+              items:
+                - name: Create a DPS instance
+                  href: /azure/iot-dps/quick-setup-auto-provision-terraform
+            - name: Notification Hubs
+              items:
+                - name: Create a namespace and hub
+                  href: /azure/notification-hubs/create-notification-hub-terraform
 - name: Samples
   items:
     - name: Terraform samples
