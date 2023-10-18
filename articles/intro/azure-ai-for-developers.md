@@ -20,23 +20,22 @@ This article provides documentation, samples and other resources for learning ho
 
 |Link|Description|
 |---|---|
-|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)||
-|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)||
-
+|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
+|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)|More full-featured chat example including a history of prompts/completions using a Blazor Server front-end.|
 
 ## OpenAI for .NET Developers
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI SDK for .NET](https://aka.ms/oai/net/sdk)||
-|[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)||
-|[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample01_Chatbot.cs)||
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample04_StreamingChat.cs)||
-|[Summarize Text](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample03_SummarizeText.cs)||
-|[ChatGPT .NET App with your own data](https://aka.ms/azai/dotnet/chatwithdata)||
-|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)||
-|[MAUI chat app example](https://github.com/jpalvarezl/WhatsForDinner) ||
-|[More Samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)||
+|[Azure OpenAI SDK for .NET](https://aka.ms/oai/net/sdk)|Github source version of the Azure OpenAI client library for .NET is an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
+|[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)|NuGet version of the Azure OpenAI client library for .NET (above).|
+|[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample01_Chatbot.cs)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
+|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample04_StreamingChat.cs)|Deep link to the samples (above) demonstrating streaming completions.|
+|[Summarize Text](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample03_SummarizeText.cs)|Deep link to the samples (above) demonstrating text summarization.|
+|[ChatGPT .NET App with your own data](https://aka.ms/azai/dotnet/chatwithdata)|This sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation (RAG) pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
+|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)|Full-featured chat example including a history of prompts/completions using a Blazor Server front-end.|
+|[MAUI chat app example](https://github.com/jpalvarezl/WhatsForDinner)|Small MAUI / Azure OpenAI C# SDK app demonstrating the streaming capabilities of the API.|
+|[More Samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)|Collection of OpenAI samples written in .NET.|
 
 :::zone-end
 
@@ -174,7 +173,7 @@ This article provides documentation, samples and other resources for learning ho
 |Link|Description|
 |---|---|
 |[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)||
-|[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)||
+|[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)||
 |Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)||
 |[Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)||
 
