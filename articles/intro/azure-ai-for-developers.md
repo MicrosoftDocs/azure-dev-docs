@@ -139,43 +139,43 @@ This article provides documentation, samples and other resources for learning ho
 
 |Link|Description|
 |---|---|
-|[ChatGPT JavaScript Copilot with your own data using Cognitive Search](https://github.com/Azure-Samples/azure-search-openai-javascript)||
-|[ChatGPT Python Copilot with your own data using Cognitive Search](https://aka.ms/azai/chatwithdata)||
-|[ChatGPT .NET Copilot with your own data using Cognitive Search](https://aka.ms/azai/dotnet/chatwithdata)||
-|[ChatGPT .NET Copilot with your own data using MongoDB](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/MongovCore). ([Blog](https://devblogs.microsoft.com/cosmosdb/introducing-vector-search-in-azure-cosmos-db-for-mongodb-vcore/))||
-|[OpenAI Python ChatGPT Web App with batch processing on your own data using Redis](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna#deploy-on-azure-webapp--azure-cache-for-redis-enterprise--batch-processing)||
-|[Code behind ChatGPT Web App from uploading your data to the Azure OpenAI Playground](https://aka.ms/azai/chat-from-aoai)||
-|[OpenAI Python Notebook with your own data using Redis with LlamaIndex](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)||
-|[OpenAI solutions with your own data using PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)||
+|[ChatGPT JavaScript Copilot with your own data using Cognitive Search](https://github.com/Azure-Samples/azure-search-openai-javascript)|JavaScript version sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
+|[ChatGPT Python Copilot with your own data using Cognitive Search](https://aka.ms/azai/chatwithdata)|Python version sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
+|[ChatGPT .NET Copilot with your own data using Cognitive Search](https://aka.ms/azai/dotnet/chatwithdata)|.NET version sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
+|[ChatGPT .NET Copilot with your own data using MongoDB](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/MongovCore). ([Blog](https://devblogs.microsoft.com/cosmosdb/introducing-vector-search-in-azure-cosmos-db-for-mongodb-vcore/))|This solution is a series of samples that demonstrate how to build solutions that incorporate Azure Cosmos DB with Azure OpenAI to build vector search solutions with an AI assistant user interface. The solution shows hows to generate vectors on data stored in Azure Cosmos DB using Azure OpenAI, then shows how to implment vector search capabilities using a variety of different vector capable databases available from Azure Cosmos DB and Azure.|
+|[OpenAI Python ChatGPT Web App with batch processing on your own data using Redis](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna#deploy-on-azure-webapp--azure-cache-for-redis-enterprise--batch-processing)|A simple web application for a OpenAI-enabled document search. This repo uses Azure OpenAI Service for creating embeddings vectors from documents. For answering the question of a user, it retrieves the most relevant document and then uses GPT-3 to extract the matching answer for the question. Easily deployed to Azure directly from the repo.|
+|[Code behind ChatGPT Web App from uploading your data to the Azure OpenAI Playground](https://aka.ms/azai/chat-from-aoai)|This repo contains sample code for a simple chat webapp that integrates with Azure OpenAI.|
+|[Vector Similarity Search with Azure Cache for Redis Enterprise](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)|Walkthrough of using Azure Cache for Redis as a backend vector store for RAG scenarios.|
+|[OpenAI solutions with your own data using PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)|Discusses how Azure Database for PostgreSQL Flexible Server and Azure Cosmos DB for PostgreSQL have now introduced support for the pgvector extension, overview, scenarios, etc.|
 
 ## Create and manage Azure AI Resources with code
 
 |Link|Description|
 |---|---|
-|[Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)||
-|[Azure CLI](/azure/cognitive-services/openai/how-to/create-resource)||
-|[Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)||
-|[Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)||
-|[Python](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-python)||
-|[.NET/C#](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp)||
-|[JavaScript/TypeScript](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-javascript)||
-|[Java](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-java)||
+|[Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)|Awesome AZD templates for use with the Azure Developer CLI that help you build and deploy AI solutions quickly.|
+|[Azure CLI](/azure/ai-services/openai/how-to/create-resource?pivots=cli)|Article describes how to get started with Azure OpenAI Service and provides step-by-step instructions to create a resource and deploy a model using the Azure CLI.|
+|[Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)|Create Azure AI services resource using Bicep.|
+|[Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)|Terraform module for deploying Azure OpenAI Service. Includes reference docs and examples.|
+|[Python](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-python)|Use Python to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|
+|[.NET/C#](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp)|Use .NET / C# to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|
+|[JavaScript/TypeScript](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-javascript)|Use JavaScript / TypeScript to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|
+|[Java](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-java)|Use Java to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|
 
 ## Secure your Azure AI Resources
 
 |Link|Description|
 |---|---|
-|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)||
-|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)||
+|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at what's required to authenticate using Microsoft Entra ID.|
+|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 
 ## Speech/Vision
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)||
-|[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)||
-|Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)||
-|[Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)||
+|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.|
+|[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|Repo containing samples for captioning and transcriptioning in a call center scenario.|
+|Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)|Samples for the Microsoft Cognitive Services Speech SDK. Links to samples for speech recognition, translation, speech synthesis, and more.|
+|[Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)|Hosts sample code and setup documents for the Microsoft Azure AI Vision SDK.|
 
 ## Language
 
