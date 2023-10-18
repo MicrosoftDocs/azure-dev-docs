@@ -90,7 +90,7 @@ This article provides documentation, samples and other resources for learning ho
 |[Azure OpenAI SDK for JavaScript](https://aka.ms/oai/js/sdk)|GitHub source version of the Azure OpenAI client library for JavaScript is an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
 |[@azure/openai npm package](https://aka.ms/oai/js/npm)|npm version of the version of the Azure OpenAI client library for JavaScript (above).|
 |[Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/completions.js)|Simple example demonstrating how to get completions for the provided prompt.|
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/chatCompletions.js)|Example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
+|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/chatCompletions.js)|Simple example demonstrating how to use  streaming chat completions.|
 |[More Samples](https://aka.ms/oai/js/samples)|OpenAI samples covering a range of scenarios.|
 
 :::zone-end
@@ -101,19 +101,19 @@ This article provides documentation, samples and other resources for learning ho
 
 |Link|Description|
 |---|---|
-|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)||
-|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)||
-|[More Azure OpenAI Service Docs](/azure/cognitive-services/openai/)||
+|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
+|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
+|[More Azure OpenAI Service Docs](/azure/cognitive-services/openai/)|Azure OpenAI Service Documentation Hub with links to even more Azure OpenAI service tutorials, quickstarts, how-to articles, and more.|
 
 ## OpenAI for Java Developers
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI SDK for Java](https://aka.ms/oai/java/sdk)||
-|[azure.ai.openai maven package](https://aka.ms/oai/java/maven)||
-|[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)||
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)||
-|[More Samples](https://aka.ms/oai/java/samples)||
+|[Azure OpenAI SDK for Java](https://aka.ms/oai/java/sdk)|GitHub source version of the the Azure OpenAI client library for Java, an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem.|
+|[azure.ai.openai maven package](https://aka.ms/oai/java/maven)|Maven package version of the Azure OpenAI client library for Java (above).|
+|[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)|Simple example demonstrating how to get completions for the provided prompt.|
+|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)|Simple example demonstrating how to use  streaming chat completions.|
+|[More Samples](https://aka.ms/oai/java/samples)|Azure OpenAI service samples are a set of self-contained Java programs that demonstrate interacting with Azure OpenAI service using the client library. Each sample focuses on a specific scenario and can be executed independently.|
 
 :::zone-end
 
@@ -123,14 +123,14 @@ This article provides documentation, samples and other resources for learning ho
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)||
-|[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)||
-|[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions)||
-|[ChatCompletions using Functions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions-Functions)||
-|[Streaming Chat Completions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletionsStream)||
-|[Image generation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.CreateImage)||
-|[Embeddings](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetEmbeddings)||
-|[Other examples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)||
+|[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)|GitHub source version of the Azure OpenAI SDK for Go.|
+|[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|Go package version of Azure OpenAI client module for Go.|
+|[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions)|Simple example demonstrating how to implement completions.|
+|[ChatCompletions using Functions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions-Functions)|Simple example demonstrating how to implement completions using Functions.|
+|[Streaming Chat Completions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletionsStream)|Simple example demonstrating how to implement streaming completions.|
+|[Image generation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.CreateImage)|Simple example of implementing image generation.|
+|[Embeddings](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetEmbeddings)|Simple example demonstrating how to create embeddings.|
+|[Other examples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)|Go package version of documentation for the OpenAI client module for Go.|
 
 :::zone-end
 
