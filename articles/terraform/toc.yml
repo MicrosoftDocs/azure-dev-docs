@@ -143,6 +143,12 @@
               items:
                 - name: Create a Windows Server VM
                   href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
+        - name: Integration
+          items:
+            - name: API Management
+              items:
+                - name: Create a service
+                  href: /azure/api-management/quickstart-terraform
 - name: Samples
   items:
     - name: Terraform samples
