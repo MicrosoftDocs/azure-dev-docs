@@ -71,8 +71,6 @@
           href: get-started-azapi-update-resource.md
     - name: Terraform Quickstarts for Azure services
       items:
-        - name: 5G & Space
-          items:
         - name: AI + Machine Learning
           items:
             - name: Azure AI services
@@ -145,10 +143,6 @@
             items:
               - name: Create a Windows Server VM in a lab
                 href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
-        - name: Hybrid + multicloud
-          items:
-        - name: Identity
-          items:
         - name: Integration
           items:
             - name: API Management
@@ -185,10 +179,6 @@
               items:
                 - name: Create a profile and endpoint
                   href: /azure/cdn/create-profile-endpoint-terraform
-        - name: Migration
-          items:
-        - name: Mixed Reality
-          items:
         - name: Mobile
           items:
           items:
@@ -260,10 +250,6 @@
               items:
                 - name: Create a key vault and key
                   href: /azure/key-vault/keys/quick-create-terraform
-        - name: Storage
-          items:
-        - name: Virtual Desktop Infrastructure
-          items:
         - name: Web
           items:
             - name: API Management
