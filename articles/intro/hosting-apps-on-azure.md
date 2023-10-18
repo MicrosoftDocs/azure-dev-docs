@@ -21,10 +21,10 @@ Azure provides a variety of different ways to host your application depending on
 Azure hosting services are provided with two considerations: 
 
 * **Simplicity versus control**
-    * Simplier hosting platforms require less configuration and management but provide less control over the underlying infrastructure.  
+    * Simple hosting platforms require less configuration and management but provide less control over the underlying infrastructure.  
     * More complex hosting platforms require more configuration and management but provide more control over the underlying infrastructure.
 * **Cloud-native versus Azure-native**
-    * Cloud-native can be thought of as cloud-portible using open-source workloads such as containers and open-source technologies such as Dapr. The applications you build can be deployed to any cloud provider. 
+    * Cloud-native can be thought of as cloud-portable using open-source workloads such as containers and open-source technologies such as Dapr. The applications you build can be deployed to any cloud provider. 
     * Azure-native is specific to Azure with an investment in Azure-specific tools and technologies to manage that infrastructure. While these services include container workloads, they also include code-first, low-code, and infrastructure tooling specific to Azure with an emphasis on connecting and integration between Azure services.
 
 ## Simplified hosting
@@ -68,13 +68,13 @@ Azure supports no-code solutions are part of its Azure-Cloud approach.
 
 **Low-code** hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure.
 
-* [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps
-* [Azure Functions][azure-functions]: deploy code functions in supported languages without having to manage the application infrastructure
+* [Azure Static Web Apps][azure-static-web-apps]: deploy generated static web apps.
+* [Azure Functions][azure-functions]: deploy code functions in supported languages without having to manage the application infrastructure.
 
 **Code-first** hosting solutions are designed to host code.  You can deploy your code directly to the hosting solution.
 
-* [Azure App Service][azure-app-service]: full-service web hosting
-* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications
+* [Azure App Service][azure-app-service]: full-service web hosting.
+* [Azure Spring Apps][azure-spring-apps]: Spring Boot applications.
 
 **Container-first** hosting solutions are designed to host containers. The service provides container-specific configuration options and features. You're responsible for the compute used inside the container. The services which host containers move from managed control to full responsibility so you only take on the amount of container management you want.
 
@@ -83,7 +83,7 @@ Azure supports no-code solutions are part of its Azure-Cloud approach.
 |Service|Focus|Use|
 |--|--|--|
 |[Azure Kubernetes Service][azure-kubernetes]|Cloud-native| Use for Kubernetes clusters with a **declarative** approach using configuration files and external artifacts.|
-|[Azure Service Fabric][azure-service-fabric]|Azure-native|Use an **imperative**approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
+|[Azure Service Fabric][azure-service-fabric]|Azure-native|Use an **imperative** approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
 
 **Preconfigured** container hosting means the orchestration options are preconfigured for you. Your ability to communicate between containers or container clusters may require an additional service such as [Dapr](https://docs.dapr.io/).
 
@@ -119,6 +119,8 @@ Azure provides a container registry to store and manage your container images or
 |[Azure Functions][azure-functions]|Use for serverless code or containerized microservices.|
 
 ## Cloud edge
+
+Cloud edge is a term to indicate if the Cloud service is located primarly to benefit the user (client) or the application (server).
 
 ### Client compute
 
@@ -162,7 +164,7 @@ Azure provides a container registry to store and manage your container images or
 |[Power Automate][power-automate]| Use when you need to automate business processes and workflows.|
 |[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
 |Container services ([Azure Container Instances][azure-container-instances], [Azure Kubernetes Service][azure-kubernetes], [Azure Container Apps][azure-container-apps])|Use for standard automatable workloads|
-|[Azure Batch][azure-batch]|Use when you need high-performanc automation.|
+|[Azure Batch][azure-batch]|Use when you need high-performance automation.|
 
 ## Hybrid cloud
 
@@ -183,7 +185,7 @@ High-performance computing (HPC) is the use of parallel processing for running a
 |[Azure Batch][azure-batch]|Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. Developers can use Batch as a platform service to build SaaS applications or client apps where large-scale execution is required.|
 |[Azure BareMetal Instances][azure-bare-metal]|Use when you need to run in a nonvirtualized environment with root-level access to the operating system, storage and network.|
 |[Azure Quantum workspace][quantum]|Use when you need to develop and experiment with quantum algorithms.|
-|[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.
+|[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.|
 
 Learn more about [High-performance computing on Azure](/azure/architecture/topics/high-performance-computing).
 
