@@ -10,28 +10,32 @@
    spring.jms.servicebus.namespace=<ServiceBusNamespace>
    spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
    spring.jms.servicebus.passwordless-enabled=true
+   spring.jms.listener.receive-timeout=60000
    ```
 
 The following table describes the fields in the configuration:
 
-| Field                                        | Description                                                                                                                                                                                                                  |
-|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `spring.jms.servicebus.namespace`            | Specify the namespace you obtained in your Service Bus service instance from the Azure portal.                                                                                                                               |
-| `spring.jms.servicebus.pricing-tier`         | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
-| `spring.jms.servicebus.passwordless-enabled` | Specify whether to use passwordless.                                                                                                                                                                                         |
+| Field                                        | Description |
+|----------------------------------------------|---------------------------------------------------------------|
+| `spring.jms.servicebus.namespace`  | Specify the namespace you obtained in your Service Bus service instance from the Azure portal. |
+| `spring.jms.servicebus.pricing-tier` | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+| `spring.jms.servicebus.passwordless-enabled` | Specify whether to use passwordless. |
+| `spring.jms.listener.receive-timeout`        | By default the receive timeout value is 1000. We recommend that you set it to 60000 |                                                                                         
 
 #### [Connection string](#tab/connection-string)
 
    ```properties
    spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
    spring.jms.servicebus.pricing-tier=<ServiceBusPricingTier>
+   spring.jms.listener.receive-timeout=60000
    ```
 
 The following table describes the fields in the configuration:
 
-| Field                                     | Description                                                                                                                                                                                                                  |
-|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                                                                                                              |
+| Field                                     | Description |
+|-------------------------------------------|----------------------------------------------------------|
+| `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
 | `spring.jms.servicebus.pricing-tier`      | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+| `spring.jms.listener.receive-timeout`        | By default the receive timeout value is 1000. We recommend that you set it to 60000 |                                                                                       
 
 ---
