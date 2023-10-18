@@ -45,31 +45,31 @@ This article provides documentation, samples and other resources for learning ho
 
 |Link|Description|
 |---|---|
-|[Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)||
-|[Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)||
-|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)||
-|[ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)||
+|[Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
+|[Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
+|[ChatGPT QuickStarts for Python, C#, JavaScript and Java](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
+|[ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)|This sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
 
 ## OpenAI for Python Developers
 
 |Link|Description|
 |---|---|
-|[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)||
-|[openai Python Package](https://pypi.org/project/openai/)||
-|[Completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/completions.ipynb)||
-|[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)||
-|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)||
-|[ChatGPT Python App](https://aka.ms/azai/chat)||
-|[ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)||
-|[ChatGPT Python App with your own data](https://aka.ms/azai/chatwithdata)||
-|[Azure AI Content Safety SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety)||
+|[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)|GitHub source code version of the OpenAI Python library provides convenient access to the OpenAI API from applications written in the Python language. It includes a pre-defined set of classes for API resources that initialize themselves dynamically from API responses which makes it compatible with a wide range of versions of the OpenAI API.|
+|[openai Python Package](https://pypi.org/project/openai/)|PyPi version of the OpenAI Python library (above).|
+|[Completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/completions.ipynb)|Notebook containing an example of operations needed to get completions working using the Azure endpoints. This example focuses on completions but also touches on some other operations that are also available using the API.|
+|[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|Notebook containng example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
+|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
+|[ChatGPT Python App](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
+|[ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
+|[ChatGPT Python App with your own data](https://aka.ms/azai/chatwithdata)|This sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
+|[Azure AI Content Safety SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety)|Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful.|
 |[Azure companion for Python experiment](https://github.com/johanste/easyaz)||
-|[Vector Embeddings based Q&A App](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna) ||
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)||
-|[Deploy a model and generate text](/azure/cognitive-services/openai/quickstart?pivots=programming-language-python)||
-|[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)||
+|[Vector Embeddings based Q&A App](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)|A simple web application for a OpenAI-enabled document search. This repo uses Azure OpenAI Service for creating embeddings vectors from documents. For answering the question of a user, it retrieves the most relevant document and then uses GPT-3 to extract the matching answer for the question.|
+|[Use Speech to converse with OpenAI](/azure/ai-services/speech-service/openai-speech?tabs=windows&branch=main&pivots=programming-language-python)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.|
+|[Deploy a model and generate text](/azure/cognitive-services/openai/quickstart?pivots=programming-language-python)|Minimal, straightforward steps to programmatically chat.|
+|[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|Notebook demonstrating operations how to use embeddings that can be done using the Azure endpoints. This example focuses on embeddings but also touches some other operations that are also available using the API.|
 |[Finetuning](https://github.com/openai/openai-cookbook/blob/main/examples/azure/finetuning.ipynb)||
-|[More Samples](https://github.com/Azure-Samples/openai/blob/main/README.md) ||
+|[More Samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|This repo is a compilation of useful Azure OpenAI Service resources and code samples to help you get started and accelerate your technology adoption journey.|
 
 :::zone-end
 
