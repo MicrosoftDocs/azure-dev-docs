@@ -151,60 +151,49 @@ This article provides documentation, samples and other resources for learning ho
 
 ## Create and manage Azure AI Resources with code
 
-- [Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)
-
-- [Azure CLI](/azure/cognitive-services/openai/how-to/create-resource)
-
-- [Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)
-
-- [Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)
-
-- [Python](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-python)
-
-- [.NET/C#](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp)
-
-- [JavaScript/TypeScript](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-javascript)
-
-- [Java](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-java)
-
+|Link|Description|
+|---|---|
+|[Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)||
+|[Azure CLI](/azure/cognitive-services/openai/how-to/create-resource)||
+|[Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)||
+|[Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)||
+|[Python](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-python)||
+|[.NET/C#](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp)||
+|[JavaScript/TypeScript](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-javascript)||
+|[Java](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-java)||
 
 ## Secure your Azure AI Resources
 
-- [OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)
-
-- [OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)
-
+|Link|Description|
+|---|---|
+|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)||
+|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)||
 
 ## Speech/Vision
 
-- [Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)
-
-- [Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)
-
-- Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)
-
-- [Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)
+|Link|Description|
+|---|---|
+|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)||
+|[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)||
+|Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)||
+|[Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)||
 
 ## Language
 
-- Extract, classify, and understand text within documents using Text Analytics in [Python](/samples/azure/azure-sdk-for-python/textanalytics-samples/) , [.NET](/samples/azure/azure-sdk-for-net/azure-cognitive-services-text-analytics-client-library-for-net/) , [TypeScript](/samples/azure/azure-sdk-for-js/ai-language-text-typescript-beta/) , [JavaScript](/samples/azure/azure-sdk-for-js/ai-language-text-javascript-beta/) and [Java](/samples/azure/azure-sdk-for-java/textanalytics-java-samples/)
-
-- Document Translation in [Python](/samples/azure/azure-sdk-for-python/documenttranslation-samples/), [.NET](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/), [TypeScript](/samples/azure/azure-sdk-for-js/ai-document-translator-typescript/), [JavaScript](/samples/azure/azure-sdk-for-js/ai-document-translator-javascript/) And [Java](/samples/azure/azure-sdk-for-java/documenttranslator-java-samples/)
-
-- Translate documents from and into more than 100 different languages using [**Document Translation sample apps**](https://github.com/MicrosoftTranslator/DocumentTranslation) 
-
-- Question Answering in [Python](/samples/azure/azure-sdk-for-python/languagequestionanswering-samples/) and [.NET](/samples/azure/azure-sdk-for-net/azureailanguagequestionanswering-samples/)
-
-- Conversational Language Understanding in [Python](/samples/azure/azure-sdk-for-python/conversationslanguageunderstanding-samples/) and [.NET](/samples/azure/azure-sdk-for-net/azureailanguageconversations-samples/)
+|Link|Description|
+|---|---|
+|Extract, classify, and understand text within documents using Text Analytics in [Python](/samples/azure/azure-sdk-for-python/textanalytics-samples/) , [.NET](/samples/azure/azure-sdk-for-net/azure-cognitive-services-text-analytics-client-library-for-net/) , [TypeScript](/samples/azure/azure-sdk-for-js/ai-language-text-typescript-beta/) , [JavaScript](/samples/azure/azure-sdk-for-js/ai-language-text-javascript-beta/) and [Java](/samples/azure/azure-sdk-for-java/textanalytics-java-samples/)||
+|Document Translation in [Python](/samples/azure/azure-sdk-for-python/documenttranslation-samples/), [.NET](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/), [TypeScript](/samples/azure/azure-sdk-for-js/ai-document-translator-typescript/), [JavaScript](/samples/azure/azure-sdk-for-js/ai-document-translator-javascript/) And [Java](/samples/azure/azure-sdk-for-java/documenttranslator-java-samples/)||
+|Translate documents from and into more than 100 different languages using [**Document Translation sample apps**](https://github.com/MicrosoftTranslator/DocumentTranslation) ||
+|Question Answering in [Python](/samples/azure/azure-sdk-for-python/languagequestionanswering-samples/) and [.NET](/samples/azure/azure-sdk-for-net/azureailanguagequestionanswering-samples/)||
+|Conversational Language Understanding in [Python](/samples/azure/azure-sdk-for-python/conversationslanguageunderstanding-samples/) and [.NET](/samples/azure/azure-sdk-for-net/azureailanguageconversations-samples/)||
 
 ## Applied AI/Decision
 
-- [Azure Form Recognizer SDKs for .NET/C#, Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)
-
-- Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python), [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400), [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/typescript/README.md#azure-form-recognizer-client-library-samples-for-typescript), [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md#azure-form-recognizer-client-library-samples-for-javascript), and [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)
-
-- Use Form Recognizer to automate a paper based process using the [New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App)) 
-
-- Metrics Advisor SDK samples in [Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/), [.NET](/samples/azure/azure-sdk-for-net/azure-metrics-advisor-client-sdk-samples/), [TypeScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-typescript/), [JavaScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-javascript/) and [Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)
-
-- Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py), [.NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs) , [Javascript](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detection.js) and [Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)
+|Link|Description|
+|---|---|
+|[Azure Form Recognizer SDKs for .NET/C#, Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)||
+|Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python), [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400), [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/typescript/README.md#azure-form-recognizer-client-library-samples-for-typescript), [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md#azure-form-recognizer-client-library-samples-for-javascript), and [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)||
+|Use Form Recognizer to automate a paper based process using the [New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App)) ||
+|Metrics Advisor SDK samples in [Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/), [.NET](/samples/azure/azure-sdk-for-net/azure-metrics-advisor-client-sdk-samples/), [TypeScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-typescript/), [JavaScript](/samples/azure/azure-sdk-for-js/ai-metrics-advisor-javascript/) and [Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)||
+|Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py), [.NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs) , [Javascript](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detection.js) and [Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)||

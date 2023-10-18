@@ -10,7 +10,7 @@ groups:
     title: Python
   - id: javascript
     title: JavaScript
-  - id: Java
+  - id: java
     title: Java
-  - id: Go
-    title: go
+  - id: go
+    title: Go
