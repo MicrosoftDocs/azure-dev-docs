@@ -120,7 +120,7 @@ Azure provides a container registry to store and manage your container images or
 
 ## Cloud edge
 
-Cloud edge is a term to indicate if the Cloud service is located primarly to benefit the user (client) or the application (server).
+Cloud edge is a term to indicate if the Cloud service is located to benefit the user (client) or the application (server).
 
 ### Client compute
 
