@@ -85,7 +85,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=1000
+    spring.cloud.stream.poller.fixed-delay=60000 // default value is 100 and the recommended value is 60000
     spring.cloud.stream.poller.initial-delay=0
    ```
 
@@ -99,7 +99,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 
    #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
@@ -112,7 +112,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=topic
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=1000
+    spring.cloud.stream.poller.fixed-delay=60000 // default value is 100 and the recommended value is 60000
     spring.cloud.stream.poller.initial-delay=0
    ```
 
@@ -127,7 +127,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
