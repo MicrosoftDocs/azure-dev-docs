@@ -14,7 +14,7 @@ ms.date: 10/03/2022
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy title="Azure hosting services" /]
 
 ## Simplicity and control
 
