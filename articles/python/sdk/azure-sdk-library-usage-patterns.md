@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns in the Azure SDK libraries for Python
-ms.date: 01/31/2023
+ms.date: 10/18/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
