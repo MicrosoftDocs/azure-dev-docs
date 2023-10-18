@@ -12,5 +12,5 @@ groups:
     title: JavaScript
   - id: java
     title: Java
-  - id: go
+  - id: golang
     title: Go

@@ -119,7 +119,7 @@ This article provides documentation, samples and other resources for learning ho
 
 :::zone-end
 
-:::zone pivot="go"
+:::zone pivot="golang"
 
 ## OpenAI for Go Developers
 
