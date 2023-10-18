@@ -142,11 +142,11 @@
           - name: Firewall
             items:
             - name: Deploy with IP Groups - Terraform
-              href: quick-create-ipgroup-terraform.md
+              href: /azure/firewall/quick-create-ipgroup-terraform
             - name: Deploy with multiple addresses - Terraform
-              href: quick-create-multiple-ip-terraform.md
+              href: /azure/firewall/quick-create-multiple-ip-terraform
             - name: Deploy with Availability Zones - Terraform
-              href: deploy-terraform.md
+              href: /azure/firewall/deploy-terraform
       - name: Notification Hubs
         items:
           - name: Create a namespace and hub
