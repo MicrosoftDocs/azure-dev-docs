@@ -139,6 +139,14 @@
         items:
           - name: Create a mesh network topology with Azure Virtual Network Manager
             href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
+          - name: Firewall
+            items:
+            - name: Deploy with IP Groups - Terraform
+              href: quick-create-ipgroup-terraform.md
+            - name: Deploy with multiple addresses - Terraform
+              href: quick-create-multiple-ip-terraform.md
+            - name: Deploy with Availability Zones - Terraform
+              href: deploy-terraform.md
       - name: Notification Hubs
         items:
           - name: Create a namespace and hub

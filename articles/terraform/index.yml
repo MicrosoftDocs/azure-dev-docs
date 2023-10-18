@@ -127,22 +127,16 @@ landingContent:
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
 
   # Card
-  - title: Manage networks
+  - title: Networking
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: 1. Create hub and spoke topology
-            url: hub-spoke-introduction.md
-          - text: 2. Create on-premises virtual network
-            url: hub-spoke-on-prem.md
-          - text: 3. Create hub virtual network
-            url: hub-spoke-hub-network.md
-          - text: 4. Create hub virtual network appliance
-            url: hub-spoke-hub-nva.md
-          - text: 5. Create spoke network
-            url: hub-spoke-spoke-network.md
-          - text: 6. Validate network topology connectivity 
-            url: hub-spoke-validation.md
+          - text: Deploy with IP Groups - Terraform
+            url: /azure/firewall/quick-create-ipgroup-terraform.md
+          - text: Deploy with multiple addresses - Terraform
+            url: /azure/firewall/quick-create-multiple-ip-terraform.md
+          - text: Deploy with Availability Zones - Terraform
+            url: /azure/firewall/deploy-terraform.md
 
   # Card
   - title: Manage databases
