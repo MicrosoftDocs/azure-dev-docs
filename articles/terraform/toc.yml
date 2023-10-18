@@ -121,6 +121,16 @@
               items:
                 - name: Create an instance
                   href: /azure/container-instances/container-instances-quickstart-terraform
+        - name: Database
+          items:
+            - name: Azure SQL Database
+              items:
+                - name: Create a server and database
+                  href: /azure/azure-sql/database/single-database-create-terraform-quickstart
+            - name: Azure Database for MySQL
+              items:
+                - name: Create a MySQL Flexible Server instance
+                  href: /azure/mysql/flexible-server/quickstart-create-terraform
 - name: Samples
   items:
     - name: Terraform samples
