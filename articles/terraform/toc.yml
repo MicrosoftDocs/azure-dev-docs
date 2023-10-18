@@ -131,6 +131,12 @@
               items:
                 - name: Create a MySQL Flexible Server instance
                   href: /azure/mysql/flexible-server/quickstart-create-terraform
+        - name: Developer Tools
+          items:
+            - name: DevTest Labs
+              items:
+                - name: Create a Windows Server VM
+                  href: /azure/devtest-labs/quickstarts/create-lab-windows-vm-terraform
 - name: Samples
   items:
     - name: Terraform samples
