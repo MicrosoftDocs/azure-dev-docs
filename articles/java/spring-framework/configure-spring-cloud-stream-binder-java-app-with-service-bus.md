@@ -85,7 +85,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=60000 // default value is 100 and the recommended value is 60000
+    spring.cloud.stream.poller.fixed-delay=60000 // default value is 1000 and the recommended value is 60000
     spring.cloud.stream.poller.initial-delay=0
    ```
 
@@ -112,7 +112,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=topic
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=60000 // default value is 100 and the recommended value is 60000
+    spring.cloud.stream.poller.fixed-delay=60000 // default value is 1000 and the recommended value is 60000
     spring.cloud.stream.poller.initial-delay=0
    ```
 
