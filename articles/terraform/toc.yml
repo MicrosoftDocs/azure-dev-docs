@@ -111,6 +111,16 @@
                   href: /azure/virtual-machines/windows/quick-create-terraform
                 - name: Create a Windows VM cluster
                   href: /azure/virtual-machines/windows/quick-cluster-create-terraform
+        - name: Containers
+          items:
+            - name: Azure Kubernetes Service (AKS)
+              items:
+                - name: Create a cluster
+                  href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+            - name: Container Instances
+              items:
+                - name: Create an instance
+                  href: /azure/container-instances/container-instances-quickstart-terraform
 - name: Samples
   items:
     - name: Terraform samples
