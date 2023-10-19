@@ -9,7 +9,8 @@ ms.custom: devx-track-python
 
 # Quickstart: Deploy an Azure OpenAI chat app with your data in Python
 
-In this quickstart, you deploy and use an intelligent chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
+
+In this quickstart, you deploy and use an intelligent chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
 
 - Deploy an intelligent chat app to Azure.
 - Get answers about employee benefits.
@@ -98,7 +99,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd auth login
     ```
 
-    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+    When prompted, copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. Initialize the folder to use the sample project with Azure Developer CLI:
 
@@ -138,7 +139,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggetions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use intelligent chat app to get answers from PDF files
 
