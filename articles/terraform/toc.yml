@@ -331,13 +331,13 @@
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure Database for PostgreSQL
               items:
-                - name: Deploye Flexible Server database
+                - name: Deploy Flexible Server database
                   href: deploy-postgresql-flexible-server-database.md
         - name: Hybrid + multicloud
           items:
             - name: Azure Database for PostgreSQL
               items:
-                - name: Deploye Flexible Server database
+                - name: Deploy Flexible Server database
                   href: deploy-postgresql-flexible-server-database.md
         - name: Internet of Things
           items:
