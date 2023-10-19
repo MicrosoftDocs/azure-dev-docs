@@ -121,6 +121,8 @@
               items:
                 - name: Create an instance
                   href: /azure/container-instances/container-instances-quickstart-terraform
+                - name: Deploy Cosmos DB
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
         - name: Database
           items:
             - name: Azure SQL Database
@@ -327,7 +329,7 @@
           items:
             - name: Azure Cosmos DB
               items:
-                - name: Deploy to Azure Container Instances
+                - name: Deploy to Container Instances
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure Database for PostgreSQL
               items:
@@ -343,7 +345,7 @@
           items:
             - name: Azure Cosmos DB
               items:
-                - name: Deploy to Azure Container Instances
+                - name: Deploy to Container Instances
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
         - name: Management and Governance
           items:
