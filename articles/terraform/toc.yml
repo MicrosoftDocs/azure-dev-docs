@@ -205,12 +205,18 @@
                   href: /azure/dns/dns-get-started-terraform
             - name: Azure Firewall
               items:
-                - name: Deploy with IP Groups - Terraform
+                - name: Deploy with IP Groups
                   href: /azure/firewall/quick-create-ipgroup-terraform
-                - name: Deploy with multiple addresses - Terraform
+                - name: Deploy with multiple addresses
                   href: /azure/firewall/quick-create-multiple-ip-terraform
-                - name: Deploy with Availability Zones - Terraform
+                - name: Deploy with Availability Zones
                   href: /azure/firewall/deploy-terraform
+            - name: Azure Front Door
+              items:
+                - name: Create a classic profile
+                  href: /azure/frontdoor/quickstart-create-front-door-terraform
+                - name: Create a standard/premium profile
+                  href: /azure/frontdoor/create-front-door-terraform
             - name: Azure Virtual Network Manager
               items:
                 - name: Create a mesh network topology with Azure Virtual Network Manager
@@ -239,12 +245,18 @@
                   href: /azure/ddos-protection/manage-ddos-protection-terraform
             - name: Azure Firewall
               items:
-                - name: Deploy with IP Groups - Terraform
+                - name: Deploy with IP Groups
                   href: /azure/firewall/quick-create-ipgroup-terraform
-                - name: Deploy with multiple addresses - Terraform
+                - name: Deploy with multiple addresses
                   href: /azure/firewall/quick-create-multiple-ip-terraform
-                - name: Deploy with Availability Zones - Terraform
+                - name: Deploy with Availability Zones
                   href: /azure/firewall/deploy-terraform
+            - name: Azure Front Door
+              items:
+                - name: Create a classic profile
+                  href: /azure/frontdoor/quickstart-create-front-door-terraform
+                - name: Create a standard/premium profile
+                  href: /azure/frontdoor/create-front-door-terraform
             - name: Key Vault
               items:
                 - name: Create a key vault and key
