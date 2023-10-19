@@ -121,8 +121,14 @@
               items:
                 - name: Create an instance
                   href: /azure/container-instances/container-instances-quickstart-terraform
+                - name: Deploy Cosmos DB
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
         - name: Database
           items:
+            - name: Azure Cosmos DB
+              items:
+                - name: Deploy to Container Instances
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure SQL Database
               items:
                 - name: Create a server and database
@@ -155,6 +161,10 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+            - name: Azure Cosmos DB
+              items:
+                - name: Deploy to Container Instances
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure Stream Analytics
               items:
                 - name: Create a job
@@ -205,12 +215,18 @@
                   href: /azure/dns/dns-get-started-terraform
             - name: Azure Firewall
               items:
-                - name: Deploy with IP Groups - Terraform
+                - name: Deploy with IP Groups
                   href: /azure/firewall/quick-create-ipgroup-terraform
-                - name: Deploy with multiple addresses - Terraform
+                - name: Deploy with multiple addresses
                   href: /azure/firewall/quick-create-multiple-ip-terraform
-                - name: Deploy with Availability Zones - Terraform
+                - name: Deploy with Availability Zones
                   href: /azure/firewall/deploy-terraform
+            - name: Azure Front Door
+              items:
+                - name: Create a classic profile
+                  href: /azure/frontdoor/quickstart-create-front-door-terraform
+                - name: Create a standard/premium profile
+                  href: /azure/frontdoor/create-front-door-terraform
             - name: Azure Virtual Network Manager
               items:
                 - name: Create a mesh network topology with Azure Virtual Network Manager
@@ -239,12 +255,18 @@
                   href: /azure/ddos-protection/manage-ddos-protection-terraform
             - name: Azure Firewall
               items:
-                - name: Deploy with IP Groups - Terraform
+                - name: Deploy with IP Groups
                   href: /azure/firewall/quick-create-ipgroup-terraform
-                - name: Deploy with multiple addresses - Terraform
+                - name: Deploy with multiple addresses
                   href: /azure/firewall/quick-create-multiple-ip-terraform
-                - name: Deploy with Availability Zones - Terraform
+                - name: Deploy with Availability Zones
                   href: /azure/firewall/deploy-terraform
+            - name: Azure Front Door
+              items:
+                - name: Create a classic profile
+                  href: /azure/frontdoor/quickstart-create-front-door-terraform
+                - name: Create a standard/premium profile
+                  href: /azure/frontdoor/create-front-door-terraform
             - name: Key Vault
               items:
                 - name: Create a key vault and key
@@ -283,62 +305,120 @@
   items:
     - name: Terraform how-to guides for Azure services
       items:
-      - name: App Service
-        items:
-          - name: Terraform and Azure provider deployment slots
-            href: provision-infrastructure-using-azure-deployment-slots.md
-      - name: Containers
-        items:
-          - name: Application Gateway ingress controller in AKS
-            href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
-      - name: Database
-        items:
-          - name: Azure Cosmos DB
-            href: deploy-azure-cosmos-db-to-azure-container-instances.md
-          - name: PostgreSQL Flexible Server Database
-            href: deploy-postgresql-flexible-server-database.md
-      - name: Networks
-        items:
-          - name: Azure Network Watcher
-            href: create-network-watcher-nsg-flow-logs.md
-          - name: Azure Firewall Premium
-            href: firewall-upgrade-premium.md
-          - name: Hub and spoke topology
-            items:
-              - name: 1. Create hub and spoke topology
-                href: hub-spoke-introduction.md
-              - name: 2. Create on-premises virtual network
-                href: hub-spoke-on-prem.md
-              - name: 3. Create hub virtual network
-                href: hub-spoke-hub-network.md
-              - name: 4. Create hub virtual network appliance
-                href: hub-spoke-hub-nva.md
-              - name: 5. Create spoke network
-                href: hub-spoke-spoke-network.md
-              - name: 6. Validate network topology connectivity 
-                href: hub-spoke-validation.md
-          - name: Azure Virtual Desktop
-            items:
-              - name: Configure an Azure Virtual Desktop
-                href: configure-azure-virtual-desktop.md
-              - name: Create a Session Host
-                href: create-avd-session-host.md
-              - name: Configure RBAC permissions
-                href: configure-avd-rbac.md
-              - name: Configure Network Settings
-                href: configure-avd-network-settings.md
-              - name: Create Azure Files Storage
-                href: create-avd-azure-files-storage.md
-              - name: Create Azure Compute Gallery
-                href: create-avd-azure-compute-image-gallery.md
-              - name: Create Log Analytics Workspace
-                href: create-avd-log-analytics-workspace.md
-          - name: Virtual machines
-            items:
-              - name: Virtual Machine Scale Set with infrastructure
-                href: create-vm-scaleset-network-disks-hcl.md
-              - name: Virtual Machine Scale Set from Packer image
-                href: create-vm-scaleset-network-disks-using-packer-hcl.md
+        - name: Compute
+          items:
+            - name: App Service
+              items:
+                - name: Terraform and Azure provider deployment slots
+                  href: provision-infrastructure-using-azure-deployment-slots.md
+            - name: Azure Virtual Desktop
+              items:
+                - name: Configure a desktop
+                  href: configure-azure-virtual-desktop.md
+                - name: Create a host
+                  href: create-avd-session-host.md
+                - name: Configure RBAC permissions
+                  href: configure-avd-rbac.md
+                - name: Configure network settings
+                  href: configure-avd-network-settings.md
+                - name: Create Azure Files storage
+                  href: create-avd-azure-files-storage.md
+                - name: Create Azure Compute gallery
+                  href: create-avd-azure-compute-image-gallery.md
+                - name: Create Log Analytics workspace
+                  href: create-avd-log-analytics-workspace.md
+            - name: Virtual machines
+              items:
+                - name: Virtual Machine Scale Set with infrastructure
+                  href: create-vm-scaleset-network-disks-hcl.md
+                - name: Virtual Machine Scale Set from Packer image
+                  href: create-vm-scaleset-network-disks-using-packer-hcl.md
+        - name: Database
+          items:
+            - name: Azure Database for PostgreSQL
+              items:
+                - name: Deploy Flexible Server database
+                  href: deploy-postgresql-flexible-server-database.md
+        - name: Hybrid + multicloud
+          items:
+            - name: Azure Database for PostgreSQL
+              items:
+                - name: Deploy Flexible Server database
+                  href: deploy-postgresql-flexible-server-database.md
+        - name: Management and Governance
+          items:
+            - name: Network Watcher
+              items:
+                - name: Create a watcher connection
+                  href: create-network-watcher-nsg-flow-logs.md
+        - name: Mobile
+          items:
+            - name: App Service
+              items:
+                - name: Terraform and Azure provider deployment slots
+                  href: provision-infrastructure-using-azure-deployment-slots.md
+        - name: Networking
+          items:
+            - name: Application Gateway
+              items:
+                - name: Application Gateway ingress controller in AKS
+                  href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
+            - name: Azure Firewall
+              items:
+                - name: Migrate Standard to Premium
+                  href: firewall-upgrade-premium.md
+            - name: Hub and spoke topology
+              items:
+                - name: 1. Create hub and spoke topology
+                  href: hub-spoke-introduction.md
+                - name: 2. Create on-premises virtual network
+                  href: hub-spoke-on-prem.md
+                - name: 3. Create hub virtual network
+                  href: hub-spoke-hub-network.md
+                - name: 4. Create hub virtual network appliance
+                  href: hub-spoke-hub-nva.md
+                - name: 5. Create spoke network
+                  href: hub-spoke-spoke-network.md
+                - name: 6. Validate network topology connectivity 
+                  href: hub-spoke-validation.md
+            - name: Network Watcher
+              items:
+                - name: Create a watcher connection
+                  href: create-network-watcher-nsg-flow-logs.md
+        - name: Security
+          items:
+            - name: Application Gateway
+              items:
+                - name: Application Gateway ingress controller in AKS
+                  href: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
+            - name: Azure Firewall
+              items:
+                - name: Migrate Standard to Premium
+                  href: firewall-upgrade-premium.md
+        - name: Virtual Desktop Infrastructure
+          items:
+            - name: Azure Virtual Desktop
+              items:
+                - name: Configure a desktop
+                  href: configure-azure-virtual-desktop.md
+                - name: Create a host
+                  href: create-avd-session-host.md
+                - name: Configure RBAC permissions
+                  href: configure-avd-rbac.md
+                - name: Configure network settings
+                  href: configure-avd-network-settings.md
+                - name: Create Azure Files storage
+                  href: create-avd-azure-files-storage.md
+                - name: Create Azure Compute gallery
+                  href: create-avd-azure-compute-image-gallery.md
+                - name: Create Log Analytics workspace
+                  href: create-avd-log-analytics-workspace.md
+        - name: Web
+          items:
+            - name: App Service
+              items:
+                - name: Terraform and Azure provider deployment slots
+                  href: provision-infrastructure-using-azure-deployment-slots.md
 - name: Reference
   items:
     - name: Terraform Azure provider versions
