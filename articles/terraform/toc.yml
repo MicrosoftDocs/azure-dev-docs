@@ -189,6 +189,84 @@
               items:
                 - name: Create a resource
                   href: /azure/ai-services/create-account-terraform
+        - name: Networking
+          items:
+            - name: Application Gateway
+              items:
+                - name: Create an application gateway
+                  href: /azure/application-gateway/quick-create-terraform
+            - name: Azure DDoS Protection
+              items:
+                - name: Create protection plan
+                  href: /azure/ddos-protection/manage-ddos-protection-terraform
+            - name: Azure DNS
+              items:
+                - name: Create an Azure DNS zone and record
+                  href: /azure/dns/dns-get-started-terraform
+            - name: Azure Firewall
+              items:
+                - name: Deploy with IP Groups - Terraform
+                  href: /azure/firewall/quick-create-ipgroup-terraform
+                - name: Deploy with multiple addresses - Terraform
+                  href: /azure/firewall/quick-create-multiple-ip-terraform
+                - name: Deploy with Availability Zones - Terraform
+                  href: /azure/firewall/deploy-terraform
+            - name: Azure Virtual Network Manager
+              items:
+                - name: Create a mesh network topology with Azure Virtual Network Manager
+                  href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
+            - name: Content Delivery Network (CDN)
+              items:
+                - name: Create a profile and endpoint
+                  href: /azure/cdn/create-profile-endpoint-terraform
+            - name: Traffic Manager
+              items:
+                - name: Create a profile and endpoints
+                  href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
+        - name: Security
+          items:
+            - name: Application Gateway
+              items:
+                - name: Create an application gateway
+                  href: /azure/application-gateway/quick-create-terraform
+            - name: Azure Attestation
+              items:
+                - name: Create a providere
+                  href: /azure/attestation/quickstart-terraform
+            - name: Azure DDoS Protection
+              items:
+                - name: Create protection plan
+                  href: /azure/ddos-protection/manage-ddos-protection-terraform
+            - name: Azure Firewall
+              items:
+                - name: Deploy with IP Groups - Terraform
+                  href: /azure/firewall/quick-create-ipgroup-terraform
+                - name: Deploy with multiple addresses - Terraform
+                  href: /azure/firewall/quick-create-multiple-ip-terraform
+                - name: Deploy with Availability Zones - Terraform
+                  href: /azure/firewall/deploy-terraform
+            - name: Key Vault
+              items:
+                - name: Create a key vault and key
+                  href: /azure/key-vault/keys/quick-create-terraform
+        - name: Web
+          items:
+            - name: API Management
+              items:
+                - name: Create a service
+                  href: /azure/api-management/quickstart-terraform
+            - name: Azure Cognitive Search
+              items:
+                - name: Create an Azure Cognitive Search service
+                  href: /azure/search/search-get-started-terraform
+            - name: Content Delivery Network (CDN)
+              items:
+                - name: Create a profile and endpoint
+                  href: /azure/cdn/create-profile-endpoint-terraform
+            - name: Notification Hubs
+              items:
+                - name: Create a namespace and hub
+                  href: /azure/notification-hubs/create-notification-hub-terraform
 - name: Samples
   items:
     - name: Terraform samples
