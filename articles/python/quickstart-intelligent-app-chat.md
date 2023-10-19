@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 
 # Quickstart: Deploy an Azure OpenAI Chat app with your data in Python
 
-In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF file including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
+In this quickstart, you deploy and use an intelligent Chat app to get answers about employee benefits at a fictitious company. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this quickstart, you will:
 
 - Deploy an intelligent Chat app to Azure.
 - Get answers about employee benefits.
