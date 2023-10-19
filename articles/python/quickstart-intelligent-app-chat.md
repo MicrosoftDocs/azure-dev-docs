@@ -94,7 +94,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    az auth login
+    azd auth login
     ```
 
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
