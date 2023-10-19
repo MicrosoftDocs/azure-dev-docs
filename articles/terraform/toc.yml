@@ -167,6 +167,18 @@
               items:
                 - name: Create a namespace and hub
                   href: /azure/notification-hubs/create-notification-hub-terraform
+        - name: Management and Governance
+          items:
+            - name: Traffic Manager
+              items:
+                - name: Create a profile and endpoints
+                  href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
+        - name: Media
+          items:
+            - name: Content Delivery Network (CDN)
+                items:
+                  - name: Create a profile and endpoint
+                    href: /azure/cdn/create-profile-endpoint-terraform
 - name: Samples
   items:
     - name: Terraform samples
