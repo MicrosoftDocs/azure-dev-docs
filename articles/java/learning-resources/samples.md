@@ -26,7 +26,7 @@ The following samples demonstrate end-to-end Java on Azure experiences.
 
 ## Identity management
 
-The following Java samples demonstrate identity management using Azure Active Directory (Azure AD).
+The following Java samples demonstrate identity management using Microsoft Entra ID.
 
 - [Azure Web app Identity](https://github.com/Azure-Samples/ms-identity-java-webapp)
 - [Azure Web app B2C Identity](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)

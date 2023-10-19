@@ -24,7 +24,7 @@ For supported versions, see [Supported PostgreSQL major versions in Azure Databa
 
 ### Passwordless connection
 
-Passwordless connection uses Azure Active Directory (Azure AD) authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 ## How it works
 
@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for PostgreSQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-azure-active-directory.png" alt-text="Diagram showing Azure Active Directory authentication for PostgreSQL ." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for PostgreSQL ." border="false":::
 
 ## Configuration
 
@@ -55,7 +55,7 @@ The following table shows the Spring Cloud Azure for PostgreSQL common configura
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                  | Description                                                                                                                                                                                            |
 > |-----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | spring.datasource.azure.passwordless-enabled                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Azure Active Directory token credentials.                                                                                |
+> | spring.datasource.azure.passwordless-enabled                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Microsoft Entra token credentials.                                                                                |
 > | spring.datasource.azure.credential.client-certificate-password        | Password of the certificate file.                                                                                                                                                                      |
 > | spring.datasource.azure.credential.client-certificate-path            | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
 > | spring.datasource.azure.credential.client-id                          | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
@@ -64,7 +64,7 @@ The following table shows the Spring Cloud Azure for PostgreSQL common configura
 > | spring.datasource.azure.credential.password                           | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.credential.username                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.profile.cloud-type                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
-> | spring.datasource.azure.profile.environment.active-directory-endpoint | The Azure Active Directory endpoint to connect to.                                                                                                                                                     |
+> | spring.datasource.azure.profile.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
 > | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources.                                                                                                                                                                         |
 
 ## Dependency setup
@@ -88,7 +88,7 @@ Add the following dependency to your project. This will automatically include th
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD admin user can create and enable users for Azure AD-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for PostgreSQL](configure-spring-data-jdbc-with-azure-postgresql.md).
+> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create and enable users for Microsoft Entra ID-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for PostgreSQL](configure-spring-data-jdbc-with-azure-postgresql.md).
 
 ### Connect to Azure PostgreSQL locally without password
 
@@ -112,7 +112,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. Create a SQL script called *create_ad_user_sp.sql* for creating a non-admin user. Add the following contents and save it locally:
 
       > [!IMPORTANT]
-      > Make sure `<service-principal-name>` already exists in your Azure AD tenant, or you won't be able to create the non-admin user.
+      > Make sure `<service-principal-name>` already exists in your Microsoft Entra tenant, or you won't be able to create the non-admin user.
 
       ```bash
       cat << EOF > create_ad_user_sp.sql
@@ -120,7 +120,7 @@ The following sections show the classic Spring Boot application usage scenarios.
       EOF
       ```
 
-   1. Use the following command to run the SQL script to create the Azure AD non-admin user:
+   1. Use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
       ```bash
       psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_sp.sql

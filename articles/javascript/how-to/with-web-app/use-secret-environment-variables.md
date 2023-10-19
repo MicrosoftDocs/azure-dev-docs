@@ -44,7 +44,7 @@ Your Azure account is the only one authorized to perform any operations on this 
 
 ## Create a service principal with Azure CLI
 
-The [service principal](/azure/active-directory/develop/app-objects-and-service-principals) allows you to create and use resources without having to use or expose your personal user account. The service principal is stored as an App Registration in Azure Active Directory. 
+The [service principal](/azure/active-directory/develop/app-objects-and-service-principals) allows you to create and use resources without having to use or expose your personal user account. The service principal is stored as an App Registration in Microsoft Entra ID. 
 
 This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 

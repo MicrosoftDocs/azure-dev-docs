@@ -26,7 +26,7 @@ This tutorial shows you how to upload and read from container blobs in an Azure 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+> To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Blob Data Contributor` role to the Microsoft Entra account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.

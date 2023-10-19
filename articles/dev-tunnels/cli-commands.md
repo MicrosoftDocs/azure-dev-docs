@@ -45,7 +45,7 @@ Here are some examples on use of these commands:
 
 | Examples     | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
-| `devtunnel user login`     | Login with a Microsoft organization (Microsoft Azure Active Directory (Azure AD)) or personal account |
+| `devtunnel user login`     | Login with a Microsoft organization (Microsoft Entra ID) or personal account |
 | `devtunnel user login -g`  | Login with a GitHub account |
 | `devtunnel user login -d`  | Login with a GitHub account  with _device code login_, if local interactive browser login isn't possible  |
 | `devtunnel user login -g -d`  | Login with a GitHub account with _device code login_, if local interactive browser login isn't possible |
@@ -197,7 +197,7 @@ Here are some examples on use of these commands:
 | `devtunnel token TUNNELID --scopes connect` | Get a 'connect' access token for a dev tunnel that can be shared to provide temporarily access to the dev tunnel. |
 | `devtunnel access create TUNNELID --anonymous` | Enable anonymous client access on the dev tunnel. |
 | `devtunnel access create TUNNELID --port 3000 --anonymous` | Enable anonymous client access on port 3000. |
-| `devtunnel access create TUNNELID --tenant` | Enable the current AAD tenant access on the dev tunnel. |
+| `devtunnel access create TUNNELID --tenant` | Enable the current Microsoft Entra tenant access on the dev tunnel. |
 | `devtunnel access create TUNNELID --org ORG` | Enable a GitHub organization access by name on the dev tunnel. |
 
 > [!TIP]

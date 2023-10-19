@@ -20,9 +20,9 @@ This tutorial demonstrates how to store data in [Azure Database for PostgreSQL](
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
-In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the PostgreSQL authentication.
+In this tutorial, we include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the PostgreSQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
 
@@ -36,7 +36,7 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 - If you don't have one, create an Azure Database for PostgreSQL Flexible Server instance named `postgresqlflexibletest` and a database named `demo`. For instructions, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 
 > [!IMPORTANT]
-> To use passwordless connections, configure the Azure AD admin user for your Azure Database for PostgreSQL Flexible Server instance. For more information, see [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
+> To use passwordless connections, configure the Microsoft Entra admin user for your Azure Database for PostgreSQL Flexible Server instance. For more information, see [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
 ## See the sample application
 
@@ -86,7 +86,7 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
 - If you don't have one, create an Azure Database for PostgreSQL Single Server instance named `postgresqlsingletest` and a database named `demo`. For instructions, see [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/single-server/quickstart-create-server-database-portal).
 
 > [!IMPORTANT]
-> To use passwordless connections, configure the Azure AD admin user for your Azure Database for PostgreSQL Single Server instance. For more information, see [Use Azure Active Directory for authentication with PostgreSQL](/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+> To use passwordless connections, configure the Microsoft Entra admin user for your Azure Database for PostgreSQL Single Server instance. For more information, see [Use Microsoft Entra ID for authentication with PostgreSQL](/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
 ## See the sample application
 
