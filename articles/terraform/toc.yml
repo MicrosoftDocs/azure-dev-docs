@@ -176,9 +176,9 @@
         - name: Media
           items:
             - name: Content Delivery Network (CDN)
-                items:
-                  - name: Create a profile and endpoint
-                    href: /azure/cdn/create-profile-endpoint-terraform
+              items:
+                - name: Create a profile and endpoint
+                  href: /azure/cdn/create-profile-endpoint-terraform
 - name: Samples
   items:
     - name: Terraform samples
