@@ -34,7 +34,7 @@ Add the following dependencies if you want to use the Spring Cloud Azure Redis s
 ## Configuration
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Configurable properties when using Redis support:
 
