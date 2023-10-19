@@ -11,7 +11,7 @@ ms.author: vigera
 
 # Azure authentication in Java development environments
 
-This article provides an overview of the Azure Identity library support for Microsoft Entra ID token authentication. This support enables authentication for applications running locally on developer machines through a set of `TokenCredential` implementations.
+This article provides an overview of the Azure Identity library support for Microsoft Entra token authentication. This support enables authentication for applications running locally on developer machines through a set of `TokenCredential` implementations.
 
 This article covers the following subjects:
 
@@ -70,7 +70,7 @@ This credential interactively authenticates a user with the default system brows
 
 To use `InteractiveBrowserCredential`, you need to register an application in Microsoft Entra ID with permissions to sign in on behalf of a user. Follow the earlier steps for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can sign in.
 
-You may notice that in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered Microsoft Entra ID application.
+You may notice that in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered Microsoft Entra application.
 
 ### Authenticate a user account interactively in the browser
 
