@@ -231,7 +231,7 @@
                   href: /azure/application-gateway/quick-create-terraform
             - name: Azure Attestation
               items:
-                - name: Create a providere
+                - name: Create a provider
                   href: /azure/attestation/quickstart-terraform
             - name: Azure DDoS Protection
               items:
