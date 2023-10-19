@@ -125,6 +125,10 @@
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
         - name: Database
           items:
+            - name: Azure Cosmos DB
+              items:
+                - name: Deploy to Container Instances
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure SQL Database
               items:
                 - name: Create a server and database
@@ -157,6 +161,10 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+            - name: Azure Cosmos DB
+              items:
+                - name: Deploy to Container Instances
+                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure Stream Analytics
               items:
                 - name: Create a job
@@ -327,10 +335,6 @@
                   href: create-vm-scaleset-network-disks-using-packer-hcl.md
         - name: Database
           items:
-            - name: Azure Cosmos DB
-              items:
-                - name: Deploy to Container Instances
-                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
             - name: Azure Database for PostgreSQL
               items:
                 - name: Deploy Flexible Server database
@@ -341,12 +345,6 @@
               items:
                 - name: Deploy Flexible Server database
                   href: deploy-postgresql-flexible-server-database.md
-        - name: Internet of Things
-          items:
-            - name: Azure Cosmos DB
-              items:
-                - name: Deploy to Container Instances
-                  href: deploy-azure-cosmos-db-to-azure-container-instances.md
         - name: Management and Governance
           items:
             - name: Network Watcher
