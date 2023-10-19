@@ -15,7 +15,7 @@ Learn how to deploy an Express.js app, integrated with Microsoft Authentication 
 
 ## Server authentication with Microsoft Authentication Library
 
-The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the [@azure/MSAL-node](https://www.npmjs.com/package/@azure/msal-node) npm package to provide:
+The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) npm package to provide:
 
 * Sign in and sign out
 * Route restrictions to only authenticated users

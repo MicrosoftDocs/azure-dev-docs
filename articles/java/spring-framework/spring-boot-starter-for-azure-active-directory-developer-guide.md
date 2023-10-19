@@ -213,7 +213,7 @@ public String graph(
 
 Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: Microsoft Entra ID-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Protect a resource server/API
 
@@ -316,7 +316,7 @@ public class AadOAuth2ResourceServerSecurityConfig {
 
 ---
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: Microsoft Entra ID-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -374,7 +374,7 @@ public String callGraph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2Authori
 }
 ```
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: Microsoft Entra ID-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 

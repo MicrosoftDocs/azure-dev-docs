@@ -325,7 +325,7 @@ class DemoConfiguration {
 
 #### Samples
 
-Sample project: [Microsoft Entra ID-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Web application accessing resource servers
 
@@ -460,7 +460,7 @@ public class Demo {
 
 #### Samples
 
-Sample project: [Microsoft Entra ID-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Accessing a resource server
 
@@ -722,7 +722,7 @@ To connect Microsoft Entra ID via proxy, provide a `RestTemplateCustomizer` bean
 
 #### Samples
 
-Sample project: [Microsoft Entra ID-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 ### Resource server visiting other resource servers
 
@@ -787,7 +787,7 @@ public class SampleController {
 
 #### Samples
 
-Sample project: [Microsoft Entra ID-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 
@@ -1194,7 +1194,7 @@ public class WebSecurityConfiguration {
 
 ---
 
-Copy the *home.html* from [Microsoft Entra ID-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
+Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
 
 Build and test your app. Let `Webapp` run on port *8080*.
 
