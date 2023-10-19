@@ -618,7 +618,7 @@ async def run_until_final_call(
 
 ## Related content
 
-* [Python on Azure quickstarts](quickstarts-app-hosting)
+* [Python on Azure quickstarts](quickstarts-app-hosting.md)
 * [Browse Python + AI code samples](/samples/browse/?branch=main&languages=python&products=azure-cognitive-services)
 * [Azure Developer CLI templates](overview-azd-templates.md)
 
