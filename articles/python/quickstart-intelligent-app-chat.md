@@ -97,7 +97,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd auth login
     ```
 
-    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+    When prompted, copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. Initialize the folder to use the sample project with Azure Developer CLI:
 
