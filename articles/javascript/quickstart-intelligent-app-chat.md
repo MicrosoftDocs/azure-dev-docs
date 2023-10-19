@@ -1,40 +1,41 @@
 ---
-title: Deploy an Azure OpenAI Chat app with your data in JavaScript
-description: Quickstart to deploy and use an Azure OpenAI Chat app supplemented with your data in JavaScript. Easily deploy with Azure Developer CLI.
+title: Deploy an Azure OpenAI chat app with your data in JavaScript
+description: Quickstart to deploy and use an Azure OpenAI chat app supplemented with your data in JavaScript. Easily deploy with Azure Developer CLI.
 ms.date: 10/05/2023
 ms.topic: quickstart
 ms.custom: devx-track-javascript
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
-# Quickstart: Deploy an Azure OpenAI Chat app with your data in JavaScript
+# Quickstart: Deploy an Azure OpenAI chat app with your data in JavaScript
 
-In this quickstart, you deploy and use an intelligent Chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+In this quickstart, you deploy and use an intelligent chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 By following the instructions in this quickstart, you will:
 
-- Deploy an intelligent Chat app to Azure.
+- Deploy an intelligent chat app to Azure.
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
-- Review code of intelligent Chat app.
+- Review code of intelligent chat app.
 
 It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
 
-This quickstart is part of a collection of quickstarts that show you how to build an intelligent Chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent Chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
+This quickstart is part of a collection of quickstarts that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
 
 ## Architectural overview
 
-A simple architecture of the intelligent Chat app is shown in the following diagram:
+A simple architecture of the intelligent chat app is shown in the following diagram:
 
 :::image type="content" source="./media/quickstart-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search to get answers from your own data.
-* An Azure Cognitive Services to provide: 
-    * keywords to enhance the search over your own data.
-    * answers from the OpenAI model.
+* An Azure Cognitive Search resource to get answers from your own data.
+* An Azure OpenAI Service to provide: 
+    * Keywords to enhance the search over your own data.
+    * Answers from the OpenAI model.
+    * Embeddings from the ada model
 
 ## Prerequisites
 
@@ -96,7 +97,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    az auth login
+    azd auth login
     ```
 
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -120,9 +121,9 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files you need to deploy an intelligent Chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+The sample repository contains all the code and configuration files you need to deploy an intelligent chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
-### Deploy intelligent Chat app to Azure
+### Deploy intelligent chat app to Azure
 
 > [!IMPORTANT]
 > Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
@@ -141,7 +142,7 @@ The sample repository contains all the code and configuration files you need to 
 
     :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
-### Use intelligent Chat app to get answers from markdown file catalog
+### Use intelligent chat app to get answers from markdown files
 
 The chat app is preloaded with rental information from a [markdown file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
@@ -167,9 +168,22 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. When you're done, select the tab again to close the pane.
 
-### Use intelligent Chat app settings to change behavior of responses
+### Use intelligent chat app settings to change behavior of responses
 
-The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. The following steps walk you through the process of changing the settings.
+The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
+
+|Setting|Description|
+|---|---|
+|Override prompt template|This is the prompt that is used to generate the answer.|
+|Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
+|Exclude category|This is the category of documents that are excluded from the search results.|
+|Use semantic ranker for retrieval|This is a feature of [Azure Cognitive Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
+|Use query-contextual summaries instead of whole documents| |
+|Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
+|Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
+|Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
+
+The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
 1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
@@ -194,7 +208,19 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 ## Clean up resources
 
-## [GitHub Codespaces](#tab/github-codespaces)
+### Clean up Azure resources
+
+The Azure resources created in this quickstart are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
+
+Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+
+```bash
+azd down
+```
+
+### Clean up GitHub Codespaces
+
+#### [GitHub Codespaces](#tab/github-codespaces)
 
 Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
 
@@ -211,7 +237,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
     :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
-## [Visual Studio Code](#tab/visual-studio-code)
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
