@@ -1,7 +1,7 @@
 ---
 title: Use the Azure libraries (SDK) for Python
 description: Overview of the features and capabilities of the Azure libraries for Python that help developers be more productive when creating, using, and managing Azure resources.
-ms.date: 11/09/2022
+ms.date: 10/19/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -30,7 +30,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - To try the libraries for yourself, we first recommend [setting up your local dev environment](../configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Create a resource group](./examples/azure-sdk-example-resource-group.md), [Example: Create and use Azure Storage](./examples/azure-sdk-example-storage.md), [Example: Create and deploy a web app](./examples/azure-sdk-example-web-app.md), [Example: Create and query a MySQL database](./examples/azure-sdk-example-database.md), and [Example: Create a virtual machine](./examples/azure-sdk-example-virtual-machines.md).
 
-- For demonstration videos, see <a href="https://www.youtube.com/watch?v=4xoJLCFP4_4" target="_blank">Introducing the Azure SDK for Python</a> (PyCon 2021) and <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resource</a> (PyCon 2020).
+- For demonstration videos, see <a href="https://www.youtube.com/watch?v=4xoJLCFP4_4" target="_blank">Introducing the Azure SDK for Python</a> (PyCon 2021) and <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resources</a> (PyCon 2020).
 
 ### Non-essential but still interesting details
 
@@ -46,7 +46,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - Starting in 2019, we updated Azure Python libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The updated libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
-  - On 31 March 2023, we'll be retiring support for Azure SDK libraries that don't conform to our current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they'll no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
+  - On 31 March 2023, we retired support for Azure SDK libraries that don't conform to current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they'll no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
 
   - To avoid missing security and performance updates to the Azure SDKs, upgrade to the [latest Azure SDK libraries](https://azure.github.io/azure-sdk/) by 31 March 2023.
 
