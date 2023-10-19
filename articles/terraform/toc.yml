@@ -179,6 +179,16 @@
               items:
                 - name: Create a profile and endpoint
                   href: /azure/cdn/create-profile-endpoint-terraform
+        - name: Mobile
+          items:
+            - name: API Management
+              items:
+                - name: Create a service
+                  href: /azure/api-management/quickstart-terraform
+            - name: Azure AI services
+              items:
+                - name: Create a resource
+                  href: /azure/ai-services/create-account-terraform
 - name: Samples
   items:
     - name: Terraform samples
