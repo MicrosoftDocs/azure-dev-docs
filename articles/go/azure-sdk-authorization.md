@@ -19,17 +19,18 @@ The Azure SDK for Go offers several different types of authentication, using dif
 
 | Authentication type | Recommended when... |
 |---------------------|---------------------|
-| Certificate-based authentication | You have an X509 certificate that was configured for an Azure Active Directory (AAD) user or service principal. To learn more, see [Get started with certificate-based authentication in Azure Active Directory]. |
+| Certificate-based authentication | You have an X509 certificate that was configured for a Microsoft Entra user or service principal. To learn more, see [Get started with certificate-based authentication in Microsoft Entra ID]. |
 | Client credentials | You have a configured service principal that is set up for this application or a class of applications it belongs to. To learn more, see [Create a service principal with Azure CLI]. |
 | Managed identities for Azure resources | Your application is running on an Azure resource that has been configured with a managed identity. To learn more, see [Managed identities for Azure resources]. |
 | Device token | Your application is meant to be used interactively __only__. Users may have multifactor authentication enabled. Users have access to a web browser to sign in. For more information, see [Use device token authentication](#use-device-token-authentication).|
-| Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multifactor authentication enabled for their AAD sign-in. |
+| Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multifactor authentication enabled for their Microsoft Entra sign-in. |
 
 ### Key points
-* If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+
+* If you use an authentication type other than client credentials, your application must be registered in Microsoft Entra ID. To learn how, see [Integrating applications with Microsoft Entra ID](/azure/active-directory/develop/active-directory-integrating-applications).
 * Unless you have special requirements, avoid username/password authentication. In situations where user-based sign-in is appropriate, device token authentication can usually be used instead.
 
-[Get started with certificate-based authentication in Azure Active Directory]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
+[Get started with certificate-based authentication in Microsoft Entra ID]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
 [Create a service principal with Azure CLI]: /cli/azure/create-an-azure-service-principal-azure-cli
 [Managed identities for Azure resources]: /azure/active-directory/managed-identities-azure-resources/overview
 
@@ -135,7 +136,7 @@ For more on using service principals and managing their access permissions, see 
 
 ## Use device token authentication
 
-If you want users to sign in interactively, the best way is through device token authentication. This authentication flow passes the user a token to paste into a Microsoft sign-in site, where they then authenticate with an Azure Active Directory (AAD) account. This authentication method supports accounts that have multifactor authentication enabled, unlike standard username/password authentication.
+If you want users to sign in interactively, the best way is through device token authentication. This authentication flow passes the user a token to paste into a Microsoft sign-in site, where they then authenticate with a Microsoft Entra account. This authentication method supports accounts that have multifactor authentication enabled, unlike standard username/password authentication.
 
 To use device token authentication, create a [DeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig) authorizer with the [NewDeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#NewDeviceFlowConfig) function. Call [Authorizer](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig.Authorizer) on the resulting object to start the authentication process. Device flow authentication blocks program execution until the whole authentication flow is complete.
 

@@ -219,9 +219,9 @@ ERROR: failed to create or update service principal: failed retrieving applicati
 {"error":"invalid_grant","error_description":"AADSTS50005: User tried to log in to a device from a platform (Unknown) that's currently not supported through Conditional Access policy. Supported device platforms are: iOS, Android, Mac, and Windows flavors.\r\nTrace ID: be3438c1-42fc-4c37-96d8-0e723ac54f01\r\nCorrelation ID: f535565f-9f3c-4014-ad65-403f514bf892\r\nTimestamp: 2022-12-16 21:10:37Z","error_codes":[50005],"timestamp":"2022-12-16 21:10:37Z","trace_id":"be3438c1-42fc-4c37-96d8-0e723ac54f01","correlation_id":"f535565f-9f3c-4014-ad65-403f514bf892"}
 ```
 
-This error is related to your Azure Active Directory's tenant enablement of Conditional Access Policies. The specific policy requires that you are signed in into a supported device platform. 
+This error is related to your Microsoft Entra tenant enablement of Conditional Access Policies. The specific policy requires that you are signed in into a supported device platform. 
 
-You may also be receiving this error due to being logged in using the device code mechanism, which prevents Azure Active Directory from detecting your device platform correctly.
+You may also be receiving this error due to being logged in using the device code mechanism, which prevents Microsoft Entra ID from detecting your device platform correctly.
 
 ### Solution
 To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure Service Principal stored in a GitHub secret named `AZURE_CREDENTIALS`. Select your Codespace host for steps:

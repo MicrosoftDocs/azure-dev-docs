@@ -42,7 +42,7 @@ There are several factors that can influence the cost of a given service in Azur
 - **Storage amount** - Most storage services are billed based on the amount of data you want to store.
 - **Storage hardware** - Some storage services provide options on the type of hardware your data will be stored on.  Depending on the type of data you're storing, you may want a more long-term storage option with slower read and write speeds, or you may be willing to pay for low latency read and writes for highly transactional operations.
 - **Bandwidth** - Most services bill ingress and egress separately.  Ingress is the amount of bandwidth required to handle incoming requests.  Egress is the amount of bandwidth required to handle outgoing data that satisfies those requests.
-- **Per use** - Some services bill based on the number of times the service is used or a count of the number of requests that are handled or the number of some entity (such as Azure Active Directory user accounts) that have been configured.
+- **Per use** - Some services bill based on the number of times the service is used or a count of the number of requests that are handled or the number of some entity (such as Microsoft Entra user accounts) that have been configured.
 - **Per service** - Some services simply charge a straight monthly fee.
 - **Region** - Sometimes, services have different prices depending on the region (data center) where it's hosted.
 

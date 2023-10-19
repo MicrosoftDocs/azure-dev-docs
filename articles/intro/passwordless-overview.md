@@ -51,7 +51,7 @@ The following video illustrates passwordless connections from apps to Azure serv
 
 ## Introducing DefaultAzureCredential
 
-Passwordless connections to Azure services through Azure AD and Role Based Access control (RBAC) can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
+Passwordless connections to Azure services through Microsoft Entra ID and Role Based Access control (RBAC) can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
 > [!IMPORTANT]
 > Some languages must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
