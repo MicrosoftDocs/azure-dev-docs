@@ -33,7 +33,7 @@ GRANT ALL PRIVILEGES ON DATABASE demo TO "<your_postgresql_non_admin_username>";
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=postgresqlsingletest.postgres.database.azure.com user=<your_postgresql_admin_username>@postgresqlsingletest dbname=demo port=5432 password=<your_postgresql_admin_password> sslmode=require" < create_user.sql

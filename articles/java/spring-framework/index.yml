@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Secure REST API using Spring Security and Azure AD
+          - text: Secure REST API using Spring Security and Microsoft Entra ID
             url: ./configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - text: Spring Security support
             url: ./spring-boot-starter-for-azure-active-directory-developer-guide.md

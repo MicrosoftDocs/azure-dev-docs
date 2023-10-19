@@ -18,9 +18,9 @@ This tutorial demonstrates how to store data in [Azure SQL Database](/azure/sql-
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
-In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and SQL Database authentication. The Passwordless tab shows the Azure AD authentication and the Password tab shows the SQL Database authentication.
+In this tutorial, we include two authentication methods: Microsoft Entra authentication and SQL Database authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the SQL Database authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords by yourself.
 
@@ -34,7 +34,7 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 - If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **MS SQL Server Driver** dependencies, and then select Java version 8 or higher.
 
 > [!IMPORTANT]
-> To use passwordless connections, upgrade [MS SQL Server Driver](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) to version `12.1.0` or higher, and then create an Azure AD admin user for your Azure SQL Database server instance. For more information, see the [Create an Azure AD admin](/azure/azure-sql/database/secure-database-tutorial#create-an-azure-ad-admin) section of [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial).
+> To use passwordless connections, upgrade [MS SQL Server Driver](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) to version `12.1.0` or higher, and then create a Microsoft Entra admin user for your Azure SQL Database server instance. For more information, see the [Create a Microsoft Entra admin](/azure/azure-sql/database/secure-database-tutorial#create-an-azure-ad-admin) section of [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial).
 
 ## See the sample application
 

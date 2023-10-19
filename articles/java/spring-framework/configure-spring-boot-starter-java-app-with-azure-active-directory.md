@@ -1,6 +1,6 @@
 ---
-title: Add sign-in with Azure Active Directory account to a Spring web app
-description: Shows you how to develop a Spring web app which supports sign-in by Azure Active Directory account.
+title: Add sign-in with Microsoft Entra account to a Spring web app
+description: Shows you how to develop a Spring web app which supports sign-in by Microsoft Entra account.
 services: active-directory
 documentationcenter: java
 ms.date: 01/17/2023
@@ -12,9 +12,9 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 adobe-target: true
 ---
 
-# Add sign-in with Azure Active Directory account to a Spring web app
+# Add sign-in with Microsoft Entra account to a Spring web app
 
-This article shows you how to develop a Spring web app which supports sign-in by [Azure Active Directory (Azure AD) account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Azure AD sign-in page when it's been accessed anonymously. The following screenshot shows the Azure AD sign-in page:
+This article shows you how to develop a Spring web app which supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 
@@ -34,14 +34,16 @@ The following prerequisites are required to complete the steps in this article:
 1. Browse to <https://start.spring.io/>.
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
-1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
+1. Add **Dependencies** for **Spring Web**, **Microsoft Entra ID**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
    :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. When prompted, download the project to a path on your local computer.
 
-## Create Azure Active Directory instance
+<a name='create-azure-active-directory-instance'></a>
+
+## Create Microsoft Entra instance
 
 ### Create the Active Directory instance
 
@@ -49,7 +51,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Log into <https://portal.azure.com>.
 
-1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
+1. Select **All services**, then **Identity**, and then **Microsoft Entra ID**.
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory. You'll use the URL to add user accounts later in this tutorial. (For example: `azuresampledirectory.onmicrosoft.com`.)
 
@@ -57,7 +59,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
    When you've finished, select **Create**. It will take a few minutes to create the new resource.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png" alt-text="Screenshot of the Configuration section of the Azure Active Directory 'Create a tenant' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png" alt-text="Screenshot of the Configuration section of the Microsoft Entra ID 'Create a tenant' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png":::
 
 1. When complete, select the displayed link to access the new directory.
 
@@ -65,7 +67,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Copy the **Tenant ID**. You'll use the ID value to configure your *application.properties* file later in this tutorial.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png" alt-text="Screenshot of Azure Active Directory tenant screen with 'Tenant ID' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png" alt-text="Screenshot of Microsoft Entra tenant screen with 'Tenant ID' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png":::
 
 ### Add an application registration for your Spring Boot app
 
@@ -95,7 +97,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png" alt-text="Screenshot of application Authentication screen with 'Configure Web' section showing and 'Redirect URIs' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png":::
 
-1. If you've modified the *pom.xml* file to use an Azure AD starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
+1. If you've modified the *pom.xml* file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png" alt-text="Screenshot of application Authentication screen with 'ID tokens' selected." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png":::
 
@@ -116,9 +118,9 @@ If you're the administrator of an existing instance, you can skip this process.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png" alt-text="Screenshot of application 'App roles' screen with 'Create app role' pane showing." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png":::
 
-1. From the **Overview** page of your Azure AD directory, select **Enterprise applications**.
+1. From the **Overview** page of your Microsoft Entra directory, select **Enterprise applications**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png" alt-text="Screenshot of Azure Active Directory 'Enterprise applications' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png" alt-text="Screenshot of Microsoft Entra ID 'Enterprise applications' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png":::
 
 1. Select **All applications**, then select the application you added the app role to in a previous step.
 
@@ -219,7 +221,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 ## Summary
 
-In this tutorial, you created a new Java web application using the Azure Active Directory starter, configured a new Azure AD tenant, registered a new application in the tenant, and then configured your application to use the Spring annotations and classes to protect the web app.
+In this tutorial, you created a new Java web application using the Microsoft Entra starter, configured a new Microsoft Entra tenant, registered a new application in the tenant, and then configured your application to use the Spring annotations and classes to protect the web app.
 
 ## See also
 
