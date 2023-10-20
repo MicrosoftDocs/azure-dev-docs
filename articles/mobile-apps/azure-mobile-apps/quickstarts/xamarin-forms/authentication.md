@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.Forms app using Azure Mobile App
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/17/2021
+ms.date: 10/13/2023
 ms.author: adhal
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
 zone_pivot_groups: vs-platform-options
@@ -12,13 +12,13 @@ zone_pivot_groups: vs-platform-options
 
 # Add authentication to your Xamarin.Forms app
 
-In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to your app using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
@@ -34,11 +34,13 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 ::: zone-end
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.
 
@@ -180,6 +182,19 @@ namespace TodoApp.Forms.Droid
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
+If your project targets Android version 11 (API version 30) or later, you must update your `AndroidManifest.xml` to meet the [Android package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).  Open `TodoApp.Forms.Android/Properties/AndroidManifest.xml` and add the following `queries/intent` nodes to the `manifest` node:
+
+```xml
+<manifest>
+  ...
+  <queries>
+    <intent>
+      <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+  </queries>
+</manifest>
+```
+
 Open `MainActivity.cs`.  Add `IPlatform` to the definition of the `MainActivity` class:
 
 ``` csharp
@@ -310,13 +325,13 @@ Add the custom entitlements to the project:
 
 ## Test the Android app
 
-Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app
 
 [!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
 
-Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you are prompted to sign in to the app.  On the first run, you are also asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

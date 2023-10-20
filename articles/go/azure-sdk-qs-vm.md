@@ -79,9 +79,9 @@ az ad sp delete --id ${CLIENT_ID_VALUE}
 Where you supply the value for `CLIENT_ID_VALUE` from `quickstart.auth`.
 
 > [!WARNING]
-> Failing to delete the service principal for this application leaves it active in your Azure Active Directory tenant.
+> Failing to delete the service principal for this application leaves it active in your Microsoft Entra tenant.
 > While both the name and password for the service principal are generated as UUIDs, make sure that you follow
-> good security practices by deleting any unused service principals and Azure Active Directory Applications.
+> good security practices by deleting any unused service principals and Microsoft Entra Applications.
 
 ## Code in depth
 

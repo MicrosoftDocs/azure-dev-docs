@@ -23,7 +23,7 @@ The service diagram shown below highlights the components covered in this articl
 
 To set up continuous deployment, you'll need:
 
-* The resources and their configuration created in the [previous article][./tutorial-deploy-python-web-app-azure-container-apps-02.md] of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
+* The resources and their configuration created in the [previous article](./tutorial-deploy-python-web-app-azure-container-apps-02.md) of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
 * A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps. (If you downloaded the sample code instead of forking, make sure you push your local repo to your GitHub account.)
 

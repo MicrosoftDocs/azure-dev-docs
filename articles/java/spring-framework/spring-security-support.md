@@ -14,7 +14,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
-## Spring Security with Azure Active Directory
+<a name='spring-security-with-azure-active-directory'></a>
+
+## Spring Security with Microsoft Entra ID
 
 When you're building a web application, identity and access management will always be foundational pieces.
 
@@ -22,7 +24,7 @@ Azure offers a great platform to democratize your application development journe
 
 Spring Security has made it easy to secure your Spring based applications with powerful abstractions and extensible interfaces. However, as powerful as the Spring framework can be, it isn't tailored to a specific identity provider.
 
-The `spring-cloud-azure-starter-active-directory` provides the most optimal way to connect your web application to an Azure Active Directory (Azure AD for short) tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
+The `spring-cloud-azure-starter-active-directory` provides the most optimal way to connect your web application to a Microsoft Entra ID (Microsoft Entra ID for short) tenant and protect your resource server with Microsoft Entra ID. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
 
 ### Accessing a web application
 
@@ -205,7 +207,7 @@ public class RoleController {
 
 ###### Use National Azure instead of Global Azure
 
-Now except global Azure cloud, Azure Active Directory is deployed in the following national clouds:
+Now except global Azure cloud, Microsoft Entra ID is deployed in the following national clouds:
 
 * Azure Government
 
@@ -300,9 +302,11 @@ public class AadOAuth2LoginSecurityConfig {
 
 ---
 
-###### Connecting to Azure AD via proxy
+<a name='connecting-to-azure-ad-via-proxy'></a>
 
-To connect Azure AD via proxy, provide a `RestTemplateCustomizer` bean like the one shown in the following example: 
+###### Connecting to Microsoft Entra ID via proxy
+
+To connect Microsoft Entra ID via proxy, provide a `RestTemplateCustomizer` bean like the one shown in the following example: 
 
 ```java
 @Configuration
@@ -509,7 +513,7 @@ Now start your application and access your application's web api.
 
 1. Access your application with an access token. The following claims in the access token will be validated:
 
-   * `iss`: The access token must be issued by Azure AD.
+   * `iss`: The access token must be issued by Microsoft Entra ID.
 
    * `nbf`: The current time can't be before `nbf`.
 
@@ -710,9 +714,11 @@ spring:
             authorization-grant-type: client_credentials
 ```
 
-##### Connecting to Azure AD via proxy
+<a name='connecting-to-azure-ad-via-proxy'></a>
 
-To connect Azure AD via proxy, provide a `RestTemplateCustomizer` bean. For more information, see the [Connecting to Azure AD via proxy](#connecting-to-azure-ad-via-proxy) section.
+##### Connecting to Microsoft Entra ID via proxy
+
+To connect Microsoft Entra ID via proxy, provide a `RestTemplateCustomizer` bean. For more information, see the [Connecting to Microsoft Entra ID via proxy](#connecting-to-azure-ad-via-proxy) section.
 
 #### Samples
 
@@ -917,7 +923,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > | Name                                                                                  | Description                                                                                                                                                                                                           |
 > |---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI which might be used in the "aud" claim of an id_token.                                                                                                                                                     |
-> | **spring.cloud.azure.active-directory**.application-type                              | Type of the Azure AD application.                                                                                                                                                                                          |
+> | **spring.cloud.azure.active-directory**.application-type                              | Type of the Microsoft Entra application.                                                                                                                                                                                          |
 > | **spring.cloud.azure.active-directory**.authenticate-additional-parameters            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
 > | **spring.cloud.azure.active-directory**.authorization-clients                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
 > | **spring.cloud.azure.active-directory**.credential.client-id                          | Client Id to use when performing service principal authentication with Azure.                                                                                                                                         |
@@ -929,7 +935,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > | **spring.cloud.azure.active-directory**.jwt-size-limit                                | Size limit in Bytes of the JWKSet Remote URL call.                                                                                                                                                                    |
 > | **spring.cloud.azure.active-directory**.post-logout-redirect-uri                      | The redirect uri after logout.                                                                                                                                                                                        |
 > | **spring.cloud.azure.active-directory**.profile.cloud-type                            | Name of the Azure cloud to connect to. Supported types are: AZURE, AZURE_CHINA, AZURE_GERMANY, AZURE_US_GOVERNMENT, OTHER.                                                                                            |
-> | **spring.cloud.azure.active-directory**.profile.environment                           | Properties to Azure Active Directory endpoints.                                                                                                                                                                       |
+> | **spring.cloud.azure.active-directory**.profile.environment                           | Properties to Microsoft Entra endpoints.                                                                                                                                                                       |
 > | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID.                                                                                                                                                                                                      |
 > | **spring.cloud.azure.active-directory**.redirect-uri-template                         | Redirection Endpoint: Used by the authorization server to return responses containing authorization credentials to the client via the resource owner user-agent. The default value is `{baseUrl}/login/oauth2/code/`. |
 > | **spring.cloud.azure.active-directory**.resource-server.claim-to-authority-prefix-map | Configure which claim will be used to build GrantedAuthority, and prefix of the GrantedAuthority's string value. Default value is: "scp" -> "SCOPE_", "roles" -> "APPROLE_".                                      |
@@ -995,7 +1001,7 @@ For full configurations, check [Spring Cloud Azure configuration properties](con
 
 ### Basic usage
 
-A *web application* is any web-based application that allows user to login with Azure AD, whereas a *resource server* will either accept or deny access after validating access_token obtained from Azure AD. We'll cover 4 scenarios in this guide:
+A *web application* is any web-based application that allows user to login with Microsoft Entra ID, whereas a *resource server* will either accept or deny access after validating access_token obtained from Microsoft Entra ID. We'll cover 4 scenarios in this guide:
 
 1. Accessing a web application.
 
@@ -1005,7 +1011,7 @@ A *web application* is any web-based application that allows user to login with 
 
 1. Resource server accessing other resource servers.
 
-:::image type="content" source="media/spring-cloud-azure/system-diagram-b2c-web-application-web-api-overall.png" alt-text="System diagram of web application interaction with Azure AD and resource servers." border="false":::
+:::image type="content" source="media/spring-cloud-azure/system-diagram-b2c-web-application-web-api-overall.png" alt-text="System diagram of web application interaction with Microsoft Entra ID and resource servers." border="false":::
 
 #### Usage 1: Accessing a web application
 

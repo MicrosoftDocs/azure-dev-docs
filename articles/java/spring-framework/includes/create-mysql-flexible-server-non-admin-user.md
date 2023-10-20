@@ -12,7 +12,7 @@ ms.author: v-yeyonghui
     az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Use the following command to create the Azure AD non-admin user:
+1. Use the following command to create the Microsoft Entra non-admin user:
 
    ```azurecli
      az connection create mysql-flexible \
@@ -31,7 +31,7 @@ ms.author: v-yeyonghui
 ### [Manual configuration](#tab/manual)
 
 > [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For more information, see the [Configure the Azure AD Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+> To use passwordless connections, create a Microsoft Entra admin user for your Azure Database for MySQL instance. For more information, see the [Configure the Microsoft Entra Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -46,13 +46,13 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h mysqlflexibletest.mysql.database.azure.com --user <your_mysql_ad_admin_username> --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 > [!TIP]
-> To use Azure AD authentication to connect to Azure Database for MySQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+> To use Microsoft Entra authentication to connect to Azure Database for MySQL, you need to sign in with the Microsoft Entra admin user you set up, and then get the access token as the password. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ---

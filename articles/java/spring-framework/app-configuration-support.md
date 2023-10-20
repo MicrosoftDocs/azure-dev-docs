@@ -274,11 +274,13 @@ az appconfig replica create --location --name --store-name [--resource-group]
 
 ### Using the configuration store replica
 
-After you've created a replica, you can use it in your application. Like the origin store, you can connect to your replica using Azure Active Directory (Azure AD) or a connection string.
+After you've created a replica, you can use it in your application. Like the origin store, you can connect to your replica using Microsoft Entra ID or a connection string.
 
-#### [Azure AD](#tab/azure-ad)
+<a name='azure-ad'></a>
 
-To use Azure AD to connect to your replica, you need to list the `endpoints` of your configuration store instances, as shown in the following example:
+#### [Microsoft Entra ID](#tab/azure-ad)
+
+To use Microsoft Entra ID to connect to your replica, you need to list the `endpoints` of your configuration store instances, as shown in the following example:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]=[your primary store endpoint]

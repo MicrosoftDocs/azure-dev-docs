@@ -30,7 +30,7 @@ Azure provides an asynchronous messaging platform called [Azure Service Bus](/az
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` role to the Azure AD account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
+> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
@@ -85,7 +85,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=queue
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=1000
+    spring.cloud.stream.poller.fixed-delay=60000 
     spring.cloud.stream.poller.initial-delay=0
    ```
 
@@ -99,7 +99,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 
    #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
@@ -112,7 +112,7 @@ Use the following steps to configure your application to use a Service Bus queue
     spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete=false
     spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type=topic
     spring.cloud.function.definition=consume;supply;
-    spring.cloud.stream.poller.fixed-delay=1000
+    spring.cloud.stream.poller.fixed-delay=60000 
     spring.cloud.stream.poller.initial-delay=0
    ```
 
@@ -127,7 +127,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->

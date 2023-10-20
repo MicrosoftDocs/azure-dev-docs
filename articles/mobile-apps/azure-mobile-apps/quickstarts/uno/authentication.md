@@ -4,26 +4,28 @@ description: Add authentication to your Uno Platform app using Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/03/2023
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 
 # Add authentication to your Uno Platform app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.  For more information on integrating MSAL into an Uno Platform project, review [their documentation](https://platform.uno/docs/articles/interop/MSAL.html);
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.  For more information on integrating MSAL into an Uno Platform project, review [their documentation](https://platform.uno/docs/articles/interop/MSAL.html);
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio. Add the [Uno.WinUI.MSAL](https://platform.uno/docs/articles/interop/MSAL.html) to each of the `TodoApp.Uno` projects:
 
@@ -198,6 +200,19 @@ namespace TodoApp.Uno.Droid
 ```
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
+
+If your project targets Android version 11 (API version 30) or later, you must update your `AndroidManifest.xml` to meet the [Android package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).  Open `TodoApp.Uno.Mobile/Android/AndroidManifest.xml` and add the following `queries/intent` nodes to the `manifest` node:
+
+```xml
+<manifest>
+  ...
+  <queries>
+    <intent>
+      <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+  </queries>
+</manifest>
+```
 
 Edit the `MainActivity.Android.cs` class; add the `OnActivityResult` method:
 

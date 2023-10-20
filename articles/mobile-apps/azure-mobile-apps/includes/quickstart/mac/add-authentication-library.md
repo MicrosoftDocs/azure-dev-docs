@@ -28,7 +28,7 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
       public static string ServiceUri = "https://demo-datasync-quickstart.azurewebsites.net";
 
       /// <summary>
-      /// The application (client) ID for the native app within Azure Active Directory
+      /// The application (client) ID for the native app within Microsoft Entra ID
       /// </summary>
       public static string ApplicationId = "<client-id>";
 
@@ -42,4 +42,4 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
   }
 ```
 
-Replace the `<client-id>` with the value you received when registering the client application in Azure Active Directory, and the `<scope>` with the scope you copied when you used **Expose an API** while registering the service application.
+Replace the `<client-id>` with the value you received when registering the client application in Microsoft Entra ID and the `<scope>` with the scope you copied when you used **Expose an API** while registering the service application.
