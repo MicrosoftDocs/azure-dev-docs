@@ -24,7 +24,7 @@ The following table lists properties common to multiple services:
 > | Property                                      | Description                                                                      |
 > |-----------------------------------------------|----------------------------------------------------------------------------------|
 > | *spring.cloud.azure.azure-service*.client     | Configures the transport clients underneath one Azure service SDK.               |
-> | *spring.cloud.azure.azure-service*.credential | Configures authentication with Azure Active Directory for one Azure service SDK. |
+> | *spring.cloud.azure.azure-service*.credential | Configures authentication with Microsoft Entra ID for one Azure service SDK. |
 > | *spring.cloud.azure.azure-service*.profile    | Configures the Azure cloud environment for one Azure service SDK.                |
 > | *spring.cloud.azure.azure-service*.proxy      | Configures the proxy options for one Azure service SDK.                          |
 > | *spring.cloud.azure.azure-service*.retry      | Configures the retry options applicable to one Azure service SDK. The retry options has supported part of the SDKs, there’s no spring.cloud.azure.cosmos.retry.                                                                     |
@@ -53,7 +53,7 @@ The following table lists global properties:
 > | Property                        | Description                                                                          |
 > |---------------------------------|--------------------------------------------------------------------------------------|
 > | *spring.cloud.azure*.client     | Configures the transport clients; applies to all Azure SDKs by default.              |
-> | *spring.cloud.azure*.credential | Configures authentication with Azure Active Directory for all Azure SDKs by default. |
+> | *spring.cloud.azure*.credential | Configures authentication with Microsoft Entra ID for all Azure SDKs by default. |
 > | *spring.cloud.azure*.profile    | Configures the Azure cloud environment for all Azure SDKs by default.                |
 > | *spring.cloud.azure*.proxy      | Configures the proxy options applicable to all Azure SDK clients by default.         |
 > | *spring.cloud.azure*.retry      | Configures the retry options applicable to all Azure SDK clients by default.         |

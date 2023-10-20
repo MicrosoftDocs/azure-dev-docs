@@ -1,6 +1,6 @@
 ---
-title: Spring Boot Starter for Azure Active Directory developer's guide
-description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
+title: Spring Boot Starter for Microsoft Entra developer's guide
+description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Microsoft Entra starter.
 ms.date: 04/06/2023
 ms.service: active-directory
 ms.topic: article
@@ -9,15 +9,15 @@ ms.author: shaozliu
 ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 ---
 
-# Spring Boot Starter for Azure Active Directory developer's guide
+# Spring Boot Starter for Microsoft Entra developer's guide
 
 **This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
 
-This article describes the features and core scenarios of the Spring Boot Starter for Azure Active Directory (Azure AD). The article also includes guidance on common issues, workarounds, and diagnostic steps.
+This article describes the features and core scenarios of the Spring Boot Starter for Microsoft Entra ID. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
 When you're building a web application, identity and access management are foundational pieces. Azure offers a cloud-based identity service that has deep integration with the rest of the Azure ecosystem.
 
-Although Spring Security makes it easy to secure your Spring-based applications, it isn't tailored to a specific identity provider. The Spring Boot Starter for Azure AD enables you to connect your web application to an Azure AD tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
+Although Spring Security makes it easy to secure your Spring-based applications, it isn't tailored to a specific identity provider. The Spring Boot Starter for Microsoft Entra ID enables you to connect your web application to a Microsoft Entra tenant and protect your resource server with Microsoft Entra ID. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
 
 The following links provide access to the starter package, documentation, and samples:
 
@@ -32,14 +32,14 @@ To follow the instructions in this guide, you must have the following prerequisi
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 - A supported Java Development Kit (JDK), version 8 or higher. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 - [Apache Maven](https://maven.apache.org/), version 3.0 or higher.
-- An application registered with Azure AD. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+- An application registered with Microsoft Entra ID. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Core scenarios
 
-This guide describes how to use the Azure AD starter in the following scenarios:
+This guide describes how to use the Microsoft Entra starter in the following scenarios:
 
 - [Access a web application](#access-a-web-application)
 - [Access resource servers from a web application](#access-resource-servers-from-a-web-application)
@@ -53,11 +53,11 @@ A *web application* is any web-based application that enables a user to sign in.
 
 This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-directory/develop/v2-oauth2-auth-code-flow) flow to enable a user to sign in with a Microsoft account.
 
-To use the Azure AD starter in this scenario, use the following steps:
+To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Screenshot of Azure portal showing Azure Active Directory App registrations page with sample-webapp highlighted.":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-webapp highlighted.":::
 
    :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Screenshot of Azure portal showing web app authentication page with redirect URI highlighted.":::
 
@@ -157,7 +157,7 @@ public class AadOAuth2LoginSecurityConfig {
 
 ### Access resource servers from a web application
 
-To use the Azure AD starter in this scenario, use the following steps:
+To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Set the redirect URI as described previously.
 
@@ -219,7 +219,7 @@ For a complete sample demonstrating this scenario, see [spring-cloud-azure-start
 
 This scenario doesn't support sign in, but protects the server by validating the access token. If the access token is valid, the server serves the request.
 
-To use the Azure AD starter in this scenario, use the following steps:
+To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Add the following dependencies to your *pom.xml* file.
 
@@ -252,7 +252,7 @@ spring:
 
 You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
 
-:::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Screenshot of Azure portal showing Azure Active Directory App registrations page with sample-resource-server highlighted.":::
+:::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-resource-server highlighted.":::
 
 :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 
@@ -322,7 +322,7 @@ For a complete sample demonstrating this scenario, see [spring-cloud-azure-start
 
 This scenario supports a resource server visiting other resource servers.
 
-To use the Azure AD starter in this scenario, use the following steps:
+To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Add the following dependencies to your *pom.xml* file.
 
@@ -513,7 +513,7 @@ The `spring.cloud.azure.active-directory.application-type` property is optional 
 
 ## Configurable properties
 
-The Spring Boot Starter for Azure AD provides the following properties:
+The Spring Boot Starter for Microsoft Entra ID provides the following properties:
 
 | Properties                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                              |
 |----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -523,7 +523,7 @@ The Spring Boot Starter for Azure AD provides the following properties:
 | spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.authorization-grant-type | The type of authorization client. Supported types are [authorization_code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) (default type for webapp), [on_behalf_of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) (default type for resource-server), [client_credentials](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). |
 | spring.cloud.azure.active-directory.application-type                                                     | Refer to [Application type](#application-type).                                                                                                                                                                                                                                                                                                                          |
 | spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint                        | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.                                                                                                                                                                                                                                                                    |
-| spring.cloud.azure.active-directory.credential.client-id                                                 | The registered application ID in Azure AD.                                                                                                                                                                                                                                                                                                                               |
+| spring.cloud.azure.active-directory.credential.client-id                                                 | The registered application ID in Microsoft Entra ID.                                                                                                                                                                                                                                                                                                                               |
 | spring.cloud.azure.active-directory.credential.client-secret                                             | The client secret of the registered application.                                                                                                                                                                                                                                                                                                                         |
 | spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set to *true*. Otherwise, use `/v1.0/me/memberOf`.                                                                                                                                                                                                                                                                     |
 | spring.cloud.azure.active-directory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                                                                                                                                                                                                                                                                                                                               |
@@ -695,7 +695,7 @@ public String callClientCredential() {
 
 ### Support access control by ID token in a web application
 
-The starter supports creating `GrantedAuthority` from an ID token's `roles` claim to allow using the ID token for authorization in a web application. You can use the `appRoles` feature of Azure AD to create a `roles` claim and implement access control.
+The starter supports creating `GrantedAuthority` from an ID token's `roles` claim to allow using the ID token for authorization in a web application. You can use the `appRoles` feature of Microsoft Entra ID to create a `roles` claim and implement access control.
 
 > [!NOTE]
 > The `roles` claim generated from `appRoles` is decorated with prefix `APPROLE_`.

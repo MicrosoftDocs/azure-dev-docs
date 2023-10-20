@@ -40,7 +40,7 @@ public class DemoClass {
 
 This sample makes use of [Payara Micro](https://www.payara.fish/products/payara-micro/) and [MicroProfile](https://microprofile.io/) to create a tiny Java war file that you can run locally on your machine. The sample doesn't demonstrate how to containerize or push the code to Azure, but the links section at the end of this tutorial has links to other useful tutorials that explain this.
 
-This sample makes use of a free and open source library that creates a config source (using the MicroProfile Config API) for Azure Key Vault. You can learn more about this library, and review the code, on the [project GitHub page](https://github.com/Azure/azure-microprofile/tree/master/microprofile-config-keyvault). By using this library, the code in this tutorial can focus on configuration of the library, followed by injecting keys into your code, and we don't need to write any Azure-specific code.
+This sample makes use of a free and open source library that creates a config source (using the MicroProfile Config API) for Azure Key Vault. You can learn more about this library, and review the code, on the [project GitHub page](https://github.com/Azure/azure-microprofile/tree/main/config-keyvault). By using this library, the code in this tutorial can focus on configuration of the library, followed by injecting keys into your code, and we don't need to write any Azure-specific code.
 
 Here are the steps required to run this code on your local machine, starting with creating an Azure Key Vault resource.
 
@@ -131,4 +131,4 @@ This example is based on a sample application available on GitHub, so we'll clon
 
 ## Summary
 
-This sample application bakes together the MicroProfile Config API, Azure Key Vault, and the free and open source [microprofile-config-keyvault](https://github.com/Azure/azure-microprofile/tree/master/microprofile-config-keyvault) library to enable easy injection of configuration data and secrets into our MicroProfile web services.
+This sample application bakes together the MicroProfile Config API, Azure Key Vault, and the free and open source [microprofile-config-keyvault](https://github.com/Azure/azure-microprofile/tree/main/config-keyvault) library to enable easy injection of configuration data and secrets into our MicroProfile web services.

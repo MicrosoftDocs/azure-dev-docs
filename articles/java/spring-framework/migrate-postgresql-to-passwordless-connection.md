@@ -17,19 +17,21 @@ Application requests to Azure Database for PostgreSQL must be authenticated. Azu
 
 ## Compare authentication options
 
-When the application authenticates with Azure Database for PostgreSQL, it provides a username and password pair to connect the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication.
+When the application authenticates with Azure Database for PostgreSQL, it provides a username and password pair to connect the database. Depending on where the identities are stored, there are two types of authentication: Microsoft Entra authentication and PostgreSQL authentication.
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Microsoft Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+### Microsoft Entra authentication
 
-Using Azure AD for authentication provides the following benefits:
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure Services in a uniform way.
 - Management of password policies and password rotation in a single place.
-- Multiple forms of authentication supported by Azure AD, which can eliminate the need to store passwords.
-- Customers can manage database permissions using external (Azure AD) groups.
-- Azure AD authentication uses PostgreSQL database users to authenticate identities at the database level.
+- Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
+- Customers can manage database permissions using external (Microsoft Entra ID) groups.
+- Microsoft Entra authentication uses PostgreSQL database users to authenticate identities at the database level.
 - Support of token-based authentication for applications connecting to Azure Database for PostgreSQL.
 
 ### PostgreSQL authentication
@@ -61,19 +63,21 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
-- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Azure AD non-admin user. Make sure the name is a valid user in your Azure AD tenant.
+- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Microsoft Entra non-admin user. Make sure the name is a valid user in your Microsoft Entra tenant.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com).
 
 ### 1) Configure Azure Database for PostgreSQL
 
-#### 1.1) Enable Azure AD-based authentication
+<a name='11-enable-azure-ad-based-authentication'></a>
 
-To use Azure Active Directory access with Azure Database for PostgreSQL, you should set the Azure AD admin user first. Only an Azure AD Admin user can create/enable users for Azure AD-based authentication.
+#### 1.1) Enable Microsoft Entra ID-based authentication
 
-To set up an Azure AD administrator after creating the server, follow the steps in [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
+To use Microsoft Entra ID access with Azure Database for PostgreSQL, you should set the Microsoft Entra admin user first. Only a Microsoft Entra Admin user can create/enable users for Microsoft Entra ID-based authentication.
+
+To set up a Microsoft Entra administrator after creating the server, follow the steps in [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
 > [!NOTE]
-> PostgreSQL Flexible Server can create multiple Azure AD administrators.
+> PostgreSQL Flexible Server can create multiple Microsoft Entra administrators.
 
 ### 2) Configure Azure Database for PostgreSQL for local development
 
@@ -121,7 +125,7 @@ az postgres flexible-server firewall-rule create \
 
 #### 2.2) Create a PostgreSQL non-admin user and grant permission
 
-Next, create a non-admin Azure AD user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
+Next, create a non-admin Microsoft Entra user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
 Create a SQL script called *create_ad_user_local.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -131,7 +135,7 @@ select * from pgaadauth_create_principal('$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME',
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_local.sql
@@ -148,7 +152,7 @@ rm create_ad_user_local.sql
 
 ### 3) Sign in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your PostgreSQL. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your PostgreSQL. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [sign-in](includes/passwordless-sign-in.md)]
 
@@ -189,7 +193,7 @@ Next, use the following steps to update your code to use passwordless connection
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Azure AD user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
+1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 
    ```yaml
    spring:
@@ -394,7 +398,7 @@ If you connected your services using Service Connector, the previous step's comm
 
 ##### [Azure CLI](#tab/assign-role-azure-cli)
 
-The following steps will create an Azure AD user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
+The following steps will create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
 First, create a SQL script called *create_ad_user_mi.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -409,7 +413,7 @@ select * from pgaadauth_create_principal_with_oid('$AZ_POSTGRESQL_AD_MI_USERNAME
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user_mi.sql
@@ -471,4 +475,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

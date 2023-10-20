@@ -44,7 +44,7 @@ We'd recommend reusing the same dev tunnel when it's convenient, rather than cre
 
 ## Can anonymous users create dev tunnels?
 
-No, anonymous users can't create dev tunnels. All creation of dev tunnels requires either a Microsoft Azure Active Directory (Azure AD), Microsoft, or GitHub account.
+No, anonymous users can't create dev tunnels. All creation of dev tunnels requires either a Microsoft Entra ID, Microsoft, or GitHub account.
 
 ## What are the license terms for dev tunnels?
 

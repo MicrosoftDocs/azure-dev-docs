@@ -31,7 +31,7 @@ This tutorial demonstrates how to send and receive messages using Azure Event Hu
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to resources, in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Azure AD account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure AD account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory).
+> To grant your account access to resources, in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Microsoft Entra account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
