@@ -18,12 +18,26 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: Get started with dev tunnels
+  - title: About dev tunnels
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: What are dev tunnels?
             url: overview.md
+          - text: How are dev tunnels secured?
+            url: security.md
+      - linkListType: video
+        links:
+          - text: Intro to dev tunnels with demos 
+            url: https://www.youtube.com/watch?v=yBiOGgUFD68
+          - text: Advanced dev tunnels features with demos
+            url: https://youtu.be/yCYLurylgj8?si=nCH2E2xHo4qNYnCV
+
+  # Card
+  - title: 'Quickstart: Dev tunnels'
+    linkLists:
+      - linkListType: quickstart
+        links:
           - text: Create and host a tunnel
             url: get-started.md
 
