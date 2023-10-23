@@ -1,0 +1,12 @@
+items:
+- name: Get started with Java on Azure
+  href: index.yml
+  items:
+  - name: Overview
+    href: overview.md
+  - name: Code
+    href: code.md
+  - name: Deploy
+    href: deploy.md
+  - name: Scale
+    href: scale.md
