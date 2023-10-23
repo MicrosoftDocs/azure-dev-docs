@@ -151,6 +151,8 @@ Cloud edge is a term to indicate if the Cloud service is located to benefit the 
 
 ### Server availability
 
+**Server availability** is the ability to manage your server endpoint and its compute through a gateway.  This gateway provides functionality such as versioning, caching, transformation, API policies, and monitoring.
+
 |Service|Use|
 |--|--|
 |[Azure API Management][azure-apim]|Use this service when you productize your REST, OpenAPI, and GraphQL APIs with an API gateway including quotas and rate limits, authentication and authorization, transformation, and cached responses.|
