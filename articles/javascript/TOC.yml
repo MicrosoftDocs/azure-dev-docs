@@ -67,6 +67,8 @@
         href: end-to-end/contoso-real-estate-user-authentication.md
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
+      - name: Migrating to serverless v4 programming model
+        href: end-to-end/contoso-real-estate-serverless-api-migration.md
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
       isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
