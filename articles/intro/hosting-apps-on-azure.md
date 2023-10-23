@@ -149,13 +149,16 @@ Cloud edge is a term to indicate if the Cloud service is located to benefit the 
 |[Azure Container Instances][azure-container-instances]|Use this for simple container scenarios that don't need container orchestration.|
 |[Azure Kubernetes Service][azure-kubernetes]|Use this service when you need a Kubernetes cluster. The control plane to manage the cluster is created and provided for you at no extra cost.|
 
-### Server availability
+### Server Endpoint Management
 
-**Server availability** is the ability to manage your server endpoint and its compute through a gateway.  This gateway provides functionality such as versioning, caching, transformation, API policies, and monitoring.
+**Server Endpoint Management** is the ability to manage your server endpoint and its compute through a gateway.  This gateway provides functionality such as versioning, caching, transformation, API policies, and monitoring.
 
 |Service|Use|
 |--|--|
-|[Azure API Management][azure-apim]|Use this service when you productize your REST, OpenAPI, and GraphQL APIs with an API gateway including quotas and rate limits, authentication and authorization, transformation, and cached responses.|
+|[Azure API Management][azure-apim]|Use this service when you productize your **REST, OpenAPI, and GraphQL APIs** with an API gateway including quotas and rate limits, authentication and authorization, transformation, and cached responses.|
+|[Azure Application Gateway][azure-application-gateway]|Use for **regional load balancing** (OSI layer 7). It can be used to route traffic based on URL path or host headers, and it supports SSL offloading, cookie-based session affinity, and Web Application Firewall (WAF) capabilities.|
+|[Azure Front Door][azure-frontdoor]|Use for **global load balancing** (OSI layer 7) to provide a global cached and secure network to your static and dynamic assets including DDoS protection, end-to-end TLS encryption, application firewalls, and geo-filtering.|
+|[Azure Traffic Manager][azure-traffic-manager]|Use for distributing traffic by **DNS** (OSI layer 7) to your public facing applications across the global Azure regions. Traffic Manager uses DNS to direct client requests to the appropriate service endpoint based on a traffic-routing method. It supports various traffic-routing methods such as priority, performance, and geographic routing. It is ideal for managing traffic across multiple regions or data centers.|
 
 ### Automated compute
 
@@ -222,6 +225,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 
 [azure-apim]:/azure/api-management
 [azure-app-service]:/azure/app-service
+[azure-application-gateway]:/azure/application-gateway
 [azure-arc]:/azure/azure-arc
 [azure-bare-metal]:/azure/baremetal-infrastructure
 [azure-batch]:/azure/batch/batch-technical-overview
@@ -237,6 +241,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [azure-service-fabric]:/azure/service-fabric
 [azure-spring-apps]:/azure/spring-apps
 [azure-static-web-apps]:/azure/static-web-apps
+[azure-traffic-manager]:/azure/traffic-manager
 [azure-virtual-machines]:/azure/virtual-machines
 
 [github-actions]:/azure/developer/github/github-actions
