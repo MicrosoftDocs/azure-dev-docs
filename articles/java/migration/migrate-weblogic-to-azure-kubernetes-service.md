@@ -45,8 +45,9 @@ First, you have to understand the concept of the WLS "domain". A domain is a log
 | *Domain in Image*       | The domain resides in a container image. Applications are contained in a container image that's overlaid on the domain image. | More "cloud-native" than *Domain in PV*. Easier for CI/CD.                                                                                                                                                                  | Can't use WLS console. Must maintain more container images.                                                                                                                                                                               |
 
 > [!IMPORTANT]
-> If you choose the *Domain in PV* source type. We strongly recommend NFS instead of SMB. NFS evolved from the UNIX operating system, and other variants such as GNU/Linux. For this reason, when using NFS with container technologies such as Docker, it is less likely to have problems for concurrent reads and file locking.
-> Please be sure to enable NFS v4.1. Versions lower than v4.1 will have problems.
+> If you choose the *Domain in PV* source type, we strongly recommend NFS instead of SMB. NFS evolved from the UNIX operating system, and other variants such as GNU/Linux. For this reason, when using NFS with container technologies such as Docker, it's less likely to have problems for concurrent reads and file locking. 
+>
+> Be sure to enable NFS v4.1. Versions lower than v4.1 will have problems.
 
 The operator documentation also includes a useful table comparing the various options. For more information, see [Choose a domain home source type](https://aka.ms/wls-aks-docs-domain-home-source-type).
 
