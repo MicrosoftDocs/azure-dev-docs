@@ -41,7 +41,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
-```bash
+```bash/powershell
 az login
 ```
 
@@ -172,7 +172,7 @@ In this section, you create an Azure SQL Database single database for use with y
 
 Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
 
-1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
+1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
 
    ### [Bash](#tab/in-bash)
 
@@ -194,8 +194,6 @@ Create a single database in Azure SQL Database by following the Azure CLI steps 
    $Env:DB_PASSWORD = "<password>"
    ```
 
-   ---
-
 1. If you want to test the application locally later, ensure your client IPv4 address is in the allowlist of **Firewall rules**.
 
    :::image type="content" source="./media/deploy-java-liberty-app-aca/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
@@ -210,9 +208,9 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aca). This article uses *java-app*. Here's the file structure of the application.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aca).
 
-```azurecli-interactive
+```bash/powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 git checkout 20231023
@@ -220,7 +218,9 @@ git checkout 20231023
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
 
-```
+This article uses *java-app*. Here's the file structure of the application.
+
+```output
 java-app
 ├─ src/main/
 │  ├─ liberty/config/
@@ -241,23 +241,12 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Build project
 
-Now that you've gathered the necessary properties, you can build the application.
+Use the following command to build the application.
 
-### [Bash](#tab/in-bash)
-
-```bash
+```bash/powershell
 cd <path-to-your-repo>/java-app
 mvn clean install
 ```
-
-### [PowerShell](#tab/in-powershell)
-
-```powershell
-cd <path-to-your-repo>/java-app
-mvn clean install
-```
-
----
 
 ### (Optional) Test your project locally
 
@@ -266,9 +255,9 @@ You can now run and test the project locally before deploying to Azure. For conv
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
-1. Start the application using `liberty:run`. `liberty:run` uses the environment variables defined in the previous step.
+1. Start the application using `liberty:run`. `liberty:run` uses the database related environment variables defined in the previous step.
 
-   ```bash
+   ```bash/powershell
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
@@ -284,8 +273,8 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 You can now run the `docker build` command to build the image.
 
-```bash
-cd <path-to-your-repo>/java-app/target
+```bash/powershell
+cd <path-to-your-repo>/java-app
 
 # If you are running with Open Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
@@ -298,7 +287,7 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 
 You can now use the following steps to test the Docker image locally before deploying to Azure.
 
-1. Run the image using the following command. This command uses the environment variables defined previously.
+1. Run the image using the following command. This command uses the database related environment variables defined previously.
 
    ### [Bash](#tab/in-bash)
 
@@ -325,7 +314,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 Next, upload the built image to the ACR you created in the previous steps.
 
-If you haven't already done so, sign in to the container registry.
+If you haven't already done so, sign in to the ACR.
 
 ### [Bash](#tab/in-bash)
 
@@ -361,7 +350,7 @@ docker push $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
 
 ## Deploy application on Azure Container Apps
 
-Use the following command to create an Azure Container Apps instance to run the app after pulling the image from the Container Registry. The following example creates an Azure Container Apps instance named *youracainstancename*.
+Use the following command to create an Azure Container Apps instance to run the app after pulling the image from the ACR. The following example creates an Azure Container Apps instance named *youracainstancename*.
 
 ### [Bash](#tab/in-bash)
 
@@ -393,23 +382,21 @@ Successful output is a JSON object including the property `"type": "Microsoft.Ap
 
 ### Test the application
 
-Get a fully qualified url to access the application by using the following command.
+Use the following command to get a fully qualified url to access the application.
 
 ### [Bash](#tab/in-bash)
 
 ```bash
-export QUARKUS_URL=https://$(az containerapp show \
+echo https://$(az containerapp show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
     --query properties.configuration.ingress.fqdn -o tsv)
-echo $QUARKUS_URL
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-$Env:QUARKUS_URL = https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --query properties.configuration.ingress.fqdn -o tsv)
-$Env:QUARKUS_URL
+Write-Host https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
 ---
