@@ -17,3 +17,10 @@
 |---|---|
 |[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at what's required to authenticate using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
+
+## Speech/Vision
+
+|Link|Description|
+|---|---|
+|[Captioning and Call Center Transcription in Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|Repo containing samples for captioning and transcriptioning in a call center scenario.|
+|Integrate Speech into your apps with [Speech SDK for Go](https://github.com/Microsoft/cognitive-services-speech-sdk-go)|Source for the Microsoft Cognitive Services Speech SDK. See the samples folder.|

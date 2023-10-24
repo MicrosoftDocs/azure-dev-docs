@@ -45,7 +45,6 @@
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.|
 |[Captioning and Call Center Transcription in Python, .NET, JavaScript, Java, C++ and Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|Repo containing samples for captioning and transcriptioning in a call center scenario.|
 |Integrate Speech into your apps with [Speech SDK Samples in Python, .NET, JavaScript, Java, C++ and other languages](/samples/azure-samples/cognitive-services-speech-sdk/sample-repository-for-the-microsoft-cognitive-services-speech-sdk/)|Samples for the Microsoft Cognitive Services Speech SDK. Links to samples for speech recognition, translation, speech synthesis, and more.|
 |[Analyze images in Python, .NET and C++](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)|Hosts sample code and setup documents for the Microsoft Azure AI Vision SDK.|
@@ -54,14 +53,14 @@
 
 |Link|Description|
 |---|---|
-|Extract, classify, and understand text within documents using Text Analytics in [Java](/samples/azure/azure-sdk-for-java/textanalytics-java-samples/)|
-|Document Translation in [JavaScript](/samples/azure/azure-sdk-for-js/ai-document-translator-javascript/) And [Java](/samples/azure/azure-sdk-for-java/documenttranslator-java-samples/)|
+|Extract, classify, and understand text within documents using Text Analytics in [Java](/samples/azure/azure-sdk-for-java/textanalytics-java-samples/)|NO LONGER EXISTS|
+|Document Translation in [Java](/samples/azure/azure-sdk-for-java/documenttranslator-java-samples/)|NO LONGER EXISTS|
 
 ## Applied AI/Decision
 
 |Link|Description|
 |---|---|
 |[Azure Form Recognizer SDK for Java](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
-|[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)||
-|[Metrics Advisor SDK samples in Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)||
+|[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)|Samples for the Azure.AI.FormRecognizer client library.|
+|[Metrics Advisor SDK samples in Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)|NO LONGER EXISTS|
 |[Multi-variate Anomaly Detector in Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|
