@@ -1,5 +1,5 @@
 ---
-title: Hosting applications on Azure asdf
+title: Hosting applications on Azure
 description: An overview of the different ways to host your applications on Azure
 keywords: azure app service, azure functions, azure virtual machines, azure container instances, azure container registry
 ms.service: azure-devops
@@ -14,7 +14,7 @@ ms.date: 10/24/2022
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy title="Azure hosting services" /]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE50vLy title="Azure hosting services" /]
 
 ## Simplicity and control
 
@@ -55,7 +55,7 @@ Azure hosting services are provided with two considerations:
 
 For developers new to Azure who want to start **new development**, use the following chart to find the suggested hosting solution.
 
-:::image type="content" source="media/source-code-suggested-compute.png" alt-text="Diagram showing no code, low code in the first box, code in the second box and container in the third box with recommended services for each box.":::
+:::image type="content" source="media/hosting-apps-on-azure/source-code-suggested-compute.png" alt-text="Diagram showing no code, low code in the first box, code in the second box and container in the third box with recommended services for each box.":::
 
 ### No code or low code
 
@@ -85,7 +85,7 @@ Azure supports no-code solutions are part of its Azure-Cloud approach.
 |[Azure Kubernetes Service][azure-kubernetes]|Cloud-native| Use for Kubernetes clusters with a **declarative** approach using configuration files and external artifacts.|
 |[Azure Service Fabric][azure-service-fabric]|Azure-native|Use an **imperative** approach to deploying microservices across clusters of machines. It provides a programming model that allows developers to write code that describes the desired state of the system, and the Service Fabric runtime takes care of making the system match that state.|
 
-**Preconfigured** container hosting means the orchestration options are preconfigured for you. Your ability to communicate between containers or container clusters may require an additional service such as [Dapr](https://docs.dapr.io/).
+**Preconfigured** container hosting means the orchestration options are preconfigured for you. Your ability to communicate between containers or container clusters might require an additional service such as [Dapr](https://docs.dapr.io/).
 
 |Service|Use|
 |--|--|
