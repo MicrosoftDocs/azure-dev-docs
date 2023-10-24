@@ -261,8 +261,12 @@ Live Metrics (`azd monitor --live`) is currently not supported for Python apps. 
 
 ## Create a GitHub issue to request help
 
+<<<<<<< Updated upstream
 :::image type="content" source="media/troubleshoot/github-logo.png" alt-text="An image of the GitHub logo.":::
 
 The Azure Developer CLI and the [Azure Developer CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates.
+=======
+The Azure Developer CLI and the [Azure Dev CLI Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) use [GitHub Issues](https://github.com/Azure/azure-dev/issues/new/choose) to track bugs and feature requests. Please search the [existing issues](https://github.com/Azure/azure-dev/issues) before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new Issue.
+>>>>>>> Stashed changes
 
 For help and questions about using this project, please look at our [wiki](https://github.com/Azure/azure-dev/wiki) for using Azure Developer CLI and our [CONTRIBUTING doc](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md) if you want to contribute.
