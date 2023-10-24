@@ -16,30 +16,30 @@ This article provides documentation, samples and other resources for learning ho
 
 :::zone pivot="dotnet"
 
-[!INCLUDE <./includes/azure-ai-for-developers-dotnet.md>]
+[!INCLUDE [azure-ai-for-developers-dotnet](./includes/azure-ai-for-developers-dotnet.md)]
 
 :::zone-end
 
 :::zone pivot="python"
 
-[!INCLUDE <./includes/azure-ai-for-developers-python.md>]
+[!INCLUDE [azure-ai-for-developers-python](./includes/azure-ai-for-developers-python.md)]
 
 :::zone-end
 
 :::zone pivot="javascript"
 
-[!INCLUDE <./includes/azure-ai-for-developers-javascript.md>]
+[!INCLUDE [azure-ai-for-developers-javascript](./includes/azure-ai-for-developers-javascript.md)]
 
 :::zone-end
 
 :::zone pivot="java"
 
-[!INCLUDE <./includes/azure-ai-for-developers-javascript.md>]
+[!INCLUDE [azure-ai-for-developers-javascript](./includes/azure-ai-for-developers-javascript.md)]
 
 :::zone-end
 
 :::zone pivot="golang"
 
-[!INCLUDE <./includes/azure-ai-for-developers-go.md>]
+[!INCLUDE [azure-ai-for-developers-go](./includes/azure-ai-for-developers-go.md)]
 
 :::zone-end
