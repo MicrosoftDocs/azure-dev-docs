@@ -5,7 +5,7 @@ keywords: azure app service, azure functions, azure virtual machines, azure cont
 ms.service: azure-devops
 ms.subservice: azure-devops-reference
 ms.topic: overview
-ms.date: 10/03/2022
+ms.date: 10/24/2022
 #CustomerIntent: As an experienced developer, I want to select the correct hosting services for my applications so that I can get the level of control versus responsibility to meet my business and team needs.
 ---
 
