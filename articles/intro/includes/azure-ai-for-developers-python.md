@@ -79,6 +79,5 @@
 |---|---|
 |[Azure Form Recognizer SDK for Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)|
 |Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python)||
-|Use Form Recognizer to automate a paper based process using the [New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App))|
 |Metrics Advisor SDK samples in [Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/)||
-|Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py)||
+|Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|

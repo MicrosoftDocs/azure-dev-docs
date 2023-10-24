@@ -59,18 +59,18 @@
 
 |Link|Description|
 |---|---|
-|Extract, classify, and understand text within documents using Text Analytics in [.NET](/samples/azure/azure-sdk-for-net/azure-cognitive-services-text-analytics-client-library-for-net/)||
-|Document Translation in [.NET](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)|
-|Translate documents from and into more than 100 different languages using [**Document Translation sample apps**](https://github.com/MicrosoftTranslator/DocumentTranslation)||
-|Question Answering in [.NET](/samples/azure/azure-sdk-for-net/azureailanguagequestionanswering-samples/)||
-|Conversational Language Understanding in [.NET](/samples/azure/azure-sdk-for-net/azureailanguageconversations-samples/)||
+|[Extract, classify, and understand text within documents using Text Analytics in .NET](/samples/azure/azure-sdk-for-net/azure-cognitive-services-text-analytics-client-library-for-net/)|NO LONGER EXISTS|
+|[Document Translation in .NET](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)|NO LONGER EXISTS|
+|[Translate documents from and into more than 100 different languages](https://github.com/MicrosoftTranslator/DocumentTranslation)|Translate local files or network files in many different formats, to more than 100 different languages. Supported formats include HTML, PDF, all Office document formats, Markdown, MHTML, Outlook .MSG, XLIFF, CSV, TSV and plain text.|
+|[Question Answering in .NET](/samples/azure/azure-sdk-for-net/azureailanguagequestionanswering-samples/)|NO LONGER EXISTS|
+|[Conversational Language Understanding in .NET](/samples/azure/azure-sdk-for-net/azureailanguageconversations-samples/)|NO LONGER EXISTS|
 
 ## Applied AI/Decision
 
 |Link|Description|
 |---|---|
-|[Azure Form Recognizer SDK  Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)|
-|Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400)||
-|Use Form Recognizer to automate a paper based process using the [New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App))|
-|Metrics Advisor SDK samples in [.NET](/samples/azure/azure-sdk-for-net/azure-metrics-advisor-client-sdk-samples/), ||
-|Multi-variate Anomaly Detector in [.NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs)||
+|[Azure AI Document Intelligence SDK](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
+|Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400)|Samples for the Azure.AI.FormRecognizer client library.|
+|[Use Form Recognizer to automate a paper based process using the New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App))|
+|[Metrics Advisor SDK samples in .NET](/samples/azure/azure-sdk-for-net/azure-metrics-advisor-client-sdk-samples/)|NO LONGER EXISTS|
+|[Multi-variate Anomaly Detector in .NET](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/Sample_multivaraiate_detect.cs)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|

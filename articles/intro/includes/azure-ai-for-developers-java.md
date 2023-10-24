@@ -64,4 +64,4 @@
 |[Azure Form Recognizer SDK for Java](/azure/applied-ai-services/form-recognizer/sdk-preview)||
 |[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)||
 |[Metrics Advisor SDK samples in Java](/samples/azure/azure-sdk-for-java/metricsadvisor-java-samples/)||
-|[Multi-variate Anomaly Detector in Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)||
+|[Multi-variate Anomaly Detector in Java](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/MultivariateSample.java)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|
