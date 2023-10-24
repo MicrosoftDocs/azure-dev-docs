@@ -68,16 +68,16 @@
 
 |Link|Description|
 |---|---|
-|Extract, classify, and understand text within documents using Text Analytics in [Python](/samples/azure/azure-sdk-for-python/textanalytics-samples/)||
-|Document Translation in [Python](/samples/azure/azure-sdk-for-python/documenttranslation-samples/)||
-|Question Answering in [Python](/samples/azure/azure-sdk-for-python/languagequestionanswering-samples/)||
-|Conversational Language Understanding in [Python](/samples/azure/azure-sdk-for-python/conversationslanguageunderstanding-samples/)||
+|[Extract, classify, and understand text within documents using Text Analytics in Python](/samples/azure/azure-sdk-for-python/textanalytics-samples/)|NO LONGER EXISTS|
+|[Document Translation in Python](/samples/azure/azure-sdk-for-python/documenttranslation-samples/)|NO LONGER EXISTS|
+|[Question Answering in Python](/samples/azure/azure-sdk-for-python/languagequestionanswering-samples/)|NO LONGER EXISTS|
+|[Conversational Language Understanding in Python](/samples/azure/azure-sdk-for-python/conversationslanguageunderstanding-samples/)|NO LONGER EXISTS|
 
 ## Applied AI/Decision
 
 |Link|Description|
 |---|---|
-|[Azure Form Recognizer SDK for Python, JavaScript/TypeScript and Java](/azure/applied-ai-services/form-recognizer/sdk-preview)|
-|Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python)||
-|Metrics Advisor SDK samples in [Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/)||
-|Multi-variate Anomaly Detector in [Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|
+|[Azure AI Document Intelligence SDK](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
+|[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md#samples-for-azure-form-recognizer-client-library-for-python)|Samples for the Azure.AI.FormRecognizer client library.|
+|[Metrics Advisor SDK samples in Python](/samples/azure/azure-sdk-for-python/metricsadvisor-samples/)|NO LONGER EXISTS|
+|[Multi-variate Anomaly Detector in Python](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/sample_multivariate_detect.py)|Samples for the Anomaly Detector multivariate API which enables you to monitor and find abnormalities in your time series data by automatically identifying and applying the correct statistical models, regardless of industry, scenario, or data volume. Using your time series data, the API can find anomalies as a batch throughout your data, or determine if your latest data point is an anomaly.|
