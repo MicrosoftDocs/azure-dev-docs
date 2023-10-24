@@ -17,14 +17,10 @@ Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing an
 
 Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](./supported-languages-environments.md#supported-development-environments).
 
-<<<<<<< Updated upstream
-For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios)
-=======
 When you install `azd`, the following tools are also installed:
 
 - The [Git CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
->>>>>>> Stashed changes
 
 Note: When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
 
@@ -249,8 +245,5 @@ When working with an out of date version of `azd`, you will see a warning to upg
 
 > [!div class="nextstepaction"]
 > [Choose an azd template](./azd-templates.md)
-<<<<<<< Updated upstream
 > [!div class="nextstepaction"]
 > [Azure Developer CLI FAQ](./faq.yml)
-=======
->>>>>>> Stashed changes
