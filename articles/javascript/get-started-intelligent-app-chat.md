@@ -148,11 +148,11 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. In the browser, enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
 
-    * What happens if the rental doesn't fit the description?
+    * How to search and book rentals?
     * What is the refund policy?
     * How to contact a representative? 
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-initial-answer.png" alt-text="Screenshot of intelligent chat app's first answer.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-initial-answer.png" alt-text="Screenshot of intelligent chat app's first answer.":::
 
 1. From the answer, select one of the citations.
 
