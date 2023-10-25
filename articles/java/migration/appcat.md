@@ -1,6 +1,6 @@
 ---
 title: Azure Application and Code Assessment Toolkit
-description: How to assess and replatform any type of Java applications with Application and Code Assessment Toolkit to evaluate their readiness to migrate to Azure
+description: How to assess and replatform any type of Java applications with the Application and Code Assessment Toolkit to evaluate their readiness to migrate to Azure.
 author: KarlErickson
 ms.author: antoniomanug
 ms.service: azure
@@ -14,19 +14,17 @@ keywords: java, azure, appCAT, assessment, replatform
 
 This guide describes how to assess and replatform any type of Java applications with the *Application and Code Assessment Toolkit for Java* to evaluate their readiness to replatform and migrate to Azure.
 
-## Overview
+`appcat` is a command-line tool to assess Java application binaries and/or source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
-`appcat` is a command-line tool to assess Java applications' binaries and/or source code of Java applications to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
+`appcat` discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
 
-It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on, and then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
+`appcat` is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
-`appcat` is open source and based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
-
-## When should I use `appcat`?
+## When should I use appcat?
 
 `appcat` is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
-With `appcat` you can:
+With `appcat` you can do the following tasks:
 
 * **Discover technology usage**: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
 * **Assess the code to a specific target**: Assess an application for a specific Azure target. Check the effort and the modifications you have to do in order to replatform your applications to Azure.
@@ -51,9 +49,9 @@ You can use the following services as resource services:
 * Azure Event Hub
 * Azure Key Vault
 
-## Use `appcat`
+## Use appcat
 
-To use `appcat`, you must download the ZIP file below, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You may use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
+To use `appcat`, you must download the ZIP file below, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
 
 ### Download
 
@@ -62,7 +60,7 @@ The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azu
 > [!div class="nextstepaction"]
 > [Download appcat](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
 
-### Run `appcat`
+### Run appcat
 
 Unzip the zip file in a folder of your choice. You then get the following directory structure:
 
@@ -144,7 +142,7 @@ Then, you can run `appcat` using one of the available Azure targets, as shown in
     --target azure-appservice
 ```
 
-## Get results from `appcat`
+## Get results from appcat
 
 The outcome of the discovery and assessment phases is a detailed report that provides a roadmap for the replatforming and modernization of the Java application, including recommendations for the Azure service and replatform approach. The report serves as the foundation for the next stages of the replatforming process. It helps organizations learn about the effort required for such transformation, and make decisions about how to modernize their applications for maximum benefits.
 
@@ -264,15 +262,15 @@ The complete guide for Rules Development is available at [azure.github.io/appcat
 
 ## License
 
-Application and Code Assessment Toolkit for Java is a free, open source tool at no-cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
+The Application and Code Assessment Toolkit for Java is a free, open source tool at no-cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
 
 ## Frequently asked questions
 
-Q: Where can I download the latest version of Application and Code Assessment Toolkit for Java?
+Q: Where can I download the latest version of the Application and Code Assessment Toolkit for Java?
 
 You can download `appcat` from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
-Q: Where can I find more information about Application and Code Assessment Toolkit for Java?
+Q: Where can I find more information about the Application and Code Assessment Toolkit for Java?
 
 When you download `appcat`, you get a *docs* directory with all the information you need to get started.
 
@@ -282,7 +280,7 @@ All the Azure rules are available in the [appcat Rulesets GitHub repository](htt
 
 Q: Where can I find more information about creating custom rules?
 
-Visit the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for Application and Code Assessment Toolkit for Java.
+See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for the Application and Code Assessment Toolkit for Java.
 
 Q: Where can I get some help when creating custom rules?
 
