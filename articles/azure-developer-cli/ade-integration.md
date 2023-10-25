@@ -88,16 +88,67 @@ The following environment variables will be discovered and used by `azd`:
 
 Define configurations for Azure Deployment Environments at the `azd` environment scope in `.azure/<env>/config.json` file:
 
-:::image type="content" source="media/azure-deployment-environments/azure-development-environments-project-configuration.png" alt-text="A screenshot showing environment scope configurations for Azure Deployment Environments.":::
+```json
+{
+    "platform": {
+        "config": {
+            "catalog": "SampleCatalog",
+            "environmentDefinition": "Todo",
+            "environmentType": "Dev",
+            "name": "sample-devcenter",
+            "Project": "SampleProject"
+        }
+    },
+    "provision": {
+        "parameters": {
+            "environmentName": "sample-todo-team-dev",
+            "repourl": "https://github.com/azure-samples/todo-nodejs-mongo-aca"
+        }
+    }
+}
+```
 
 ### Project scope
 
 Define configurations for Azure Deployment Environments at the `azd` project scope in the `platform` node of the `azure.yaml` file:
 
-:::image type="content" source="media/azure-deployment-environments/azure-development-environments-project-configuration.png" alt-text="A screenshot showing project scope configurations for Azure Deployment Environments.":::
+```yaml
+name: todo-nodejs-mongo-aca
+metadata:
+    template: todo-nodejs-mongo-aca@0.0.1-beta
+platform:
+    type: devcenter
+    config:
+        catalog: SampleCatalog
+        environmentDefinition: Todo
+        name: sample-devcenter
+        project: SampleProject
+services:
+    api:
+        project: ./src/api
+        host: containerapp
+        language: js
+    web:
+        project: ./src/web
+        host: containerapp
+        language: js
+```
 
 ### User scope
 
 Define configurations for Azure Deployment Environments at the user scope in the `~/<user_profile>/.azd/config.json` file:
 
-:::image type="content" source="media/azure-deployment-environments/azure-development-environments-user-configuration.png" alt-text="A screenshot showing user scope configurations for Azure Deployment Environments.":::
+```json
+{
+    "platform": {
+        "config": {
+            "catalog": "SampleCatalog",
+            "environmentDefinition": "Todo",
+            "environmentType": "Dev",
+            "name": "sample-devcenter",
+            "Project": "SampleProject"
+        }
+    }
+}
+```
+
