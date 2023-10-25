@@ -12,7 +12,7 @@ keywords: java, azure, appCAT, assessment, replatform
 
 # Application and Code Assessment Toolkit for Java
 
-This guide describes how to assess and replatform any type of Java applications with the *Application and Code Assessment Toolkit for Java* to evaluate their readiness to replatform and migrate to Azure.
+This guide describes how to use the *Application and Code Assessment Toolkit for Java* to assess and replatform any type of Java applications. The toolkit enables you to evaluate application readiness for replatforming and migration to Azure.
 
 `appcat` is a command-line tool to assess Java application binaries and/or source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
 
@@ -24,7 +24,7 @@ This guide describes how to assess and replatform any type of Java applications 
 
 `appcat` is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
-With `appcat` you can do the following tasks:
+With `appcat`, you can do the following tasks:
 
 * **Discover technology usage**: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
 * **Assess the code to a specific target**: Assess an application for a specific Azure target. Check the effort and the modifications you have to do in order to replatform your applications to Azure.
@@ -46,12 +46,12 @@ You can use the following services as resource services:
 * Azure Service Bus
 * Azure Storage
 * Azure CDN
-* Azure Event Hub
+* Azure Event Hubs
 * Azure Key Vault
 
 ## Use appcat
 
-To use `appcat`, you must download the ZIP file below, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
+To use `appcat`, you must download the ZIP file described in the next section, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
 
 ### Download
 
@@ -172,7 +172,7 @@ The discovery report is a report that's generated during the *Discovery Phase*. 
 
 The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
 
-These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, *Potential*, or *Information*), a level of effort, and the number of story points, which is determined by calculating the number of incidents times the effort required to address the issue.
+These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, *Potential*, or *Information*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
 
 :::image type="content" source="media/appcat/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/appcat/report-assessment.png":::
 
@@ -198,7 +198,7 @@ when (condition)
     otherwise (action)
 ```
 
-`appcat` provides a comprehensive set of standard migration rules. Because applications may contain custom libraries or components, `appcat` enables you to write your own rules to identify the use of components or software that may not be covered by the existing ruleset.
+`appcat` provides a comprehensive set of standard migration rules. Because applications might contain custom libraries or components, `appcat` enables you to write your own rules to identify the use of components or software that the existing ruleset might cover.
 
 To write a custom rule, you use a rich domain specific language (DLS) expressed in XML. For example, let's say you want a rule that identifies the use of the PostgreSQL JDBC driver in a Java application and suggests the use of the Azure PostgreSQL Flexible Server instead. You need a rule to find the PostgreSQL JDBC driver defined in a Maven *pom.xml* file or a Gradle file, such as the dependency shown in the following example:
 
