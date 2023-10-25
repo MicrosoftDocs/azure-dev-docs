@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI support for Azure Deployment Environments
 
-The Azure Developer CLI (azd) includes support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your platform engineer can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
+The Azure Developer CLI (azd) provides support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your platform engineer can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
 
 ## Prerequisites
 
@@ -20,18 +20,18 @@ Verify you have completed the following prerequisites to work with Azure Deploym
 * [Installed `azd` locally](/azure/developer/azure-developer-cli/install-azd) or have access to `azd` via Cloud Shell
 * [Created and configured an Azure Deployment Environment](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a dev center, project, and template catalog
 
-> [!TIP]
-> [Understanding key concepts](/azure/deployment-environments/concept-environments-key-concepts) about Azure Deployment Environments is essential for working with them via `azd`.
+    > [!TIP]
+    > [Understanding key concepts](/azure/deployment-environments/concept-environments-key-concepts) about Azure Deployment Environments is essential for working with them via `azd`.
+    
+## Enable Azure Deployment Environment support
 
-## Enable Azure Deployment Environment support in azd
-
-You can configure `azd` to provision and deploy resources to your deployment environments using standard azd commands such as `azd up` or `azd provision`. To enable support for Azure Deployment Environments, run the following command:
+You can configure `azd` to provision and deploy resources to your deployment environments using standard commands such as `azd up` or `azd provision`. To enable support for Azure Deployment Environments, run the following command:
 
 ```bash
 azd config set platform.type devcenter
 ```
 
-When `platform.type` is set to `devcenter` all `azd` remote environment state and provisioning will leverage new dev center components. This configuration also means that the `infra` folder in your local templates will effectively be ignored. Instead, `azd` will use one of the infrastructure templates defined in your dev center catalog for resource provisioning.
+When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning will leverage new dev center components. This configuration also means that the `infra` folder in your local templates will effectively be ignored. Instead, `azd` will use one of the infrastructure templates defined in your dev center catalog for resource provisioning.
 
 You can also disable dev center support via the following command:
 
@@ -39,13 +39,13 @@ You can also disable dev center support via the following command:
 azd config unset devCenter
 ```
 
-## Use azd commands with Azure Deployment eEvironments
+## Work with Azure Deployment Evironments
 
 When the dev center feature is enabled, the default behavior of some common `azd` commands changes to work with these remote environments. The dev center feature expands on functionality provided by standard `azd` [remote environment support](/azure/developer/azure-developer-cli/remote-environments-support).
 
 ### azd up
 
-The `azd up` command will package, provision, and deploy your application to Azure Deployment Environments. However, the provision stage of the `azd up` command will use the curated infrastructure-as-code templates in your remote dev center, while the deployment stage will deploy the source code in your local `azd` template. While dev center mode is enabled, `azd` will ignore the `infra` folder in your local `azd` template and only provision resources using the dev center templates. The command will also prompt you for any necessary values, such as the Azure Deployment Environment project or environment type.
+The `azd up` command will package, provision, and deploy your application to Azure Deployment Environments. However, the provision stage of the `azd up` command will use the curated infrastructure-as-code templates in your remote dev center, while the deployment stage will deploy the source code in your `azd` template. While dev center mode is enabled, `azd` will ignore the `infra` folder in your local `azd` template and only provision resources using the dev center templates. The command will also prompt you for any necessary values, such as the Azure Deployment Environment project or environment type.
 
 ```bash
 azd up
@@ -79,10 +79,10 @@ azd env list
 
 ## Tagging resources for Azure Deployment Environments
 
-`azd` provisioning for Azure Deployment Environments relies on curated templates from the dev center catalog. Templates in the catalog may not assign tags to provisioned Azure resources for you to associate your app services with in the `azure.yaml` file. You can address this issue in one of two ways:
+`azd` provisioning for Azure Deployment Environments relies on curated templates from the dev center catalog. Templates in the catalog may or may not assign tags to provisioned Azure resources for you to associate your app services with in the `azure.yaml` file. If the templates do not assign tags, you can address this issue in one of two ways:
 
 * Work with your dev center catalog administrator to ensure the provisioned Azure resources include tags to associate them with services defined in your `azure.yaml` file.
-* You can also specify the `resoureName` in your `azure.yaml` file instead of using tags:
+* Specify the `resoureName` in your `azure.yaml` file instead of using tags:
 
     ```yml
     services:
@@ -98,9 +98,9 @@ azd env list
             resourceName: sample-web-containerapp
     ```
 
-## Configure Azure Deployment Environment settings in azd
+## Configure dev center settings
 
-You can define `azd` settings for Azure Deployment Environment in multiple places. Settings are combined from these locations to create the final set of configurations in the following order of precedence:
+You can define `azd` settings for your dev centers in multiple places. Settings are combined from these locations to create the final set of configurations in the following order of precedence:
 
 1. Environment variables
 2. Azd environment configuration
@@ -122,7 +122,7 @@ The following environment variables will be discovered and used by `azd`:
 
 ### Environment scope
 
-Define configurations for Azure Deployment Environments at the `azd` environment scope in `.azure/<env>/config.json` file:
+Define configurations for your dev centers at the `azd` environment scope in `.azure/<env>/config.json` file:
 
 ```json
 {
@@ -140,7 +140,7 @@ Define configurations for Azure Deployment Environments at the `azd` environment
 
 ### Project scope
 
-Define configurations for Azure Deployment Environments at the `azd` project scope in the `platform` node of the `azure.yaml` file:
+Define configurations for your dev centers at the `azd` project scope in the `platform` node of the `azure.yaml` file:
 
 ```yaml
 name: todo-nodejs-mongo-aca
@@ -166,7 +166,7 @@ services:
 
 ### User scope
 
-Define configurations for Azure Deployment Environments at the user scope in the `~/<user_profile>/.azd/config.json` file:
+Define configurations for your dev centers at the user scope in the `~/<user_profile>/.azd/config.json` file:
 
 ```json
 {
