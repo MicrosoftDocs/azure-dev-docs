@@ -3,10 +3,10 @@
 
 - name: Get started
   href: get-started.md
-- name: Intelligent apps
+- name: Azure AI apps 
   items: 
-  - name: Chat with your data
-    href: quickstart-intelligent-app-chat.md
+  - name: ChatGPT + Enterprise data sample
+    href: get-started-intelligent-app-chat.md
     display: Azure OpenAI, OpenAI, FastApi
 - name: Web
   items:
