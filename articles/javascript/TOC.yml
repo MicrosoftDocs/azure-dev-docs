@@ -25,9 +25,9 @@
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
       - name: Use Key Vault secrets
         href: how-to/with-web-app/use-secret-environment-variables.md
-  - name: Develop with Azure OpenAI Service
+  - name: Azure AI apps 
     items: 
-    - name: Deploy and run chat app with your own data
+    - name: ChatGPT + Enterprise data sample
       href: quickstart-intelligent-app-chat.md
       display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI

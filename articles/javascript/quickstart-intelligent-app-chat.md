@@ -1,15 +1,15 @@
 ---
-title: Deploy an Azure OpenAI chat app with your data in JavaScript
-description: Quickstart to deploy and use an Azure OpenAI chat app supplemented with your data in JavaScript. Easily deploy with Azure Developer CLI.
-ms.date: 10/05/2023
-ms.topic: quickstart
-ms.custom: devx-track-javascript
+title: Get started with the ChatGPT + Enterprise data sample
+description: Get started with intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
+ms.date: 10/25/2023
+ms.topic: get-started
+ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
-# Quickstart: Deploy an Azure OpenAI chat app with your data in JavaScript
+# Get started with ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search
 
-In this quickstart, you deploy and use an intelligent chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+Deploy and use an intelligent chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 By following the instructions in this quickstart, you will:
 
@@ -20,7 +20,7 @@ By following the instructions in this quickstart, you will:
 
 It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
 
-This quickstart is part of a collection of quickstarts that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
+This article is part of a collection of quickstarts that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
 
 ## Architectural overview
 
@@ -200,12 +200,6 @@ The following steps walk you through the process of changing the settings.
     3. Would you like to see the privacy policy? 
     ```
 
-## Troubleshooting
-
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
-
-If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues) so this quickstart can be improved.
-
 ## Clean up resources
 
 ### Clean up Azure resources
@@ -250,336 +244,11 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ---
 
-## Review code
+## Get help
 
-The app is separated out into 2 apps:
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
 
-* A front-end JavaScript application using the React framework with the Vite build tool.
-* A back-end JavaScript application. 
-
-### Review front-end application code
-
-The front-end application is a Vite React application. The code is located in the [`./packages/webapp`](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp) folder. The following table describes the key files in the front-end application:
-
-|File|Description|
-|---|---|
-|[package.json](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/package.json)|This file contains the dependencies for the front-end application. The design system is provided by [FluentUI](https://developer.microsoft.com/en-us/fluentui#/)|
-|[vite.config.ts](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/vite.config.ts)|This file contains the configuration for the Vite application. This file includes the proxies to `/ask`, `/chat`, and `/content` APIs for the backend for local development. |
-|[index.html](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/index.html)|This is the main HTML file for the application.|
-|[src/index.tsx](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/index.tsx)|This is the main application file and contains the routes.|
-|[pages/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/pages)|This folder contains the React components for the pages in the application.|
-|[pages/chat/Chat.tsx](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/pages/chat)|This is the page that pulls the various components and API calls together to provide the chat functionality.|
-|[components/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/components)|This folder contains the React components for the application.|
-|[api/](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/webapp/src/api)|This folder contains the requests to the clients API backend.|
-
-The [**Chat**](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/pages/chat/Chat.tsx) page has several functions and components that are used to provide the chat functionality. 
-
-### Ask a question
-
-The **QuestionInput** component is used to provide the input box for the user to ask a question and sends in the function to call the API to get the answer.
-
-```typescript
-<QuestionInput
-    clearOnSend
-    placeholder="Type a new question (e.g. does my plan cover annual eye exams?)"
-    disabled={isLoading}
-    onSend={question => makeApiRequest(question)}
-/>
-```
-
-The **makeApiRequest** function calls the backend API. 
-
-```typescript
-  const makeApiRequest = async (question: string) => {
-    lastQuestionReference.current = question;
-
-    error && setError(undefined);
-    setIsLoading(true);
-    setActiveCitation(undefined);
-    setActiveAnalysisPanelTab(undefined);
-
-    try {
-      const history: ChatTurn[] = answers.map((a) => ({ user: a[0], bot: a[1].answer }));
-      const request: ChatRequest = {
-        history: [...history, { user: question, bot: undefined }],
-        approach: Approaches.ReadRetrieveRead,
-        stream: useStream,
-        overrides: {
-          promptTemplate: promptTemplate.length === 0 ? undefined : promptTemplate,
-          excludeCategory: excludeCategory.length === 0 ? undefined : excludeCategory,
-          top: retrieveCount,
-          retrievalMode: retrievalMode,
-          semanticRanker: useSemanticRanker,
-          semanticCaptions: useSemanticCaptions,
-          suggestFollowupQuestions: useSuggestFollowupQuestions,
-        },
-      };
-
-      const chatResponse = await chatApi(request);
-      if (useStream) {
-        const response = chatResponse as Response;
-        const askResponse: AskResponse = {
-          answer: '',
-          data_points: [],
-          thoughts: '',
-        };
-
-        const chunks = await getChunksFromResponse<Partial<AskResponse> & { id: string }>(response);
-        for await (const chunk of chunks) {
-          if (chunk.data_points) {
-            askResponse.data_points = chunk.data_points;
-            askResponse.thoughts = chunk.thoughts ?? '';
-          } else if (chunk.answer) {
-            askResponse.answer += chunk.answer;
-            setIsLoading(false);
-            // Disable batching
-            flushSync(() => {
-              setAnswers([...answers, [question, { ...askResponse }]]);
-            });
-          }
-        }
-      } else {
-        const result = chatResponse as AskResponse;
-        setAnswers([...answers, [question, result]]);
-      }
-    } catch (error_) {
-      setError(error_);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-```
-
-The [**chatAPI**](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/webapp/src/api/api.ts) submits the question along with the chat history for context.
-
-```typescript
-export async function chatApi(options: ChatRequest): Promise<Response> {
-    const url = options.shouldStream ? "chat_stream" : "chat";
-    return await fetch(`${BACKEND_URI}/${url}`, {
-        method: "POST",
-        headers: getHeaders(options.idToken),
-        body: JSON.stringify({
-            history: options.history,
-            overrides: {
-                retrieval_mode: options.overrides?.retrievalMode,
-                semantic_ranker: options.overrides?.semanticRanker,
-                semantic_captions: options.overrides?.semanticCaptions,
-                top: options.overrides?.top,
-                temperature: options.overrides?.temperature,
-                prompt_template: options.overrides?.promptTemplate,
-                prompt_template_prefix: options.overrides?.promptTemplatePrefix,
-                prompt_template_suffix: options.overrides?.promptTemplateSuffix,
-                exclude_category: options.overrides?.excludeCategory,
-                suggest_followup_questions: options.overrides?.suggestFollowupQuestions,
-                use_oid_security_filter: options.overrides?.useOidSecurityFilter,
-                use_groups_security_filter: options.overrides?.useGroupsSecurityFilter
-            }
-        })
-    });
-}
-```
-
-The chat keeps a history of the answers in the **answers** array and displays the answer either based on a streamed data or nonstreamed data. The following shows the streamed answers.
-
-```typescript
-{ answers.map((answer, index) => (
-    <div key={index}>
-        <UserChatMessage message={answer[0]} />
-        <div className={styles.chatMessageGpt}>
-        <Answer
-            key={index}
-            answer={answer[1]}
-            isSelected={selectedAnswer === index && activeAnalysisPanelTab !== undefined}
-            onCitationClicked={(c) => onShowCitation(c, index)}
-            onThoughtProcessClicked={() => onToggleTab(AnalysisPanelTabs.ThoughtProcessTab, index)}
-            onSupportingContentClicked={() => onToggleTab(AnalysisPanelTabs.SupportingContentTab, index)}
-            onFollowupQuestionClicked={(q) => makeApiRequest(q)}
-            showFollowupQuestions={useSuggestFollowupQuestions && answers.length - 1 === index}
-        />
-        </div>
-    </div>
-    ))
-}
-`````` 
-
-### Review backend application code
-
-The back-end application is a Fastify JavaScript application supporting the [Chat App protocol][Chat_API_protocol]. The code is located in the [./packages/search][Chat_Backend_Folder] folder. The following table describes the key files in the back-end application:
-
-|File|Description|
-|---|---|
-|[./package.json](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/package.json)|This file contains the dependencies for the Fastify backend-end application.|
-|[./Dockerfile](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/Dockerfile)|Dockerfile used to deploy to Azure Container apps.|
-|[./.env.example](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/.env.example)|Example environment file for settings.|
-|[./src/routes/root.ts](https://github.com/Azure-Samples/azure-search-openai-javascript/blob/main/packages/search/src/routes/root.ts)|API routes and their handlers.|
-|[./src/plugins](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/search/src/plugins)|This folder integrates with Azure Cognitive Search to get the answers. |
-
-The `/chat` API gets the request then gets the answer.
-
-```typescript
-  fastify.post('/chat', {
-    schema: {
-      description: 'Chat with the bot',
-      tags: ['chat'],
-      body: { $ref: 'chatRequest' },
-      response: {
-        // 200: { $ref: 'approachResponse' },
-        400: { $ref: 'httpError' },
-        500: { $ref: 'httpError' },
-      },
-    } as const,
-    handler: async function (request, reply) {
-      const { approach } = request.body;
-      const chatApproach = fastify.approaches.chat[approach];
-      if (!chatApproach) {
-        return reply.badRequest(`Chat approach "${approach}" is unknown or not implemented.`);
-      }
-
-      const { history, overrides, stream } = request.body;
-      try {
-        if (stream) {
-          const buffer = new Readable();
-          // Dummy implementation needed
-          buffer._read = () => {};
-          reply.type('application/x-ndjson').send(buffer);
-
-          const chunks = await chatApproach.runWithStreaming(history, overrides ?? {});
-          for await (const chunk of chunks) {
-            buffer.push(JSON.stringify(chunk) + '\n');
-          }
-          // eslint-disable-next-line unicorn/no-null
-          buffer.push(null);
-        } else {
-          return await chatApproach.run(history, overrides ?? {});
-        }
-      } catch (_error: unknown) {
-        const error = _error as Error;
-        fastify.log.error(error);
-        return reply.internalServerError(error.message);
-      }
-    },
-  });
-```
-
-The API gets the intelligent answer in the **chatApproach.runWithStreaming** function to get the answer.
-
-```typescript
-async *runWithStreaming(
-history: HistoryMessage[],
-overrides?: ChatApproachOverrides,
-): AsyncGenerator<ApproachResponseChunk, void> {
-    const { completionRequest, dataPoints, thoughts } = await this.baseRun(history, overrides);
-    const openAiChat = await this.openai.getChat();
-    const chatCompletion = await openAiChat.completions.create({
-        ...completionRequest,
-        stream: true,
-    });
-    let id = 0;
-    for await (const chunk of chatCompletion) {
-        const responseChunk = {
-        data_points: id === 0 ? dataPoints : undefined,
-        thoughts: id === 0 ? thoughts : undefined,
-        answer: chunk.choices[0].delta.content ?? '',
-        };
-        yield responseChunk;
-        id++;
-    }
-}
-```
-
-The **this.baserun** calls the Azure Cognitive Search to get the answer:
-
-1. Generate an optimized keyword search query based on the chat history and the last question.
-1. Retrieve relevant documents from the search index with the GPT optimized query.
-1. Generate a contextual and content specific answer using the search results and chat history.
-
-```typescript
-private async baseRun(history: HistoryMessage[], overrides?: ChatApproachOverrides) {
-    const userQuery = 'Generate search query for: ' + history[history.length - 1].user;
-
-    // STEP 1: Generate an optimized keyword search query based on the chat history and the last question
-    // -----------------------------------------------------------------------
-
-    const messages = this.getMessagesFromHistory(
-      QUERY_PROMPT_TEMPLATE,
-      this.chatGptModel,
-      history,
-      userQuery,
-      QUERY_PROMPT_FEW_SHOTS,
-      this.chatGptTokenLimit - userQuery.length,
-    );
-
-    const openAiChat = await this.openai.getChat();
-    const chatCompletion = await openAiChat.completions.create({
-      model: this.chatGptModel,
-      messages,
-      temperature: 0,
-      max_tokens: 32,
-      n: 1,
-    });
-
-    let queryText = chatCompletion.choices[0].message.content?.trim();
-    if (queryText === '0') {
-      // Use the last user input if we failed to generate a better query
-      queryText = history[history.length - 1].user;
-    }
-
-    // STEP 2: Retrieve relevant documents from the search index with the GPT optimized query
-    // -----------------------------------------------------------------------
-
-    const { query, results, content } = await this.searchDocuments(queryText, overrides);
-    const followUpQuestionsPrompt = overrides?.suggest_followup_questions ? FOLLOW_UP_QUESTIONS_PROMPT_CONTENT : '';
-
-    // STEP 3: Generate a contextual and content specific answer using the search results and chat history
-    // -----------------------------------------------------------------------
-
-    // Allow client to replace the entire prompt, or to inject into the exiting prompt using >>>
-    const promptOverride = overrides?.prompt_template;
-    let systemMessage: string;
-    if (promptOverride?.startsWith('>>>')) {
-      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
-        '{follow_up_questions_prompt}',
-        followUpQuestionsPrompt,
-      ).replace('{injected_prompt}', promptOverride.slice(3) + '\n');
-    } else if (promptOverride) {
-      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
-        '{follow_up_questions_prompt}',
-        followUpQuestionsPrompt,
-      ).replace('{injected_prompt}', promptOverride);
-    } else {
-      systemMessage = SYSTEM_MESSAGE_CHAT_CONVERSATION.replace(
-        '{follow_up_questions_prompt}',
-        followUpQuestionsPrompt,
-      ).replace('{injected_prompt}', '');
-    }
-
-    const finalMessages = this.getMessagesFromHistory(
-      systemMessage,
-      this.chatGptModel,
-      history,
-      // Model does not handle lengthy system messages well.
-      // Moving sources to latest user conversation to solve follow up questions prompt.
-      `${history[history.length - 1].user}\n\nSources:\n${content}`,
-      [],
-      this.chatGptTokenLimit,
-    );
-
-    const messageToDisplay = messagesToString(messages);
-
-    return {
-      completionRequest: {
-        model: this.chatGptModel,
-        messages: finalMessages,
-        temperature: Number(overrides?.temperature ?? 0.7),
-        max_tokens: 1024,
-        n: 1,
-      },
-      dataPoints: results,
-      thoughts: `Searched for:<br>${query}<br><br>Conversations:<br>${messageToDisplay.replace('\n', '<br>')}`,
-    };
-}
-```
+If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues) so this quickstart can be improved.
 
 ## Related content
 
