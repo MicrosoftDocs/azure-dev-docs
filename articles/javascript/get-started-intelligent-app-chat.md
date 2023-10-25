@@ -1,26 +1,25 @@
 ---
-title: Get started with the ChatGPT + Enterprise data sample
-description: Get started with intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
+title: Get started with the ChatGPT + Enterprise data sample in JavaScript
+description: Get started with JavaScript and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
 ms.date: 10/25/2023
 ms.topic: get-started
 ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search
+# Get started with ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search in JavaScript
 
-Deploy and use an intelligent chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+Deploy and use an intelligent chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 By following the instructions in this article, you will:
 
 - Deploy an intelligent chat app to Azure.
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
-- Review code of intelligent chat app.
 
-It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
+Once you complete this procedure, you can start modifying the new project with your custom code.
 
-This article is part of a collection of quickstarts that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
+This article is part of a collection of articles that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
 
 ## Architectural overview
 
@@ -163,14 +162,16 @@ The chat app is preloaded with rental information from a [markdown file catalog]
     |Tab|Description|
     |---|---|
     |**Thought process**|This is a script of the interactions in chat.|
-    |**Supporting content**|This includes the information to answer your question and the source material.|
-    |**Citation**|This displays the PDF page that contains the citation.|
+    |**Support content**|This includes the information to answer your question and the source material.|
+    |**Citation**|This displays the content that contains the citation.|
 
 1. When you're done, select the tab again to close the pane.
 
 ### Use intelligent chat app settings to change behavior of responses
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
+
+:::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of intelligent chat developer settings":::
 
 |Setting|Description|
 |---|---|
