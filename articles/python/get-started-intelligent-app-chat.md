@@ -1,5 +1,5 @@
 ---
-title: Get started with the ChatGPT + Enterprise Python data sample
+title: Get started with the ChatGPT + Enterprise data sample in Python
 description: Get started with Python and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
 ms.date: 10/25/2023
 ms.topic: get-started
