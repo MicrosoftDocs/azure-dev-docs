@@ -28,7 +28,7 @@
   - name: Azure AI apps 
     items: 
     - name: ChatGPT + Enterprise data sample
-      href: quickstart-intelligent-app-chat.md
+      href: get-started-intelligent-app-chat.md
       display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI
       href: openai-cli.md
