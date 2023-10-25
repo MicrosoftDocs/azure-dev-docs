@@ -11,7 +11,7 @@ ms.custom: devx-track-javascript, devx-track-javascript-ai
 
 Deploy and use an intelligent chat app to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
-By following the instructions in this quickstart, you will:
+By following the instructions in this article, you will:
 
 - Deploy an intelligent chat app to Azure.
 - Get answers about employee benefits.
@@ -39,9 +39,9 @@ Key components of the architecture include:
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this quickstart. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
-To use this quickstart, you need the following prerequisites:
+To use this article, you need the following prerequisites:
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
@@ -77,7 +77,7 @@ To use this quickstart, you need the following prerequisites:
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. The remaining tasks in this quickstart take place in the context of this development container.
+1. The remaining tasks in this article take place in the context of this development container.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -204,7 +204,7 @@ The following steps walk you through the process of changing the settings.
 
 ### Clean up Azure resources
 
-The Azure resources created in this quickstart are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
+The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
@@ -248,7 +248,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
 
-If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues) so this quickstart can be improved.
+If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues).
 
 ## Related content
 
