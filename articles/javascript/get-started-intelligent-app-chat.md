@@ -26,7 +26,7 @@ This article is part of a collection of quickstarts that show you how to build a
 
 A simple architecture of the intelligent chat app is shown in the following diagram:
 
-:::image type="content" source="./media/quickstart-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="./media/get-started-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 Key components of the architecture include:
 
@@ -73,7 +73,7 @@ To use this article, you need the following prerequisites:
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -92,7 +92,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/quickstart-intelligent-app-chat/open-terminal-option.png" lightbox="./media/quickstart-intelligent-app-chat/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/get-started-intelligent-app-chat/open-terminal-option.png" lightbox="./media/get-started-intelligent-app-chat/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -140,7 +140,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use intelligent chat app to get answers from markdown files
 
@@ -156,7 +156,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. From the answer, select one of the citations.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of intelligent chat app's first answer with its citation highlighted in a red box.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of intelligent chat app's first answer with its citation highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -225,11 +225,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -237,7 +237,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/quickstart-intelligent-app-chat/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-intelligent-app-chat/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
