@@ -49,7 +49,7 @@ To run your application, use the following steps and replace the *`<...>`* place
 
      * `-Dazure.keyvault.managed-identity=<object-id-of-your-user-managed-identity>`
 
-For more information about these authentication scenarios, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals) and [How managed identities for Azure resources work with Azure virtual machines](/azure/active-directory/managed-identities-azure-resources/how-managed-identities-work-vm).
+For more information about these authentication scenarios, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals) and [How managed identities for Azure resources work with Azure virtual machines](/azure/active-directory/managed-identities-azure-resources/how-managed-identities-work-vm).
 
 ### Use a service principal
 

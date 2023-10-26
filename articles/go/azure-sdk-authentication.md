@@ -8,7 +8,7 @@ ms.custom: devx-track-go
 
 # Azure authentication with the Azure Identity module for Go
 
-In this tutorial, the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go is used to authenticate to Azure. The Azure Identity module offers several credential types that focus on OAuth with Azure Active Directory (Azure AD).
+In this tutorial, the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go is used to authenticate to Azure. The Azure Identity module offers several credential types that focus on OAuth with Microsoft Entra ID.
 
 `DefaultAzureCredential` simplifies authentication by combining commonly used credential types. It chains credential types used to authenticate Azure-deployed applications with credential types used to authenticate in a development environment.
 
@@ -45,7 +45,7 @@ The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure 
 |Variable name|Value
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
-|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
 |`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/bash)
@@ -70,8 +70,8 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|ID of an Azure AD application
-|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_CLIENT_ID`|ID of a Microsoft Entra application
+|`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
 |`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
 
 # [Bash](#tab/bash)
@@ -96,7 +96,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_CLIENT_ID`|ID of a Microsoft Entra application
 |`AZURE_USERNAME`|A username (usually an email address)
 |`AZURE_PASSWORD`|That user's password
 
@@ -122,13 +122,13 @@ Configuration is attempted in the preceding order. For example, if values for a 
 
 ### <span id="workload-identity"/> Option 2: Use Workload Identity
 
-[Azure AD Workload Identity](/azure/aks/workload-identity-overview) enables pods in a Kubernetes cluster to use a Kubernetes identity (service account). A Kubernetes token is issued, and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) enables Kubernetes applications to access Azure resources securely with Azure AD.
+[Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) enables pods in a Kubernetes cluster to use a Kubernetes identity (service account). A Kubernetes token is issued, and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) enables Kubernetes applications to access Azure resources securely with Microsoft Entra ID.
 
 If the required environment variables for `EnvironmentCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [WorkloadIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#WorkloadIdentityCredential). `WorkloadIdentityCredential` attempts to read the service principal configuration from environment variables set by the Workload Identity webhook.
 
 ### <span id="managed-identity"/> Option 3: Use a managed identity
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Microsoft Entra authentication, applications can use Microsoft Entra tokens instead of credentials.
 
 If the required environment variables for `WorkloadIdentityCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [ManagedIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential).
 

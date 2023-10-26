@@ -17,19 +17,21 @@ Application requests to Azure Database for MySQL must be authenticated. Azure Da
 
 ## Compare authentication options
 
-When the application authenticates with Azure Database for MySQL, it provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and MySQL authentication.
+When the application authenticates with Azure Database for MySQL, it provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Microsoft Entra authentication and MySQL authentication.
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Microsoft Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+### Microsoft Entra authentication
 
-Using Azure AD for authentication provides the following benefits:
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure Services in a uniform way.
 - Management of password policies and password rotation in a single place.
-- Multiple forms of authentication supported by Azure AD, which can eliminate the need to store passwords.
-- Customers can manage database permissions using external (Azure AD) groups.
-- Azure AD authentication uses MySQL database users to authenticate identities at the database level.
+- Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
+- Customers can manage database permissions using external (Microsoft Entra ID) groups.
+- Microsoft Entra authentication uses MySQL database users to authenticate identities at the database level.
 - Support of token-based authentication for applications connecting to Azure Database for MySQL.
 
 ### MySQL authentication
@@ -63,15 +65,17 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
-- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Azure AD non-admin user. Make sure the name is a valid user in your Azure AD tenant.
-- `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Azure AD user for your managed identity. Make sure the name is a valid user in your Azure AD tenant.
+- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Microsoft Entra non-admin user. Make sure the name is a valid user in your Microsoft Entra tenant.
+- `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Microsoft Entra user for your managed identity. Make sure the name is a valid user in your Microsoft Entra tenant.
 - `<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>`: The name of your user-assigned managed identity server, which should be unique across Azure.
 
 ### 1) Configure Azure Database for MySQL
 
-#### 1.1) Enable Azure AD-based authentication
+<a name='11-enable-azure-ad-based-authentication'></a>
 
-To use Azure Active Directory access with Azure Database for MySQL, you should set the Azure AD admin user first. Only an Azure AD Admin user can create/enable users for Azure AD-based authentication.
+#### 1.1) Enable Microsoft Entra ID-based authentication
+
+To use Microsoft Entra ID access with Azure Database for MySQL, you should set the Microsoft Entra admin user first. Only a Microsoft Entra Admin user can create/enable users for Microsoft Entra ID-based authentication.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -90,7 +94,7 @@ az identity create \
 > [!IMPORTANT]
 > After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
 
-Run the following command to assign the identity to the MySQL server for creating the Azure AD admin:
+Run the following command to assign the identity to the MySQL server for creating the Microsoft Entra admin:
 
 ```azurecli
 az mysql flexible-server identity assign \
@@ -99,7 +103,7 @@ az mysql flexible-server identity assign \
     --identity $AZ_USER_IDENTITY_NAME
 ```
 
-Then, run following command to set the Azure AD admin:
+Then, run following command to set the Microsoft Entra admin:
 
 ```azurecli
 az mysql flexible-server ad-admin create \
@@ -110,10 +114,10 @@ az mysql flexible-server ad-admin create \
     --identity $AZ_USER_IDENTITY_NAME
 ```
 
-This command will set the Azure AD admin to the current signed-in user.
+This command will set the Microsoft Entra admin to the current signed-in user.
 
 > [!NOTE]
-> You can only create one Azure AD admin per MySQL server. Selection of another one will overwrite the existing Azure AD admin configured for the server.
+> You can only create one Microsoft Entra admin per MySQL server. Selection of another one will overwrite the existing Microsoft Entra admin configured for the server.
 
 ### 2) Configure Azure Database for MySQL for local development
 
@@ -149,7 +153,7 @@ az mysql server firewall-rule create \
 
 #### 2.2) Create a MySQL non-admin user and grant permission
 
-Next, create a non-admin Azure AD user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
+Next, create a non-admin Microsoft Entra user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -164,7 +168,7 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
@@ -181,7 +185,7 @@ rm create_ad_user.sql
 
 ### 3) Sign in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your MySQL. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your MySQL. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [sign-in](includes/passwordless-sign-in.md)]
 
@@ -232,7 +236,7 @@ Next, use the following steps to update your code to use passwordless connection
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Azure AD user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
+1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 
    ```yaml
    spring:
@@ -332,7 +336,7 @@ You can use Service Connector to create a connection between an Azure compute ho
 - Azure Spring Apps
 - Azure Container Apps
 
-Before starting, use the following command to assign a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Before starting, use the following command to assign a user-assigned managed identity for Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 export AZ_IDENTITY_RESOURCE_ID=$(az identity create \
@@ -444,7 +448,7 @@ export AZ_MI_OBJECT_ID=$(az aks update \
 
 Next, grant permissions to the managed identity you assigned to access your MySQL instance.
 
-These steps will create an Azure AD user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
+These steps will create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
 First, create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -459,7 +463,7 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
@@ -507,4 +511,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

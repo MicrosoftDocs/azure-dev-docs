@@ -190,7 +190,7 @@ az extension add --name serviceconnector-passwordless --upgrade
 
 ### [Azure Database for MySQL](#tab/mysql)
 
-Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 export AZ_IDENTITY_RESOURCE_ID=$(az identity create \
@@ -219,7 +219,7 @@ az spring connection create mysql-flexible \
 This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Azure Active Directory admin to the current signed-in user.
+- Set the Microsoft Entra admin to the current signed-in user.
 - Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
 - Add two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
 
@@ -244,7 +244,7 @@ az spring connection create postgres-flexible \
 This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Azure Active Directory admin to current sign-in user.
+- Set the Microsoft Entra admin to current sign-in user.
 - Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
 - Add two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
 
@@ -274,7 +274,7 @@ az spring connection create sql \
 This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Azure Active Directory admin to current sign-in user.
+- Set the Microsoft Entra admin to current sign-in user.
 - Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
 - Add one configuration to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url`.
 

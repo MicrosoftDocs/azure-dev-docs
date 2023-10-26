@@ -5,7 +5,7 @@ author: adrianhall
 ms.service: mobile-services
 ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 11/11/2021
+ms.date: 10/13/2023
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
@@ -14,12 +14,12 @@ zone_pivot_groups: vs-platform-options
 
 # Add authentication to your .NET MAUI app
 
-In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered at the moment.
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps. 
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
@@ -35,11 +35,13 @@ In this tutorial, you add Microsoft authentication to your app using Azure Activ
 
 ::: zone-end
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.MAUI` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.MAUI` project:
 
@@ -182,6 +184,19 @@ namespace TodoApp.MAUI
 
 Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
+If your project targets Android version 11 (API version 30) or later, you must update your `AndroidManifest.xml` to meet the [Android package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).  Open `Platforms/Android/AndroidManifest.xml` and add the following `queries/intent` nodes to the `manifest` node:
+
+```xml
+<manifest>
+  ...
+  <queries>
+    <intent>
+      <action android:name="android.support.customtabs.action.CustomTabsService" />
+    </intent>
+  </queries>
+</manifest>
+```
+
 Open `MauiProgram.cs`.  Include the following `using` statements at the top of the file:
 
 ``` csharp
@@ -212,19 +227,19 @@ Update the builder to the following code:
         });
 ```
 
-If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
+If you're doing this step after updating the application for iOS, add the code designated by the `#if ANDROID` (including the `#if` and `#endif`).  The compiler picks the correct piece of code based on the platform that is being compiled. This code can be placed either before or after the existing block for iOS.
 
-When the Android requires authentication, it will obtain an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The redirect URL is trapped by the `MsalActivity`, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper, which completes the transaction.
+When the Android requires authentication, it obtains an identity client, then switch to an internal activity that opens the system browser.  Once authentication is complete, the system browser redirects to the defined redirect URL (`msal{client-id}://auth`).  The `MsalActivity` traps the redirect URL, which then switches back to the main activity by calling `OnActivityResult()`.  The `OnActivityResult()` method calls the MSAL authentication helper to complete the transaction.
 
 ## Test the Android app
 
-Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ::: zone pivot="vs2022-windows"
 
 ## Test the Windows app
 
-Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ::: zone-end
 
@@ -262,7 +277,7 @@ Update the builder to the following code:
         });
 ```
 
-If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler will pick the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
+If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler picks the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
 
 > In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
 
@@ -270,7 +285,7 @@ If you're doing this step after updating the application for Android, add the co
 
 [!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
  
-Set `TodoApp.MAUI` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.MAUI` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ::: zone-end
 

@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.iOS app using Azure Mobile Apps 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2022
+ms.date: 10/13/2023
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
@@ -13,7 +13,7 @@ zone_pivot_groups: vs-platform-options
 
 # Add authentication to your Xamarin.iOS app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires 
@@ -21,7 +21,7 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 > adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
@@ -37,11 +37,13 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 ::: zone-end
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.iOS` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.iOS` project:
 
@@ -182,8 +184,8 @@ Add keychain access to the `Entitlements.plist`:
 
 1. Open the `Entitlements.plist` file.
 2. If necessary, switch from the **Source** view to the **Entitlements** view.  The selector is in the top-right corner of the window.
-3. Scroll down until you find the **Keychain** panel. 
-4. Turn the **Keychain** switch on.
+3. Scroll down until you find the **Keychain** panel.
+4. Turn on the **Keychain** switch.
 5. Select the green **+** icon.
 6. Enter `com.microsoft.adalcache` in the provided box (overwriting whatever is already there), then press Enter.
 
@@ -196,7 +198,7 @@ Add the custom entitlements to the project:
 3. Select the **...** button next to the **Custom Entitlements** field.
 4. Select `TodoApp.iOS` > `Entitlements.plist`, then select **Open**.
 5. Select **OK**.
-   
+
    ![Screenshot showing the i O S bundle signing properties.](./media/mac-bundle-signing.png)
 
 ::: zone-end
@@ -206,7 +208,7 @@ Add the custom entitlements to the project:
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up a provisioning profile.  A provisioning profile requires either a real device or a paid Apple Developer Account (if using the simulator).  
 
-Set `TodoApp.iOS` as the startup project, then build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
+Set `TodoApp.iOS` as the startup project, then build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Next steps
 

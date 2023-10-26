@@ -86,7 +86,7 @@ The following table lists application starters provided by Spring Cloud Azure un
 > | Name                                             | Description                                                                             |
 > |--------------------------------------------------|-----------------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter                       | The core starter, including auto-configuration support.                                 |
-> | spring-cloud-azure-starter-active-directory      | The starter for using Azure Active Directory with Spring Security.                      |
+> | spring-cloud-azure-starter-active-directory      | The starter for using Microsoft Entra ID with Spring Security.                      |
 > | spring-cloud-azure-starter-active-directory-b2c  | The starter for using Azure Active Directory B2C with Spring Security.                  |
 > | spring-cloud-azure-starter-appconfiguration      | The starter for using Azure App Configuration.                                          |
 > | spring-cloud-azure-starter-cosmos                | The starter for using Azure Cosmos DB.                                                  |
@@ -131,14 +131,14 @@ The following table lists starters for MySQL support:
 > [!div class="mx-tdBreakAll"]
 > | Name                                         | Description                                                                   |
 > |----------------------------------------------|-------------------------------------------------------------------------------|
-> | spring-cloud-azure-starter-jdbc-mysql        | The starters for using Azure MySQLs and JDBC through Azure AD authentication. |
+> | spring-cloud-azure-starter-jdbc-mysql        | The starters for using Azure MySQLs and JDBC through Microsoft Entra authentication. |
 
 The following table lists starters for PostgreSQL support:
 
 > [!div class="mx-tdBreakAll"]
 > | Name                                         | Description                                                                       |
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
-> | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Azure AD authentication. |
+> | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
 ### Learning Spring Cloud Azure
 

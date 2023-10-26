@@ -1,7 +1,7 @@
 ---
 title: 'Overview: Authenticate Python apps to Azure using the Azure SDK'
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Python in both server environments and in local development.
-ms.date: 03/31/2022
+ms.date: 10/19/2023
 ms.topic: overview
 ms.custom: devx-track-python
 ---
