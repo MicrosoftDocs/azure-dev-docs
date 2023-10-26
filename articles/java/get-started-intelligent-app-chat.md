@@ -151,6 +151,8 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
 
+:::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of intelligent chat developer settings.":::
+
 |Setting|Description|
 |---|---|
 |Override prompt template|This is the prompt that is used to generate the answer.|
