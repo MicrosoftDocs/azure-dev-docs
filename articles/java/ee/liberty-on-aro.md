@@ -28,7 +28,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 Complete the following prerequisites to successfully use this guide.
 
 1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
-1. Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
+1. Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 or later.
@@ -112,15 +112,24 @@ We use a Java EE 8 application as our example in this guide. Open Liberty is a [
 
 ### Run the application on Open Liberty
 
-To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin isn't required to deploy the application to OpenShift. However, we use it in this example with Open Liberty’s developer (dev) mode. Developer mode lets you easily run the application locally. Complete the following steps on your local computer.
+To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin isn't required to deploy the application to OpenShift. However, we use it in this example with Open Liberty’s developer (dev) mode. Developer mode lets you easily run the application locally. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
-# [with DB connection](#tab/with-mysql-devc)
-
-Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`.
 
 #### Check out the application
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
+
+```bash
+git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
+cd open-liberty-on-aro
+git checkout 20231026
+```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+
+# [with DB connection](#tab/with-mysql-devc)
+
 There are three samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
 
 ```
@@ -129,16 +138,13 @@ open-liberty-on-aro/3-integration/connect-db/mysql
 │  ├─ aro/
 │  │  ├─ db-secret.yaml
 │  │  ├─ openlibertyapplication.yaml
-│  ├─ docker/
-│  │  ├─ Dockerfile
-│  │  ├─ Dockerfile-local
-│  │  ├─ Dockerfile-wlp
-│  │  ├─ Dockerfile-wlp-local
 │  ├─ liberty/config/
 │  │  ├─ server.xml
 │  ├─ java/
 │  ├─ resources/
 │  ├─ webapp/
+├─ Dockerfile
+├─ Dockerfile-wlp
 ├─ pom.xml
 ```
 
@@ -146,7 +152,7 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *aro* directory, we placed two deployment files. *db-secret.xml* is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-In the *docker* directory, we placed four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an Azure Red Hat OpenShift deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an Azure Red Hat OpenShift deployment respectively, but instead work with WebSphere Liberty.
+In the root directory, we placed two Dockerfiles. *Dockerfile* and *Dockerfile-wlp* are used for local debugging and to build the image for an Azure Red Hat OpenShift deployment, working with Open Liberty and WebSphere Liberty respectively.
 
 In the *liberty/config* directory, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -171,7 +177,6 @@ mvn clean install
 #### Test your application locally
 
 Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
-In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-local for use with `liberty:devc`.
 
 1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
 
@@ -181,13 +186,13 @@ In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-lo
    cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 
    # If you are running with Open Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
+   mvn liberty:devc -DcontainerRunOpts="-e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_PORT_NUMBER=${DB_PORT_NUMBER} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD}" -Dcontainerfile=Dockerfile
 
    # If you are running with WebSphere Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
+   mvn liberty:devc -DcontainerRunOpts="-e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_PORT_NUMBER=${DB_PORT_NUMBER} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD}" -Dcontainerfile=Dockerfile-wlp
    ```
 
-1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
@@ -206,7 +211,7 @@ In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-lo
    [INFO] Source compilation was successful.
    ```
 
-1. Open `http://localhost:9080/` in your browser to visit the application home page. The application should look similar to the following image:
+1. Open `https://localhost:9443/` in your browser to visit the application home page. The application should look similar to the following image:
 
    :::image type="content" source="media/liberty-on-aro/javaee-cafe-web-ui.png" alt-text="Screenshot of JavaEE Cafe Web UI.":::
 
@@ -237,7 +242,6 @@ Since you have already successfully run the app in the Liberty Docker container,
    # Fetch maven artifactId as image name, maven build version as image version
    export IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
    export IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
 
    # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
 
@@ -245,6 +249,12 @@ Since you have already successfully run the app in the Liberty Docker container,
    # mv Dockerfile Dockerfile.backup
    # mv Dockerfile-wlp Dockerfile
    ```
+
+1. Change project to "open-liberty-demo"
+
+   ```bash
+   oc project open-liberty-demo
+   ``` 
 
 1. Create an image stream.
 
@@ -288,9 +298,9 @@ Before deploying the containerized application to a remote cluster, build and ru
      docker build -t javaee-cafe-simple:1.0.0 --pull --file=Dockerfile-wlp .
      ```
 
-1. Run `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` in your console.
+1. Run `docker run -it --rm -p 9443:9443 javaee-cafe-simple:1.0.0` in your console.
 1. Wait for Liberty server to start and the application to deploy successfully.
-1. Open `http://localhost:9080/` in your browser to visit the application home page.
+1. Open `https://localhost:9443/` in your browser to visit the application home page.
 1. Press **Control-C** to stop the application and Liberty server.
 
 ### Build the application and push to the image stream
@@ -309,6 +319,12 @@ When you're satisfied with the state of the application, you're going to build t
    # mv Dockerfile Dockerfile.backup
    # mv Dockerfile-wlp Dockerfile
    ```
+
+1. Change project to "open-liberty-demo"
+
+   ```bash
+   oc project open-liberty-demo
+   ``` 
 
 1. Create an image stream.
 
@@ -397,7 +413,7 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
 
    # Get host of the route
    export HOST=$(oc get route ${IMAGE_NAME} --template='{{ .spec.host }}')
-   echo "Route Host: $HOST"
+   echo "Route Host: https://$HOST"
    ```
 
 Once the Liberty application is up and running, open the output of **Route Host** in your browser to visit the application home page.
@@ -476,9 +492,9 @@ Instead of using the web console GUI, you can deploy the application from the CL
    ```bash
    # Get host of the route
    export HOST=$(oc get route javaee-cafe-simple --template='{{ .spec.host }}')
-   echo "Route Host: $HOST"
+   echo "Route Host: https://$HOST"
 
-   Route Host: javaee-cafe-simple-open-liberty-demo.apps.aqlm62xm.rnfghf.aroapp.io
+   Route Host: https://javaee-cafe-simple-open-liberty-demo.apps.aqlm62xm.rnfghf.aroapp.io
    ```
 
    Once the Liberty application is up and running, open the output of **Route Host** in your browser to visit the application home page.
