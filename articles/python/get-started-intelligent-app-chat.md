@@ -1,15 +1,17 @@
 ---
-title: Get started with the ChatGPT + Enterprise data sample in Python
-description: Get started with Python and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
+title: Get started with the enterprise chat app template for Python
+description: Get started with Python and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 10/25/2023
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search in Python
+# Get started with the enterprise chat app template for Python
 
-Deploy and use an intelligent chat app to get answers about employee benefits at a fictitious company with Python. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this article, you will:
+Deploy and use an intelligent chat app to get answers about employee benefits at a fictitious company with Python. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+
+By following the instructions in this article, you will:
 
 - Deploy an intelligent chat app to Azure.
 - Get answers about employee benefits.
@@ -33,6 +35,12 @@ Key components of the architecture include:
     * Keywords to enhance the search over your own data.
     * Answers from the OpenAI model.
     * Embeddings from the ada model
+
+## Cost 
+
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you are done with the article, you can delete the resources to stop incurring charges.
+
+Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation).
 
 ## Prerequisites
 
@@ -73,6 +81,14 @@ To use this article, you need the following prerequisites:
     :::image type="content" source="./media/get-started-intelligent-app-chat/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
+
+1. Sign in to Azure with the Azure Developer CLI.
+
+    ```bash
+    azd auth login
+    ```
+
+1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. The remaining tasks in this article take place in the context of this development container.
 
