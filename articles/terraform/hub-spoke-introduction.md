@@ -2,7 +2,9 @@
 title: Create a hub and spoke hybrid network topology in Azure using Terraform
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: how-to
-ms.date: 03/18/2023
+service: virtual-network
+ms.service: virtual-network
+ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---
 

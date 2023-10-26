@@ -4,8 +4,8 @@ description: Learn how to use Terraform to configure a Network Watcher and NSG f
 keywords: azure devops terraform network watcher traffic analytics nsg
 service: network-watcher
 ms.service: network-watcher
-ms.topic: how-to
 ms.date: 10/26/2023
+ms.topic: how-to
 ms.custom: devx-track-terraform
 ---
 
