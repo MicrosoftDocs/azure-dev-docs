@@ -2,10 +2,10 @@
 title: Configure Azure Virtual Desktop Network Settings using Terraform - Azure
 description: Learn how to use Terraform to configure Network Settings for Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop nsg
-service: azure-virtual-desktop
-ms.service: azure-virtual-desktop
+service: azure
+ms.service: azure
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---
 
