@@ -361,27 +361,45 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
-1. In the middle of the page, select **Open Liberty Operator**.
-1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
+1. In the middle of the page, select **Open Liberty**.
+1. From **Provided APIs**, select **OpenLibertyApplication**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
 
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
    :::image type="content" source="media/liberty-on-aro/aro-java-containment.png" alt-text="Diagram of Azure Red Hat OpenShift Java Containment." border="false":::
 
-1. Select **Create OpenLibertyApplication**
+1. Select **Create OpenLibertyApplication**.
+1. Select **YAML view** for **Configure via**.
 1. Replace the generated yaml with yours, which is located at *\<path-to-repo\>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml*.
 1. Select **Create**. You're returned to the list of OpenLibertyApplications.
 1. Navigate to **Workloads** > **Secrets**.
 1. Select **Create** > From YAML.
 1. Replace the generated yaml with yours, which is located at *\<path-to-repo\>/3-integration/connect-db/mysql/target/db-secret.yaml*.
 1. Select **Create**. You're returned to the Secret details page.
-1. Select **Add Secret to workload**, then select **javaee-cafe-mysql** from the dropdown box, then select **Save**.
-1. Navigate to **Operators** > **Installed Operators** > **Open Liberty Operator** > **Open Liberty Application**.
+1. Navigate to **Operators** > **Installed Operators** > **Open Liberty** > **OpenLibertyApplication**.
 1. Select **javaee-cafe-mysql**.
 1. In the middle of the page, select **Resources**.
 1. In the table, select the link for **javaee-cafe-mysql** with the **Kind** of **Route**.
 1. On the page that opens, select the link below **Location**.
 
 You're shown the application home page opened in the browser.
+
+### Delete the application from the web console
+
+When you're done with the application, follow these steps to delete the application from Open Shift.
+
+1. In the left navigation pane, expand the entry for **Operators**.
+1. Select **Installed Operators**.
+1. Select **Open Liberty**.
+1. In the middle of the page, select **OpenLibertyApplication**.
+1. For **javaee-cafe-mysql**, select the vertical ellipsis (three vertical dots) then select **Delete OpenLibertyApplication**. 
+1. Select **Delete** to delete the application.
+
+Follow these steps to delete the secret from Open Shift.
+
+1. Navigate to **Workloads** > **Secrets**.
+1. Select **db-secret-mysql**.
+1. Select **Actions** > **Delete Secret**.
+1. Select **Delete** to delete the secret.
 
 # [with DB from CLI](#tab/with-mysql-deploy-cli)
 
@@ -420,6 +438,15 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
 
 Once the Liberty application is up and running, open the output of **Route Host** in your browser to visit the application home page.
 
+### Delete the application from CLI
+
+Delete the application and secret from the CLI by executing this command.
+
+```bash
+oc delete -f openlibertyapplication.yaml
+oc delete -f db-secret.yaml
+```
+
 # [without DB from web console](#tab/without-mysql-deploy-console)
 
 ### Deploy the application from the web console
@@ -429,13 +456,14 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
-1. In the middle of the page, select **Open Liberty Operator**.
-1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
+1. In the middle of the page, select **Open Liberty**.
+1. From **Provided APIs**, select **OpenLibertyApplication**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
 
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
    :::image type="content" source="media/liberty-on-aro/aro-java-containment.png" alt-text="Diagram of Azure Red Hat OpenShift Java Containment." border="false":::
 
-1. Select **Create OpenLibertyApplication**
+1. Select **Create OpenLibertyApplication**.
+1. Select **YAML view** for **Configure via**.
 1. Replace the generated yaml with yours, which is located at *\<path-to-repo\>/2-simple/openlibertyapplication.yaml*.
 1. Select **Create**. You're returned to the list of OpenLibertyApplications.
 1. Select **javaee-cafe-simple**.
@@ -451,9 +479,10 @@ When you're done with the application, follow these steps to delete the applicat
 
 1. In the left navigation pane, expand the entry for **Operators**.
 1. Select **Installed Operators**.
-1. Select **Open Liberty Operator**.
-1. In the middle of the page, select **Open Liberty Application**.
-1. Select the vertical ellipsis (three vertical dots) then select **Delete OpenLiberty Application**.
+1. Select **Open Liberty**.
+1. In the middle of the page, select **OpenLibertyApplication**.
+1. For **javaee-cafe-simple**, select the vertical ellipsis (three vertical dots) then select **Delete OpenLibertyApplication**. 
+1. Select **Delete** to delete the application.
 
 # [without DB from CLI](#tab/without-mysql-deploy-cli)
 
