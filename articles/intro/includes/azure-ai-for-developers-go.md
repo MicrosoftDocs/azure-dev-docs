@@ -1,4 +1,4 @@
-## OpenAI for Go Developers
+## OpenAI for Go developers
 
 |Link|Description|
 |---|---|
@@ -11,7 +11,7 @@
 |[Embeddings](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetEmbeddings)|Simple example demonstrating how to create embeddings.|
 |[Other examples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)|Go package version of documentation for the OpenAI client module for Go.|
 
-## Secure your Azure AI Resources
+## Secure your Azure AI resources
 
 |Link|Description|
 |---|---|
