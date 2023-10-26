@@ -82,6 +82,15 @@ To use this article, you need the following prerequisites:
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
+1. Sign in to Azure with the Azure Developer CLI.
+
+    ```bash
+    azd auth login
+    ```
+
+1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
+
 1. The remaining tasks in this article take place in the context of this development container.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
