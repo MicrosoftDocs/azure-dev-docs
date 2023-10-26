@@ -130,7 +130,7 @@ If you see a message about being in "detached HEAD" state, this message is safe 
 
 # [with DB connection](#tab/with-mysql-devc)
 
-There are three samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
+There are a few samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
 
 ```
 open-liberty-on-aro/3-integration/connect-db/mysql
@@ -197,6 +197,8 @@ Use the `liberty:devc` command to run and test the project locally before dealin
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
 # [without DB connection](#tab/without-mysql-dev)
+
+There are a few samples in the repository. We use *open-liberty-on-aro/1-start* and *open-liberty-on-aro/2-simple*.
 
 1. Copy `2-simple/src/main/liberty/config/server.xml` to `1-start/src/main/liberty/config`, overwriting the existing zero-length file. This `server.xml` configures the Open Liberty server with Java EE features.
 1. Copy `2-simple/pom.xml` to `1-start/pom.xml`. This step adds the `liberty-maven-plugin` to the POM.
