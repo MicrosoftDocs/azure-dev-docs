@@ -59,7 +59,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 1. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty**.
 1. Select **Open Liberty** from the search results.
 1. Select **Install**.
-1. In the page **Install Operator**, check **beta2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
+1. In the page **Install Operator**, check **v1.2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
    :::image type="content" source="media/liberty-on-aro/install-operator.png" alt-text="Screenshot of creating operator subscription for Open Liberty Operator.":::
 
@@ -82,29 +82,29 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Use the following steps to set up an Azure Database for MySQL for use with your app. If your application doesn't require a database, you can skip this section.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Return to this document after creating the database.
+1. Create an Azure Database for MySQL flexible server by following the steps in: [Quickstart: Use the Azure portal to create an Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). Return to this document after creating the database.
 
    > [!NOTE]
-   > At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
+   > At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Admin username** and **Password**.
 
-1. Once your database is created, open **your SQL server** > **Connection security** and complete the following settings:
+1. Once your database is created, open **your database** > **Networking**.
 
-   1. Set **Allow access to Azure services** to **Yes**.
-   1. Select **Add current client IP address**. 
-   1. Set **Minimal TLS Version** to **>1.0** and select **Save**.
+   1. Under **Public access**, ensure **Allow public access to this resource through the internet using a public IP address** is selected.
+   1. Select **Allow public access from any Azure service within Azure to this server**.
+   1. Ensure your client IPv4 address is in the allowlist of **Firewall rules**. 
 
-   :::image type="content" source="media/liberty-on-aro/configure-mysql-database-connection-security.png" alt-text="Screenshot of configuring mysql database connection security rule.":::
+   :::image type="content" source="media/liberty-on-aro/configure-mysql-database-networking.png" alt-text="Screenshot of configuring mysql database networking.":::
 
-1. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the following example.
+1. Open **your database** > **Connect** > Select **Connect from your app** > **JDBC**. Write down the **Port number** following database server address. For example, **3306** is the port number in the following example.
 
    ```text
-   String url ="jdbc:mysql://<Server name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
+   String url="jdbc:mysql://jiangmamysqlserver.mysql.database.azure.com:3306/{your_database}?useSSL=true";myDbConn=DriverManager.getConnection(url, "mydemouser", "{your_password}");
    ```
 
-1. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
+1. Open **your database** > **Databases** > Select **Add**. Fill in value for **Name** and select **Save** to create a user database.
 
    > [!NOTE]
-   > Write down the **Database name** you created.
+   > Write down the **Name** for the database you created.
 
 ## Prepare the Liberty application
 
@@ -161,7 +161,7 @@ cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 export DB_SERVER_NAME=<Server name>.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
 export DB_NAME=<Database name>
-export DB_USER=<Server admin username>@<Server name>
+export DB_USER=<Server admin username>
 export DB_PASSWORD=<Server admin password>
 export NAMESPACE=open-liberty-demo
 
