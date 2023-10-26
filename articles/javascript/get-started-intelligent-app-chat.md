@@ -1,13 +1,13 @@
 ---
-title: Get started with the ChatGPT + Enterprise data sample in JavaScript
-description: Get started with JavaScript and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI.
-ms.date: 10/25/2023
+title: Get started with the enterprise chat app template for JavaScript
+description: Get started with JavaScript and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
+ms.date: 10/26/2023
 ms.topic: get-started
 ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search in JavaScript
+# Get started with the enterprise chat app template for JavaScript
 
 Deploy and use an intelligent chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
@@ -17,7 +17,7 @@ By following the instructions in this article, you will:
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
 
-Once you complete this procedure, you can start modifying the new project with your custom code.
+Once you complete this article, you can start modifying the new project with your custom code and data.
 
 This article is part of a collection of articles that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
 
@@ -30,11 +30,17 @@ A simple architecture of the intelligent chat app is shown in the following diag
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search resource to get answers from your own data.
+* An Azure Cognitive Search resource to get answers from your own data. Data is ingested during app startup.
 * An Azure OpenAI Service to provide: 
     * Keywords to enhance the search over your own data.
     * Answers from the OpenAI model.
     * Embeddings from the ada model
+
+## Cost 
+
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you are done with the article, you can delete the resources to stop incurring charges.
+
+Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-javascript#cost-estimation).
 
 ## Prerequisites
 
@@ -68,7 +74,7 @@ To use this article, you need the following prerequisites:
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository:
 
     > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&repo=684521881)
+    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=684521881)
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
