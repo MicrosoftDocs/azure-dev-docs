@@ -101,7 +101,7 @@ Use the following steps to set up an Azure Database for MySQL for use with your 
    String url="jdbc:mysql://jiangmamysqlserver.mysql.database.azure.com:3306/{your_database}?useSSL=true";myDbConn=DriverManager.getConnection(url, "mydemouser", "{your_password}");
    ```
 
-1. Open **your database** > **Databases** > Select **Add**. Fill in value for **Name** and select **Save** to create a user database.
+1. Open **your database** > **Databases** > Select **Add**. Fill in value for **Name** and select **Save** to create a new database. This database has **Scheme type** as **User** and will be used for the application later.
 
    > [!NOTE]
    > Write down the **Name** for the database you created.
