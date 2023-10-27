@@ -152,7 +152,7 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *aro* directory, we placed two deployment files. *db-secret.xml* is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-In the root directory, we placed two Dockerfiles. *Dockerfile* and *Dockerfile-wlp* are used for local debugging and to build the image for an Azure Red Hat OpenShift deployment, working with Open Liberty and WebSphere Liberty respectively.
+In the root directory, we placed two Dockerfiles. *Dockerfile* and *Dockerfile-wlp* are used for local debugging and to build the image for an Azure Red Hat OpenShift deployment, working with Open Liberty and WebSphere Liberty, respectively.
 
 In the *liberty/config* directory, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -290,14 +290,14 @@ Before deploying the containerized application to a remote cluster, build and ru
 
      ```bash
      # Build and tag application image. This will cause Docker to pull the necessary Open Liberty base images.
-     docker build -t javaee-cafe-simple:1.0.0 --pull .
+     docker buildx build --platform linux/amd64 -t javaee-cafe-simple:1.0.0 --pull .
      ```
 
    * Build with WebSphere Liberty base image:
 
      ```bash
      # Build and tag application image. This will cause Docker to pull the necessary WebSphere Liberty base images.
-     docker build -t javaee-cafe-simple:1.0.0 --pull --file=Dockerfile-wlp .
+     docker buildx build --platform linux/amd64 -t javaee-cafe-simple:1.0.0 --pull --file=Dockerfile-wlp .
      ```
 
 1. Run `docker run -it --rm -p 9443:9443 javaee-cafe-simple:1.0.0` in your console.
