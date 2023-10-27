@@ -232,7 +232,7 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 ```bash/powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
-git checkout 20231023
+git checkout 20231026
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
@@ -303,16 +303,16 @@ You can now run and test the project locally before deploying to Azure. For conv
 > [!NOTE]
 > If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [Deploy application on Azure Container Apps](#deploy-application-on-azure-container-apps). If you chose to run commands locally, you can use the following guidance.
 
-You can now run the `docker build` command to build the image.
+You can now run the `docker buildx build` command to build the image.
 
 ```bash/powershell
 cd <path-to-your-repo>/java-app
 
 # If you are running with Open Liberty
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 
 # If you are running with WebSphere Liberty
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
 ### (Optional) Test the Docker image locally
@@ -455,11 +455,17 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name $Env:DB_RESOURCE_GROUP --yes --no-wait
 ```
 
+Remove the container image from your local Docker server.
+
+```bash/powershell
+docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
+```
+
 ---
 
 ## Next steps
 
-You can learn more from references used in this guide:
+You can learn more from the references used in this guide:
 
 * [Azure Container Apps](https://azure.microsoft.com/products/container-apps)
 * [Open Liberty](https://openliberty.io/)
