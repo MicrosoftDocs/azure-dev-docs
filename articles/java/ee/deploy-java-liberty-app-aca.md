@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
 
-This article is a guidance for running Open/WebSphere Liberty on Azure Container Apps, which explains how to:
+This article is shows you how to run Open/WebSphere Liberty on Azure Container Apps. You'll do the following activities in this article.
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Liberty container images.
@@ -49,6 +49,8 @@ az login
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
 >
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+> 
+> If you have multiple subscriptions within a single tenant, make sure you are signed in with the one you intend to use by using `az acount set -s <subscription id>`.
 
 ## Create a resource group
 
@@ -112,15 +114,15 @@ You need to sign in to the ACR instance before you can push an image to it. If y
 
 ```bash
 export ACR_LOGIN_SERVER=$(az acr show \
-    --name $REGISTRY_NAME \
+    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
     --query 'loginServer' \
     --output tsv)
 export ACR_USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME \
+    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
     --query 'username' \
     --output tsv)
 export ACR_PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME \
+    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
     --query 'passwords[0].value' \
     --output tsv)
 
@@ -130,9 +132,9 @@ docker login $ACR_LOGIN_SERVER -u $ACR_USER_NAME -p $ACR_PASSWORD
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-$Env:ACR_LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer' --output tsv)
-$Env:ACR_USER_NAME=$(az acr credential show --name $Env:REGISTRY_NAME --query 'username' --output tsv)
-$Env:ACR_PASSWORD=$(az acr credential show --name $Env:REGISTRY_NAME --query 'passwords[0].value' --output tsv)
+$Env:ACR_LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'loginServer' --output tsv)
+$Env:ACR_USER_NAME=$(az acr credential show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'username' --output tsv)
+$Env:ACR_PASSWORD=$(az acr credential show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'passwords[0].value' --output tsv)
 
 docker login $Env:ACR_LOGIN_SERVER -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD
 ```
@@ -166,11 +168,20 @@ az containerapp env create --resource-group $Env:RESOURCE_GROUP_NAME --location 
 
 If you're asked to install an extension, answer <kbd>Y</kbd>.
 
+After a short time, you should see a JSON output that contains the following lines:
+
+```output
+  "provisioningState": "Succeeded",
+  "type": "Microsoft.App/managedEnvironments"
+  "resourceGroup": "java-liberty-project",
+```
+
+
 ## Create an Azure SQL Database
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following directions as you go through the article, then return to this document after you create and configure the database server.
 
 1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
 
@@ -194,11 +205,19 @@ Create a single database in Azure SQL Database by following the Azure CLI steps 
    $Env:DB_PASSWORD = "<password>"
    ```
 
-1. If you want to test the application locally later, ensure your client IPv4 address is in the allowlist of **Firewall rules**.
+If you want to test the application locally later, follow these steps to ensure your client IPv4 address is allowed to connect.
+
+1. In the portal, search for and select **SQL databases**, and then select your database from the list.
+1. Select **Overview**.
+1. Ensure the **Getting started** tab is selected in the middle of the page.
+1. Under **Configure access** select **Configure**.
+1. Select **Add your client IPv4 address**.
+1. Select **Save**.
+
+1. You can find and configure **Firewall rules** in the **Networking** pane and **Public access** tab.
 
    :::image type="content" source="./media/deploy-java-liberty-app-aca/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
 
-   You can find and configure **Firewall rules** after navigating to your Azure SQL Database server, **Networking** pane and **Public access** tab.
 
 ## Configure and build the application image
 
@@ -247,6 +266,19 @@ Use the following command to build the application.
 cd <path-to-your-repo>/java-app
 mvn clean install
 ```
+
+If the build is successful, you should see output similar to the following at the end of your build.
+
+```output
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.651 s
+[INFO] Finished at: 2023-10-26T18:58:40-04:00
+[INFO] ------------------------------------------------------------------------
+```
+
+If not, troubleshoot and resolve the problem before continuing.
 
 ### (Optional) Test your project locally
 
