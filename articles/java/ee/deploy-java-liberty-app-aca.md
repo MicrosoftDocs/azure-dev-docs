@@ -1,19 +1,19 @@
 ---
-title: Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
+title: Deploy a Java Application with Open Liberty or WebSphere Liberty on Azure Container Apps
 recommendations: false
-description: Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps.
+description: Shows you how to deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
 
-This article is shows you how to run Open/WebSphere Liberty on Azure Container Apps. You'll do the following activities in this article.
+This article shows you how to run Open Liberty or WebSphere Liberty on Azure Container Apps. You'll do the following activities in this article:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Liberty container images.
@@ -27,30 +27,41 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-* If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with either Windows or Linux installed.
-  * Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+If you're running the commands in this guide locally (instead of Azure Cloud Shell):
+
+* Prepare a local machine with either Windows or Linux installed.
+* Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 * This article requires at least version 2.53.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. You can launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
 
-### Sign in to Azure
+## Sign in to Azure
 
 If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
-```bash/powershell
+### [Bash](#tab/in-bash)
+
+```bash
 az login
 ```
+
+### [PowerShell](#tab/in-powershell)
+
+```powershell
+az login
+```
+
+---
 
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
 >
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
-> 
-> If you have multiple subscriptions within a single tenant, make sure you are signed in with the one you intend to use by using `az acount set -s <subscription id>`.
+> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
+>
+> If you have multiple subscriptions within a single tenant, make sure you are signed in with the one you intend to use by using `az account set --subscription <subscription-id>`.
 
 ## Create a resource group
 
@@ -106,7 +117,7 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the ACR instance
+## Connect to the ACR instance
 
 You need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
 
@@ -114,15 +125,18 @@ You need to sign in to the ACR instance before you can push an image to it. If y
 
 ```bash
 export ACR_LOGIN_SERVER=$(az acr show \
-    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $REGISTRY_NAME \
     --query 'loginServer' \
     --output tsv)
 export ACR_USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $REGISTRY_NAME \
     --query 'username' \
     --output tsv)
 export ACR_PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $REGISTRY_NAME \
     --query 'passwords[0].value' \
     --output tsv)
 
@@ -145,7 +159,7 @@ You should see `Login Succeeded` at the end of command output if you've logged i
 
 ## Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named *youracaenvname*.
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named *youracaenvname*:
 
 ### [Bash](#tab/in-bash)
 
@@ -176,48 +190,45 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-
 ## Create an Azure SQL Database
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following directions as you go through the article, then return to this document after you create and configure the database server.
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following steps as you go through the article, then return to this document after you create and configure the database server:
 
-1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
+When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
 
-   ### [Bash](#tab/in-bash)
+### [Bash](#tab/in-bash)
 
-   ```bash
-   export DB_RESOURCE_GROUP=<resourceGroup>
-   export DB_SERVER_NAME=<server>.database.windows.net
-   export DB_NAME=<database>
-   export DB_USER=<login>
-   export DB_PASSWORD=<password>
-   ```
+```bash
+export DB_RESOURCE_GROUP=<resourceGroup>
+export DB_SERVER_NAME=<server>.database.windows.net
+export DB_NAME=<database>
+export DB_USER=<login>
+export DB_PASSWORD=<password>
+```
 
-   ### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   $Env:DB_RESOURCE_GROUP = "<resourceGroup>"
-   $Env:DB_SERVER_NAME = "<server>.database.windows.net"
-   $Env:DB_NAME = "<database>"
-   $Env:DB_USER = "<login>"
-   $Env:DB_PASSWORD = "<password>"
-   ```
+```powershell
+$Env:DB_RESOURCE_GROUP = "<resourceGroup>"
+$Env:DB_SERVER_NAME = "<server>.database.windows.net"
+$Env:DB_NAME = "<database>"
+$Env:DB_USER = "<login>"
+$Env:DB_PASSWORD = "<password>"
+```
 
-If you want to test the application locally later, follow these steps to ensure your client IPv4 address is allowed to connect.
+If you want to test the application locally later, use the following steps to ensure your client IPv4 address is allowed to connect:
 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.
 1. Select **Overview**.
 1. Ensure the **Getting started** tab is selected in the middle of the page.
-1. Under **Configure access** select **Configure**.
+1. Under **Configure access**, select **Configure**.
 1. Select **Add your client IPv4 address**.
 1. Select **Save**.
-
 1. You can find and configure **Firewall rules** in the **Networking** pane and **Public access** tab.
 
    :::image type="content" source="./media/deploy-java-liberty-app-aca/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
-
 
 ## Configure and build the application image
 
@@ -227,17 +238,29 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aca).
+Use the following commands to prepare the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aca).
 
-```bash/powershell
+#### [Bash](#tab/in-bash)
+
+```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 git checkout 20231026
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+#### [PowerShell](#tab/in-powershell)
 
-This article uses *java-app*. Here's the file structure of the application.
+```powershell
+git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
+cd open-liberty-on-aca
+git checkout 20231026
+```
+
+---
+
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you have checked out a tag.
+
+This article uses *java-app*. Here's the file structure of the application:
 
 ```output
 java-app
@@ -256,16 +279,27 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *java-app* root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
-### Build project
+### Build the project
 
-Use the following command to build the application.
+Use the following command to build the application:
 
-```bash/powershell
+#### [Bash](#tab/in-bash)
+
+```bash
 cd <path-to-your-repo>/java-app
 mvn clean install
 ```
+
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+cd <path-to-your-repo>/java-app
+mvn clean install
+```
+
+---
 
 If the build is successful, you should see output similar to the following at the end of your build.
 
@@ -278,18 +312,27 @@ If the build is successful, you should see output similar to the following at th
 [INFO] ------------------------------------------------------------------------
 ```
 
-If not, troubleshoot and resolve the problem before continuing.
+If you don't see this output, troubleshoot and resolve the problem before continuing.
 
 ### (Optional) Test your project locally
 
-You can now run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE.
+You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`. `liberty:run` uses the database related environment variables defined in the previous step.
 
-   ```bash/powershell
+   #### [Bash](#tab/in-bash)
+
+   ```bash
+   cd <path-to-your-repo>/java-app
+   mvn liberty:run
+   ```
+
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
@@ -298,14 +341,16 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
-### Build image
+### Build the image
 
 > [!NOTE]
-> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [Deploy application on Azure Container Apps](#deploy-application-on-azure-container-apps). If you chose to run commands locally, you can use the following guidance.
+> If you chose to use the Bash environment in Azure Cloud Shell, use the `az acr build` command to build and push image from a Docker file. For more information, see the [Build and push image from a Dockerfile](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile) section of [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli). After that, go directly to the [Deploy the application to Azure Container Apps](#deploy-the-application-to-azure-container-apps) section. If you chose to run commands locally, use the following guidance.
 
-You can now run the `docker buildx build` command to build the image.
+You can now run the `docker buildx build` command to build the image, as shown in the following example:
 
-```bash/powershell
+#### [Bash](#tab/in-bash)
+
+```bash
 cd <path-to-your-repo>/java-app
 
 # If you are running with Open Liberty
@@ -315,13 +360,27 @@ docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Docke
 docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+cd <path-to-your-repo>/java-app
+
+# If you are running with Open Liberty
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
+
+# If you are running with WebSphere Liberty
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
+```
+
+---
+
 ### (Optional) Test the Docker image locally
 
-You can now use the following steps to test the Docker image locally before deploying to Azure.
+You can now use the following steps to test the Docker image locally before deploying to Azure:
 
 1. Run the image using the following command. This command uses the database related environment variables defined previously.
 
-   ### [Bash](#tab/in-bash)
+   #### [Bash](#tab/in-bash)
 
    ```bash
    docker run -it --rm -p 9080:9080 \
@@ -332,13 +391,13 @@ You can now use the following steps to test the Docker image locally before depl
        javaee-cafe:v1
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   #### [PowerShell](#tab/in-powershell)
 
    ```powershell
    docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=$Env:DB_SERVER_NAME -e DB_NAME=$Env:DB_NAME -e DB_USER=$Env:DB_USER -e DB_PASSWORD=$Env:DB_PASSWORD javaee-cafe:v1
    ```
 
-1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
+1. After the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
@@ -346,15 +405,15 @@ You can now use the following steps to test the Docker image locally before depl
 
 Next, upload the built image to the ACR you created in the previous steps.
 
-If you haven't already done so, sign in to the ACR.
+If you haven't already done so, use the following command to sign in to the ACR:
 
-### [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 docker login -u ${ACR_USER_NAME} -p ${ACR_PASSWORD} ${ACR_LOGIN_SERVER}
 ```
 
-### [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 docker login -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD $Env:ACR_LOGIN_SERVER
@@ -362,16 +421,16 @@ docker login -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD $Env:ACR_LOGIN_SERVER
 
 ---
 
-Tag and push the container image.
+Use the following commands to tag and push the container image:
 
-### [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 docker tag javaee-cafe:v1 ${ACR_LOGIN_SERVER}/javaee-cafe:v1
 docker push ${ACR_LOGIN_SERVER}/javaee-cafe:v1
 ```
 
-### [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 docker tag javaee-cafe:v1 $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
@@ -380,9 +439,9 @@ docker push $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
 
 ---
 
-## Deploy application on Azure Container Apps
+## Deploy the application to Azure Container Apps
 
-Use the following command to create an Azure Container Apps instance to run the app after pulling the image from the ACR. The following example creates an Azure Container Apps instance named *youracainstancename*.
+Use the following commands to create an Azure Container Apps instance to run the app after pulling the image from the ACR. This example creates an Azure Container Apps instance named *youracainstancename*.
 
 ### [Bash](#tab/in-bash)
 
@@ -414,9 +473,9 @@ Successful output is a JSON object including the property `"type": "Microsoft.Ap
 
 ### Test the application
 
-Use the following command to get a fully qualified url to access the application.
+Use the following command to get a fully qualified url to access the application:
 
-### [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 echo https://$(az containerapp show \
@@ -425,7 +484,7 @@ echo https://$(az containerapp show \
     --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
-### [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 Write-Host https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --query properties.configuration.ingress.fqdn -o tsv)
@@ -433,11 +492,11 @@ Write-Host https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_N
 
 ---
 
-Open a web browser to the url to access and test the application. You should see the similar page as below.
+Open a web browser to the URL to access and test the application. The following screenshot shows how the application will look:
 
-:::image type="content" source="./media/deploy-java-liberty-app-aca/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on Azure Container Apps.":::
+:::image type="content" source="./media/deploy-java-liberty-app-aca/deploy-succeeded.png" alt-text="Screenshot that shows the Java liberty application successfully deployed on Azure Container Apps.":::
 
-## Clean up the resources
+## Clean up resources
 
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container registry, container apps, database server, and all related resources.
 
@@ -455,9 +514,19 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name $Env:DB_RESOURCE_GROUP --yes --no-wait
 ```
 
-Remove the container image from your local Docker server.
+---
 
-```bash/powershell
+Then, use the following command to remove the container image from your local Docker server:
+
+### [Bash](#tab/in-bash)
+
+```bash
+docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
+```
+
+### [PowerShell](#tab/in-powershell)
+
+```powershell
 docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
 ```
 
