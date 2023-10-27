@@ -218,6 +218,8 @@ $Env:DB_USER = "<login>"
 $Env:DB_PASSWORD = "<password>"
 ```
 
+---
+
 If you want to test the application locally later, use the following steps to ensure your client IPv4 address is allowed to connect:
 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.

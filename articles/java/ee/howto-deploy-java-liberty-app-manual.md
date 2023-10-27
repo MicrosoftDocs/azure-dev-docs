@@ -443,7 +443,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 ### Build the image for AKS deployment
 
 > [!NOTE]
-> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to [deploy application on the AKS cluster](#deploy-application-on-the-aks-cluster). If you chose to run commands locally, you can use the following guidance.
+> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to the [Deploy the application to the AKS cluster](#deploy-the-application-to-the-aks-cluster) section. If you chose to run commands locally, you can use the following guidance.
 
 You can now run the `docker build` command to build the image, as shown in the following example:
 
