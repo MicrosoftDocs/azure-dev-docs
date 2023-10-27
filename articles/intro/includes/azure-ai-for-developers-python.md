@@ -68,10 +68,10 @@
 
 |Link|Description|
 |---|---|
-|[Extract, classify, and understand text within documents using Text Analytics in Python](/samples/azure/azure-sdk-for-python/textanalytics-samples/)|NO LONGER EXISTS|
-|[Document Translation in Python](/samples/azure/azure-sdk-for-python/documenttranslation-samples/)|NO LONGER EXISTS|
-|[Question Answering in Python](/samples/azure/azure-sdk-for-python/languagequestionanswering-samples/)|NO LONGER EXISTS|
-|[Conversational Language Understanding in Python](/samples/azure/azure-sdk-for-python/conversationslanguageunderstanding-samples/)|NO LONGER EXISTS|
+|[Extract, classify, and understand text within documents using Text Analytics in Python](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python)|Client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Document Translation in Python](/azure/ai-services/translator/document-translation/quickstarts/document-translation-sdk?tabs=dotnet&pivots=programming-language-python)|Quickstart to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
+|[Question Answering in Python](/azure/ai-services/language-service/question-answering/quickstart/sdk?tabs=windows&pivots=programming-language-csharp)|Quickstart to get an answer (and confidence score) from a body of text that you send along with your question.|
+|[Conversational Language Understanding in Python](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python)|Client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
 
 ## Applied AI/Decision
 

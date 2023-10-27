@@ -59,11 +59,11 @@
 
 |Link|Description|
 |---|---|
-|[Extract, classify, and understand text within documents using Text Analytics in .NET](/samples/azure/azure-sdk-for-net/azure-cognitive-services-text-analytics-client-library-for-net/)|NO LONGER EXISTS|
-|[Document Translation in .NET](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)|NO LONGER EXISTS|
+|[Extract, classify, and understand text within documents using Text Analytics in .NET](https://aka.ms/azai/net/ta)|Client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Document Translation in .NET](https://aka.ms/azai/net/translate/doc)|Quickstart to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Translate documents from and into more than 100 different languages](https://github.com/MicrosoftTranslator/DocumentTranslation)|Translate local files or network files in many different formats, to more than 100 different languages. Supported formats include HTML, PDF, all Office document formats, Markdown, MHTML, Outlook .MSG, XLIFF, CSV, TSV and plain text.|
-|[Question Answering in .NET](/samples/azure/azure-sdk-for-net/azureailanguagequestionanswering-samples/)|NO LONGER EXISTS|
-|[Conversational Language Understanding in .NET](/samples/azure/azure-sdk-for-net/azureailanguageconversations-samples/)|NO LONGER EXISTS|
+|[Question Answering in .NET](https://aka.ms/azai/net/qna)|Quickstart to get an answer (and confidence score) from a body of text that you send along with your question.|
+|[Conversational Language Understanding in .NET](https://aka.ms/azai/net/convo)|Client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
 
 ## Applied AI/Decision
 

@@ -23,4 +23,11 @@
 |Link|Description|
 |---|---|
 |[Captioning and Call Center Transcription in Go](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|Repo containing samples for captioning and transcriptioning in a call center scenario.|
-|Integrate Speech into your apps with [Speech SDK for Go](https://github.com/Microsoft/cognitive-services-speech-sdk-go)|Source for the Microsoft Cognitive Services Speech SDK. See the samples folder.|
+|[Integrate Speech into your apps with Speech SDK for Go](https://github.com/Microsoft/cognitive-services-speech-sdk-go)|Source for the Microsoft Cognitive Services Speech SDK. See the samples folder.|
+
+## Language
+
+|Link|Description|
+|---|---|
+|[Extract, classify, and understand text within documents using Text Analytics in Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics)|Client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Document Translation in Go](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-go)|Quickstart to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|

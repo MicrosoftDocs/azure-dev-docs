@@ -54,8 +54,8 @@
 
 |Link|Description|
 |---|---|
-|Extract, classify, and understand text within documents using Text Analytics in [JavaScript](/samples/azure/azure-sdk-for-js/ai-language-text-javascript-beta/)|NO LONGER EXISTS|
-|Document Translation in [JavaScript](/samples/azure/azure-sdk-for-js/ai-document-translator-javascript/)|NO LONGER EXISTS|
+|[Extract, classify, and understand text within documents using Text Analytics in JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest)|Client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Document Translation in JavaScript](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-javascript)|Quickstart to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 
 ## Applied AI/Decision
 

@@ -53,8 +53,8 @@
 
 |Link|Description|
 |---|---|
-|Extract, classify, and understand text within documents using Text Analytics in [Java](/samples/azure/azure-sdk-for-java/textanalytics-java-samples/)|NO LONGER EXISTS|
-|Document Translation in [Java](/samples/azure/azure-sdk-for-java/documenttranslator-java-samples/)|NO LONGER EXISTS|
+|[Extract, classify, and understand text within documents using Text Analytics in Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)|Client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Document Translation in Java](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-java)|Quickstart to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 
 ## Applied AI/Decision
 
