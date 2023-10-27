@@ -68,10 +68,10 @@ Unzip the zip file in a folder of your choice. You then get the following direct
 appcat-cli-<version>    # APPCAT_HOME
   ├── README.md
   ├── bin
-  │   ├── appcat-cli
-  │   └── appcat-cli.bat
+  │   ├── appcat
+  │   └── appcat.bat
   ├── docs
-  │   └── appcat-cli-guide.html
+  │   └── appcat-guide.html
   └── samples
       ├── airsonic.war
       ├── run-assessment
@@ -88,7 +88,7 @@ appcat-cli-<version>    # APPCAT_HOME
 To run the tool, open a terminal session and type the following command from the *$APPCAT_HOME/bin* directory:
 
 ```bash
-./appcat-cli --help
+./appcat --help
 ```
 
 To run the tool from anywhere in your computer, configure the directory *$APPCAT_HOME/bin* into your `PATH` environment variable and then restart your terminal session.
@@ -107,7 +107,7 @@ Discovery of technologies is the first stage of application replatform and moder
 Use the following command to initiate discovery:
 
 ```bash
-./appcat-cli \
+./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target discovery
 ```
@@ -121,7 +121,7 @@ The assessment phase is where `appcat` analyzes the application and its componen
 To check the available Azure targets, run the following command:
 
 ```bash
-./appcat-cli --listTargetTechnologies
+./appcat --listTargetTechnologies
 ```
 
 This command produces output similar to the following example:
@@ -137,7 +137,7 @@ Available target technologies:
 Then, you can run `appcat` using one of the available Azure targets, as shown in the following example:
 
 ```bash
-./appcat-cli \
+./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target azure-appservice
 ```
