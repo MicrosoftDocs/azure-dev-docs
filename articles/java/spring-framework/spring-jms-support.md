@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Use Azure Service Bus with JMS
 
-**This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
+**This article applies to:** ✔️ Version 4.12.0 ✔️ Version 5.6.0
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
