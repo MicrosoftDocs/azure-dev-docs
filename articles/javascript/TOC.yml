@@ -27,8 +27,8 @@
         href: how-to/with-web-app/use-secret-environment-variables.md
   - name: Azure AI apps 
     items: 
-    - name: ChatGPT + Enterprise data sample
-      href: get-started-intelligent-app-chat.md
+    - name: Enterprise chat app template
+      href: get-started-app-chat-template.md
       display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI
       href: openai-cli.md
