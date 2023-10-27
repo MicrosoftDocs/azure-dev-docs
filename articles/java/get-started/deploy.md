@@ -70,46 +70,25 @@ Microsoft has partnered with leading vendors in the Java ecosystem to deliver be
 
 Jointly developed by Microsoft and Pivotal, Azure Spring Apps is a fully managed service that solves many of the common challenges developers, IT operators, and DevOps teams face when running Spring Boot applications at scale. It abstracts away the complexity of managing infrastructure for running Spring-based applications and Spring Cloud middleware components, enabling Java developers to focus on their code while letting Azure take care of dynamic scaling, security patches, compliance standards, high availability, and so on.
 
-"Azure Spring Apps builds on the rich ecosystems of Microsoft Azure, Spring, and Kubernetes to deliver a turnkey platform optimized for Spring-based applications and services. Spring and Azure Spring Apps let me deliver valuable software without worrying as much about the pager. They get me to production."
-- Josh Long, Spring Developer Advocate, VMware
-
 ## JBoss EAP (Red Hat)
 
 Red Hat is a leading provider of open-source solutions for the enterprise. One such solution is JBoss Enterprise Application Platform (EAP), a popular application server platform that's Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Red Hat is also a contributor for the Java standards, OpenJDK, MicroProfile, Jakarta EE, and Quarkus.
 
 We partnered with Red Hat to deliver Red Hat JBoss Enterprise Application Platform (EAP) on Azure App Service - enabling Java developers to deploy their Jakarta EE applications into App Service without requiring a separate Red Hat subscription or license with integrated support from both companies. We've since launched similar joint offerings for JBoss EAP on Azure VMs, on Azure VM Scale Sets, and on Azure RedHat OpenShift (ARO) - the latter also jointly operated by Microsoft and Red Hat.
 
-"By offering JBoss EAP on Azure, we are combining the best of our areas of expertise and enabling customers to successfully choose how they want to manage applications on the cloud."
--  Rich Sharples, Senior Director, Product Management, Red Hat
-
 ## WebLogic Server (Oracle)
 
 We partnered with Oracle to deliver Oracle WebLogic Server (WLS) on Azure VMs and Oracle WebLogic Server on Azure Kubernetes Service. These solutions facilitate easy migrations to Azure by automating boilerplate operations such as provisioning virtual networks/storage, installing Linux/Java resources, setting up WebLogic Server, and configuring security with a network security group.
 
-"Oracle is delighted to partner with Microsoft to enable deployment of Oracle WebLogic Server applications on Azure Virtual Machines and the Azure Kubernetes Service. Many Oracle WebLogic Server customers want to take their enterprise Java workloads to the cloud, and by collaborating with the Azure team we can give them more choices and better solutions, including the ability to run workloads across Azure and Oracle Cloud."
-- Will Lyons, Senior Director of Product Management - Enterprise Cloud Native Java, Oracle
-
 ## WebSphere/Liberty/Open Liberty (IBM)
 
 We partnered with IBM, jointly developing solutions for WebSphere Application Server (WAS) on Azure VMs, WebSphere Liberty and Open Liberty on Azure Kubernetes Service, and WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift. These solutions enable easy migration of WebSphere workloads to Azure, automating most of the resource provisioning tasks needed to set up a highly available WebSphere cluster. The partnership covers a range of use cases - from existing mission-critical workloads to cloud-native applications.
-
-"Together, we're helping eliminate obstacles so [developers] can focus on core tasks: whether it's through the option to modernize your existing Enterprise Java applications and move them to Microsoft's Azure Cloud or deciding on the approach to develop and deploy your next-generation cloud-native application on Azure. The collaboration between IBM and Microsoft aims to cover a range of use cases, from mission-critical existing traditional workloads to cloud-native applications." 
- -  Willie Tejada, GM ISV/Build Partners & Chief Developer Advocate, IBM
 
 ## Apache Kafka on Confluent Cloud (Confluent)
 
 In the past, Azure customers who wanted to use Confluent's Kafka service had to create and manage resources and users separately in Azure and Confluent Cloud. To ease this pain, Confluent and Microsoft partnered to deliver Apache Kafka for Confluent Cloud, an Azure Marketplace offering that provides Apache Kafka as a fully managed service - including the ability to create and manage Confluent Cloud resources through the Azure portal, Azure CLI, or Azure Management SDKs.
 
 Today, the customer experience is simpler, safer, and more seamless. Customers can provision and manage Confluent Cloud resources along with their Azure resources, as part of a unified workflow - and take advantage of fully managed connectors built for Azure Functions, Azure Blob Storage, Azure Event Hubs, Azure Data Lake Storage Gen2, and Microsoft SQL Server. Developers can continue to code using Apache Kafka client libraries.
-
-"I am thrilled to announce a new strategic alliance with Microsoft to enable a 
-seamless, integrated experience between Confluent Cloud and the Azure platform. 
-This represents a significant milestone in our ongoing collaboration with the 
-Microsoft engineering and product teams that deepens our strategic and technical 
-alignment with the Microsoft ecosystem. We have made it even easier for Azure 
-customers to accelerate their journey to the cloud with event streaming, Apache 
-Kafka®, and Confluent as the central nervous system of their business."
--  Jay Kreps, Co-founder and CEO, Confluent
 
 Joint development with partners for many of the above offerings is a continual, ongoing effort. As our partners continue to innovate on their offerings, we're working closely with them to quickly bring those same innovations to Azure - so that customers can deploy and scale their Java applications with confidence and ease.
 
