@@ -34,7 +34,7 @@ This article provides documentation, samples and other resources for learning ho
 
 :::zone pivot="java"
 
-[!INCLUDE [azure-ai-for-developers-javascript](./includes/azure-ai-for-developers-javascript.md)]
+[!INCLUDE [azure-ai-for-developers-java](./includes/azure-ai-for-developers-java.md)]
 
 :::zone-end
 
