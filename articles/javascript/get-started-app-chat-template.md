@@ -11,7 +11,7 @@ ms.custom: devx-track-javascript, devx-track-javascript-ai
 
 Deploy and use an chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
-> [!div class="beginnow"]
+> [!div class="nextstepaction"]
 > [Begin now](#deploy-and-run)
 
 By following the instructions in this article, you will:
