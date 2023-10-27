@@ -1,31 +1,38 @@
 ---
 title: Get started with the enterprise chat app template for Java
-description: Get started with Java and intelligent search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
+description: Get started with Java and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 10/25/2023
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai
-# CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with intelligent app infused with my own business data so that learn from the sample code.
+# CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
 # Get started with the enterprise chat app template for Java
 
-Deploy and use an intelligent chat app to get answers about employee benefits at a fictitious company with Java. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. By following the instructions in this article, you will:
+Deploy and use an chat app to get answers about employee benefits at a fictitious company with Java. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+
+> [!div class="beginnow"]
+> [Begin now](#deploy-and-run)
 
 By following the instructions in this article, you will:
 
-- Deploy an intelligent chat app to Azure.
+- Deploy an chat app to Azure.
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build an intelligent chat app using Azure Cognitive Search and OpenAI. To see the full collection, see [Build an intelligent chat app with Azure Cognitive Search and OpenAI](/azure/search/cognitive-search-tutorial-blob).
+This article is part of a collection of articles that show you how to build an chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
+
+* [.Net]()
+* [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
+* [Python](/azure/developer/python/get-started-app-chat-template)
 
 ## Architectural overview
 
-A simple architecture of the intelligent chat app is shown in the following diagram:
+A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="./media/get-started-intelligent-app-chat/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="./media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 Key components of the architecture include:
 
@@ -64,6 +71,9 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
+
+Begin now with a development environment that has all the dependencies installed to complete this article. 
+
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this training module.
@@ -76,7 +86,7 @@ To use this article, you need the following prerequisites:
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=687400781)
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="./media/get-started-intelligent-app-chat/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -103,7 +113,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-intelligent-app-chat/open-terminal-option.png" lightbox="./media/get-started-intelligent-app-chat/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/get-started-app-chat-template/open-terminal-option.png" lightbox="./media/get-started-app-chat-template/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
@@ -121,8 +131,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. The remaining exercises in this project take place in the context of this development container.
 ---
 ## Deploy and run
-The sample repository contains all the code and configuration files you need to deploy an intelligent chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
-### Deploy intelligent chat app to Azure
+The sample repository contains all the code and configuration files you need to deploy an chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+### Deploy chat app to Azure
 > [!IMPORTANT]
 > Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
@@ -134,8 +144,8 @@ The sample repository contains all the code and configuration files you need to 
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL to open the chat application in a browser.
-    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-with-your-data.png" alt-text="Screenshot of intelligent chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
-### Use intelligent chat app to get answers from PDF files
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+### Use chat app to get answers from PDF files
 
 The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
@@ -145,11 +155,11 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
     * What happens in a performance review?
     * What does a Product Manager do?
 
-    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-initial-answer.png" alt-text="Screenshot of intelligent chat app's first answer.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
 1. From the answer, select one of the citations.
 
-    :::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of intelligent chat app's first answer with its citation highlighted in a red box.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -161,11 +171,11 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 1. When you are done, select the selected tab again to close the pane.
 
-### Use intelligent chat app settings to change behavior of responses
+### Use chat app settings to change behavior of responses
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
 
-:::image type="content" source="./media/get-started-intelligent-app-chat/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of intelligent chat developer settings.":::
+:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
 |Setting|Description|
 |---|---|
@@ -228,15 +238,15 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-java`](https://github.com/Azure-Samples/azure-search-openai-java) GitHub repository.
-    :::image type="content" source="./media/get-started-intelligent-app-chat/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
 1. Open the context menu for the codespace and then select **Delete**.
-    :::image type="content" source="./media/get-started-intelligent-app-chat/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
-    :::image type="content" source="./media/get-started-intelligent-app-chat/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
@@ -248,8 +258,8 @@ The app is separated out into 2 apps:
 * A front-end JavaScript application using the React framework with the Vite build tool.
 * A back-end Java application answers the question.
 
-The backend `/chat` API steps through the process of getting the intelligent answer:
-* Build RAG options: Create a set of options that will be used to generate an intelligent answer.
+The backend `/chat` API steps through the process of getting the answer:
+* Build RAG options: Create a set of options that will be used to generate an answer.
 * Create approach using RAG options: Use a combination of retrieval-based and generative-based models to create an approach for generating an accurate and natural-sounding response.
 * Run the approach with RAG options and previous conversation: Use the approach and RAG options to generate an answer based on the previous conversation. The answer includes information about which documents were used to generate the response.
 
@@ -260,6 +270,7 @@ This sample repository offers [troubleshooting information](https://github.com/A
 If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-Java/issues).
 
 ## Related content
+
 * [Azure Developer CLI templates for Java](/azure/developer/azure-developer-cli/azd-templates?tabs=java)
 * [Browse Java + AI code samples](/samples/browse/?branch=main&languages=Java&products=azure-cognitive-services)
 [Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
