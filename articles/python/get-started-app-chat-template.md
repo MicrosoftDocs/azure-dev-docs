@@ -11,7 +11,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 Deploy and use an chat app to get answers about employee benefits at a fictitious company with Python. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
-> [!div class="beginnow"]
+> [!div class="nextstepaction"]
 > [Begin now](#deploy-and-run)
 
 By following the instructions in this article, you will:
