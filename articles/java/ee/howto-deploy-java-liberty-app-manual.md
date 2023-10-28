@@ -585,7 +585,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl apply -f openlibertyapplication.yaml
    ```
 
-1. Check if the OpenLibertyApplication instance is created by running the following command:
+1. Determine whether the `OpenLibertyApplication` instance has been created by running the following command:
 
    ### [Bash](#tab/in-bash)
 
@@ -598,6 +598,8 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    ```powershell
    kubectl get openlibertyapplication javaee-cafe-cluster
    ```
+
+  ---
 
    You should see output similar to the following example:
 
@@ -606,7 +608,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    javaee-cafe-cluster         youruniqueacrname.azurecr.io/javaee-cafe:1.0.25         True         59s
    ```
 
-1. Check if the deployment created by the Operator is ready by running the following command:
+1. Determine whether the deployment created by the Operator is ready by running the following command:
 
    ### [Bash](#tab/in-bash)
 
@@ -619,6 +621,8 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    ```powershell
    kubectl get deployment javaee-cafe-cluster --watch
    ```
+
+  ---
 
    You should see output similar to the following example:
 
