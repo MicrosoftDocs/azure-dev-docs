@@ -599,7 +599,8 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl get openlibertyapplication javaee-cafe-cluster
    ```
 
-  ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
    You should see output similar to the following example:
 
@@ -622,7 +623,8 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl get deployment javaee-cafe-cluster --watch
    ```
 
-  ---
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    ---
 
    You should see output similar to the following example:
 
