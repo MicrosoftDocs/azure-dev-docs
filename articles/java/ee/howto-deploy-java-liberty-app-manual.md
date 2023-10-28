@@ -538,7 +538,7 @@ docker push $Env:LOGIN_SERVER/javaee-cafe:v1
 
 ---
 
-## Deploy the application on the AKS cluster
+## Deploy the application to the AKS cluster
 
 Use the following steps to deploy the Liberty application on the AKS cluster:
 
