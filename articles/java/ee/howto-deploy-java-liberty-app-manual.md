@@ -496,7 +496,7 @@ You can now use the following steps to test the Docker image locally before depl
    docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=$Env:DB_SERVER_NAME -e DB_NAME=$Env:DB_NAME -e DB_USER=$Env:DB_USER -e DB_PASSWORD=$Env:DB_PASSWORD javaee-cafe:v1
    ```
 
-1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
+1. After the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
@@ -599,7 +599,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl get openlibertyapplication javaee-cafe-cluster
    ```
 
-   You should see output like the following.
+   You should see output similar to the following example:
 
    ```output
    NAME                        IMAGE                                                   EXPOSED   RECONCILED   AGE
@@ -620,9 +620,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl get deployment javaee-cafe-cluster --watch
    ```
 
-   ---
-
-   You should see output like the following.
+   You should see output similar to the following example:
 
    ```output
    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
@@ -651,14 +649,14 @@ kubectl get service javaee-cafe-cluster --watch
 
 ---
 
-You should see output like the following.
+You should see output similar to the following example:
 
 ```output
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
 javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
+After the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 If some time has passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
 
-This article shows you how to run Open Liberty or WebSphere Liberty on Azure Container Apps. You'll do the following activities in this article:
+This article shows you how to run Open Liberty or WebSphere Liberty on Azure Container Apps. You do the following activities in this article:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Liberty container images.
@@ -494,7 +494,7 @@ Write-Host https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_N
 
 ---
 
-Open a web browser to the URL to access and test the application. The following screenshot shows how the application will look:
+Open a web browser to the URL to access and test the application. The following screenshot shows the running application:
 
 :::image type="content" source="./media/deploy-java-liberty-app-aca/deploy-succeeded.png" alt-text="Screenshot that shows the Java liberty application successfully deployed on Azure Container Apps.":::
 
