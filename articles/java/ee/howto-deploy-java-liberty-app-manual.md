@@ -599,8 +599,6 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl get openlibertyapplication javaee-cafe-cluster
    ```
 
-   ---
-
    You should see output like the following.
 
    ```output
