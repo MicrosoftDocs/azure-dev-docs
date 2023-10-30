@@ -26,8 +26,8 @@ This article is part of a collection of articles that show you how to build an c
 
 Other articles in the collection include: 
 
-* [.Net]()
-* [Java]()
+* [.Net](/azure/developer/dotnet/get-started-app-chat-template)
+* [Java](../java/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
 
 ## Architectural overview
