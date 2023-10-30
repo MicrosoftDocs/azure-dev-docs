@@ -1,7 +1,7 @@
 ---
 title: Get started with the enterprise chat app template for Python
 description: Get started with Python and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 10/25/2023
+ms.date: 10/30/2023
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
@@ -293,11 +293,10 @@ This sample repository offers [troubleshooting information](https://github.com/A
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues).
 
-## Related content
+## Next steps
 
-* [Python on Azure quickstarts](quickstarts-app-hosting.md)
-* [Browse Python + AI code samples](/samples/browse/?branch=main&languages=python&products=azure-cognitive-services)
-* [Azure Developer CLI templates](overview-azd-templates.md)
-
-[Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
-[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend
+* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
+* [Access control in Generative AI Apps with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
+* [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
