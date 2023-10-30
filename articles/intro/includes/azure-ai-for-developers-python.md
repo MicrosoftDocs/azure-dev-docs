@@ -1,12 +1,3 @@
-## Get started with Azure OpenAI ChatGPT Copilots for Python developers
-
-|Link|Description|
-|---|---|
-|[Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
-|[Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
-|[ChatGPT QuickStarts for Python](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-python&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
-|[ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)|This sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
-
 ## Azure AI Reference Templates
 
 |Link|Description|
@@ -16,6 +7,15 @@
 |[Build a chat app with Azure OpenAI in Python](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|Simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream.|
 |[Build a LangCghain with Azure OpenAI in Python](https://github.com/Azure-Samples/function-python-ai-langchain)|Sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
 |[Build a ChatGGPT Plugin with Azure Container Apps in Python](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|Sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
+
+## Get started with Azure OpenAI ChatGPT Copilots for Python developers
+
+|Link|Description|
+|---|---|
+|[Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
+|[Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
+|[ChatGPT QuickStarts for Python](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-python&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
+|[ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)|This sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
 
 ## OpenAI for Python developers
 
