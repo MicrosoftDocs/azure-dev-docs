@@ -529,7 +529,7 @@ docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
+docker rmi -f $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
 ```
 
 ---
