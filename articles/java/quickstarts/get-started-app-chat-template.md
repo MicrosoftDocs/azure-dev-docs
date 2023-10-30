@@ -9,20 +9,20 @@ ms.custom: devx-track-java, devx-track-java-ai
 
 # Get started with the enterprise chat app template for Java
 
-Deploy and use an chat app to get answers about employee benefits at a fictitious company with Java. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+Deploy and use a chat app to get answers about employee benefits at a fictitious company with Java. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
-- Deploy an chat app to Azure.
+- Deploy a chat app to Azure.
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build an chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
 
 * [.Net](/azure/developer/dotnet/get-started-app-chat-template)
 * [JavaScript](../../javascript/get-started-app-chat-template.md)
@@ -76,7 +76,7 @@ Begin now with a development environment that has all the dependencies installed
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this training module.
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -102,7 +102,7 @@ Begin now with a development environment that has all the dependencies installed
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this training module.
+The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
 1. Open **Visual Studio Code** in the context of an empty directory.
 
@@ -131,7 +131,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. The remaining exercises in this project take place in the context of this development container.
 ---
 ## Deploy and run
-The sample repository contains all the code and configuration files you need to deploy an chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 ### Deploy chat app to Azure
 > [!IMPORTANT]
 > Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
