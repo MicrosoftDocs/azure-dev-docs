@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-java-ai
 Deploy and use an chat app to get answers about employee benefits at a fictitious company with Java. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
 > [!div class="nextstepaction"]
-> [Begin now](#deploy-and-run)
+> [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
