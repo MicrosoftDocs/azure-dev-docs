@@ -25,12 +25,17 @@
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
       - name: Use Key Vault secrets
         href: how-to/with-web-app/use-secret-environment-variables.md
-  - name: AI
+  - name: Azure AI apps 
     items: 
+    - name: Enterprise chat app template
+      href: get-started-app-chat-template.md
+      display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI
       href: openai-cli.md
-    - name: Azure OpenAI quickstart
+      display: Azure OpenAI, OpenAI, AI
+    - name: Generate text completions
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+      display: Azure OpenAI, OpenAI, AI
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
