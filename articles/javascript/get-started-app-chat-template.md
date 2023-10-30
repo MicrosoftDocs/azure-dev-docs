@@ -1,7 +1,7 @@
 ---
 title: Get started with the enterprise chat app template for JavaScript
 description: Get started with JavaScript and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 10/26/2023
+ms.date: 10/30/2023
 ms.topic: get-started
 ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
@@ -275,10 +275,10 @@ This sample repository offers [troubleshooting information](https://github.com/A
 
 If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues).
 
-## Related content
+## Next steps
 
-* [Azure Developer CLI templates for JavaScript](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs)
-* [Browse JavaScript + AI code samples](/samples/browse/?branch=main&languages=javascript&products=azure-cognitive-services)
-
-[Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
-[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/packages/search
+* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-javascript)
+* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
+* [Access control in Generative AI Apps with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
+* [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
