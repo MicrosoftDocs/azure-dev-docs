@@ -9,20 +9,20 @@ ms.custom: devx-track-javascript, devx-track-javascript-ai
 
 # Get started with the enterprise chat app template for JavaScript
 
-Deploy and use an chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+Deploy and use a chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
-- Deploy an chat app to Azure.
-- Get answers about employee benefits.
+- Deploy a chat app to Azure.
+- Get answers about rental properties website information.
 - Change settings to change behavior of responses.
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build an chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
 
 * [.Net](/azure/developer/dotnet/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
@@ -144,7 +144,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files you need to deploy an chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
 ### Deploy chat app to Azure
 
