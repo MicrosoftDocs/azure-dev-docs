@@ -25,8 +25,8 @@ Once you complete this article, you can start modifying the new project with you
 This article is part of a collection of articles that show you how to build an chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
 
 * [.Net](/azure/developer/dotnet/get-started-app-chat-template)
-* [JavaScript](../javascript/get-started-app-chat-template.md)
-* [Python](../python/get-started-app-chat-template.md)
+* [JavaScript](../../javascript/get-started-app-chat-template.md)
+* [Python](../../python/get-started-app-chat-template.md)
 
 ## Architectural overview
 
@@ -62,7 +62,7 @@ To use this article, you need the following prerequisites:
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
