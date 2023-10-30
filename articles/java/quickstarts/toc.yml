@@ -14,7 +14,7 @@ items:
     - name: AI
       items:
         - name: Enterprise chat app template
-          href: ../get-started-app-chat-template.md
+          href: get-started-app-chat-template.md
     - name: Compute services
       href: compute.md
     - name: Data
