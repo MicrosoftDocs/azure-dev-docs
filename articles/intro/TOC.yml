@@ -7,7 +7,7 @@ items:
     href: azure-developer-key-services.md
   - name: Host applications on Azure
     href: hosting-apps-on-azure.md
-  - name: Develop Azure AI-powered applications
+  - name: Develop apps that use Azure AI services
     href: azure-ai-for-developers.md
   - name: Connect apps to Azure services
     href: connect-to-azure-services.md
