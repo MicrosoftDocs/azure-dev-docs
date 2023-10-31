@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure
   topicHref: /azure/index
@@ -5,4 +6,79 @@
   - name: Developer
     tocHref: /azure/developer
     topicHref: /azure/developer/index
-
+    items:
+    - name: Java
+      tocHref: /azure/developer/java
+      topicHref: /azure/developer/java/index
+  - name: Developer
+    tocHref: /azure/aks
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/azure-functions
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/app-service
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/devops
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/active-directory
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/key-vault
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/azure-monitor
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/storage
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/azure-sql
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/postgresql
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/mysql
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/sql-database
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/cosmos-db
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/event-hubs
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/service-bus-messaging
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/container-apps
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/container-instances
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/spring-apps
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/service-connector
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/static-web-apps
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/virtual-machines
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/openshift
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/migrate
+    topicHref: /azure/developer/index
+  - name: Developer
+    tocHref: /azure/azure-app-configuration
+    topicHref: /azure/developer/index
