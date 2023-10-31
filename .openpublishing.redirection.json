@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/java/migration/cloud-suitability-analyzer.md",
+      "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
+      "redirect_document_id": false
+    },
       {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
