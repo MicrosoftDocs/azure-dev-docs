@@ -1,3 +1,10 @@
+## Azure AI Reference Templates
+
+|Link|Description|
+|---|---|
+|[Build an enterprise chat app using your data with Azure OpenAI in JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](/azure/developer/javascript/get-started-app-chat-template) article that walks you through deployment.|
+|[Get started with the enterprise chat app template for Python](/azure/developer/javascript/get-started-app-chat-template)|Walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-javascript) (above) to get answers about employee benefits at a fictitious company with JavaScript.|
+
 ## Get started with Azure OpenAI ChatGPT Copilots for JavaScript developers
 
 |Link|Description|
