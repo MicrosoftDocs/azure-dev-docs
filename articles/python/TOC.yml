@@ -8,6 +8,8 @@
   - name: Enterprise chat app template
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
+  - name: Develop apps that use Azure AI services
+    href: azure-ai-for-python-developers.md
 - name: Web
   items:
   - name: Set up local web dev environment
