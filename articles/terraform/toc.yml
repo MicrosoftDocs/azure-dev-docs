@@ -229,7 +229,7 @@
                   href: /azure/frontdoor/create-front-door-terraform
             - name: Azure Virtual Network Manager
               items:
-                - name: Create a mesh network topology with Azure Virtual Network Manager
+                - name: Create a mesh network topology
                   href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
             - name: Content Delivery Network (CDN)
               items:
@@ -237,7 +237,7 @@
                   href: /azure/cdn/create-profile-endpoint-terraform
             - name: Traffic Manager
               items:
-                - name: Create a profile and endpoints
+                - name: Create a profile
                   href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
         - name: Security
           items:
@@ -275,7 +275,7 @@
           items:
             - name: Azure Managed Lustre
               items:
-                - name: Create an Azure Managed Lustre file system using Terraform
+                - name: Create a file system
                   href: /azure/azure-managed-lustre/create-aml-file-system-terraform
         - name: Web
           items:
