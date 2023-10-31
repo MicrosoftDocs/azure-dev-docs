@@ -1,7 +1,7 @@
 ---
 title: Get started with the enterprise chat app template for Python
 description: Get started with Python and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 10/25/2023
+ms.date: 10/30/2023
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
@@ -9,25 +9,25 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with the enterprise chat app template for Python
 
-Deploy and use an chat app to get answers about employee benefits at a fictitious company with Python. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+Deploy and use a chat app to get answers about employee benefits at a fictitious company with Python. The employee benefits chat app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
 > [!div class="nextstepaction"]
-> [Begin now](#deploy-and-run)
+> [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
-- Deploy an chat app to Azure.
+- Deploy a chat app to Azure.
 - Get answers about employee benefits.
 - Change settings to change behavior of responses.
 
 Once you complete this procedure,you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build an chat app using Azure Cognitive Search and OpenAI. 
+This article is part of a collection of articles that show you how to build a chat app using Azure Cognitive Search and OpenAI. 
 
 Other articles in the collection include: 
 
-* [.Net]()
-* [Java]()
+* [.Net](/azure/developer/dotnet/get-started-app-chat-template)
+* [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
 
 ## Architectural overview
@@ -78,7 +78,7 @@ Begin now with a development environment that has all the dependencies installed
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this training module.
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -106,7 +106,7 @@ Begin now with a development environment that has all the dependencies installed
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this training module.
+The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
 1. Open **Visual Studio Code** in the context of an empty directory.
 
@@ -146,7 +146,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files you need to deploy an chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
 ### Deploy chat app to Azure
 
@@ -293,11 +293,10 @@ This sample repository offers [troubleshooting information](https://github.com/A
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues).
 
-## Related content
+## Next steps
 
-* [Python on Azure quickstarts](quickstarts-app-hosting.md)
-* [Browse Python + AI code samples](/samples/browse/?branch=main&languages=python&products=azure-cognitive-services)
-* [Azure Developer CLI templates](overview-azd-templates.md)
-
-[Chat_API_protocol]: https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md
-[Chat_Backend_Folder]:https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend
+* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
+* [Access control in Generative AI Apps with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
+* [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
