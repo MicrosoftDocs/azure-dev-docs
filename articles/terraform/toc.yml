@@ -179,6 +179,10 @@
                   href: /azure/notification-hubs/create-notification-hub-terraform
         - name: Management and Governance
           items:
+            - name: Azure Policy
+              items:
+                - name: Create an assignment
+                  href: /azure/governance/policy/assign-policy-terraform
             - name: Traffic Manager
               items:
                 - name: Create a profile and endpoints
