@@ -14,7 +14,7 @@ items:
     - name: Azure AI apps
       items:
         - name: Develop with Azure AI Services
-          href: azure-ai-for-javascript-developers.md
+          href: azure-ai-for-java-developers.md
         - name: Enterprise chat app template
           href: get-started-app-chat-template.md
     - name: Compute services
