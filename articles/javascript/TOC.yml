@@ -37,7 +37,7 @@
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
       display: Azure OpenAI, OpenAI, AI
     - name: Develop with Azure AI Services
-      href: azure-ai-for-python-developers.md
+      href: azure-ai-for-javascript-developers.md
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
