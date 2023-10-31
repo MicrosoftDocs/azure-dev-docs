@@ -1,6 +1,6 @@
 ---
 title: Develop Python apps that use Azure AI services
-description: This article provides an organized list of resources about Azure AI scenarios for developers, including documentation and code samples.
+description: This article provides an organized list of resources about Azure AI scenarios for Python developers, including documentation and code samples.
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
