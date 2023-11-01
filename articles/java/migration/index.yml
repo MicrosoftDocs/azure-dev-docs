@@ -22,8 +22,6 @@ landingContent:
             url: migration-overview.md
           - text: Azure Application and Code Assessment Toolkit
             url: appcat.md
-          - text: Cloud Suitability Analyzer
-            url: cloud-suitability-analyzer.md
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide
