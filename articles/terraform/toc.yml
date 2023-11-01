@@ -179,6 +179,10 @@
                   href: /azure/notification-hubs/create-notification-hub-terraform
         - name: Management and Governance
           items:
+            - name: Azure Policy
+              items:
+                - name: Create an assignment
+                  href: /azure/governance/policy/assign-policy-terraform
             - name: Traffic Manager
               items:
                 - name: Create a profile and endpoints
@@ -229,7 +233,7 @@
                   href: /azure/frontdoor/create-front-door-terraform
             - name: Azure Virtual Network Manager
               items:
-                - name: Create a mesh network topology with Azure Virtual Network Manager
+                - name: Create a mesh network topology
                   href: /azure/virtual-network-manager/create-virtual-network-manager-terraform
             - name: Content Delivery Network (CDN)
               items:
@@ -237,7 +241,7 @@
                   href: /azure/cdn/create-profile-endpoint-terraform
             - name: Traffic Manager
               items:
-                - name: Create a profile and endpoints
+                - name: Create a profile
                   href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
         - name: Security
           items:
@@ -271,6 +275,12 @@
               items:
                 - name: Create a key vault and key
                   href: /azure/key-vault/keys/quick-create-terraform
+        - name: Storage
+          items:
+            - name: Azure Managed Lustre
+              items:
+                - name: Create a file system
+                  href: /azure/azure-managed-lustre/create-aml-file-system-terraform
         - name: Web
           items:
             - name: API Management

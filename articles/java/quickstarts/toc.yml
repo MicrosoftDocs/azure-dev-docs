@@ -1,3 +1,4 @@
+items:
 - name: Azure for Java quickstarts
   href: ./index.yml
   items:
