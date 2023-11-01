@@ -25,7 +25,7 @@ items:
         - name: Tomcat to containers on AKS
           href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
         - name: "Tutorial: Containerized Tomcat to AKS"
-          href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json
+          href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: WebLogic Server to Azure
       expanded: true
       items:
@@ -37,7 +37,7 @@ items:
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
         - name: "Tutorial: WebLogic to Azure VMs manual guidance"
           href: migrate-weblogic-to-azure-vm-manually.md
-        - name: "Tutorial: WebLogic to AKS within custom VNET"
+        - name: "Tutorial: WebLogic to AKS within custom virtual network"
           href: migrate-weblogic-to-aks-within-an-existing-vnet.md
         - name: "Tutorial: WebLogic Server with App Gateway"
           href: migrate-weblogic-with-app-gateway.md
