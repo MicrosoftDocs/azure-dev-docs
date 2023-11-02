@@ -1,15 +1,15 @@
-## Azure AI Reference Templates
+## Azure AI reference templates
 
-Azure AI Reference Templates are our strategic investment to provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications, distinguishing them from typical samples/guidance you might encounter on the web that often go stale as the underlying products evolve.  We include both complete E2E solutions around your top scenarios, as well as building blocks targeted at specific use cases.
+Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
-### Azure AI E2E Solutions
+### End-to-end solutions
 
 |Link|Description|
 |---|---|
-|[Build an enterprise chat app using your data with Azure OpenAI in Python](https://github.com/Azure-Samples/azure-search-openai-demo)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../python/get-started-app-chat-template) article that walks you through deployment.|
+|[Build an enterprise chat app using your data with Azure OpenAI in Python](https://github.com/Azure-Samples/azure-search-openai-demo)|A sample app for the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../python/get-started-app-chat-template) article that walks you through deployment.|
 |[Get started with the enterprise chat app template for Python](../python/get-started-app-chat-template)|Walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo) (above) to get answers about employee benefits at a fictitious company with Python.|
 
-### Azure AI Building Blocks
+### Building blocks
 
 |Link|Description|
 |---|---|
@@ -19,14 +19,14 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 
 ## Azure OpenAI
 
-### Azure OpenAI E2E Solutions
+### End-to-end solutions
 
 |Link|Description|
 |---|---|
 |[Build an enterprise chat app using your data with Azure OpenAI in Python](https://github.com/Azure-Samples/azure-search-openai-demo)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../python/get-started-app-chat-template) article that walks you through deployment.|
 |[Get started with the enterprise chat app template for Python](../python/get-started-app-chat-template)|Walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo) (above) to get answers about employee benefits at a fictitious company with Python.|
 
-### Azure OpenAI Building Blocks
+### Building blocks
 
 |Link|Description|
 |---|---|
@@ -36,7 +36,7 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 |[Vector Similarity Search with Azure Cache for Redis Enterprise](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)|Walkthrough of using Azure Cache for Redis as a backend vector store for RAG scenarios.|
 |[OpenAI solutions with your own data using PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)|Discusses how Azure Database for PostgreSQL Flexible Server and Azure Cosmos DB for PostgreSQL have now introduced support for the pgvector extension, overview, scenarios, etc.|
 
-### Azure OpenAI SDKs and other samples/guidance
+### SDKs and other samples/guidance
 
 |Link|Description|
 |---|---|
@@ -44,7 +44,7 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 |[openai Python Package](https://pypi.org/project/openai/)|PyPi version of the OpenAI Python library (above).|
 |[Get started using GPT-35-Turbo and GPT-4](/ai-services/openai/chatgpt-quickstart?pivots=programming-language-python&tabs=command-line)|DESCRIPTION NEEDED|
 |[Completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/completions.ipynb)|Notebook containing an example of operations needed to get completions working using the Azure endpoints. This example focuses on completions but also touches on some other operations that are also available using the API.|
-|[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|Notebook containng example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
+|[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|Notebook containing example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|Notebook demonstrating operations how to use embeddings that can be done using the Azure endpoints. This example focuses on embeddings but also touches some other operations that are also available using the API.|
 |[Finetuning](https://github.com/openai/openai-cookbook/blob/main/examples/azure/finetuning.ipynb)||
@@ -56,21 +56,21 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 
 ## Other Azure AI services
 
-### Other Azure AI E2E Solutions
+### End-to-end solutions
 
 |Link|Description|
 |---|---|
 |[Captioning and Call Center Transcription](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|Repo containing samples for captioning and transcriptioning in a call center scenario.|
 |Use Document Intelligence to automate a paper based process using the [New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/) ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App))|DESCRIPTION NEEDED|
 
-### Other Azure AI Building Blocks
+### Building blocks
 
 |Link|Description|
 |---|---|
 |[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.|
 |[Translate documents from and into more than 100 different languages using Document Translation sample apps](https://github.com/MicrosoftTranslator/DocumentTranslation)|DESCRIPTION NEEDED|
 
-### Other Azure AI SDKs and samples/guidance
+### SDKs and samples/guidance
 
 |Link|Description|
 |---|---|
