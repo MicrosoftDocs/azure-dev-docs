@@ -1,6 +1,6 @@
 ## Azure AI Reference Templates
 
-Azure AI Reference Templates are our strategic investment to provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications, distinguishing them from typical samples/guidance you might encounter on the web that often go stale as the underlying products evolve.
+Azure AI Reference Templates are our strategic investment to provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications, distinguishing them from typical samples/guidance you might encounter on the web that often go stale as the underlying products evolve. We include both complete E2E solutions around your top scenarios, as well as building blocks targeted at specific use cases.
 
 ### Azure AI E2E Solutions
 
@@ -74,24 +74,3 @@ Building Blocks are your go-to library of pre-coded components, crafted to strea
 |[Question Answering in .NET](https://aka.ms/azai/net/qna)|Quickstart to get an answer (and confidence score) from a body of text that you send along with your question.|
 |[Conversational Language Understanding in .NET](https://aka.ms/azai/net/convo)|Client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
 |[Analyze images](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)|Hosts sample code and setup documents for the Microsoft Azure AI Vision SDK.|
-
-## LEFTOVERS
-
-Do we need a home for these? Or just delete?
-
-|Link|Description|
-|---|---|
-|[ChatGPT QuickStarts for C#](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
-|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)|More full-featured chat example including a history of prompts/completions using a Blazor Server front-end.|
-|[Summarize Text](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample03_SummarizeText.cs)|Deep link to the samples (above) demonstrating text summarization.|
-|[ChatGPT .NET App with your own data](https://aka.ms/azai/dotnet/chatwithdata)|This sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation (RAG) pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
-|[ChatGPT .NET App with chats saved to CosmosDB](https://github.com/Azure-Samples/cosmosdb-chatgpt)|Full-featured chat example including a history of prompts/completions using a Blazor Server front-end.|
-|[MAUI chat app example](https://github.com/jpalvarezl/WhatsForDinner)|Small MAUI / Azure OpenAI C# SDK app demonstrating the streaming capabilities of the API.|
-|[ChatGPT .NET Copilot with your own data using Cognitive Search](https://aka.ms/azai/dotnet/chatwithdata)|.NET version sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
-|[ChatGPT .NET Copilot with your own data using MongoDB](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/MongovCore). ([Blog](https://devblogs.microsoft.com/cosmosdb/introducing-vector-search-in-azure-cosmos-db-for-mongodb-vcore/))|This solution is a series of samples that demonstrate how to build solutions that incorporate Azure Cosmos DB with Azure OpenAI to build vector search solutions with an AI assistant user interface. The solution shows hows to generate vectors on data stored in Azure Cosmos DB using Azure OpenAI, then shows how to implment vector search capabilities using a variety of different vector capable databases available from Azure Cosmos DB and Azure.|
-|[Code behind ChatGPT Web App from uploading your data to the Azure OpenAI Playground](https://aka.ms/azai/chat-from-aoai)|This repo contains sample code for a simple chat webapp that integrates with Azure OpenAI.|
-|[Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)|Awesome AZD templates for use with the Azure Developer CLI that help you build and deploy AI solutions quickly.|
-|[Azure CLI](/azure/ai-services/openai/how-to/create-resource?pivots=cli)|Article describes how to get started with Azure OpenAI Service and provides step-by-step instructions to create a resource and deploy a model using the Azure CLI.|
-|[Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)|Create Azure AI services resource using Bicep.|
-|[Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)|Terraform module for deploying Azure OpenAI Service. Includes reference docs and examples.|
-|[.NET/C#](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp)|Use .NET / C# to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|

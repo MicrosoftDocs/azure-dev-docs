@@ -11,8 +11,6 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 
 ### Azure AI Building Blocks
 
-Building Blocks are your go-to library of pre-coded components, crafted to streamline and accelerate your application development. Whether it’s user authentication, data ingestion, or [others here], these modules ensure consistency and shave off valuable development time. With Building Blocks, you’re not just coding; you’re building smarter, faster, and more reliably.
-
 |Link|Description|
 |---|---|
 |[Build a chat app with Azure OpenAI in Python](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|Simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream.|
@@ -85,32 +83,3 @@ Building Blocks are your go-to library of pre-coded components, crafted to strea
 |[Conversational Language Understanding in Python](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python&preserve-view=true)|Client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
 |[Analyze images](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)|Hosts sample code and setup documents for the Microsoft Azure AI Vision SDK.|
 |[Azure AI Content Safety SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety)|Detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful.|
-
-## LEFTOVERS
-
-Do we need a home for these? Or just delete?
-
-|Link|Description|
-|---|---|
-|[Simple Azure OpenAI ChatGPT Copilot in Python](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
-|[Simple ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
-|[ChatGPT QuickStarts for Python](/azure/cognitive-services/openai/chatgpt-quickstart?pivots=programming-language-python&tabs=command-line)|Minimal, straightforward steps to programmatically chat.|
-|[ChatGPT Python App with Azure Functions using LangChain](https://github.com/Azure-Samples/function-python-ai-langchain)|This sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
-|[ChatGPT Python Copilot with your own data using Cognitive Search](https://aka.ms/azai/chatwithdata)|Python version sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
-|[OpenAI Python ChatGPT Web App with batch processing on your own data using Redis](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna#deploy-on-azure-webapp--azure-cache-for-redis-enterprise--batch-processing)|A simple web application for a OpenAI-enabled document search. This repo uses Azure OpenAI Service for creating embeddings vectors from documents. For answering the question of a user, it retrieves the most relevant document and then uses GPT-3 to extract the matching answer for the question. Easily deployed to Azure directly from the repo.|
-|[Code behind ChatGPT Web App from uploading your data to the Azure OpenAI Playground](https://aka.ms/azai/chat-from-aoai)|This repo contains sample code for a simple chat webapp that integrates with Azure OpenAI.|
-|[Azure Developer CLI](https://azure.github.io/awesome-azd/?tags=ai)|Awesome AZD templates for use with the Azure Developer CLI that help you build and deploy AI solutions quickly.|
-|[Azure CLI](/azure/ai-services/openai/how-to/create-resource?pivots=cli)|Article describes how to get started with Azure OpenAI Service and provides step-by-step instructions to create a resource and deploy a model using the Azure CLI.|
-|[Bicep](/azure/cognitive-services/create-account-bicep?tabs=CLI)|Create Azure AI services resource using Bicep.|
-|[Terraform](https://registry.terraform.io/modules/Azure/openai/azurerm/latest)|Terraform module for deploying Azure OpenAI Service. Includes reference docs and examples.|
-|[Python](/azure/cognitive-services/cognitive-services-apis-create-account-client-library?pivots=programming-language-python)|Use Python to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.|
-|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at what's required to authenticate using Microsoft Entra ID.|
-|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
-|[ChatGPT Python App](https://aka.ms/azai/chat)|Easy to setup sample application via Azure Developer CLI. Includes a simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend.|
-|[ChatGPT Python Plugin App Authoring](https://aka.ms/azai/plugin)|This is a quickstart for sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
-|[ChatGPT Python App with your own data](https://aka.ms/azai/chatwithdata)|This sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure Cognitive Search for data indexing and retrieval.|
-|[Azure AI Content Safety SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety)|Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful.|
-|[Azure companion for Python experiment](https://github.com/johanste/easyaz)||
-|[Vector Embeddings based Q&A App](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)|A simple web application for a OpenAI-enabled document search. This repo uses Azure OpenAI Service for creating embeddings vectors from documents. For answering the question of a user, it retrieves the most relevant document and then uses GPT-3 to extract the matching answer for the question.|
-|[Use Speech to converse with OpenAI](/azure/ai-services/speech-service/openai-speech?tabs=windows&branch=main&pivots=programming-language-python)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.|
-|[More Samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|This repo is a compilation of useful Azure OpenAI Service resources and code samples to help you get started and accelerate your technology adoption journey.|
