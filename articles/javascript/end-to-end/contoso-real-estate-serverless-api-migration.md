@@ -7,11 +7,11 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to migrate my v4 programming model API to v4 so that my serverless code is more idiomatic of Node.js development.
 ---
 
-# Migrate Contoso Real Estate Serverless APIs from v3 to v4 programming model for Node.js
+# Migrate Azure Function APIs from v3 to v4 programming model for Node.js
 
 Use this migration guide to understand the Contoso Real Estate serverless API migration with Azure Functions to the v4 programming model.
 
-## Considerations for design, development, deployment, and devops
+## Considerations for 4Dx when migrating to v4 programming model
 
 While a migration appears at first glance to move from one programming model to another, there are many considerations to take into account. The following sections provide guidance on how to approach the migration.
 
@@ -22,17 +22,17 @@ Considerations:
     * V4: The v4 programming model allows for more flexibility in the design of your functions, but it is important to understand the tradeoffs of the design decisions you make.
 * **Development**: This new V4 file/folder flexibility allows you to organize your routes in files separate from the handlers. 
 * **Deployment**: If you are deploying both the v3 and v4 programming model applications within your infrastructure, be careful to isolate the two applications from each other. The v3 and v4 programming models use different versions of the Azure Functions runtime, and you should not deploy them to the same function app. If you are deploying from a monorepo, consider keeping the two programming model versions separated by branches until you are ready to merge the v4 programming model into your main deployment branch. 
-* **DeOps**: While both versions are available, make sure any tests for the v3 version work against the v4 version. Make sure any observability tools you use are able to monitor both versions.
+* **DevOps**: While both versions are available, make sure any tests for the v3 version work against the v4 version. Make sure any observability tools you use are able to monitor both versions.
 
-## Separate the v3 and v4 programming models
+## Manage development between programming models
 
-For the Contoso Real Estate project, the v3 and v4 programming models are separated into two different folders. The v3 programming model is in the `api` folder, and the v4 programming model is in the `api-v4` folder. This separation allows you to deploy the two versions separately.
+For the Contoso Real Estate project, the v3 and v4 programming models are separated into two different folders. The v3 programming model is in the `api` folder, and the v4 programming model is in the `api-v4` folder. The **purpose of the separation** is to allow you to develop and deploy the two versions separately.
 
-For the Contoso Real Estate monorepo, the root level `node_modules` controls all dependencies. During development in a separate branch, install dependencies into the `api-v4` directory instead of using the workspace. This ensures that the v3 and v4 programming model dependencies don't collide.
+For the Contoso Real Estate monorepo managed with [npm workspaces](), the root level `node_modules` controls all dependencies. During development in a separate branch, install dependencies into the `api-v4` directory instead of using the workspace. This ensures that the v3 and v4 programming model dependencies don't collide.
 
 When you are ready to merge the v4 programming model into the main branch, you can install the dependencies into the workspace and continue from there. You will need to validate the workspace builds, deploys, and tests correctly with the v4 programming model.
 
-## Migrate from the v3 programming model to the v4 programming model
+## Migrate code for v4 programming model
 
 Because the v4 Node.js programming model has more flexibility, you should take the time in the beginning of the migration to understand how you and your team want to organize routes, handlers, and the integration code the handlers use. To understand this, let's look at the v3 programming model and v4 programming model for a single HTTP route.
 
@@ -113,7 +113,7 @@ There are a few things about the v4 programming model, when compared to v3, that
 * The function definition and handler as code makes it easier to organize and refactor
 * Types, such as `InvocationContext`, make it easier to mock and test
 
-## Organize routes
+## Organize routes for v4 programming model
 
 The v4 programming model allows you to organize routes in separate files from the handlers. This allows you to organize your routes in a way that makes sense for your application. For example, you can organize routes in a serverless app `index.ts`:
 
@@ -139,7 +139,7 @@ app.get("get-listings", {
 
 ```
 
-## Settings route parameters
+## Settings route parameters for v4 programming model
 
 The definition of a route that uses a parameter has changed between the v3 programming model and the v4 programming model. However the way you access the route parameter in the handler is the same.
 
@@ -179,7 +179,7 @@ app.get("get-listing-by-id", {
  const id = req.params.id;
 ``` 
 
-## Separate handlers for integration code
+## Separate handlers for integration code in v4 programming model
 
 The handlers are organized in the `./functions` directory by feature. This allows you to separate the integration code from the handler code. For example, the handler associated with favorites in the `./functions/favorites.ts` looks like
 
@@ -196,11 +196,9 @@ export async function getListings(request: HttpRequest, context: InvocationConte
     ...removed for brevity...
 }
 ```
+## Getting request information in v4 programming model
 
-
-## Getting request information 
-
-Getting request information includes the:
+Getting request information includes the following information:
 
 * Query string
     * v3: `req.query.name`
@@ -224,12 +222,35 @@ Getting request information includes the:
         * `context.bindingData.headers['content-type']`
     * v4: `req.headers.get('content-type')`
 
-## Get listings API changes
+## Setting response information in v4 programming model
 
-The significant changes for the **listings** API between v3 programming model and v4 programming model include: 
+The response information has changed from the v3 programming model to the v4 programming model. The following table shows the changes:
 
-* Getting information from request
-* Returning information from the handler
+**v3 programming model**: 
 
+```typescript
+context.res = {
+      status: 200,
+      body: listing,
+      headers: {
+        "content-type": "application/json",
+      },
+};
+```
 
+The response in v3 programming model is loosely typed as key/value pairs. 
 
+**v4 programming model**: 
+
+```typescript
+return {
+  status: 200,
+  jsonBody: listing,
+  headers: {
+      "content-type": "application/json",
+  },
+ cookies: undefined
+};
+```
+
+The response in v4 programming model is strongly typed. 
