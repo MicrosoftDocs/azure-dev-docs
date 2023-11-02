@@ -1,7 +1,7 @@
 ---
 title: Get started with the enterprise chat app template for Python
 description: Get started with Python and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
