@@ -50,8 +50,6 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|Link|Description|
-|---|---|
 |[Captioning and Call Center Transcription](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|A repo containing samples for captioning and transcriptioning in a call center scenario.|
 
 ### Building blocks
