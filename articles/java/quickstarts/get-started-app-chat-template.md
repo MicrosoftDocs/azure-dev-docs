@@ -58,12 +58,14 @@ To use this article, you need the following prerequisites:
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
@@ -83,6 +85,7 @@ Begin now with a development environment that has all the dependencies installed
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo-java`](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository:
 
     > [!div class="nextstepaction"]
+    > Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=687400781)
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
@@ -120,7 +123,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd auth login
     ```
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-1. Initialize the folder to use the sample project with Azure Developer CLI:
+1. Create a folder and initialize it to use the sample project with Azure Developer CLI:
     ```bash
     azd init -t azure-search-openai-java
     ```
@@ -128,6 +131,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+1. Re-open the Terminal window again (<kbd>Ctrl<kbd> + <kbd>`<kbd>)and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 ---
 ## Deploy and run
@@ -143,7 +147,7 @@ The sample repository contains all the code and configuration files you need to 
 1. When you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
-1. Select that URL to open the chat application in a browser.
+1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 ### Use chat app to get answers from PDF files
 
@@ -227,7 +231,7 @@ The Azure resources created in this article are billed to your Azure subscriptio
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
-azd down
+azd down --purge
 ```
 
 ### Clean up GitHub Codespaces
