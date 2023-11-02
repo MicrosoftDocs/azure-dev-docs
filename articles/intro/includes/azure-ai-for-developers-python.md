@@ -1,6 +1,6 @@
 ## Azure AI Reference Templates
 
-Azure AI Reference Templates are our strategic investment to provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications, distinguishing them from typical samples/guidance you might encounter on the web that often go stale as the underlying products evolve.
+Azure AI Reference Templates are our strategic investment to provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications, distinguishing them from typical samples/guidance you might encounter on the web that often go stale as the underlying products evolve.  We include both complete E2E solutions around your top scenarios, as well as building blocks targeted at specific use cases.
 
 ### Azure AI E2E Solutions
 

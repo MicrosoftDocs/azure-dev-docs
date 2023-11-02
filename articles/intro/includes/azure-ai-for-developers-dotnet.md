@@ -11,8 +11,6 @@ Azure AI Reference Templates are our strategic investment to provide you with we
 
 ### Azure AI Building Blocks
 
-Building Blocks are your go-to library of pre-coded components, crafted to streamline and accelerate your application development. Whether it’s user authentication, data ingestion, or [others here], these modules ensure consistency and shave off valuable development time. With Building Blocks, you’re not just coding; you’re building smarter, faster, and more reliably.
-
 |Link|Description|
 |---|---|
 
