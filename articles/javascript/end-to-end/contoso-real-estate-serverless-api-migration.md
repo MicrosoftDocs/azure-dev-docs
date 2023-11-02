@@ -17,8 +17,10 @@ While a migration appears at first glance to move from one programming model to 
 
 Considerations: 
 
-* **Design**: The v4 programming model for Azure Functions is tightly coupled to a file and folder structure which works for smaller projects, but can be difficult to manage for larger projects. The v4 programming model allows for more flexibility in the design of your functions, but it is important to understand the tradeoffs of the design decisions you make.
-* **Development**: This new file/folder flexibility allows you to organize your routes in files separate from the handlers. 
+* **Design**: 
+    * V3: The v3 programming model for Azure Functions is tightly coupled to a file and folder structure which works for smaller projects, but can be difficult to manage for larger projects. 
+    * V4: The v4 programming model allows for more flexibility in the design of your functions, but it is important to understand the tradeoffs of the design decisions you make.
+* **Development**: This new V4 file/folder flexibility allows you to organize your routes in files separate from the handlers. 
 * **Deployment**: If you are deploying both the v3 and v4 programming model applications within your infrastructure, be careful to isolate the two applications from each other. The v3 and v4 programming models use different versions of the Azure Functions runtime, and you should not deploy them to the same function app. If you are deploying from a monorepo, consider keeping the two programming model versions separated by branches until you are ready to merge the v4 programming model into your main deployment branch. 
 * **DeOps**: While both versions are available, make sure any tests for the v3 version work against the v4 version. Make sure any observability tools you use are able to monitor both versions.
 
@@ -26,7 +28,7 @@ Considerations:
 
 For the Contoso Real Estate project, the v3 and v4 programming models are separated into two different folders. The v3 programming model is in the `api` folder, and the v4 programming model is in the `api-v4` folder. This separation allows you to deploy the two versions separately.
 
-For the Contoso Real Estate monorepo, the root level `node_modules` controls all dependencies. During development in a separate branch, install dependencies into the `api-v4` directory instead of using the workspace. This ensures that the v3 and v4 programming models don't collide.
+For the Contoso Real Estate monorepo, the root level `node_modules` controls all dependencies. During development in a separate branch, install dependencies into the `api-v4` directory instead of using the workspace. This ensures that the v3 and v4 programming model dependencies don't collide.
 
 When you are ready to merge the v4 programming model into the main branch, you can install the dependencies into the workspace and continue from there. You will need to validate the workspace builds, deploys, and tests correctly with the v4 programming model.
 
@@ -130,9 +132,16 @@ app.get("get-listings", {
   authLevel: "anonymous",
   handler: getListings,
 });
+
+
+// remaining routes removed for brevity
+
+
 ```
 
 ## Settings route parameters
+
+The definition of a route that uses a parameter has changed between the v3 programming model and the v4 programming model. However the way you access the route parameter in the handler is the same.
 
 **v3 programming model**: `functions.json` bindings.route: 
 
@@ -142,8 +151,16 @@ app.get("get-listings", {
     {
       "route": "listings/{id}"
     }
+  ]
 }
 ```
+
+**v3 programming model**: access route parameters in the handler:
+
+```typescript
+// same for v3 and v4 programming models
+const id = req.params.id;
+``` 
 
 **v4 programming model**: `index.ts` main route file:
 
@@ -153,7 +170,14 @@ app.get("get-listing-by-id", {
   authLevel: "anonymous",
   handler: getListingById,
 });
-``````
+```
+
+**v4 programming model**: access route parameters in the handler:
+
+```typescript
+// same for v3 and v4 programming models
+ const id = req.params.id;
+``` 
 
 ## Separate handlers for integration code
 
