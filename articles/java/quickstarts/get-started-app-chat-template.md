@@ -93,7 +93,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. Sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
@@ -143,8 +143,11 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
+
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. Its used as part of the resource group name. 
+1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
-1. When you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
