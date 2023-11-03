@@ -11,7 +11,7 @@
 |[Image generation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.CreateImage)|A simple example of implementing image generation.|
 |[Embeddings](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetEmbeddings)|A simple example demonstrating how to create embeddings.|
 |[Other examples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)|The Go package version of documentation for the OpenAI client module for Go.|
-|[More guidance](/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+|[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
 ## Secure your Azure AI resources
 
