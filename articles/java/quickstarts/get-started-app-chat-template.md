@@ -156,7 +156,7 @@ The sample repository contains all the code and configuration files you need to 
 
 The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
-1. In the browser, enter a question in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter a question in the text box at the bottom of the page such as one of the following: 
 
     * What is included in my Northwind Health Plus plan that is not in standard?
     * What happens in a performance review?

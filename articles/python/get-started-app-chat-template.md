@@ -168,7 +168,7 @@ The sample repository contains all the code and configuration files you need to 
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
-1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
+1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
@@ -176,7 +176,7 @@ The sample repository contains all the code and configuration files you need to 
 
 The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
-1. In the browser, select a question or enter a question in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter a question in the text box at the bottom of the page such as one of the following: 
 
     * What is included in my Northwind Health Plus plan that isn't in standard?
     * What happens in a performance review? 

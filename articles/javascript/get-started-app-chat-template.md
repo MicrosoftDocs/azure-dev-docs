@@ -174,7 +174,7 @@ The sample repository contains all the code and configuration files you need to 
 
 The chat app is preloaded with rental information from a [markdown file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
-1. In the browser, enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
 
     * How to search and book rentals?
     * What is the refund policy?
@@ -186,15 +186,11 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
 
-1. In the right-pane, use the tabs to understand how the answer was generated.
+    The markdown file associated with the citation is displayed in a new window. This allows you to look through the full content. 
 
-    |Tab|Description|
-    |---|---|
-    |**Thought process**|This is a script of the interactions in chat.|
-    |**Support content**|This includes the information to answer your question and the source material.|
-    |**Citation**|This displays the content that contains the citation.|
-
-1. When you're done, select the tab again to close the pane.
+1. When you are done looking at the markdown, return to the original browser. 
+1. Select **Show thought process**. A right-side pane opens with the **Thought process** tab exposed. This tab includes the information to answer your question and the source material. The **Support context** includes the information to answer your question and the source material.
+1. When you're done, select the **X** above the tabs.
 
 ### Use chat app settings to change behavior of responses
 
