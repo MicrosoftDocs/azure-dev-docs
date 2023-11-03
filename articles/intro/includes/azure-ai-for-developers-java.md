@@ -6,8 +6,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Build an enterprise chat app using your data with Azure OpenAI in Java](https://github.com/Azure-Samples/azure-search-openai-demo-java)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../../java/quickstarts/get-started-app-chat-template) article that walks you through deployment.|
-|[Get started with the enterprise chat app template for Java](../../java/quickstarts/get-started-app-chat-template)|A quickstart article that walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo-java) to get answers about employee benefits at a fictitious company with Java.|
+|[Build an enterprise chat app using your data with Azure OpenAI in Java](https://github.com/Azure-Samples/azure-search-openai-demo-java)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../../java/quickstarts/get-started-app-chat-template.md) article that walks you through deployment.|
+|[Get started with the enterprise chat app template for Java](../../java/quickstarts/get-started-app-chat-template.md)|A quickstart article that walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo-java) to get answers about employee benefits at a fictitious company with Java.|
 
 ## Azure OpenAI
 
@@ -15,8 +15,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Build an enterprise chat app using your data with Azure OpenAI in Java](https://github.com/Azure-Samples/azure-search-openai-demo-java)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../../java/quickstarts/get-started-app-chat-template) article that walks you through deployment.|
-|[Get started with the enterprise chat app template for Java](../../java/quickstarts/get-started-app-chat-template)|A quickstart article that walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo-java) to get answers about employee benefits at a fictitious company with Java.|
+|[Build an enterprise chat app using your data with Azure OpenAI in Java](https://github.com/Azure-Samples/azure-search-openai-demo-java)|A sample app for the Retrieval-Augmented Generation pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../../java/quickstarts/get-started-app-chat-template.md) article that walks you through deployment.|
+|[Get started with the enterprise chat app template for Java](../../java/quickstarts/get-started-app-chat-template.md)|A quickstart article that walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo-java) to get answers about employee benefits at a fictitious company with Java.|
 
 ### Building blocks
 
@@ -31,14 +31,14 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |---|---|
 |[Azure OpenAI SDK for Java](https://aka.ms/oai/java/sdk)|The GitHub source version of the Azure OpenAI client library for Java, an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem.|
 |[azure.ai.openai maven package](https://aka.ms/oai/java/maven)|The Maven package version of the Azure OpenAI client library for Java.|
-|[Get started using GPT-35-Turbo and GPT-4](/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&tabs=command-line)|An article that walks you through creating a chat completion sample.|
+|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)|A simple example demonstrating how to use  streaming chat completions.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|An article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|An article that looks at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More Samples](https://aka.ms/oai/java/samples)|The Azure OpenAI service samples are a set of self-contained Java programs that demonstrate interacting with Azure OpenAI service using the client library. Each sample focuses on a specific scenario and can be executed independently.|
-|[More guidance](/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+|[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
 ## Other Azure AI services
 

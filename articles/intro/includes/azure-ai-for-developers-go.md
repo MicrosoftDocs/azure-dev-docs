@@ -4,7 +4,7 @@
 |---|---|
 |[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)|The GitHub source version of the Azure OpenAI SDK for Go.|
 |[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|The Go package version of Azure OpenAI client module for Go.|
-|[Get started using GPT-35-Turbo and GPT-4](/ai-services/openai/chatgpt-quickstart?pivots=programming-language-go&tabs=command-line)|An article that walks you through creating a chat completion sample.|
+|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-go&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions)|A simple example demonstrating how to implement completions.|
 |[ChatCompletions using Functions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions-Functions)|A simple example demonstrating how to implement completions using Functions.|
 |[Streaming Chat Completions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletionsStream)|A simple example demonstrating how to implement streaming completions.|
