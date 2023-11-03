@@ -28,7 +28,7 @@ highlightedContent:
     - title: Connect apps to Azure services
       itemType: overview
       url: ./intro/connect-to-azure-services.md
-    - title: Develop Azure AI-powered applications
+    - title: Develop apps that use Azure AI services
       itemType: overview
       url: ./intro/azure-ai-for-developers.md
     - title: Create resources in Azure

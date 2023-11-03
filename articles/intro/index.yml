@@ -35,17 +35,15 @@ landingContent:
             url: ./azure-developer-key-concepts.md
           - text: Azure billing
             url: ./azure-developer-billing.md
-
   # Card
   - title: Key developer scenarios
     linkLists:
       - linkListType: concept
         links:
-          - text: Develop Azure AI-powered applications
+          - text: Develop apps that use Azure AI services
             url: ./azure-ai-for-developers.md
           - text: Passwordless connections for Azure Services
             url: ./passwordless-overview.md
-
   # Card
   - title: Developer centers
     linkLists:
