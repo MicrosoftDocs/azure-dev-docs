@@ -1,6 +1,6 @@
 ## Azure AI reference templates
 
-Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a production-ready starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
+Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
 ### End-to-end solutions
 
