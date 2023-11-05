@@ -160,7 +160,7 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. Its used as part of the resource group name. 
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
@@ -168,29 +168,26 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from markdown files
 
 The chat app is preloaded with rental information from a [markdown file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
-1. In the browser, select or enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
 
-    * How to search and book rentals?
-    * What is the refund policy?
-    * How to contact a representative? 
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+1. From the answer, select **Show thought process**.
 
-1. From the answer, select one of the citations.
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
-
-    The markdown file associated with the citation is displayed in a new window. This allows you to look through the full content. 
-
-1. When you are done looking at the markdown, return to the original browser. 
-1. Select **Show thought process**. A right-side pane opens with the **Thought process** tab exposed. This tab includes the information to answer your question and the source material. The **Support context** includes the information to answer your question and the source material.
-1. When you're done, select the **X** above the tabs.
+1. A panel displays three tabs:
+    
+    * **Thought process** - This tab includes the information to answer your question and the source material.
+    * **Supporting context** - This tab includes the information to answer your question and the source material.
+    * **Citations** - This tab includes the source material. 
+1. When you're done, select the _hide_ button denoted with an **X** above the tabs.
 
 ### Use chat app settings to change behavior of responses
 
@@ -204,7 +201,7 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
 |Use semantic ranker for retrieval|This is a feature of [Azure Cognitive Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
-|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries`` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
+|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
 |Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
 |Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
 |Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
@@ -212,19 +209,13 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
-1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
+1. Check the **Use query-contextual summaries instead of** checkbox and ask the same question again.
 
     ```
     What happens if the rental doesn't fit the description?
     ```
 
-    The chat returned suggested follow-up questions such as the following:
-
-    ```
-    1. Would you like to see the refund policy? 
-    2. Would you like to see contact information? 
-    3. Would you like to see the privacy policy? 
-    ```
+    The chat returned with a more concise answer such as the following.
 
 ## Clean up resources
 
