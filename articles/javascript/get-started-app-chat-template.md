@@ -141,7 +141,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
-1. Reopen the Terminal window again (<kbd>Ctrl<kbd> + <kbd>`<kbd>) and leave it open.
+1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -182,11 +182,14 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
-1. A panel displays three tabs:
-    
-    * **Thought process** - This tab includes the information to answer your question and the source material.
-    * **Supporting context** - This tab includes the information to answer your question and the source material.
-    * **Citations** - This tab includes the source material. 
+1. In the right-pane, use the tabs to understand how the answer was generated.
+
+    |Tab|Description|
+    |---|---|
+    |**Thought process**|This is a script of the interactions in chat. You can view the system prompt (`content`) and your user question (`content`).|
+    |**Supporting content**|This includes the information to answer your question and the source material. The number of source material citations is noted in the **Developer settings**. The default value is **3**.|
+    |**Citation**|This displays the original page that contains the citation.|
+
 1. When you're done, select the _hide_ button denoted with an **X** above the tabs.
 
 ### Use chat app settings to change behavior of responses

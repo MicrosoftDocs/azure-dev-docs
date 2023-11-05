@@ -143,7 +143,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
-1. Reopen the Terminal window again (<kbd>Ctrl<kbd> + <kbd>`<kbd>) and leave it open.
+1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -176,17 +176,13 @@ The sample repository contains all the code and configuration files you need to 
 
 The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
-1. In the browser, select or enter a question in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter *What happens in a performance review?* in the chat text box.
 
-    * What is included in my Northwind Health Plus plan that isn't in standard?
-    * What happens in a performance review? 
-    * What does a product manager do? 
-
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
 1. From the answer, select a citation.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -221,31 +217,29 @@ The following steps walk you through the process of changing the settings.
 1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
 
     ```
-    What is my deductible?
+    What happens in a performance review?
     ```
 
     The chat returned suggested follow-up questions such as the following:
 
     ```
-    1. What is the cost sharing for out-of-network services?
-    2. Are preventive care services subject to the deductible?
-    3. How does the prescription drug deductible work?
+    1. What is the frequency of performance reviews?
+    2. How can employees prepare for a performance review?
+    3. Can employees dispute the feedback received during the performance review?
     ```
 
 1. In the **Settings** tab, deselect **Use semantic ranker for retrieval**.
 1. Ask the same question again? 
 
     ```
-    What is my deductible?
+    What happens in a performance review?
     ```
 
 1. What is the difference in the answers?
 
-    For example the response, which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
+    **With the Semantic ranker**: During a performance review at Contoso Electronics, employees will have the opportunity to discuss their successes and challenges in the workplace (1). The review will provide positive and constructive feedback to help employees develop and grow in their roles (1). The employee will receive a written summary of the performance review, which will include a rating of their performance, feedback, and goals and objectives for the upcoming year (1). The performance review is a two-way dialogue between managers and employees (1).
 
-    The response without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
-
-
+    **Without the Semantic ranker**: During a performance review at Contoso Electronics, employees have the opportunity to discuss their successes and challenges in the workplace. Positive and constructive feedback is provided to help employees develop and grow in their roles. A written summary of the performance review is given, including a rating of performance, feedback, and goals for the upcoming year. The review is a two-way dialogue between managers and employees (1).
 
 
 ## Clean up resources

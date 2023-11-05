@@ -131,7 +131,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
-1. Re-open the Terminal window again (<kbd>Ctrl<kbd> + <kbd>`<kbd>)and leave it open.
+1. Re-open the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>)and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 ---
 ## Deploy and run
