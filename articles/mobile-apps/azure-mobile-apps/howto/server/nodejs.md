@@ -20,7 +20,7 @@ Azure Mobile Apps provides the capability to add a mobile-optimized data access 
 * Table operations (read, insert, update, delete) for data access
 * Custom API operations
 
-Both operations provide for authentication across all identity providers that Azure App Service allows. These providers include social identity providers such as Facebook, Twitter, Google, and Microsoft, and Azure Active Directory for enterprise identity.
+Both operations provide for authentication across all identity providers that Azure App Service allows. These providers include social identity providers such as Facebook, Twitter, Google, and Microsoft, and Microsoft Entra ID for enterprise identity.
 
 ## Supported platforms
 
@@ -276,7 +276,7 @@ Using Azure SQL Database as a data store is identical across all Azure App Servi
 
 If you want to use App Service Authentication with the `tables` endpoint, you must [configure App Service Authentication in the Azure portal](/azure/app-service/app-service-authentication-how-to) first. For more information, see the configuration guide for the identity provider that you intend to use:
 
-* [Configure Azure Active Directory authentication](/azure/app-service/configure-authentication-provider-aad)
+* [Configure Microsoft Entra authentication](/azure/app-service/configure-authentication-provider-aad)
 * [Configure Facebook authentication](/azure/app-service/configure-authentication-provider-facebook)
 * [Configure Google authentication](/azure/app-service/configure-authentication-provider-google)
 * [Configure Microsoft authentication](/azure/app-service/configure-authentication-provider-microsoft)
@@ -317,9 +317,9 @@ If the access property is undefined, unauthenticated access is allowed.
 You can set up various claims that are requested when authentication is set up. These claims are not normally available through the `context.user` object. However, you can retrieve them by using the `context.user.getIdentity()` method. The `getIdentity()` method returns a promise that resolves to an object. The object is keyed by the authentication method (`facebook`, `google`, `twitter`, `microsoftaccount`, or `aad`).
 
 > [!NOTE] 
-> If using Microsoft authentication via Azure Active Directory, the authentication method is `aad`, not `microsoftaccount`.
+> If using Microsoft authentication via Microsoft Entra ID, the authentication method is `aad`, not `microsoftaccount`.
 
-For example, if you set up Azure Active Directory authentication and request the email addresses claim, you can add the email address to the record with the following table controller:
+For example, if you set up Microsoft Entra authentication and request the email addresses claim, you can add the email address to the record with the following table controller:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');

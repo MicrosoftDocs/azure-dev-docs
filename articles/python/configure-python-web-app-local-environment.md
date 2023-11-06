@@ -138,7 +138,7 @@ Below are some of the packages commonly used in web app development. You can ins
 |[Azure Cosmos DB](/python/api/overview/azure/cosmos-readme) | `pip install azure-cosmos`| [azure-cosmos](https://pypi.org/project/azure-cosmos/) |
 |[Azure Key Vault Secrets](/python/api/overview/azure/keyvault-secrets-readme) | `pip install azure-keyvault-secrets`| [azure-keyvault-secrets](https://pypi.org/project/azure-keyvault-secrets/) |
 
-The [azure-identity](https://pypi.org/project/azure-identity/) package allows your web app to authenticate with Azure Active Directory (Azure AD). For authentication in your web app code, it's recommended that you use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in the `azure-identity` package. Here's an example of how to access Azure Storage. The pattern is similar for other Azure resources.
+The [azure-identity](https://pypi.org/project/azure-identity/) package allows your web app to authenticate with Microsoft Entra ID. For authentication in your web app code, it's recommended that you use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in the `azure-identity` package. Here's an example of how to access Azure Storage. The pattern is similar for other Azure resources.
 
 ```python
 from azure.identity import DefaultAzureCredential
