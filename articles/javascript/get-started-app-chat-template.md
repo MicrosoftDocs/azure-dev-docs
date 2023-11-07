@@ -1,7 +1,7 @@
 ---
 title: Get started with the enterprise chat app template for JavaScript
 description: Get started with JavaScript and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ms.topic: get-started
 ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
@@ -24,7 +24,7 @@ Once you complete this article, you can start modifying the new project with you
 
 This article is part of a collection of articles that show you how to build a chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
 
-* [.Net](/azure/developer/dotnet/get-started-app-chat-template)
+* [.NET](/azure/developer/dotnet/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [Python](../python/get-started-app-chat-template.md)
 
@@ -45,7 +45,7 @@ Key components of the architecture include:
 
 ## Cost 
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you are done with the article, you can delete the resources to stop incurring charges.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-javascript#cost-estimation).
 
@@ -58,12 +58,18 @@ To use this article, you need the following prerequisites:
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+1. Access granted to Azure OpenAI in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 1. GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+1. Access granted to Azure OpenAI in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
@@ -80,7 +86,8 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository:
+1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
 
     > [!div class="nextstepaction"]
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=684521881)
@@ -91,7 +98,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. Sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
@@ -125,7 +132,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-1. Initialize the folder to use the sample project with Azure Developer CLI:
+1. Create a folder and initialize it to use the sample project with Azure Developer CLI:
 
     ```bash
     azd init -t azure-search-openai-javascript
@@ -138,6 +145,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
+1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -156,40 +164,37 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
-
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
+1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
-1. When you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
-1. Select that URL to open the chat application in a browser.
+1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from markdown files
 
 The chat app is preloaded with rental information from a [markdown file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
-1. In the browser, enter a question about the catalog in the text box at the bottom of the page such as one of the following: 
+1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
 
-    * How to search and book rentals?
-    * What is the refund policy?
-    * How to contact a representative? 
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+1. From the answer, select **Show thought process**.
 
-1. From the answer, select one of the citations.
-
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
     |Tab|Description|
     |---|---|
-    |**Thought process**|This is a script of the interactions in chat.|
-    |**Support content**|This includes the information to answer your question and the source material.|
-    |**Citation**|This displays the content that contains the citation.|
+    |**Thought process**|This is a script of the interactions in chat. You can view the system prompt (`content`) and your user question (`content`).|
+    |**Supporting content**|This includes the information to answer your question and the source material. The number of source material citations is noted in the **Developer settings**. The default value is **3**.|
+    |**Citation**|This displays the original page that contains the citation.|
 
-1. When you're done, select the tab again to close the pane.
+1. When you're done, select the _hide_ button denoted with an **X** above the tabs.
 
 ### Use chat app settings to change behavior of responses
 
@@ -203,7 +208,7 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
 |Use semantic ranker for retrieval|This is a feature of [Azure Cognitive Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
-|Use query-contextual summaries instead of whole documents| |
+|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
 |Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
 |Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
 |Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
@@ -211,19 +216,13 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
-1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
+1. Check the **Use query-contextual summaries instead of** checkbox and ask the same question again.
 
     ```
     What happens if the rental doesn't fit the description?
     ```
 
-    The chat returned suggested follow-up questions such as the following:
-
-    ```
-    1. Would you like to see the refund policy? 
-    2. Would you like to see contact information? 
-    3. Would you like to see the privacy policy? 
-    ```
+    The chat returned with a more concise answer such as the following.
 
 ## Clean up resources
 
@@ -234,7 +233,7 @@ The Azure resources created in this article are billed to your Azure subscriptio
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
-azd down
+azd down --purge
 ```
 
 ### Clean up GitHub Codespaces
