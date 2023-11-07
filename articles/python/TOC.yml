@@ -3,7 +3,13 @@
 
 - name: Get started
   href: get-started.md
-
+- name: Azure AI apps 
+  items: 
+  - name: Develop with Azure AI services
+    href: azure-ai-for-python-developers.md
+  - name: Enterprise chat app template
+    href: get-started-app-chat-template.md
+    display: Azure OpenAI, OpenAI, FastApi
 - name: Web
   items:
   - name: Set up local web dev environment
