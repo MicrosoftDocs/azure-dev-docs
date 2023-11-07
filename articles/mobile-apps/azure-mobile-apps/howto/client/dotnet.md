@@ -687,9 +687,9 @@ public async Task<AuthenticationToken> GetTokenAsync()
 
 Authentication tokens are cached in memory (never written to device) and refreshed when necessary.
 
-### Use the Microsoft Identity Platform
+### Use the Microsoft identity platform
 
-The Microsoft Identity Platform allows you to easily integrate with Microsoft Entra ID.  See the quick start tutorials for a complete tutorial on how to implement Microsoft Entra ID authentication.  The following code shows an example of retrieving the access token:
+The Microsoft identity platform allows you to easily integrate with Microsoft Entra ID.  See the quick start tutorials for a complete tutorial on how to implement Microsoft Entra authentication.  The following code shows an example of retrieving the access token:
 
 ``` csharp
 private readonly string[] _scopes = { /* provide your AAD scopes */ };
@@ -749,7 +749,7 @@ public async Task<AuthenticationToken> GetTokenAsync()
 }
 ```
 
-For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
+For more information on integrating the Microsoft identity platform with ASP.NET 6, see the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) documentation.
 
 ### Use Xamarin Essentials or MAUI WebAuthenticator
 

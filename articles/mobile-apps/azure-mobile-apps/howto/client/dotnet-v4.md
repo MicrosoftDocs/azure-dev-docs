@@ -613,7 +613,7 @@ You can use InvokeApiAsync to call any WebAPI, including those WebAPIs that are 
 
 ## Authenticate users
 
-Mobile Apps supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. 
+Mobile Apps supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, Twitter, and Microsoft Entra ID. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. 
 
 Two authentication flows are supported: *client-managed* and *server-managed* flow. The server-managed flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client-managed flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
@@ -639,17 +639,17 @@ Examples are provided for the following client-flow authentication patterns:
 
 #### Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client using Azure Active Directory authentication.
+You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client using Microsoft Entra authentication.
 
 > [!WARNING]
 > Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. For more information, see [Migrate apps to MSAL](/azure/active-directory/develop/msal-migration).
 
-1. Configure your mobile app backend for AAD sign-on by following the [How to configure App Service for Active Directory login](/azure/app-service/configure-authentication-provider-aad) tutorial. Make sure to complete the optional step of registering a native client application.
+1. Configure your mobile app backend for Microsoft Entra sign-on by following the [How to configure App Service for Active Directory login](/azure/app-service/configure-authentication-provider-aad) tutorial. Make sure to complete the optional step of registering a native client application.
 2. In Visual Studio, open your project and add a reference to the `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 3. Add the following code to your application, according to the platform you are using. In each, make the following replacements:
 
-   * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be `https://login.microsoftonline.com/contoso.onmicrosoft.com`. This value can be copied from the Domain tab in your Azure Active Directory in the [Azure portal].
-   * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+   * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be `https://login.microsoftonline.com/contoso.onmicrosoft.com`. This value can be copied from the Domain tab in your Microsoft Entra ID in the [Azure portal].
+   * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Microsoft Entra Settings** in the portal.
    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
    * Replace **INSERT-REDIRECT-URI-HERE** with your site's `/.auth/login/done` endpoint, using the HTTPS scheme. This value should be similar to `https://contoso.azurewebsites.net/.auth/login/done`.
 

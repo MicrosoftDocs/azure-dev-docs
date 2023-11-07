@@ -256,7 +256,7 @@ You're almost finished! Keep the Jenkins job open. The only remaining task is to
 
 ## Configure deployment using cluster management endpoint
 
-For development and test environments, you can use the cluster management endpoint to deploy your application. Configuring the post-build action with the cluster management endpoint to deploy your application requires the least amount of set-up. If you're deploying to a production environment, skip ahead to [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials) to configure an Azure Active Directory service principal to use during deployment.    
+For development and test environments, you can use the cluster management endpoint to deploy your application. Configuring the post-build action with the cluster management endpoint to deploy your application requires the least amount of set-up. If you're deploying to a production environment, skip ahead to [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials) to configure a Microsoft Entra service principal to use during deployment.
 
 1. In the Jenkins job, click the **Post-build Actions** tab. 
 1. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
@@ -271,15 +271,15 @@ For development and test environments, you can use the cluster management endpoi
 
 ## Configure deployment using Azure credentials
 
-For production environments, configuring an Azure credential to deploy your application is strongly recommended. This section shows you how to configure an Azure Active Directory service principal to use to deploy your application in the post-build action. You can assign service principals to roles in your directory to limit the permissions of the Jenkins job. 
+For production environments, configuring an Azure credential to deploy your application is strongly recommended. This section shows you how to configure a Microsoft Entra service principal to use to deploy your application in the post-build action. You can assign service principals to roles in your directory to limit the permissions of the Jenkins job. 
 
 For development and test environments, you can configure either Azure credentials or the cluster management endpoint to deploy your application. For details about how to configure a cluster management endpoint, see [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint).   
 
-1. To create an Azure Active Directory service principal and assign it permissions in your Azure subscription, follow the steps in [Use the portal to create an Azure Active Directory application and service principal](/azure/azure-resource-manager/resource-group-create-service-principal-portal). Pay attention to the following:
+1. To create a Microsoft Entra service principal and assign it permissions in your Azure subscription, follow the steps in [Use the portal to create a Microsoft Entra application and service principal](/azure/azure-resource-manager/resource-group-create-service-principal-portal). Pay attention to the following:
 
    * While following the steps in the topic, be sure to copy and save the following values: *Application ID*, *Application key*, *Directory ID (Tenant ID)*, and *Subscription ID*. You need them to configure the Azure credentials in Jenkins.
    * If you don't have the [required permissions](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to either grant you the permissions or create the service principal for you, or you'll need to configure the management endpoint for your cluster in the **Post-Build Actions** for your job in Jenkins.
-   * In the [Create an Azure Active Directory application](/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
+   * In the [Create a Microsoft Entra application](/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
    * In the [Assign application to a Role](/azure/azure-resource-manager/resource-group-create-service-principal-portal) section, you can assign your application the *Reader* role on the resource group for your cluster.
 
 1. Back in the Jenkins job, click the **Post-build Actions** tab.
