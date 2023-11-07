@@ -26,11 +26,7 @@ There are two methods of installing the Azure Toolkit for Eclipse: by accessing 
 
 ## Eclipse Marketplace
 
-The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Eclipse Marketplace](https://marketplace.eclipse.org/) and install solutions. The following two options take you to the Eclipse Marketplace:
-
-- Drag the following button to your running Eclipse workspace. This button opens the Eclipse Marketplace with the Azure Toolkit for Eclipse already selected.
-
-   [![Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client](https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png)](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1919278 "Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client")
+The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Eclipse Marketplace](https://marketplace.eclipse.org/) and install solutions. The following option takes you to the Eclipse Marketplace:
 
 - On the Eclipse IDE, click the **Help** menu, navigate to **Eclipse Marketplace**, search for "Azure Toolkit for Eclipse", and click **Install**.
 
