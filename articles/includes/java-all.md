@@ -410,6 +410,7 @@
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-bom/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.2/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.0/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
 | Application Insights - Agent | Maven [3.4.18](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.4.18/jar/) |  |  |
