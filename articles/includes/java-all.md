@@ -609,8 +609,8 @@
 | Resource Management - Parent | Maven [1.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-arm-parent/1.3.2/jar/) |  | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/parents/azure-arm-parent) |
 | Auth Helper  Plugin | Maven [0.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-auth-helper/0.7.0/jar/) |  |  |
 | azure-appservice-maven-plugin-lib | Maven [1.32.0](https://search.maven.org/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.32.0/jar/) |  |  |
-| azure-autorest-customization | Maven [1.0.0-beta.7](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.7/jar/) |  |  |
-| azure-autorest-extension | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.4/jar/) |  |  |
+| azure-autorest-customization | Maven [1.0.0-beta.8](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.8/jar/) |  |  |
+| azure-autorest-extension | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.5/jar/) |  |  |
 | azure-autorest-parent | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.4/jar/) |  |  |
 | azure-maven-plugins | Maven [1.32.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.32.0/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |

@@ -492,7 +492,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.58](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.58) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.59](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.59) |  |  |
 | AutoRest - Modeler Four | npm [4.26.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.26.2) |  | GitHub [4.26.2](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.660](https://www.npmjs.com/package/@autorest/powershell/v/4.0.660) |  | GitHub [4.0.660](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.9.8](https://www.npmjs.com/package/@autorest/python/v/6.9.8) |  | GitHub [6.9.8](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
