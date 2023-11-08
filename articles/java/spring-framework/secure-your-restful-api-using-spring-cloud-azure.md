@@ -95,7 +95,7 @@ To install the Spring Cloud Azure Starter Azure Active Directory module, add the
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.12.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
