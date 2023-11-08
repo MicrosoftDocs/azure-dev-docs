@@ -6,8 +6,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Build an enterprise chat app using your data with Azure OpenAI in Python](https://github.com/Azure-Samples/azure-search-openai-demo)|A sample app for the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. Check out the [Get started](../../python/get-started-app-chat-template.md) article that walks you through deployment.|
-|[Get started with the enterprise chat app template for Python](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the [enterprise chat app](https://github.com/Azure-Samples/azure-search-openai-demo) to get answers about employee benefits at a fictitious company with Python.|
+|[Get started with the enterprise chat app template for Python](../../python/get-started-app-chat-template.md)|A sample app for the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo)|
 
 ### Building blocks
 
