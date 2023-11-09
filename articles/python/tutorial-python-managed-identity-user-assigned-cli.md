@@ -68,7 +68,7 @@ Use the sample Django sample application to follow along with this tutorial. Dow
 
     The *sku-name* is the name of the pricing tier and compute configuration. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). To list available SKUs, use `az postgres flexible-server list-skus --location $LOCATION`.
 
-1. Add your Azure account as an Azure AD admin for the server with the [az postgres flexible-server ad-admin create]() command.
+1. Add your Azure account as a Microsoft Entra admin for the server with the [az postgres flexible-server ad-admin create]() command.
 
     ```azurecli
     ACCOUNT_EMAIL=$(az ad signed-in-user show --query userPrincipalName --output tsv)
@@ -236,7 +236,7 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
-    If you have trouble running the command, make sure you added your user account as Azure AD admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
+    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 
