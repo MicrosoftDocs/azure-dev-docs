@@ -47,7 +47,7 @@ Your project now contains the core structure and assets of an `azd` template. Ho
 1. Open the top level project directory in your editor of choice, such as Visual Studio Code.
 
 1. Open the `main.bicep` file in your editor. This file contains useful boilerplate code to setup essential variables, parameters, and naming conventions. Beneath the comment block around line 50 that reads **Add resources to be provisioned below**, add the following Bicep:
-    
+
     ```bicep
     // Creates an app service instance to host the app
     module web './core/host/appservice.bicep' = {
@@ -78,12 +78,12 @@ Your project now contains the core structure and assets of an `azd` template. Ho
       }
     }
     ```
-      
+
     > [!NOTE]
     > - A unique string is generated based on subscription ID and used as a `${resourceToken}` variable. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
     > - The `'azd-service-name': 'web'` tag on the app service is the value `azd` uses to identify deployment host. The value must be the same as what is defined for the service in the **azure.yaml** file.
     
-## Update azure.yaml
+## Update the azure.yaml file
 
 To deploy the app, `azd` needs to know more about your app. The `azure.yaml` file is used to define the source code location, language, and the Azure hosting service for each service in your app. For full details, refer to [the azure.yaml schema](./azd-schema.md).
 
