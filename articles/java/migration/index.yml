@@ -43,7 +43,7 @@ landingContent:
           - text: Tomcat to Azure Spring Apps
             url: migrate-tomcat-to-azure-spring-apps.md
           - text: "Tutorial: Containerized Tomcat to AKS"
-            url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/migration/breadcrumb/toc.json
+            url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
 
   - title: Migrate WebLogic Server to Azure
     linkLists:
@@ -57,7 +57,7 @@ landingContent:
             url: migrate-weblogic-to-virtual-machines.md
           - text: "Tutorial: WebLogic to Azure VMs manual guidance"
             url: migrate-weblogic-to-azure-vm-manually.md
-          - text: "Tutorial: WebLogic to AKS within custom VNET"
+          - text: "Tutorial: WebLogic to AKS within a custom virtual network"
             url: migrate-weblogic-to-aks-within-an-existing-vnet.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md

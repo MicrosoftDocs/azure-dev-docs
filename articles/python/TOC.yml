@@ -23,9 +23,9 @@
   - name: Web app solutions
     items:
     - name: Django/Flask
-      href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Django/Flask + db
-      href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Passwordless auth - system managed identity
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
@@ -33,9 +33,9 @@
     - name: Static websites
       items:
         - name: Hosting in Azure Storage
-          href: /azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          href: /azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
         - name: Deploy from VS Code
-          href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Configure web apps
       items:
       - name: Codespaces dev environment
@@ -47,13 +47,13 @@
       - name: GitHub Actions
         href: python-web-app-github-actions-app-service.md
       - name: Azure Pipelines
-        href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Add sign in
-      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Store and retrieve secrets
-      href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Set up Azure monitor
-      href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
   - name: Serverless solutions
     items:

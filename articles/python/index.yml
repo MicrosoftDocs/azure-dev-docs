@@ -33,15 +33,15 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Django / Flask Web App
-            url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Django / Flask Web App + PostgreSQL
-            url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Django / Flask Web App + Managed Identity
             url: ./tutorial-python-managed-identity-cli.md
           - text: GitHub Actions
             url: ./python-web-app-github-actions-app-service.md
           - text: CI/CD pipeline
-            url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Logs
             url: /azure/azure-monitor/app/opencensus-python
   - title: Containers
