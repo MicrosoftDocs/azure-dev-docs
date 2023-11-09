@@ -13,100 +13,104 @@ Use this migration guide to understand the Contoso Real Estate serverless API mi
 
 ## Considerations for 4Dx when migrating to v4 programming model
 
-While a migration appears at first glance to move from one programming model to another, there are many considerations to take into account. The following sections provide guidance on how to approach the migration.
+While a migration appears at first glance to move from one programming model to another, there are many considerations to take into account. The following sections provide guidance on how to plan and complete the migration.
 
 Considerations: 
 
-* **Design**: 
-    * V3: The v3 programming model for Azure Functions is tightly coupled to a file and folder structure which works for smaller projects, but can be difficult to manage for larger projects. 
-    * V4: The v4 programming model allows for more flexibility in the design of your functions, but it is important to understand the tradeoffs of the design decisions you make.
-* **Development**: This new V4 file/folder flexibility allows you to organize your routes in files separate from the handlers. 
-* **Deployment**: If you are deploying both the v3 and v4 programming model applications within your infrastructure, be careful to isolate the two applications from each other. The v3 and v4 programming models use different versions of the Azure Functions runtime, and you should not deploy them to the same function app. If you are deploying from a monorepo, consider keeping the two programming model versions separated by branches until you are ready to merge the v4 programming model into your main deployment branch. 
-* **DevOps**: While both versions are available, make sure any tests for the v3 version work against the v4 version. Make sure any observability tools you use are able to monitor both versions.
+* Design: V3 is tied to a specific file structure, good for small projects but hard for large ones. V4 offers more design flexibility, but requires careful decision-making.
+* Development: V4 allows you to separate routes and handlers into different files.
+* Deployment: Keep v3 and v4 apps separate, as they use different Azure Functions runtimes. If using a monorepo, keep versions on separate branches until ready to merge.
+* DevOps: Ensure tests for v3 also work for v4, and that your monitoring tools can handle both versions.
 
 ## Manage development between programming models
 
-For the Contoso Real Estate project, the v3 and v4 programming models are separated into two different folders. The v3 programming model is in the `api` folder, and the v4 programming model is in the `api-v4` folder. The **purpose of the separation** is to allow you to develop and deploy the two versions separately.
+For the Contoso Real Estate project, the v3 and v4 programming models are separated into two different folders. The v3 programming model is in the `api-legacy` folder, and the v4 programming model is in the `api` folder. 
 
-For the Contoso Real Estate monorepo managed with [npm workspaces](), the root level `node_modules` controls all dependencies. During development in a separate branch, install dependencies into the `api-v4` directory instead of using the workspace. This ensures that the v3 and v4 programming model dependencies don't collide.
+For the Contoso Real Estate monorepo managed with [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces), the root level `node_modules` controls all dependencies across the packages. Both the v3 and v4 use **@azure/functions** but use different versions. Only one package of the API should be included in the **package.json** _packages_ property at any time. When the migration is complete, make sure the packages list in the package.json file at the root of the project does not refer to the `api-legacy` folder. 
 
-When you are ready to merge the v4 programming model into the main branch, you can install the dependencies into the workspace and continue from there. You will need to validate the workspace builds, deploys, and tests correctly with the v4 programming model.
+> [!NOTE]
+> **Workspaces** is a generic term that refers to the set of features in the npm cli that provides support to managing multiple packages from your local file system from within a singular top-level, root package.
 
 ## Migrate code for v4 programming model
 
-Because the v4 Node.js programming model has more flexibility, you should take the time in the beginning of the migration to understand how you and your team want to organize routes, handlers, and the integration code the handlers use. To understand this, let's look at the v3 programming model and v4 programming model for a single HTTP route.
+Because the v4 Node.js programming model has more flexibility, you should take the time in the beginning of the migration to understand how your team want to organize routes, handlers, and the integration code the handlers use. To understand this, let's look at the v3 programming model and v4 programming model for a single HTTP route.
 
 **v3 programming model**
 
 The function definition is contained in a separate file, `function.json`, from the code.
 
-**v3 Function definition**
+:::row:::
+    :::column:::
+        **v3 Function definition**
 
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "scriptFile": "../dist/HttpTrigger1/index.js"
-}
-```
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ],
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ],
+          "scriptFile": "../dist/HttpTrigger1/index.js"
+        }
+        ```
 
-**v3 Function code**
-
-```typescript
-// v3 programming model
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-
-};
-
-export default httpTrigger;
-```
-
-**v4 Function code**
-
-```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function processed request for url "${request.url}"`);
-
-    const name = request.query.get('name') || await request.text() || 'world';
-
-    return { body: `Hello, ${name}!` };
-};
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: httpTrigger1
-});
-```
+        **v3 Function code**
+        
+        ```typescript
+        // v3 programming model
+        import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+        
+        const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+            context.log('HTTP trigger function processed a request.');
+            const name = (req.query.name || (req.body && req.body.name));
+            const responseMessage = name
+                ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+                : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+        
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: responseMessage
+            };
+        
+        };
+        
+        export default httpTrigger;
+        ```
+    :::column-end:::
+    :::column:::
+        **v4 Function code**
+        
+        ```typescript
+        import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+        
+        export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+            context.log(`Http function processed request for url "${request.url}"`);
+        
+            const name = request.query.get('name') || await request.text() || 'world';
+        
+            return { body: `Hello, ${name}!` };
+        };
+        
+        app.http('httpTrigger1', {
+            methods: ['GET', 'POST'],
+            authLevel: 'anonymous',
+            handler: httpTrigger1
+        });
+        ```
+    :::column-end:::
+:::row-end:::
 
 There are a few things about the v4 programming model, when compared to v3, that make it more flexible:
 
