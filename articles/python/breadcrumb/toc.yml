@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure
   topicHref: /azure/index
@@ -7,8 +8,5 @@
     topicHref: /azure/developer/index
     items:
     - name: Python
-      tocHref: /azure/aks
-      topicHref: /azure/developer/python/index
-    - name: Python
-      tocHref: /azure/azure-functions
+      tocHref: /azure
       topicHref: /azure/developer/python/index
