@@ -92,7 +92,7 @@ The `ITableData` interface provides the ID of the record, together with extra pr
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
-* `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
+* `Deleted` (`bool`) is true if the record is marked for deletion but not yet purged.
 
 The Data sync library maintains these properties.  Don't modify these properties in your own code.
 
@@ -270,7 +270,7 @@ When the repository is changed, you can trigger workflows, log the response to t
 
 ### Option 1: Implement a PostCommitHookAsync
 
-The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  Th `PostCommitHookAsync()` method is called after the data has been written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client isn't changed in this method.
+The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  Th `PostCommitHookAsync()` method is called after the data is written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client isn't changed in this method.
 
 ```csharp
 public class MyAccessControlProvider<T> : AccessControlProvider<T> where T : ITableData
@@ -322,7 +322,7 @@ app.UseAuthorization();
 
 ## Database Support
 
-Entity Framework Core does not set up value generation for date/time columns.  (See [Date/time value generation](/ef/core/modeling/generated-properties?tabs=data-annotations#datetime-value-generation)).  The Azure Mobile Apps repository for Entity Framework Core automatically updates the `UpdatedAt` field for you.  However, if your database is updated outside of the repository, you  must arrange for the `UpdatedAt` and `Version` fields to be updated.
+Entity Framework Core doesn't set up value generation for date/time columns.  (See [Date/time value generation](/ef/core/modeling/generated-properties?tabs=data-annotations#datetime-value-generation)).  The Azure Mobile Apps repository for Entity Framework Core automatically updates the `UpdatedAt` field for you.  However, if your database is updated outside of the repository, you  must arrange for the `UpdatedAt` and `Version` fields to be updated.
 
 ### Azure SQL
 
@@ -343,7 +343,7 @@ BEGIN
 END
 ```
 
-You can install this trigger using either a migration or immediately after you call `EnsureCreated()` to create the database.
+You can install this trigger using either a migration or immediately after `EnsureCreated()` to create the database.
 
 ### Azure Cosmos DB
 
@@ -395,7 +395,7 @@ Azure Cosmos DB is a fully managed NoSQL database for high-performance applicati
     }
     ```
 
-   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.
+   If you pull a subset of items in the table, ensure you specify all properties involved in the query.
 
 2. Derive models from the `ETagEntityTableData` class:
 
@@ -454,7 +454,7 @@ FOR EACH ROW EXECUTE PROCEDURE
     todoitems_datasync();
 ```
 
-You can install this trigger using either a migration or immediately after you call `EnsureCreated()` to create the database.  
+You can install this trigger using either a migration or immediately after `EnsureCreated()` to create the database.  
 
 ### SqLite
 
