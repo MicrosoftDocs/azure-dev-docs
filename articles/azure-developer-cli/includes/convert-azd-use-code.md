@@ -1,18 +1,20 @@
-1. Navigate to the root directory of the project you'd like to convert to an `azd` template. To follow along using a sample application, clone the following starter repo to an empty directory on your computer:
+1. To follow along using a sample application, clone the following starter repo to an empty directory on your computer:
 
     ```bash
     git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
     ```
 
-1. Run the `azd init` command to initialize the template. When prompted, select the option to *Use code in the current directory*.
+1. Open your command line tool of choice to the root directory of the project.
+
+1. Run the `azd init` command to initialize the template.
 
     ```bash
     azd init
     ```
 
-    `azd` provides a summary of the detected services and recommended Azure hosting resources.
+1. When prompted, select the option to **Use code in the current directory**. `azd` analyzes the project and provides a summary of the detected services and recommended Azure hosting resources.
 
-1. Select **Confirm and continue initializing my app**. `azd` will generate the following assets in the project root directory:
+1. Select **Confirm and continue initializing my app**. `azd` generates the following assets in the project root directory:
 
     * An `azure.yaml` file with appropriate service definitions.
     * An `infra` folder with infrastructure-as-code files to provision and deploy the project to Azure.
@@ -20,9 +22,17 @@
 
     More details on this detection and generation process are provided later in the article.
 
-1. The generated files can be modified as necessary after initialization. For example, you may need to further modify the infrastructure-as-code files in the `infra` folder if your app relies on Azure resources beyond those that were identified by `azd`.
+1. The generated files work as-is for the provided sample app and may for your own apps as well. If necessary, the generated files can be modified to fit your needs. For example, you may need to further modify the infrastructure-as-code files in the `infra` folder if your app relies on Azure resources beyond those that were identified by `azd`.
 
 1. Run the `azd up` command to provision and deploy your app to Azure.
+
+    ```bash
+    azd up
+    ```
+
+1. When prompted, select the desired subscription and location to begin the provisioning and deployment process.
+
+1. When the process completes, click the link in the `azd` output to open the app in the browser.
 
 ## Explore the initialization steps
 
@@ -47,11 +57,11 @@ The current detection logic is as follows:
 
 ### Generation
 
-After you confirm the detected components, `azd init` will generate the infrastructure-as-code files needed to deploy your application to Azure.
+After you confirm the detected components, `azd init` generates the infrastructure-as-code files needed to deploy your application to Azure.
 
 The generation logic is as follows:
 
-- The supported hosts include:
+- Supported hosts:
     - Azure Container Apps.
 - For databases, the supported mapping between database technology and service used:
     - MongoDB: Azure CosmosDB API for MongoDB

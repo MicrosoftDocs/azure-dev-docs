@@ -22,18 +22,17 @@ The following diagram gives a quick overview of the process to create an `azd` t
 All `azd` templates have the same file structure, based on `azd` conventions. The following hierarchy shows the directory structure you'll build in this tutorial. 
 
 ```txt
-├── .devcontainer              [ For DevContainer ]
-├── .github                    [ Configure GitHub workflow]
-├── infra                      [ Creates and configures Azure resources ]
-│   ├── main.bicep             [ Main infrastructure file ]
-│   ├── main.parameters.json   [ Parameters file ]
-│   └── core                   [ Contains Bicep modules copied from azd reference library ]
-└── azure.yaml                 [ Describes the app and type of Azure resources]
+├── .azdo                                        [ Configures an Azure Pipeline ]
+├── .devcontainer                                [ For DevContainer ]
+├── .github                                      [ Configures a GitHub workflow ]
+├── .vscode                                      [ VS Code workspace configurations ]
+├── .azure                                       [ Stores Azure configurations and environment variables ]
+├── infra                                        [ Contains infrastructure as code files ]
+│   ├── main.bicep/main.tf                       [ Main infrastructure file ]
+│   ├── main.parameters.json/main.tfvars.json    [ Parameters file ]
+│   └── core/modules                             [ Contains reusable Bicep/Terraform modules ]
+└── azure.yaml                                   [ Describes the app and type of Azure resources]
 ```
-
-Learn more about:
-- [The complete directory structure](#azd-conventions).
-- [Azure Developer CLI's azure.yaml schema](./azd-schema.md).
 
 ## Initialize the template
 
