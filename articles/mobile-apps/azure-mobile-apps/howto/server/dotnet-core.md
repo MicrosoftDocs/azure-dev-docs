@@ -21,6 +21,7 @@ Database servers must meet the following criteria have a `DateTime` or `Timestam
 
 For specific database support, see the following sections:
 
+* [Azure SQL and SQL Server](#azure-sql)
 * [Azure Cosmos DB](#azure-cosmos-db)
 * [PostgreSQL](#postgresql)
 * [SqLite](#sqlite)
@@ -321,7 +322,28 @@ app.UseAuthorization();
 
 ## Database Support
 
-The following sections provide information on using Azure Mobile Apps with specific databases.
+Entity Framework Core does not set up value generation for date/time columns.  (See [Date/time value generation](/ef/core/modeling/generated-properties?tabs=data-annotations#datetime-value-generation)).  The Azure Mobile Apps repository for Entity Framework Core automatically updates the `UpdatedAt` field for you.  However, if your database is updated outside of the repository, you  must arrange for the `UpdatedAt` and `Version` fields to be updated.
+
+### Azure SQL
+
+Create a trigger for each entity:
+
+```sql
+CREATE OR ALTER TRIGGER [dbo].[TodoItems_UpdatedAt] ON [dbo].[TodoItems]
+    AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE 
+        [dbo].[TodoItems] 
+    SET 
+        [UpdatedAt] = GETUTCDATE() 
+    WHERE 
+        [Id] IN (SELECT [Id] FROM INSERTED);
+END
+```
+
+You can install this trigger using either a migration or immediately after you call `EnsureCreated()` to create the database.
 
 ### Azure Cosmos DB
 
@@ -413,43 +435,26 @@ Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet
 
 ### PostgreSQL
 
-PostgreSQL doesn't support "timestamp" row versions. If using PostgreSQL, create the following class:
+Create a trigger for each entity:
 
-```csharp
-public class PgEntityTableData : EntityTableData
-{
-    /// <summary>
-    /// The row version for the entity.
-    /// </summary>
-    [NotMapped]
-    public override byte[] Version
-    {
-        get => BitConverter.GetBytes(RowVersion);
-        set => BitConverter.ToUInt32(value);
-    }
+```sql
+CREATE OR REPLACE FUNCTION todoitems_datasync() RETURNS trigger AS $$
+BEGIN
+    NEW."UpdatedAt" = NOW() AT TIME ZONE 'UTC';
+    NEW."Version" = convert_to(gen_random_uuid()::text, 'UTF8');
+    RETURN NEW
+END;
+$$ LANGUAGE plpgsql;
 
-    /// <summary>
-    /// The actual version
-    /// </summary>
-    [JsonIgnore]
-    [Timestamp]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    [Column("xmin", TypeName = "xid")]
-    public uint RowVersion { get; set; }
-}
+CREATE OR REPLACE TRIGGER
+    todoitems_datasync
+BEFORE INSERT OR UPDATE ON
+    "TodoItems"
+FOR EACH ROW EXECUTE PROCEDURE
+    todoitems_datasync();
 ```
 
-The database maintains the `xmin` system column, which can be used for concurrency checks. Derive database models from the `PgEntityTableData` class:
-
-```csharp
-public class TodoItem : PgEntityTableData
-{
-    public string Title { get; set; }
-    public bool Completed { get; set; }
-}
-```
-
-For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+You can install this trigger using either a migration or immediately after you call `EnsureCreated()` to create the database.  
 
 ### SqLite
 
