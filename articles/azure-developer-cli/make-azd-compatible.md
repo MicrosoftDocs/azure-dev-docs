@@ -7,15 +7,13 @@ ms.date: 12/05/2022
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
-zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
 
 # Make your project compatible with Azure Developer CLI
 
 Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
 
-## Understand the `azd` architecture
+## Understand the template architecture
 
 The following diagram gives a quick overview of the process to create an `azd` template:
 
@@ -57,26 +55,19 @@ The details of each of these workflows are outlined in the sections below.
 
 ---
 
-## Configure the DevOps pipeline
+## Configure the CI/CD pipeline
 
-If you template includes support for GitHub Actions or Azure Pipelines, you can configure a CI/CD pipeline using the following steps:
+If your template includes support for GitHub Actions or Azure Pipelines, you can configure a CI/CD pipeline using the following steps:
 
 1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
-    ```azdeveloper
+    ```bash
     azd pipeline config    
     ```
 
 1. Using your browser, go to the GitHub repository for your project.
 
 1. Select **Actions** to see the workflow running.
-
-::: zone pivot="azd-convert"
-
-> [!NOTE]
-> `.venv` should be added to the `.gitignore` file
-
-::: zone-end
 
 ## Clean up resources
 
