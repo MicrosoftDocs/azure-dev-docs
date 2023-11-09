@@ -60,7 +60,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|An article that uses Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The Speech service synthesizes the text response from Azure OpenAI.|
+|[Use Speech to converse with OpenAI (C# and Python)](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|An article that uses Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The Speech service synthesizes the text response from Azure OpenAI. (The C# and Python code is provided as a reference and could be adapted to JavaScript.)|
 
 ### SDKs and samples/guidance
 
