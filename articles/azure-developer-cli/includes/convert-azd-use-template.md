@@ -105,7 +105,7 @@ To deploy the app, `azd` needs to know more about your app. The `azure.yaml` fil
 1. Save all of your changes and run the following command to provision and deploy the app resources on Azure:
 
     ```azdeveloper
-    azd deploy
+    azd up
     ```
 
 1. When the command finishes, click the link in the command output to navigate to the deployed site.

@@ -36,11 +36,11 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 
 ## Initialize the template
 
-The `azd init` command is used to convert an existing directory to an `azd` template. This command offers two different workflows for initializing a template that are outlined in the following sections.
+The `azd init` command is used to convert an existing directory to an `azd` template. This command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
 
 * **Use code in the current directory**: Select this option to instruct `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` will then automatically generate template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files.
 
-* **Select a template**: Select this option to use an existing template as a starting point. By default, `azd` is configured to provide templates from the [Awesome AZD](https://azure.github.io/awesome-azd) gallery, but you can also configure your own template galleries. When you select a template, the assets of that template will be added to your existing project directory.
+* **Select a template**: Select this option to use an existing template as a starting point. By default, `azd` allows you to browse templates from the [Awesome AZD](https://azure.github.io/awesome-azd) gallery, but you can also configure your own template galleries. When you select a template, the assets of that template will be added to your existing project directory.
 
 The details of each of these workflows are outlined in the sections below.
 
