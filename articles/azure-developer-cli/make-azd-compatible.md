@@ -37,7 +37,7 @@ Learn more about:
 - [The complete directory structure](#azd-conventions).
 - [Azure Developer CLI's azure.yaml schema](./azd-schema.md).
 
-## Initialize a new template
+## Initialize the template
 
 The `azd init` command is used to convert an existing directory to an `azd` template. This command offers two different workflows for initializing a template that are outlined in the following sections.
 
@@ -57,18 +57,9 @@ The details of each of these workflows are outlined in the sections below.
 
 ---
 
-## Configure a DevOps pipeline
+## Configure the DevOps pipeline
 
-The **Starter - Bicep** template includes both samples for Azure DevOps and GitHub Actions.
-
-For GitHub Actions, you can remove the `.azdo` directory:
-
-::: zone pivot="azd-convert"
-
-> [!NOTE]
-> - If you don't have the permission to push code to the remote repository from which you initially cloned your repository, run `git remote rm origin` to remove the remote repository before you proceed further.
-
-::: zone-end
+If you template includes support for GitHub Actions or Azure Pipelines, you can configure a CI/CD pipeline using the following steps:
 
 1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
@@ -93,25 +84,6 @@ When you no longer need the resources created in this article, run the following
 
 ``` azdeveloper
 azd down
-```
-
-## `azd` conventions
-
-The following hierarchy shows the complete directory structure of an `azd` template.
-
-```txt
-├── .azdo                                        [ Configure Azure Pipeline ]
-├── .devcontainer                                [ For DevContainer ]
-├── .github                                      [ Configure GitHub workflow ]
-├── .vscode                                      [ VS Code workspace configutations ]
-├── assets                                       [ Assets used by README.MD ]
-├── infra                                        [ Creates and configures Azure resources ]
-│   ├── main.bicep/main.tf                       [ Main infrastructure file ]
-│   ├── main.parameters.json/main.tfvars.json    [ Parameters file ]
-│   ├── app                                      [ Bicep only. Recommended resources directory organized by functionality ]
-│   └── core/modules                             [ Contains all of the Bicep/Terraform modules used by the azd templates ]
-├── src                                          [ Contains directories for the app code ]
-└── azure.yaml                                   [ Describes the app and type of Azure resources]
 ```
 
 ## See also
