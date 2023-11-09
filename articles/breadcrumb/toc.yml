@@ -7,78 +7,39 @@ items:
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
+    - name: Ansible
+      tocHref: /azure/developer/ansible
+      topicHref: /azure/developer/ansible/index
+    - name: Chef
+      tocHref: /azure/developer/chef
+      topicHref: /azure/developer/chef/index
+    - name: GitHub
+      tocHref: /azure/developer/github
+      topicHref: /azure/developer/github/index
+    - name: Go
+      tocHref: /azure/developer/go
+      topicHref: /azure/developer/go/index
     - name: Java
       tocHref: /azure/developer/java
       topicHref: /azure/developer/java/index
-  - name: Developer
-    tocHref: /azure/aks
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/azure-functions
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/app-service
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/devops
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/active-directory
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/key-vault
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/azure-monitor
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/storage
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/azure-sql
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/postgresql
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/mysql
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/sql-database
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/cosmos-db
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/event-hubs
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/service-bus-messaging
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/container-apps
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/container-instances
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/spring-apps
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/service-connector
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/static-web-apps
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/virtual-machines
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/openshift
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/migrate
-    topicHref: /azure/developer/index
-  - name: Developer
-    tocHref: /azure/azure-app-configuration
-    topicHref: /azure/developer/index
+    - name: JavaScript
+      tocHref: /azure/developer/javascript
+      topicHref: /azure/developer/javascript/index
+    - name: Jenkins
+      tocHref: /azure/developer/jenkins
+      topicHref: /azure/developer/jenkins/index
+    - name: Python
+      tocHref: /azure/developer/python
+      topicHref: /azure/developer/python/index
+    - name: Mobile apps
+      tocHref: /azure/developer/mobile-apps
+      topicHref: /azure/developer/mobile-apps/index
+    - name: Terraform
+      tocHref: /azure/developer/terraform
+      topicHref: /azure/developer/terraform/index
+    - name: Azure Developer CLI
+      tocHref: /azure/developer/azure-developer-cli
+      topicHref: /azure/developer/azure-developer-cli/index
+    - name: Dev Tunnels CLI
+      tocHref: /azure/developer/dev-tunnels
+      topicHref: /azure/developer/dev-tunnels/index

@@ -20,7 +20,7 @@ landingContent:
           - text: Create a Hello World web app for Azure App Service
             url: create-hello-world-web-app.md
           - text: Create an HTTP trigger Function for Azure Functions
-            url: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/java/toolkit-for-intellij/breadcrumb/toc.json
+            url: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Step-by-step tutorials
     linkLists:
       - linkListType: tutorial

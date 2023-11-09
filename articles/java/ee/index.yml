@@ -24,9 +24,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: Oracle WebLogic Server on Azure VMs
-            url: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Oracle WebLogic Server on AKS
-            url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: IBM WebSphere products on Azure
             url: websphere-family.md
           - text: JBoss EAP on Azure
@@ -38,17 +38,17 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Java app with Helidon to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift
-            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: howto-deploy-java-liberty-app-manual.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift
-            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty
             url: how-to-deploy-java-liberty-jcache.md
           - text: Java app with Payara Micro to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Traditional WebSphere on Azure VMs
             url: traditional-websphere-application-server-virtual-machines.md
           - text: Passwordless database connections
@@ -72,17 +72,17 @@ landingContent:
         - text: WebLogic Server on Azure Virtual Machine
           url: weblogic-server-azure-virtual-machine.md
         - text: WebLogic Server on Azure Kubernetes Service
-          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines
-            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure VMs step-by-step guidance
-            url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to AKS within custom VNET
-            url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
-            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart
@@ -96,9 +96,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service
-            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: JBoss EAP to Azure VMs step-by-step guidance
-            url: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
+            url: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Migrate WebSphere to Azure
     linkLists:
       - linkListType: quickstart
