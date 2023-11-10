@@ -91,7 +91,7 @@ After installing the Azure Tools extension, sign in with your Azure account. On 
 
 In addition to the Azure portal and Visual Studio Code, Azure also offers the [Azure CLI](/cli/azure/) command-line tool to create and manage Azure resources. The Azure CLI offers the benefits of efficiency, repeatability, and the ability to script recurring tasks. In practice, most developers use both the Azure portal and the Azure CLI.
 
-After [installing the Azure CLI](../../cli/azure/install-azure-cli), sign-in to your Azure account from the Azure CLI by typing the command `az login` in a terminal window on your workstation.
+After [installing the Azure CLI](/cli/azure/install-azure-cli), sign-in to your Azure account from the Azure CLI by typing the command `az login` in a terminal window on your workstation.
 
 ```azurecli
 az login
