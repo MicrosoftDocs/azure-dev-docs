@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI support for Azure Deployment Environments
 
-The Azure Developer CLI (azd) provides support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your platform engineer can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
+The Azure Developer CLI (azd) provides support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
 
 ## Prerequisites
 
@@ -19,10 +19,12 @@ Verify you have completed the following prerequisites to work with Azure Deploym
 
 * [Installed `azd` locally](/azure/developer/azure-developer-cli/install-azd) or have access to `azd` via Cloud Shell
 * [Created and configured an Azure Deployment Environment](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a dev center, project, and template catalog
+* [Configured environment types](/azure/deployment-environments/quickstart-create-access-environments) at the dev center level and project level
+* Ensure the developer has Deployment Environments User role on the project
 
     > [!TIP]
     > [Understanding key concepts](/azure/deployment-environments/concept-environments-key-concepts) about Azure Deployment Environments is essential for working with them via `azd`.
-    
+
 ## Enable Azure Deployment Environment support
 
 You can configure `azd` to provision and deploy resources to your deployment environments using standard commands such as `azd up` or `azd provision`. To enable support for Azure Deployment Environments, run the following command:
@@ -36,7 +38,7 @@ When `platform.type` is set to `devcenter`, all `azd` remote environment state a
 You can also disable dev center support via the following command:
 
 ```bash
-azd config unset devCenter
+azd config unset platform
 ```
 
 ## Work with Azure Deployment Evironments
@@ -120,7 +122,7 @@ The following environment variables will be discovered and used by `azd`:
 * AZURE_DEVCENTER_ENVIRONMENT_TYPE
 * AZURE_DEVCENTER_ENVIRONMENT_USER
 
-### Environment scope
+### Define configurations
 
 Define configurations for your dev centers at the `azd` environment scope in `.azure/<env>/config.json` file:
 
