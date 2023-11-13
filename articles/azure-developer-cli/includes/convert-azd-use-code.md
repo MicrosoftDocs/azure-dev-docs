@@ -53,7 +53,7 @@ The current detection logic is as follows:
     - MongoDB
     - PostgreSQL.
 - For Python and JavaScript/TypeScript, web frameworks and databases are automatically detected.
-- When a JavaScript/TypeScript project uses a front-end (or client-side) web framework, it is classified as a front-end service. If your service uses a front-end web framework that is currently - undetected, you may select JQuery to provide equivalent front-end service classification and behavior.
+- When a JavaScript/TypeScript project uses a front-end (or client-side) web framework, it is classified as a front-end service. If your service uses a front-end web framework that is currently undetected, you may select JQuery to provide equivalent front-end service classification and behavior.
 
 ### Generation
 

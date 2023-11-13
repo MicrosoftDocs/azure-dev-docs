@@ -46,7 +46,7 @@ Your project now contains the core structure and assets of an `azd` template. Ho
 
 1. Open the top level project directory in your editor of choice, such as Visual Studio Code.
 
-1. Open the `main.bicep` file in your editor. This file contains useful boilerplate code to setup essential variables, parameters, and naming conventions. Beneath the comment block around line 50 that reads **Add resources to be provisioned below**, add the following Bicep:
+1. Open the `main.bicep` file in your editor. This file contains useful boilerplate code to setup essential variables, parameters, and naming conventions. Beneath the comment block around line 50 that reads **`Add resources to be provisioned below`**, add the following Bicep:
 
     ```bicep
     // Creates an app service instance to host the app
