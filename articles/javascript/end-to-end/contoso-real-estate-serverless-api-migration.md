@@ -11,23 +11,23 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 Use this migration guide to understand the Contoso Real Estate serverless API migration with Azure Functions to the v4 programming model.
 
-The migration covers the move from the v3 programming model to the v4 programming model. The new model allows complete flexibility in folder and file organization. This flexibility allows you to rethink and refactor as part of the migration. Minimize your refactoring so your existing tests works on both versions. Once this code migration and testing are complete, then you can continue to refactor and improve the code.
+The migration covers the move from the v3 programming model to the v4 programming model. The new model allows complete flexibility in folder and file organization. This flexibility allows you to rethink and refactor as part of the migration. Minimize your refactoring so your existing tests work on both versions. Once this code migration and testing are complete, then you can continue to refactor and improve the code.
 
 ## Manage monorepo workspace dependencies for v4 programming model
 
-The Azure Functions app in the Contoso Real Estate project is part of a monorepo controlled with npm workspaces. Its important to understand the environment and tooling before migrating to the v4 programming model in this environment.
+The Azure Functions app in the Contoso Real Estate project is part of a monorepo controlled with npm workspaces. It's important to understand the environment and tooling before migrating to the v4 programming model in this environment.
 
 > [!NOTE]
 > **Workspaces** is a generic term that refers to the set of features in the npm cli that provides support to managing multiple packages from your local file system from within a singular top-level, root package.
 
 
-For the Contoso Real Estate project, the source code projects are managed by npm workspaces from a single `/packages` subfolder. The original v3 sat in the `api` folder and all the provisioning and deployment provided by the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](/azure/azure-resource-manager/bicep/) uses that folder name. The `api` package is just one of several applications within the monorepo's workspaces. The use of an npm workspace means there is a single `node_modules` folder. In order to use this single `node_modules` folder correctly, meaning only one version of Azure Functions app dependencies are installed, you have to separate the v3 and v4 programming models into separate branches during migration. Keep v3 in the main branch, start v4 in a new branch, and then merge the v4 branch into the main branch when the migration is complete.
+For the Contoso Real Estate project, the source code projects are managed by npm workspaces from a single `/packages` subfolder. The original v3 sat in the `api` folder and all the provisioning and deployment provided by the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](/azure/azure-resource-manager/bicep/) uses that folder name. The `api` package is just one of several applications within the monorepo's workspaces. The use of an npm workspace means there's a single `node_modules` folder. In order to use this single `node_modules` folder correctly, meaning only one version of Azure Functions app dependencies are installed, you have to separate the v3 and v4 programming models into separate branches during migration. Keep v3 in the main branch, start v4 in a new branch, and then merge the v4 branch into the main branch when the migration is complete.
 
 ## Archive the Azure Functions Node.js v3 programming model**
 
 To archive the v3 programming model, you need to do the following:
 
-1. Run the following command to move the v3 api code into `./packages/api-legacy` folder. This allows you to keep the code around until the migration is completed deployed to all required regions and thouroughly tested.
+1. Run the following command to move the v3 API code into `./packages/api-legacy` folder. This allows you to keep the code around until the migration is completed deployed to all required regions and thoroughly tested.
 
     ```bash
     git mv ./packages/api ./packages/api-legacy
@@ -35,7 +35,7 @@ To archive the v3 programming model, you need to do the following:
 
     This command keeps the file history and updates the git index. When you look at the PR, you don't see deletes and adds with brand new files but instead just file moves. This makes it easier to review the PR and understand the changes.
 
-2. Update the packages list in the `package.json` file at the root of the project so it does not refer to the `api-legacy` folder. 
+2. Update the packages list in the `package.json` file at the root of the project so it doesn't refer to the `api-legacy` folder. 
 
     ```json
     "workspaces": [
@@ -44,7 +44,7 @@ To archive the v3 programming model, you need to do the following:
     ],
     ```
 
-    If you don't update the workspaces, the dependencies will contain different versions of the **@azure/functions** package for both v3 and v4. This may cause the deployment to fail to build or deploy, or it may cause the Azure Functions runtime to fail to start correctly.
+    If you don't update the workspaces, the dependencies contain different versions of the **@azure/functions** package for both v3 and v4. This may cause the deployment to fail to build or deploy, or it may cause the Azure Functions runtime to fail to start correctly.
 
 3. Run the following command to remove the existing `./node_modules` folder with the following 
 
@@ -56,9 +56,9 @@ To archive the v3 programming model, you need to do the following:
 
 To **create the v4 programming model**, you need to do the following:
 
-1. Create your new Azure Functions v4 programming model in a new `api` folder under the **packages** folder. Create the app with either the [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=linux,node-v4,http-trigger,container-apps&pivots=programming-language-javascript) or the [Azure Functions extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). This creates all the correct and updated dependencies including the new `@azure/functions` v4 version.
+1. Create your new Azure Functions v4 programming model in a new `api` folder under the **packages** folder. Create the app with either the [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=linux,node-v4,http-trigger,container-apps&pivots=programming-language-javascript) or the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). This creates all the correct and updated dependencies including the new `@azure/functions` v4 version.
 
-2. Run the following command to remove the `./packages/api/package-lock.json` file. This file is not needed because the `./packages/api/package-lock.json` file is not used to deploy the app.
+2. Run the following command to remove the `./packages/api/package-lock.json` file. This file isn't needed because the `./packages/api/package-lock.json` file isn't used to deploy the app.
 
     ```bash
     rm ./packages/api/package-lock.json
@@ -153,7 +153,7 @@ app.http('httpTrigger1', {
 
 There are a few things about the v4 programming model, when compared to v3, that make it more flexible:
 
-* The v4 function definition and handler can be contained within the same file which makes it easier to understand
+* The v4 function definition and handler can be contained within the same file, which makes it easier to understand
 * The v4 handler is exported which the app is extended. This is an important distinction because it allows you to:
     * Separate the handler from the app. 
     * Test the handler without the app.
@@ -181,7 +181,7 @@ app.get("listings-get", {
 // remaining routes removed for brevity
 ```
 
-The first parameter, such as `listing-get-by-id`, must be unique and is the name of the API as it is shown in the Azure Portal. Use a naming convention that allows you to quickly find the API you need in the Azure portal. Because the portal shows you API level testing and monitoring, the naming convention becomes part of your end-to-end developer experience. 
+The first parameter, such as `listing-get-by-id`, must be unique and is the name of the API as it is shown in the Azure portal. Use a naming convention that allows you to quickly find the API you need in the Azure portal. Because the portal shows your API level testing and monitoring, the naming convention becomes part of your end-to-end developer experience. 
 
 :::image type="content" source="./media/contoso-real-estate-serverless-api-migration/azure-portal-function-list-apis.png" alt-text="Screenshot of Azure portal for Azure Function app showing list of APIs.":::
 
@@ -385,3 +385,54 @@ return {
 ```
 
 The response in v4 programming model is strongly typed with the [HttpResponseInit](/azure/azure-functions/functions-reference-node?tabs=typescript%2Clinux%2Cazure-cli&pivots=nodejs-model-v4#http-response).
+
+## Troubleshooting Azure Functions Node.js v4 programming model deployments
+
+When you deploy your migrated code, you may get one of the following issues:
+
+* ISSUE: **Azure portal for Functions app doesn't show any Functions APIS and the **App Files** page has only one file, the `host.json`**. 
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api-migration/azure-portal-functions-files-list.png" alt-text="Screenshot of Azure portal for Azure Function app showing list of App Files.":::
+
+    This indicates your deployment failed to move files to the hosting environment. Check that your Functions application builds and runs correctly locally. A successful local Functions app shows the complete list of APIs in the terminal. 
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api-migrationazure-portal-functions-start-locally.png" alt-text="Screenshow of Codespaces development environment with Azure Function app running and debug logging visible in the terminal to verify all APIs have started.":::
+
+    At this point, deploy the Function app to already provisioned resources with the following command for the Contoso Real Estate project:
+
+    ```bash
+    azd deploy api
+    ```
+
+    Continue to the next troubleshooting step when the files are visible in the Azure portal in the **App Files** page for your Azure Functions app because this means the code is deployed to the hosting environment.
+
+* **Issue: Azure portal for Functions app doesn't show any Functions APIs**. 
+
+    This problem indicates a problem with the startup functionality of your app. Start up issues can indicate a problem with environment variables or other hosting platform configuration. Because logs generally require the app to start, you may not see any logs in the Azure portal detailing the issue. 
+
+    In the Azure portal, use the **Diagnose and solve problems** blade to see if there are any issues with the hosting environment. Include the **Configuration and Management** troubleshooting page when looking for issues.
+
+    You should make sure Application Insights is enabled for your Function app and configuring correctly in the hosting environment. Use Application Insights in your startup code to log each step of your startup process. 
+
+    Fix any issues you see. Once you can see the list for APIs in the **Overview** page of the Azure portal, you can move to the next troubleshooting step.
+
+* **Issue: Azure Functions App API doesn't return any data.**
+
+    This problem indicates a problem either your request or the API handler code. 
+
+    The best way to troubleshoot this issue is to use a cURL command with `--verbose` to see the request and response. For example, the following cURL command shows the request and response for the `getListings` API.
+
+    ```bash
+    curl --verbose https://<YOUR-FUNCTION-APP-NAME>.azurewebsites.net/api/listings
+    ```
+
+    If you have authentication turned on, either remove the authentication to test the API or add the authentication to the cURL command.
+
+## More information
+
+* [Azure Functions Node.js v4 programming model](/azure/azure-functions/functions-reference-node?tabs=typescript%2Clinux%2Cazure-cli&pivots=nodejs-model-v4)
+* [Azure Functions Node.js v3 programming model](/azure/azure-functions/functions-reference-node?tabs=javascript%2Clinux%2Cazure-cli&pivots=programming-language-javascript)
+
+## Next steps
+
+* [Migrate Azure Functions Node.js v3 programming model to v4 programming model](/azure/azure-functions/migrate-nodejs-v3-to-v4)
