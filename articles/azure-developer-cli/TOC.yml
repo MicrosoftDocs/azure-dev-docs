@@ -33,6 +33,8 @@
       href: manage-environment-variables.md
     - name: Remote Environment Support
       href: remote-environments-support.md
+    - name: .NET Aspire integration and deployment
+      href: /dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Feature versioning and release strategy
