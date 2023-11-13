@@ -91,30 +91,7 @@ After installing the Azure Tools extension, sign in with your Azure account. On 
 
 In addition to the Azure portal and Visual Studio Code, Azure also offers the [Azure CLI](/cli/azure/) command-line tool to create and manage Azure resources. The Azure CLI offers the benefits of efficiency, repeatability, and the ability to script recurring tasks. In practice, most developers use both the Azure portal and the Azure CLI.
 
-### [Install on macOS](#tab/macOS)
-
-The Azure CLI is installed through homebrew on macOS. If you don't have homebrew available on your system, [install homebrew](https://docs.brew.sh/Installation.html) before continuing.
-
-```bash
-brew update && brew install azure-cli
-```
-
-This command will first update your brew repository information and then install the Azure CLI.
-
-### [Install on Linux](#tab/linux)
-
-[!INCLUDE [Azure CLI Install Linux](includes/azure-cli-install-linux.md)]
-
-### [Install on Windows](#tab/windows)
-
-Download and install the latest release of the Azure CLI for Windows.
-
-> [!div class="nextstepaction"]
-> [Download the Azure CLI for Windows](https://aka.ms/installazurecliwindows)
-
----
-
-After installing, sign-in to your Azure account from the Azure CLI by typing the command `az login` in a terminal window on your workstation.
+After [installing the Azure CLI](/cli/azure/install-azure-cli), sign-in to your Azure account from the Azure CLI by typing the command `az login` in a terminal window on your workstation.
 
 ```azurecli
 az login
