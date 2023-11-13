@@ -159,7 +159,7 @@ terminal and answer any prompts:
 
 The next step is to make a small change to the web app and then redeploy.
 
-1. Open Visual Studio Code and open the *azd-quickstart* folder created earlier.
+1. Open Visual Studio Code and open the *azdtest* folder created earlier.
 
 2. This template is configured to optionally use Dev Containers. When you see the Dev Container notification appear in Visual Studio Code, select the "Reopen in Container" button.
 
