@@ -396,7 +396,7 @@ When you deploy your migrated code, you may get one of the following issues:
 
     This indicates your deployment failed to move files to the hosting environment. Check that your Functions application builds and runs correctly locally. A successful local Functions app shows the complete list of APIs in the terminal. 
 
-    :::image type="content" source="./media/contoso-real-estate-serverless-api-migrationazure-portal-functions-start-locally.png" alt-text="Screenshow of Codespaces development environment with Azure Function app running and debug logging visible in the terminal to verify all APIs have started.":::
+    :::image type="content" source="./media/contoso-real-estate-serverless-api-migration/azure-portal-functions-start-locally.png" alt-text="Screenshow of Codespaces development environment with Azure Function app running and debug logging visible in the terminal to verify all APIs have started.":::
 
     At this point, deploy the Function app to already provisioned resources with the following command for the Contoso Real Estate project:
 
@@ -435,4 +435,4 @@ When you deploy your migrated code, you may get one of the following issues:
 
 ## Next steps
 
-* [Migrate Azure Functions Node.js v3 programming model to v4 programming model](/azure/azure-functions/migrate-nodejs-v3-to-v4)
+* [Migrate Azure Functions Node.js v3 programming model to v4 programming model](/azure/azure-functions/functions-node-upgrade-v4?source=recommendations&tabs=v4)
