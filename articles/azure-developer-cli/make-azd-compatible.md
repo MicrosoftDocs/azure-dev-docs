@@ -36,7 +36,7 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 
 ## Initialize the template
 
-The `azd init` command is used to convert an existing directory to an `azd` template. This command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
+The `azd init` command is used to initialize your application for provisioning and deploying the app resources on Azure. This command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
 
 * **Use code in the current directory**: Select this option to instruct `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` will then automatically generate template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files.
 
