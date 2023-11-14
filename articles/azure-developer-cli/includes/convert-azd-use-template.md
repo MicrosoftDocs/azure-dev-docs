@@ -111,3 +111,6 @@ To deploy the app, `azd` needs to know more about your app. The `azure.yaml` fil
 1. When the command finishes, click the link in the command output to navigate to the deployed site.
 
 Your project is now compatible with Azure Developer CLI and can be used as a template!
+
+> [!NOTE]
+> `azd` also supports using [Buildpack](https://buildpacks.io/) for containerizing your apps by default. If your `azd` template targets Azure Container Apps or Azure Kubernetes Service but does not include a Docker file, `azd` automatically generates an image using Buildpack.
