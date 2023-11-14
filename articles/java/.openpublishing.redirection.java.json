@@ -184,7 +184,6 @@
         {
             "source_path": "migration/appcat.md",
             "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json",
-            "redirect_document_id": true
         },
         {
             "source_path": "migration/migrate-weblogic-with-aad-ldap.md",
