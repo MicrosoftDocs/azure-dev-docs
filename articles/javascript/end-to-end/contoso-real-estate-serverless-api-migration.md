@@ -1,19 +1,19 @@
 ---
-title: "Migrate Contoso Real Estate Serverless APIs to v4 programming model for Node.js"
-description: Understand the Contoso Real Estate serverless API migration with Azure Functions to the v4 programming model.
+title: "Migrate Contoso Real Estate Serverless APIs to Node.js v4 programming model"
+description: Understand the Contoso Real Estate serverless API migration with Azure Functions to the Node.js v4 programming model.
 ms.topic: tutorial
 ms.date: 10/23/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to migrate my v4 programming model API to v4 so that my serverless code is more idiomatic of Node.js development.
 ---
 
-# Migrate Azure Function APIs from v3 to v4 programming model for Node.js
+# Migrate Azure Function APIs from Node.js v3 to v4 programming model
 
 Use this migration guide to understand the Contoso Real Estate serverless API migration with Azure Functions to the v4 programming model.
 
 The migration covers the move from the v3 programming model to the v4 programming model. The new model allows complete flexibility in folder and file organization. This flexibility allows you to rethink and refactor as part of the migration. Minimize your refactoring so your existing tests work on both versions. Once this code migration and testing are complete, then you can continue to refactor and improve the code.
 
-## Manage monorepo workspace dependencies for v4 programming model
+## Manage monorepo workspace dependencies for Node.js v4 programming model
 
 The Azure Functions app in the Contoso Real Estate project is part of a monorepo controlled with npm workspaces. It's important to understand the environment and tooling before migrating to the v4 programming model in this environment.
 
@@ -23,7 +23,7 @@ The Azure Functions app in the Contoso Real Estate project is part of a monorepo
 
 For the Contoso Real Estate project, the source code projects are managed by npm workspaces from a single `/packages` subfolder. The original v3 sat in the `api` folder and all the provisioning and deployment provided by the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](/azure/azure-resource-manager/bicep/) uses that folder name. The `api` package is just one of several applications within the monorepo's workspaces. The use of an npm workspace means there's a single `node_modules` folder. In order to use this single `node_modules` folder correctly, meaning only one version of Azure Functions app dependencies are installed, you have to separate the v3 and v4 programming models into separate branches during migration. Keep v3 in the main branch, start v4 in a new branch, and then merge the v4 branch into the main branch when the migration is complete.
 
-## Archive the Azure Functions Node.js v3 programming model**
+## Archive the Azure Functions Node.js v3 programming model
 
 To archive the v3 programming model, you need to do the following:
 
@@ -75,15 +75,13 @@ To **create the v4 programming model**, you need to do the following:
 
 At this point, your monorepo development environment is ready to start the migration of the code.
 
-## Migrate code for v4 programming model
+## Migrate code for Node.js v4 programming model
 
 Because the v4 Node.js programming model has more flexibility, you should take the time in the beginning of the migration to understand how your team wants to organize routes, handlers, and the integration code the handlers use. To understand this, let's look at the two programming model for a single HTTP route. The following example has been minimized to the key elements to understand the differences between the two programming models.
 
-**v3 programming model**
+**Node.js v3 programming model**
 
 The function definition is contained in a separate file, `function.json`, from the code. 
-
-**v3 Function definition**
 
 ```json
 {
@@ -108,7 +106,7 @@ The function definition is contained in a separate file, `function.json`, from t
 }
 ```
 
-**v3 Function code**
+The function code is contained in a separate file, `index.js`, from the function definition. 
 
 ```typescript
 // v3 programming model
@@ -131,7 +129,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 export default httpTrigger;
 ```
 
-**v4 Function code**
+**Node.js v4 programming model**
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -159,7 +157,7 @@ There are a few things about the v4 programming model, when compared to v3, that
     * Test the handler without the app.
 * TypeScript types, such as [`InvocationContext`](/azure/azure-functions/functions-reference-node?tabs=typescript%2Clinux%2Cazure-cli&pivots=nodejs-model-v4#invocation-context), make it easier to mock and test.
 
-## Organize routes for v4 programming model
+## Organize routes for Node.js v4 programming model
 
 Organize the routes so you can easily scan them for completeness.
 
@@ -185,11 +183,11 @@ The first parameter, such as `listing-get-by-id`, must be unique and is the name
 
 :::image type="content" source="./media/contoso-real-estate-serverless-api-migration/azure-portal-function-list-apis.png" alt-text="Screenshot of Azure portal for Azure Function app showing list of APIs.":::
 
-## Settings route parameters for v4 programming model
+## Settings route parameters for Node.js v4 programming model
 
 The definition of a route that uses a parameter has changed between the v3 programming model and the v4 programming model. However the way you access the route parameter in the handler is the same.
 
-**v3 programming model**: `functions.json` bindings.route: 
+**Node.js v3 programming model**: `functions.json` bindings.route: 
 
 ```json
 {
@@ -201,14 +199,14 @@ The definition of a route that uses a parameter has changed between the v3 progr
 }
 ```
 
-**v3 programming model**: access route parameters in the handler:
+**Node.js v3 programming model**: access route parameters in the handler:
 
 ```typescript
 // same for v3 and v4 programming models
 const id = req.params.id;
 ``` 
 
-**v4 programming model**: `index.ts` main route file:
+**Node.js v4 programming model**: `index.ts` main route file:
 
 ```typescript
 app.get("get-listing-by-id", {
@@ -218,14 +216,14 @@ app.get("get-listing-by-id", {
 });
 ```
 
-**v4 programming model**: access route parameters in the handler:
+**Node.js v4 programming model**: access route parameters in the handler:
 
 ```typescript
 // same for v3 and v4 programming models
  const id = req.params.id;
 ``` 
 
-## Separate handlers for integration code in v4 programming model
+## Separate handlers for integration code in Node.js v4 programming model
 
 For the Contoso Real Estate project, the handlers are organized in the `./functions` directory by feature. This allows you to separate the integration code from the handler code. For example, the handler associated with favorites in the `./functions/favorites.ts` looks like
 
@@ -243,7 +241,7 @@ export async function getListings(request: HttpRequest, context: InvocationConte
 }
 ```
 
-## Testing with mock context in v4 programming model
+## Testing with mock context in Node.js v4 programming model
 
 This separation you to test the handlers separately from the integration code. For example, the following test uses the [Jest](https://jestjs.io/) testing framework to test the `getListings` handler.
 
@@ -291,7 +289,7 @@ describe("getListings", () => {
 });
 ```
 
-## Testing with request information in v4 programming model
+## Testing with request information in Node.js v4 programming model
 
 Getting request information includes the following information:
 
@@ -353,11 +351,11 @@ describe("getListings", () => {
 ```    
 
 
-## Setting response information in v4 programming model
+## Setting response information in Node.js v4 programming model
 
 The response information has changed from the v3 programming model to the v4 programming model. The following table shows the changes:
 
-**v3 programming model**: 
+**Node.js v3 programming model**: 
 
 ```typescript
 context.res = {
@@ -371,7 +369,7 @@ context.res = {
 
 The response in v3 programming model is loosely typed as key/value pairs. 
 
-**v4 programming model**: 
+**Node.js v4 programming model**: 
 
 ```typescript
 return {
@@ -427,11 +425,6 @@ When you deploy your migrated code, you may get one of the following issues:
     ```
 
     If you have authentication turned on, either remove the authentication to test the API or add the authentication to the cURL command.
-
-## More information
-
-* [Azure Functions Node.js v4 programming model](/azure/azure-functions/functions-reference-node?tabs=typescript%2Clinux%2Cazure-cli&pivots=nodejs-model-v4)
-* [Azure Functions Node.js v3 programming model](/azure/azure-functions/functions-reference-node?tabs=javascript%2Clinux%2Cazure-cli&pivots=programming-language-javascript)
 
 ## Next steps
 
