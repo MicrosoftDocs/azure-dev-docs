@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/25/2023
+ms.date: 11/14/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -41,6 +41,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
 * [azd provision](#azd-provision): Provision the Azure resources for an application.
 * [azd restore](#azd-restore): Restores the application's dependencies. (Beta)
+* [azd show](#azd-show): Display information about your app and its resources.
 * [azd template](#azd-template): Find and view template details. (Beta)
 * [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
@@ -817,7 +818,7 @@ azd package <service> [flags]
 ### Options
 
 ```azdeveloper
-      --all                  Deploys all services that are listed in azure.yaml
+      --all                  Packages all services that are listed in azure.yaml
       --docs                 Opens the documentation for azd package in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for package.
@@ -940,6 +941,34 @@ azd restore <service> [flags]
       --docs                 Opens the documentation for azd restore in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for restore.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [Back to top](#azd)
+
+## azd show
+
+Display information about your app and its resources.
+
+```azdeveloper
+azd show [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd show in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for show.
 ```
 
 ### Options inherited from parent commands
