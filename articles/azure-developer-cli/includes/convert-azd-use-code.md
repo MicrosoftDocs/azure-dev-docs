@@ -51,7 +51,7 @@ The current detection logic is as follows:
     - Java
 - Supported databases:
     - MongoDB
-    - PostgreSQL.
+    - PostgreSQL
 - For Python and JavaScript/TypeScript, web frameworks and databases are automatically detected.
 - When a JavaScript/TypeScript project uses a front-end (or client-side) web framework, it is classified as a front-end service. If your service uses a front-end web framework that is currently undetected, you may select JQuery to provide equivalent front-end service classification and behavior.
 
@@ -68,7 +68,7 @@ The generation logic is as follows:
     - PostgreSQL: Azure Database for PostgreSQL flexible server
     - Redis: Azure Container Apps Redis add-on
 - Services using databases will have environment variables that provide connection to the database pre-configured by default.
-- When both front-end and back-end services are detected, CORS configuration on the Azure host for back-end services will be updated to allow the default hosting domain of front-end services. This can be - modified or removed as necessary in the Infrastructure as Code configuration files.
+- When both front-end and back-end services are detected, CORS configuration on the Azure host for back-end services will be updated to allow the default hosting domain of front-end services. This can be modified or removed as necessary in the Infrastructure as Code configuration files.
 
 ## Add support for dev containers
 
