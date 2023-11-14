@@ -6,7 +6,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for Java](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-javascript)|
+|[Get started with the enterprise chat app template for JavaScript](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-javascript)|
 
 ### Building blocks
 
@@ -23,7 +23,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for Java](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-javascript)|
+|[Get started with the enterprise chat app template for JavaScript](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-javascript)|
 
 ### Building blocks
 
