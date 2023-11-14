@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI support for Azure Deployment Environments
 
-The Azure Developer CLI (azd) provides support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
+The Azure Developer CLI (azd) provides support for [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). An Azure Deployment Environment (ADE) is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
 
 ## Prerequisites
 
@@ -44,6 +44,14 @@ azd config unset platform
 ## Work with Azure Deployment Evironments
 
 When the dev center feature is enabled, the default behavior of some common `azd` commands changes to work with these remote environments. The dev center feature expands on functionality provided by standard `azd` [remote environment support](/azure/developer/azure-developer-cli/remote-environments-support).
+
+### azd init
+
+The `azd init` command experience in dev center mode shows all the azd compatible ADE templates for selection from your configured catalog. During the init process, after `azd` clones down the template code, the `azure.yaml` file will automatically be updated to include a `platform` section with the selected configuration based on the template that was chosen. The configuration includes the dev center name, catalog, and environment definition.
+
+```bash
+`azd init`
+```
 
 ### azd up
 
