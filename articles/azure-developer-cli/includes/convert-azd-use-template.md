@@ -85,7 +85,7 @@ Your project now contains the core structure and assets of an `azd` template. Ho
     
 ## Update the azure.yaml file
 
-To deploy the app, `azd` needs to know more about your app. The `azure.yaml` file is used to define the source code location, language, and the Azure hosting service for each service in your app. For full details, refer to [the azure.yaml schema](./azd-schema.md).
+To deploy the app, `azd` needs to know more about your app. The `azure.yaml` file is used to define the source code location, language, and the Azure hosting service for each service in your app. For full details, refer to [the azure.yaml schema](../azd-schema.md).
 
 1. Open the `azure.yaml` at the root of the project.
 
