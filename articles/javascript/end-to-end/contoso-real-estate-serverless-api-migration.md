@@ -428,4 +428,5 @@ When you deploy your migrated code, you may get one of the following issues:
 
 ## Next steps
 
+* [Step by Step Guide: Migrating v3 to v4 programming model for Azure Functions for Node.Js Application by Cloud Advocate Glaucia Lemos](https://techcommunity.microsoft.com/t5/educator-developer-blog/step-by-step-guide-migrating-v3-to-v4-programming-model-for/ba-p/3897691)
 * [Migrate Azure Functions Node.js v3 programming model to v4 programming model](/azure/azure-functions/functions-node-upgrade-v4?source=recommendations&tabs=v4)
