@@ -34,7 +34,7 @@
     - name: Remote Environment Support
       href: remote-environments-support.md
     - name: .NET Aspire integration and deployment
-      href: /dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth
+      href: /dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth?toc=/azure/developer/azure-developer-cli/toc.json&bc=/azure/developer/azure-developer-cli/breadcrumb/toc.json
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Feature versioning and release strategy
