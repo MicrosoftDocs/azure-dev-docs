@@ -37,6 +37,8 @@ Use the following steps to prepare to develop locally.
 
     Wait until the database is restored before continuing.
 
+1. Rename the existing `./packages/API/local.settings.sample.json` to `./packages/API/local.settings.json` in order to start the Azure Functions successfully.
+
 1. To run the Azure Functions API in the `./packages/API` directory, run the following command:
 
     ```bash
