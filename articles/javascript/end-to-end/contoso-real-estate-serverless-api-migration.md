@@ -131,6 +131,8 @@ export default httpTrigger;
 
 **Node.js v4 programming model**
 
+The API definition and the handler are contained in the same file, `index.ts`.
+
 ```typescript
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 
@@ -152,8 +154,8 @@ app.http('httpTrigger1', {
 There are a few things about the v4 programming model, when compared to v3, that make it more flexible:
 
 * The v4 function definition and handler can be contained within the same file, which makes it easier to understand
-* The v4 handler is exported which the app is extended. This is an important distinction because it allows you to:
-    * Separate the handler from the app. 
+* The v4 handler is exported while the app is extended. This is an important distinction because it allows you to:
+    * Move the handlers out to other files. 
     * Test the handler without the app.
 * TypeScript types, such as [`InvocationContext`](/azure/azure-functions/functions-reference-node?tabs=typescript%2Clinux%2Cazure-cli&pivots=nodejs-model-v4#invocation-context), make it easier to mock and test.
 
@@ -185,7 +187,10 @@ The first parameter, such as `listing-get-by-id`, must be unique and is the name
 
 ## Settings route parameters for Node.js v4 programming model
 
-The definition of a route that uses a parameter has changed between the v3 programming model and the v4 programming model. However the way you access the route parameter in the handler is the same.
+Routes between the v3 and v4 programming models:
+
+* The **definition** of a route that uses a parameter has **changed**.
+* **Access** to the route parameter in the handler is the **same**.
 
 **Node.js v3 programming model**: `functions.json` bindings.route: 
 
@@ -225,7 +230,7 @@ app.get("get-listing-by-id", {
 
 ## Separate handlers for integration code in Node.js v4 programming model
 
-For the Contoso Real Estate project, the handlers are organized in the `./functions` directory by feature. This allows you to separate the integration code from the handler code. For example, the handler associated with favorites in the `./functions/favorites.ts` looks like
+For the Contoso Real Estate project, the handlers are organized in the `./functions` directory by API. This allows you to separate the integration code from the handler code. For example, the handler associated with favorites in the `./functions/favorites.ts` looks like
 
 ```typescript
 import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -233,17 +238,17 @@ import { pgQuery } from "../config/pgclient";
 
 // GET Listings By ID
 export async function getListingById(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    ...removed for brevity...
+    //...removed for brevity...
 }
 // GET Listings
 export async function getListings(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    ...removed for brevity...
+    //...removed for brevity...
 }
 ```
 
 ## Testing with mock context in Node.js v4 programming model
 
-This separation you to test the handlers separately from the integration code. For example, the following test uses the [Jest](https://jestjs.io/) testing framework to test the `getListings` handler.
+This separation allows you to test the handlers separately from the integration code. For example, the following test uses the [Jest](https://jestjs.io/) testing framework to test the `getListings` handler.
 
 The context is mocked using the following code:
 
