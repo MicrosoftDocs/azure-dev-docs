@@ -52,7 +52,7 @@ To run the entire solution in Codespaces with local resources, the underlying se
     npm install
     ```
     
-2. Run the following command run all the services such as the databases, and start all the applications in the `./packages` folder. 
+2. Run the following command to run all the services such as the databases, and start all the applications in the `./packages` folder. 
 
     ```bash
     npm run start
