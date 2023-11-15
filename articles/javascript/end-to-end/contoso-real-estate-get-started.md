@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Get started with Contoso Real Estate enterprise app
 
-The Contoso Real Estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
+The [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate) application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
 
 ## The Contoso Real Estate app
 
