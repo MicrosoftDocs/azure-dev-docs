@@ -35,17 +35,17 @@ The Contoso Real Estate app has two client applications, the **portal** and the 
 
 The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in [Azure Blob Storage](/azure/storage/blobs/).
 
-    :::image type="content" source="./media/contoso-real-estate-get-started/browser-blog-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
+:::image type="content" source="./media/contoso-real-estate-get-started/browser-blog-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
 
 **Secure portal client with Angular**
 
 The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). It also uses the listings held in the [Azure Database for PostrgreSQL](/azure/postgresql). The portal provides authentication through social providers such as Microsoft, Google, and Facebook.
 
-    :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
+:::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
 
-    Once a user signs in, and selects a property, they can choose to reserve the property then pay for it with a Stripe integration. 
+Once a user signs in, and selects a property, they can choose to reserve the property then pay for it with a Stripe integration. 
 
-    :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" lightbox="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" alt-text="Screenshot of Contoso portal property page showing property images, details, and offering a user the ability to reserve the property with a payment form.":::
+:::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" lightbox="./media/contoso-real-estate-get-started/browser-portal-reserve-property.png" alt-text="Screenshot of Contoso portal property page showing property images, details, and offering a user the ability to reserve the property with a payment form.":::
 
 Other Azure services used include: 
 
