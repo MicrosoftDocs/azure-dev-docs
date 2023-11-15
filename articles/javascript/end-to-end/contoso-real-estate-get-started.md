@@ -27,18 +27,19 @@ To deploy this entire app solution to Azure, you need:
 * A Strapi account for headless CMS
 * A Stripe account for payments
 
-## Application architecture
+## Application
 
 The Contoso Real Estate app has two client applications, the **portal** and the blog. The **blog** publicizes new real estate offerings and if visible without authentication. The portal app requires authentication to view, reserve, and pay for listings. Separate development teams have built and support this end-to-end architecture with their own choice of technical stack. 
 
-**Micro frontend client**:
+**Public blog with Next**:
 
-* The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in [Azure Blob Storage](/azure/storage/blobs/).
+The **blog** and its API are hosted from [Azure Container Apps](/azure/container-apps). The blog content is served from a headless [Strapi](https://strapi.io/) CMS with data stored in [Azure Database for PostrgreSQL](/azure/postgresql). The CMS also stores the real estate listings. Property images for listings are stored in [Azure Blob Storage](/azure/storage/blobs/).
 
     :::image type="content" source="./media/contoso-real-estate-get-started/browser-blog-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso blog featuring information about technology, news, gastronomy, releases, and locations relevant to users of the HR relocation portal.":::
 
+**Secure portal client with Angular**
 
-* The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). It also uses the listings held in the [Azure Database for PostrgreSQL](/azure/postgresql). The portal provides authentication through social providers such as Microsoft, Google, and Facebook.
+The **portal** is hosted in an [Azure Static Web](/azure/static-web-apps) app with API support from an [Azure Functions App](/azure/azure-functions). It also uses the listings held in the [Azure Database for PostrgreSQL](/azure/postgresql). The portal provides authentication through social providers such as Microsoft, Google, and Facebook.
 
     :::image type="content" source="./media/contoso-real-estate-get-started/browser-portal-landing.png" lightbox="./media/contoso-real-estate-get-started/browser-blog-landing.png" alt-text="Screenshot of Contoso portal featuring several property listings with images, descriptions, and prices.":::
 

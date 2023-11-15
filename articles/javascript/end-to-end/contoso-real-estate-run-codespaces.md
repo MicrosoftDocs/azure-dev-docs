@@ -33,7 +33,7 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
 ## Start Codespaces
 
 1. Select **Code** in the upper-right corner of the page.
-1. Select **Codespaces** tab then select **Create codespace on main**.
+1. Select **Codespaces** tab then select **+ Create codespace on main**.
 1. In the new browser tab, select **Sign in with GitHub**. This may take a few minutes to complete because this enterprise solution has many dependencies.
 
     :::image type="content" source="./media/contoso-real-estate-run-codespaces/start-codespace.png" alt-text="Screenshot of browser showing setting up CodeSpace environment.":::
@@ -42,7 +42,33 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
 
     :::image type="content" source="./media/contoso-real-estate-run-codespaces/view-codespace-browser-startup.png" alt-text="Screenshot of browser showing Visual Studio Code in Code Space environment, finishing environment setup.":::
 
+## Run the applications locally in Codespaces
+
+To run the entire solution in Codespaces with local resources, the underlying services must be running locally. 
+
+1. Run the following command to install the npm workspace dependencies of all the `./packages` applications into a single `node_modules` folder. 
+
+    ```bash
+    npm install
+    ```
+    
+2. Run the following command run all the services such as the databases, and start all the applications in the `./packages` folder. 
+
+    ```bash
+    npm run start
+    ```
+
+3. There are two client applications: blog and portal. Use the **ports** tab toward the bottom of the Codespace UI to find the correct URL for each app. 
+
+    :::image type="content" source="./media/contoso-real-estate-serverless-api-migration/codespaces-open-portal-url.png" lightbox="./media/contoso-real-estate-serverless-api-migration/codespaces-open-portal-url.png" alt-text="Screenshot of the Codespace with the Ports tab displayed and the forwarded address for the Portal app highlighted to select.":::
+
+    Notice the URL for the apps uses the Codespaces name and the app's port number as the subdomain name: `https://special-space-adventure-q9rwrw7pxg4hxpxx-4280.app.github.dev/home`.
+
+    The Codespaces name is `special-space-adventure` and the port for the portal is `4280`. 
+
 ## Sign in to Azure with the Azure Developer CLI
+
+The first step to deploying the Contoso Real Estate app to Azure is to sign in to Azure with the Azure Developer CLI.
 
 1. In the Codespaces integrated terminal, sign in to Azure with the Azure Developer CLI:
 
@@ -55,7 +81,9 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
 
 ## Deploy to Azure with the Azure Developer CLI
 
-1. In the Codespaces integrated terminal, create Azure resources and deploy source code with the Azure Developer CLI command to create resources:
+Deployment is separated into provisioning (creating cloud resources) and deployment (moving code to the cloud). This is necessary to allow for execution of scripts between provisioning and deployment.
+
+1. In the Codespaces integrated terminal, run the following command to create Azure resources and deploy source code with the Azure Developer CLI command to create resources:
 
     ```bash
     azd provision
@@ -74,9 +102,9 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
     * Creating a resource group: `rg-<environment-name>`
     * Creating resources
     * Creating environment variables associated with the resources, found in `.azure/<environment-name>/.env`
-    * Restoring database from dump file
+    * A `postprovision` hook in the **azure.yml** file to restore the database from dump file.
 
-1. Deploy the source code to the resources with the Azure Developer CLI command:
+1. Use the following command to deploy the source code to the resources with the Azure Developer CLI command:
 
     ```bash
     azd deploy
@@ -84,6 +112,7 @@ In this tutorial, you'll deploy and use the Contoso Real Estate reference archit
 
     This process includes:
 
+    * `postpackage` hook in the **azure.yml** file to fix the URLs used for the client application **build** which needs to know the URLs for the API and CMS.
     * Building the application artifacts with environment variables from `azd provision` command
 
 1. Wait for the process to complete. This takes a few minutes.
@@ -118,6 +147,42 @@ azd monitor
 This opens a new browser tab with the custom dashboard in the Azure portal. 
 
 :::image type="content" source="./media/contoso-real-estate-run-codespaces/azure-portal-custom-dashboard.png" alt-text="Screenshot of Azure portal with the Contoso Real Estate's custom dashboard visible.":::
+
+## Run local code against cloud resources
+
+When you need to run one of the applications, you may want to run the package you are updating locally against the cloud resources. To do this, the local application needs to know where the cloud resources are. Typically this is managed as environment variables. 
+
+When you create the resources with the Azure Developer CLI (`azd`), a `./.azure` folder is created with a folder for your named environment. This folder contains a `.env` file with the environment variables for the resources. 
+
+## Debug local projects
+
+This project has Visual Studio Code launch configurations in the `.vscode` folder to help debug the apps. The debug runs against local or cloud resources based on the .env file values used. 
+
+Debug configurations for the **secure portal** include:
+
+* **Debug web**: Debug the portal
+* **Debug API**: Debug the Azure Functions app. When running or debugging the Azure Functions locally, remember to rename the existing `local.settings.sample.json` to `local.settings.json` in order to start the Azure Functions successfully.
+
+Debug configurations for the **public blog** include:
+
+* **ng serve**: Run the Angular app for the blog in Chrome
+* **blog: frontend**: Debug the Angular app for the blog
+* **blog: backend**: Debug the Strapi CMS for the blog
+
+### Run local projects
+
+This project has scripts in the root `package.json` file to help run the project against cloud resources.
+
+```json
+"scripts": {
+    "start": "concurrently npm:start:* --kill-others",
+    "start:services": "docker compose up",
+    "start:api": "npm run start --workspace=api",
+    "start:website": "npm run start:swa --workspace=portal",
+    // ... remaining scripts removed for brevity
+}
+```
+
 
 ## Contribute to the application
 
