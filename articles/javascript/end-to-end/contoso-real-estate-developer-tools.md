@@ -8,8 +8,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Modern cloud development with Contoso real estate
 
-The [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate) application contains the reference architecture and components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It is a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
-
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 Modern cloud development used in the Contoso Real Estate solution includes tools to enable you to develop, debug, build, deploy, and test your application. 
 
 ## Developer Environment
