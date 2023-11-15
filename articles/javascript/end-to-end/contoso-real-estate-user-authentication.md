@@ -9,6 +9,8 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # User authentication with Contoso Real Estate
 
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
+
 The Contoso Real Estate app has two front-end applications: blog and portal. The blob is publicly available, but the portal requires authentication to see Real Estate listings. 
 
 The portal application is found in the [**portal** package](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal). The portal is a single-page application (SPA) built with Angular. The portal uses [Azure Static Web Apps](/azure/static-web-apps/) for hosting and authentication. The portal uses the [Azure Functions API](/azure/azure-functions/) for data access.

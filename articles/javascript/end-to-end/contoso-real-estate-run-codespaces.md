@@ -9,6 +9,8 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Tutorial: Deploy the Contoso Real Estate to Azure from GitHub Codespaces
 
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
+
 In this tutorial, you'll deploy and use the Contoso Real Estate reference architecture sample and its components, which shows you how to build enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. The reference architecture is a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
 
 > [!div class="checklist"]

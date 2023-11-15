@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Infrastructure management for Contoso Real Estate
 
-The Contoso Real Estate application is an example end to end architecture, along with full source code solution and deployment infrastructure. It's provided for JavaScript developers who need to learn how to design, develop, deploy, and devops (4Dx) to Azure. 
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 
 An enterprise developer experience allows:
 
@@ -169,7 +169,7 @@ To begin the provisioning and deployment process:
     ```bash 
     azd deploy
     ```
-    This command uses the services listed in the `azure.yml` to understand where the code is, how it's built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a **predeploment step** is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites.
+    This command uses the services listed in the `azure.yml` to understand where the code is, how it's built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a **predeployment step** is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites.
 
 
 ## Local and cloud experience
