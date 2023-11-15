@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Packaged solutions for Contoso real estate 
 
-This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 
 :::image type="content" source="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
 
