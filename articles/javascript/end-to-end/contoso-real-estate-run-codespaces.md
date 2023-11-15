@@ -150,7 +150,7 @@ This opens a new browser tab with the custom dashboard in the Azure portal.
 
 ## Run local code against cloud resources
 
-When you need to run one of the applications, you may want to run the package you are updating locally against the cloud resources. To do this, the local application needs to know where the cloud resources are. Typically this is managed as environment variables. 
+When you need to run one of the applications, you may want to run the package you're updating locally against the cloud resources. To do this, the local application needs to know where the cloud resources are. Typically this is managed as environment variables. 
 
 When you create the resources with the Azure Developer CLI (`azd`), a `./.azure` folder is created with a folder for your named environment. This folder contains a `.env` file with the environment variables for the resources. 
 
