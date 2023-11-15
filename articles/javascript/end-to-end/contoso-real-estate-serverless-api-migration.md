@@ -1,15 +1,15 @@
 ---
 title: "Migrate Contoso Real Estate Serverless APIs to Node.js v4 programming model"
-description: Understand the Contoso Real Estate serverless API migration with Azure Functions to the Node.js v4 programming model.
+description: Understand the Contoso Real Estate serverless API migration with Azure Functions to the Node.js v4 programming model with TypeScript.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 11/15/2023
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 # CustomerIntent: As a senior developer new to Azure, I want to migrate my v4 programming model API to v4 so that my serverless code is more idiomatic of Node.js development.
 ---
 
 # Migrate Azure Function APIs from Node.js v3 to v4 programming model
 
-Use this migration guide to understand the Contoso Real Estate serverless API migration with Azure Functions to the v4 programming model.
+Use this migration guide to understand the [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate) serverless API migration with Azure Functions to the v4 programming model.
 
 The migration covers the move from the v3 programming model to the v4 programming model. The new model allows complete flexibility in folder and file organization. This flexibility allows you to rethink and refactor as part of the migration. Minimize your refactoring so your existing tests work on both versions. Once this code migration and testing are complete, then you can continue to refactor and improve the code.
 
@@ -339,7 +339,7 @@ import { mockRequest } from "../test-utils";
 
 describe("getListings", () => {
   it("should return listings", async () => {
-    const request = mockRequest("GET", "http://localhost:7071/api/listings");
+    const request = mockRequest("GET", "/api/listings");
     const response = await getListings(request, mockContext);
     expect(response.status).toEqual(200);
     expect(response.headers).toEqual({
