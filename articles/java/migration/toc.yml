@@ -4,8 +4,8 @@ items:
   items:
     - name: Overview
       href: migration-overview.md
-    - name: Azure Application and Code Assessment Toolkit
-      href: appcat.md
+    - name: Azure Migrate application and code assessment
+      href: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Spring to Azure
       expanded: true
       items:

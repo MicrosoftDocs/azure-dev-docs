@@ -20,8 +20,8 @@ landingContent:
         links:
           - text: Migration overview
             url: migration-overview.md
-          - text: Azure Application and Code Assessment Toolkit
-            url: appcat.md
+          - text: Azure Migrate application and code assessment
+            url: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide
