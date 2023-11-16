@@ -75,6 +75,10 @@ To **create the v4 programming model**, you need to do the following:
 
 At this point, your monorepo development environment is ready to start the migration of the code.
 
+## Verify local settings file for Functions app
+
+Make sure your Azure Functions app has a `local.settings.json` in order to start the local Functions app successfully.
+
 ## Migrate code for Node.js v4 programming model
 
 Because the v4 Node.js programming model has more flexibility, you should take the time in the beginning of the migration to understand how your team wants to organize routes, handlers, and the integration code the handlers use. To understand this, let's look at the two programming model for a single HTTP route. The following example has been minimized to the key elements to understand the differences between the two programming models.
@@ -392,6 +396,10 @@ The response in v4 programming model is strongly typed with the [HttpResponseIni
 ## Troubleshooting Azure Functions Node.js v4 programming model deployments
 
 When you deploy your migrated code, you may get one of the following issues:
+
+* ISSUE: **Local Functions app doesn't register any APIs.**
+
+    *  Make sure your Azure Functions app has a `local.settings.json` in order to start the local Functions app successfully. For the Contoso Real Estate project, rename the existing `./packages/API/local.settings.sample.json` to `./packages/API/local.settings.json` before you start the local Functions app.
 
 * ISSUE: **Azure portal for Functions app doesn't show any Functions APIS and the **App Files** page has only one file, the `host.json`**. 
 
