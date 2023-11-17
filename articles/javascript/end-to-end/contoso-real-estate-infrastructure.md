@@ -35,7 +35,7 @@ The project uses a combination of Azure Developer CLI, Bicep, and Bash scripts t
 * **Provision Azure resources**: create cloud resources and configure them for the application. This includes tasks like creating a database and configuring the firewall rules, and uploading the database dump.
 * **Deploy code**: deploy the application code to the cloud resources. This includes tasks like building the application code and deploying it the various hosting resources such as Azure Static Web Apps, Azure Functions App and Azure Container App. Building the front-end code also requires a hook to add the serverless API URL to the front-end code.
 
-### File system structure
+## File system structure
 
 The files, which support local development are:
 
@@ -46,7 +46,7 @@ The files, which support local development are:
 |`.devcontainer`|The `.devcontainer` folder contains the configuration for the local [DevContainers](https://containers.dev/) used by [Visual Studio Code](https://code.visualstudio.com/) to run the applications locally such as IDE configurations (extensions and IDE settings), and environment configurations (such as open ports and installing additional tools).|
 |`.vscode`|The `.vscode` folder contains the configuration for Visual Studio Code to allow you to debug the separate applications such as the blog, portal, and API.|
 
-### Open and run development environment
+## Open and run development environment
 
 To start local development:
 
@@ -61,12 +61,12 @@ To start local development:
     npm install
     ``````
 
-### Local environment variables
+## Local environment variables
 
 Environment variables in a Node.js application, used to access configuration settings and secrets, are managed by the [dotenv](https://www.npmjs.com/package/dotenv) package. This package allows you to create a `.env.local` file in the root of the repository. This file is used to store the environment variables that are used by the application. This file is **not** checked into source control.
 
 
-### Start the application
+## Start the application
 
 1. Use the following command to start all the services. This command starts the Docker containers. 
 
@@ -97,7 +97,7 @@ Environment variables in a Node.js application, used to access configuration set
 
 1. When you're done exploring the code and ready to stop the services, use <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the services.
 
-### Extend the project with a feature or fix
+## Extend the project with a feature or fix
 
 1. Create a new branch. 
 
@@ -112,7 +112,7 @@ Environment variables in a Node.js application, used to access configuration set
     ```
 1. Use the Visual Studio Code debugger to start the application(s) you need to debug.
 
-## Infrastructure development
+## Infrastructure as code
 
 [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control in the `./infra` folder. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision resources and deploy code.
 
@@ -126,7 +126,7 @@ Cloud provisioning and deployment include:
 |`infra`|The `infra` folder contains **provisioning** details for the Azure resources. This project uses [**Bicep**](/training/paths/fundamentals-bicep/) for the infrastructure code.|
 |`azure.yml`|The `azure.yml` file contains the configuration used by Azure Developer CLI to **deploy** to Azure. This file also contains the configuration for the pre- and post- hooks that are run before and after provisioning and deployment.|
 
-### Developing infrastructure as code
+## Developing infrastructure as code
 
 Azure Developer CLI uses bicep files to allow you to define the infrastructure as code. Bicep is a domain-specific language (DSL) that is used to define Azure resources.
 
@@ -156,7 +156,7 @@ Azure Developer CLI uses bicep files to allow you to define the infrastructure a
     
 As you add a new service, along with its setup and configuration, you add bicep files to the `infra` folder. Use bicep modules in subfolders to organize the bicep files for reusability. 
 
-#### Environment variables
+## Cloud environment variables
 
 Environment variables allow your source code to access configuration settings and secrets needed to build and run the applications. 
 
@@ -166,7 +166,7 @@ Environment variables allow your source code to access configuration settings an
     * **Resource creation order**: Azure Developer CLI typically works in parallel where possible. When a bicep file's resource uses the `dependsOn` parameter or needs an input parameter, Azure Developer CLI understands the resource creation order.
     * **Local environment file for cloud resources**: After provisioning, a local environment file contains these variables in the `./.azure/` folder, named for the environment you entered when you begin the initial provisioning process. This is used for any setup or build steps during deployment that rely on these values.
 
-## Do's and don'ts for infrastructure as code with Azure Developer CLI and Bicep
+## Best practices
 
 * **Do** 
     * Use naming conventions in Bicep files. This helps you find the issue in the Azure portal and track that back to the individual bicep file in your repository when your provision fails. 
@@ -186,7 +186,7 @@ Environment variables allow your source code to access configuration settings an
     * Don't check `.azure` folder into source control.
 
 
-### Deploying with infrastructure as code 
+## Deploying infrastructure
 
 To begin the provisioning and deployment process:
 
@@ -210,7 +210,7 @@ To begin the provisioning and deployment process:
     This command uses the services listed in the `azure.yml` to understand where the code is, how it's built, and where it should be deployed to. It also includes and pre- and post- hooks necessary to complete a deployment. An example of a **predeployment step** is to get the provisioned resource names, construct correct URLs, with those names, then use those URLs when building the websites.
 
 
-## Local and cloud experience
+## Local _and_ cloud experience
 
 The following files and folders are used for both local development and cloud provisioning and deployment:
 
