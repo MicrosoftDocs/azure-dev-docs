@@ -281,6 +281,10 @@
               items:
                 - name: Create a file system
                   href: /azure/azure-managed-lustre/create-aml-file-system-terraform
+            - name: Azure Storage
+              items:
+                - name: Deploy a static website
+                  href: /azure/storage/blobs/storage-quickstart-static-website-terraform
         - name: Web
           items:
             - name: API Management
