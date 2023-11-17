@@ -97,6 +97,10 @@
               items:
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+            - name: Azure Spring Apps
+              items:
+                - name: Deploy a cluster
+                  href: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-terraform
             - name: Batch
               items:
                 - name: Create an account
@@ -295,6 +299,10 @@
               items:
                 - name: Create an Azure Cognitive Search service
                   href: /azure/search/search-get-started-terraform
+            - name: Azure Spring Apps
+              items:
+                - name: Deploy a cluster
+                  href: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-terraform
             - name: Content Delivery Network (CDN)
               items:
                 - name: Create a profile and endpoint
