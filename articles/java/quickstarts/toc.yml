@@ -15,7 +15,7 @@ items:
       items:
         - name: Develop with Azure AI Services
           href: azure-ai-for-java-developers.md
-        - name: Enterprise chat app template
+        - name: Get started with the Java enterprise chat sample
           href: get-started-app-chat-template.md
     - name: Compute services
       href: compute.md

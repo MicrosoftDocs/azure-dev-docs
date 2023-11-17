@@ -6,7 +6,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for .NET](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|
+|[Get started with the .NET enterprise chat sample using RAG](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 
 ### Building blocks
 
@@ -23,7 +23,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for .NET](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|
+|[Get started with the enterprise chat app template for .NET](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|
 
 ### Building blocks
 
@@ -41,8 +41,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample01_Chatbot.cs)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample04_StreamingChat.cs)|A deep link to the samples demonstrating streaming completions.|
-|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
-|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
+|[OpenAI with Azure Active Directory Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
+|[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)|A collection of OpenAI samples written in .NET.|
 |[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
@@ -59,7 +59,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|An article detailing how to use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. Speech service then synthesizes the text response from Azure OpenAI.|
+|[Use Speech to converse with OpenAI](/azure/ai-services/speech-service/openai-speech?tabs=windows)|An article detailing how to use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. Speech service then synthesizes the text response from Azure OpenAI.|
 |[Translate documents from and into more than 100 different languages](https://github.com/MicrosoftTranslator/DocumentTranslation)|An article showing how to translate local files or network files in many different formats, to more than 100 different languages. Supported formats include HTML, PDF, all Office document formats, Markdown, MHTML, Outlook, MSG, XLIFF, CSV, TSV and plain text.|
 
 ### SDKs and samples/guidance
@@ -69,7 +69,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Integrate Speech into your apps with Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk)|A repo of samples for the Azure Cognitive Services Speech SDK. Links to samples for speech recognition, translation, speech synthesis, and more.|
 |[Azure AI Document Intelligence SDK](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
 |[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md#common-scenarios-samples-for-client-library-version-400)|A repo of samples for the Azure.AI.FormRecognizer client library.|
-|[Extract, classify, and understand text within documents using Text Analytics in .NET](https://aka.ms/azai/net/ta)|The client Library for Text Analytics, which is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Extract, classify, and understand text within documents using Text Analytics in .NET](https://aka.ms/azai/net/ta)|The client Library for Text Analytics, which is part of the Azure AI Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in .NET](https://aka.ms/azai/net/translate/doc)|A quickstart article that details how to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Question Answering in .NET](https://aka.ms/azai/net/qna)|A quickstart article to get an answer (and confidence score) from a body of text that you send along with your question.|
 |[Conversational Language Understanding in .NET](https://aka.ms/azai/net/convo)|The client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service, which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|

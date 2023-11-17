@@ -7,7 +7,7 @@
   items: 
   - name: Develop with Azure AI services
     href: azure-ai-for-python-developers.md
-  - name: Enterprise chat app template
+  - name: Get started with the Python enterprise chat sample
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
 - name: Web

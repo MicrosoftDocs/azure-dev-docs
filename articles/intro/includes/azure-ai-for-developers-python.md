@@ -6,7 +6,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for Python](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo)|
+|[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
 
 ### Building blocks
 
@@ -24,7 +24,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat app template for Python](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure Cognitive Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo)|
+|[Get started with the enterprise chat app template for Python](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the enterprise chat app sample, a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. See the [GitHub source code](https://github.com/Azure-Samples/azure-search-openai-demo)|
 
 ### Building blocks
 
@@ -47,9 +47,9 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook containing example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance article on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook demonstrating operations how to use embeddings that can be done using the Azure endpoints. This example focuses on embeddings but also touches some other operations that are also available using the API.|
-|[Deploy a model and generate text](/azure/cognitive-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailing steps to programmatically chat.|
-|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
-|[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|An article with more complex security scenarios requires Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
+|[Deploy a model and generate text](/azure/ai-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailing steps to programmatically chat.|
+|[OpenAI with Azure Active Directory Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
+|[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios requires Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|A compilation of useful Azure OpenAI Service resources and code samples to help you get started and accelerate your technology adoption journey.|
 |[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
@@ -66,7 +66,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/cognitive-services/speech-service/openai-speech?tabs=windows)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The Speech service synthesizes the text response from Azure OpenAI.|
+|[Use Speech to converse with OpenAI](/azure/ai-services/speech-service/openai-speech?tabs=windows)|Use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The Speech service synthesizes the text response from Azure OpenAI.|
 |[Translate documents from and into more than 100 different languages using Document Translation sample apps](https://github.com/MicrosoftTranslator/DocumentTranslation)|A repo containing both a Command Line tool and Windows application that serves as a local interface to the Azure Document Translation service for Windows, macOS and Linux.|
 
 ### SDKs and samples/guidance
