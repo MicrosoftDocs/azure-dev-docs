@@ -11,7 +11,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 [!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 
-[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. This allows you to manage the infrastructure in the same way you manage your application code. Azure Developer CLI uses bicep files to allow you to define the infrastructure as code. Bicep is a domain-specific language (DSL) that is used to define Azure resources.
+[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. This allows you to manage the infrastructure in the same way you manage your application code. Azure Developer CLI uses [Bicep](/azure/azure-resource-manager/bicep/) files to allow you to define the infrastructure as code. Bicep is a domain-specific language (DSL) that is used to define Azure resources.
 
 * **Provision Azure resources**: create cloud resources and configure them for the application. This includes tasks like creating a database and configuring the firewall rules, and restoring the PostgreSQL database from the dump file.
 * **Deploy code**: deploy the application code to the cloud resources. This includes tasks like building the application code and deploying it the various hosting resources such as Azure Static Web Apps, Azure Functions App and Azure Container App. Building the front-end code also requires a hook to add the serverless API URL to the front-end code.
@@ -19,13 +19,13 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 ## Developing infrastructure as code
 
-If you're new to Azure Developer CLI and bicep, use the [Azure Developer CLI quickstart](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs). This quickstart uses fewer resources and a smaller code base so it's a great first step to learning about Azure Developer CLI.
+If you're new to Azure Developer CLI and Bicep, use the [Azure Developer CLI quickstart](/azure/developer/azure-developer-cli/azd-templates?tabs=nodejs). This quickstart uses fewer resources and a smaller code base so it's a great first step to learning about Azure Developer CLI.
 
-Once you complete the quickstart, you can review the bicep files for the Contoso Real Estate project/
+Once you complete the quickstart, you can review the Bicep files for the Contoso Real Estate project.
 
 ## File structure for infrastructure management
 
-To manage the Contoso Real Estate services, the monorepo has several files and folders to help infrastructure management. Each of these has been manually configured for this project. You can use these as a starting point for your own projects.
+To manage the Contoso Real Estate services, the monorepo has several files and folders for infrastructure management. Each of these has been manually configured for this project. You can use these as a starting point for your own projects.
 
 The files, which support infrastructure are:
 
@@ -33,19 +33,19 @@ The files, which support infrastructure are:
     * `main.yml`: this file contains the configuration for the Azure resources that are provisioned.
     * `main.parameters.yml`: this file contains the parameters that are used to configure the resources.
     * `abbreviations.json`: this file contains the abbreviations that are used to simplify the configuration of the resources. This is a standard file and should be managed as part of the team's guidance for naming conventions.
-    * `./app`: this folder contains the bicep files that are specific to the application. 
-    * `./core`: this folder contains the bicep files that are used by all the applications. Think of these as templates you copy but shouldn't need to alter.
+    * `./app`: this folder contains the Bicep files that are specific to the application. 
+    * `./core`: this folder contains the Bicep files that are used by all the applications. Think of these as templates you copy but shouldn't need to alter.
     * `./scripts`: this folder contains the scripts used by the Azure Developer CLI as pre and post hooks. Scripts in the infra folder are used strictly for cloud infrastructure management. If you have script that may be used for local development, then put it in the `./scripts` folder in the root of the repository.
 * **Deploy code**: 
     * `azure.yml`: this file contains the configuration used by Azure Developer CLI to deploy to Azure. This file is very similar to other CICD YAML files. The ordering of deployment is alphanumeric. If your project needs to order the deployment, then use a naming convention that reflects the alphanum ordering such as
 
-    ```YAML
-    serivces:
-      A_server:
-        # service CICD here
-      B_client:
-        # service CICD here
-    ```
+        ```YAML
+        serivces:
+          A_server:
+            # service CICD here
+          B_client:
+            # service CICD here
+        ```
 
 ## Environment variables
 
@@ -55,7 +55,7 @@ Environment variables in a Node.js application, used to access configuration set
 
 Some Azure hosting resources have other ways to indicate environment variables. For example, 
 
-* Azure Functions App uses the `local.settings.json` file. This file is used to store the environment variables that are used by the application runtime. It can also be used for your own app-specific environment variables. This file is **not** checked into source control.
+* [Azure Functions](/azure/azure-functions/functions-overview) uses the [`local.settings.json`](/azure/azure-functions/functions-develop-local#local-settings-file) file. This file is used to store the environment variables that are used by the application runtime. It can also be used for your own app-specific environment variables. This file is **not** checked into source control.
 
 ### Cloud environment variables
 
@@ -69,9 +69,9 @@ For **cloud development**, the environment variables are part of the provisionin
 ## Best practices
 
 * **Do** 
-    * Use naming conventions in Bicep files. This helps you find the issue in the Azure portal and track that back to the individual bicep file in your repository when your provision fails. 
+    * Use naming conventions in Bicep files. This helps you find the issue in the Azure portal and track that back to the individual Bicep file in your repository when your provision fails. 
         
-    * Mark all app params with `@secure()` in the bicep file. Without this, these are leaked in the deployment **input logs**.
+    * Mark all app params with `@secure()` in the Bicep file. Without this, these are leaked in the deployment **input logs**.
 
         ```bicep
         @secure()
@@ -81,7 +81,7 @@ For **cloud development**, the environment variables are part of the provisionin
 
 * **Don't**
 
-    * Don't output secrets from the bicep file. This leak is done with the `output variableName = secret`. During provisioning, these are leaked in the deployment **output logs**.
+    * Don't output secrets from the Bicep file. This leak is done with the `output variableName = secret`. During provisioning, these are leaked in the deployment **output logs**.
 
     * Don't check `.azure` folder into source control.
 
