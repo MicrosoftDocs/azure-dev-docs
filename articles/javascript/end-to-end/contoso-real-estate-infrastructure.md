@@ -28,14 +28,25 @@ To achieve these goals for Infrastructure, the Contoso Real Estate application u
 
 ## Local developer experience
 
-To manage the Contoso Real Estate services, the monorepo has several files and folders to help the development process. Each of these has been manually configured for this project. You can use these as a starting point for your own projects. These files are:
+To manage the Contoso Real Estate services, the monorepo has several files and folders to help the development process. Each of these has been manually configured for this project. You can use these as a starting point for your own projects.
+
+The project uses a combination of Azure Developer CLI, Bicep, and Bash scripts to:
+
+* **Provision Azure resources**: create cloud resources and configure them for the application. This includes tasks like creating a database and configuring the firewall rules, and uploading the database dump.
+* **Deploy code**: deploy the application code to the cloud resources. This includes tasks like building the application code and deploying it the various hosting resources such as Azure Static Web Apps, Azure Functions App and Azure Container App. Building the front-end code also requires a hook to add the serverless API URL to the front-end code.
+
+### File system structure
+
+The files, which support local development are:
 
 | File | Description |
 |--|--|
 |`package.json`|The root `package.json` file contains the configuration for the entire monorepo including the npm `workspaces` property to allow you to manage multiple packages in a single repository. Items in the `scripts` array are useful for local development but can also be used in CI/CD.|
-|`docker-compose.yml`|The `docker-compose.yml` file contains the configuration for the Docker containers (as Docker in Docker) that are used for local development. This allows you to run services such as Postgres and MongoDB without needing to have them installed on your local (host) computer.|
+|`docker-compose.yml`|The `docker-compose.yml` file contains the configuration for the [Visual Studio Code Dev container](https://code.visualstudio.com/docs/devcontainers/containers) environment using Docker containers (as Docker in Docker) that are used for local development. This allows you to run services such as Postgres and MongoDB without needing to have them installed on your local (host) computer or using cloud resources.|
 |`.devcontainer`|The `.devcontainer` folder contains the configuration for the local [DevContainers](https://containers.dev/) used by [Visual Studio Code](https://code.visualstudio.com/) to run the applications locally such as IDE configurations (extensions and IDE settings), and environment configurations (such as open ports and installing additional tools).|
 |`.vscode`|The `.vscode` folder contains the configuration for Visual Studio Code to allow you to debug the separate applications such as the blog, portal, and API.|
+
+### Open and run development environment
 
 To start local development:
 
@@ -43,11 +54,19 @@ To start local development:
 1. Open your forked source code repository from one of the following choices.
     * Open in **browser-based Codespaces** in your GitHub fork.
     * **Clone the repository locally**. Docker is required to run the application locally then open in Visual Studio Code. When prompted, open the repository in the DevContainer. 
-1. In the integrated terminal in Visual Studio Code, use the following command to install the dependencies.
+
+1. If you're running this project in a Dev Container, then you don't need to install any dependencies because that is done in the `./.devcontainer/post-create-command.sh` Bash script. If you're running this project _without_ the Dev Containter, then you need to install the dependencies. To install the dependencies, run the following command in the root of the repository:
 
     ```bash
     npm install
     ``````
+
+### Local environment variables
+
+Environment variables in a Node.js application, used to access configuration settings and secrets, are managed by the [dotenv](https://www.npmjs.com/package/dotenv) package. This package allows you to create a `.env.local` file in the root of the repository. This file is used to store the environment variables that are used by the application. This file is **not** checked into source control.
+
+
+### Start the application
 
 1. Use the following command to start all the services. This command starts the Docker containers. 
 
@@ -55,7 +74,7 @@ To start local development:
     Run `npm run start`
     ``````
 
-    As part of the startup process, the [docker-compose.yml](https://github.com/Azure-Samples/contoso-real-estate/blob/main/docker-compose.yml) file restores the database.
+    As part of the startup process, the [docker-compose.yml](https://github.com/Azure-Samples/contoso-real-estate/blob/main/docker-compose.yml) file starts all the services such as the underlying databases then as the final step restores the database from the `./scripts/database/restore.sh` Bash script.
 
 1. Access the applications from the following ports:
 
@@ -78,6 +97,8 @@ To start local development:
 
 1. When you're done exploring the code and ready to stop the services, use <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the services.
 
+### Extend the project with a feature or fix
+
 1. Create a new branch. 
 
     ```bash
@@ -91,19 +112,19 @@ To start local development:
     ```
 1. Use the Visual Studio Code debugger to start the application(s) you need to debug.
 
-## Cloud devops experience
+## Infrastructure development
 
-[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision and deploy test and production resources.
+[Azure Developer CLI](/azure/developer/azure-developer-cli/overview) is an _infrastructure as code_ tool that manages the provisioning and deployment of Azure resources. The infrastructure is defined in files that are checked into source control in the `./infra` folder. This allows you to manage the infrastructure in the same way you manage your application code. Use the Azure Developer CLI to provision resources and deploy code.
 
-* **Authentication to Azure**: The Azure Developer CLI uses the Azure CLI to authenticate to Azure. This allows you to use the same authentication method for both the Azure Developer CLI and the Azure CLI.
-* **Hooks for pre- and post- actions**: These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code.
+* **Authentication**: The Azure Developer CLI requires authentication to provision Azure resources using the `azd auth login` command.
+* **Hooks for pre- and post- actions**: These hooks allow you to run scripts before and after provisioning and deployment. Use these hooks to update configuration settings and url strings in source code. Scripts run in hooks should be tested for authentication and environment variables in local and CICD environments.
 
 Cloud provisioning and deployment include:
 
 | File |Description |
 |--|--|
-|`azure.yml`|The `azure.yml` file contains the configuration used by Azure Developer CLI to provision and deploy to Azure. This file also contains the configuration for the pre- and post- hooks that are run before and after provisioning and deployment. |
-|`infra`|The `infra` folder contains provisioning details for the Azure resources.|
+|`infra`|The `infra` folder contains **provisioning** details for the Azure resources. This project uses [**Bicep**](/training/paths/fundamentals-bicep/) for the infrastructure code.|
+|`azure.yml`|The `azure.yml` file contains the configuration used by Azure Developer CLI to **deploy** to Azure. This file also contains the configuration for the pre- and post- hooks that are run before and after provisioning and deployment.|
 
 ### Developing infrastructure as code
 
@@ -144,9 +165,26 @@ Environment variables allow your source code to access configuration settings an
     * **Secrets**: Any values that are secrets need to use the `@secure()` attribute so it isn't used in logs or other places where it could be exposed. Because a variable, including a secret, may be created by one resource and necessary to be used by another, the order of provision needs to be considered. For example, the database user and password are created by the database resource and used by the application resource hosting environment. 
     * **Resource creation order**: Azure Developer CLI typically works in parallel where possible. When a bicep file's resource uses the `dependsOn` parameter or needs an input parameter, Azure Developer CLI understands the resource creation order.
     * **Local environment file for cloud resources**: After provisioning, a local environment file contains these variables in the `./.azure/` folder, named for the environment you entered when you begin the initial provisioning process. This is used for any setup or build steps during deployment that rely on these values.
-        * Don't check into source control.
-        * Do use for building source code for deployment.
-        * Use the `azd env set` and `azd env get` commands to access the variables programmatically.
+
+## Do's and don'ts for infrastructure as code with Azure Developer CLI and Bicep
+
+* **Do** 
+    * Use naming conventions in Bicep files. This helps you find the issue in the Azure portal and track that back to the individual bicep file in your repository when your provision fails. 
+        
+    * Mark all app params with `@secure()` in the bicep file. Without this, these are leaked in the deployment **input logs**.
+
+        ```bicep
+        @secure()
+        param appSettings object = {}
+        ```
+    * Use the `azd env set` and `azd env get` commands to access the cloud resource variables programmatically.
+
+* **Don't**
+
+    * Don't output secrets from the bicep file. This leak is done with the `output variableName = secret`. During provisioning, these are leaked in the deployment **output logs**.
+
+    * Don't check `.azure` folder into source control.
+
 
 ### Deploying with infrastructure as code 
 
