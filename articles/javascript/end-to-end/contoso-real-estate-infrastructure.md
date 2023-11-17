@@ -18,13 +18,6 @@ An enterprise developer experience allows:
 * Consistent local development experience
 * Consistent deployment experience
 
-To achieve these goals for Infrastructure, the Contoso Real Estate application uses several tools:
-
-* [Local developer experience](#local-developer-experience)
-* [Cloud devops experience](#cloud-devops-experience)
-* [Local and cloud experience](#local-and-cloud-experience)
-* [CI/CD experience](#cicd-experience)
-
 
 ## Local developer experience
 
