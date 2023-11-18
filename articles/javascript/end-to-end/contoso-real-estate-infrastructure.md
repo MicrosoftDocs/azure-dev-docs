@@ -63,7 +63,7 @@ For **cloud development**, the environment variables are part of the provisionin
 
 * **App settings**: these are settings such as database names, container names.
 * **Default settings**: these are settings that need to be used during deployment but aren't used in the application. For example, the name of the resource group is used to create the resource group but isn't used in the application.
-* **App secrets**: these are secrets such as database passwords: these should be created then immediately stored in Key Vault secrets. They shouldn't be used as app settings in a hosting environment or output from the deployment process. If either of these happens, the secret has been leaked into the deployment logs and are visible in the Azure portal.
+* **App secrets**: these are secrets such as database passwords: these should be created then immediately stored in Key Vault secrets. They shouldn't be used as app settings in a hosting environment or output from the deployment process. If either of these happens, the secret has been leaked into the deployment logs and is visible in the Azure portal.
 * **Azure resource keys and connection strings**: these values are available from the Azure resource during provisioning. The web host may need to access the database with a configuration string. If you use these values instead of [passwordless connections](/azure/developer/intro/passwordless-overview), the values should be immediately stored in Key Vault Secrets. Only the Key Vault secret name should be used in the app setting or output variables of the deployment process. 
 
 ## Best practices
