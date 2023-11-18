@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: reference
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 10/03/2023 
+ms.date: 11/17/2023 
 ---
 
 # Dev tunnels command-line reference
@@ -136,6 +136,7 @@ Here are some examples on use of these commands:
 | `devtunnel create -a`     | Create a persistent dev tunnel that allows anonymous access. |
 | `devtunnel create -d 'my tunnel description'`     | Create a persistent dev tunnel with a non-searchable description. |
 | `devtunnel create --expiration 4h`     | Create a persistent dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
+| `devtunnel create myTunnelID`     | Create a persistent dev tunnel with a custom tunnel ID. |
 | `devtunnel create --tags my-web-app v1`     | Create a persistent dev tunnel and apply searchable tags. |
 | `devtunnel list --tags my-web-app`     | List dev tunnels that have any of the specified tags. |
 | `devtunnel list --all-tags my-web-app v1`     | List dev tunnels that have all the specified tags. |
@@ -196,6 +197,7 @@ Here are some examples on use of these commands:
 |-----------------------------------------------------|----------------------------------------|
 | `devtunnel token TUNNELID --scopes connect` | Get a 'connect' access token for a dev tunnel that can be shared to provide temporarily access to the dev tunnel. |
 | `devtunnel access create TUNNELID --anonymous` | Enable anonymous client access on the dev tunnel. |
+| `devtunnel access create TUNNELID --anonymous --expiration 4h` | Enable anonymous client access on the dev tunnel with a custom access control expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
 | `devtunnel access create TUNNELID --port 3000 --anonymous` | Enable anonymous client access on port 3000. |
 | `devtunnel access create TUNNELID --tenant` | Enable the current Microsoft Entra tenant access on the dev tunnel. |
 | `devtunnel access create TUNNELID --org ORG` | Enable a GitHub organization access by name on the dev tunnel. |
