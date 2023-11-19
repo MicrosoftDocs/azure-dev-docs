@@ -29,7 +29,7 @@
     items: 
     - name: Develop with Azure AI Services
       href: azure-ai-for-javascript-developers.md    
-    - name: Enterprise chat app template
+    - name: Get started with the JavaScript enterprise chat sample
       href: get-started-app-chat-template.md
       display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI
