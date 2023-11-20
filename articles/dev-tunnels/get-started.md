@@ -64,7 +64,7 @@ Run commands with `devtunnel` instead of `./devtunnel`:
 
 ## Homebrew
 
-You can use Homebrew, to install and update the `devtunnel` CLI. 
+You can use Homebrew, to install and update the `devtunnel` CLI. The following commands could be used with or without `--cask`.
 
 ```bash
 brew install --cask devtunnel

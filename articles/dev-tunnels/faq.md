@@ -52,7 +52,7 @@ No, anonymous users can't create dev tunnels. All creation of dev tunnels requir
 
 ## Why would I want to choose a tunnel ID if it's not used in the tunnel URL?
 
-Tunnel IDs need to be provided for all operations that refer to a tunnel, so having the ability to choose a tunnel ID adds convenience.
+Tunnel IDs need to be provided for all operations that refer to a tunnel, so having the ability to choose your own tunnel ID adds convenience. We recommend choosing a tunnel ID that is easy to remember and type.
 
 ## What are the license terms for dev tunnels?
 
