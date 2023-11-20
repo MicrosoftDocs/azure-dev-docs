@@ -26,17 +26,17 @@ While Azure contains over 100 services, this article outlines the Azure services
 
 ## Azure AI services
 
-[Azure AI services](/azure/ai-services/) help you create intelligent, applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+[Azure AI services](/azure/ai-services/) help you create intelligent, applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 |&nbsp;|Service|Description|
 |----|-------|-----------|
-|![Azure Open AI logo](media/azure-openai.svg)| [Azure OpenAI](/azure/ai-services/openai/) | Use powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.|
-|![Azure AI Speech logo](media/speech.svg)| [Azure AI Speech](/azure/ai-services/speech-service/) |Transcribe audible speech into readable, searchable text or convert text to lifelike speech for more natural interfaces.|
-|![Azure AI Language logo](media/language.svg)| [Azure AI Language](/azure/ai-services/language-service) |Use natural language processing (NLP) to identify key phrases and conduct sentiment analysis from text.|
-|![Azure AI Translator logo](media/translator.svg)| [Azure AI Translator](/azure/ai-services/translator/) |Translate more than 100 languages and dialects.|
-|![Azure AI Vision logo](media/vision.svg)| [Azure AI Vision](/azure/ai-services/computer-vision/) |Analyze content in images and video.|
-|![Azure AI Search logo](media/search.svg)| [Azure AI Search](/azure/search) | Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization.|
-|![Azure AI Document Intelligence logo](media/document-intelligence.svg)| [Azure AI Document Intelligence](/azure/ai-services/document-intelligence) |Document extraction service that understands your forms allowing you to quickly extract text and structure from documents.|
+| :::image type="icon" source="media/azure-openai.svg"::: | [Azure OpenAI](/azure/ai-services/openai/) | Use powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. |
+| :::image type="icon" source="media/speech.svg"::: | [Azure AI Speech](/azure/ai-services/speech-service/) | Transcribe audible speech into readable, searchable text or convert text to lifelike speech for more natural interfaces. |
+| :::image type="icon" source="media/language.svg"::: | [Azure AI Language](/azure/ai-services/language-service) | Use natural language processing (NLP) to identify key phrases and conduct sentiment analysis from text. |
+| :::image type="icon" source="media/translator.svg"::: | [Azure AI Translator](/azure/ai-services/translator/) | Translate more than 100 languages and dialects. |
+| :::image type="icon" source="media/vision.svg"::: | [Azure AI Vision](/azure/ai-services/computer-vision/) | Analyze content in images and video. |
+| :::image type="icon" source="media/search.svg"::: | [Azure AI Search](/azure/search) | Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization. |
+| :::image type="icon" source="media/document-intelligence.svg"::: | [Azure AI Document Intelligence](/azure/ai-services/document-intelligence) | Document extraction service that understands your forms allowing you to quickly extract text and structure from documents. |
 
 ## Data
 
