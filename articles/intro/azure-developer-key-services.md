@@ -28,6 +28,85 @@ While Azure contains over 100 services, this article outlines the Azure services
 
 [Azure AI services](/azure/ai-services/) help you create intelligent, applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/azure-openai.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure OpenAI](/azure/ai-services/openai/)
+    :::column-end:::
+    :::column:::
+        Use powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/speech.svg"::: 
+    :::column-end:::
+    :::column:::
+        [Azure AI Speech](/azure/ai-services/speech-service/)
+    :::column-end:::
+    :::column:::
+        Transcribe audible speech into readable, searchable text or convert text to lifelike speech for more natural interfaces.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/language.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure AI Language](/azure/ai-services/language-service)
+    :::column-end:::
+    :::column:::
+        Use natural language processing (NLP) to identify key phrases and conduct sentiment analysis from text.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/translator.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure AI Translator](/azure/ai-services/translator/)
+    :::column-end:::
+    :::column:::
+        Translate more than 100 languages and dialects.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/vision.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure AI Vision](/azure/ai-services/computer-vision/)
+    :::column-end:::
+    :::column:::
+        Analyze content in images and video.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/search.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure AI Search](/azure/search)
+    :::column-end:::
+    :::column:::
+        Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/document-intelligence.svg":::
+    :::column-end:::
+    :::column:::
+        [Azure AI Document Intelligence](/azure/ai-services/document-intelligence)
+    :::column-end:::
+    :::column:::
+        Document extraction service that understands your forms allowing you to quickly extract text and structure from documents.
+    :::column-end:::
+:::row-end:::
+
+<!-- 
 |&nbsp;|Service|Description|
 |----|-------|-----------|
 | :::image type="icon" source="media/azure-openai.svg"::: | [Azure OpenAI](/azure/ai-services/openai/) | Use powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. |
@@ -37,6 +116,7 @@ While Azure contains over 100 services, this article outlines the Azure services
 | :::image type="icon" source="media/vision.svg"::: | [Azure AI Vision](/azure/ai-services/computer-vision/) | Analyze content in images and video. |
 | :::image type="icon" source="media/search.svg"::: | [Azure AI Search](/azure/search) | Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization. |
 | :::image type="icon" source="media/document-intelligence.svg"::: | [Azure AI Document Intelligence](/azure/ai-services/document-intelligence) | Document extraction service that understands your forms allowing you to quickly extract text and structure from documents. |
+-->
 
 ## Data
 
