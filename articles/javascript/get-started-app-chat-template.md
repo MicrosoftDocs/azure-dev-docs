@@ -1,15 +1,15 @@
 ---
-title: Get started with the enterprise chat app template for JavaScript
-description: Get started with JavaScript and search across your own data using an Azure OpenAI chat app. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 11/02/2023
+title: Get started with the JavaScript enterprise chat sample using RAG
+description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
+ms.date: 11/17/2023
 ms.topic: get-started
 ms.custom: devx-track-javascript, devx-track-javascript-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with the enterprise chat app template for JavaScript
+# Get started with the JavaScript enterprise chat sample using RAG
 
-Deploy and use a chat app to get answers about rental properties with JavaScript. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
@@ -22,7 +22,7 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Cognitive Search and OpenAI. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
@@ -37,7 +37,7 @@ A simple architecture of the chat app is shown in the following diagram:
 Key components of the architecture include:
 
 * A web application to host the interactive chat experience.
-* An Azure Cognitive Search resource to get answers from your own data. Data is ingested during app startup.
+* An Azure AI Search resource to get answers from your own data. Data is ingested during app startup.
 * An Azure OpenAI Service to provide: 
     * Keywords to enhance the search over your own data.
     * Answers from the OpenAI model.
@@ -57,14 +57,14 @@ To use this article, you need the following prerequisites:
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 1. GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
@@ -157,7 +157,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section immediate costs, primarily from the Cognitive Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -207,7 +207,7 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 |Override prompt template|This is the prompt that is used to generate the answer.|
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
-|Use semantic ranker for retrieval|This is a feature of [Azure Cognitive Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
+|Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
 |Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
 |Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
 |Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
@@ -278,6 +278,6 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 * [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-javascript)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
-* [Access control in Generative AI Apps with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+* [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
