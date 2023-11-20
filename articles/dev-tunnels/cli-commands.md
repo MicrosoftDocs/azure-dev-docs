@@ -44,7 +44,7 @@ After logging in, the login token is cached in the system secure key chain, and 
 Here are some examples on use of these commands:
 
 | Examples     | Description                                                       |
-|-------------------|-------------------------------------------------------------------|
+|-----------------------------------|---------------------------------------------------------|
 | `devtunnel user login`     | Login with a Microsoft organization (Microsoft Entra ID) or personal account |
 | `devtunnel user login -g`  | Login with a GitHub account |
 | `devtunnel user login -d`  | Login with a GitHub account  with _device code login_, if local interactive browser login isn't possible  |
@@ -61,7 +61,7 @@ Here are some examples on use of these commands:
 Here are some examples on use of this command:
 
 | Examples     | Description                                                       |
-|-------------------|-------------------------------------------------------------------|
+|---------------------------------------------------|---------------------------------------------|
 | `devtunnel host -p 3000`     | Host a temporary dev tunnel for a server listening port 3000 on the host system. |
 | `devtunnel host -p 3000 --allow-anonymous`  | Host a temporary dev tunnel and enable anonymous client access. |
 | `devtunnel host -p 3000 5000`  | Host a temporary dev tunnel for local servers listening on ports 3000 and 5000. |
@@ -132,7 +132,7 @@ It's possible to create a dev tunnel without yet hosting it. This is useful for 
 Here are some examples on use of these commands:
 
 | Examples     | Description                                                       |
-|-------------------|-------------------------------------------------------------------|
+|-------------------------------------------------------------|----------------------------------|
 | `devtunnel create -a`     | Create a persistent dev tunnel that allows anonymous access. |
 | `devtunnel create -d 'my tunnel description'`     | Create a persistent dev tunnel with a non-searchable description. |
 | `devtunnel create --expiration 4h`     | Create a persistent dev tunnel with a custom expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
@@ -194,7 +194,7 @@ With the following commands, dev tunnel access tokens can be issued to provide o
 Here are some examples on use of these commands:
 
 | Examples                                      | Description                            |
-|-----------------------------------------------------|----------------------------------------|
+|------------------------------------------------------------------|--------------------------------|
 | `devtunnel token TUNNELID --scopes connect` | Get a 'connect' access token for a dev tunnel that can be shared to provide temporarily access to the dev tunnel. |
 | `devtunnel access create TUNNELID --anonymous` | Enable anonymous client access on the dev tunnel. |
 | `devtunnel access create TUNNELID --anonymous --expiration 4h` | Enable anonymous client access on the dev tunnel with a custom access control expiration time. Minimum is 1 hour (1h) and the maximum is 30 days (30d). |
