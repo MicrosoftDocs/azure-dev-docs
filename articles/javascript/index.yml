@@ -107,7 +107,7 @@ landingContent:
         links:
           - text: Use the Azure SDKs for JS/TS
             url: core/use-azure-sdk.md
-          - text: SDK lastest version
+          - text: SDK latest version
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: SDK Reference Documentation
             url: /javascript/api/overview/azure/
