@@ -10,7 +10,7 @@ ms.custom: overview
 
 # Key Azure services for developers
 
-While Azure contains over 100 services, this article outlines the Azure services you'll use most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
+This article introduces some of the key Azure services that are used most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
 
 ## App hosting and compute
 
