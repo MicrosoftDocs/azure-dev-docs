@@ -119,8 +119,11 @@ spring.cloud.azure:
     client-id: ${AZURE_CLIENT_ID}
     client-secret: ${AZURE_CLIENT_SECRET}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 The following example shows you how to authenticate using a service principal with a client PFX certificate:
 
@@ -131,8 +134,11 @@ spring.cloud.azure:
     client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
     client-certificate-password: ${AZURE_CLIENT_CERTIFICATE_PASSWORD}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 The following example shows you how to authenticate using a service principal with client PEM certificate:
 
@@ -142,8 +148,11 @@ spring.cloud.azure:
     client-id: ${AZURE_CLIENT_ID}
     client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 The following example shows you how to authenticate using a user credential:
 
@@ -166,8 +175,11 @@ spring.cloud.azure:
       client-id: ${AZURE_CLIENT_ID}
       client-secret: ${AZURE_CLIENT_SECRET}
     profile:
-      tenant-id: ${AZURE_TENANT_ID}
+      tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 <a name='authorize-access-with-azure-active-directory'></a>
 

@@ -960,7 +960,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > | **spring.cloud.azure.active-directory**.post-logout-redirect-uri                      | The redirect uri after logout.                                                                                                                                                                                        |
 > | **spring.cloud.azure.active-directory**.profile.cloud-type                            | Name of the Azure cloud to connect to. Supported types are: AZURE, AZURE_CHINA, AZURE_GERMANY, AZURE_US_GOVERNMENT, OTHER.                                                                                            |
 > | **spring.cloud.azure.active-directory**.profile.environment                           | Properties to Microsoft Entra endpoints.                                                                                                                                                                       |
-> | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID.                                                                                                                                                                                                      |
+> | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID. Valid values are: `common`, `organizations`, `consumers` or Tenant id.                                                                                                                                                                                                     |
 > | **spring.cloud.azure.active-directory**.redirect-uri-template                         | Redirection Endpoint: Used by the authorization server to return responses containing authorization credentials to the client via the resource owner user-agent. The default value is `{baseUrl}/login/oauth2/code/`. |
 > | **spring.cloud.azure.active-directory**.resource-server.claim-to-authority-prefix-map | Configure which claim will be used to build GrantedAuthority, and prefix of the GrantedAuthority's string value. Default value is: "scp" -> "SCOPE_", "roles" -> "APPROLE_".                                      |
 > | **spring.cloud.azure.active-directory**.resource-server.principal-claim-name          | Configure which claim in access token be returned in AuthenticatedPrincipal#getName. Default value is "sub".                                                                                                          |
@@ -1283,12 +1283,15 @@ spring:
          enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
          authorization-clients:
            ${RESOURCE_SERVER_A_NAME}:
              authorization-grant-type: client_credentials
              scopes: ${WEB_API_A_APP_ID_URL}/.default
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Write your `Webapp` Java code.
 
@@ -1371,13 +1374,16 @@ spring:
          enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
          app-id-uri: ${APP_ID_URI}         # If you're using v1.0 token, configure app-id-uri for `aud` verification
          credential:
            client-id: ${AZURE_CLIENT_ID}           # If you're using v2.0 token, configure client-id for `aud` verification
          user-flows:
            sign-up-or-sign-in: ${SIGN_UP_OR_SIGN_IN_USER_FLOW_NAME}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Write your Java code.
 

@@ -1272,11 +1272,14 @@ spring:
     azure:
       client-id: ${AZURE_CLIENT_ID}
       client-secret: ${AZURE_CLIENT_SECRET}
-      tenant-id: ${AZURE_TENANT_ID}
+      tenant-id: <tenant>
       resource-group: ${EVENTHUB_RESOURCE_GROUP}
       eventhub:
         namespace: ${EVENTHUB_NAMESPACE}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Modern configuration, properties for Azure subscription ID and resource group are required:
 
@@ -1288,13 +1291,16 @@ spring:
         client-id: ${AZURE_CLIENT_ID}
         client-secret: ${AZURE_CLIENT_SECRET}
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       eventhubs:
         namespace: ${EVENTHUB_NAMESPACE}
         resource:
           resource-group: ${RESOURCE_GROUP}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 You can also migrate to authenticate and authorize with Microsoft Entra ID directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
 
@@ -1308,10 +1314,13 @@ You can also migrate to authenticate and authorize with Microsoft Entra ID direc
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         eventhubs:
           namespace: ${EVENTHUB_NAMESPACE}
   ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 * With a managed identity
 
@@ -1456,11 +1465,14 @@ spring:
     azure:
       client-id: ${AZURE_CLIENT_ID}
       client-secret: ${AZURE_CLIENT_SECRET}
-      tenant-id: ${AZURE_TENANT_ID}
+      tenant-id: <tenant>
       resource-group: ${SERVICEBUS_RESOURCE_GROUP}
       servicebus:
         namespace: ${SERVICEBUS_NAMESPACE}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Modern configuration, properties for Azure subscription ID and resource group are required:
 
@@ -1472,13 +1484,16 @@ spring:
         client-id: ${AZURE_CLIENT_ID}
         client-secret: ${AZURE_CLIENT_SECRET}
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       servicebus:
         namespace: ${SERVICEBUS_NAMESPACE}
         resource:
           resource-group: ${SERVICEBUS_RESOURCE_GROUP}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 You can also migrate to authenticate and authorize with Microsoft Entra ID directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
 
@@ -1492,10 +1507,13 @@ You can also migrate to authenticate and authorize with Microsoft Entra ID direc
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         servicebus:
           namespace: ${SERVICEBUS_NAMESPACE}
   ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 * With a managed identity
 

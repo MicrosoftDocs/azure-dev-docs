@@ -852,7 +852,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  client-id: ${AZURE_CLIENT_ID}
                  client-secret: ${AZURE_CLIENT_SECRET}
                profile:
-                 tenant-id: ${AZURE_TENANT_ID}
+                 tenant-id: <tenant>
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
              function:
@@ -874,6 +874,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                      producer:
                        entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -1239,7 +1242,7 @@ spring:
   cloud:
     azure:
       credential:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       profile:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       servicebus:
@@ -1252,6 +1255,9 @@ spring:
             consumer:
               entity-type: ${SERVICEBUS_CONSUMER_ENTITY_TYPE}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ### Samples
 
