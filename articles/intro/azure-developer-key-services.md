@@ -26,7 +26,7 @@ This article introduces some of the key Azure services that are used most freque
 
 ## Azure AI services
 
-[Azure AI services](/azure/ai-services/) help you create intelligent, applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+[Azure AI services](/azure/ai-services/) help you create intelligent applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
@@ -61,7 +61,7 @@ This article introduces some of the key Azure services that are used most freque
 
 ## Messaging
 
-Here's a list of the most popular services that manage sending, receiving, and routing of messages from and to apps.
+These are some of the most popular services that manage sending, receiving, and routing of messages from and to apps.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
