@@ -231,7 +231,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
              client-id: ${AZURE_CLIENT_ID}
              client-secret: ${AZURE_CLIENT_SECRET}
            profile:
-             tenant-id: ${AZURE_TENANT_ID}
+             tenant-id: <tenant>
            eventhubs:
              namespace: ${EVENTHUB_NAMESPACE}
              processor:
@@ -254,6 +254,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                    checkpoint:
                      mode: MANUAL
      ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -681,13 +684,16 @@ spring:
   cloud:
     azure:
       credential:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       profile:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       eventhubs:
         resource:
           resource-group: ${AZURE_EVENTHUBS_RESOURECE_GROUP}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ### Samples
 

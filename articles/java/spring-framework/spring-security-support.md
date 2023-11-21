@@ -66,11 +66,14 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Now, start your application and access your application through the browser. You'll be redirected into the Microsoft login page.
 
@@ -365,7 +368,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -373,6 +376,9 @@ spring:
           graph:
             scopes: https://graph.microsoft.com/Analytics.Read, email
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Here, `graph` is the name of `OAuth2AuthorizedClient`, `scopes` means the scopes needed to consent when logging in.
 
@@ -406,7 +412,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -415,6 +421,9 @@ spring:
             authorization-grant-type: client_credentials # Change type to client_credentials
             scopes: https://graph.microsoft.com/Analytics.Read, email
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ##### Access multiple resource servers
 
@@ -427,7 +436,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -437,6 +446,9 @@ spring:
           resource-server-2:
             scopes: # Scopes for resource-server-2
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 Then you can use `OAuth2AuthorizedClient` in application like this
 
@@ -645,7 +657,7 @@ spring:
         client-certificate-path: ${AZURE_CERTIFICATE_PATH}
         client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       active-directory:
         enabled: true
         user-group:
@@ -673,6 +685,9 @@ spring:
               - ${WEB_API_B_APP_ID_URL}/.default
             authorization-grant-type: client_credentials
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 You can also configure the certificate information in the `active-directory` service properties, as shown in this example:
 
@@ -687,7 +702,7 @@ spring:
           client-certificate-path: ${AZURE_CERTIFICATE_PATH}
           client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         user-group:
           allowed-group-names: group1,group2
           allowed-group-ids: <group1-id>,<group2-id>
@@ -713,6 +728,9 @@ spring:
               - ${WEB_API_B_APP_ID_URL}/.default
             authorization-grant-type: client_credentials
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 <a name='connecting-to-azure-ad-via-proxy'></a>
 
@@ -764,7 +782,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -773,6 +791,9 @@ spring:
             scopes:
               - https://graph.microsoft.com/User.Read
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 #### Use OAuth2AuthorizedClient in your application
 
@@ -827,7 +848,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -840,6 +861,9 @@ spring:
               - https://graph.microsoft.com/User.Read
               - https://graph.microsoft.com/Directory.Read.All
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 #### Define SecurityFilterChain
 

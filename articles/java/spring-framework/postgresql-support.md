@@ -65,7 +65,7 @@ The following table shows the Spring Cloud Azure for PostgreSQL common configura
 > | spring.datasource.azure.credential.username                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.profile.cloud-type                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
 > | spring.datasource.azure.profile.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
-> | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources.                                                                                                                                                                         |
+> | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources. Valid values are: `common`, `organizations`, `consumers` or Tenant id.                                                                                                                                                                         |
 
 ## Dependency setup
 
@@ -142,13 +142,16 @@ The following sections show the classic Spring Boot application usage scenarios.
            client-id: ${AZURE_CLIENT_ID}
            client-secret: ${AZURE_CLIENT_SECRET}
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
        username: ${AZ_POSTGRESQL_AD_SP_USERNAME}
        azure:
          passwordless-enabled: true
    ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ### Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps
 

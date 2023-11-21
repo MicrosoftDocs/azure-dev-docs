@@ -44,7 +44,7 @@ Configurable properties of spring-cloud-azure-resourcemanager:
 > | **spring.cloud.azure.profile**.cloud-type                            | Name of the Azure cloud to connect to.                                                             |
 > | **spring.cloud.azure.profile**.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to for authentication.                              |
 > | **spring.cloud.azure.profile**.subscription-id                       | Subscription ID to use when connecting to Azure resources.                                         |
-> | **spring.cloud.azure.profile**.tenant-id                             | Tenant ID for Azure resources.                                                                     |
+> | **spring.cloud.azure.profile**.tenant-id                             | Tenant ID for Azure resources. Valid values are: `common`, `organizations`, `consumers` or Tenant id.                                                                    |
 > | **spring.cloud.azure.azure-service**.namespace                   | The namespace of the Azure service to provision resources with.                                    |
 > | **spring.cloud.azure.azure-service**.resource.resource-group     | The resource group holding an Azure service resource.                                              |
 
@@ -63,13 +63,16 @@ spring:
         client-id: ${AZURE_CLIENT_ID}
         client-secret: ${AZURE_CLIENT_SECRET}
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       <azure-service>:
         namespace: ${SERVICEBUS_NAMESPACE}
         resource:
           resource-group: ${RESOURCE_GROUP}
 ```
+
+> [!NOTE]
+> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ## Samples
 
