@@ -27,7 +27,7 @@ spring:
 
 > [!NOTE]
 > The `cloud` property is optional.
-> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 These properties are optional and, if not specified, Spring Boot will try to automatically find them for you. For details on how Spring Boot finds these properties, refer to the documentation.
 

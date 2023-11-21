@@ -256,7 +256,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
      ```
 
 > [!NOTE]
-> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -693,7 +693,7 @@ spring:
 ```
 
 > [!NOTE]
-> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ### Samples
 
@@ -876,7 +876,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
      ```
 
 > [!NOTE]
-> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -1257,7 +1257,7 @@ spring:
 ```
 
 > [!NOTE]
-> The <tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
 
 ### Samples
 
