@@ -3,7 +3,7 @@ title: Get started with Python on Azure
 description: How to set up a local Python dev environment for working with Azure.
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, vscode-azure-extension-update-completed, devx-track-azurecli
+ms.custom: devx-track-python, vscode-azure-extension-update-completed
 ---
 
 # Get started with Python on Azure
