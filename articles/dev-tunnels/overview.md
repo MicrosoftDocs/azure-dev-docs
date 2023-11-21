@@ -1,5 +1,5 @@
 ---
-title: What is dev tunnels?
+title: What are dev tunnels?
 titleSuffix: Microsoft dev tunnels
 description: Learn about using dev tunnels
 author: curib
@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: overview
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 11/17/2023 
 ---
 
 # What are dev tunnels?
