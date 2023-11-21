@@ -28,6 +28,7 @@ While Azure contains over 100 services, this article outlines the Azure services
 
 [Azure AI services](/azure/ai-services/) help you create intelligent, applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
+<!-- 
 :::row:::
     :::column:::
         :::image type="icon" source="media/azure-openai.svg":::
@@ -105,8 +106,8 @@ While Azure contains over 100 services, this article outlines the Azure services
         Document extraction service that understands your forms allowing you to quickly extract text and structure from documents.
     :::column-end:::
 :::row-end:::
+-->
 
-<!-- 
 |&nbsp;|Service|Description|
 |----|-------|-----------|
 | :::image type="icon" source="media/azure-openai.svg"::: | [Azure OpenAI](/azure/ai-services/openai/) | Use powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. |
@@ -116,7 +117,6 @@ While Azure contains over 100 services, this article outlines the Azure services
 | :::image type="icon" source="media/vision.svg"::: | [Azure AI Vision](/azure/ai-services/computer-vision/) | Analyze content in images and video. |
 | :::image type="icon" source="media/search.svg"::: | [Azure AI Search](/azure/search) | Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization. |
 | :::image type="icon" source="media/document-intelligence.svg"::: | [Azure AI Document Intelligence](/azure/ai-services/document-intelligence) | Document extraction service that understands your forms allowing you to quickly extract text and structure from documents. |
--->
 
 ## Data
 
