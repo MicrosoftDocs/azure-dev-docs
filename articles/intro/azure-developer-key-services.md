@@ -14,7 +14,7 @@ While Azure contains over 100 services, this article outlines the Azure services
 
 ## App hosting and compute
 
-|    |Service|Description|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
 |:::image type="icon" source="media/azure-app-service.png":::| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully managed Azure service.  You only need to deploy your code to Azure.  Azure takes care of all the infrastructure management like high availability, load balancing, and autoscaling.  |
 |:::image type="icon" source="media/static-web-apps.png":::| [Azure Static Web Apps](/azure/static-web-apps/) |Host static web apps built using frameworks like Gatsby, Hugo, or VuePress, or modern web apps built using Angular, React, Svelte, or Vue.  Static web apps automatically build and deploy based off of code changes and feature API integration with Azure Functions.|
@@ -42,20 +42,22 @@ While Azure contains over 100 services, this article outlines the Azure services
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
-|:::image type="icon" source="media/azure-sql.png":::| [Azure SQL](/azure/azure-sql/database/) |A fully managed, cloud-based version of SQL Server.|
+|:::image type="icon" source="media/azure-sql.png":::| [Azure SQL](/azure/azure-sql/) | A family of SQL Server database engine products in the cloud.|
+|:::image type="icon" source="media/azure-sql-database.png":::| [Azure SQL Database](/azure/azure-sql/database/) |A fully managed, cloud-based version of SQL Server.|
 |:::image type="icon" source="media/azure-cosmos-db.png":::| [Azure Cosmos DB](/azure/cosmos-db/) |A fully managed, cloud-based NoSQL database.  Azure Cosmos DB features multiple APIs, including APIs compatible [MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), [Cassandra](/azure/cosmos-db/cassandra/cassandra-introduction) and [Gremlin](/azure/cosmos-db/graph/gremlin-support).|
 |:::image type="icon" source="media/azure-postgresql.png":::| [Azure Database for PostgreSQL](/azure/postgresql/) |A fully managed, cloud-based PostgreSQL database service based on PostgreSQL Community Edition. |
 |:::image type="icon" source="media/azure-mysql.png":::| [Azure Database for MySQL](/azure/mysql/) |A fully managed, cloud-based MySQL database service based in the MySQL Community Edition. |
 |:::image type="icon" source="media/azure-mariadb.png":::| [Azure Database for MariaDB](/azure/mariadb/) |A fully managed, cloud-based MariaDB database service based on the MariaDB community edition. |
+|:::image type="icon" source="media/cache-redis.png":::| [Azure Cache for Redis](/azure/azure-cache-for-redis/) |A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.|
 
 ## Storage
 
-Azure Blob Storage is a popular service that manages the storage, retrieval, and security of non-structured BLOB data.
+[Azure Storage](/azure/storage/) products offer secure and scalable cloud and hybrid data storage services. Offerings include services for hybrid storage solutions, and services to transfer, share, and back up data.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
 |:::image type="icon" source="media/azure-storage-accounts.png":::| [Azure Blob Storage](/azure/storage/blobs/) |Azure Blob Storage allows your applications to store and retrieve files in the cloud. Azure Storage is highly scalable to store massive amounts of data and data is stored redundantly to ensure high availability.|
-|:::image type="icon" source="media/azure-data-lake-storage.png":::| [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) |Azure Data Lake Storage is designed to support big data analytics by providing scalable, cost-effective storage for structured, semi-structured or unstructured data.|
+|:::image type="icon" source="media/azure-storage-accounts.png":::| [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) |Azure Data Lake Storage is designed to support big data analytics by providing scalable, cost-effective storage for structured, semi-structured or unstructured data.|
 
 ## Messaging
 
@@ -67,11 +69,18 @@ Here's a list of the most popular services that manage sending, receiving, and r
 |:::image type="icon" source="media/event-hubs.png":::| [Azure Event Hubs](/azure/event-hubs/) |Azure Event Hubs is a managed service that can ingest and process massive data streams from websites, apps, or devices.|
 |:::image type="icon" source="media/azure-storage-queues.png":::| [Azure Queue Storage](/azure/storage/queues/) |A simple and reliable queue that can handle large workloads.|
 
-## Other
-
-And finally, here's a list of popular services that support a wide range of workflows, methodologies, functionalities, and industries.
+## Identity and security
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
-|:::image type="icon" source="media/azure-key-vault.png":::| [Azure Key Vault](/azure/key-vault/) |Every application has application secrets like connection strings and API keys it must store. Azure Key Vault helps you store and access those secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application aren't compromised.|
-|:::image type="icon" source="media/application-insights.png":::| [Application Insights](/azure/azure-monitor/app/app-insights-overview) |A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|
+|:::image type="icon" source="media/active-directory.png":::| [Microsoft Entra ID](/entra/identity/) |Manage user identities and control access to your apps, data, and resources.|
+|:::image type="icon" source="media/azure-key-vault.png":::| [Azure Key Vault](/azure/key-vault/) |Store and access application secrets like connection strings and API keys in an encrypted vault with restricted access to make sure your secrets and your application aren't compromised.|
+|:::image type="icon" source="media/app-configuration.png":::| [App Configuration](/azure/azure-app-configuration/) |A fast and scalable service to centrally manage application settings and feature flags.|
+
+## Management
+
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
+|:::image type="icon" source="media/monitor.png":::| [Azure Monitor](/azure/azure-monitor/) |A comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments.|
+|:::image type="icon" source="media/application-insights.png":::| [Application Insights](/azure/azure-monitor/app/app-insights-overview) |This feature of Azure Monitor provides Application Performance Management (APM) for enhancing the performance, reliability, and quality of your live web applications.|
+
