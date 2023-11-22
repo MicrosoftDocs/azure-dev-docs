@@ -227,7 +227,7 @@
         href: /samples/browse/?languages=python&products=azure-databricks
       - name: HDInsight
         href: /samples/browse/?languages=python&products=azure-hdinsight
-  - name: Azuze AI with services
+  - name: Azure AI services
     href: /samples/browse/?languages=python&filter-products=AI&products=ai-services
   - name: Search
     href: /samples/browse/?languages=python&products=azure-search
