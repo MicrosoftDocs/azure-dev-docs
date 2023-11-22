@@ -14,7 +14,7 @@ After providing some background, this walkthrough explains these authentication 
 
 ## Part 1: Background
 
-Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Cognitive Services, Key Vault, and Event Hubs.
+Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Azure AI services, Key Vault, and Event Hubs.
 
 When creating a cloud app that accesses these services, you can use the Azure portal, the Azure CLI, or Azure PowerShell to create and configure keys for your app. The keys you create are tied to specific access policies and prevent access to those app-specific resources by any other unauthorized code.
 

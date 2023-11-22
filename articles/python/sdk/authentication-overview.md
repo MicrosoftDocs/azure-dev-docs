@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Authenticate Python apps to Azure services by using the Azure SDK for Python
 
-When an application needs to access an Azure resource like Azure Storage, Azure Key Vault, or Azure Cognitive Services, the application must be authenticated to Azure. This requirement is true for all applications, whether they're deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when you use the Azure SDK for Python.
+When an application needs to access an Azure resource like Azure Storage, Azure Key Vault, or Azure AI services, the application must be authenticated to Azure. This requirement is true for all applications, whether they're deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when you use the Azure SDK for Python.
 
 ## Recommended app authentication approach
 
