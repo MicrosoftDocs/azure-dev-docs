@@ -196,8 +196,8 @@
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
-  - name: AI (Cognitive Services)
-    href: quickstarts-cognitive-services.md
+  - name: Azure AI services
+    href: quickstarts-ai-services.md
   - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
   - name: Other services
@@ -227,8 +227,8 @@
         href: /samples/browse/?languages=python&products=azure-databricks
       - name: HDInsight
         href: /samples/browse/?languages=python&products=azure-hdinsight
-  - name: AI with Cognitive Services
-    href: /samples/browse/?languages=python&products=azure-cognitive-services
+  - name: Azuze AI with services
+    href: /samples/browse/?languages=python&filter-products=AI&products=ai-services
   - name: Search
     href: /samples/browse/?languages=python&products=azure-search
   - name: All Samples

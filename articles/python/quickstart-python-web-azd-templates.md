@@ -26,7 +26,7 @@ To learn more about these azd templates for Python web app development:
 
 ## Prerequisites
 
-An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?azure-portal=true)
 
 You must have the following installed on your local computer:
 
