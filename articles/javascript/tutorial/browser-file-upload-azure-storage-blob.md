@@ -352,12 +352,12 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
-## Commit code changes
+## 12. Commit code changes
 
 1. In Visual Studio Code, open the **Source Control** tab.
 1. Select the **+** icon to stage all changes. These changes should only include new package-lock.json files for the `app` and `api` folders for this tutorial.
 
-## 12. Deploy static web app to Azure 
+## 13. Deploy static web app to Azure 
 
 The Azure Functions app is using a preview feature, it must be deployed to **West US 2** to function properly.
 
@@ -416,7 +416,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
 1. Go to the Overview page to find the **URL** for your deployed app.
 1. The deployment of the app is complete.
 
-## 13. Configure API with Storage resource name and key
+## 14. Configure API with Storage resource name and key
 
 The app needs the Azure Storage resource name and key before the API works correctly.
 
@@ -434,7 +434,7 @@ The app needs the Azure Storage resource name and key before the API works corre
 > [!NOTE]
 > You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same domain. 
 
-## 14. Use the Azure-deployed static web app
+## 15. Use the Azure-deployed static web app
 
 Verify the deploy and configuration succeeded by using the web site. 
 
@@ -443,7 +443,7 @@ Verify the deploy and configuration succeeded by using the web site.
 1. Select **Get sas token**. This action passes the file name to the API and receives the SAS token URL necessary to upload the file.  
 1. Select **Upload file** to use the SAS token URL to upload the file. The browser displays the thumbnail and URL of the uploaded file. 
 
-## 15. Clean up resources
+## 16. Clean up resources
 
 In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on your resource group then select **Delete**.
 
