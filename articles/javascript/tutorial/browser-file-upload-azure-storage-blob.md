@@ -234,7 +234,7 @@ The file upload is secured from the client when you create a time-limited and pe
 
 Even though the account is publicly accessible, each container and each blob can have private access. A more secure method but too complicated for this tutorial is to upload to one storage account with the SAS token, then move the blob to another storage account with public access. 
 
-1. To enable public access in the Azure portal, select the **Overview** page for you storage account, in the **Properties** section, select **Blob anonymous access** then select **Disabled**.
+1. To enable public access in the Azure portal, select the **Overview** page for your storage account, in the **Properties** section, select **Blob anonymous access** then select **Disabled**.
 1. On the **Configuration** page, enable **Allow Blob anonymous access**.
 
 ## 7. Create upload container
@@ -355,7 +355,7 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
 ## Commit code changes
 
 1. In Visual Studio Code, open the **Source Control** tab.
-1. Select the **+** icon to stage all changes. These changes should only include new package-lock.json files for the app and api folders for this tutorial.
+1. Select the **+** icon to stage all changes. These changes should only include new package-lock.json files for the `app` and `api` folders for this tutorial.
 
 ## 12. Deploy static web app to Azure 
 
@@ -394,7 +394,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
     ```
 
 1. Open the workflow file located at `/.github/workflows/`. 
-1. Verify the section of the workflow specific to this tutorial's Static Web app should look like:
+1. Verify he section of the workflow specific to this tutorial's Static Web app should look like:
 
     ```yml
     ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
