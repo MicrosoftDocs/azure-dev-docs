@@ -3,6 +3,7 @@
 |Link|Description|
 |---|---|
 |[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)|The GitHub source version of the Azure OpenAI SDK for Go.|
+|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
 |[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|The Go package version of Azure OpenAI client module for Go.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-go&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-Client.GetChatCompletions)|A simple example demonstrating how to implement completions.|
@@ -17,7 +18,7 @@
 
 |Link|Description|
 |---|---|
-|[OpenAI with Azure Active Directory Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
+|[OpenAI with Microsoft Entra ID Role based access control](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/cognitive-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 
 ## Speech/Vision

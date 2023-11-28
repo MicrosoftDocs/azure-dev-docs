@@ -37,12 +37,13 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |Link|Description|
 |---|---|
 |[Azure OpenAI SDK for JavaScript](https://aka.ms/oai/js/sdk)|The GitHub source version of the Azure OpenAI client library for JavaScript is an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
+|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
 |[@azure/openai npm package](https://aka.ms/oai/js/npm)|The npm version of the Azure OpenAI client library for JavaScript.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/completions.js)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/chatCompletions.js)|A simple example demonstrating how to use  streaming chat completions.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
-|[OpenAI with Azure Active Directory Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
+|[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://aka.ms/oai/js/samples)|OpenAI samples covering a range of scenarios.|
 |[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|

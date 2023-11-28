@@ -20,7 +20,7 @@
 | Communication Chat | Maven [1.3.14](https://search.maven.org/artifact/com.azure/azure-communication-chat/1.3.14/jar/) | [docs](/java/api/overview/azure/communication-chat-readme) | GitHub [1.3.14](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.3.14/sdk/communication/azure-communication-chat/) |
 | Communication Common | Maven [1.2.14](https://search.maven.org/artifact/com.azure/azure-communication-common/1.2.14/jar/)<br>Maven [2.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-common/2.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/communication-common-readme) | GitHub [1.2.14](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.2.14/sdk/communication/azure-communication-common/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_2.0.0-beta.1/sdk/communication/azure-communication-common/) |
 | Communication Email | Maven [1.0.8](https://search.maven.org/artifact/com.azure/azure-communication-email/1.0.8/jar/) | [docs](/java/api/overview/azure/communication-email-readme) | GitHub [1.0.8](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.8/sdk/communication/azure-communication-email/) |
-| Communication Identity | Maven [1.4.12](https://search.maven.org/artifact/com.azure/azure-communication-identity/1.4.12/jar/) | [docs](/java/api/overview/azure/communication-identity-readme) | GitHub [1.4.12](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.4.12/sdk/communication/azure-communication-identity/) |
+| Communication Identity | Maven [1.5.0](https://search.maven.org/artifact/com.azure/azure-communication-identity/1.5.0/jar/) | [docs](/java/api/overview/azure/communication-identity-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.5.0/sdk/communication/azure-communication-identity/) |
 | Communication JobRouter | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0-beta.1/jar/) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-jobrouter_1.0.0-beta.1/sdk/communication/azure-communication-jobrouter/) |
 | Communication Network Traversal | Maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-networktraversal/1.0.0/jar/)<br>Maven [1.1.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-networktraversal/1.1.0-beta.2/jar/) | [docs](/java/api/overview/azure/communication-networktraversal-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-networktraversal_1.0.0/sdk/communication/azure-communication-networktraversal/)<br>GitHub [1.1.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-networktraversal_1.1.0-beta.2/sdk/communication/azure-communication-networktraversal/) |
 | Communication Phone Numbers | Maven [1.1.8](https://search.maven.org/artifact/com.azure/azure-communication-phonenumbers/1.1.8/jar/)<br>Maven [1.2.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-phonenumbers/1.2.0-beta.1/jar/) | [docs](/java/api/overview/azure/communication-phonenumbers-readme) | GitHub [1.1.8](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.1.8/sdk/communication/azure-communication-phonenumbers/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.2.0-beta.1/sdk/communication/azure-communication-phonenumbers/) |
@@ -494,8 +494,8 @@
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
 | IoT Plug and Play - Device Client | Maven [2.4.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.4.0/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.0.0-preview-002/jar/) |  |  |
 | IoT Service Client | Maven [2.1.6](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.1.6/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.0.0-preview-002/jar/) | [docs](/java/api/overview/azure/iot) |  |
-| Kusto Data | Maven [5.0.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/5.0.2/jar/) |  |  |
-| Kusto Ingest | Maven [5.0.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/5.0.2/jar/) |  |  |
+| Kusto Data | Maven [5.0.3](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/5.0.3/jar/) |  |  |
+| Kusto Ingest | Maven [5.0.3](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/5.0.3/jar/) |  |  |
 | Kusto Spark | Maven [5.0.3](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/5.0.3/jar/) |  |  |
 | LUIS Authoring | Maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
 | LUIS Runtime | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime) |
@@ -526,19 +526,19 @@
 | Storage - Java | Maven [10](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-java/10/jar/) |  |  |
 | Support | Maven [0.1.8](https://search.maven.org/artifact/com.microsoft.azure/azure-support/0.1.8/jar/) |  |  |
 | synapseml | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml/0.9.3/jar/) |  |  |
-| synapseml_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.1/jar/) |  |  |
+| synapseml_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.2/jar/) |  |  |
 | synapseml-cognitive | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive/0.9.3/jar/) |  |  |
-| synapseml-cognitive_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.1/jar/) |  |  |
+| synapseml-cognitive_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.2/jar/) |  |  |
 | synapseml-core | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core/0.9.3/jar/) |  |  |
-| synapseml-core_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.1/jar/) |  |  |
+| synapseml-core_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.2/jar/) |  |  |
 | synapseml-deep-learning | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning/0.9.3/jar/) |  |  |
-| synapseml-deep-learning_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.1/jar/) |  |  |
+| synapseml-deep-learning_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.2/jar/) |  |  |
 | synapseml-lightgbm | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm/0.9.3/jar/) |  |  |
-| synapseml-lightgbm_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.1/jar/) |  |  |
+| synapseml-lightgbm_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.2/jar/) |  |  |
 | synapseml-opencv | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv/0.9.3/jar/) |  |  |
-| synapseml-opencv_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.1/jar/) |  |  |
+| synapseml-opencv_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.2/jar/) |  |  |
 | synapseml-vw | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw/0.9.3/jar/) |  |  |
-| synapseml-vw_2.12 | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.1/jar/) |  |  |
+| synapseml-vw_2.12 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.2/jar/) |  |  |
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.2](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.2/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.2](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.2/jar/) |  |  |
