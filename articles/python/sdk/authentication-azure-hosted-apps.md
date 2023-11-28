@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python
 description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 11/21/2022
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -80,9 +80,9 @@ Next, you need to determine what roles (permissions) your app needs and assign t
 A managed identity is assigned a role in Azure using the [az role assignment create] command.
 
 ```azurecli
-az role assignment create --assignee "{managedIdentityId}" \
+az role assignment create --assignee {managedIdentityId} \
     --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
-    --role "{roleName}" \
+    --role "{roleName}" 
 ```
 
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -93,12 +93,12 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with an ID of `00000000-0000-0000-0000-000000000000`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
 az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
-    --scope /subscriptions/00000000-0000-0000-0000/resourceGroups/msdocs-python-sdk-auth-example \
-    --role "Storage Blob Data Contributor" \
+    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+    --role "Storage Blob Data Contributor"
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
