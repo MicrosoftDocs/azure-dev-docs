@@ -628,6 +628,9 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
            fixed-delay: 1000
    ```
 
+   > [!NOTE]
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+
 1. We need define two suppliers and two consumers:
 
    ```java
@@ -1178,6 +1181,9 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
            initial-delay: 0
            fixed-delay: 1000
    ```
+
+   > [!NOTE]
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
 
 1. we need define two suppliers and two consumers
 
