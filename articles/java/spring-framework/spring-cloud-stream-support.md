@@ -629,7 +629,7 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
    ```
 
    > [!NOTE]
-   > The previous application file shows how to configure a single default poller that will be applied to all bindings. If you want to configure poller for a specific binding, you can use the configuration such as: `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
 
 1. We need define two suppliers and two consumers:
 
@@ -1183,7 +1183,7 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
    ```
 
    > [!NOTE]
-   > The previous application file shows how to configure a single default poller that will be applied to all bindings. If you want to configure poller for a specific binding, you can use the configuration such as: `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
 
 1. we need define two suppliers and two consumers
 
