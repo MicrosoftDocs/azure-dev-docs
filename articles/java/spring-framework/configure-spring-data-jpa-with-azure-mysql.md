@@ -19,9 +19,9 @@ This tutorial demonstrates how to store data in [Azure Database for MySQL](/azur
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
-In this tutorial, we include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
+In this tutorial, we include two authentication methods: Microsoft Entra authentication and MySQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the MySQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you need to manage the rotation of the passwords by yourself.
 
@@ -35,7 +35,7 @@ MySQL authentication uses accounts stored in MySQL. If you choose to use passwor
 - If you don't have one, create an Azure Database for MySQL Flexible Server instance named `mysqlflexibletest`. For instructions, see [Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). Then, create a database named `demo`. For instructions, see [Create and manage databases for Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/how-to-create-manage-databases).
 
 > [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For instructions, see the [Configure the Azure AD Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+> To use passwordless connections, create a Microsoft Entra admin user for your Azure Database for MySQL instance. For instructions, see the [Configure the Microsoft Entra Admin](/azure/mysql/flexible-server/how-to-azure-ad#configure-the-azure-ad-admin) section of [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ## See the sample application
 
@@ -88,7 +88,7 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
 - If you don't have one, create an Azure Database for MySQL Single Server instance named `mysqlsingletest`. For instructions, see [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal). Then, create a database named `demo`. For instructions, see the [Create a database](/azure/mysql/single-server/how-to-create-users#create-a-database) section of [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
 > [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For instructions, see the [Setting the Azure AD Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+> To use passwordless connections, create a Microsoft Entra admin user for your Azure Database for MySQL instance. For instructions, see the [Setting the Microsoft Entra Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Microsoft Entra ID for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
 ## See the sample application
 

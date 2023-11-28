@@ -9,6 +9,6 @@ ms.date: 08/10/2021
 
 - [Get the Azure subscription ID](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal).
 
-- [Get the Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
+- [Get the Microsoft Entra tenant ID](/azure/active-directory/fundamentals/how-to-find-tenant).
 
 - [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.

@@ -63,7 +63,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>4.9.0</version>
+      <version>4.13.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -72,7 +72,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
 > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 ## Artifact changes: renamed / added / deleted
@@ -182,7 +182,7 @@ The modern `spring-cloud-azure-starter` enables you to define properties that ap
 | Prefix                          | Description                                                   |
 |---------------------------------|---------------------------------------------------------------|
 | *spring.cloud.azure*.client     | Configures the transport clients underneath each Azure SDK.   |
-| *spring.cloud.azure*.credential | Configures how to authenticate with Azure Active Directory.   |
+| *spring.cloud.azure*.credential | Configures how to authenticate with Microsoft Entra ID.   |
 | *spring.cloud.azure*.profile    | Configures the Azure cloud environment.                       |
 | *spring.cloud.azure*.proxy      | Configures the proxy options, apply to all Azure SDK clients. |
 | *spring.cloud.azure*.retry      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there’s no `spring.cloud.azure.cosmos.retry`. |
@@ -284,7 +284,7 @@ This section includes the changes about the properties added, removed and change
 
 * *The following two points are the main to pay your attention to*:
 1. All configuration property names' prefix changed from `azure.activedirectory` to `spring.cloud.azure.active-directory`.
-1. New property `spring.cloud.azure.active-directory.enabled` is added to enable/disable Azure AD related features. The default value is `false`.
+1. New property `spring.cloud.azure.active-directory.enabled` is added to enable/disable Microsoft Entra related features. The default value is `false`.
 
 The following table shows the property mappings between `azure-spring-boot-starter-active-directory` and `spring-cloud-azure-starter-active-directory`:
 
@@ -1260,7 +1260,7 @@ spring:
 
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Event Hubs. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Event Hubs namespace.
 
-For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to Azure Event Hubs directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory).
+For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Microsoft Entra ID and then connect to Azure Event Hubs directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
 
 For authentication based on ARM, taking service principal as example, configuration migration is listed the follows, where the assigned role should not change:
 
@@ -1296,7 +1296,7 @@ spring:
           resource-group: ${RESOURCE_GROUP}
 ```
 
-You can also migrate to authenticate and authorize with Azure AD directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
+You can also migrate to authenticate and authorize with Microsoft Entra ID directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
 
 * With a service principal
 
@@ -1444,7 +1444,7 @@ spring:
 
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Service Bus. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Service Bus namespace.
 
-For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Azure Active Directory (Azure AD) and then connect to the Azure Service Bus directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory).
+For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Microsoft Entra ID and then connect to the Azure Service Bus directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
 
 For authentication based on ARM, taking service principal as example, configuration migration is listed the follows, where the assigned role should not change:
 
@@ -1480,7 +1480,7 @@ spring:
           resource-group: ${SERVICEBUS_RESOURCE_GROUP}
 ```
 
-You can also migrate to authenticate and authorize with Azure AD directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
+You can also migrate to authenticate and authorize with Microsoft Entra ID directly without making a detour to ARM. Make sure to grant the security principal necessary `Data` roles for messaging operations. The configuration examples of the service principal and the managed identity are listed the follows:
 
 * With a service principal
 

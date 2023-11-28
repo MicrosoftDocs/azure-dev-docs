@@ -24,7 +24,7 @@ Select the **Sign in** button in the top right of Visual Studio.
 
 :::image type="content" source="../media/storage-blobs-introduction/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
 
-Sign-in using the Azure AD account you assigned a role to previously.
+Sign-in using the Microsoft Entra account you assigned a role to previously.
 
 :::image type="content" source="../media/storage-blobs-introduction/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
@@ -34,7 +34,7 @@ Make sure you have the [Azure Account](https://marketplace.visualstudio.com/item
 
 :::image type="content" source="../media/storage-blobs-introduction/azure-extension.png" alt-text="A screenshot showing the Azure extension.":::
 
-Use the **CTRL + Shift + P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to authenticate. Make sure to use the Azure AD account you assigned a role to previously from your Blob Storage account.
+Use the **CTRL + Shift + P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to authenticate. Make sure to use the Microsoft Entra account you assigned a role to previously from your Blob Storage account.
 
 :::image type="content" source="../media/storage-blobs-introduction/azure-command.png" alt-text="A screenshot showing the Azure sign-in command.":::
 

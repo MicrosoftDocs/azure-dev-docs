@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure configuration
 
-**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 This article describes all the Spring Cloud Azure common configuration properties.
 
@@ -24,14 +24,14 @@ The following table lists properties common to multiple services:
 > | Property                                      | Description                                                                      |
 > |-----------------------------------------------|----------------------------------------------------------------------------------|
 > | *spring.cloud.azure.azure-service*.client     | Configures the transport clients underneath one Azure service SDK.               |
-> | *spring.cloud.azure.azure-service*.credential | Configures authentication with Azure Active Directory for one Azure service SDK. |
+> | *spring.cloud.azure.azure-service*.credential | Configures authentication with Microsoft Entra ID for one Azure service SDK. |
 > | *spring.cloud.azure.azure-service*.profile    | Configures the Azure cloud environment for one Azure service SDK.                |
 > | *spring.cloud.azure.azure-service*.proxy      | Configures the proxy options for one Azure service SDK.                          |
 > | *spring.cloud.azure.azure-service*.retry      | Configures the retry options applicable to one Azure service SDK. The retry options has supported part of the SDKs, there’s no spring.cloud.azure.cosmos.retry.                                                                     |
 
 The configuration properties' prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
 
-| Azure service               | Configuration property prefix             | Configuration Properties Link                                                                                          |
+| Azure service               | Configuration property prefix             | Configuration properties link                                                                                          |
 |-----------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | Azure App Configuration     | *spring.cloud.azure*.appconfiguration     | [App Configuration configuration properties](configuration-properties-azure-app-configuration.md)                |
 | Azure Cosmos DB             | *spring.cloud.azure*.cosmos               | [Azure Cosmos DB configuration properties](configuration-properties-azure-cosmos-db.md)                          |
@@ -53,7 +53,7 @@ The following table lists global properties:
 > | Property                        | Description                                                                          |
 > |---------------------------------|--------------------------------------------------------------------------------------|
 > | *spring.cloud.azure*.client     | Configures the transport clients; applies to all Azure SDKs by default.              |
-> | *spring.cloud.azure*.credential | Configures authentication with Azure Active Directory for all Azure SDKs by default. |
+> | *spring.cloud.azure*.credential | Configures authentication with Microsoft Entra ID for all Azure SDKs by default. |
 > | *spring.cloud.azure*.profile    | Configures the Azure cloud environment for all Azure SDKs by default.                |
 > | *spring.cloud.azure*.proxy      | Configures the proxy options applicable to all Azure SDK clients by default.         |
 > | *spring.cloud.azure*.retry      | Configures the retry options applicable to all Azure SDK clients by default.         |

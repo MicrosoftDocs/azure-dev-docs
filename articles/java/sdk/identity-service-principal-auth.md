@@ -1,6 +1,7 @@
 ---
 title: Azure authentication with service principal
-description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
+titleSuffix: Azure SDK for Java
+description: Provides an overview of the Azure SDK for Java concepts related to authenticating applications via service principal.
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
@@ -10,17 +11,17 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article looks at how the Azure Identity library supports Azure Active Directory token authentication via service principal. Topics covered in this article include:
+This article looks at how the Azure Identity library supports Microsoft Entra token authentication via service principal. This article covers the following subjects:
 
 * [Create a service principal with the Azure CLI](#create-a-service-principal-with-the-azure-cli)
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals).
+For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
 
 ## Create a service principal with the Azure CLI
 
-Use the [Azure CLI][azure_cli] examples below to create or get client secret credentials.
+Use the following [Azure CLI](/cli/azure) examples to create or get client secret credentials.
 
 Use the following command to create a service principal and configure its access to Azure resources:
 
@@ -111,8 +112,9 @@ This article covered authentication via service principal. This form of authenti
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
 * [Authentication with User Credentials](identity-user-auth.md)
 
+If you run into issues related to service principal authentication, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
+
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
-[azure_cli]: /cli/azure
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

@@ -1,25 +1,31 @@
 - name: Azure for Python developers
   href: index.yml
 
-- name: Cloud development with Azure
-  items:
-    - name: What is Azure?
-      href: cloud-development-overview.md
-    - name: Create, access, and manage resources
-      href: cloud-development-provisioning.md
-    - name: The Azure development flow
-      href: cloud-development-flow.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md
-
+- name: Get started
+  href: get-started.md
+- name: Azure AI apps 
+  items: 
+  - name: Develop with Azure AI services
+    href: azure-ai-for-python-developers.md
+  - name: Get started with the Python enterprise chat sample
+    href: get-started-app-chat-template.md
+    display: Azure OpenAI, OpenAI, FastApi
 - name: Web
   items:
+  - name: Set up local web dev environment
+    href: configure-python-web-app-local-environment.md  
+  - name: Python Web azd Templates
+    items:
+      - name: Overview
+        href: overview-azd-templates.md
+      - name: Quickstart
+        href: quickstart-python-web-azd-templates.md
   - name: Web app solutions
     items:
     - name: Django/Flask
-      href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Django/Flask + db
-      href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Passwordless auth - system managed identity
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
@@ -27,13 +33,11 @@
     - name: Static websites
       items:
         - name: Hosting in Azure Storage
-          href: /azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          href: /azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
         - name: Deploy from VS Code
-          href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Configure web apps
       items:
-      - name: Local dev environment
-        href: configure-python-web-app-local-environment.md
       - name: Codespaces dev environment
         href: configure-python-web-app-codespaces.md
       - name: Configure a startup file for App Service
@@ -43,13 +47,13 @@
       - name: GitHub Actions
         href: python-web-app-github-actions-app-service.md
       - name: Azure Pipelines
-        href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Add sign in
-      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Store and retrieve secrets
-      href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Set up Azure monitor
-      href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
   - name: Serverless solutions
     items:
@@ -70,20 +74,7 @@
   items:
 
   - name: Data engineering solutions
-    items:
-      - name: Serverless, Cloud ETL
-        items:
-          - name: 1. Overview
-            href: tutorial-deploy-azure-cloud-python-etl-01-overview.md
-          - name: 2. Get data and store 
-            href: tutorial-deploy-azure-cloud-python-etl-02-get-data.md
-          - name: 3. Transform and store
-            href: tutorial-deploy-azure-cloud-python-etl-03-process-data.md
-          - name: 4. Deploy solution to Azure
-            href: tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md
-      - name: More data and storage solutions
-        href: quickstarts-data-solutions.md
-
+    href: quickstarts-data-solutions.md
 
   - name: Data science solutions
     items:
@@ -205,8 +196,8 @@
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
-  - name: AI (Cognitive Services)
-    href: quickstarts-cognitive-services.md
+  - name: Azure AI services
+    href: quickstarts-ai-services.md
   - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
   - name: Other services
@@ -236,8 +227,8 @@
         href: /samples/browse/?languages=python&products=azure-databricks
       - name: HDInsight
         href: /samples/browse/?languages=python&products=azure-hdinsight
-  - name: AI with Cognitive Services
-    href: /samples/browse/?languages=python&products=azure-cognitive-services
+  - name: Azure AI services
+    href: /samples/browse/?languages=python&filter-products=AI&products=ai-services
   - name: Search
     href: /samples/browse/?languages=python&products=azure-search
   - name: All Samples

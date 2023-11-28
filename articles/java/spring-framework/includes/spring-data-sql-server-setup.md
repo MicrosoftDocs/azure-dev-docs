@@ -18,7 +18,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-To use passwordless connections, see [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial) or use Service Connector to create an Azure AD admin user for your Azure SQL Database server, as shown in the following steps:
+To use passwordless connections, see [Tutorial: Secure a database in Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial) or use Service Connector to create a Microsoft Entra admin user for your Azure SQL Database server, as shown in the following steps:
 
 1. First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
 
@@ -26,7 +26,7 @@ To use passwordless connections, see [Tutorial: Secure a database in Azure SQL D
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Then, use the following command to create the Azure AD non-admin user:
+1. Then, use the following command to create the Microsoft Entra non-admin user:
 
    ```azurecli
    az connection create sql \
@@ -40,7 +40,7 @@ To use passwordless connections, see [Tutorial: Secure a database in Azure SQL D
        --output tsv
    ```
 
-The Azure AD admin you created is an SQL database admin user, so you don't need to create a new user.
+The Microsoft Entra admin you created is an SQL database admin user, so you don't need to create a new user.
 
 > [!IMPORTANT]
 > Azure SQL database passwordless connections require upgrading the [MS SQL Server Driver](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) to version `12.1.0` or higher. The connection option is `authentication=DefaultAzureCredential` in version `12.1.0` and `authentication=ActiveDirectoryDefault` in version `12.2.0`.

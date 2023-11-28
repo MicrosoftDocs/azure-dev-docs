@@ -14,7 +14,7 @@ Dev tunnels is a security-focussed developer tunneling service. In this article,
 
 ## Overview
 
-By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Azure AD or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
+By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Entra ID, or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
 
 ## Domains
 
@@ -27,6 +27,7 @@ Access to dev tunnels can be controlled by allowing or denying outbound access t
 - Dev Tunnels
   - `global.rel.tunnels.api.visualstudio.com`
   - `[clusterId].rel.tunnels.api.visualstudio.com`
+  - `[clusterId]-data.rel.tunnels.api.visualstudio.com`
   - `*.[clusterId].devtunnels.ms`
   - `*.devtunnels.ms`
 
@@ -57,7 +58,7 @@ By default, tunnels and tunnel ports are private and only accessible to the user
 
 If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--anonymous`).
 
-Tunnel access can also be extended to specific GitHub organizations (use `--organization`), or your current Azure AD tenant (use `--tenant`).
+Tunnel access can also be extended to your current Microsoft Entra tenant (use `--tenant`) or specific GitHub organizations (use `--organization`); for the latter see [GitHub Organization Access](#github-organization-access) below.
 
 The CLI can also be used to request access tokens that grant limited access to anyone holding the token (use `devtunnel token`). This is an advanced feature but can be useful in specific situations.
 
@@ -82,6 +83,9 @@ X-Tunnel-Authorization: tunnel <TOKEN>
 > This is useful for non-interactive clients as it allows them to access tunnels without requiring anonymous access to be enabled. We use the `X-Tunnel-Authorization` header instead of the standard `Authorization` header to prevent potentially interfering with application-specific authorization.
 
 See the [Manage dev tunnel access](cli-commands.md#advanced-manage-dev-tunnel-access) section to learn more about how to manage tunnel access through the CLI.
+
+### GitHub Organization Access
+To support tunnels granting access to all members of a GitHub organization, install the [Dev Tunnels GitHub app](https://github.com/apps/dev-tunnels) in the organization. That gives the Dev Tunnels service permission to check users' membership status in that organization. (Dev Tunnels does not require repo permissions to the org.) You may need to be an admin in the GitHub organization to perform this operation.
 
 ## Further questions
 

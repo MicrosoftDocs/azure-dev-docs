@@ -52,8 +52,6 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: End-to-End with App Service Linux
-            url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux/tree/master/
           - text: Java scenarios on App Service
             url: https://github.com/Azure-Samples/java-on-app-service
           - text: Scale stateful Java web app on Azure

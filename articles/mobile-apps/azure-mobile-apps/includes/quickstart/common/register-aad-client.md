@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/11/2022
+ms.date: 10/13/2023
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -10,10 +10,10 @@ ms.prod: azure-mobile-apps
 
 You can register native clients to allow authentication to Web APIs hosted in your app using a client library such as the Microsoft Identity Library (MSAL).
 
-1. In the [Azure portal](https://portal.azure.com), select **Active Directory** > **App registrations** > **New registration**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **App registrations** > **New registration**.
 2. In the **Register an application** page:
     * enter a **Name** for your app registration.  You may want to use the name `native-quickstart` to distinguish this one from the one used by your backend service.
-    * Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+    * Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
     * In **Redirect URI**:
         * Select **Public client (mobile & desktop)**
         * Enter the URL `quickstart://auth`
@@ -29,7 +29,7 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 9. Check the box next to `msal{client-id}://auth` (replacing `{client-id}` with your application ID).
 10. Select **Add URI**, then add `http://localhost` in the field for extra URIs.
 11. Select **Save** at the bottom of the page.
-12. Select **Overview**.  Make a note of the **Application (client) ID** as you'll need it later.  This will be referred to as the _Native Client Application ID_.
+12. Select **Overview**.  Make a note of the **Application (client) ID** (referred to as the _Native Client Application ID_) as you need it to configure the mobile app.
 
 We have defined three redirect URLs:
 

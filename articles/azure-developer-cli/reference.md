@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/12/2023
+ms.date: 11/14/2023
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -34,12 +34,14 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd deploy](#azd-deploy): Deploy the application's code to Azure.
 * [azd down](#azd-down): Delete Azure resources for an application.
 * [azd env](#azd-env): Manage environments.
+* [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
 * [azd init](#azd-init): Initialize a new application.
 * [azd monitor](#azd-monitor): Monitor a deployed application. (Beta)
 * [azd package](#azd-package): Packages the application's code to be deployed to Azure. (Beta)
 * [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
 * [azd provision](#azd-provision): Provision the Azure resources for an application.
 * [azd restore](#azd-restore): Restores the application's dependencies. (Beta)
+* [azd show](#azd-show): Display information about your app and its resources.
 * [azd template](#azd-template): Find and view template details. (Beta)
 * [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
@@ -185,10 +187,10 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 ### See also
 
 * [azd config get](#azd-config-get): Gets a configuration.
-* [azd config list](#azd-config-list): Lists all configuration values.
 * [azd config list-alpha](#azd-config-list-alpha): Display the list of available features in alpha stage.
 * [azd config reset](#azd-config-reset): Resets configuration to default.
 * [azd config set](#azd-config-set): Sets a configuration.
+* [azd config show](#azd-config-show): Show all the configuration values.
 * [azd config unset](#azd-config-unset): Unsets a configuration.
 * [Back to top](#azd)
 
@@ -215,44 +217,6 @@ azd config get <path> [flags]
 ```azdeveloper
       --docs   Opens the documentation for azd config get in your web browser.
   -h, --help   Gets help for get.
-```
-
-### Options inherited from parent commands
-
-```azdeveloper
-  -C, --cwd string   Sets the current working directory.
-      --debug        Enables debugging and diagnostics logging.
-      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
-```
-
-### See also
-
-* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
-* [Back to top](#azd)
-
-## azd config list
-
-Lists all configuration values.
-
-### Synopsis
-
-Lists all configuration values in the configuration path.
-
-The default value of the config directory is:
-* `$HOME/.azd` on Linux and macOS
-* `%USERPROFILE%\.azd` on Windows
-
-The configuration directory can be overridden by specifying a path in the AZD_CONFIG_DIR environment variable.
-
-```azdeveloper
-azd config list [flags]
-```
-
-### Options
-
-```azdeveloper
-      --docs   Opens the documentation for azd config list in your web browser.
-  -h, --help   Gets help for list.
 ```
 
 ### Options inherited from parent commands
@@ -317,8 +281,9 @@ azd config reset [flags]
 ### Options
 
 ```azdeveloper
-      --docs   Opens the documentation for azd config reset in your web browser.
-  -h, --help   Gets help for reset.
+      --docs    Opens the documentation for azd config reset in your web browser.
+  -f, --force   Force reset without confirmation.
+  -h, --help    Gets help for reset.
 ```
 
 ### Options inherited from parent commands
@@ -364,6 +329,44 @@ azd config set defaults.location eastus
 ```azdeveloper
       --docs   Opens the documentation for azd config set in your web browser.
   -h, --help   Gets help for set.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [Back to top](#azd)
+
+## azd config show
+
+Show all the configuration values.
+
+### Synopsis
+
+Show all configuration values in the configuration path.
+
+The default value of the config directory is:
+* `$HOME/.azd` on Linux and macOS
+* `%USERPROFILE%\.azd` on Windows
+
+The configuration directory can be overridden by specifying a path in the AZD_CONFIG_DIR environment variable.
+
+```azdeveloper
+azd config show [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd config show in your web browser.
+  -h, --help   Gets help for show.
 ```
 
 ### Options inherited from parent commands
@@ -613,6 +616,7 @@ azd env refresh <environment> [flags]
       --docs                 Opens the documentation for azd env refresh in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for refresh.
+      --hint string          Hint to help identify the environment to refresh
 ```
 
 ### Options inherited from parent commands
@@ -685,6 +689,61 @@ azd env set <key> <value> [flags]
 * [azd env](#azd-env): Manage environments.
 * [Back to top](#azd)
 
+## azd hooks
+
+Develop, test and run hooks for an application. (Beta)
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd hooks in your web browser.
+  -h, --help   Gets help for hooks.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd hooks run](#azd-hooks-run): Runs the specified hook for the project and services
+* [Back to top](#azd)
+
+## azd hooks run
+
+Runs the specified hook for the project and services
+
+```azdeveloper
+azd hooks run <name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd hooks run in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for run.
+      --platform string      Forces hooks to run for the specified platform.
+      --service string       Only runs hooks for the specified service.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
+* [Back to top](#azd)
+
 ## azd init
 
 Initialize a new application.
@@ -696,12 +755,12 @@ azd init [flags]
 ### Options
 
 ```azdeveloper
-  -b, --branch string         The template branch to initialize from.
+  -b, --branch string         The template branch to initialize from. Must be used with a template argument (--template or -t).
       --docs                  Opens the documentation for azd init in your web browser.
   -e, --environment string    The name of the environment to use.
   -h, --help                  Gets help for init.
   -l, --location string       Azure location for the new environment
-      --subscription string   Name or ID of an Azure subscription to use for the new environment
+  -s, --subscription string   Name or ID of an Azure subscription to use for the new environment
   -t, --template string       The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
 ```
 
@@ -759,10 +818,11 @@ azd package <service> [flags]
 ### Options
 
 ```azdeveloper
-      --all                  Deploys all services that are listed in azure.yaml
+      --all                  Packages all services that are listed in azure.yaml
       --docs                 Opens the documentation for azd package in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for package.
+      --output-path string   File or folder path where the generated packages will be saved.
 ```
 
 ### Options inherited from parent commands
@@ -816,6 +876,7 @@ azd pipeline config [flags]
       --docs                         Opens the documentation for azd pipeline config in your web browser.
   -e, --environment string           The name of the environment to use.
   -h, --help                         Gets help for config.
+      --principal-id string          The client id of the service principal to use to grant access to Azure resources as part of the pipeline.
       --principal-name string        The name of the service principal to use to grant access to Azure resources as part of the pipeline.
       --principal-role stringArray   The roles to assign to the service principal. By default the service principal will be granted the Contributor and User Access Administrator roles. (default [Contributor,User Access Administrator])
       --provider string              The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
@@ -849,6 +910,8 @@ azd provision [flags]
       --docs                 Opens the documentation for azd provision in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
+      --no-state             Do not use latest Deployment State (bicep only).
+      --preview              Preview changes to Azure resources.
 ```
 
 ### Options inherited from parent commands
@@ -892,6 +955,34 @@ azd restore <service> [flags]
 
 * [Back to top](#azd)
 
+## azd show
+
+Display information about your app and its resources.
+
+```azdeveloper
+azd show [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd show in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for show.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [Back to top](#azd)
+
 ## azd template
 
 Find and view template details. (Beta)
@@ -915,6 +1006,7 @@ Find and view template details. (Beta)
 
 * [azd template list](#azd-template-list): Show list of sample azd templates. (Beta)
 * [azd template show](#azd-template-show): Show details for a given template. (Beta)
+* [azd template source](#azd-template-source): View and manage template sources. (Beta)
 * [Back to top](#azd)
 
 ## azd template list
@@ -928,8 +1020,9 @@ azd template list [flags]
 ### Options
 
 ```azdeveloper
-      --docs   Opens the documentation for azd template list in your web browser.
-  -h, --help   Gets help for list.
+      --docs            Opens the documentation for azd template list in your web browser.
+  -h, --help            Gets help for list.
+  -s, --source string   Filters templates by source.
 ```
 
 ### Options inherited from parent commands
@@ -971,6 +1064,120 @@ azd template show <template> [flags]
 ### See also
 
 * [azd template](#azd-template): Find and view template details. (Beta)
+* [Back to top](#azd)
+
+## azd template source
+
+View and manage template sources. (Beta)
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd template source in your web browser.
+  -h, --help   Gets help for source.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd template](#azd-template): Find and view template details. (Beta)
+* [azd template source add](#azd-template-source-add): Adds an azd template source at the specified key (Beta)
+* [azd template source list](#azd-template-source-list): Lists the configured azd template sources. (Beta)
+* [azd template source remove](#azd-template-source-remove): Removes the specified azd template source (Beta)
+* [Back to top](#azd)
+
+## azd template source add
+
+Adds an azd template source at the specified key (Beta)
+
+```azdeveloper
+azd template source add <key> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs              Opens the documentation for azd template source add in your web browser.
+  -h, --help              Gets help for add.
+  -l, --location string   Location of the template source.
+  -n, --name string       Display name of the template source.
+  -t, --type string       Kind of the template source.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd template source](#azd-template-source): View and manage template sources. (Beta)
+* [Back to top](#azd)
+
+## azd template source list
+
+Lists the configured azd template sources. (Beta)
+
+```azdeveloper
+azd template source list [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd template source list in your web browser.
+  -h, --help   Gets help for list.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd template source](#azd-template-source): View and manage template sources. (Beta)
+* [Back to top](#azd)
+
+## azd template source remove
+
+Removes the specified azd template source (Beta)
+
+```azdeveloper
+azd template source remove <key> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd template source remove in your web browser.
+  -h, --help   Gets help for remove.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd template source](#azd-template-source): View and manage template sources. (Beta)
 * [Back to top](#azd)
 
 ## azd up

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Auto-configure Azure SDK clients
 
-**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 Spring Boot simplifies the Spring Cloud Azure development experience. Spring Cloud Azure starters are a set of convenient dependency descriptors to include in your application. The starters handle the object instantiation and configuration logic, so you don’t have to. Every starter depends on `spring-cloud-azure-starter` to provide critical bits of configuration, like the Azure cloud environment and authentication information. You can configure these as properties in, for example, a YAML file, as shown in the following example:
 
@@ -60,7 +60,7 @@ The second way is to avoid adding Azure SDK dependencies and instead include the
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
 
 Configuration properties for each Azure service are under prefix `spring.cloud.azure.<azure-service>`.
 

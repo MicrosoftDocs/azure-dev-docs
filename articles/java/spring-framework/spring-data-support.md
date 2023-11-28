@@ -1,7 +1,7 @@
 ---
 title: Spring Data support
 description: This article describes how Spring Cloud Azure and Spring Data can be used together.
-ms.date: 04/06/2023
+ms.date: 08/10/2023
 author: KarlErickson
 ms.author: v-yeyonghui
 ms.topic: reference
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Data support
 
-**This article applies to:** ✔️ Version 4.9.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 This article describes how Spring Cloud Azure and Spring Data can be used together.
 
@@ -30,7 +30,7 @@ This article describes how Spring Cloud Azure and Spring Data can be used togeth
 ### Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-data-cosmos`:
 

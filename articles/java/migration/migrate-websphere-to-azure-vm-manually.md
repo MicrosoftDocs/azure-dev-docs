@@ -29,7 +29,7 @@ You might prefer a fully automated solution that does all of these steps on your
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Install Azure CLI version 2.43.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
+- [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an IBMid. If you don't have one, create an IBM account at [Log in to IBM](https://myibm.ibm.com/dashboard/) and select **Create an IBMid**. Make note of your IBMid password and email.
@@ -101,7 +101,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 The following sections describe the steps for installing WAS on GNU/Linux. You can choose the operating system, and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
 
-The Marketplace image that you use to create the VMs is `RedHat:RHEL:84-gen2:latest`.
+The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
 
 > [!NOTE]
 > You can query all the available Red Hat Enterprise Linux images provided by Red Hat by using [az vm image list](/cli/azure/vm/image#az-vm-image-list), as shown in the following example:
@@ -131,7 +131,7 @@ Next, use the following steps to create a basic VM, install all required tools o
        --resource-group abc1110rg \
        --name adminVM \
        --availability-set myAvailabilitySet \
-       --image RedHat:RHEL:84-gen2:latest \
+       --image RedHat:rhel-raw:86-gen2:latest \
        --size Standard_DS1_v2  \
        --admin-username azureuser \
        --admin-password Secret123456 \
@@ -669,7 +669,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
        --output tsv)
    export ADMINVM_IP=$(az network nic show \
        --ids ${ADMINVM_NIC_ID} 
-       --query ipConfigurations'[0]'.privateIpAddress \
+       --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
    export MSPVM1_NIC_ID=$(az vm show \
        --resource-group abc1110rg \
@@ -678,7 +678,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
        --output tsv)
    export MSPVM1_IP=$(az network nic show \
        --ids ${MSPVM1_NIC_ID} \
-       --query ipConfigurations'[0]'.privateIpAddress \
+       --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
    export MSPVM2_NIC_ID=$(az vm show \
        --resource-group abc1110rg \
@@ -686,7 +686,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
        --output tsv)
    export MSPVM2_IP=$(az network nic show \
        --ids ${MSPVM2_NIC_ID} \
-       --query ipConfigurations'[0]'.privateIpAddress \
+       --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
    echo "Private IP of adminVM: ${ADMINVM_IP}"
    echo "Private IP of mspVM1: ${MSPVM1_IP}"

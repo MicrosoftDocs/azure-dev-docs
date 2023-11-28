@@ -1,6 +1,6 @@
 ---
 title: Azure management libraries for Java virtual machine samples
-description: Get sample code for creating and updating Azure virtual machines using the Azure management libraries for Java
+description: Get sample code for creating and updating Azure virtual machines using the Azure management libraries for Java.
 keywords: Azure, Java, SDK, API, Maven, Gradle, virtual machines
 author: KarlErickson
 ms.author: karler

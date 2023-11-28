@@ -30,7 +30,7 @@ Before you create your app registration, determine tasks based on expected users
 |Users|Select|
 |--|--|
 |Everyone (social, public, private, and [external identities](/azure/active-directory/external-identities/compare-with-b2c))|[Azure Active Directory B2C](/azure/active-directory-b2c/overview)<br>* Create a new tenant to hold your Active Directory.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
-|Microsoft identity only<br>Users existing in Microsoft tenant(s) or personal Microsoft accounts|[Azure Active Directory](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
+|Microsoft identity only<br>Users existing in Microsoft tenant(s) or personal Microsoft accounts|[Microsoft Entra ID](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
 
 ---
 
@@ -92,5 +92,4 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 * [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 * [JS: Add easy authentication to your web app](/azure/app-service/scenario-secure-app-authentication-app-service-as-user)
-* [JS: Add Microsoft login button to a single page application](/azure/active-directory/develop/tutorial-v2-react)
 * [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)

@@ -17,19 +17,21 @@ Application requests to Azure SQL Database must be authenticated. Azure SQL Data
 
 ## Compare authentication options
 
-When the application authenticates with Azure SQL Database, it provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Azure Active Directory (Azure AD) authentication and Azure SQL Database authentication.
+When the application authenticates with Azure SQL Database, it provides a username and password pair to connect to the database. Depending on where the identities are stored, there are two types of authentication: Microsoft Entra authentication and Azure SQL Database authentication.
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Microsoft Azure AD authentication is a mechanism for connecting to Azure SQL Database using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+### Microsoft Entra authentication
 
-Using Azure AD for authentication provides the following benefits:
+Microsoft Entra authentication is a mechanism for connecting to Azure SQL Database using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure Services in a uniform way.
 - Management of password policies and password rotation in a single place.
-- Multiple forms of authentication supported by Azure AD, which can eliminate the need to store passwords.
-- Customers can manage database permissions using external (Azure AD) groups.
-- Azure AD authentication uses Azure SQL database users to authenticate identities at the database level.
+- Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
+- Customers can manage database permissions using external (Microsoft Entra ID) groups.
+- Microsoft Entra authentication uses Azure SQL database users to authenticate identities at the database level.
 - Support of token-based authentication for applications connecting to Azure SQL Database.
 
 ### Azure SQL Database authentication
@@ -66,9 +68,11 @@ Replace the placeholders with the following values, which are used throughout th
 
 ### 1) Configure Azure SQL Database
 
-#### 1.1) Enable Azure AD-based authentication
+<a name='11-enable-azure-ad-based-authentication'></a>
 
-To use Azure Active Directory access with Azure SQL Database, you should set the Azure AD admin user first. Only an Azure AD Admin user can create/enable users for Azure AD-based authentication.
+#### 1.1) Enable Microsoft Entra ID-based authentication
+
+To use Microsoft Entra ID access with Azure SQL Database, you should set the Microsoft Entra admin user first. Only a Microsoft Entra Admin user can create/enable users for Microsoft Entra ID-based authentication.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -76,7 +80,7 @@ If you're using Azure CLI, run the following command to make sure it has suffici
 az login --scope https://graph.microsoft.com/.default
 ```
 
-Then, run following command to set the Azure AD admin:
+Then, run following command to set the Microsoft Entra admin:
 
 ```azurecli
 az sql server ad-admin create \
@@ -86,10 +90,10 @@ az sql server ad-admin create \
     --object-id $CURRENT_USER_OBJECTID
 ```
 
-This command will set the Azure AD admin to the current signed-in user.
+This command will set the Microsoft Entra admin to the current signed-in user.
 
 > [!NOTE]
-> You can only create one Azure AD admin per Azure SQL Database server. Selection of another one will overwrite the existing Azure AD admin configured for the server.
+> You can only create one Microsoft Entra admin per Azure SQL Database server. Selection of another one will overwrite the existing Microsoft Entra admin configured for the server.
 
 ### 2) Migrate the app code to use passwordless connections
 
@@ -107,7 +111,7 @@ Next, use the following steps to update your code to use passwordless connection
    </dependency>
    ```
 
-1. Enable the Azure Active Directory Managed Identity authentication in the JDBC URL.v Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure SQL Database. Update your code to match the following example:
+1. Enable the Microsoft Entra managed identity authentication in the JDBC URL.v Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure SQL Database. Update your code to match the following example:
 
    ```java
    String url = "jdbc:sqlserver://$AZ_DATABASE_SERVER_NAME.database.windows.net:1433;databaseName=$AZ_DATABASE_NAME;authentication=ActiveDirectoryMSI;"   
@@ -347,7 +351,7 @@ GO
 EOF
 ```
 
-Copy the output of this command, then go to the Azure portal and find the SQL database. Sign in to the query editor as the Azure AD admin user, as shown in the following screenshot.
+Copy the output of this command, then go to the Azure portal and find the SQL database. Sign in to the query editor as the Microsoft Entra admin user, as shown in the following screenshot.
 
 :::image type="content" source="media/migrate-sql-database-to-passwordless-connection/sql-database-query-editor.jpg" alt-text="Screenshot of Azure portal showing the SQL Database query editor.":::
 
@@ -368,4 +372,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

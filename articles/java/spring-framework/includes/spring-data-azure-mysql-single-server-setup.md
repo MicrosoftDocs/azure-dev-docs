@@ -19,7 +19,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 > [!IMPORTANT]
-> To use passwordless connections, create an Azure AD admin user for your Azure Database for MySQL instance. For more information, see the [Setting the Azure AD Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+> To use passwordless connections, create a Microsoft Entra admin user for your Azure Database for MySQL instance. For more information, see the [Setting the Microsoft Entra Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Microsoft Entra ID for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -34,14 +34,14 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h mysqlsingletest.mysql.database.azure.com --user <your_mysql_ad_admin_username>@mysqlsingletest --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 > [!TIP]
-> To use Azure AD authentication to connect to Azure Database for MySQL, you need to sign in with the Azure AD admin user you set up, and then get the access token as the password. For more information, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+> To use Microsoft Entra authentication to connect to Azure Database for MySQL, you need to sign in with the Microsoft Entra admin user you set up, and then get the access token as the password. For more information, see [Use Microsoft Entra ID for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
 ### [Password](#tab/password)
 
@@ -80,7 +80,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.9.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -89,7 +89,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC MySQL artifact:

@@ -26,9 +26,9 @@ Spring Cloud Azure can help make it easier to accomplish the following tasks in 
 - Managing configuration properties with [Azure App Configuration](/azure/azure-app-configuration/overview).
 - Sending and receiving messages with [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview), and [Azure Storage Queue](/azure/storage/queues/storage-queues-introduction).
 - Managing secrets and certificates with [Azure Key Vault](/azure/key-vault/general/overview).
-- Supporting user sign-in with work or school accounts provisioned with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
+- Supporting user sign-in with work or school accounts provisioned with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis).
 - Supporting user sign-in with social accounts like Facebook and Google with [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
-- Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
+- Protecting your web APIs and accessing protected APIs like Microsoft Graph to work with your users' and organization's data with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure Active Directory B2C](/azure/active-directory-b2c/overview).
 - Storing structured data with [Azure Cosmos DB](/azure/cosmos-db/introduction).
 - Storing unstructured data like text or binary data with [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 - Storing files with [Azure Files](/azure/storage/files/storage-files-introduction).
@@ -190,7 +190,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.9.0</version>
+         <version>4.13.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -199,7 +199,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    ```
 
    > [!NOTE]
-   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
    > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 1. Add the following properties to your *application.yml* file:
@@ -268,9 +268,11 @@ public class PropertySourceApplication implements CommandLineRunner {
 
 Provides auto-configuration support for Azure Services, such as Service Bus, Storage, Active Directory, and so on.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Provides integration support for Spring Security with Azure Active Directory for authentication. For more information, see [Spring Cloud Azure support for Spring Security](spring-security-support.md).
+### Microsoft Entra ID
+
+Provides integration support for Spring Security with Microsoft Entra ID for authentication. For more information, see [Spring Cloud Azure support for Spring Security](spring-security-support.md).
 
 ### Azure Key Vault
 
@@ -290,5 +292,5 @@ If you need support for Spring Cloud Azure, you can ask for help in the followin
 ## Next steps
 
 - [Tutorial: Read a secret from Azure Key Vault in a Spring Boot application](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
-- [Secure REST API using Spring Security 5 and Azure Active Directory](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
+- [Secure REST API using Spring Security 5 and Microsoft Entra ID](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
 - [How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL](configure-spring-boot-starter-java-app-with-cosmos-db.md)

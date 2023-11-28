@@ -13,7 +13,7 @@ Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal
 3. Enter `Microsoft.Identity.Client` in the search box, then press Enter.
 4. Select the `Microsoft.Identity.Client` result, then click **Install**.
    
-   ![Screenshot of selecting the M S A L NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/select-msal-nuget.png)
+   ![Screenshot of selecting the MSAL NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/select-msal-nuget.png)
 
 5. Accept the license agreement to continue the installation.
 
@@ -30,7 +30,7 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
       public static string ServiceUri = "https://demo-datasync-quickstart.azurewebsites.net";
 
       /// <summary>
-      /// The application (client) ID for the native app within Azure Active Directory
+      /// The application (client) ID for the native app within Microsoft Entra ID
       /// </summary>
       public static string ApplicationId = "<client-id>";
 
@@ -44,4 +44,4 @@ Open the `TodoApp.Data` project and edit the `Constants.cs` file. Add constants 
   }
 ```
 
-Replace the `<client-id>` with the _Native Client Application ID_ you received when registering the client application in Azure Active Directory, and the `<scope>` with the _Web API Scope_ you copied when you used **Expose an API** while registering the service application.
+Replace the `<client-id>` with the _Native Client Application ID_ you received when registering the client application in Microsoft Entra ID, and the `<scope>` with the _Web API Scope_ you copied when you used **Expose an API** while registering the service application.

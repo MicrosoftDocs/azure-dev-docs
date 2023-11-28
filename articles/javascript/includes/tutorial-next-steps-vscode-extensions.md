@@ -1,7 +1,7 @@
 ---
 ms.topic: include
 ms.date: 10/04/2021
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 ## Learn more about other Visual Studio Code extensions

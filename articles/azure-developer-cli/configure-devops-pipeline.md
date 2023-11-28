@@ -103,6 +103,20 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 1. Visit the web frontend URL to inspect the update.
 
+### `azd` as a GitHub action
+Add [`azd` as a GitHub action](https://aka.ms/azd-gha). This action will install `azd`. To use it, you can add the following to `.github\workflows\azure-dev.yml`:
+   ```
+   on: [push]
+
+   jobs:
+      build:
+         runs-on: ubuntu-latest
+         steps:
+            - name: Install azd
+            uses: Azure/setup-azd@v0.1.0
+   ```
+
+
 ## [Azure DevOps](#tab/azdo)
 
 > [!NOTE]
@@ -206,6 +220,24 @@ When creating your PAT, set the following scopes:
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
 1. Visit the web frontend URL to inspect the update.
+
+
+### `azd` as an Azure DevOps task
+Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.github\workflows\azure-dev.yml`:
+   ```
+   trigger:
+      - main
+      - branch
+
+   pool:
+      vmImage: ubuntu-latest
+      # vmImage: windows-latest
+
+   steps:
+      - task: setup-azd@0
+      displayName: Install azd
+   ```
+
 
 ---
 

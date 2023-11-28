@@ -65,7 +65,7 @@ The Azure SDK for Java project ships a Maven build tool that you can include in 
 
 The report also provides insight into usage of beta APIs.
 
-You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the *`{latest_version}`* placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/versions).
+You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the *`{latest_version}`* placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool).
 
 ```xml
 <build>
@@ -79,7 +79,7 @@ You can configure the build tool in a project Maven POM file as shown in the fol
 </build>
 ```
 
-After adding the build tool into a Maven project, you can run the tool by calling `mvn compile azure:run`. Depending on the configuration provided, you can expect to see build failures or report files generated that can inform you about potential issues before they become more serious. We recommend that you run this tool as part of your CI/CD pipeline. As the build tool evolves, we'll publish new releases, and we recommend that developers [frequently check for new releases](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/versions) and update as appropriate.
+After adding the build tool into a Maven project, you can run the tool by calling `mvn compile azure:run`. Depending on the configuration provided, you can expect to see build failures or report files generated that can inform you about potential issues before they become more serious. We recommend that you run this tool as part of your CI/CD pipeline. As the build tool evolves, we'll publish new releases, and we recommend that developers [frequently check for new releases](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool) and update as appropriate.
 
 It's possible to configure the build tool to enable or disable particular features. For this configuration, add a `configuration` section in the XML shown previously. Within that section, configure the settings shown in the following table. Any configuration that isn't explicitly mentioned takes the default value specified in the table.
 

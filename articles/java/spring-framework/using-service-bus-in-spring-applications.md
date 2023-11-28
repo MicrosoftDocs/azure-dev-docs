@@ -24,7 +24,7 @@ You can use the following modules independently or combine them for different us
 
 - [Spring Messaging Azure Service Bus](#use-spring-messaging-azure-service-bus) enables you to interact with Service Bus via the [Spring Messaging](https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html) API.
 
-- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/html/channel.html) with Service Bus.
+- [Spring Integration Azure Service Bus](#use-spring-integration-azure-service-bus) enables you to connect Spring Integration [Message Channels](https://docs.spring.io/spring-integration/reference/channel.html) with Service Bus.
 
 - [Spring Cloud Stream Binder for Service Bus](#use-spring-cloud-stream-service-bus-binder) enables you to use Service Bus as a messaging middleware in Spring Cloud Stream applications.
 
@@ -37,7 +37,7 @@ You can use the following modules independently or combine them for different us
 - If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to your Service Bus resources, in your newly created Azure Service Bus namespace, assign the [Azure Service Bus Data Sender](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-sender) and [Azure Service Bus Data Receiver](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-receiver) roles to the Azure Active Directory (Azure AD) account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+> To grant your account access to your Service Bus resources, in your newly created Azure Service Bus namespace, assign the [Azure Service Bus Data Sender](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-sender) and [Azure Service Bus Data Receiver](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-receiver) roles to the Microsoft Entra account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
@@ -483,13 +483,6 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
 
    > [!Note]
    > If you're using a topic/subscription, change the `spring.cloud.azure.servicebus.entity-type` value to `topic`.
-
-1. Add the `spring.factories` for the autoconfiguration for `@ServiceBusListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
-   ```
 
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver.
 

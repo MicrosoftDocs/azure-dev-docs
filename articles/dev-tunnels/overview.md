@@ -1,5 +1,5 @@
 ---
-title: What is dev tunnels?
+title: What are dev tunnels?
 titleSuffix: Microsoft dev tunnels
 description: Learn about using dev tunnels
 author: curib
@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: overview
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 11/17/2023 
 ---
 
 # What are dev tunnels?
@@ -20,7 +20,7 @@ Dev tunnels allow developers to securely share local web services across the int
 
 ## Benefits
 
-- **Secure by default** - By default dev tunnels you create are only accessible to you using your Microsoft, Microsoft Azure Active Directory or GitHub account.
+- **Secure by default** - By default dev tunnels you create are only accessible to you using your Microsoft, Microsoft Entra ID, or GitHub account.
 - **Persistent URLs** - Keep the same dev tunnel url for as long as you need.
 - **Support for multiple simultaneous ports** - Host multiple ports on a single dev tunnel at the same time.
 - **Global service availability** - The dev tunnels service is available globally. Dev tunnels are automatically created in the closest available region.
@@ -36,7 +36,7 @@ Before using the CLI, it's helpful to understand the following terms that are re
 
 - **Tunnel host** - Accepts client connections to a dev tunnel via the dev tunnel relay service, and forwards those connections to local ports.
 
-- **Tunnel port** - An IP port number (1-65536) that is allowed through a dev tunnel. A dev tunnel only allows connections on ports that have been added. One dev tunnel can support multiple ports, and different ports within a dev tunnel may use different protocols (HTTP, HTTPS, etc.) and may have different access controls.
+- **Tunnel port** - An IP port number (1-65535) that is allowed through a dev tunnel. A dev tunnel only allows connections on ports that have been added. One dev tunnel can support multiple ports, and different ports within a dev tunnel may use different protocols (HTTP, HTTPS, etc.) and may have different access controls.
 
 - **Tunnel connection** - A duplex stream of packets between a dev tunnel client and dev tunnel host, through a dev tunnel port. A dev tunnel connection is most often linked to TCP connections on either side, but UDP-based protocols may also be supported. One tunnel port can support multiple simultaneous connections.
 

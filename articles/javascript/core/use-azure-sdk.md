@@ -12,11 +12,12 @@ To programmatically access your Azure services, use the Azure SDKs for JavaScrip
 
 ## Differences between SDKs and REST APIs
 
-Use the following table to understand when to use which type of access mechanism.
+Use the following information to understand when to use which type of access mechanism.
 
-|Azure SDKs (recommended)|Azure REST APIs|
-|--|--|
-|The [Azure SDKs](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.|[Azure REST APIs](/rest/api/azure/) are the preferred method if you are:<ul><li>Working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.</li><li>Want to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.</li></ul>| 
+* The [Azure SDKs](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
+* [Azure REST APIs](/rest/api/azure/) are the preferred method if you are:
+    * Working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.
+    * Want to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.
 
 ## Azure client and management libraries
 

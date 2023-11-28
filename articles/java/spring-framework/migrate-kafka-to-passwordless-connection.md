@@ -19,18 +19,20 @@ Passwordless connections are supported since Spring Cloud Azure 4.3.0. This arti
 
 ## Compare authentication options
 
-When the application authenticates with Azure Event Hubs for Kafka, it provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Azure Active Directory (Azure AD) authentication and Shared Access Signature (SAS) authentication.
+When the application authenticates with Azure Event Hubs for Kafka, it provides an authorized entity to connect the Event Hubs namespace. Apache Kafka protocols provide multiple Simple Authentication and Security Layer (SASL) mechanisms for authentication. According to the SASL mechanisms, there are two authentication options that you can use to authorize access to your secure resources: Microsoft Entra authentication and Shared Access Signature (SAS) authentication.
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Microsoft Azure AD authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Azure AD. With Azure AD authentication, you can manage service principal identities and other Microsoft services in a central location, which simplifies permission management.
+### Microsoft Entra authentication
 
-Using Azure AD for authentication provides the following benefits:
+Microsoft Entra authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage service principal identities and other Microsoft services in a central location, which simplifies permission management.
+
+Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure services in a uniform way.
 - Management of password policies and password rotation in a single place.
-- Multiple forms of authentication supported by Azure AD, which can eliminate the need to store passwords.
-- Customers can manage Event Hubs permissions using external (Azure AD) groups.
+- Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
+- Customers can manage Event Hubs permissions using external (Microsoft Entra ID) groups.
 - Support for token-based authentication for applications connecting to Azure Event Hubs for Kafka.
 
 ### SAS authentication
@@ -63,7 +65,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 ### 1) Grant permission for Azure Event Hubs
 
-If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
+If you want to run this sample locally with Microsoft Entra authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -81,7 +83,7 @@ If you want to run this sample locally with Azure AD authentication, be sure you
 
 1. Under **Assign access to**, select **User, group, or service principal**, and then choose **Select members**.
 
-1. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+1. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
 
 1. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
@@ -134,11 +136,11 @@ To authenticate using the Azure CLI, use the following steps:
 
 ---
 
-For more information about granting access roles, see [Authorize access to Event Hubs resources using Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory).
+For more information about granting access roles, see [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
 
 ### 2) Sign in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Event Hubs. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your Event Hubs. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [sign-in](includes/passwordless-sign-in.md)]
 
@@ -614,4 +616,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity)
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

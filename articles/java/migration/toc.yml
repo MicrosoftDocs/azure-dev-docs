@@ -4,8 +4,8 @@ items:
   items:
     - name: Overview
       href: migration-overview.md
-    - name: Cloud Suitability Analyzer
-      href: cloud-suitability-analyzer.md
+    - name: Azure Migrate application and code assessment
+      href: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Spring to Azure
       expanded: true
       items:
@@ -13,12 +13,6 @@ items:
           href: migrate-spring-boot-to-azure-spring-apps.md
         - name: Spring Cloud to Azure Spring Apps
           href: migrate-spring-cloud-to-azure-spring-apps.md
-        - name: Spring Boot to Azure App Service
-          href: migrate-spring-boot-to-app-service.md
-        - name: Spring Boot to Azure Container Apps
-          href: migrate-spring-boot-to-azure-container-apps.md
-        - name: Spring Boot to AKS
-          href: migrate-spring-boot-to-azure-kubernetes-service.md
     - name: Tomcat to Azure
       expanded: true
       items:
@@ -31,7 +25,7 @@ items:
         - name: Tomcat to containers on AKS
           href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
         - name: "Tutorial: Containerized Tomcat to AKS"
-          href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/migration/breadcrumb/toc.json
+          href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: WebLogic Server to Azure
       expanded: true
       items:
@@ -43,7 +37,7 @@ items:
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
         - name: "Tutorial: WebLogic to Azure VMs manual guidance"
           href: migrate-weblogic-to-azure-vm-manually.md
-        - name: "Tutorial: WebLogic to AKS within custom VNET"
+        - name: "Tutorial: WebLogic to AKS within custom virtual network"
           href: migrate-weblogic-to-aks-within-an-existing-vnet.md
         - name: "Tutorial: WebLogic Server with App Gateway"
           href: migrate-weblogic-with-app-gateway.md

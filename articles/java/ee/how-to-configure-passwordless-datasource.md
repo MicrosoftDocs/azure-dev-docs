@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: how-to
 ms.date: 01/12/2023
 keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, passwordless-java, devx-track-azurecli, devx-track-extended-java, has-azure-ad-ps-ref
 ---
 
 # Configure passwordless database connections for Java apps on Oracle WebLogic Servers
@@ -17,7 +17,7 @@ In this guide, you accomplish the following tasks:
 
 > [!div class="checklist"]
 > - Provision database resources using Azure CLI.
-> - Enable the Azure Active Directory (Azure AD) administrator in the database.
+> - Enable the Microsoft Entra administrator in the database.
 > - Provision a user-assigned managed identity and create a database user for it.
 > - Configure a passwordless database connection in Oracle WebLogic offers with the Azure portal.
 > - Validate the database connection.
@@ -165,15 +165,17 @@ az sql db create \
 
 ---
 
-## Configure an Azure AD administrator to your database
+<a name='configure-an-azure-ad-administrator-to-your-database'></a>
 
-Now that you've created the database, you need to make it ready to support passwordless connections. A passwordless connection requires a combination of managed identities for Azure resources and Azure AD authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+## Configure a Microsoft Entra administrator to your database
+
+Now that you've created the database, you need to make it ready to support passwordless connections. A passwordless connection requires a combination of managed identities for Azure resources and Microsoft Entra authentication. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
-For information on how MySQL Flexible Server interacts with managed identities, see [Use Azure Active Directory for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
+For information on how MySQL Flexible Server interacts with managed identities, see [Use Microsoft Entra ID for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
-The following example configures the current Azure CLI user as an Azure AD administrator account. To enable Azure authentication, it's necessary to assign an identity to MySQL Flexible Server.
+The following example configures the current Azure CLI user as a Microsoft Entra administrator account. To enable Azure authentication, it's necessary to assign an identity to MySQL Flexible Server.
 
 First, create a managed identity with [az identity create](/cli/azure/identity#az-identity-create) and assign the identity to MySQL server with [az mysql flexible-server identity assign](/cli/azure/mysql/flexible-server/identity#az-mysql-flexible-server-identity-assign).
 
@@ -192,7 +194,7 @@ az mysql flexible-server identity assign \
     --identity $MYSQL_UMI_NAME
 ```
 
-Then, set the current Azure CLI user as the Azure AD administrator account with [az mysql flexible-server ad-admin create](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
+Then, set the current Azure CLI user as the Microsoft Entra administrator account with [az mysql flexible-server ad-admin create](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
 
 ```azurecli-interactive
 export CURRENT_USER=$(az account show --query user.name --output tsv)
@@ -208,7 +210,7 @@ az mysql flexible-server ad-admin create \
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
-For information on how PostgreSQL Flexible server interacts with managed identities, see [Use Azure AD for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). The next few commands use PowerShell. If you don't already have the `Az` and `Azure AD` modules installed, install them now.
+For information on how PostgreSQL Flexible server interacts with managed identities, see [Use Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). The next few commands use PowerShell. If you don't already have the `Az` and `Azure AD` modules installed, install them now.
 
 To install the `Az` module, follow the steps at [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
@@ -234,7 +236,7 @@ Account                       SubscriptionName       TenantId                   
 passwordless-user@contoso.com Contoso subscription   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX Your Cloud
 ```
 
-Use the following command to grant `Azure Database for PostgreSQL - Flexible Server Service Principal` read access to your tenant, to request Graph API tokens for Azure AD validation tasks. This operation uses PowerShell commands. Input the tenant ID that you obtained from the previous command. For more information, see [Use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
+Use the following command to grant `Azure Database for PostgreSQL - Flexible Server Service Principal` read access to your tenant, to request Graph API tokens for Microsoft Entra validation tasks. This operation uses PowerShell commands. Input the tenant ID that you obtained from the previous command. For more information, see [Use Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
 
 ```powershell
 Connect-AzureAD -TenantId <your-tenant-ID>
@@ -271,28 +273,28 @@ New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 Use the following steps to continue the configuration in the Azure portal.
 
 1. Sign in to the Azure portal from your browser. Search for `postgresql20221223` and then select it.
-1. In the **Security** section, select **Authentication**, then select **PostgreSQL and Azure Active Directory authentication**.
+1. In the **Security** section, select **Authentication**, then select **PostgreSQL and Microsoft Entra authentication**.
 1. Select **Save**, then **Continue**. The deployment takes several minutes to finish. Wait for the deployment to complete before continuing.
 1. Go back to resource `postgresql20221223`, and then in the **Security** section, select **Authentication** again.
-1. You find **Azure Active Directory Administrators (Azure AD Admins)** shown in the page. Select **Add Azure AD Admins**, select the account you're currently using in the Azure portal, then select **Select**.
-1. Select **Save**. It takes several seconds to create the Azure AD Admin, as shown in the following screenshot.
+1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
+1. Select **Save**. It takes several seconds to create the Microsoft Entra Admin, as shown in the following screenshot.
 
 :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of the Azure portal showing the Configure authentication on PostgreSQL Flexible Server page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
-For information on how Azure SQL Server interacts with managed identities, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
+For information on how Azure SQL Server interacts with managed identities, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
 
-The following example configures an Azure AD administrator account to Azure SQL server from the portal.
+The following example configures a Microsoft Entra administrator account to Azure SQL server from the portal.
 
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance `myazuresql20130213`.
-1. Select **Settings**, then select **Azure Active Directory**. On the **Azure Active Directory** page, select **Set admin**.
+1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
 
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png" alt-text="Screenshot of the Azure portal showing the SQL server page and the Azure Active Directory settings with the Set admin option highlighted." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png":::
+   :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png" alt-text="Screenshot of the Azure portal showing the SQL server page and the Microsoft Entra settings with the Set admin option highlighted." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png":::
 
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
-1. At the top of the **Azure Active Directory** page, select **Save**. For Azure AD users and groups, the Object ID is displayed next to the admin name.
-1. The process of changing the administrator may take several minutes. Then, the new administrator appears in the **Azure Active Directory** box.
+1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the Object ID is displayed next to the admin name.
+1. The process of changing the administrator may take several minutes. Then, the new administrator appears in the **Microsoft Entra ID** box.
 
 ---
 
@@ -321,7 +323,7 @@ export CLIENT_ID=$(az identity show \
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
-Now, connect as the Azure AD administrator user to your MySQL database, and create a MySQL user for your managed identity.
+Now, connect as the Microsoft Entra administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
 First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address.
 
@@ -409,7 +411,7 @@ echo ${CONNECTION_STRING}
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
-Now, connect as the Azure AD administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
+Now, connect as the Microsoft Entra administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
 
 This example uses Azure Cloud Shell to connect to the database. Use the following steps to create a database user.
 
@@ -424,7 +426,7 @@ This example uses Azure Cloud Shell to connect to the database. Use the followin
 
    You find a message saying `Created role for "myManagedIdentity"`, which means the user is created successfully.
 
-1. List all the Azure AD users by using the following command:
+1. List all the Microsoft Entra users by using the following command:
 
    ```bash
    select * from pgaadauth_list_principals(false);
@@ -479,7 +481,7 @@ This example uses Azure Cloud Shell to connect to the database. Use the followin
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
-Now, connect as the Azure AD administrator user to your Azure SQL database from the Azure portal, and create a user for your managed identity.
+Now, connect as the Microsoft Entra administrator user to your Azure SQL database from the Azure portal, and create a user for your managed identity.
 
 First, create a firewall rule to access the Azure SQL server from portal, as shown in the following steps.
 

@@ -1,6 +1,13 @@
 {
     "redirections": [
-
+      {
+        "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
+        "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
+      },
+      {
+        "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
+        "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-get-started"
+      },
       { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md",
         "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
       },
@@ -154,8 +161,41 @@
         "redirect_url": "/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal" 
       },
       { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
       },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/introduction.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/local-development.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },      
+      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-hello-world.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-crud-mutation.md",
+        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+      },    
       {
         "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
         "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
@@ -1118,6 +1158,46 @@
       {
         "source_path":"articles/terraform/create-vm-cluster-module.md",
         "redirect_url": "/azure/virtual-machines/windows/quick-cluster-create-terraform"
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-01-overview.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-02-get-data.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-03-process-data.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-overview.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-provisioning.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/cloud-development-flow.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/python/configure-local-development-environment.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      {
+        "source_path":"articles/terraform/create-attestation-provider.md",
+        "redirect_url": "/azure/attestation/quickstart-terraform"
+      },
+      {
+        "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
+        "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
+      },
+      {
+        "source_path":"articles/terraform/deploy-application-gateway-v2.md",
+        "redirect_url": "/azure/application-gateway/quick-create-terraform"
+      },
+      {
+        "source_path":"articles/python/quickstarts-cognitive-services.md",
+        "redirect_url": "/azure/python/quickstarts-ai-services"        
       }
     ]
   }

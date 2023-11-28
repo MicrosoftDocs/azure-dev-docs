@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 05/29/2022
+  ms.date: 09/27/2023
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -91,16 +91,20 @@ landingContent:
             url: best-practices-end-to-end-testing.md
 
   # Card
-  - title: Manage AKS
+  - title: Work with Containers (AKS, Application Gateway, ...)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a cluster and deploy a web app
+          - text: Create an AKS cluster
             url: /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create an ACI instance with a public IP address
+            url: /azure/container-instances/container-instances-quickstart-terraform
+          - text: Deploy Azure Application Gateway v2
+            url: /azure/application-gateway/quick-create-terraform
       - linkListType: how-to-guide
         links:
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+          - text: Create an Application Gateway ingress controller in AKS
+            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
 
   # Card
   - title: Manage infrastructure
@@ -123,32 +127,16 @@ landingContent:
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
 
   # Card
-  - title: Manage networks
+  - title: Networking
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: 1. Create hub and spoke topology
-            url: hub-spoke-introduction.md
-          - text: 2. Create on-premises virtual network
-            url: hub-spoke-on-prem.md
-          - text: 3. Create hub virtual network
-            url: hub-spoke-hub-network.md
-          - text: 4. Create hub virtual network appliance
-            url: hub-spoke-hub-nva.md
-          - text: 5. Create spoke network
-            url: hub-spoke-spoke-network.md
-          - text: 6. Validate network topology connectivity 
-            url: hub-spoke-validation.md
-
-  # Card
-  - title: Manage Application Gateway
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy Azure Application Gateway v2
-            url: deploy-application-gateway-v2.md
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+          - text: Deploy with IP Groups - Terraform
+            url: /azure/firewall/quick-create-ipgroup-terraform
+          - text: Deploy with multiple addresses - Terraform
+            url: /azure/firewall/quick-create-multiple-ip-terraform
+          - text: Deploy with Availability Zones - Terraform
+            url: /azure/firewall/deploy-terraform
 
   # Card
   - title: Manage databases

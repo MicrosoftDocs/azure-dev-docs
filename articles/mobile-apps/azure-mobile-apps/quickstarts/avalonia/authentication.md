@@ -4,26 +4,28 @@ description: Add authentication to your Avalonia app using Azure Mobile Apps wit
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/22/2022
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 
 # Add authentication to your Avalonia app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
-[!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
+[!INCLUDE [Register with Microsoft Entra ID for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Avalonia`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Avalonia` project:
 
@@ -97,7 +99,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 You should be able to press **F5** to run the app.  When the app runs, a browser is opened to ask you for authentication.  The first time the app runs, you're asked to consent to the access:
 
-![Screenshot of the AAD consent request.](./media/authentication-consent.png)
+![Screenshot of the Microsoft Entra consent request.](./media/authentication-consent.png)
 
 Press **Yes** to continue to your app.  The app continues as before.
 

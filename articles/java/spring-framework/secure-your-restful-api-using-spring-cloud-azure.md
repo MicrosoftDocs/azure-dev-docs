@@ -1,6 +1,6 @@
 ---
 title: Secure your REST API using Spring Cloud Azure
-description: Shows you how to secure REST API by Azure AD.
+description: Shows you how to secure REST API by Microsoft Entra ID.
 ms.date: 04/06/2023
 ms.service: active-directory
 ms.topic: article
@@ -9,7 +9,7 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 # Secure your REST API using Spring Cloud Azure
 
-This tutorial shows you how to enable REST APIs protection with [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) in a Spring Boot application.
+This tutorial shows you how to enable REST APIs protection with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) in a Spring Boot application.
 
 This article uses a survey system as an example. The survey system provides the following REST APIs:
 
@@ -29,8 +29,8 @@ In this article, you protect these APIs by applying role-based access control (R
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
-- A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **OAuth2 Resource Server**, and **Azure Active Directory** dependencies, and then select Java version 8 or higher.
+- A Microsoft Entra instance. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+- A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **OAuth2 Resource Server**, and **Microsoft Entra ID** dependencies, and then select Java version 8 or higher.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
@@ -43,7 +43,7 @@ Use the following steps to register your web API in the Azure portal.
 
 1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/secure-your-restful-api-using-spring-cloud-azure/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
-1. Find and select **Azure Active Directory**.
+1. Find and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -77,7 +77,9 @@ Use the following steps to register your web API in the Azure portal.
    - For **State**, keep **Enabled**.
    - Select **Add scope**.
 
-## Enable the Spring Cloud Azure Starter Azure Active Directory
+<a name='enable-the-spring-cloud-azure-starter-azure-active-directory'></a>
+
+## Enable the Spring Cloud Azure Starter Microsoft Entra ID
 
 Next, enable the REST API protection with Spring Cloud Azure.
 
@@ -93,7 +95,7 @@ To install the Spring Cloud Azure Starter Azure Active Directory module, add the
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.9.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -102,10 +104,10 @@ To install the Spring Cloud Azure Starter Azure Active Directory module, add the
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
-- The Spring Cloud Azure Starter Azure AD artifact:
+- The Spring Cloud Azure Starter Microsoft Entra artifact:
 
   ```xml
   <dependency>
@@ -195,4 +197,4 @@ After you have the Spring Boot application running locally, you can move it to p
 
 > [!div class="nextstepaction"]
 > [Azure for Spring developers](../spring/index.yml)
-> [Spring Cloud Azure Active Directory Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory)
+> [Spring Cloud Microsoft Entra ID Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory)

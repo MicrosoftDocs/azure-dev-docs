@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Integration
 
-**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 Spring Integration Extension for Azure provides Spring Integration adapters for the various services provided by the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/). We provide Spring Integration support for these Azure services: Event Hubs, Service Bus, Storage Queue. The following is a list of supported adapters:
 
@@ -71,7 +71,7 @@ This starter provides the following 3 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Event Hubs.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-eventhubs:
 
@@ -388,7 +388,7 @@ This starter provides the following 2 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Service Bus.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-servicebus:
 
@@ -687,7 +687,7 @@ This starter provides the following configuration options:
 This section contains the configuration options used for connecting to Azure Storage Queue.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-storage-queue:
 

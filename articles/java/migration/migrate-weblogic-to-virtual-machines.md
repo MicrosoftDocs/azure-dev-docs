@@ -125,7 +125,7 @@ After you've provisioned the offer, you can examine the domain configuration and
 
 ### Connect the databases
 
-After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-n-node-configured-cluster.html). These instructions help you account for any database secrets and access strings involved.
+After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534). These instructions help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 
@@ -172,6 +172,6 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 * Use Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
-* Integrate WebLogic Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
+* Integrate WebLogic Java EE authentication and authorization with Microsoft Entra ID. For more information, see [Integrating Microsoft Entra getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 
 * Use Azure Key Vault to store any information that functions as a "secret". For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).

@@ -2,7 +2,7 @@
 title: Getting started with Azure Databases 
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 09/12/2023
 ms.custom: devx-track-js, devx-graphql, devx-track-azurecli
 ---
 
@@ -24,8 +24,9 @@ Microsoft provides managed services for the following databases:
 |[MariaDB/MySQL](#mariadb-and-mysql-on-azure)|[Azure Database for MariaDB](/azure/mariadb/)|
 |[PostgreSQL](#postgresql-on-azure)|[Azure Database for PostgreSQL](/azure/postgresql/)|
 |[Redis](#redis-on-azure)|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|
-|[No-SQL]()|[Azure Cosmos DB](/azure/cosmos-db/)|
-|Tables|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[No-SQL](#nosql-on-azure)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[SQL](#sql-on-azure)|[Azure SQL DB](/azure/azure-sql/database/)|
+|Tables|[Azure Cosmos DB](/azure/cosmos-db/)<br>[Azure SQL DB](/azure/azure-sql/database/)|
 
 **Select database type**:
 
@@ -95,7 +96,6 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 
 #### Static Web apps with GraphQL
 
-* [Next.js: Trivia game with Cosmos DB](how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md)
 * [React.js: Trivia game with Cosmos DB](how-to/with-web-app/graphql/static-web-app-graphql/introduction.md)
 
 #### Azure Functions with GraphQL
@@ -744,3 +744,114 @@ Use the following procedure to install the `ioredis` package and initialize your
 * [Azure Cache for Redis quickstart](/azure/azure-cache-for-redis/cache-nodejs-get-started)
 * [Azure Architecture Center - Best practices with Caching](/azure/architecture/best-practices/caching)
 * [Best practices with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-best-practices#client-library-specific-guidance)
+
+
+## SQL on Azure
+
+To create, move, or use a SQL database to Azure, you need a resource from the family of **Azure SQL** [services](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). Learn how to create the Azure SQL Database resource and use your database.
+
+### Create an Azure SQL Database resource 
+
+Create a resource with the sample data included:
+
+* [Azure CLI](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
+* [Azure CLI (sql up)](/azure/azure-sql/database/single-database-create-quickstart)
+* [Azure portal](/azure/azure-sql/database/single-database-create-quickstart#create-a-single-database)
+
+### View and use your Azure SQL server on Azure
+While developing your Azure SQL database with JavaScript, use one of the following tools:
+
+* [Azure portal query editor](/azure/azure-sql/database/connect-query-portal)
+* [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/connect-query-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/)
+
+### Use SDK packages to develop your Azure SQL database on Azure
+
+The Azure SQL database uses npm packages already available, such as:
+
+* [mssql](https://www.npmjs.com/package/mssql)
+
+### Use mssql SDK to connect to Azure SQL on Azure
+
+To connect and use your SQL database on Azure with JavaScript, use the following procedure.
+
+1. Make sure Node.js and npm are installed.
+1. Create a Node.js project in a new folder:
+
+    ```bash
+    mkdir DbDemo && \
+        cd DbDemo && \
+        npm init -y && \
+        npm install mssql && \
+        touch index.js && \
+        code .
+    ```
+
+    The command:
+    * Creates a project folder named `DbDemo`
+    * Changes the terminal into that folder
+    * Initializes the project, which creates the `package.json` file
+    * Installs the **mssql** npm package - to use async/await
+    * Creates the `index.js` script file
+    * Opens the project in Visual Studio Code
+
+1. Copy the following JavaScript code into `index.js`:
+
+
+```javascript
+const sql = require('mssql')
+
+const query = async (connString) => {
+
+    // connect 
+    const pool = await sql.connect(connString);
+
+   // show tables in database
+   const tables = await pool.query('SELECT table_name FROM information_schema.tables where table_type=\'BASE TABLE\';');
+   console.log(tables.recordset);
+
+   // show users configured for the server
+   const users = await pool.query('SELECT USER_NAME() AS user_name');
+   console.log(users.recordset);
+    
+    // close connection
+    pool.close();
+}
+
+const SERVER_ADDRESS='YOUR_SERVER.database.windows.net'
+const DATABASE_NAME='YOUR_DB'
+const USER_ID='YOUR_USER_ID'
+const USER_PASSWORD='YOUR_USER_PASSWORD'
+
+var connString = `Server=${SERVER_ADDRESS},1433;Database=${DATABASE_NAME};User Id=${USER_ID};Password=${USER_PASSWORD};Encrypt=true`
+
+query(connString)
+    .catch((err) => console.log(err));
+```
+
+
+1. Replace the following values with your values:
+
+    * `YOUR_SERVER`
+    * `YOUR_DB`
+    * `YOUR_USER_ID`
+    * `YOUR_USER_PASSWORD`
+
+1. Run the script to connect to the SQL database and see the results.
+
+    ```bash
+    node index.js
+    ```
+
+1. View the results. The following data is queried from the sample database provided by Azure SQL.
+
+    ```json
+    [ { table_name: 'Persons' } ]
+    [ { user_name: 'dbo' } ]
+    ```
+
+### Azure SQL resources
+
+* [Azure SQL Database documentation](/azure/azure-sql/database/)
+* [Connect to and query Azure SQL Database using Node.js and mssql npm package](/azure/azure-sql/database/azure-sql-javascript-mssql-quickstart)
+* [JavaScript and Node.js Samples](/samples/browse/?expanded=azure&products=azure-sql-database&languages=javascript%2Cnodejs)

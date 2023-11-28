@@ -80,7 +80,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
 ## Create Azure configuration files
 
-Create a *src/main/azure* folder and add the following Azure Functions configuration files to it.
+Create a *src/main/resources* folder and add the following Azure Functions configuration files to it.
 
 *host.json*:
 
@@ -442,7 +442,7 @@ Congratulations, you have a Spring Cloud Function running on Azure Functions! Fo
 
 - [Spring cloud function blog](https://spring.io/blog/2023/02/24/spring-cloud-function-for-azure-function)
 - [Spring cloud function reference documents](https://docs.spring.io/spring-cloud-function/docs/4.0.2-SNAPSHOT/reference/html/azure.html#_microsoft_azure)
-- [Spring cloud function samples](https://github.com/spring-cloud/spring-cloud-function/tree/main/spring-cloud-function-samples/function-azure-di-samples)
+- [Spring cloud function samples](https://github.com/spring-cloud/spring-cloud-function/tree/main/spring-cloud-function-samples)
 
 ## Next steps
 

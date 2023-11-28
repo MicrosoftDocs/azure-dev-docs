@@ -5,6 +5,10 @@
             "source_path": "eclipse-microprofile/cicd-microprofile-vsts.md",
             "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
         },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-to-container-instances.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
         { 
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
             "redirect_url": "/azure/aks/howto-deploy-java-wls-app"
@@ -115,7 +119,7 @@
         },
         {
             "source_path": "migrate-java-se-to-java-se-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service"
+            "redirect_url": "/azure/developer/java/migration/index"
         },
         {
             "source_path": "migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md",
@@ -151,7 +155,19 @@
         },
         {
             "source_path": "migration/migrate-java-se-to-java-se-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service"
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-app-service.md",
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-boot-to-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/index"
         },
         {
             "source_path": "migration/migrate-spring-boot-to-azure-spring-cloud.md",
@@ -164,6 +180,10 @@
         {
             "source_path": "migration/migrate-tomcat-to-azure-spring-cloud.md",
             "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"
+        },
+        {
+            "source_path": "migration/appcat.md",
+            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json",
         },
         {
             "source_path": "migration/migrate-weblogic-with-aad-ldap.md",

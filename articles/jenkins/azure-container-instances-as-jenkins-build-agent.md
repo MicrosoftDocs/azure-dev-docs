@@ -59,7 +59,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Enter a value for **Remote root directory**. For example, `/home/jenkins/work`
 
-1. Add a <abbr title="Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.">**Label**</abbr> with the value of `linux`.
+1. Add a  **Label** (Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.) with the value of `linux`.
 
 1. Set **Launch method** to **Launch agent by connecting to the master**.
 
@@ -81,7 +81,7 @@ For more information on Azure Container Instances, see [About Azure Container In
       az group create --name my-resourcegroup --location westus
       ```
 
-1. Use [az container create](/cli/azure/container#az-container-create) to create and Azure Container Instance. Replace the placeholders with the values obtained when you created the work agent.
+1. Use [az container create](/cli/azure/container#az-container-create) to create an Azure Container Instance. Replace the placeholders with the values obtained when you created the work agent.
 
     ```azurecli
     az container create \

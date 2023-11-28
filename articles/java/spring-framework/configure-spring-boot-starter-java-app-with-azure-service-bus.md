@@ -23,9 +23,9 @@ The following video describes how to integrate Spring JMS applications with Azur
 
 > [!VIDEO https://www.youtube.com/embed/9O3CALyoZHE?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
-In this tutorial, we include two authentication methods: [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+In this tutorial, we include two authentication methods: [Microsoft Entra authentication](/azure/service-bus-messaging/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/service-bus-messaging/service-bus-sas). The **Passwordless** tab shows the Microsoft Entra authentication and the **Connection string** tab shows the SAS authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Service Bus JMS using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Service Bus JMS using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 SAS authentication uses the connection string of your Azure Service Bus namespace for the delegated access to Service Bus JMS. If you choose to use Shared Access Signatures as credentials, you need to manage the connection string by yourself.
 
@@ -58,7 +58,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.9.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -67,7 +67,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Service Bus JMS Starter artifact:

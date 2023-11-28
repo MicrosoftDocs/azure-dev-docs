@@ -4,7 +4,7 @@ description: Get up to speed with Avalonia and Azure Mobile Apps with our tutori
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/22/2022
+ms.date: 09/07/2023
 ms.author: adhal
 ---
 
@@ -26,6 +26,7 @@ To complete this tutorial, you need:
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
+* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
 Although Avalonia supports building on Mac or Windows, this tutorial assumes you are using Windows and Visual Studio 2022.  We recommend that you walk through the [Avalonia tutorial](https://docs.avaloniaui.net/docs/next/get-started/test-drive/introduction) to become acquainted with the development process for Avalonia.
 

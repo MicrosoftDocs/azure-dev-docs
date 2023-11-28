@@ -13,11 +13,6 @@ metadata:
   ms.author: diberry
   ms.date: 01/25/2023
   ms.topic: landing-page
-  ms.collection: collection
-  ms.technology: azure
-  ms.service: azure
-  ms.devlang: javascript
-  ms.prod: azure-nodejs
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
 landingContent:
         
@@ -69,9 +64,7 @@ landingContent:
           - text: "Static web app: Analyze image with Computer Vision"
             url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
-            url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
-          - text: "Static web app: Login/Logoff button"
-            url: /azure/active-directory/develop/tutorial-v2-react
+            url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Express.js: Add Application Insights logging"
             url: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights
 
@@ -83,8 +76,6 @@ landingContent:
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Databases on Azure
             url: database-developer-guide.md
-          - text: GraphQL on Azure
-            url: how-to/with-web-app/graphql/azure-function-hello-world.md?tabs=visualstudiocode
           - text: Full stack serverless with Mongoose
             url: /azure/static-web-apps/add-mongoose
           - text: Serverless API + DB
@@ -116,7 +107,7 @@ landingContent:
         links:
           - text: Use the Azure SDKs for JS/TS
             url: core/use-azure-sdk.md
-          - text: SDK lastest version
+          - text: SDK latest version
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: SDK Reference Documentation
             url: /javascript/api/overview/azure/
@@ -132,6 +123,16 @@ landingContent:
             url: /azure/storage/blobs/storage-blob-javascript-get-started
           - text: Azure Database Dev Guide
             url: database-developer-guide.md
+  - title: End to end development
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Contoso Solution
+            url: end-to-end/contoso-real-estate-get-started.md
+          - text: Developer tools
+            url: end-to-end/contoso-real-estate-developer-tools.md
+          - text: Sample
+            url: https://github.com/Azure-Samples/contoso-real-estate
   - title: Developer tools
     linkLists:
       - linkListType: get-started

@@ -1,7 +1,7 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 07/23/2023
+ms.date: 11/02/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -37,9 +37,9 @@ IMPROVEMENTS:
 * `azurerm_key_vault_key` - support for `not_before_date` and `expiration_date` ([#5619](https://github.com/hashicorp/terraform-provider-azurerm/issues/5619))
 * `azurerm_lb` - fixing a crash when the HTTP response is dropped ([#5680](https://github.com/hashicorp/terraform-provider-azurerm/issues/5680))
 * `azurerm_stream_analytics_job` - support for importing jobs created in the portal ([#5522](https://github.com/hashicorp/terraform-provider-azurerm/issues/5522))
-* `azurerm_storage_blob` - support for authenticating using Azure AD ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
-* `azurerm_storage_container` - support for authenticating using Azure AD ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
-* `azurerm_storage_queue` - support for authenticating using Azure AD ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
+* `azurerm_storage_blob` - support for authenticating using Microsoft Entra ID ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
+* `azurerm_storage_container` - support for authenticating using Microsoft Entra ID ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
+* `azurerm_storage_queue` - support for authenticating using Microsoft Entra ID ([#5614](https://github.com/hashicorp/terraform-provider-azurerm/issues/5614))
 
 BUGS:
 
@@ -105,7 +105,7 @@ IMPROVEMENTS:
 * `azurerm_network_watcher_flow_log` - support for the `version` property ([#5419](https://github.com/hashicorp/terraform-provider-azurerm/issues/5419))
 * `azurerm_traffic_manager_profile` - add the `expected_status_code_ranges` ([#5471](https://github.com/hashicorp/terraform-provider-azurerm/issues/5471))
 * `azurerm_traffic_manager_profile` - switch `dns_config` and `monitor_config` to type list and limit to `1` ([#5471](https://github.com/hashicorp/terraform-provider-azurerm/issues/5471))
-* `azurerm_kubernetes_cluster` - support updating AKS AAD RBAC profile without rebuilding cluster ([#5410](https://github.com/hashicorp/terraform-provider-azurerm/issues/5410))
+* `azurerm_kubernetes_cluster` - support updating AKS Microsoft Entra RBAC profile without rebuilding cluster ([#5410](https://github.com/hashicorp/terraform-provider-azurerm/issues/5410))
 
 BUG FIXES:
 
@@ -1274,7 +1274,7 @@ IMPROVEMENTS:
 * authentication: requesting a token using the audience address ([#2381](https://github.com/hashicorp/terraform-provider-azurerm/issues/2381))
 * authentication: switching to request tokens from the Azure CLI ([#2387](https://github.com/hashicorp/terraform-provider-azurerm/issues/2387))
 * sdk: upgrading to version `2018-05-01` of the Policy API ([#2386](https://github.com/hashicorp/terraform-provider-azurerm/issues/2386))
-* Data Source: `azurerm_kubernetes_cluster` - support for Role Based Access Control without Azure AD ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
+* Data Source: `azurerm_kubernetes_cluster` - support for Role Based Access Control without Microsoft Entra ID ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
 * Data Source: `azurerm_kubernetes_cluster` - exposing the `clusterAdmin` credentials ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
 * Data Source: `azurerm_subscriptions` - ability to filtering by prefix/contains on the Display Name ([#2429](https://github.com/hashicorp/terraform-provider-azurerm/issues/2429))
 * `azurerm_app_service` - support for configuring `app_command_line` in the `site_config` block ([#2350](https://github.com/hashicorp/terraform-provider-azurerm/issues/2350))
@@ -1283,7 +1283,7 @@ IMPROVEMENTS:
 * `azurerm_application_insights` - added `Node.JS` application type ([#2407](https://github.com/hashicorp/terraform-provider-azurerm/issues/2407))
 * `azurerm_container_registry` - support for geo-replication via the `georeplication_locations` property ([#2055](https://github.com/hashicorp/terraform-provider-azurerm/issues/2055))
 * `azurerm_key_vault` - exposed `backup` and `restore` permissions made `key_permissions` and `secret_permissions` optional ([#2363](https://github.com/hashicorp/terraform-provider-azurerm/issues/2363))
-* `azurerm_kubernetes_cluster` - support for Role Based Access Control without Azure AD ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
+* `azurerm_kubernetes_cluster` - support for Role Based Access Control without Microsoft Entra ID ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
 * `azurerm_kubernetes_cluster` - exposing the `clusterAdmin` credentials ([#2495](https://github.com/hashicorp/terraform-provider-azurerm/issues/2495))
 * `azurerm_mssql_elasticpool` - deprecated the `elastic_pool_properties` property and moved `max_size_bytes` and `zone_redundant` to the top level ([#2378](https://github.com/hashicorp/terraform-provider-azurerm/issues/2378))
 * `azurerm_mysql_server` - support for new skus `GP_Gen5_64` and `MO_Gen5_32` ([#2446](https://github.com/hashicorp/terraform-provider-azurerm/issues/2446))

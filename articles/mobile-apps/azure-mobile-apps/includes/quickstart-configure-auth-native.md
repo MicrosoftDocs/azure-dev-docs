@@ -13,14 +13,14 @@ To configure your backend for authentication, you must:
 * Create an app registration.
 * Configure [Azure App Service Authentication and Authorization](/azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings).
 
-During this tutorial, we'll configure your app to use Microsoft authentication, which uses configuration within Azure Active Directory.  An Azure Active Directory tenant has been configured automatically in your Azure subscription.
+During this tutorial, we'll configure your app to use Microsoft authentication, which uses configuration within Microsoft Entra ID.  A Microsoft Entra tenant has been configured automatically in your Azure subscription.
 
 You will need the URL of the Azure Mobile Apps service. The backend URL was provided when you created your project.
 
 Configuring Azure Mobile Apps with native client authentication requires three steps:
 
-1. Create an app registration in Azure AD for your App Service app.
-2. Enable Azure Active Directory in your App Service app.
+1. Create an app registration in Microsoft Entra ID for your App Service app.
+2. Enable Microsoft Entra ID in your App Service app.
 3. Configure a native client application.
 
 This process will create an **Application (client) ID** to identify your desktop app, and a **Scope** to identify the cloud backend. These settings are stored in your app code.
@@ -28,7 +28,7 @@ This process will create an **Application (client) ID** to identify your desktop
 ### Create an app registration for your App Service
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Azure Active Directory** > **App registrations** > **New registration**.
+1. Select **Microsoft Entra ID** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.  You may want to enter `appservice-zumoqs` to distinguish it from the client app registration you will complete later.
 1. In **Redirect URI**, select **Web** and type `<backend-url>/.auth/login/aad/callback`. Replace `<backend-url>` with the URL for your Azure Mobile Apps service. For example, `https://zumo-abcd1234.azurewebsites.net/.auth/login/aad/callback`.  
 1. Select **Register**.
@@ -41,7 +41,9 @@ This process will create an **Application (client) ID** to identify your desktop
   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page.  For example, "Access the Todo Items".
   1. Select **Add scope**.
 
-### Enable Azure Active Directory in your App Service
+<a name='enable-azure-active-directory-in-your-app-service'></a>
+
+### Enable Microsoft Entra ID in your App Service
 
 1. In the [Azure portal](https://portal.azure.com), select [**All Resources**](https://portal.azure.com/#blade/HubsExtension/BrowseAll), then your App Service.
 1. Select **Settings** > **Authentication**.
@@ -54,7 +56,7 @@ This process will create an **Application (client) ID** to identify your desktop
 1. For **Unauthenticated request**, select **HTTP 401 Unauthorized**.
 1. Press **Add**.
 
-You are now ready to use Azure Active Directory for authentication in your app.
+You are now ready to use Microsoft Entra ID for authentication in your app.
 
 ### Configure a native client application
 
@@ -62,7 +64,7 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 
 1. In the [Azure portal](https://portal.azure.com), select **Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.  You may want to use the name `native-zumoqs` to distinguish this one from the one used by the App Service.
-1. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. In **Redirect URI**, select **Public client (mobile & desktop)** and type the URL `<backend-url>/.auth/login/aad/callback`. Replace `<backend-url>` with the URL for your Azure Mobile Apps service. For example, `https://zumo-abcd1234.azurewebsites.net/.auth/login/aad/callback`.
 1. Select **Register**.
 1. Copy the value of the **Application (client) ID**. The Application ID is stored in your application code.
@@ -80,4 +82,4 @@ At this point, you have two pieces of information you need to transfer to the cl
 * The **Scope** (found under API permissions in the native client application registration - click on the user_impersonation permission tp see the full form).  A scope will look similar to `api://<client-id>/user_impersonation`. The client ID will not be the same as the client ID of the native client application.
 
 > **DID YOU KNOW?**
-> You can also authenticate users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  For more details, seethe [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).
+> You can also authenticate users with organizational accounts in Microsoft Entra ID, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  For more details, seethe [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).

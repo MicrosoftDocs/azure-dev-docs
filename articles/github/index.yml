@@ -46,7 +46,7 @@ landingContent:
             url: connect-from-azure.md  
 
   # Card (optional)
-  - title: Azure Developer CLI (azd) Preview
+  - title: Azure Developer CLI (azd)
     linkLists:
       - linkListType: deploy
         links:

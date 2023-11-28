@@ -26,13 +26,13 @@ items:
           href: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
       - name: Authentication and authorization
         items:
-        - name: Add sign-in with Azure AD account to a Spring web app
+        - name: Add sign-in with Microsoft Entra account to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
         - name: Secure your REST API using Spring Cloud Azure
           href: secure-your-restful-api-using-spring-cloud-azure.md
         - name: Add sign-in with Azure AD B2C to a Spring web app
           href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
-        - name: Azure AD dev guide
+        - name: Microsoft Entra dev guide
           href: spring-boot-starter-for-azure-active-directory-developer-guide.md
       - name: Passwordless connections
         items:
@@ -62,6 +62,10 @@ items:
           href: using-storage-queue-in-spring-applications.md
         - name: Use Azure Service Bus in Spring applications
           href: using-service-bus-in-spring-applications.md
+        - name: Use Event Hubs in Spring applications
+          href: using-event-hubs-in-spring-applications.md
+        - name: Use Azure Event Grid in Spring applications
+          href: configure-spring-boot-initializer-java-app-with-event-grid.md
     - name: Database
       items:
       - name: NoSQL- Azure Cosmos DB
@@ -107,15 +111,15 @@ items:
     - name: Configuration Management
       items:
       - name: Externalize configuration properties to Azure App Configuration
-        href: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Use dynamic configuration
-        href: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Add feature flags
-        href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Use feature flags
-        href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Use Key Vault references
-        href: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Serverless
       items:
       - name: Spring Cloud Function in Azure
@@ -136,6 +140,8 @@ items:
       href: resource-handling.md
     - name: Secret management
       href: secret-management.md
+    - name: App configuration support
+      href: app-configuration-support.md
     - name: Spring Data support
       href: spring-data-support.md
     - name: Spring Security support
@@ -145,7 +151,11 @@ items:
     - name: Spring Cloud Stream support
       href: spring-cloud-stream-support.md
     - name: Spring JMS support
-      href: spring-jms-support.md
+      items:
+      - name: Use Azure Service Bus with JMS
+        href: spring-jms-support.md
+      - name: Troubleshooting guide
+        href: spring-jms-troubleshooting-guide.md
     - name: MySQL support
       href: mysql-support.md
     - name: PostgreSQL support
@@ -166,7 +176,7 @@ items:
       items:
       - name: Common properties
         href: ./configuration-properties-global.md
-      - name: Azure AD properties
+      - name: Microsoft Entra properties
         href: ./configuration-properties-azure-active-directory.md
       - name: Azure AD B2C properties
         href: ./configuration-properties-azure-active-directory-b2c.md

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
 
 # Spring Cloud Azure Resource Manager
 
-**This article applies to:** ✔️ Version 4.9.0 ✔️ Version 5.3.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. Spring Cloud Azure Resource Manager can help provision resources or retrieve resource metadata.
 
@@ -26,7 +26,7 @@ Azure Resource Manager (ARM) is the deployment and management service for Azure.
 ## Configuration
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Configurable properties of spring-cloud-azure-resourcemanager:
 
@@ -42,7 +42,7 @@ Configurable properties of spring-cloud-azure-resourcemanager:
 > | **spring.cloud.azure.credential**.password                           | Password to use when performing username/password authentication.                                  |
 > | **spring.cloud.azure.credential**.managed-identity-enabled           | Whether to enable managed identity.                                                                |
 > | **spring.cloud.azure.profile**.cloud-type                            | Name of the Azure cloud to connect to.                                                             |
-> | **spring.cloud.azure.profile**.environment.active-directory-endpoint | The Azure Active Directory endpoint to connect to for authentication.                              |
+> | **spring.cloud.azure.profile**.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to for authentication.                              |
 > | **spring.cloud.azure.profile**.subscription-id                       | Subscription ID to use when connecting to Azure resources.                                         |
 > | **spring.cloud.azure.profile**.tenant-id                             | Tenant ID for Azure resources.                                                                     |
 > | **spring.cloud.azure.azure-service**.namespace                   | The namespace of the Azure service to provision resources with.                                    |
@@ -53,7 +53,7 @@ Configurable properties of spring-cloud-azure-resourcemanager:
 Spring Cloud Azure Resource Manager can work together with specific Spring Cloud Azure starters to retrieve connection information, such as connection strings, to connect to Azure services. It can also work together with `spring-cloud-azure-starter` and third-party libraries to retrieve metadata like username/password, and to complete authentication. For more information, see [Spring Cloud Azure Kafka Support](kafka-support.md) and [Spring Cloud Azure Redis Support](redis-support.md).
 
 For example, to retrieve the connection string of an Azure Service, developers can use a service principal as the credential to authenticate and retrieve the connection string. The configuration is listed the follows. The provided service principal should
-be assigned a role of `Contributor` of the associated namespace at least. See [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the principal has been granted the sufficient permission to access the Azure resource.
+be assigned a role of `Contributor` of the associated namespace at least. See [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the principal has been granted the sufficient permission to access the Azure resource.
 
 ```yaml
 spring:

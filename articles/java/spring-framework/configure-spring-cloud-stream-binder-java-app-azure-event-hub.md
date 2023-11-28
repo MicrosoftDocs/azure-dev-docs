@@ -31,7 +31,7 @@ This tutorial demonstrates how to send and receive messages using Azure Event Hu
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to resources, in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Azure AD account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Azure AD account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory).
+> To grant your account access to resources, in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Microsoft Entra account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
@@ -50,7 +50,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.9.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -59,7 +59,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
   ```
 
    > [!NOTE]
-   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.3.0`. 
+   > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`. 
    > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
@@ -95,16 +95,15 @@ Use the following steps to configure your application to produce and consume mes
    | Field                                                                          | Description                                                                                   |
    |--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
    | `spring.cloud.azure.eventhubs.namespace`                                       | Specify the namespace you obtained in your event hub from the Azure portal.                   |
-   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
-   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`          | Specify the access-key of your storage account.                                               |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`         | Specify the storage account you created in this tutorial.                                     |
-   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
+   | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
    | `spring.cloud.stream.bindings.consume-in-0.destination`                        | Specify the event hub you used in this tutorial.                                              |
    | `spring.cloud.stream.bindings.consume-in-0.group`                              | Specify the Consumer groups in your Event Hubs Instance.                                      |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                        | Specify the same event hub you used in this tutorial.                                         |
    | `spring.cloud.stream.eventhubs.bindings.consume-in-0.consumer.checkpoint.mode` | Specify `MANUAL`.                                                                             |
-   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.        |
+   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
    | `spring.cloud.stream.poller.initial-delay`                                     | Specify initial delay for periodic triggers. The default value is *0*.                        |
+   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.        |
 
 1. Edit the startup class file to show the following content.
 

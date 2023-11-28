@@ -1,3 +1,4 @@
+items:
 - name: Azure SDK for Java documentation
   href: index.yml
   items:
@@ -7,7 +8,7 @@
         - name: Get started with Apache Maven
           href: get-started-maven.md
         - name: Get started with Gradle
-          href: get-started-gradle.md          
+          href: get-started-gradle.md
         - name: Eclipse and IntelliJ integration
           href: get-started-ide.md
         - name: Azure development using Java
@@ -19,33 +20,18 @@
       items:
         - name: Overview
           href: overview.md
-        - name: Common concepts
-          expanded: false
-          items:
-            - name: HTTP clients and pipeline
-              href: http-client-pipeline.md
-            - name: Asynchronous programming
-              href: async-programming.md
-            - name: Pagination and iteration
-              href: pagination.md
-            - name: Long-running operations
-              href: lro.md
-            - name: Proxying
-              href: proxying.md
-            - name: Tracing
-              href: tracing.md
         - name: Identity and authentication
           expanded: false
           items:
             - name: Overview
               href: identity.md
-            - name: Auth in development environments
-              href: identity-dev-env-auth.md
-            - name: Auth in Azure hosted applications
+            - name: Azure-hosted Application Authentication
               href: identity-azure-hosted-auth.md
-            - name: Auth with service principals
+            - name: Development Environment Authentication
+              href: identity-dev-env-auth.md
+            - name: Service Principal Authentication
               href: identity-service-principal-auth.md
-            - name: Auth with user credentials
+            - name: User Credential Authentication
               href: identity-user-auth.md
         - name: Logging
           expanded: false
@@ -58,6 +44,18 @@
               href: logging-logback.md
             - name: Log4J
               href: logging-log4j.md
+        - name: HTTP clients and pipeline
+          href: http-client-pipeline.md
+        - name: Asynchronous programming
+          href: async-programming.md
+        - name: Pagination and iteration
+          href: pagination.md
+        - name: Long-running operations
+          href: lro.md
+        - name: Proxying
+          href: proxying.md
+        - name: Tracing
+          href: tracing.md
     - name: Integrations
       expanded: false
       items:
@@ -72,10 +70,43 @@
     - name: Troubleshooting
       expanded: false
       items:
-        - name: Network issues
-          href: troubleshooting-network.md
+        - name: Overview
+          href: troubleshooting-overview.md
+        - name: Identity and authentication
+          expanded: false
+          items:
+          - name: Overview
+            href: troubleshooting-authentication-overview.md
+          - name: Azure-hosted application authentication
+            href: troubleshooting-authentication-azure-hosted.md
+          - name: Development environment authentication
+            href: troubleshooting-authentication-dev-env.md
+          - name: Service principal authentication
+            href: troubleshooting-authentication-service-principal.md
+          - name: User credential authentication
+            href: troubleshooting-authentication-user-credential.md
+          - name: Multi-tenant authentication
+            href: troubleshooting-authentication-multi-tenant.md
+        - name: Messaging
+          expanded: false
+          items:
+            - name: Event Hubs
+              expanded: false
+              items:
+              - name: Overview
+                href: troubleshooting-messaging-event-hubs-overview.md
+              - name: Event producer
+                href: troubleshooting-messaging-event-hubs-producer.md
+              - name: Event processor
+                href: troubleshooting-messaging-event-hubs-processor.md
+              - name: Performance
+                href: troubleshooting-messaging-event-hubs-performance.md
+            - name: Service Bus
+              href: troubleshooting-messaging-service-bus-overview.md
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md
+        - name: Network issues
+          href: troubleshooting-network.md
     - name: Code samples
       items:
         - name: Virtual machines
