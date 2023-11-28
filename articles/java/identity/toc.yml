@@ -1,0 +1,55 @@
+items:
+- name: Securing Java apps using Azure Active Directory
+  href: index.yml
+  items:
+  - name: Get Started
+    href: secure-java-apps-with-identity-platform.md
+  - name: How-To
+    expanded: true
+    items: 
+    - name: Protect your Java Spring apps with Azure Active Directory
+      expanded: true
+      items:
+      - name: Enable Spring Apps to authenticate users with Azure AD
+        href: enable-spring-apps-authn-azure-ad.md
+      - name: Enable Spring Apps to authenticate users with Azure AD B2C
+        href: enable-spring-apps-authn-azure-ad-b2c.md
+      - name: Enable Spring Apps authorization to call APIs
+        href: enable-spring-apps-authz-call-apis.md
+      - name: Enable Spring Apps to authorize Web APIs
+        href: enable-spring-apps-authz-call-apis.md
+      - name: Enable Spring Apps to authorize users with roles claims
+        href: enable-spring-apps-authz-roles.md      
+      - name: Enable Spring Apps to authorize users with groups claims
+        href: enable-spring-apps-authz-groups.md
+      - name: Enable Spring Apps to authorize users with Azure App Service
+        href: enable-spring-apps-authz-azure-appservice.md       
+    - name: Protect your Java Servlet apps with the MSAL for Java
+      expanded: true
+      items:
+      - name: Enable Servlet Apps to authenticate users with Azure AD
+        href: enable-servlet-apps-authn-azure-ad.md
+      - name: Enable Servlet Apps to authenticate users with Azure AD B2C
+        href: enable-servlet-apps-authn-azure-ad-b2c.md
+      - name: Enable Servlet Apps to call APIs
+        href: enable-servlet-apps-authz-call-apis.md
+      - name: Enable Servlet Apps to authorize users with roles claims
+        href: enable-servlet-apps-authz-roles.md      
+      - name: Enable Servlet Apps to authorize users with groups claims
+        href: enable-servlet-apps-authz-groups.md
+      - name: Enable Servlet Apps to authorize users with Azure App Service
+        href: enable-servlet-apps-authz-azure-appservice.md
+      - name: Protect your Java Device Apps with the MSAL for Java
+    - name: Protect your device apps with the MSAL for Java
+      expanded: true
+      items:
+      - name: Enable Device Apps to call APIs with OAuth2
+        href: enable-device-apps-call-apis-oauth2.md
+      - name: Enable Device Apps to authenticate users with Integrated Windows Authentication
+        href: enable-device-apps-authn-windows-integrated.md
+      - name: Enable Device Console Apps to call APIs
+        href: enable-device-console-apps-call-apis-oauth2.md
+  - name: Release notes
+    href: https://github.com/Azure-Samples/ms-identity-msal-java-samples/releases
+  - name: Overview of the Microsoft Authentication Library (MSAL)
+    href: https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview

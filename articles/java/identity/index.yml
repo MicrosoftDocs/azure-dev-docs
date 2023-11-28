@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Security for Java applications with the Microsoft Identity platform
+summary: Learn how the Microsoft Identity Platform enables Java developers to acquire tokens from Azure Active Directory, allowing applications to authenticate users and access secured web APIs, access Microsoft Graph, other Microsoft APIs, third-party web APIs, or your web API.
+
+metadata:
+  title: Security for Java applications with the Microsoft Identity platform
+  description: Learn how the Microsoft Identity Platform enables Java developers to acquire tokens from Azure Active Directory, allowing applications to authenticate users and access secured web APIs, access Microsoft Graph, other Microsoft APIs, third-party web APIs, or your web API.
+  ms.date: 05/06/2022
+  ms.topic: landing-page
+
+landingContent:
+  - title: Enable security for your Java Spring web app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Java Spring Boot web app with Azure AD
+            url: enable-spring-apps-authn-azure-ad.md
+          - text: Java Spring Boot web app with Azure AD B2C
+            url: enable-spring-apps-authn-azure-ad-b2c.md
+          - text: Java Spring Boot web app - call APIs
+            url: enable-spring-apps-authz-call-apis.md
+          - text: Java Spring Boot web app - restrict with security groups
+            url: enable-spring-apps-authz-groups.md
+          - text: Java Spring Boot web app - restrict with roles
+            url: enable-spring-apps-authz-roles.md
+          - text: Java Spring Boot web app - protect API
+            url: enable-spring-apps-authz-protect-web-apis.md
+          - text: Java Spring Boot - deploy to Azure App Service
+            url: enable-spring-apps-authz-azure-appservice.md 
+  - title: Enable security for your Java Servlet web app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Java Servlet web app with Azure AD
+            url: enable-servlet-apps-authn-azure-ad.md
+          - text: Java Servlet web app with Azure AD B2C
+            url: enable-servlet-apps-authn-azure-ad-b2c.md
+          - text: Java Servlet web app - call APIs
+            url: enable-servlet-apps-authz-call-apis.md
+          - text: Java Servlet web app - restrict with security groups
+            url: enable-servlet-apps-authz-groups.md
+          - text: Java Servlet web app - restrict with roles
+            url: enable-servlet-apps-authz-roles.md          
+          - text: Java Servlet web app - deploy to Azure App Service
+            url: enable-servlet-apps-authz-azure-appservice.md 
+ 
