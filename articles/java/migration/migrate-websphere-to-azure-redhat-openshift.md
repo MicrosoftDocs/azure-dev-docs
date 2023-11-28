@@ -177,7 +177,7 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - Use Azure Service Principal to managed secrets and assign role based access to Azure resources. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azurecli).
 
-- Integrate Liberty Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
+- Integrate Liberty Java EE authentication and authorization with Microsoft Entra ID. For more information, see [Integrating Microsoft Entra getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 
 - Tune WebSphere Liberty or Open Liberty to achieve better performance. For more information, see [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 

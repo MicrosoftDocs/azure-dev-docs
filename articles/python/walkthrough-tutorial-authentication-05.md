@@ -50,7 +50,7 @@ When running the code locally, you also need to specify environment variables th
 
 | Variable | Value |
 | --- | --- |
-| AZURE_TENANT_ID | The Azure Active Directory tenant (directory) ID. |
+| AZURE_TENANT_ID | The Microsoft Entra tenant (directory) ID. |
 | AZURE_CLIENT_ID | The client (application) ID of an App Registration in the tenant. |
 | AZURE_CLIENT_SECRET  | A client secret that was generated for the App Registration. |
 

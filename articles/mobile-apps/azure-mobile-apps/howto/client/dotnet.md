@@ -11,12 +11,12 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including .NET MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
 
 If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
 
 * [AvaloniaUI](../../quickstarts/avalonia/index.md)
-* [.NET MAUI (Android and iOS)](../../quickstarts/maui/index.md)
+* [MAUI (Android and iOS)](../../quickstarts/maui/index.md)
 * [Uno Platform](../../quickstarts/uno/index.md)
 * [Windows (UWP)](../../quickstarts/uwp/index.md)
 * [Windows (WinUI3)](../../quickstarts/winui/index.md)
@@ -112,7 +112,7 @@ var options = new DatasyncClientOptions
 
 #### InstallationId
 
-A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
+If an `InstallationId` is set, a custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  If you use `InstallationId`, the ID should be stored in persistent storage on the device so that unique installations can be tracked.
 
 #### OfflineStore
 
@@ -120,7 +120,7 @@ The `OfflineStore` is used when configuring offline data access.  For more infor
 
 #### ParallelOperations
 
-Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads.
 
 #### SerializerSettings
 
@@ -128,9 +128,7 @@ If you've changed the serializer settings on the data sync server, you need to m
 
 #### TableEndpointResolver
 
-By convention, tables are located on the remote service at the `/tables/{tableName}` path (as specified by the `Route` attribute in the server
-code).  However, tables can exist at any endpoint path.  The `TableEndpointResolver` is a function that turns a table name into a path for 
-communicating with the remote service.
+By convention, tables are located on the remote service at the `/tables/{tableName}` path (as specified by the `Route` attribute in the server code).  However, tables can exist at any endpoint path.  The `TableEndpointResolver` is a function that turns a table name into a path for communicating with the remote service.
 
 For example, the following changes the assumption so that all tables are located under `/api`:
 
@@ -191,7 +189,7 @@ The `DatasyncClientData` object includes:
 
 The service maintains these fields.  Don't adjust these fields as part of your client application.
 
-Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
+Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  The name of the table can be specified by using the `DataTable` attribute:
 
 ``` csharp
 [DataTable("todoitem")]
@@ -202,13 +200,13 @@ public class MyTodoItemClass : DatasyncClientData
 }
 ```
 
-Alternatively, you can specify the name of the table in the `GetRemoteTable()` call:
+Alternatively, specify the name of the table in the `GetRemoteTable()` call:
 
 ``` csharp
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable("todoitem");
 ```
 
-The client uses the path `/tables/tablename` as the URI, and the table name is the name of the offline table in the SQLite database.
+The client uses the path `/tables/{tablename}` as the URI. The table name is also the name of the offline table in the SQLite database.
 
 ### Supported types
 
@@ -306,7 +304,7 @@ Predicate-driven modifications can be used in event handlers when the index of t
 
 #### Filtering data
 
-You can use a `.Where()` clause to filter data.  Multiple `.Where()` clauses are combined with "AND".  For example:
+You can use a `.Where()` clause to filter data.  For example:
 
 ``` csharp
 var items = await remoteTable.Where(x => !x.IsComplete).ToListAsync();
@@ -382,6 +380,16 @@ The `GetItemAsync` function can be used to look up objects from the database wit
 TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
+If the item you're trying to retrieve has been soft-deleted, you must use the `includeDeleted` parameter:
+
+```csharp
+// The following code will throw a DatasyncClientException if the item is soft-deleted.
+TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
+
+// This code will retrieve the item even if soft-deleted.
+TodoItem item = await remoteTable.GetItemAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D", includeDeleted: true);
+```
+
 ### Insert data on the remote server
 
 All client types must contain a member named **Id**, which is by default a string. This **Id** is required to perform CRUD operations and for offline sync. The following code illustrates how to use the `InsertItemAsync` method to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
@@ -417,7 +425,7 @@ await todoTable.DeleteItemAsync(item);
 
 ### Conflict resolution and optimistic concurrency
 
-Two or more clients may write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore doesn't use any resource locking.  Optimistic concurrency control verifies that no other transaction has modified the data before committing the data. If the data has been modified, the transaction is rolled back.
+Two or more clients can write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore doesn't use any resource locking.  Optimistic concurrency control verifies that no other transaction has modified the data before committing the data. If the data has been modified, the transaction is rolled back.
 
 Azure Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request, the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request doesn't match the backend, then the client library raises a `DatasyncConflictException<T>` exception. The type included with the exception is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update request again with the correct `version` value from the backend to commit changes.
 
@@ -513,14 +521,14 @@ Store initialization is normally done immediately after the client is created.  
 * To use an in-memory cache, use `file:inmemory.db?mode=memory&cache=private`.
 * To use a file, use `file:/path/to/file.db`
 
-You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin.Essentials File System Helpers](/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
+You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin Essentials File System Helpers](/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
 var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
-If you're using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
+If you're using MAUI, you can use the [MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
@@ -679,9 +687,9 @@ public async Task<AuthenticationToken> GetTokenAsync()
 
 Authentication tokens are cached in memory (never written to device) and refreshed when necessary.
 
-### Use the Microsoft Identity Platform
+### Use the Microsoft identity platform
 
-The Microsoft Identity Platform allows you to easily integrate with Azure Active Directory.  See the quick start tutorials for a complete tutorial on how to implement Azure Active Directory authentication.  The following code shows an example of retrieving the access token:
+The Microsoft identity platform allows you to easily integrate with Microsoft Entra ID.  See the quick start tutorials for a complete tutorial on how to implement Microsoft Entra authentication.  The following code shows an example of retrieving the access token:
 
 ``` csharp
 private readonly string[] _scopes = { /* provide your AAD scopes */ };
@@ -741,11 +749,11 @@ public async Task<AuthenticationToken> GetTokenAsync()
 }
 ```
 
-For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
+For more information on integrating the Microsoft identity platform with ASP.NET 6, see the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) documentation.
 
-### Use Xamarin.Essentials or .NET MAUI WebAuthenticator
+### Use Xamarin Essentials or MAUI WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or [.NET MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or the [MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
@@ -824,7 +832,7 @@ Use the same `QueryId` value you used when calling `table.PullItemsAsync()` to s
 
 ### Customize request headers
 
-To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a custom header to every outgoing request or even change responses status codes. You can use a custom [DelegatingHandler], as in the following example:
+To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you can add a custom header to every outgoing request or change response status codes before returning to the user. Use a custom [DelegatingHandler], as in the following example:
 
 ```csharp
 public async Task CallClientWithHandler()
@@ -929,7 +937,6 @@ The properties within `args` are either `null` or `-1` when the property isn't r
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
 [Microsoft.Datasync.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Datasync.Client.SQLiteStore
-[System.Linq.Async]: https://www.nuget.org/packages/System.Linq.Async/
 
 <!-- DOTNET API References -->
 [DelegatingHandler]: /dotnet/api/system.net.http.delegatinghandler

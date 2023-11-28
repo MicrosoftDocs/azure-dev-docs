@@ -25,12 +25,19 @@
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
       - name: Use Key Vault secrets
         href: how-to/with-web-app/use-secret-environment-variables.md
-  - name: AI
+  - name: Azure AI apps 
     items: 
+    - name: Develop with Azure AI Services
+      href: azure-ai-for-javascript-developers.md    
+    - name: Get started with the JavaScript enterprise chat sample
+      href: get-started-app-chat-template.md
+      display: Azure OpenAI, OpenAI, AI
     - name: Build a conversational CLI
       href: openai-cli.md
-    - name: Azure OpenAI quickstart
+      display: Azure OpenAI, OpenAI, AI
+    - name: Generate text completions
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
+      display: Azure OpenAI, OpenAI, AI
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
@@ -54,12 +61,12 @@
       displayName: contoso, composable, sample, example, real-estate
     - name: Define
       items: 
+      - name: Apps
+        href: end-to-end/contoso-real-estate-developer-solutions.md
       - name: User Scenarios
         href: end-to-end/contoso-real-estate-user-scenarios.md
     - name: Develop
       items: 
-      - name: Getting Started
-        href: end-to-end/contoso-real-estate-developer-solutions.md
       - name: Run in Codespaces
         href: end-to-end/contoso-real-estate-run-codespaces.md
         displayName: Codespaces, GitHub, azd, best practices, enterprise
@@ -67,6 +74,8 @@
         href: end-to-end/contoso-real-estate-user-authentication.md
       - name: Serverless APIs
         href: end-to-end/contoso-real-estate-serverless-api.md
+      - name: Migrating to serverless v4 programming model
+        href: end-to-end/contoso-real-estate-serverless-api-migration.md
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
       isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker

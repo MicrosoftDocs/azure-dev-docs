@@ -1,3 +1,4 @@
+items:
 - name: Azure Toolkit for IntelliJ documentation
   href: index.yml
   items:
@@ -19,7 +20,7 @@
        - name: Deploy web app to a Linux container
          href: hello-world-web-app-linux.md
     - name: Azure Functions - Get Started
-      href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/java/toolkit-for-intellij/breadcrumb/toc.json
+      href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Azure Storage - Manage Storage Accounts
       href: managing-storage-accounts-using-azure-explorer.md
     - name: Azure Virtual machines - Manage Virtual Machines

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure MySQL support
 
-**This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
@@ -24,7 +24,7 @@ The current version of the starter should use Azure Database for MySQL Flexible 
 
 ### Passwordless connection
 
-Passwordless connection uses Azure Active Directory (Azure AD) authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 ## How it works
 
@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-mysql-azure-active-directory.png" alt-text="Diagram showing Azure Active Directory authentication for MySQL." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-mysql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
 
 ## Configuration
 
@@ -55,7 +55,7 @@ The following table shows the Spring Cloud Azure for MySQL common configuration 
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                  | Description                                                                                                                                                                                            |
 > |-----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | spring.datasource.azure.passwordless-enabled                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Azure Active Directory token credentials.                                                                                |
+> | spring.datasource.azure.passwordless-enabled                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Microsoft Entra token credentials.                                                                                |
 > | spring.datasource.azure.credential.client-certificate-password        | Password of the certificate file.                                                                                                                                                                      |
 > | spring.datasource.azure.credential.client-certificate-path            | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
 > | spring.datasource.azure.credential.client-id                          | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
@@ -64,7 +64,7 @@ The following table shows the Spring Cloud Azure for MySQL common configuration 
 > | spring.datasource.azure.credential.password                           | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.credential.username                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.profile.cloud-type                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
-> | spring.datasource.azure.profile.environment.active-directory-endpoint | The Azure Active Directory endpoint to connect to.                                                                                                                                                     |
+> | spring.datasource.azure.profile.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
 > | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources.                                                                                                                                                                         |
 
 ## Dependency setup
@@ -88,7 +88,7 @@ Add the following dependency to your project. This will automatically include th
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Azure AD authentication. To use Azure AD authentication, you should set the Azure AD admin user first. Only an Azure AD admin user can create and enable users for Azure AD-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for MySQL](configure-spring-data-jdbc-with-azure-mysql.md).
+> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create and enable users for Microsoft Entra ID-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for MySQL](configure-spring-data-jdbc-with-azure-mysql.md).
 
 ### Connect to Azure MySQL locally without password
 
@@ -107,7 +107,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ### Connect to Azure MySQL using a service principal
 
-1. Create an Azure AD user for service principal and grant permission.
+1. Create a Microsoft Entra user for service principal and grant permission.
 
    1. First, use the following commands to set up some environment variables.
 
@@ -135,7 +135,7 @@ The following sections show the classic Spring Boot application usage scenarios.
       EOF
       ```
 
-   1. Use the following command to run the SQL script to create the Azure AD non-admin user:
+   1. Use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
       ```bash
       mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user_sp.sql

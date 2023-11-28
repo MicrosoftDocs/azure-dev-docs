@@ -43,7 +43,7 @@ You'll need Azure and GitHub accounts:
 
 ## How do I connect GitHub Actions and Azure
 
-Depending on the action, you'll use a service principal or publish profile to connect to Azure from GitHub. You'll use a service principal each time you use the [Azure login](https://github.com/marketplace/actions/azure-login) action. The [Azure App Service action](https://github.com/marketplace/actions/azure-webapp) supports using a publish profile or service principal. See [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to learn more about service principals.  
+Depending on the action, you'll use a service principal or publish profile to connect to Azure from GitHub. You'll use a service principal each time you use the [Azure login](https://github.com/marketplace/actions/azure-login) action. The [Azure App Service action](https://github.com/marketplace/actions/azure-webapp) supports using a publish profile or service principal. See [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to learn more about service principals.  
 
 You can use the Azure login action in combination with both the [Azure CLI](https://github.com/marketplace/actions/azure-cli-action) and Azure [Azure PowerShell](https://github.com/marketplace/actions/azure-powershell-action) actions. The Azure login action also works with most other GitHub actions for Azure including [deploying to web apps](https://github.com/marketplace/actions/azure-webapp) and [accessing key vault secrets](https://github.com/marketplace/actions/enhanced-env-azure-key-vault-get-secrets).
 

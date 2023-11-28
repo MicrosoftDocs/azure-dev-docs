@@ -182,6 +182,10 @@
             "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"
         },
         {
+            "source_path": "migration/appcat.md",
+            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json",
+        },
+        {
             "source_path": "migration/migrate-weblogic-with-aad-ldap.md",
             "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps"
         },

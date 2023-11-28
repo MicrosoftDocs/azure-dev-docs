@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
 
@@ -62,7 +62,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>4.11.0</version>
+      <version>4.13.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -71,7 +71,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.5.0`.
+> If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
 > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 #### Starter dependencies
@@ -86,7 +86,7 @@ The following table lists application starters provided by Spring Cloud Azure un
 > | Name                                             | Description                                                                             |
 > |--------------------------------------------------|-----------------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter                       | The core starter, including auto-configuration support.                                 |
-> | spring-cloud-azure-starter-active-directory      | The starter for using Azure Active Directory with Spring Security.                      |
+> | spring-cloud-azure-starter-active-directory      | The starter for using Microsoft Entra ID with Spring Security.                      |
 > | spring-cloud-azure-starter-active-directory-b2c  | The starter for using Azure Active Directory B2C with Spring Security.                  |
 > | spring-cloud-azure-starter-appconfiguration      | The starter for using Azure App Configuration.                                          |
 > | spring-cloud-azure-starter-cosmos                | The starter for using Azure Cosmos DB.                                                  |
@@ -131,14 +131,14 @@ The following table lists starters for MySQL support:
 > [!div class="mx-tdBreakAll"]
 > | Name                                         | Description                                                                   |
 > |----------------------------------------------|-------------------------------------------------------------------------------|
-> | spring-cloud-azure-starter-jdbc-mysql        | The starters for using Azure MySQLs and JDBC through Azure AD authentication. |
+> | spring-cloud-azure-starter-jdbc-mysql        | The starters for using Azure MySQLs and JDBC through Microsoft Entra authentication. |
 
 The following table lists starters for PostgreSQL support:
 
 > [!div class="mx-tdBreakAll"]
 > | Name                                         | Description                                                                       |
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
-> | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Azure AD authentication. |
+> | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
 ### Learning Spring Cloud Azure
 

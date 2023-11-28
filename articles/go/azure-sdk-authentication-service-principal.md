@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in an Azure AD tenant. Enabling core features such as authentication during sign-on and authorization during resource access. Removing the need to use personal accounts to access Azure resources. The Azure SDK for Go's [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate with Azure using a service principal using environment variables, a secret, or a certificate
+Azure service principals define the access policy and permissions in a Microsoft Entra tenant. Enabling core features such as authentication during sign-on and authorization during resource access. Removing the need to use personal accounts to access Azure resources. The Azure SDK for Go's [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate with Azure using a service principal using environment variables, a secret, or a certificate
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
@@ -148,7 +148,7 @@ Define the following environment variables:
 |Variable name|Value
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
-|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
 |`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/azure-cli)
@@ -174,7 +174,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |Variable name|Value
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
-|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
 |`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
 
 # [Bash](#tab/azure-cli)

@@ -11,7 +11,7 @@ ms.custom: devx-track-ansible
 
 [!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
-[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. This feature is beneficial for scenarios where many images are maintained and shared. Custom images can be shared across subscriptions and between Azure Active Directory tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
+[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. This feature is beneficial for scenarios where many images are maintained and shared. Custom images can be shared across subscriptions and between Microsoft Entra tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
 
 In this article, you learn how to:
 

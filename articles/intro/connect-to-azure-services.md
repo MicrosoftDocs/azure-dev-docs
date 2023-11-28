@@ -1,18 +1,17 @@
 ---
 title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
-ms.service: azure-devops
-ms.subservice: azure-devops-reference
+ms.service: azure
 ms.topic: article
 ms.date: 03/28/2022
 ---
 
 # Connect your app to Azure Services
 
-Azure offers a variety of services that applications can take advantage of regardless of whether they are hosted in Azure or on-premises.  For example you could:
+Azure offers a variety of services that applications can take advantage of regardless of whether they are hosted in Azure or on-premises. For example you could:
 
 - Use Azure Blob Storage to store and retrieve files in the cloud.
-- Add full text searching capability to your application using Azure Cognitive Search.
+- Add full text searching capability to your application using Azure AI Search.
 - Use Azure Service Bus to handle messaging between different components of a microservices architecture.
 - Use Text Analytics to identify and redact sensitive data in a document.
 

@@ -33,7 +33,7 @@ highlightedContent:
       itemType: quickstart
       url: /azure/spring-apps/quickstart
     # Card
-    - title: Secure your app using the Spring Boot Starter for Azure Active Directory
+    - title: Secure your app using the Spring Boot Starter for Microsoft Entra ID
       itemType: tutorial
       url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
 
@@ -77,13 +77,13 @@ conceptualContent:
           links:
             - url: /azure/active-directory/fundamentals/active-directory-whatis
               itemType: overview
-              text: Azure Active Directory overview
+              text: Microsoft Entra overview
             - url: ../spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md
               itemType: overview
-              text: Spring developer's guide to Azure Active Directory
+              text: Spring developer's guide to Microsoft Entra ID
             - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
               itemType: tutorial
-              text: Secure a Spring app by using Azure Active Directory
+              text: Secure a Spring app by using Microsoft Entra ID
             - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
               itemType: tutorial
               text: Secure a Spring app by using Azure Active Directory B2C

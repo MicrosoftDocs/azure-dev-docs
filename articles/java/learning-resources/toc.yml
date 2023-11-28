@@ -1,3 +1,4 @@
+items:
 - name: Java on Azure learning resources
   href: index.yml
   items:
@@ -6,7 +7,7 @@
     - name: Java learning path
       href: fundamentals.md
     - name: Libraries, drivers, and modules
-      href: ../sdk/libraries-drivers-modules.md?toc=/azure/developer/java/learning-resources/toc.json&bc=/azure/developer/java/learning-resources/breadcrumb/toc.json
+      href: ../sdk/libraries-drivers-modules.md?toc=/azure/developer/java/learning-resources/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Java on Azure
       href: /training/paths/java-on-azure/
     - name: Books

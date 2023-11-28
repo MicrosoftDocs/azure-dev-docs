@@ -4,26 +4,28 @@ description: Add authentication to your Windows (WinUI3) app using Azure Mobile 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2022
+ms.date: 10/13/2023
 ms.author: adhal
 ---
 
 # Add authentication to your Windows (WinUI3) app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
-## Add authentication to the app
+## Register your app with the identity service
 
-The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+The Microsoft Data sync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application uses the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+## Add the Microsoft Identity Client to your app
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.WinUI`project as the startup project.  
 
@@ -96,15 +98,15 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
 }
 ```
 
-The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired token is produced instead.  An expired or invalid token will cause the underlying operation to fail appropriately.
+The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired token is produced instead.  An expired or invalid token causes the underlying operation to fail appropriately.
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you'll be asked to consent to the access:
+You should be able to press **F5** to run the app.  When the app runs, a browser is opened to ask you for authentication.  The first time the app runs, you're asked to consent to the access:
 
-![Screenshot of the AAD consent request.](./media/authentication-consent.png)
+![Screenshot of the Microsoft Entra consent request.](./media/authentication-consent.png)
 
-Press **Yes** to continue to your app.  The app will then run as before.
+Press **Yes** to continue to your app.
 
 ## Next steps
 

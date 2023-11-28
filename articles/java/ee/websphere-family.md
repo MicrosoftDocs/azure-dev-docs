@@ -43,5 +43,8 @@ Explore the currently available offers on Azure:
 
 - [IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210823-liberty-aroliberty-aro)
 - [IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks)
+- [IBM HTTP Server VM base image](https://ibm.biz/twas-ihs-portal)
+- [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
+- [IBM WebSphere Application Server ND VM base image](https://ibm.biz/twas-nd-portal)
 - [IBM WebSphere Application Server Cluster](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster)
 - [IBM WebSphere Application Server Single Instance](https://ms.portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2022-01-07-twas-base-single-server2022-01-07-twas-base-single-server)

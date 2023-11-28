@@ -17,7 +17,7 @@ To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to f
 
 The Azure login action supports two different ways of authenticating with Azure:
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
-* [OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
+* [OpenID Connect (OIDC) with an Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
@@ -27,19 +27,21 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has been assigned with an appropriate role to your subscription.
-* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
+* An [Microsoft Entra application](/azure/active-directory/develop/), with a service principal that has been assigned with an appropriate role to your subscription.
+* A Microsoft Entra application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action.
 
-### Create an Azure Active Directory application and service principal
+<a name='create-an-azure-active-directory-application-and-service-principal'></a>
 
-You'll need to create an Azure Active Directory application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
+### Create a Microsoft Entra application and service principal
+
+You'll need to create a Microsoft Entra application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
 
 # [Azure portal](#tab/azure-portal)
 
-1. If you do not have an existing application, register a [new Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
+1. If you do not have an existing application, register a [new Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
 
-    * Register your application with Azure AD and create a service principal
+    * Register your application with Microsoft Entra ID and create a service principal
     * Assign a role to the application
 
 1. Open **App registrations** in Azure portal and find your application. Copy the values for **Application (client) ID** and **Directory (tenant) ID** to use in your GitHub Actions workflow. 
@@ -48,7 +50,7 @@ You'll need to create an Azure Active Directory application and service principa
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Create the Azure Active Directory application.
+1. Create the Microsoft Entra application.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -71,7 +73,7 @@ You'll need to create an Azure Active Directory application and service principa
 1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 ### [Azure PowerShell](#tab/azure-powershell) 
 
-1. Create the Azure Active Directory application.
+1. Create the Microsoft Entra application.
 
     ```azurepowershell-interactive
     New-AzADApplication -DisplayName myApp
@@ -127,9 +129,9 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Azure Active Directory application.
+Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Azure Active Directory application.
+* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -154,9 +156,9 @@ For a more detailed overview, see [Configure an app to trust an external identit
 
 ### [Azure PowerShell](#tab/azure-powershell) 
 
-Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity credential for your Azure Active Directory application.
+Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity credential for your Microsoft Entra application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **Id (generated while creating app)** for your Azure Active Directory application.
+* Replace `APPLICATION-OBJECT-ID` with the **Id (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -392,9 +394,11 @@ To log in to one of the Azure Government clouds, set the optional parameter envi
 
 The following articles provide details on connecting to GitHub from Azure and other services.  
 
-### Azure Active Directory 
+<a name='azure-active-directory'></a>
 
-- [Sign in to GitHub Enterprise with Azure AD (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
+### Microsoft Entra ID 
+
+- [Sign in to GitHub Enterprise with Microsoft Entra ID (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
 
 ### Power BI
 

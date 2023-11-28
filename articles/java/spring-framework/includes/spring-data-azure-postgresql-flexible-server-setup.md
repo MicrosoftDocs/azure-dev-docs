@@ -33,7 +33,7 @@ GRANT ALL PRIVILEGES ON DATABASE demo TO "<your_postgresql_non_admin_username>";
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=postgresqlflexibletest.postgres.database.azure.com user=<your_postgresql_admin_username> dbname=demo port=5432 password=<your_postgresql_admin_password> sslmode=require" < create_user.sql
@@ -58,7 +58,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.11.0</version>
+        <version>4.13.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -67,7 +67,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.5.0`.
+  > If you're using Spring Boot 3.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.7.0`.
   > For more information about the `spring-cloud-azure-dependencies` version, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC PostgreSQL artifact:

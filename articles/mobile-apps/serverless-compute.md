@@ -35,7 +35,7 @@ Use the following services to enable serverless compute capabilities in your mob
 
 - Event-driven and scalable where you can use triggers and bindings to define when a function is invoked and to what data it connects.
 - Bring your own dependencies because Functions supports NuGet and NPM, so you can use your favorite libraries.
-- Integrated security so that you can protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
+- Integrated security so that you can protect HTTP-triggered functions with OAuth providers such as Microsoft Entra ID, Facebook, Google, Twitter, and Microsoft Account.
 - Simplified integration with different [Azure services](/azure/azure-functions/functions-overview) and software as a service (SaaS) offerings.
 - Flexible development so that you can code your functions right in the Azure portal or set up continuous integration and deploy your code through GitHub, Azure DevOps Services, and other supported development tools.
 - Functions runtime is open source and available on [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
@@ -61,7 +61,7 @@ With [Azure App Service](https://azure.microsoft.com/services/app-service/), you
 - DevOps optimization through continuous integration and deployment with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Manage your apps in App Service by using Azure PowerShell or the cross-platform command-line interface (CLI).
 - Global scale with high availability to scale up or out manually or automatically.
 - Connections to SaaS platforms and on-premises data to choose from more than 50 connectors for enterprise systems such as SAP, SaaS services such as Salesforce, and internet services such as Facebook. Access on-premises data by using hybrid connections and Azure Virtual Networks.
-- Azure App Service is ISO, SOC, and PCI compliant. Authenticate users with Azure Active Directory or with sign-in for social media such as Google, Facebook, Twitter, and Microsoft. Create IP address restrictions and manage service identities.
+- Azure App Service is ISO, SOC, and PCI compliant. Authenticate users with Microsoft Entra ID or with sign-in for social media such as Google, Facebook, Twitter, and Microsoft. Create IP address restrictions and manage service identities.
 - Application templates to choose from an extensive list of application templates in Azure Marketplace, such as WordPress, Joomla, and Drupal.
 - Visual Studio integration with dedicated tools in Visual Studio streamlines the work of creating, deploying, and debugging.
 

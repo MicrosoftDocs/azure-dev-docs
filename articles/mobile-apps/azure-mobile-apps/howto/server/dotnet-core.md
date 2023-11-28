@@ -15,12 +15,13 @@ This article shows you have to configure and use the ASP.NET Core backend server
 
 ## Supported platforms
 
-The ASP.NET Core backend server supports ASP.NET Core 6.0.
+The ASP.NET Core backend server supports ASP.NET 6.0 or later.
 
 Database servers must meet the following criteria have a `DateTime` or `Timestamp` type field that is stored with millisecond accuracy.  Repository implementations are provided for [Entity Framework Core][5] and [LiteDb][6].
 
 For specific database support, see the following sections:
 
+* [Azure SQL and SQL Server](#azure-sql)
 * [Azure Cosmos DB](#azure-cosmos-db)
 * [PostgreSQL](#postgresql)
 * [SqLite](#sqlite)
@@ -30,7 +31,7 @@ For specific database support, see the following sections:
 
 A data sync server uses the normal ASP.NET Core mechanisms for creating the server.  It consists of three steps:
 
-1. Create an ASP.NET Core server project.
+1. Create an ASP.NET 6.0 (or later) server project.
 1. Add Entity Framework Core
 1. Add Data sync Services
 
@@ -91,7 +92,7 @@ The `ITableData` interface provides the ID of the record, together with extra pr
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
-* `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
+* `Deleted` (`bool`) is true if the record is marked for deletion but not yet purged.
 
 The Data sync library maintains these properties.  Don't modify these properties in your own code.
 
@@ -255,10 +256,53 @@ Logging is handled through [the normal logging mechanism][3] for ASP.NET Core.  
 [Route("tables/[controller]")]
 public class ModelController : TableController<Model>
 {
-    public ModelsController(AppDbContext context, Ilogger<ModelController> logger) : base()
+    public ModelController(AppDbContext context, Ilogger<ModelController> logger) : base()
     {
         Repository = new EntityTableRepository<Model>(context);
         Logger = logger;
+    }
+}
+```
+
+## Monitor repository changes
+
+When the repository is changed, you can trigger workflows, log the response to the client, or do other work in one of two methods:
+
+### Option 1: Implement a PostCommitHookAsync
+
+The `IAccessControlProvider<T>` interface provides a `PostCommitHookAsync()` method.  Th `PostCommitHookAsync()` method is called after the data is written to the repository but before returning the data to the client.  Care must be made to ensure that the data being returned to the client isn't changed in this method.
+
+```csharp
+public class MyAccessControlProvider<T> : AccessControlProvider<T> where T : ITableData
+{
+    public override async Task PostCommitHookAsync(TableOperation op, T entity, CancellationToken cancellationToken = default)
+    {
+        // Do any work you need to here.
+        // Make sure you await any asynchronous operations.
+    }
+}
+```
+
+Use this option if you're running asynchronous tasks as part of the hook.
+
+### Option 2: Use the RepositoryUpdated event handler
+
+The `TableController<T>` base class contains an event handler that is called at the same time as the `PostCommitHookAsync()` method.
+
+```csharp
+[Authorize]
+[Route(tables/[controller])]
+public class ModelController : TableController<Model>
+{
+    public ModelController(AppDbContext context) : base()
+    {
+        Repository = new EntityTableRepository<Model>(context);
+        RepositoryUpdated += OnRepositoryUpdated;
+    }
+
+    internal void OnRepositoryUpdated(object sender, RepositoryUpdatedEventArgs e) 
+    {
+        // The RepositoryUpdatedEventArgs contains Operation, Entity, EntityName
     }
 }
 ```
@@ -278,7 +322,28 @@ app.UseAuthorization();
 
 ## Database Support
 
-The following sections provide information on using Azure Mobile Apps with specific databases.
+Entity Framework Core doesn't set up value generation for date/time columns.  (See [Date/time value generation](/ef/core/modeling/generated-properties?tabs=data-annotations#datetime-value-generation)).  The Azure Mobile Apps repository for Entity Framework Core automatically updates the `UpdatedAt` field for you.  However, if your database is updated outside of the repository, you  must arrange for the `UpdatedAt` and `Version` fields to be updated.
+
+### Azure SQL
+
+Create a trigger for each entity:
+
+```sql
+CREATE OR ALTER TRIGGER [dbo].[TodoItems_UpdatedAt] ON [dbo].[TodoItems]
+    AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE 
+        [dbo].[TodoItems] 
+    SET 
+        [UpdatedAt] = GETUTCDATE() 
+    WHERE 
+        [Id] IN (SELECT [Id] FROM INSERTED);
+END
+```
+
+You can install this trigger using either a migration or immediately after `EnsureCreated()` to create the database.
 
 ### Azure Cosmos DB
 
@@ -330,7 +395,7 @@ Azure Cosmos DB is a fully managed NoSQL database for high-performance applicati
     }
     ```
 
-   If you pull a subset of items in the table, ensure you have specified all properties involved in the query.
+   If you pull a subset of items in the table, ensure you specify all properties involved in the query.
 
 2. Derive models from the `ETagEntityTableData` class:
 
@@ -342,7 +407,7 @@ Azure Cosmos DB is a fully managed NoSQL database for high-performance applicati
     }
     ```
 
-3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  You may optionally include other settings.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
+3. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  The Cosmos DB driver for Entity Framework places all entities into the same container by default.  At a minimum, you must pick a suitable partition key and ensure the `EntityTag` property is marked as the concurrency tag.  For example, the following snippet stores the `TodoItem` entities in their own container with the appropriate settings for Azure Mobile Apps:
 
     ``` csharp
     protected override void OnModelCreating(ModelBuilder builder)
@@ -370,43 +435,26 @@ Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet
 
 ### PostgreSQL
 
-PostgreSQL doesn't support "timestamp" row versions. If using PostgreSQL, create the following class:
+Create a trigger for each entity:
 
-```csharp
-public class PgEntityTableData : EntityTableData
-{
-    /// <summary>
-    /// The row version for the entity.
-    /// </summary>
-    [NotMapped]
-    public override byte[] Version
-    {
-        get => BitConverter.GetBytes(RowVersion);
-        set => BitConverter.ToUInt32(value);
-    }
+```sql
+CREATE OR REPLACE FUNCTION todoitems_datasync() RETURNS trigger AS $$
+BEGIN
+    NEW."UpdatedAt" = NOW() AT TIME ZONE 'UTC';
+    NEW."Version" = convert_to(gen_random_uuid()::text, 'UTF8');
+    RETURN NEW
+END;
+$$ LANGUAGE plpgsql;
 
-    /// <summary>
-    /// The actual version
-    /// </summary>
-    [JsonIgnore]
-    [Timestamp]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    [Column("xmin", TypeName = "xid")]
-    public uint RowVersion { get; set; }
-}
+CREATE OR REPLACE TRIGGER
+    todoitems_datasync
+BEFORE INSERT OR UPDATE ON
+    "TodoItems"
+FOR EACH ROW EXECUTE PROCEDURE
+    todoitems_datasync();
 ```
 
-The database maintains the `xmin` system column, which can be used for concurrency checks. Derive database models from the `PgEntityTableData` class:
-
-```csharp
-public class TodoItem : PgEntityTableData
-{
-    public string Title { get; set; }
-    public bool Completed { get; set; }
-}
-```
-
-For more information, see the [PostgreSQL documentation for system columns](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+You can install this trigger using either a migration or immediately after `EnsureCreated()` to create the database.  
 
 ### SqLite
 

@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 When you host an app in Azure using services like Azure App Service, Azure Virtual Machines, or Azure Container Instances, the recommended approach to authenticate an app to Azure resources is with [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
-A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret.  Internally, Azure knows the identity of your app and what resources it's allowed to connect to.  Azure uses this information to automatically obtain Azure AD tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
+A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret.  Internally, Azure knows the identity of your app and what resources it's allowed to connect to.  Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
 
 ## Managed identity types
 
