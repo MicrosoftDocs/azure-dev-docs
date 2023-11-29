@@ -21,7 +21,7 @@ The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Ja
 
 The following steps walk you through the steps to create a Redis cache using the Azure Explorer.
 
-1. Sign in to your Azure account by using the steps in [Sign In Instructions for the Azure Toolkit for IntelliJ].
+1. Sign in to your Azure account by using the steps in [Sign-in instructions for the Azure Toolkit for IntelliJ].
 
 1. In the **Azure Explorer** tool window, expand the **Azure** node, right-click **Redis Caches**, and then click **Create**.
 
@@ -98,7 +98,7 @@ For more information about Azure Redis caches, configuration settings and pricin
 [Azure Cache for Redis management FAQs]: /azure/azure-cache-for-redis/cache-management-faq
 [Redis Cache Documentation]: /azure/redis-cache
 [How to configure Azure Redis Cache]: /azure/redis-cache/cache-configure
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 
 <!-- IMG List -->
 
