@@ -73,7 +73,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Now, start your application and access your application through the browser. You'll be redirected into the Microsoft login page.
 
@@ -378,7 +378,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Here, `graph` is the name of `OAuth2AuthorizedClient`, `scopes` means the scopes needed to consent when logging in.
 
@@ -423,7 +423,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ##### Access multiple resource servers
 
@@ -448,7 +448,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Then you can use `OAuth2AuthorizedClient` in application like this
 
@@ -687,7 +687,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 You can also configure the certificate information in the `active-directory` service properties, as shown in this example:
 
@@ -730,7 +730,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 <a name='connecting-to-azure-ad-via-proxy'></a>
 
@@ -793,7 +793,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 #### Use OAuth2AuthorizedClient in your application
 
@@ -863,7 +863,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 #### Define SecurityFilterChain
 
@@ -1291,7 +1291,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Write your `Webapp` Java code.
 
@@ -1383,7 +1383,7 @@ spring:
 ```
 
 > [!NOTE]
-> The \<tenant> valid values are: `common`, `organizations`, `consumers` or Tenant id. See [Used the wrong endpoint](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-2-used-the-wrong-endpoint-personal-and-organization-accounts) to know the difference about these values. See [Making your application multi-tenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to get more info.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Write your Java code.
 
