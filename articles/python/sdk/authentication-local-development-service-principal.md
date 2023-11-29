@@ -115,6 +115,9 @@ az ad group member add \
 
 ---
 
+> [!NOTE]
+> By default, the creation of Microsoft Entra security groups is limited to certain privileged roles in a directory. If you're unable to create a group, contact an administrator for your directory. If you're unable to add members to an existing group, contact the group owner or a directory administrator. To learn more, see [Manage Microsoft Entra groups and group membership](/entra/fundamentals/how-to-manage-groups).
+
 ## 3 - Assign roles to the application
 
 Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 2.  Roles can be assigned at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
@@ -124,12 +127,12 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. You can specify a group with its object ID. You can specify an application service principal with its appId.
 
 ```azurecli
-az role assignment create --assignee {appId or GroupObjectId} \
+az role assignment create --assignee {appId or objectId} \
     --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
     --role "{roleName}" 
 ```
 
-To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
+To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
 ```azurecli
 az role definition list \

@@ -71,6 +71,9 @@ az ad group member add \
 
 ---
 
+> [!NOTE]
+> By default, the creation of Microsoft Entra security groups is limited to certain privileged roles in a directory. If you're unable to create a group, contact an administrator for your directory. If you're unable to add members to an existing group, contact the group owner or a directory administrator. To learn more, see [Manage Microsoft Entra groups and group membership](/entra/fundamentals/how-to-manage-groups).
+
 <a name='2---assign-roles-to-the-azure-ad-group'></a>
 
 ## 2 - Assign roles to the Microsoft Entra group
@@ -82,7 +85,7 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. You can specify a group with its object ID.
 
 ```azurecli
-az role assignment create --assignee {groupObjectId} \
+az role assignment create --assignee {objectId} \
     --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
     --role "{roleName}" 
 ```
@@ -94,7 +97,7 @@ az role definition list --query "sort_by([].{roleName:roleName, description:desc
 
 ```
 
-For example, to allow the members of a group with an object Id of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
+For example, to allow the members of a group with an object ID of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
 
 ```azurecli
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
