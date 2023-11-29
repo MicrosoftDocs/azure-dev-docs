@@ -16,20 +16,6 @@ A different app registration should be created for each environment the app is h
 
 An app can be registered with Azure using either the Azure portal or the Azure CLI.
 
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app registration step 1](<./includes/on-premises-app-registration-azure-portal-1.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-1-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-1.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 2](<./includes/on-premises-app-registration-azure-portal-2.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-2-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-2.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 3](<./includes/on-premises-app-registration-azure-portal-3.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-3-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-3.png" alt-text="A screenshot showing how to fill out the Register an application page by giving the app a name and specifying supported account types as accounts in this organizational directory only." ::: |
-| [!INCLUDE [Create app registration step 4](<./includes/on-premises-app-registration-azure-portal-4.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-4-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-4.png" alt-text="A screenshot of the App registration page after the app registration has been completed.  This screenshot shows the location of the application ID and tenant ID which will be needed in a future step.  It also shows the location of the link to use to add an application secret for the app." ::: |
-| [!INCLUDE [Create app registration step 5](<./includes/on-premises-app-registration-azure-portal-5.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-5-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-5.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." ::: |
-| [!INCLUDE [Create app registration step 6](<./includes/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-6-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal created by the app registration process." ::: |
-| [!INCLUDE [Create app registration step 7](<./includes/on-premises-app-registration-azure-portal-7.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-7-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-7.png" alt-text="A screenshot showing the page with the generated client secret." ::: |
-
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -47,23 +33,25 @@ The output of the command will be similar to the following.  Make note of these 
 }
 ```
 
+### [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app registration step 1](<./includes/on-premises-app-registration-azure-portal-1.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-1-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-1.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." ::: |
+| [!INCLUDE [Create app registration step 2](<./includes/on-premises-app-registration-azure-portal-2.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-2-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-2.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." ::: |
+| [!INCLUDE [Create app registration step 3](<./includes/on-premises-app-registration-azure-portal-3.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-3-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-3.png" alt-text="A screenshot showing how to fill out the Register an application page by giving the app a name and specifying supported account types as accounts in this organizational directory only." ::: |
+| [!INCLUDE [Create app registration step 4](<./includes/on-premises-app-registration-azure-portal-4.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-4-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-4.png" alt-text="A screenshot of the App registration page after the app registration has been completed.  This screenshot shows the location of the application ID and tenant ID which will be needed in a future step.  It also shows the location of the link to use to add an application secret for the app." ::: |
+| [!INCLUDE [Create app registration step 5](<./includes/on-premises-app-registration-azure-portal-5.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-5-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-5.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." ::: |
+| [!INCLUDE [Create app registration step 6](<./includes/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-6-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal created by the app registration process." ::: |
+| [!INCLUDE [Create app registration step 7](<./includes/on-premises-app-registration-azure-portal-7.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-7-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-7.png" alt-text="A screenshot showing the page with the generated client secret." ::: |
+
 ---
 
 ## 2 - Assign roles to the application service principal
 
 Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope.  This example will show how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Assign service principal to role step 1](<./includes/assign-service-principal-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-1-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-1.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." ::: |
-| [!INCLUDE [Assign service principal to role step 2](<./includes/assign-service-principal-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-2-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-2.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." ::: |
-| [!INCLUDE [Assign service principal to role step 3](<./includes/assign-service-principal-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-3-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-3.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 4](<./includes/assign-service-principal-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-4-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-4.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 5](<./includes/assign-service-principal-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-5-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-5.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." ::: |
-| [!INCLUDE [Assign service principal to role step 6](<./includes/assign-service-principal-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-6-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-6.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." ::: |
-| [!INCLUDE [Assign service principal to role step 7](<./includes/assign-service-principal-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-7-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-7.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -92,6 +80,18 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Assign service principal to role step 1](<./includes/assign-service-principal-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-1-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-1.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." ::: |
+| [!INCLUDE [Assign service principal to role step 2](<./includes/assign-service-principal-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-2-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-2.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." ::: |
+| [!INCLUDE [Assign service principal to role step 3](<./includes/assign-service-principal-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-3-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-3.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." ::: |
+| [!INCLUDE [Assign service principal to role step 4](<./includes/assign-service-principal-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-4-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-4.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." ::: |
+| [!INCLUDE [Assign service principal to role step 5](<./includes/assign-service-principal-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-5-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-5.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." ::: |
+| [!INCLUDE [Assign service principal to role step 6](<./includes/assign-service-principal-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-6-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-6.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." ::: |
+| [!INCLUDE [Assign service principal to role step 7](<./includes/assign-service-principal-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-7-240px.png" lightbox="./media/assign-service-principal-to-role-azure-portal-7.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." ::: |
 
 ---
 
@@ -155,4 +155,4 @@ blob_service_client = BlobServiceClient(
         credential=token_credential)
 ```
 
-When the above code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_SUBSCRIPTION_ID`, `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.
+When the above code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.

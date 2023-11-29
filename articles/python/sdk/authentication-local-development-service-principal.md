@@ -25,20 +25,6 @@ During local development, environment variables are set with the application ser
 
 Application service principal objects are created with an app registration in Azure.  This can be done using either the Azure portal or Azure CLI.
 
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app registration step 1](<./includes/local-dev-app-registration-azure-portal-1.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." lightbox="./media/local-dev-app-registration-azure-portal-1.png"::: |
-| [!INCLUDE [Create app registration step 2](<./includes/local-dev-app-registration-azure-portal-2.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." lightbox="./media/local-dev-app-registration-azure-portal-2.png"::: |
-| [!INCLUDE [Create app registration step 3](<./includes/local-dev-app-registration-azure-portal-3.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-3-240px.png" alt-text="A screenshot showing how to fill out the Register an application page by giving the app a name and specifying supported account types as accounts in this organizational directory only." lightbox="./media/local-dev-app-registration-azure-portal-3.png"::: |
-| [!INCLUDE [Create app registration step 4](<./includes/local-dev-app-registration-azure-portal-4.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-4-240px.png" alt-text="A screenshot of the App registration page after the app registration has been completed.  This screenshot shows the location of the application ID and tenant ID which will be needed in a future step.  It also shows the location of the link to use to add an application secret for the app." lightbox="./media/local-dev-app-registration-azure-portal-4.png"::: |
-| [!INCLUDE [Create app registration step 5](<./includes/local-dev-app-registration-azure-portal-5.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-5-240px.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." lightbox="./media/local-dev-app-registration-azure-portal-5.png"::: |
-| [!INCLUDE [Create app registration step 6](<./includes/local-dev-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-6-240px.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal create by the app registration process." lightbox="./media/local-dev-app-registration-azure-portal-6.png"::: |
-| [!INCLUDE [Create app registration step 7](<./includes/local-dev-app-registration-azure-portal-7.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-7-240px.png" alt-text="A screenshot showing the page with the generated client secret." lightbox="./media/local-dev-app-registration-azure-portal-7.png"::: |
-
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
@@ -60,6 +46,20 @@ The output of this command will look like the following.  It's recommended to co
 }
 ```
 
+### [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app registration step 1](<./includes/local-dev-app-registration-azure-portal-1.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." lightbox="./media/local-dev-app-registration-azure-portal-1.png"::: |
+| [!INCLUDE [Create app registration step 2](<./includes/local-dev-app-registration-azure-portal-2.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." lightbox="./media/local-dev-app-registration-azure-portal-2.png"::: |
+| [!INCLUDE [Create app registration step 3](<./includes/local-dev-app-registration-azure-portal-3.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-3-240px.png" alt-text="A screenshot showing how to fill out the Register an application page by giving the app a name and specifying supported account types as accounts in this organizational directory only." lightbox="./media/local-dev-app-registration-azure-portal-3.png"::: |
+| [!INCLUDE [Create app registration step 4](<./includes/local-dev-app-registration-azure-portal-4.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-4-240px.png" alt-text="A screenshot of the App registration page after the app registration has been completed.  This screenshot shows the location of the application ID and tenant ID which will be needed in a future step.  It also shows the location of the link to use to add an application secret for the app." lightbox="./media/local-dev-app-registration-azure-portal-4.png"::: |
+| [!INCLUDE [Create app registration step 5](<./includes/local-dev-app-registration-azure-portal-5.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-5-240px.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." lightbox="./media/local-dev-app-registration-azure-portal-5.png"::: |
+| [!INCLUDE [Create app registration step 6](<./includes/local-dev-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-6-240px.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal create by the app registration process." lightbox="./media/local-dev-app-registration-azure-portal-6.png"::: |
+| [!INCLUDE [Create app registration step 7](<./includes/local-dev-app-registration-azure-portal-7.md>)] | :::image type="content" source="./media/local-dev-app-registration-azure-portal-7-240px.png" alt-text="A screenshot showing the page with the generated client secret." lightbox="./media/local-dev-app-registration-azure-portal-7.png"::: |
+
 ---
 
 <a name='2---create-an-azure-ad-security-group-for-local-development'></a>
@@ -72,6 +72,34 @@ Since there typically multiple developers who work on an application, it's recom
 - If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
 - If a new developer joins the team, a new application service principal is created for the developer and added to the group, assuring the developer has the right permissions to work on the app.
 
+### [Azure CLI](#tab/azure-cli)
+
+The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
+
+```azurecli
+az ad group create \
+    --display-name MyDisplay \
+    --mail-nickname MyDisplay  \
+    --description "<group-description>"
+```
+
+To add members to the group, you'll need the object ID of the application service principal which is different that the application id.  Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown.  The `--query` parameter limits to columns to only those of interest.
+
+```azurecli
+az ad sp list \
+    --filter "startswith(displayName, 'msdocs')" \
+    --query "[].{objectId:id, displayName:displayName}" \
+    --output table
+```
+
+The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.  
+
+```azurecli
+az ad group member add \
+    --group <group-name> \
+    --member-id <object-id>
+```
+
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
@@ -83,58 +111,18 @@ Since there typically multiple developers who work on an application, it's recom
 | [!INCLUDE [Create app AD group step 5](<./includes/local-dev-app-ad-group-azure-portal-5.md>)] | :::image type="content" source="./media/local-dev-app-ad-group-azure-portal-5-240px.png" alt-text="A screenshot of the Add members dialog box showing how to select application service principals to be included in the group." lightbox="./media/local-dev-app-ad-group-azure-portal-5.png"::: |
 | [!INCLUDE [Create app AD group step 6](<./includes/local-dev-app-ad-group-azure-portal-6.md>)] | :::image type="content" source="./media/local-dev-app-ad-group-azure-portal-6-240px.png" alt-text="A screenshot of the New Group page showing how to complete the process by selecting the Create button." lightbox="./media/local-dev-app-ad-group-azure-portal-6.png"::: |
 
-### [Azure CLI](#tab/azure-cli)
-
-The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
-
-```azurecli
-az ad group create \
-    --display-name MyDisplay \
-    --mail-nickname MyDisplay  \
-    --description \<group-description>
-```
-
-To add members to the group, you'll need the object ID of the application service principal which is different that the application id.  Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown.  The `--query` parameter limits to columns to only those of interest.
-
-```azurecli
-az ad sp list \
-    --filter "startswith(displayName, 'msdocs')" \
-    --query "[].{objectId:objectId, displayName:displayName}" \
-    --output table
-```
-
-The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.  
-
-```azurecli
-az ad group member add \
-    --group \<group-name> \
-    --member-id \<object-id>  \
-```
-
 ---
 
 ## 3 - Assign roles to the application
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 2.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-1.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-2-240px.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." lightbox="./media/assign-local-dev-group-to-role-azure-portal-2.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-3.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-4.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-5.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." lightbox="./media/assign-local-dev-group-to-role-azure-portal-6.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-7-240px.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." lightbox="./media/assign-local-dev-group-to-role-azure-portal-7.png"::: |
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 2.  Roles can be assigned at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-An application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. You can specify a group with its object ID. You can specify an application service principal with its appId.
 
 ```azurecli
-az role assignment create --assignee {appId} \
+az role assignment create --assignee {appId or GroupObjectId} \
     --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
     --role "{roleName}" 
 ```
@@ -156,6 +144,18 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-1.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-2-240px.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." lightbox="./media/assign-local-dev-group-to-role-azure-portal-2.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-3.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-4.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-5.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." lightbox="./media/assign-local-dev-group-to-role-azure-portal-6.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-7-240px.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." lightbox="./media/assign-local-dev-group-to-role-azure-portal-7.png"::: |
 
 ---
 

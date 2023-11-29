@@ -27,14 +27,6 @@ The first step is to enable managed identity on Azure resource hosting your app.
 
 You can enable managed identity to be used for an Azure resource using either the Azure portal or the Azure CLI.
 
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Enable managed identity step 1](<./includes/enable-managed-identity-azure-portal-1.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to locate and navigate to a resource in Azure." lightbox="./media/enable-managed-identity-azure-portal-1.png"::: |
-| [!INCLUDE [Enable managed identity step 2](<./includes/enable-managed-identity-azure-portal-2.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Identity menu item in the left-hand menu for an Azure resource." lightbox="./media/enable-managed-identity-azure-portal-2.png"::: |
-| [!INCLUDE [Enable managed identity step 3](<./includes/enable-managed-identity-azure-portal-3.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-3-240px.png" alt-text="A screenshot showing how to enable managed identity for an Azure resource on the resource's Identity page." lightbox="./media/enable-managed-identity-azure-portal-3.png"::: |
-
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
@@ -57,23 +49,19 @@ The output will look like the following.
 
 The `principalId` value is the unique ID of the managed identity. Keep a copy of this output as you'll need these values in the next step.
 
----
-
-## 2 - Assign roles to the managed identity
-
-Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure.  A managed identity can be assigned  roles at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
-
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Assign managed identity to role step 1](<./includes/assign-managed-identity-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to locate and navigate to a resource group in Azure. This resource group is what you'll assign roles (permissions) to." lightbox="./media/assign-managed-identity-to-role-azure-portal-1.png"::: |
-| [!INCLUDE [Assign managed identity to role step 2](<./includes/assign-managed-identity-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Access control (IAM) menu item in the left-hand menu of an Azure resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-2.png"::: |
-| [!INCLUDE [Assign managed identity to role step 3](<./includes/assign-managed-identity-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-3.png"::: |
-| [!INCLUDE [Assign managed identity to role step 4](<./includes/assign-managed-identity-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-4.png"::: |
-| [!INCLUDE [Assign managed identity to role step 5](<./includes/assign-managed-identity-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing how to select managed identity as the type of user you want to assign the role (permission) on the add role assignments page." lightbox="./media/assign-managed-identity-to-role-azure-portal-5.png"::: |
-| [!INCLUDE [Assign managed identity to role step 6](<./includes/assign-managed-identity-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to use the select managed identities dialog to filter and select the managed identity to assign the role to." lightbox="./media/assign-managed-identity-to-role-azure-portal-6.png"::: |
-| [!INCLUDE [Assign managed identity to role step 7](<./includes/assign-managed-identity-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-7-240px.png" alt-text="A screenshot of the final add role assignment screen where a user needs to select the Review + Assign button to finalize the role assignment." lightbox="./media/assign-managed-identity-to-role-azure-portal-7.png"::: |
+| [!INCLUDE [Enable managed identity step 1](<./includes/enable-managed-identity-azure-portal-1.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to locate and navigate to a resource in Azure." lightbox="./media/enable-managed-identity-azure-portal-1.png"::: |
+| [!INCLUDE [Enable managed identity step 2](<./includes/enable-managed-identity-azure-portal-2.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Identity menu item in the left-hand menu for an Azure resource." lightbox="./media/enable-managed-identity-azure-portal-2.png"::: |
+| [!INCLUDE [Enable managed identity step 3](<./includes/enable-managed-identity-azure-portal-3.md>)] | :::image type="content" source="./media/enable-managed-identity-azure-portal-3-240px.png" alt-text="A screenshot showing how to enable managed identity for an Azure resource on the resource's Identity page." lightbox="./media/enable-managed-identity-azure-portal-3.png"::: |
+
+---
+
+## 2 - Assign roles to the managed identity
+
+Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure.  A managed identity can be assigned roles at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -102,6 +90,18 @@ az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Assign managed identity to role step 1](<./includes/assign-managed-identity-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to locate and navigate to a resource group in Azure. This resource group is what you'll assign roles (permissions) to." lightbox="./media/assign-managed-identity-to-role-azure-portal-1.png"::: |
+| [!INCLUDE [Assign managed identity to role step 2](<./includes/assign-managed-identity-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Access control (IAM) menu item in the left-hand menu of an Azure resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-2.png"::: |
+| [!INCLUDE [Assign managed identity to role step 3](<./includes/assign-managed-identity-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-3.png"::: |
+| [!INCLUDE [Assign managed identity to role step 4](<./includes/assign-managed-identity-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="./media/assign-managed-identity-to-role-azure-portal-4.png"::: |
+| [!INCLUDE [Assign managed identity to role step 5](<./includes/assign-managed-identity-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing how to select managed identity as the type of user you want to assign the role (permission) on the add role assignments page." lightbox="./media/assign-managed-identity-to-role-azure-portal-5.png"::: |
+| [!INCLUDE [Assign managed identity to role step 6](<./includes/assign-managed-identity-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to use the select managed identities dialog to filter and select the managed identity to assign the role to." lightbox="./media/assign-managed-identity-to-role-azure-portal-6.png"::: |
+| [!INCLUDE [Assign managed identity to role step 7](<./includes/assign-managed-identity-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-managed-identity-to-role-azure-portal-7-240px.png" alt-text="A screenshot of the final add role assignment screen where a user needs to select the Review + Assign button to finalize the role assignment." lightbox="./media/assign-managed-identity-to-role-azure-portal-7.png"::: |
 
 ---
 
