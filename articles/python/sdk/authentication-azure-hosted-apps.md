@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python
 description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 11/27/2023
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -65,7 +65,7 @@ Next, you need to determine what roles (permissions) your app needs and assign t
 
 ### [Azure CLI](#tab/azure-cli)
 
-A managed identity is assigned a role in Azure using the [az role assignment create] command.
+A managed identity is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command.
 
 ```azurecli
 az role assignment create --assignee {managedIdentityId} \

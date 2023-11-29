@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure resources from Python apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
-ms.date: 11/27/2023
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -22,7 +22,7 @@ An app can be registered with Azure using either the Azure portal or the Azure C
 az ad sp create-for-rbac --name <app-name>
 ```
 
-The output of the command will be similar to the following.  Make note of these values or keep this window open as you will need these values in the next step and will not be able to view the password (client secret) value again.
+The output of the command will be similar to the following.  Make note of these values or keep this window open as you will need these values in the next steps and will not be able to view the password (client secret) value again.
 
 ```json
 {

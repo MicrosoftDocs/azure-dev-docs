@@ -1,7 +1,7 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 11/21/2022
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -38,6 +38,8 @@ az ad group create \
     --mail-nickname MyDisplay  \
     --description "<group-description>"
 ```
+
+Copy the value of the `id` property in the output of the command. This is the object ID for the group. You'll need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
 
 To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter limits the output to columns of interest.
 

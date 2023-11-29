@@ -1,7 +1,7 @@
 ---
 title: Authenticate Python apps to Azure services during local development using service principals
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using dedicated application service principals.
-ms.date: 03/31/2022
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -82,6 +82,8 @@ az ad group create \
     --mail-nickname MyDisplay  \
     --description "<group-description>"
 ```
+
+Copy the value of the `id` property in the output of the command. This is the object ID for the group. You'll need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
 
 To add members to the group, you'll need the object ID of the application service principal which is different that the application id.  Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown.  The `--query` parameter limits to columns to only those of interest.
 
