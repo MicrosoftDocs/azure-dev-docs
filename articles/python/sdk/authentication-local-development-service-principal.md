@@ -66,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 ## 2 - Create a Microsoft Entra security group for local development
 
-Since there typically multiple developers who work on an application, it's recommended to create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development rather than assigning the roles to individual service principal objects.  This offers the following advantages.
+Since there typically multiple developers who work on an application, it's recommended to create a Microsoft Entra security group to encapsulate the roles (permissions) the app needs in local development rather than assigning the roles to individual service principal objects.  This offers the following advantages.
 
 - Every developer is assured to have the same roles assigned since roles are assigned at the group level.
 - If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
@@ -74,7 +74,7 @@ Since there typically multiple developers who work on an application, it's recom
 
 ### [Azure CLI](#tab/azure-cli)
 
-The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
+The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create security groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
 ```azurecli
 az ad group create \
