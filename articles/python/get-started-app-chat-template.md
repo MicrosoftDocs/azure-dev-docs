@@ -14,6 +14,8 @@ This article shows you how to deploy and run the [Enterprise chat app sample for
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
 
+> [!VIDEO https://youtu.be/3acB0OWmLvM title="Chat App using ChatGPT + Azure Cognitive Search with Python" /]
+
 By following the instructions in this article, you will:
 
 - Deploy a chat app to Azure.
