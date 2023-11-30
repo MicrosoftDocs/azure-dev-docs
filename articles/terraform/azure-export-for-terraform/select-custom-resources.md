@@ -189,10 +189,36 @@ aztfexport map -n "aztfexportResourceMapping.json"
 - Can refactor JSON into multiple mapping files.
 - Handles large amounts of resources well.
 
-***Cons:***
+**Cons:**
 
 - For simple scenarios, this technique might be overkill.
 - Requires manual modifications.
+
+## Using Terraform `import` Blocks
+When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-mapping-file` or `-g` command will not only generate a mapping file but also an `import.tf` file which will include import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To run the import block, simply specify `terraform plan` and the config will be generated.
+
+To then delete or filter resources from the resulting export, you can simply delete the block containing the resource's ID and other information.
+
+### Differences Between Import Blocks and Azure Export
+A common question is the difference between using Azure Export for Terraform and import blocks. These are the benefits of the two tools we've noticed:
+- Azure Export for Terraform aids in resource discovery. Whether it's through manual (specify a resource group) or automated (all resources under networking) methods, there are a variety of ways to discover and export the resources you want.
+- Azure Export for Terraform provides resource filtering, also through manual and automated means.
+- Azure Export for Terraform auto-generates import blocks with its outputs, saving time and effort on the authoring process.
+- Terraform import blocks are natively supported in Terraform, which makes them easy to use.
+Combined together, we believe that the use of both will provide tremendous benefit for a variety of scenarios to you.
+
+**Pros:**
+
+- Native Terraform supported workflow. No JSON needed.
+- Since you're editing a file, you can use an editor to find and replace what you need to remove or edit.
+- Can rename resources to match your naming standards.
+- Handles large amounts of resources well.
+
+**Cons:**
+
+- For simple scenarios, this technique might be overkill.
+- Requires manual modifications to filter.
+- Does not work with older versions of Terraform.
 
 ## Summary
 
