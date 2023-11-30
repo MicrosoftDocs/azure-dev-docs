@@ -106,9 +106,9 @@ You should see all fields are prepopulated with the defaults, select **Next** to
 1. Select **Yes** for **Connect to database?**.
 1. Select **Microsoft SQL Server (Support passwordless connection)** for **Choose database type**.
 1. Enter *jdbc/WebLogicCafeDB* for **JNDI Name**.
-1. Replace the placeholders in datasource connection string (*jdbc:sqlserver://<failover-group-name>.database.windows.net:1433;database=<database-name>*) with valid values you wrote down before, for example, *jdbc:sqlserver://failovergroup-ejb113023.database.windows.net:1433;database=mySampleDatabase*. Enter it for **DataSource Connection String**.
+1. Replace the placeholders in datasource connection string (*jdbc:sqlserver://\<failover-group-name\>.database.windows.net:1433;database=\<database-name\>*) with valid values you wrote down before, for example, *jdbc:sqlserver://failovergroup-ejb113023.database.windows.net:1433;database=mySampleDatabase*. Enter it for **DataSource Connection String**.
 1. Select **None** for **Global transaction protocal**.
-1. Replace the placeholders in database username (*<server-admin-login>@<failover-group-name>*) with valid values you wrote down before, for example, *azureuser@failovergroup-ejb113023*. Enter it for **Database username**.
+1. Replace the placeholders in database username (*\<server-admin-login\>@\<failover-group-name\>*) with valid values you wrote down before, for example, *azureuser@failovergroup-ejb113023*. Enter it for **Database username**.
 1. Enter server admin login password you wrote down before for **Database Password**. Enter the same value for **Confirm password**. 
 1. Leave the defaults for other fields.
 1. Select **Review + create**. 
