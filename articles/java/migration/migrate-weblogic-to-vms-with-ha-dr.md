@@ -37,13 +37,13 @@ In this tutorial, you learn how to:
 
 In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app.
 
-Create a single database in Azure SQL Database and add it to an auto-failover grup by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
+Create a single database in Azure SQL Database and add it to an auto-failover grup by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
-1. When you reach the section [1 - Create a database](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&tabs=azure-portal#1---create-a-database)
+1. When you reach the section [1 - Create a database](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#1---create-a-database)
    * In step 9 for creating the primary server, select **(US) West US** for **Location** in the **New server** form. Write down the **Password** for **Server admin login** `azureuser`.
    * In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
 
-1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&tabs=azure-portal#2---create-the-failover-group)
+1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group)
    * In step 5 for creating the **Failover group**, write down **Failover group name**. 
    * In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
 
@@ -52,11 +52,11 @@ After you create the Azure SQL Database failover group, open the SQL database of
 1. In the **Query editor (preview)** pane, enter **azureuser** for **Login**, server admin login password you wrote down before for **Password**, and select **OK**. You should see **Query editor** window after successful login.
 
    > [!NOTE]
-   > If login failed with the similar error message **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server <your-sqlserver-name>** at the end of the error message. Wait until server firewall rules updates complete and select **OK** again.
+   > If login failed with the similar error message **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until server firewall rules updates complete and select **OK** again.
 
 1. Copy and paste the following SQL query to the editor, and select **Run**. You should see message **Query succeeded: Affected rows: 0** after successful run.
 
-   ```
+   ```SQL
    create table TLOG_msp1_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
    create table TLOG_msp2_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
    create table TLOG_msp3_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
