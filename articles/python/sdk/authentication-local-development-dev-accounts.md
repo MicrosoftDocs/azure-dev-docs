@@ -10,9 +10,9 @@ ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 
 When developers create cloud applications, they typically debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
 
-:::image type="content" source="media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how an app running in local developer will obtain the application service principal from an .env file and then use that identity to connect to Azure resources.":::
+:::image type="content" source="media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI or Azure PowerShell.  The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools, and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI or Azure PowerShell. The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
 This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](./authentication-local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
@@ -20,17 +20,17 @@ This approach is easiest to set up for a development team since it takes advanta
 
 ## 1 - Create Microsoft Entra security group for local development
 
-Since there are almost always multiple developers who work on an application, it's recommended to first create a Microsoft Entra security group to encapsulate the roles (permissions) the app needs in local development.  This approach offers the following advantages.
+Since there are almost always multiple developers who work on an application, it's recommended to first create a Microsoft Entra security group to encapsulate the roles (permissions) the app needs in local development. This approach offers the following advantages.
 
 - Every developer is assured to have the same roles assigned since roles are assigned at the group level.
 - If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
 - If a new developer joins the team, they simply must be added to the correct Microsoft Entra group to get the correct permissions to work on the app.
 
-If you have an existing Microsoft Entra security group for your development team, you can use that group.  Otherwise, complete the following steps to create a Microsoft Entra security group.
+If you have an existing Microsoft Entra security group for your development team, you can use that group. Otherwise, complete the following steps to create a Microsoft Entra security group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
+The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID. The `--display-name` and `--main-nickname` parameters are required. The name given to the group should be based on the name of the application. It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
 ```azurecli
 az ad group create \
@@ -39,9 +39,9 @@ az ad group create \
     --description "<group-description>"
 ```
 
-Copy the value of the `id` property in the output of the command. This is the object ID for the group. You'll need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
+Copy the value of the `id` property in the output of the command. This is the object ID for the group. You need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
 
-To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter limits the output to columns of interest.
+To add members to the group, you need the object ID of Azure user. Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals. The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown. The `--query` parameter limits the output to columns of interest.
 
 ```azurecli
 az ad user list \
@@ -50,7 +50,7 @@ az ad user list \
     --output table
 ```
 
-The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.  
+The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups. 
 
 ```azurecli
 az ad group member add \
@@ -65,7 +65,7 @@ az ad group member add \
 | [!INCLUDE [Create app AD group step 1](<./includes/local-dev-accounts-app-ad-group-azure-portal-1.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to search for and navigate to the Microsoft Entra ID page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-1.png"::: |
 | [!INCLUDE [Create app AD group step 2](<./includes/local-dev-accounts-app-ad-group-azure-portal-2.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Groups menu item in the left-hand menu of the Microsoft Entra ID Default Directory page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-2.png"::: |
 | [!INCLUDE [Create app AD group step 3](<./includes/local-dev-accounts-app-ad-group-azure-portal-3.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-3-240px.png" alt-text="A screenshot showing the location of the New Group button in the All groups page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-3.png"::: |
-| [!INCLUDE [Create app AD group step 4](<./includes/local-dev-accounts-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to fill out the form to create a new Microsoft Entra group for the application.  This screenshot also shows the location of the link to select to add members to this group" lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-4.png"::: |
+| [!INCLUDE [Create app AD group step 4](<./includes/local-dev-accounts-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to fill out the form to create a new Microsoft Entra group for the application. This screenshot also shows the location of the link to select to add members to this group" lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-4.png"::: |
 | [!INCLUDE [Create app AD group step 5](<./includes/local-dev-accounts-app-ad-group-azure-portal-5.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-5-240px.png" alt-text="A screenshot of the Add members dialog box showing how to select developer accounts to be included in the group." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-5.png"::: |
 | [!INCLUDE [Create app AD group step 6](<./includes/local-dev-accounts-app-ad-group-azure-portal-6.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-6-240px.png" alt-text="A screenshot of the New Group page showing how to complete the process by selecting the Create button." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-6.png"::: |
 
@@ -78,7 +78,7 @@ az ad group member add \
 
 ## 2 - Assign roles to the Microsoft Entra group
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 1.  Roles can be assigned at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. In this example, the roles will be assigned to the Microsoft Entra group created in step 1. Roles can be assigned at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -151,7 +151,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell.  If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell. If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 

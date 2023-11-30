@@ -10,20 +10,20 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 When you host an app in Azure using services like Azure App Service, Azure Virtual Machines, or Azure Container Instances, the recommended approach to authenticate an app to Azure resources is with [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
-A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret.  Internally, Azure knows the identity of your app and what resources it's allowed to connect to.  Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
+A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
 
 ## Managed identity types
 
 There are two types of managed identities:
 
-- **System-assigned managed identities** - This type of managed identity is provided by and tied directly to an Azure resource.  When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource.  A system-assigned managed identity is tied to the lifecycle of the Azure resource it's associated with. When the resource is deleted, Azure automatically deletes the identity for you.  Since all you have to do is enable managed identity for the Azure resource hosting your code, this approach is the easiest type of managed identity to use.
-- **User-assigned managed identities** - You may also create a managed identity as a standalone Azure resource. This approach is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions.  For example, if your solution had components that run on multiple App Service and virtual machine instances that all need access to the same set of Azure resources, then a user-assigned managed identity used across those resources makes sense.
+- **System-assigned managed identities** - This type of managed identity is provided by and tied directly to an Azure resource. When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource. A system-assigned managed identity is tied to the lifecycle of the Azure resource it's associated with. When the resource is deleted, Azure automatically deletes the identity for you. Since all you have to do is enable managed identity for the Azure resource hosting your code, this approach is the easiest type of managed identity to use.
+- **User-assigned managed identities** - You can also create a managed identity as a standalone Azure resource. This approach is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, if your solution had components that run on multiple App Service and virtual machine instances that all need access to the same set of Azure resources, then a user-assigned managed identity used across those resources makes sense.
 
-This article will cover the steps to enable and use a system-assigned managed identity for an app.  If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
+This article covers the steps to enable and use a system-assigned managed identity for an app. If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
 
 ## 1 - Enable managed identity in the Azure resource hosting the app
 
-The first step is to enable managed identity on Azure resource hosting your app.  For example, if you're hosting a Django application using Azure App Service, you need to enable managed identity for the App Service web app that is hosting your app.  If you're using a virtual machine to host your app, you would enable your VM to use managed identity.
+The first step is to enable managed identity on Azure resource hosting your app. For example, if you're hosting a Django application using Azure App Service, you need to enable managed identity for the App Service web app that is hosting your app. If you're using a virtual machine to host your app, you would enable your VM to use managed identity.
 
 You can enable managed identity to be used for an Azure resource using either the Azure portal or the Azure CLI.
 
@@ -31,7 +31,7 @@ You can enable managed identity to be used for an Azure resource using either th
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`.  Specific commands for popular Azure services are shown below.
+The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`. Specific commands for popular Azure services are shown below.
 
 [!INCLUDE [Enable managed identity Azure CLI](<./includes/enable-managed-identity-azure-cli.md>)]
 
@@ -61,14 +61,14 @@ The `principalId` value is the unique ID of the managed identity. Keep a copy of
 
 ## 2 - Assign roles to the managed identity
 
-Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure.  A managed identity can be assigned roles at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure. A managed identity can be assigned roles at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-A managed identity is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command.
+A managed identity is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. For the assignee, use the `principalId` you copied in step 1.
 
 ```azurecli
-az role assignment create --assignee {managedIdentityId} \
+az role assignment create --assignee {managedIdentityprincipalId} \
     --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
     --role "{roleName}" 
 ```
@@ -107,7 +107,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources.  As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime.  The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment specific code.
+The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources. As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment specific code.
 
 First, add the `azure.identity` package to your application.
 
