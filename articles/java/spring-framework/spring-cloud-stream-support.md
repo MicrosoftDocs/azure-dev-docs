@@ -231,7 +231,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
              client-id: ${AZURE_CLIENT_ID}
              client-secret: ${AZURE_CLIENT_SECRET}
            profile:
-             tenant-id: ${AZURE_TENANT_ID}
+             tenant-id: <tenant>
            eventhubs:
              namespace: ${EVENTHUB_NAMESPACE}
              processor:
@@ -254,6 +254,9 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                    checkpoint:
                      mode: MANUAL
      ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -628,6 +631,9 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
            fixed-delay: 1000
    ```
 
+   > [!NOTE]
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+
 1. We need define two suppliers and two consumers:
 
    ```java
@@ -681,13 +687,16 @@ spring:
   cloud:
     azure:
       credential:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       profile:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       eventhubs:
         resource:
           resource-group: ${AZURE_EVENTHUBS_RESOURECE_GROUP}
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ### Samples
 
@@ -846,7 +855,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                  client-id: ${AZURE_CLIENT_ID}
                  client-secret: ${AZURE_CLIENT_SECRET}
                profile:
-                 tenant-id: ${AZURE_TENANT_ID}
+                 tenant-id: <tenant>
                servicebus:
                  namespace: ${SERVICEBUS_NAMESPACE}
              function:
@@ -868,6 +877,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                      producer:
                        entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
 
@@ -1179,6 +1191,9 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
            fixed-delay: 1000
    ```
 
+   > [!NOTE]
+   > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+
 1. we need define two suppliers and two consumers
 
    ```java
@@ -1233,7 +1248,7 @@ spring:
   cloud:
     azure:
       credential:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       profile:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       servicebus:
@@ -1246,6 +1261,9 @@ spring:
             consumer:
               entity-type: ${SERVICEBUS_CONSUMER_ENTITY_TYPE}
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ### Samples
 

@@ -119,8 +119,11 @@ spring.cloud.azure:
     client-id: ${AZURE_CLIENT_ID}
     client-secret: ${AZURE_CLIENT_SECRET}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 The following example shows you how to authenticate using a service principal with a client PFX certificate:
 
@@ -131,8 +134,11 @@ spring.cloud.azure:
     client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
     client-certificate-password: ${AZURE_CLIENT_CERTIFICATE_PASSWORD}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 The following example shows you how to authenticate using a service principal with client PEM certificate:
 
@@ -142,8 +148,11 @@ spring.cloud.azure:
     client-id: ${AZURE_CLIENT_ID}
     client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
   profile:
-    tenant-id: ${AZURE_TENANT_ID}
+    tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 The following example shows you how to authenticate using a user credential:
 
@@ -166,8 +175,11 @@ spring.cloud.azure:
       client-id: ${AZURE_CLIENT_ID}
       client-secret: ${AZURE_CLIENT_SECRET}
     profile:
-      tenant-id: ${AZURE_TENANT_ID}
+      tenant-id: <tenant>
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 <a name='authorize-access-with-azure-active-directory'></a>
 
