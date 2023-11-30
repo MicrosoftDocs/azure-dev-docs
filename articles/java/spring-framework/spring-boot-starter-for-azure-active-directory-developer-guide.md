@@ -86,11 +86,14 @@ spring:
      active-directory:
        enabled: true
        profile:
-         tenant-id: <your-tenant-ID>
+         tenant-id: <tenant>
        credential:
          client-id: <your-client-ID>
          client-secret: <your-client-secret>
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Use the default security configuration or provide your own configuration.
 
@@ -186,7 +189,7 @@ spring:
      active-directory:
        enabled: true
        profile:
-         tenant-id: <your-tenant-ID>
+         tenant-id: <tenant>
        credential:
          client-id: <your-client-ID>
          client-secret: <your-client-secret>
@@ -194,6 +197,9 @@ spring:
          graph:
            scopes: https://graph.microsoft.com/Analytics.Read, email
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Here, `graph` is the name of your `OAuth2AuthorizedClient`, and `scopes` are the scopes needed for consent when logging in.
 
@@ -353,7 +359,7 @@ spring:
      active-directory:
        enabled: true
        profile:
-         tenant-id: <tenant-ID-registered-by-application>
+         tenant-id: <tenant>
        credential:
          client-id: <web-API-A-client-ID>
          client-secret: <web-API-A-client-secret>
@@ -363,6 +369,9 @@ spring:
            scopes:
               - https://graph.microsoft.com/User.Read
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Use the `@RegisteredOAuth2AuthorizedClient` attribute in your code to access the related resource server, as shown in the following example:
 
@@ -411,7 +420,7 @@ spring:
      active-directory:
        enabled: true
        profile:
-         tenant-id: <Tenant-id-registered-by-application>
+         tenant-id: <tenant>
        credential:
          client-id: <Web-API-C-client-id>
          client-secret: <Web-API-C-client-secret>
@@ -424,6 +433,9 @@ spring:
              - https://graph.microsoft.com/User.Read
              - https://graph.microsoft.com/Directory.Read.All
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Write Java code to configure multiple `HttpSecurity` instances.
 
@@ -527,7 +539,7 @@ The Spring Boot Starter for Microsoft Entra ID provides the following properties
 | spring.cloud.azure.active-directory.credential.client-secret                                             | The client secret of the registered application.                                                                                                                                                                                                                                                                                                                         |
 | spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set to *true*. Otherwise, use `/v1.0/me/memberOf`.                                                                                                                                                                                                                                                                     |
 | spring.cloud.azure.active-directory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                                                                                                                                                                                                                                                                                                                               |
-| spring.cloud.azure.active-directory.profile.tenant-id                                                    | The Azure tenant ID.                                                                                                                                                                                                                                                                                                                                                     |
+| spring.cloud.azure.active-directory.profile.tenant-id                                                    | The Azure tenant ID. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                                                                                                                                                                                                         |
 | spring.cloud.azure.active-directory.user-group.allowed-group-names                                       | The expected user groups that an authority will be granted to if found in the response from the `MemberOf` Graph API call.                                                                                                                                                                                                                                               |
 | spring.cloud.azure.active-directory.user-name-attribute                                                  | Indicates which claim will be the principal's name.                                                                                                                                                                                                                                                                                                                      |
 
