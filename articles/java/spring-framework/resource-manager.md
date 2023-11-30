@@ -44,7 +44,7 @@ Configurable properties of spring-cloud-azure-resourcemanager:
 > | **spring.cloud.azure.profile**.cloud-type                            | Name of the Azure cloud to connect to.                                                             |
 > | **spring.cloud.azure.profile**.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to for authentication.                              |
 > | **spring.cloud.azure.profile**.subscription-id                       | Subscription ID to use when connecting to Azure resources.                                         |
-> | **spring.cloud.azure.profile**.tenant-id                             | Tenant ID for Azure resources. Valid values are: `common`, `organizations`, `consumers` or Tenant id.                                                                    |
+> | **spring.cloud.azure.profile**.tenant-id                             | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                         |
 > | **spring.cloud.azure.azure-service**.namespace                   | The namespace of the Azure service to provision resources with.                                    |
 > | **spring.cloud.azure.azure-service**.resource.resource-group     | The resource group holding an Azure service resource.                                              |
 
