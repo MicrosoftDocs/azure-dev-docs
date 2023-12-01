@@ -76,14 +76,12 @@
         href: end-to-end/contoso-real-estate-serverless-api.md
       - name: Migrating to serverless v4 programming model
         href: end-to-end/contoso-real-estate-serverless-api-migration.md
-      - name: Test APIs
-        href: end-to-end/contoso-real-estate-test-api-solution.md
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
       displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
-    - name: Test
-      href: end-to-end/contoso-real-estate-test-solution.md
-      displayName: test, Unit test, e2e test, playwright
+    - name: Test APIs
+      href: end-to-end/contoso-real-estate-test-api-solution.md
+      displayName: test, test API, API, playwright
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
