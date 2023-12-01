@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure
   topicHref: /azure/index
@@ -7,14 +8,5 @@
     topicHref: /azure/developer/index
     items:
     - name: Go
-      tocHref: /azure/storage/blobs
-      topicHref: /azure/developer/go/index
-    - name: Go
-      tocHref: /azure/postgresql
-      topicHref: /azure/developer/go/index
-    - name: Go
-      tocHref: /azure/mysql
-      topicHref: /azure/developer/go/index
-    - name: Go
-      tocHref: /azure/sql-database
+      tocHref: /azure
       topicHref: /azure/developer/go/index

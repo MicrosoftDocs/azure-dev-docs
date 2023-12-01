@@ -8,6 +8,7 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Modern cloud development with Contoso real estate
 
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 Modern cloud development used in the Contoso Real Estate solution includes tools to enable you to develop, debug, build, deploy, and test your application. 
 
 ## Developer Environment

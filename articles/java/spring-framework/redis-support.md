@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure Redis support
 
-**This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 Connect to Azure Cache for Redis using Spring Redis libraries. With adding `spring-cloud-azure-starter` and `spring-cloud-azure-resourcemanager` to your application, it's possible to read the Azure Cache for Redis connection information through Azure Resource Manager and auto-configure the Redis properties.
 
@@ -34,7 +34,7 @@ Add the following dependencies if you want to use the Spring Cloud Azure Redis s
 ## Configuration
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, see [Authorize access with Azure AD](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Configurable properties when using Redis support:
 

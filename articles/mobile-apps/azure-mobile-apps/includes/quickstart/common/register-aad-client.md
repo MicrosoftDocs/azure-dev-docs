@@ -12,8 +12,8 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 
 1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **App registrations** > **New registration**.
 2. In the **Register an application** page:
-    * enter a **Name** for your app registration.  Enter `native-quickstart` to distinguish this registration from the registration used by your backend service.
-    * Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+    * enter a **Name** for your app registration.  You may want to use the name `native-quickstart` to distinguish this one from the one used by your backend service.
+    * Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
     * In **Redirect URI**:
         * Select **Public client (mobile & desktop)**
         * Enter the URL `quickstart://auth`

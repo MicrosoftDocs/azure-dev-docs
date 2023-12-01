@@ -308,9 +308,6 @@ The following procedure opens log files on Azure.
    2021-05-28T01:47:26.649080678Z 2021-05-28 01:47:26.648  INFO 124 --- [p-nio-80-exec-1] c.a.s.s.   controller.TodoListController    : GET request access '/api/todolist' path.
    ```
 
-1. When you're finished, you can check your results against the code in 
-[e2e-java-experience-in-app-service-linux-part-2/complete](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2/tree/master/complete).
-
 ## Scale out the Spring Todo App
 
 Use the following procedure to scale the application.

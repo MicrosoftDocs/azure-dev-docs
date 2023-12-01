@@ -74,5 +74,5 @@ One subject that we haven't touched upon in this tutorial is authentication of *
 
 - [How to authenticate and authorize Python apps on Azure](./sdk/authentication-overview.md)
 - Walkthrough sample: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication)
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/azure/active-directory)
 - [Azure Key Vault documentation](/azure/key-vault)

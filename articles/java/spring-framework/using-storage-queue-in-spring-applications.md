@@ -29,7 +29,7 @@ Spring Cloud Azure provides various modules for using Spring frameworks to send 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Queue Data Contributor` role to the Azure AD account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+> To grant your account access to resources, in your newly created Azure Storage account, assign the `Storage Queue Data Contributor` role to the Microsoft Entra account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Storage Queue Starter module, add the followin
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.11.0</version>
+         <version>4.13.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -237,7 +237,7 @@ To install the Spring Messaging Azure Storage Queue module, add the following de
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.11.0</version>
+         <version>4.13.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -339,7 +339,7 @@ To install the Spring Integration Azure Storage Queue module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>4.11.0</version>
+         <version>4.13.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>

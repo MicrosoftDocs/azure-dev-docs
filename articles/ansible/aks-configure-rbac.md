@@ -13,13 +13,13 @@ ms.custom: devx-track-ansible
 
 [!INCLUDE [open-source-devops-intro-aks.md](../includes/open-source-devops-intro-aks.md)]
 
-AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. Once configured, you use your Azure AD authentication token to sign into the AKS cluster. The RBAC can be based on a user's identity or directory group membership.
+AKS can be configured to use [Microsoft Entra ID](/azure/active-directory/) for user authentication. Once configured, you use your Microsoft Entra authentication token to sign into the AKS cluster. The RBAC can be based on a user's identity or directory group membership.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create an Azure AD-enabled AKS cluster
+> * Create a Microsoft Entra ID-enabled AKS cluster
 > * Configure an RBAC role in the cluster
 
 ## Prerequisites
@@ -29,9 +29,11 @@ In this article, you learn how to:
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 - **Install the RedHat OpenShift library** - `pip install openshift`
 
-## Configure Azure AD for AKS authentication
+<a name='configure-azure-ad-for-aks-authentication'></a>
 
-When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-the-server-application). 
+## Configure Microsoft Entra ID for AKS authentication
+
+When configuring Microsoft Entra ID for AKS authentication, two Microsoft Entra applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Microsoft Entra ID with AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 From the Azure tenant administrator, get the following values:
 
@@ -44,7 +46,7 @@ These values are needed to run the sample playbook.
 
 ## Create an AKS cluster
 
-In this section, you create an AKS with the [Azure AD application](#configure-azure-ad-for-aks-authentication).
+In this section, you create an AKS with the [Microsoft Entra application](#configure-azure-ad-for-aks-authentication).
 
 Here are some key notes to consider when working with the sample playbook:
 
@@ -111,13 +113,15 @@ Save the following playbook as `aks-create.yml`:
       dest: "aks-{{ name }}-kubeconfig"
 ```
 
-## Get the Azure AD Object ID
+<a name='get-the-azure-ad-object-id'></a>
 
-To create an RBAC binding, you first need to get the Azure AD Object ID. 
+## Get the Microsoft Entra Object ID
+
+To create an RBAC binding, you first need to get the Microsoft Entra Object ID. 
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. In the search field at the top of the page, enter `Azure Active Directory`. 
+1. In the search field at the top of the page, enter *Microsoft Entra ID*.
 
 1. Click `Enter`.
 
@@ -129,7 +133,7 @@ To create an RBAC binding, you first need to get the Azure AD Object ID.
 
 1. In the **Identity** section, copy the **Object ID**.
 
-    ![Copy the Azure AD Object ID.](./media/aks-configure-rbac/ansible-aad-object-id.png)
+    ![Copy the Microsoft Entra Object ID.](./media/aks-configure-rbac/ansible-aad-object-id.png)
 
 ## Create RBAC binding
 
@@ -152,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Replace the `<your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+Replace the `<your-aad-account>` placeholder with your Microsoft Entra tenant [Object ID](#get-the-azure-ad-object-id).
 
 Save the following playbook - that deploys your new role to AKS - as `aks-kube-deploy.yml`:
 
@@ -194,7 +198,7 @@ Save the following playbook as `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-In the `vars` section, replace the following placeholders with your Azure AD information:
+In the `vars` section, replace the following placeholders with your Microsoft Entra information:
 
 - `<client id>`
 - `<server id>`

@@ -8,13 +8,13 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # Packaged solutions for Contoso real estate 
 
-This reference architecture contains the components for building enterprise-grade modern composable frontends (or micro-frontends) and cloud-native applications. It's a collection of best practices, architecture patterns, and functional components that can be used to build and deploy modern JavaScript applications to Azure.
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
 
 :::image type="content" source="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" lightbox="./media/contoso-real-estate-developer-solutions/end-to-end-full-horizontal-architecture.png" alt-text="Diagram showing cloud architecture of Contoso real estate with Hero services on the left and the complete interaction of the services on the right.":::
 
 The following packages are listed in order of learning priority.
 
-## Package: The blog with Container Apps and Azure Database for PostgreSQL
+## Public blog with Container Apps and Azure Database for PostgreSQL
 
 This package provides data authoring and storing capabilities for both vertical micro-frontend applications (Blog and Portal). We enable these capabilities, via the implementation of a Headless CMS, powered by Strapi. 
 
@@ -33,7 +33,7 @@ Packages:
 * [Blog package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog)
 * [Blob CMS package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/blog-cms)
 
-## Package: The portal with Static Web Apps and Azure Functions API
+## Secure portal with Static Web Apps and Azure Functions API
 
 This frontend application is the main entry point for the users implementing Angular as a JavaScript framework. 
 
@@ -53,7 +53,7 @@ Packages:
 * [Portal package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/portal)
 * [Portal API package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/api)
 
-## User authentication with built-in functionality
+## User authentication with built-in functionality for secure portal
 
 User authentication is provided as built-in functionality in the portal's [Azure Static web app](/azure/static-web-apps/). The typical flow of [sign in](/azure/static-web-apps/authentication-authorization), redirecting a user to an authorization provider to complete authentication, then redirecting the authenticated user back to the application, is offered with several social media providers.
 
@@ -61,7 +61,7 @@ User authentication is provided as built-in functionality in the portal's [Azure
 
 Once a user is logged in, their user information is stored in [Cosmos DB for MongoDB API](/azure/cosmos-db/mongodb/choose-model) such as favorited-properties, and property reservations. 
 
-## Package: Payments with Stripe
+## Stripe payments
 
 This package supports the checkout process, in the portal, to pay for a property reservation. The payment flow is implemented with [Stripe](https://stripe.com/), a payment processing platform that allows you to accept payments online.
 This package containerizes the payment processing functionality in a [Fastify](https://fastify.dev/) application deployed to [Azure Container Apps](/azure/container-apps/overview)
@@ -72,13 +72,13 @@ When Azure API Management receives a request for the webhook endpoint URL from S
 
 [Stripe package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/stripe)
 
-## Package: Testing with Playwright
+## Playwright testing
 
 This package provides the end to end testing for Contoso real estate. It uses [Playwright](https://playwright.dev/) to automate the browser and test the user experience of the application. 
 
 [Testing package source code](https://github.com/Azure-Samples/contoso-real-estate/tree/main/packages/testing)
 
-## Package: Docs
+## Documentation site
 
 This package provides extensive documentation for the Contoso real estate reference architecture. It's built with [Docusaurus](https://docusaurus.io/), a modern static website generator. 
 

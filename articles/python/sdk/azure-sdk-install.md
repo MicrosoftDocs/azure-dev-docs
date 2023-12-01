@@ -1,7 +1,7 @@
 ---
 title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip and conda. Includes details on installing specific versions and preview packages.
-ms.date: 12/12/2022
+ms.date: 11/27/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 adobe-target: true
@@ -63,7 +63,7 @@ Specify the desired version on the command line with `pip install`.
 pip install <package>==<version>
 ```
 
-You can find version numbers in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the functionality you need, and then find and select the PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` package you can use: `pip install azure-storage-blob==12.14.1`.
+You can find version numbers in the [package index](azure-sdk-library-package-index.md). On the index page, look in the **Name** column for the functionality you need, and then find and select the PyPI link in the **Package** column. For example, to install a version of the `azure-storage-blob` package you can use: `pip install azure-storage-blob==12.19.0`.
 
 # [conda](#tab/conda)
 
@@ -79,7 +79,7 @@ Then, install the desired package and version:
 conda install <package>==<version>
 ```
 
-You can find version numbers on the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`. Find the library/package you want, drill into it, and look for the version number in the "Files" tab. For example, to install a version of `azure-storage` you can use: `conda install azure-storage=2022.09.01`. Or, you can specify the desired version on the command line with `conda install --revision`.
+You can find version numbers on the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`. Find the library/package you want, drill into it, and look for the version number in the "Files" tab. For example, to install a version of `azure-storage` you can use: `conda install azure-storage=2023.09.01`. Or, you can specify the desired version on the command line with `conda install --revision`.
 
 ---
 

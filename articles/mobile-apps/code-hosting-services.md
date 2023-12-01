@@ -62,7 +62,7 @@ Other GitHub features let you:
 
 [Azure Repos](https://azure.microsoft.com/services/devops/repos) is the distributed source control option for [Azure DevOps Services](https://azure.microsoft.com/services/devops). Azure Repos offers unlimited free private or public repositories with collaborative code reviews, advanced file management, code search, and branch policies.
 
-Azure Repos integrates with other services like Azure Pipelines and Azure Boards for end-to-end project services. Azure Repos is great for small projects, or for large organizations that need native Azure Active Directory (Azure AD) support and advanced policy controls.
+Azure Repos integrates with other services like Azure Pipelines and Azure Boards for end-to-end project services. Azure Repos is great for small projects, or for large organizations that need native Microsoft Entra ID support and advanced policy controls.
 
 You can also use [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index) for centralized source control with code review.
 
@@ -71,7 +71,7 @@ You can also use [Team Foundation Version Control (TFVC)](/azure/devops/repos/tf
 - Collaborate to build better code by using *threaded discussions* and continuous integration (CI) for each change.
 - Use [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or other tools to *kick off builds* from pull requests. Set up continuous integration/continuous delivery (CI/CD) pipelines that automatically build, test, and deploy your app with every completed pull request.
 - Use powerful semantic *code search* in pull requests.
-- Simplify *access management* with native Azure AD integration.
+- Simplify *access management* with native Microsoft Entra integration.
 - Ensure code quality with *branch policies*, such as minimum number of reviewers, requirements for successful builds, and Git merge strategy enforcement.
 - Integrate with [Azure Boards](https://azure.microsoft.com/services/devops/boards) *project management* tools.
 

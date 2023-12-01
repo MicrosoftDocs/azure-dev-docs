@@ -11,7 +11,7 @@ ms.author: vigera
 
 # Authenticate Azure-hosted Java applications
 
-This article looks at how the Azure Identity library supports Microsoft Entra ID token authentication for applications hosted on Azure. This support is made possible through a set of `TokenCredential` implementations, which are discussed in this article.
+This article looks at how the Azure Identity library supports Microsoft Entra token authentication for applications hosted on Azure. This support is made possible through a set of `TokenCredential` implementations, which are discussed in this article.
 
 This article covers the following subjects:
 
@@ -128,23 +128,23 @@ You can configure `DefaultAzureCredential` and `EnvironmentCredential` with envi
 
 | Variable name         | Value                                              |
 |-----------------------|----------------------------------------------------|
-| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.            |
-| `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra ID tenant. |
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra application.            |
+| `AZURE_TENANT_ID`     | ID of the application's Microsoft Entra tenant. |
 | `AZURE_CLIENT_SECRET` | One of the application's client secrets.           |
 
 ### Service principal with certificate
 
 | Variable name                   | Value                                                                                       |
 |---------------------------------|---------------------------------------------------------------------------------------------|
-| `AZURE_CLIENT_ID`               | ID of a Microsoft Entra ID application.                                                     |
-| `AZURE_TENANT_ID`               | ID of the application's Microsoft Entra ID tenant.                                          |
+| `AZURE_CLIENT_ID`               | ID of a Microsoft Entra application.                                                     |
+| `AZURE_TENANT_ID`               | ID of the application's Microsoft Entra tenant.                                          |
 | `AZURE_CLIENT_CERTIFICATE_PATH` | Path to a PEM-encoded certificate file including private key (without password protection). |
 
 ### Username and password
 
 | Variable name         | Value                                           |
 | --------------------- | ------------------------------------------------|
-| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra ID application.         |
+| `AZURE_CLIENT_ID`     | ID of a Microsoft Entra application.         |
 | `AZURE_USERNAME`      | A username (usually an email address).          |
 | `AZURE_PASSWORD`      | The associated password for the given username. |
 

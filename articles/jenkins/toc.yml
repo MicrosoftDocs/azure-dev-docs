@@ -56,5 +56,4 @@
   - name: Jenkins X Home
     href: https://jenkins-x.io
   - name: Jenkins architecture
-    href: /azure/architecture/reference-architectures/jenkins/
-    maintainContext: true
+    href: /azure/architecture/reference-architectures/jenkins?toc=/azure/developer/jenkins/toc.json&bc=/azure/developer/jenkins/breadcrumb/toc.json

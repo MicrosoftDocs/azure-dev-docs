@@ -14,7 +14,7 @@ To configure your backend for authentication, you must:
 * Configure Azure App Service Authentication and Authorization.
 * Add your app to the Allowed External Redirect URLs.
 
-During this tutorial, you configure your app to use Microsoft authentication.  A Microsoft Entra ID tenant has been configured automatically in your Azure subscription.  You can use Microsoft Entra ID to configure Microsoft authentication.
+During this tutorial, we'll configure your app to use Microsoft authentication.  A Microsoft Entra tenant has been configured automatically in your Azure subscription.  You can use Microsoft Entra ID to configure Microsoft authentication.
 
 You need the backend URL of the Azure Mobile Apps service that was provided when you provisioned the service.
 
@@ -23,7 +23,7 @@ You need the backend URL of the Azure Mobile Apps service that was provided when
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Microsoft Entra ID** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter `zumoquickstart` in the **Name** field.
-1. Under **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. Under **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. In **Redirect URI**, select **Web** and type `<backend-url>/.auth/login/aad/callback`.  For example, if your backend URL is `https://zumo-abcd1234.azurewebsites.net`, you would enter `https://zumo-abcd1234.azurewebsites.net/.auth/login/aad/callback`.
 1. Press the **Register** button at the bottom of the form.
 1. Copy the **Application (client) ID**.
@@ -58,4 +58,4 @@ You need the backend URL of the Azure Mobile Apps service that was provided when
 Step 10 requires that all users are authenticated before accessing your backend.  You can provide fine-grained controls by adding code to your backend.
 
 > **DID YOU KNOW?**
-> You can also allow users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  Follow the instructions in the [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).
+> You can also allow users with organizational accounts in Microsoft Entra ID, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  Follow the instructions in the [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).
