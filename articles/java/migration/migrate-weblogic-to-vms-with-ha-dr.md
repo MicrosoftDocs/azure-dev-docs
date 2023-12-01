@@ -37,19 +37,19 @@ In this tutorial, you learn how to:
 
 In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app.
 
-Create a single database in Azure SQL Database and add it to an auto-failover grup by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
+Create a single database in Azure SQL Database and add it to an auto-failover group by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
 1. When you reach the section [1 - Create a database](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#1---create-a-database):
-   * In step 8 for database details, write down **Database name**. For example, *mySampleDatabase*.
-   * In step 9 for creating the primary server:
-     * Write down **Server admin login**. For example, *azureuser*.
-     * Write down **Password**.
-     * Select **(US) West US** for **Location**.
-   * In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
+   1. In step 8 for database details, write down **Database name**. For example, *mySampleDatabase*.
+   1. In step 9 for creating the primary server:
+      * Write down **Server admin login**. For example, *azureuser*.
+      * Write down **Password**.
+      * Select **(US) West US** for **Location**.
+   1. In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
 
 1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
-   * In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb113023*.
-   * In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
+   1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb113023*.
+   1. In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
 
 After you create the Azure SQL Database failover group, open the SQL database of the primary server. 
 
@@ -87,7 +87,7 @@ The following steps show you how to fill out the **Basics** pane shown in the fo
 1. Ensure that the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group. For example, *wls-cluster-westus-ejb113023*.
 1. Under **Instance details**, select **West US** for **Region**.
-1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively.
+1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Write down username and password for **WebLogic Administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to **TLS/SSL Configuration** pane.
 
@@ -113,7 +113,7 @@ You should see all fields are prepopulated with the defaults, select **Next** to
 1. Leave the defaults for other fields.
 1. Select **Review + create**. 
 
-Wait until **Running final validation...** successfully completes, then select **Create**. You should see **Deployment is in progress** page.
+Wait until **Running final validation...** successfully completes, then select **Create**. After a while, you should see **Deployment** page where **Deployment is in progress** is displayed.
 
 > [!NOTE]
 > If you see any problems during **Running final validation...**, fix them and try again.
@@ -129,6 +129,47 @@ Follow the same steps in section [Setup the active WLS cluster](#setup-the-activ
 1. In the "Basics" pane:
    1. In the **Resource group** field, select **Create new** and fill in a differernt unique value for the resource group. For example, *wls-cluster-eastus-ejb113023*.
    1. Under **Instance details**, select **East US** for **Region**.
+
+### Verify deployments of clusters
+
+Wait until both deployments of WLS clusters complete. In each cluster, there are an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
+
+Follow instructions below to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
+
+1. Select **Outputs** from the deployment page.
+1. Copy the value of property **appGatewayURL**. Append it with *weblogic/ready* and open in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
+1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administratiion Console**. Sign into the console with the user name and password for WebLogic administrator you wrote down before. If you are not able to sign in, you must troubleshoot and resolve the issue before continuing.
+
+Write down the IP address of the Azure Application Gateway for each cluster, you will use them when you setup the Azure Traffic Manager later.
+
+1. Open the resource group where your cluster is deployed. For example, select **Overview** to switch back Overview pane of the deployment page, and select **Go to resource group**.
+1. Find resource *gwip* with type **Public IP address**. Select to open. Look for **IP address** and write down its value.
+
+## Setup an Azure Traffic Manager
+
+In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions.
+
+Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need to execute some of sections, including **Create a Traffic Manager profile**, **Add Traffic Manager endpoints**, and **Test Traffic Manager profile**. Use the following directions as you go through these sections, then return to this document after you create and configure the Azure Traffic Manager.
+
+1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile):
+   1. In step 2 **Create Traffic Manager profile**, write down the unique Traffic Manager profile name for **Name**. For example, *tmprofile-ejb113023*.
+
+1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints):
+   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, under **Endpoint monitor settings**, enter */weblogic/ready* for **Path**, and then select **Save**.
+   1. In step 4 for adding the primary endpoint:
+      * Select **Public IP address** for **Target resource type**.
+      * Click dropdown **Choose public IP address** and enter IP address of resource *gwip* deployed in **West US** WLS cluster you wrote down before, you should see one entry matched. Select it for **Public IP address**.
+   1. In step 6 for adding a failover endpoint:
+      * Select **Public IP address** for **Target resource type**.
+      * Click dropdown **Choose public IP address** and enter IP address of resource *gwip* deployed in **East US** WLS cluster you wrote down before, you should see one entry matched. Select it for **Public IP address**.
+   1. Wait for a while, select **Refresh** until **Monitor status** of both endpoints is **Online**. 
+
+1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile):
+   1. In sub-section [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
+      * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, *http://tmprofile-ejb113023.trafficmanager.net/weblogic/ready*. You should see an empty page without any error message.
+      * After completing all steps, make sure **enable** your primary site by referencing step 2, but replace **Disabled** with **Enabled**.
+
+You should see both endpoints are **Enabled** and **Online**.
 
 ## Next steps
 
