@@ -30,7 +30,7 @@ Before you create your app registration, determine tasks based on expected users
 |Users|Select|
 |--|--|
 |Everyone (social, public, private, and [external identities](/azure/active-directory/external-identities/compare-with-b2c))|[Azure Active Directory B2C](/azure/active-directory-b2c/overview)<br>* Create a new tenant to hold your Active Directory.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
-|Microsoft identity only<br>Users existing in Microsoft tenant(s) or personal Microsoft accounts|[Azure Active Directory](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
+|Microsoft identity only<br>Users existing in Microsoft tenant(s) or personal Microsoft accounts|[Microsoft Entra ID](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
 
 ---
 

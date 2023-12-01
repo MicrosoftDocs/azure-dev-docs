@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure resource handling
 
-**This article applies to:** ✔️ Version 4.11.0 ✔️ Version 5.5.0
+**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
 
 The Spring project provides a [Spring Resources](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources) abstraction to access a number of low-level resources. The project provides interfaces like `Resource`, `ResourceLoader` and `ResourcePatternResolver`. Spring Cloud Azure implements these interfaces for Azure Storage services, which allows you to interact with Azure storage Blob and File Share using the Spring programming model. Spring Cloud Azure provides `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-storage-file-share` to auto-configure Azure Storage Blob and Azure Storage File Share.
 
@@ -46,7 +46,7 @@ The `spring-cloud-azure-starter-storage-file-share` dependency is only required 
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Azure Active Directory for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-blob`:
 

@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 11/17/2023 
 ---
 # Create and host a dev tunnel
 
@@ -62,6 +62,35 @@ Run commands with `devtunnel` instead of `./devtunnel`:
 
 ## [macOS](#tab/macos)
 
+## Homebrew
+
+You can use Homebrew, to install and update the `devtunnel` CLI. The following commands could be used with or without `--cask`.
+
+```bash
+brew install --cask devtunnel
+```
+
+```bash
+brew uninstall --cask devtunnel
+```
+
+```bash
+brew upgrade --cask devtunnel
+```
+
+```bash
+brew list --versions devtunnel
+```
+
+Please note, the following command is only available if you installed the version you are looking for with Homebrew previously. To see a list of which versions you have available, run the command above.
+
+```bash
+brew switch --cask devtunnel <older_version>
+```
+
+
+## Script
+
 ```bash
 curl -sL https://aka.ms/DevTunnelCliInstall | bash
 ```
@@ -86,7 +115,7 @@ Direct download link:
 
 ## Login
 
-To start a dev tunnel, you first need to log in with either a Microsoft Azure Active Directory (Azure AD), Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
+To start a dev tunnel, you first need to log in with either a Microsoft Entra ID, Microsoft, or GitHub account. Dev tunnels doesn't support hosting tunnels anonymously for more information take a look at the [CLI command reference](cli-commands.md) documentation.
 
 ```bash
 devtunnel user login

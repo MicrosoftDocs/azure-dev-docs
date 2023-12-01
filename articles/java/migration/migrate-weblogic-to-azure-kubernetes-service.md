@@ -44,6 +44,11 @@ First, you have to understand the concept of the WLS "domain". A domain is a log
 | *Domain in PV*          | The domain resides on a Kubernetes persistent volume.                                                                         | Conceptually similar to running on VMs. You can use the WLS console to make changes and those changes persist across AKS pod restarts. Documented as an official sample; see [Oracle](https://aka.ms/wls-aks-domain-on-pv). | Some challenges related to NFS must be mitigated. For more information, see [Oracle](https://aka.ms/wls-aks-persistent-storage). This approach is the least "cloud-native" technique; the state resides entirely outside the AKS cluster. |
 | *Domain in Image*       | The domain resides in a container image. Applications are contained in a container image that's overlaid on the domain image. | More "cloud-native" than *Domain in PV*. Easier for CI/CD.                                                                                                                                                                  | Can't use WLS console. Must maintain more container images.                                                                                                                                                                               |
 
+> [!IMPORTANT]
+> If you choose the *Domain in PV* source type, we strongly recommend NFS instead of SMB. NFS evolved from the UNIX operating system, and other variants such as GNU/Linux. For this reason, when using NFS with container technologies such as Docker, it's less likely to have problems for concurrent reads and file locking. 
+>
+> Be sure to enable NFS v4.1. Versions lower than v4.1 will have problems.
+
 The operator documentation also includes a useful table comparing the various options. For more information, see [Choose a domain home source type](https://aka.ms/wls-aks-docs-domain-home-source-type).
 
 To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For the reference documentation on the prebuilt Azure Marketplace offer, see [Oracle](https://aka.ms/wls-aks-docs).
@@ -246,4 +251,4 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - Use Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-- Integrate WebLogic Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
+- Integrate WebLogic Java EE authentication and authorization with Microsoft Entra ID. For more information, see [Integrating Microsoft Entra getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).

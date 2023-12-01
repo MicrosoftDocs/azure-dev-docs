@@ -9,6 +9,8 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 
 # User scenarios for Contoso real estate
 
+[!INCLUDE [include](./includes/contoso-intro-paragraph.md)]
+
 To understand the solution implementation, it's important to identify the user's of the solution and what actions each can accomplish.
 
 ## User specification

@@ -14,7 +14,7 @@ Dev tunnels is a security-focussed developer tunneling service. In this article,
 
 ## Overview
 
-By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Azure AD or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
+By default, hosting and connecting to a tunnel requires authentication with the same Microsoft, Microsoft Entra ID, or GitHub account that created the tunnel. Tunneling requires outbound connections to be made to the service hosted in Azure. No inbound connections are required to use the service.
 
 ## Domains
 
@@ -58,7 +58,7 @@ By default, tunnels and tunnel ports are private and only accessible to the user
 
 If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--anonymous`).
 
-Tunnel access can also be extended to your current Azure AD tenant (use `--tenant`) or specific GitHub organizations (use `--organization`); for the latter see [GitHub Organization Access](#github-organization-access) below.
+Tunnel access can also be extended to your current Microsoft Entra tenant (use `--tenant`) or specific GitHub organizations (use `--organization`); for the latter see [GitHub Organization Access](#github-organization-access) below.
 
 The CLI can also be used to request access tokens that grant limited access to anyone holding the token (use `devtunnel token`). This is an advanced feature but can be useful in specific situations.
 

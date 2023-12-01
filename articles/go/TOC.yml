@@ -40,7 +40,7 @@ items:
         - name: Deploy a Go app to Container Apps
           href: deploy-container-apps.md
     - name: SDK examples
-      href: http://github.com/azure-samples/azure-sdk-for-go-samples
+      href: https://github.com/azure-samples/azure-sdk-for-go-samples
     - name: Migration guides
       href: migration-guides.md
     - name: Reference

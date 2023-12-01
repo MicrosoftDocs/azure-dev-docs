@@ -9,14 +9,14 @@ ms.custom: devx-track-js
 
 # How to register your identity application for a Static web app
 
-In this article, learn how to register your Azure AD (or Microsoft identity platform) application. The application is necessary to authenticate users with the [Microsoft Authentication Library for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) (MSAL React) and call an Azure service on behalf of the user.  
+In this article, learn how to register your Microsoft Entra ID (or Microsoft identity platform) application. The application is necessary to authenticate users with the [Microsoft Authentication Library for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) (MSAL React) and call an Azure service on behalf of the user.  
 
 ## Create Microsoft Identity provider app registration
 
 Create your Microsoft Identity provider **app registration** to manage authentication. 
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
+1. If your account is present in more than one Microsoft Entra tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra tenant.
 1. On the App registrations page, select **[+ New registration](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)**.
 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Microsoft Identity Static web app - favorite color`. 
 1. For **Supported account types**, select **Accounts in this organizational directory only**. This supports a single tenant. 

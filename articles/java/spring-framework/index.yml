@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Secure REST API using Spring Security and Azure AD
+          - text: Secure REST API using Spring Security and Microsoft Entra ID
             url: ./configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - text: Spring Security support
             url: ./spring-boot-starter-for-azure-active-directory-developer-guide.md
@@ -98,15 +98,15 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Externalize configuration properties to Azure App Configuration
-            url: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+            url: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Use Key Vault references
-            url: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+            url: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Use feature flags
-            url: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+            url: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Add feature flags
-            url: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+            url: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Use dynamic configuration
-            url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
+            url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Caching
     linkLists:
       - linkListType: get-started

@@ -2,8 +2,10 @@
 title: Configure Log Analytics Workspace using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Log Analytics Workspace
 keywords: azure devops terraform log analytics
+service: azure
+ms.service: azure
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---
 

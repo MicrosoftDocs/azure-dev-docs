@@ -157,4 +157,4 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - Use Azure Managed Identities to manage  secrets and assign role-based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
-- Integrate Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory with applications getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
+- Integrate Java EE authentication and authorization with Microsoft Entra ID. For more information, see [Integrating Microsoft Entra ID with applications getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).

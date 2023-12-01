@@ -16,7 +16,7 @@ Many Azure services and features are accessible via Jenkins plug-ins. These serv
 | Jenkins plug-in <img width=500/>| Description | Current status <img width=500/> | Community Supported |
 |----------------|----------------|----------------|
 | [Azure Service Fabric](https://plugins.jenkins.io/service-fabric)           | Jenkins plug-in for Linux Azure Service Fabric projects. | | |
-| [Azure AD](https://plugins.jenkins.io/azure-ad)                             | Jenkins plug-in that supports authentication & authorization via Azure Active Directory. | Retiring on February 29, 2024 | Yes |
+| [Microsoft Entra ID](https://plugins.jenkins.io/azure-ad)                             | Jenkins plug-in that supports authentication & authorization via Microsoft Entra ID. | Retiring on February 29, 2024 | Yes |
 | [Azure App Service](https://plugins.jenkins.io/azure-app-service)           | Jenkins plug-in to deploy an Azure App Service \(currently supports only Web App\) | Retiring on February 29, 2024 | |
 | [Azure Artifact Manager](https://plugins.jenkins.io/azure-artifact-manager) | Azure Artifact Manager plug-in is an Artifact Manager that allows you store your artifacts into Azure Blob Storage. Azure Artifact Manager plug-in works transparently to Jenkins and your jobs, it is like the default Artifact Manager. | Retiring on February 29, 2024 |  Yes |
 | [Azure Container Agents](https://plugins.jenkins.io/azure-container-agents) | Azure Container Agents plug-in can help you to run a container as an agent in Jenkins | Retiring on February 29, 2024 |  Yes |

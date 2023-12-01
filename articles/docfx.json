@@ -158,12 +158,7 @@
       }    
     },
     "template": [],
-    "dest": {
-      ".": "azure-dev-docs",
-      "go": "azure-go",
-      "python": "azure-python",
-      "javascript": "azure-javascript"
-    },
+    "dest": "azure-dev-docs",
     "markdownEngineName": "markdig",
     "rules": {
       "sensitive-language-sl": {

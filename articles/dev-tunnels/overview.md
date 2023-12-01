@@ -1,5 +1,5 @@
 ---
-title: What is dev tunnels?
+title: What are dev tunnels?
 titleSuffix: Microsoft dev tunnels
 description: Learn about using dev tunnels
 author: curib
@@ -7,7 +7,7 @@ ms.author: cauribeg
 ms.topic: overview
 ms.service: azure-dev-tunnels
 ms.custom: build-2023
-ms.date: 04/26/2023 
+ms.date: 11/17/2023 
 ---
 
 # What are dev tunnels?
@@ -20,7 +20,7 @@ Dev tunnels allow developers to securely share local web services across the int
 
 ## Benefits
 
-- **Secure by default** - By default dev tunnels you create are only accessible to you using your Microsoft, Microsoft Azure Active Directory or GitHub account.
+- **Secure by default** - By default dev tunnels you create are only accessible to you using your Microsoft, Microsoft Entra ID, or GitHub account.
 - **Persistent URLs** - Keep the same dev tunnel url for as long as you need.
 - **Support for multiple simultaneous ports** - Host multiple ports on a single dev tunnel at the same time.
 - **Global service availability** - The dev tunnels service is available globally. Dev tunnels are automatically created in the closest available region.

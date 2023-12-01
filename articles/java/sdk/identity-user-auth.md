@@ -11,7 +11,7 @@ ms.author: vigera
 
 # Azure authentication with user credentials
 
-This article looks at how the Azure Identity library supports Microsoft Entra ID token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed in this article.
+This article looks at how the Azure Identity library supports Microsoft Entra token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed in this article.
 
 This article covers the following subjects:
 
@@ -71,7 +71,7 @@ This credential interactively authenticates a user with the default system brows
 
 To use `InteractiveBrowserCredential`, you need to register an application in Microsoft Entra ID with permissions to sign in on behalf of a user. Follow the previous steps for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can sign in.
 
-You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered Microsoft Entra ID application.
+You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered Microsoft Entra application.
 
 ### Authenticate a user account interactively in the browser
 

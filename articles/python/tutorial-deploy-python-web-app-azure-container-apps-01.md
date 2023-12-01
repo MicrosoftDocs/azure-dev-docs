@@ -33,7 +33,7 @@ The components supporting this tutorial and shown in the diagram above are:
   * Container Apps pulls Docker images from Azure Container Registry. Changes to container images trigger an update to the deployed container. You can also configure GitHub Actions to trigger updates.
 
 * [Azure Container Registry][3]
-  * Azure Container Registry enables you to work with Docker images in Azure. Because Container Registry is close to your deployments in Azure, you have control over access, making it possible to use your Azure Active Directory groups and permissions to control access to Docker images.
+  * Azure Container Registry enables you to work with Docker images in Azure. Because Container Registry is close to your deployments in Azure, you have control over access, making it possible to use your Microsoft Entra groups and permissions to control access to Docker images.
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
 * [Azure Database for PostgreSQL][4]
@@ -54,7 +54,7 @@ To automate this process, an optional step in the tutorial shows you how to buil
 
 In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an [*environment*][18], which is supported by an [Azure Virtual Networks (VNet)][19]. VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress.
 
-To set up continuous integration and continuous delivery (CI/CD), you'll authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of an Azure Active Directory service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
+To set up continuous integration and continuous delivery (CI/CD), you'll authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of a Microsoft Entra service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
 
 Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. During the configuration of the Container App, the tutorial walks you through setting up environment variables containing connection information. You can also use an Azure Service Connector to accomplish the same thing.
 

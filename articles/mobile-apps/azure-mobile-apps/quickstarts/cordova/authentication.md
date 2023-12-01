@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Add authentication to your Apache Cordova app
 
-In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to the quickstart project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [!INCLUDE [portal-configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]
 
@@ -32,12 +32,12 @@ Each Apache Cordova app declares their known good sources via a `Content-Securit
 
 | Provider | SDK Provider Name | OAuth Host |
 |:--- |:--- |:--- |
-| Azure Active Directory | aad | `https://login.microsoftonline.com` |
+| Microsoft Entra ID | Microsoft Entra ID | `https://login.microsoftonline.com` |
 | Facebook | facebook | `https://www.facebook.com` |
 | Google | google | `https://accounts.google.com` |
 | Twitter | twitter | `https://api.twitter.com` |
 
-Edit `www/index.html`; add the OAuth host for Azure Active Directory as follows:
+Edit `www/index.html`; add the OAuth host for Microsoft Entra ID as follows:
 
 ``` html
 <meta http-equiv="Content-Security-Policy" content="

@@ -2,8 +2,10 @@
 title: Configure Azure Virtual Desktop Role-Based access control using Terraform
 description: Learn how to use Terraform to configure role-based access control for Azure Virtual Desktop.
 keywords: azure devops terraform avd virtual desktop rbac
+service: azure
+ms.service: azure
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---
 
@@ -16,13 +18,13 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-This article will walk through adding our users and Azure AD group and then assign the group to the "Desktop Virtualization User" role, scoped to our host pool.  
+This article will walk through adding our users and Microsoft Entra group and then assign the group to the "Desktop Virtualization User" role, scoped to our host pool.  
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Use Terraform to read Azure Active Directory existing users
-> * Use Terraform to create Azure Active Directory group
+> * Use Terraform to read Microsoft Entra existing users
+> * Use Terraform to create Microsoft Entra group
 > * Role assignment for Azure Virtual Desktop
 
 ## 1. Configure your environment

@@ -24,11 +24,11 @@ This approach, however, still requires the app to separately manage credentials 
 
 A partial solution is to store the key in a server-side environment variable, which at least keeps the key out of source control. For example, you can set an environment variable through an application setting with Azure App Service and Azure Functions. The downside of this approach is that code on a developer workstation you must replicate that environment variable locally, which risks exposure of the credentials and/or accidental inclusion in source control. You could work around the problem to some extent by implementing special procedures in the development version of your code, but doing so adds complexity to your development process.
 
-Fortunately, integrated authentication with Azure Active Directory (AD) allows an app to avoid handling any Azure credentials at all.
+Fortunately, integrated authentication with Microsoft Entra ID allows an app to avoid handling any Azure credentials at all.
 
 ## Integrated authentication with managed identity
 
-Many Azure services, like Storage and Key Vault, are integrated with Azure Active Directory (Azure AD) such that when you authenticate the application with Azure AD using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
+Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when you authenticate the application with Microsoft Entra ID using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
 
 This integration means that you never need to handle any Azure-related credentials in your app code and those credentials never appear on developer workstations or in source control. Furthermore, any handling of keys for third-party APIs and services is done entirely at run time, thus keeping those keys secure.
 
