@@ -80,14 +80,17 @@ You'll need to sign in to the ACR instance before you can push an image to it. R
 ```azurecli-interactive
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --query 'loginServer' \
     --output tsv)
 export USER_NAME=$(az acr credential show \
     --name $REGISTRY_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --query 'username' \
     --output tsv)
 export PASSWORD=$(az acr credential show \
     --name $REGISTRY_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --query 'passwords[0].value' \
     --output tsv)
 
@@ -267,14 +270,14 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 
      ```azurecli-interactive
      # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME .
+     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME .
      ```
 
    * Use the following command to build with a WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
      ```azurecli-interactive
      # Build and tag application image. This will cause the ACR instance to pull the necessary WebSphere Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --file=Dockerfile-wlp .
+     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME --file=Dockerfile-wlp .
      ```
 
 ## Deploy the application
