@@ -67,7 +67,7 @@ Now that the services and applications are running, you can test the API.
 
 ## Install Playwright in a new `test-api` package.
 
-While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you will create a new package to keep the testing infrastructure separate from the application code. This will help with troubleshooting. 
+While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separate from the application code. This helps with troubleshooting. 
 
 1. Create a new `api-testing` package in the `./packages` folder.
 
@@ -92,7 +92,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
     |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
     |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
 
-    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles alot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file is not created by default.
+    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles alot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file isn't created by default.
 
 
 1. Run the default test to validate your test infrastructure is working.
@@ -181,13 +181,75 @@ While you could install the testing infrastructure into the `./packages/api` fol
     npm test
     ```
 
-    The test should pass.
+1. The test should pass without output like the following:
+
+    ```console
+     $ npm run test --workspace=api-test
+    
+    > api-test@1.0.0 test
+    > npx playwright test
+    
+    BASE_URL: http://localhost:7071
+    
+    Running 2 tests using 1 worker
+    BASE_URL: http://localhost:7071
+      2 passed (1.5s)
+    
+    To open last HTML report run:
+    
+      npx playwright show-report
+    ```
+
+## Change test reporter
+
+1. In case you see errors in the output, change the reporter to include the line which errored. Open the `playwright.config.ts` file and change the `reporter` property to the following:
+
+    ```JSOn
+    reporter: [['list'],['html']],
+    ```
+
+1. Run the test again with `npm test` to see the new output:
+
+    ```list
+    > api-test@1.0.0 test
+    > npx playwright test
+    
+    BASE_URL: http://localhost:7071
+    
+    Running 2 tests using 1 worker
+    
+    BASE_URL: http://localhost:7071
+      ✓  1 function.api.spec.ts:19:5 › should get listings (387ms)
+      ✓  2 function.api.spec.ts:32:5 › should get users (351ms)
+    
+      2 passed (1.1s)
+    
+    To open last HTML report run:
+    
+      npx playwright show-report
+    ```
+
+## Debug the test with Visual Studio extension for Playwright
+
+Once you know the line that is causing the error, you can debug the test. The Contoso Real Estate project has been configured with the [Visual Studio Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). This extension allows you to debug the test in the browser.
+
+1. Open the `api.spec.ts` file and set a breakpoint on the line that is causing the error. For example, if the following line is causing an error, set a breakpoint:
+
+    ```typescript
+    expect(urlsResponse.ok()).toBeTruthy();
+    ```
+
+1. Open the **Testing** explorer (the icon with the test tube). 
+1. Select the **Debug test** button next to the test. 
+
+    :::image type="content" source="media/contoso-real-estate-test-api-solution/visual-studio-code-playwright-debug-test.png" alt-text="Screenshot of Visual Studio Code using Playwright extension with the debug tests icon highlighted in red.":::
+
+1. The test will run and stop at the breakpoint.
+
+    :::image type="content" source="media/contoso-real-estate-test-api-solution/visual-studio-code-playwright-debug-test-breakpoint.png" lightbox="media/contoso-real-estate-test-api-solution/visual-studio-code-playwright-debug-test-breakpoint.png" alt-text="Screenshot of Visual Studio Code debugging Playwright test, stopped at breakpoint.":::
 
 ## More resources
 
 * [Playwright](https://playwright.dev/)
 * [Playwright CLI](https://playwright.dev/docs/cli)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)
-
-
-https://ubiquitous-robot-659rq4gw4rf4xr4-7071.app.github.dev/
