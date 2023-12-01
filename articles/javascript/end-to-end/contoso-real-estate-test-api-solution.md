@@ -91,7 +91,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
     |Add a GitHub Actions workflow? (y/N)|false|
     |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
     |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
-    ```
+
 
 1. Run the default test to validate your test infrastructure is working.
 
