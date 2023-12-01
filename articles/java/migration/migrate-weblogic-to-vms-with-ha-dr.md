@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Setup an Azure SQL Database failover group in paired regions, which allows you to manage the replication and failover of databases to another Azure region.
-> - Setup active and passive WLS clusters on Azure VMs, where your application workload will be deployed and running.
+> - Setup paired WLS clusters on Azure VMs, where your application workload will be deployed and running.
 > - Setup an Azure Traffic Manager, which allows you to distribute traffic to your public facing applications across the global Azure regions.
 > - Configure active and passive WLS clusters for high availability and disaster recovery.
 > - Validate the solution.
@@ -72,11 +72,11 @@ After you create the Azure SQL Database failover group, open the SQL database of
 
    These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later.
 
-## Setup active and passive WLS clusters on Azure VMs
+## Setup paired WLS clusters on Azure VMs
 
-In this section, you create two WLS clusters on Azure VMs using [Oracle WebLogic Server Cluster on Azure VMs](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster) offer. The cluster in West US is active and handing the user requests. Oppositely, the cluster in East US is passive and shutdown.
+In this section, you create two WLS clusters on Azure VMs using [Oracle WebLogic Server Cluster on Azure VMs](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster) offer. The cluster in West US is primary and will be configured as active cluster. Oppositely, the cluster in East US is secondary and will be configured as passive cluster.
 
-### Setup the active WLS cluster
+### Setup the primary WLS cluster
 
 First, open [Oracle WebLogic Server Cluster on Azure VMs](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster) offer in your browser and select **Create**. You should see **Basics** pane of the offer.
 
@@ -120,11 +120,11 @@ Wait until **Running final validation...** successfully completes, then select *
 
 Depending on network conditions and other activity in your selected region, the deployment may take up to 50 minutes to complete. After that, you should see the text **Your deployment is complete** displayed on the deployment page.
 
-In the meanwhile, you can setup the passive WLS cluster in parallel.
+In the meanwhile, you can setup the secondary WLS cluster in parallel.
 
-### Setup the passive WLS cluster
+### Setup the secondary WLS cluster
 
-Follow the same steps in section [Setup the active WLS cluster](#setup-the-active-wls-cluster) to setup the passive WLS cluser in East US region, except the following differences:
+Follow the same steps in section [Setup the primary WLS cluster](#setup-the-primary-wls-cluster) to setup the secondary WLS cluser in East US region, except the following differences:
 
 1. In the "Basics" pane:
    1. In the **Resource group** field, select **Create new** and fill in a differernt unique value for the resource group. For example, *wls-cluster-eastus-ejb113023*.
@@ -138,7 +138,7 @@ Follow instructions below to verify if the Azure Application Gateway and WLS adm
 
 1. Select **Outputs** from the deployment page.
 1. Copy the value of property **appGatewayURL**. Append it with *weblogic/ready* and open in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
-1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administratiion Console**. Sign into the console with the user name and password for WebLogic administrator you wrote down before. If you are not able to sign in, you must troubleshoot and resolve the issue before continuing.
+1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administratiion Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you are not able to sign in, you must troubleshoot and resolve the issue before continuing.
 
 Write down the IP address of the Azure Application Gateway for each cluster, you will use them when you setup the Azure Traffic Manager later.
 
@@ -165,11 +165,93 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
    1. Wait for a while, select **Refresh** until **Monitor status** of both endpoints is **Online**. 
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile):
+   1. In sub-section [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name):
+      * In step 3, write down the DNS name of your Traffic Manager profile, for example, *http://tmprofile-ejb113023.trafficmanager.net*.
    1. In sub-section [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
       * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, *http://tmprofile-ejb113023.trafficmanager.net/weblogic/ready*. You should see an empty page without any error message.
       * After completing all steps, make sure **enable** your primary site by referencing step 2, but replace **Disabled** with **Enabled**.
 
-You should see both endpoints are **Enabled** and **Online**.
+Now you have both endpoints **Enabled** and **Online** in the Traffic Manager profile, keep the page open and you will use it for monitoring the endpoint status later.
+
+## Configure active and passive WLS clusters
+
+In this section, you configure active and passive WLS clusters for high availability and disaster recovery. The primary cluster in West US is configured to be active and handles the user requests. Oppositely, the secondary cluster in East US is configured to be passive and shutdown.
+
+### Prepare sample app
+
+First, build and package a sample CRUD Java/JakartaEE EE application that will be deployed and running on WLS clusters.
+
+1. Checkout the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
+1. Locate the path where the repository was downloaded: `cd <your local clone of the repo>`.
+1. Change to its sub-dirctory *weblogic-cafe*: `cd weblogic-cafe`
+1. Compile and package the sample application: `mvn clean package`.
+1. The package should be successfully generated and located at `<your local clone of the repo>/weblogic-cafe/target/weblogic-cafe.war`. If you don't see this, you must troubleshoot and resolve the issue before continuing.
+
+### Deploy sample app
+
+Now deploy sample app to clusters, starting from the primary cluster.
+
+1. Open *adminConsole* of the cluster in your web browser, sign in to WebLogic Server Administratiion Console with username and password of WebLogic Administrator you wrote down before.
+1. Locate to **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
+1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared above. 
+1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
+1. Switch to **Control** tab and check **weblogic-cafe** from deployments table. Select **Start** with option **Servicing all requests** > **Yes**. Wait for a while and refresh the page, until you see the state of deployment *weblogic-cafe* is **Active**.
+
+Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
+
+### Update Frontend Host
+
+Since the Azure Traffic Manager is the entry point for user requests, update the **Front Host** of the WebLogic cluster to the DNS name of the Traffic Manager profile, starting from the primary cluster.
+
+1. Make sure you have signed in to WebLogic Server Administratiion Console.
+1. Locate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the left navigation area. Select **Clusters**.
+1. Select **cluster1** from clusters table.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading *http://*. For example, *tmprofile-ejb113023.trafficmanager.net*. Select **Save** > **Activate Changes**.
+
+Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
+
+### Configure Transaction Log Store
+
+Next, configure JDBC Transaction Log Store for all managed servers of clusters, starting from the primary cluster.
+
+1. Make sure you have signed in to WebLogic Server Administratiion Console.
+1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select **Servers**.
+1. You should see server *msp1*, *msp2* and *msp3* listed in the servers table. 
+1. Select **msp1** > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC** for **Type**, select **jdbc/WebLogicCafeDB** for **Data Source**, set *TLOG_msp1_primary_* for **Prefix Name**. Select **Save**.
+1. Select **Servers** > **msp2**, and execute the same steps above, except that setting *TLOG_msp2_primary_* for **Prefix Name** under **Transaction Log Store** section.
+1. Select **Servers** > **msp2**, and execute the same steps above, except that setting *TLOG_msp3_primary_* for **Prefix Name** under **Transaction Log Store** section.
+1. Select **Activate Changes**.
+
+Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster, except the following differences:
+
+1. For server **msp1**, set *TLOG_msp1_secondary_* for **Prefix Name** under **Transaction Log Store** section.
+1. For server **msp2**, set *TLOG_msp2_secondary_* for **Prefix Name** under **Transaction Log Store** section.
+1. For server **msp3**, set *TLOG_msp3_secondary_* for **Prefix Name** under **Transaction Log Store** section.
+
+### Restart managed servers for the primary cluster
+
+To make the primary cluster active, restart all managed servers for the changes to take effect.
+
+1. Make sure you have signed in to WebLogic Server Administratiion Console of the primary cluster.
+1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select "Servers".
+1. Select **Control** tab. Check *msp1*, *msp2* and *msp3*. Select **Shutdown** with option **When work completes** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *SHUTDOWN*. Select refresh icon again to stop status monitoring.
+1. Check *msp1*, *msp2* and *msp3* again. Select **Start** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *RUNNING*. Select refresh icon again to stop status monitoring.
+
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with application context root */weblogic-cafe*, for example, *http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe*. You should see the UI of the sample application:
+
+:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample_app_ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample_app_ui.png":::
+
+If you don't see this, you must troubleshoot and resolve the issue before continuing.
+
+### Stop all VMs in the secondary cluster
+
+Since the active cluster is up and running, it handles all user requests due to its higher priority. Now you can stop all VMs in the secondary cluster to make it passive.
+
+1. In the Azure portal home, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb113023*.
+1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
+1. Select to open each of VMs. Select **Stop** and confirm. Select **Refresh**, wait until **Status** of 4 VMs becomes *Stopped (deallocated)*.
+
+Now open the overview page of your Traffic Manager profile, you should see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
 
 ## Next steps
 
