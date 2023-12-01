@@ -92,6 +92,8 @@ While you could install the testing infrastructure into the `./packages/api` fol
     |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
     |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
 
+    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles alot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file is not created by default.
+
 
 1. Run the default test to validate your test infrastructure is working.
 
@@ -101,13 +103,24 @@ While you could install the testing infrastructure into the `./packages/api` fol
 
     The test should pass. Notice that the default test is a browser-based test but this tutorial is about API testing. There isn't any harm in installing the browsers and running the default test. You can remove the browsers later if you want to. Now you know the test infrastructure works. 
 
-## Understand the Playwright files
 
-The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles alot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file is not created by default. 
+## Playwright test configuration
 
-The tests provided are in the `tests/example.spec.ts` folder are written to test the Playwright website. 
 
-1. Delete this test file.
+
+1. Open the `package.json` file and add the following script. This allows the tests to be run from the workspace root.
+
+    ```json
+    "scripts": {
+      "test": "playwright test"
+    },
+    ```
+
+1. The default Playwright test is a browser-based test. You need to switch the project to API testing. Open the `playwright.config.ts` and remote the `projects` property and its values. This isn't needed for API testing.
+
+## Create an API test 
+
+1. Delete this `tests/example.spec.ts` test file.
 1. Create a new test file in the `tests` folder called `api.spec.ts`.
 
     ```bash
@@ -126,8 +139,7 @@ The tests provided are in the `tests/example.spec.ts` folder are written to test
     const BASE_URL = process.env.SERVICE_API_ENDPOINTS
       ? JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0]
       : process.env.CODESPACE_NAME
-        ? `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`
-        : 'http://localhost:7072';
+        ? 'http://localhost:7072';
     
     console.log(`BASE_URL: ${BASE_URL}`);
     
@@ -163,9 +175,19 @@ The tests provided are in the `tests/example.spec.ts` folder are written to test
     });
     ````
 
+1. Run the test. This validates the API is running and can connect to the two databases.
+
+    ```bash
+    npm test
+    ```
+
+    The test should pass.
 
 ## More resources
 
 * [Playwright](https://playwright.dev/)
 * [Playwright CLI](https://playwright.dev/docs/cli)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)
+
+
+https://ubiquitous-robot-659rq4gw4rf4xr4-7071.app.github.dev/
