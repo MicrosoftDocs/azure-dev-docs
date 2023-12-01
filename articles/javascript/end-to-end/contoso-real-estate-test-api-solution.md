@@ -204,13 +204,13 @@ While you could install the testing infrastructure into the `./packages/api` fol
 
 1. In case you see errors in the output, change the reporter to include the line which errored. Open the `playwright.config.ts` file and change the `reporter` property to the following:
 
-    ```JSOn
+    ```JSON
     reporter: [['list'],['html']],
     ```
 
 1. Run the test again with `npm test` to see the new output:
 
-    ```list
+    ```console
     > api-test@1.0.0 test
     > npx playwright test
     
@@ -251,5 +251,4 @@ Once you know the line that is causing the error, you can debug the test. The Co
 ## More resources
 
 * [Playwright](https://playwright.dev/)
-* [Playwright CLI](https://playwright.dev/docs/cli)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)
