@@ -166,9 +166,9 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile):
    1. In sub-section [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name):
-      * In step 3, write down the DNS name of your Traffic Manager profile, for example, *http://tmprofile-ejb113023.trafficmanager.net*.
+      * In step 3, write down the DNS name of your Traffic Manager profile, for example, `http://tmprofile-ejb113023.trafficmanager.net`.
    1. In sub-section [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
-      * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, *http://tmprofile-ejb113023.trafficmanager.net/weblogic/ready*. You should see an empty page without any error message.
+      * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, `http://tmprofile-ejb113023.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
       * After completing all steps, make sure **enable** your primary site by referencing step 2, but replace **Disabled** with **Enabled**.
 
 Now you have both endpoints **Enabled** and **Online** in the Traffic Manager profile, keep the page open and you will use it for monitoring the endpoint status later.
@@ -206,7 +206,7 @@ Since the Azure Traffic Manager is the entry point for user requests, update the
 1. Make sure you have signed in to WebLogic Server Administratiion Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the left navigation area. Select **Clusters**.
 1. Select **cluster1** from clusters table.
-1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading *http://*. For example, *tmprofile-ejb113023.trafficmanager.net*. Select **Save** > **Activate Changes**.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://`. For example, *tmprofile-ejb113023.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
 Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
 
@@ -237,15 +237,15 @@ To make the primary cluster active, restart all managed servers for the changes 
 1. Select **Control** tab. Check *msp1*, *msp2* and *msp3*. Select **Shutdown** with option **When work completes** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *SHUTDOWN*. Select refresh icon again to stop status monitoring.
 1. Check *msp1*, *msp2* and *msp3* again. Select **Start** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *RUNNING*. Select refresh icon again to stop status monitoring.
 
-Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with application context root */weblogic-cafe*, for example, *http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe*. You should see the UI of the sample application:
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with application context root */weblogic-cafe*, for example, `http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe`. You should see the UI of the sample application:
 
-:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample_app_ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample_app_ui.png":::
+:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If you don't see this, you must troubleshoot and resolve the issue before continuing.
 
 ### Stop all VMs in the secondary cluster
 
-Since the active cluster is up and running, it handles all user requests due to its higher priority. Now you can stop all VMs in the secondary cluster to make it passive.
+Since the active cluster is up and running, it handles all user requests due to its higher priority configured in your Traffic Manager profile. Now you can stop all VMs in the secondary cluster to make it passive, and the configuration changes you made before will take effect when you start VMs in the secondary cluster for the failover.
 
 1. In the Azure portal home, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb113023*.
 1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
