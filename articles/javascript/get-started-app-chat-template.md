@@ -9,7 +9,7 @@ ms.custom: devx-track-javascript, devx-track-javascript-ai, devx-track-js
 
 # Get started with the JavaScript enterprise chat sample using RAG
 
-This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. [Demo Video](https://www.youtube.com/watch?v=Ytt4TKgODkU)
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
