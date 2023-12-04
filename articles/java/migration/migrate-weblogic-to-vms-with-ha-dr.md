@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > - Setup paired WLS clusters on Azure VMs, where your application workload will be deployed and running.
 > - Setup an Azure Traffic Manager, which allows you to distribute traffic to your public facing applications across the global Azure regions.
 > - Configure active and passive WLS clusters for high availability and disaster recovery.
-> - Validate the solution.
+> - Test failover.
 
 ## Prerequisites
 
@@ -46,31 +46,32 @@ Create a single database in Azure SQL Database and add it to an auto-failover gr
       * Write down **Password**.
       * Select **(US) West US** for **Location**.
    1. In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
+   1. After you create the primary server, open its database, for example, *mySampleDatabase*.
+      1. In the **Query editor (preview)** pane, enter **azureuser** for **Login**, server admin login password you wrote down before for **Password**, and select **OK**. You should see **Query editor** window after successful login.
+
+      > [!NOTE]
+      > If login failed with the similar error message **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until server firewall rules updates complete and select **OK** again.
+
+      1. Copy and paste the following SQL query to the editor, and select **Run**. You should see message **Query succeeded: Affected rows: 0** after successful run.
+
+      ```sql
+      create table TLOG_msp1_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp2_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp3_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp1_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp2_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp3_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
+      ```
+
+      These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later.
 
 1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
    1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb113023*.
    1. In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
 
-After you create the Azure SQL Database failover group, open the SQL database of the primary server. 
-
-1. In the **Query editor (preview)** pane, enter **azureuser** for **Login**, server admin login password you wrote down before for **Password**, and select **OK**. You should see **Query editor** window after successful login.
-
-   > [!NOTE]
-   > If login failed with the similar error message **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until server firewall rules updates complete and select **OK** again.
-
-1. Copy and paste the following SQL query to the editor, and select **Run**. You should see message **Query succeeded: Affected rows: 0** after successful run.
-
-   ```sql
-   create table TLOG_msp1_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table TLOG_msp2_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table TLOG_msp3_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table TLOG_msp1_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table TLOG_msp2_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table TLOG_msp3_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-   create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
-   ```
-
-   These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later.
+1. When you reach the section [3 - Test failover](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#3---test-failover):
+   1. After you complete all steps,  keep the failover group page open and you will use it for failover test of the WLS clusters later.
 
 ## Setup paired WLS clusters on Azure VMs
 
@@ -191,7 +192,7 @@ First, build and package a sample CRUD Java/JakartaEE EE application that will b
 
 Now deploy sample app to clusters, starting from the primary cluster.
 
-1. Open *adminConsole* of the cluster in your web browser, sign in to WebLogic Server Administratiion Console with username and password of WebLogic Administrator you wrote down before.
+1. Open *adminConsole* of the cluster in a new tab of your web browser, sign in to WebLogic Server Administratiion Console with username and password of WebLogic Administrator you wrote down before.
 1. Locate to **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
 1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared above. 
 1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
@@ -228,30 +229,37 @@ Repeat the same steps above in WebLogic Server Administratiion Console, but for 
 1. For server **msp2**, set *TLOG_msp2_secondary_* for **Prefix Name** under **Transaction Log Store** section.
 1. For server **msp3**, set *TLOG_msp3_secondary_* for **Prefix Name** under **Transaction Log Store** section.
 
-### Restart managed servers for the primary cluster
+### Restart managed servers
 
-To make the primary cluster active, restart all managed servers for the changes to take effect.
+Then, restart all managed servers for the changes to take effect, starting from the primary cluster.
 
-1. Make sure you have signed in to WebLogic Server Administratiion Console of the primary cluster.
+1. Make sure you have signed in to WebLogic Server Administratiion Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select "Servers".
 1. Select **Control** tab. Check *msp1*, *msp2* and *msp3*. Select **Shutdown** with option **When work completes** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *SHUTDOWN*. Select refresh icon again to stop status monitoring.
 1. Check *msp1*, *msp2* and *msp3* again. Select **Start** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *RUNNING*. Select refresh icon again to stop status monitoring.
 
-Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with application context root */weblogic-cafe*, for example, `http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe`. You should see the UI of the sample application:
+Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
+
+### Stop VMs in the secondary cluster
+
+Since the primary cluster is up and running, it acts as the active cluster and handles all user requests due to its higher priority configured in your Traffic Manager profile. Now you can stop all VMs in the secondary cluster to make it passive so that they won't be charged.
+
+1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb113023*.
+1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
+1. Select to open each of VMs. Select **Stop** and confirm. Select **Refresh**, wait until **Status** of 4 VMs becomes *Stopped (deallocated)*.
+
+Keep the page open and you will use it for failover test later.
+
+Now open the overview page of your Traffic Manager profile, you should see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
+
+### Verify app
+
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe`.
+Create a new coffee with name and price (for example, *Coffee 1* with *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app as below:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If you don't see this, you must troubleshoot and resolve the issue before continuing.
-
-### Stop all VMs in the secondary cluster
-
-Since the active cluster is up and running, it handles all user requests due to its higher priority configured in your Traffic Manager profile. Now you can stop all VMs in the secondary cluster to make it passive, and the configuration changes you made before will take effect when you start VMs in the secondary cluster for the failover.
-
-1. In the Azure portal home, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb113023*.
-1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
-1. Select to open each of VMs. Select **Stop** and confirm. Select **Refresh**, wait until **Status** of 4 VMs becomes *Stopped (deallocated)*.
-
-Now open the overview page of your Traffic Manager profile, you should see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
 
 ## Next steps
 
