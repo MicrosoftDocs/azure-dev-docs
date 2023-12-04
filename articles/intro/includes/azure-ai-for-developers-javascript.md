@@ -6,7 +6,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. [Demo Video](https://www.youtube.com/watch?v=Ytt4TKgODkU)|
+|[Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. [Demo Video](https://aka.ms/azai/js/video)|
 
 ### Building blocks
 
