@@ -42,11 +42,11 @@ Create a single database in Azure SQL Database and add it to an auto-failover gr
 1. When you reach the section [1 - Create a database](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#1---create-a-database):
    1. In step 8 for database details, write down **Database name**. For example, *mySampleDatabase*.
    1. In step 9 for creating the primary server:
+      * Select **(US) West US** for **Location**.
       * Write down **Server admin login**. For example, *azureuser*.
       * Write down **Password**.
-      * Select **(US) West US** for **Location**.
    1. In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
-   1. After you create the primary server, open its database, for example, *mySampleDatabase*.
+   1. After the deployment completes, select **Go to resource** to open **SQL database** page.
       1. In the **Query editor (preview)** pane, enter **azureuser** for **Login**, server admin login password you wrote down before for **Password**, and select **OK**. You should see **Query editor** window after successful login.
 
       > [!NOTE]
@@ -138,13 +138,35 @@ Wait until both deployments of WLS clusters complete. In each cluster, there are
 Follow instructions below to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
 
 1. Select **Outputs** from the deployment page.
-1. Copy the value of property **appGatewayURL**. Append it with *weblogic/ready* and open in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
-1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administratiion Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you are not able to sign in, you must troubleshoot and resolve the issue before continuing.
+1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administratiion Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you are not able to sign in, you must troubleshoot and resolve the issue before continuing. Keep the WLS admin console open, you will use it later for app deployment.
 
 Write down the IP address of the Azure Application Gateway for each cluster, you will use them when you setup the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed. For example, select **Overview** to switch back Overview pane of the deployment page, and select **Go to resource group**.
 1. Find resource *gwip* with type **Public IP address**. Select to open. Look for **IP address** and write down its value.
+
+### Prepare sample app
+
+Next, build and package a sample CRUD Java/JakartaEE EE application that will be deployed and running on WLS clusters.
+
+1. Checkout the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
+1. Locate the path where the repository was downloaded: `cd azure-cafe`.
+1. Change to its sub-dirctory *weblogic-cafe*: `cd weblogic-cafe`
+1. Compile and package the sample application: `mvn clean package`.
+
+The package should be successfully generated and located at `<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see this, you must troubleshoot and resolve the issue before continuing.
+
+### Deploy sample app
+
+Now deploy sample app to clusters, starting from the primary cluster.
+
+1. Open *adminConsole* of the cluster in a new tab of your web browser, sign in to WebLogic Server Administratiion Console with username and password of WebLogic Administrator you wrote down before.
+1. Locate to **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
+1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared above. 
+1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
+1. Switch to **Control** tab and check **weblogic-cafe** from deployments table. Select **Start** with option **Servicing all requests** > **Yes**. Wait for a while and refresh the page, until you see the state of deployment *weblogic-cafe* is **Active**. Switch to **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open, you will use it later for further configuration.
+
+Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
 
 ## Setup an Azure Traffic Manager
 
@@ -156,7 +178,7 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
    1. In step 2 **Create Traffic Manager profile**, write down the unique Traffic Manager profile name for **Name**. For example, *tmprofile-ejb113023*.
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints):
-   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, under **Endpoint monitor settings**, enter */weblogic/ready* for **Path**, and then select **Save**.
+   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, under **Endpoint monitor settings**, enter app context root with an additional slash */weblogic-cafe/* for **Path**, and then select **Save**.
    1. In step 4 for adding the primary endpoint:
       * Select **Public IP address** for **Target resource type**.
       * Click dropdown **Choose public IP address** and enter IP address of resource *gwip* deployed in **West US** WLS cluster you wrote down before, you should see one entry matched. Select it for **Public IP address**.
@@ -177,28 +199,6 @@ Now you have both endpoints **Enabled** and **Online** in the Traffic Manager pr
 ## Configure active and passive WLS clusters
 
 In this section, you configure active and passive WLS clusters for high availability and disaster recovery. The primary cluster in West US is configured to be active and handles the user requests. Oppositely, the secondary cluster in East US is configured to be passive and shutdown.
-
-### Prepare sample app
-
-First, build and package a sample CRUD Java/JakartaEE EE application that will be deployed and running on WLS clusters.
-
-1. Checkout the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
-1. Locate the path where the repository was downloaded: `cd <your local clone of the repo>`.
-1. Change to its sub-dirctory *weblogic-cafe*: `cd weblogic-cafe`
-1. Compile and package the sample application: `mvn clean package`.
-1. The package should be successfully generated and located at `<your local clone of the repo>/weblogic-cafe/target/weblogic-cafe.war`. If you don't see this, you must troubleshoot and resolve the issue before continuing.
-
-### Deploy sample app
-
-Now deploy sample app to clusters, starting from the primary cluster.
-
-1. Open *adminConsole* of the cluster in a new tab of your web browser, sign in to WebLogic Server Administratiion Console with username and password of WebLogic Administrator you wrote down before.
-1. Locate to **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
-1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared above. 
-1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
-1. Switch to **Control** tab and check **weblogic-cafe** from deployments table. Select **Start** with option **Servicing all requests** > **Yes**. Wait for a while and refresh the page, until you see the state of deployment *weblogic-cafe* is **Active**.
-
-Repeat the same steps above in WebLogic Server Administratiion Console, but for the secondary cluster.
 
 ### Update Frontend Host
 
@@ -246,20 +246,25 @@ Since the primary cluster is up and running, it acts as the active cluster and h
 
 1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb113023*.
 1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
-1. Select to open each of VMs. Select **Stop** and confirm. Select **Refresh**, wait until **Status** of 4 VMs becomes *Stopped (deallocated)*.
+1. Select to open each of VMs. Select **Stop** and confirm for each VM. 
+1. Select notifications icon from right-top of the Azure portal to open **Notifications** pane.
 
-Keep the page open and you will use it for failover test later.
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon" lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
 
-Now open the overview page of your Traffic Manager profile, you should see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
+1. Monitor event **Stopping virtual machine** for each VM until it becomes **Successfully stopped virtual machine**. Keep the page open and you will use it for failover test later.
+
+Now open and refresh the overview page of your Traffic Manager profile, until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
 
 ### Verify app
 
 Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb113023.trafficmanager.net/weblogic-cafe`.
-Create a new coffee with name and price (for example, *Coffee 1* with *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app as below:
+Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app as below:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If you don't see this, you must troubleshoot and resolve the issue before continuing.
+
+Keep the page open and you will use it for failover test later.
 
 ## Next steps
 
