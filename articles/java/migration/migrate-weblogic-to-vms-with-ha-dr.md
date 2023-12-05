@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > - Set up an Azure SQL Database failover group in paired regions, which allows you to manage the replication and failover of databases to another Azure region.
 > - Set up paired WLS clusters on Azure VMs, where your application workload is deployed and running.
 > - Set up an Azure Traffic Manager, which allows you to distribute traffic to your public facing applications across the global Azure regions.
-> - Configure active and passive WLS clusters for high availability and disaster recovery.
+> - Configure WLS clusters for high availability and disaster recovery.
 > - Test failover.
 
 ## Prerequisites
@@ -140,7 +140,7 @@ Follow instructions to verify if the Azure Application Gateway and WLS admin con
 
 1. Select **Outputs** from the deployment page.
 1. Copy the value of property **appGatewayURL**. Append it with *weblogic/ready* and open in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
-1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server AdministrationConsole**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing. Keep the WLS admin console open, you use it later for app deployment.
+1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server AdministrationConsole**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing.
 
 Write down the IP address of the Azure Application Gateway for each cluster, you use them when you set up the Azure Traffic Manager later.
 
@@ -149,7 +149,7 @@ Write down the IP address of the Azure Application Gateway for each cluster, you
 
 ## Set up an Azure Traffic Manager
 
-In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions.
+In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the Azure Application Gateway in the primary WLS cluster, and the secondary endpoint points to the Azure Application Gateway in the secondary WLS cluster.
 
 Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need to execute some of sections, including **Create a Traffic Manager profile**, **Add Traffic Manager endpoints**, and **Test Traffic Manager profile**. Use the following directions as you go through these sections, then return to this document after you create and configure the Azure Traffic Manager.
 
@@ -159,11 +159,15 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       * Write down the new resource group name for **Resource group**. For example, *myResourceGroupTM1*.
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints):
-   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, under **Endpoint monitor settings**, enter */weblogic/ready* for **Path**, and then select **Save**.
+   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page:
+      1. Enter *10* for **DNS time to live (TTL)**.
+      1. Under **Endpoint monitor settings**, enter */weblogic/ready* for **Path**.
+      1. Under **Fast endpoint failover settings**, enter *10* for **Probing internal**, *3* for **Tolerated number of failures**, *5* for **Probe timeout**.
+      1. Select **Save**, wait until it completes.
    1. In step 4 for adding the primary endpoint *myPrimaryEndpoint*:
       * Select **Public IP address** for **Target resource type**.
       * Click dropdown **Choose public IP address** and enter IP address of resource *gwip* deployed in **West US** WLS cluster you wrote down before, you should see one entry matched. Select it for **Public IP address**.
-   1. In step 6 for adding a failover endpoint *myFailoverEndpoint*:
+   1. In step 6 for adding a failover / secondary endpoint *myFailoverEndpoint*:
       * Select **Public IP address** for **Target resource type**.
       * Click dropdown **Choose public IP address** and enter IP address of resource *gwip* deployed in **East US** WLS cluster you wrote down before, you should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while, select **Refresh** until **Monitor status** of both endpoints is **Online**. 
@@ -173,17 +177,17 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       * In step 3, write down the DNS name of your Traffic Manager profile, for example, `http://tmprofile-ejb120523.trafficmanager.net`.
    1. In subsection [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
       * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, `http://tmprofile-ejb120523.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
-      * After completing all steps, make sure **enable** your primary site by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
+      * After completing all steps, make sure **enable** your primary endpoint by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
 
 Now you have both endpoints **Enabled** and **Online** in the Traffic Manager profile, keep the page open and you use it for monitoring the endpoint status later.
 
-## Configure active and passive WLS clusters
+## Configure WLS clusters
 
-In this section, you configure active and passive WLS clusters for high availability and disaster recovery. The primary cluster in West US is configured to be active and handles the user requests. Oppositely, the secondary cluster in East US is configured to be passive and shutdown.
+In this section, you configure WLS clusters for high availability and disaster recovery.
 
 ### Prepare sample app
 
-Next, build and package a sample CRUD Java/JakartaEE EE application that is deployed and running on WLS clusters.
+Build and package a sample CRUD Java/JakartaEE EE application that is deployed and running on WLS clusters for failover test later.
 
 1. Check out the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
 1. Locate the path where the repository was downloaded: `cd azure-cafe`.
@@ -244,22 +248,9 @@ Then, restart all managed servers for the changes to take effect, starting from 
 
 Repeat the same steps in WebLogic Server AdministrationConsole, but for the secondary cluster.
 
-### Stop VMs in the secondary cluster
-
-Since the primary cluster is up and running, it acts as the active cluster and handles all user requests due to its higher priority configured in your Traffic Manager profile. Now you can stop all VMs in the secondary cluster to make it passive so that they aren't charged.
-
-1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb120523*.
-1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
-1. Select to open each of VMs. Select **Stop** and confirm for each VM. 
-1. Select notifications icon from right-top of the Azure portal to open **Notifications** pane.
-
-   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon" lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
-
-1. Monitor event **Stopping virtual machine** for each VM until it becomes **Successfully stopped virtual machine**. Keep the page open and you use it for failover test later.
-
-Now switch to the browser tab where you monitor endpoints' status of the Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
-
 ### Verify app
+
+While the sample app is deployed and running on both clusters, the primary cluster acts as the active cluster and handles all user requests due to its higher priority configured in your Traffic Manager profile.
 
 Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120523.trafficmanager.net/weblogic-cafe`.
 Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app:
@@ -272,53 +263,37 @@ Keep the page open and you use it for failover test later.
 
 ## Test failover
 
-In this section, you fail your primary database server and cluster over to the secondary database server and cluster, and then fail back using the Azure portal.
+By default, both your Azure SQL database failover group and Azure Traffic Manager supports automatic failover.
 
-### Failover Azure SQL Database
+To test failover, you manually fail your primary database server and cluster over to the secondary database server and cluster, and then fail back using the Azure portal in this section.
 
-Follow instructions in [3 - Test failover](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#3---test-failover) to fail your failover group over to the secondary server, then return to this document.
+### Failover to the secondary site
 
-### Failover WLS cluster
+Execute the following steps to fail over to the secondary site including database server and cluster.
 
-Find the name of your resource group where the primary WLS cluster is deployed, for example, *wls-cluster-westus-ejb120523*. Then follow similar instructions in [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster), but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
-
-Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myPrimaryEndpoint* becomes *Degraded*.
-
-Return back to the browser tab of the sample app, refresh the page, you should see *504 Gateway Time-out* or *502 Bad Gateway* as both endpoints of the Traffic Manager become *Degraded*.
-
-Then switch to the browser tab where you stopped all VMs in the secondary cluster, follow instructions to failover WLS cluster.
-
-1. Select VM **adminVM**. Select **Start**. 
-1. Monitor event **Starting virtual machine** for *adminVM* in **Notifications** pane, wait until it becomes **Started virtual machine**.
-1. Switch to the browser tab of WebLogic Server AdministrationConsole for the secondary cluster, refresh the page until you see the welcome page for login.
-1. Switch back to the browser tab where all VMs in the secondary cluster are listed. For VM *mspVM1*, *mspVM2* and *mspVM3*, select to open and then select **Start**. 
-1. Monitor events **Starting virtual machine** for VM *mspVM1*, *mspVM2* and *mspVM3* in **Notifications** pane, wait until they become **Started virtual machine**.
-1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Online*.
+1. Switch to the browser tab of your Azure SQL Database failover group. 
+1. Select **Failover** > **Yes**. Wait until it completes.
+1. Switch to the browser tab where two endpoints of your Traffic Manager profile are listed. Select the primary endpoint *myPrimaryEndpoint*.
+1. Select **Disabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic to the secondary endpoint.
 1. Swtich to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png":::
 
-   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait a few minutes and refresh the page again.
+   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
-### Fail back
+### Fail back to the primary site
 
-Execute the following steps to failback to the primary database server and cluster.
+Execute the following steps to failback to the primary site including database server and cluster.
 
-1. Follow instructions in [3 - Test failover](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#3---test-failover) to fail your failover group back to the primary server, then return to this document.
-1. Switch to the browser tab where you stopped all VMs in the primary cluster.
-   1. Select VM **adminVM**. Select **Start**. 
-   1. Monitor event **Starting virtual machine** for *adminVM* in **Notifications** pane, wait until it becomes **Started virtual machine**.
-   1. Switch to the browser tab of WebLogic Server AdministrationConsole for the primary cluster, refresh the page until you see the welcome page for login.
-   1. Switch back to the browser tab where all VMs in the primary cluster are listed. For VM *mspVM1*, *mspVM2* and *mspVM3*, select to open and then select **Start**. 
-   1. Monitor events **Starting virtual machine** for VM *mspVM1*, *mspVM2* and *mspVM3* in **Notifications** pane, wait until they become **Started virtual machine**.
-   1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myPrimaryEndpoint* becomes *Online*.
-1. Follow instructions in [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster) to stop all VMs in the secondary cluster.
-1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Degraded*.
+1. Switch to the browser tab of your Azure SQL Database failover group. 
+1. Select **Failover** > **Yes**. Wait until it completes.
+1. Switch to the browser tab where the primary endpoint *myPrimaryEndpoint* of your Traffic Manager is displayed.
+1. Select **Enabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic back to the primary endpoint.
 1. Swtich to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after fail back." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait a few minutes and refresh the page again.
+   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ## Clean up resources
 
