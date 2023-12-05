@@ -15,6 +15,8 @@ This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure 
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png" alt-text="Solution architecture of WLS on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png":::
 
+The Azure Traffic Manager checks the health of your primary region and route the traffic from the non-healthy region to the healthy region. Both the primary region and the secondary region have a full deployment of WLS cluster. However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. Since both the Azure Application Gateway have IPs that can be health checked, and the WLS clusters are always up and running, this topology provides an option for going in for a low Recovery Time Objective (RTO) and failover without any manual intervention for the application tier.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -279,7 +281,7 @@ Execute the following steps to fail over to the secondary site including databas
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png":::
 
-   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   If you don't see the similar UI, that may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ### Fail back to the primary site
 
@@ -293,7 +295,7 @@ Execute the following steps to failback to the primary site including database s
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after fail back." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-   If you don't see the similar UI, that's may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   If you don't see the similar UI, that may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ## Clean up resources
 
