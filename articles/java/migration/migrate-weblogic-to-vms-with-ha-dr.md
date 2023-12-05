@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to Azure Virtual Machines with 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 12/06/2023
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java,, devx-track-azurecli, devx-track-extended-java
 ---
@@ -70,7 +70,7 @@ Create a single database in Azure SQL Database and add it to an auto-failover gr
       These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later.
 
 1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
-   1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb120523*.
+   1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb120623*.
    1. In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
 
 1. When you reach the section [3 - Test failover](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#3---test-failover):
@@ -89,7 +89,7 @@ The following steps show you how to fill out the **Basics** pane shown in the fo
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on Azure VMs Basics pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png":::
 
 1. Ensure that the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group. For example, *wls-cluster-westus-ejb120523*.
+1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group. For example, *wls-cluster-westus-ejb120623*.
 1. Under **Instance details**, select **West US** for **Region**.
 1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Write down username and password for **WebLogic Administrator**.
 1. Leave the defaults for other fields.
@@ -110,9 +110,9 @@ You should see all fields are prepopulated with the defaults, select **Next** to
 1. Select **Yes** for **Connect to database?**.
 1. Select **Microsoft SQL Server (Support passwordless connection)** for **Choose database type**.
 1. Enter *jdbc/WebLogicCafeDB* for **JNDI Name**.
-1. Replace the placeholders in datasource connection string (*jdbc:sqlserver://\<failover-group-name\>.database.windows.net:1433;database=\<database-name\>*) with valid values you wrote down before, for example, *jdbc:sqlserver://failovergroup-ejb120523.database.windows.net:1433;database=mySampleDatabase*. Enter it for **DataSource Connection String**.
+1. Replace the placeholders in datasource connection string (*jdbc:sqlserver://\<failover-group-name\>.database.windows.net:1433;database=\<database-name\>*) with valid values you wrote down before, for example, *jdbc:sqlserver://failovergroup-ejb120623.database.windows.net:1433;database=mySampleDatabase*. Enter it for **DataSource Connection String**.
 1. Select **None** for **Global transaction protocol**.
-1. Replace the placeholders in database username (*\<server-admin-login\>@\<failover-group-name\>*) with valid values you wrote down before, for example, *azureuser@failovergroup-ejb120523*. Enter it for **Database username**.
+1. Replace the placeholders in database username (*\<server-admin-login\>@\<failover-group-name\>*) with valid values you wrote down before, for example, *azureuser@failovergroup-ejb120623*. Enter it for **Database username**.
 1. Enter server admin login password you wrote down before for **Database Password**. Enter the same value for **Confirm password**. 
 1. Leave the defaults for other fields.
 1. Select **Review + create**. 
@@ -131,7 +131,7 @@ In the meanwhile, you can set up the secondary WLS cluster in parallel.
 Follow the same steps in section [Set up the primary WLS cluster](#set-up-the-primary-wls-cluster) to set up the secondary WLS cluster in East US region, except the following differences:
 
 1. In the "Basics" pane:
-   1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group. For example, *wls-cluster-eastus-ejb120523*.
+   1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group. For example, *wls-cluster-eastus-ejb120623*.
    1. Under **Instance details**, select **East US** for **Region**.
 
 ### Verify deployments of clusters
@@ -157,7 +157,7 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
 
 1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile):
    1. In step 2 **Create Traffic Manager profile**:
-      * Write down the unique Traffic Manager profile name for **Name**. For example, *tmprofile-ejb120523*.
+      * Write down the unique Traffic Manager profile name for **Name**. For example, *tmprofile-ejb120623*.
       * Write down the new resource group name for **Resource group**. For example, *myResourceGroupTM1*.
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints):
@@ -176,9 +176,9 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile):
    1. In subsection [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name):
-      * In step 3, write down the DNS name of your Traffic Manager profile, for example, `http://tmprofile-ejb120523.trafficmanager.net`.
+      * In step 3, write down the DNS name of your Traffic Manager profile, for example, `http://tmprofile-ejb120623.trafficmanager.net`.
    1. In subsection [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
-      * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, `http://tmprofile-ejb120523.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
+      * In step 1 and 3, append */weblogic/ready* to DNS name of your Traffic Manager profile in your web browser, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
       * After completing all steps, make sure **enable** your primary endpoint by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
 
 Now you have both endpoints **Enabled** and **Online** in the Traffic Manager profile, keep the page open and you use it for monitoring the endpoint status later.
@@ -217,7 +217,7 @@ Since the Azure Traffic Manager is the entry point for user requests, update the
 1. Make sure you signed in to WebLogic Server AdministrationConsole.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the left navigation area. Select **Clusters**.
 1. Select **cluster1** from clusters table.
-1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://`. For example, *tmprofile-ejb120523.trafficmanager.net*. Select **Save** > **Activate Changes**.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://`. For example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
 Repeat the same steps in WebLogic Server AdministrationConsole, but for the secondary cluster.
 
@@ -254,7 +254,7 @@ Repeat the same steps in WebLogic Server AdministrationConsole, but for the seco
 
 While the sample app is deployed and running on both clusters, the primary cluster acts as the active cluster and handles all user requests due to its higher priority configured in your Traffic Manager profile.
 
-Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120523.trafficmanager.net/weblogic-cafe`.
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
 Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
@@ -306,8 +306,8 @@ If you're not going to continue to use the WLS clusters and other components, de
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager, for example, **myResourceGroupTM1**.
-1. Repeat steps 1-4 for the resource group of the primary WLS cluster, for example, **wls-cluster-westus-ejb120523**.
-1. Repeat steps 1-4 for the resource group of the secondary WLS cluster, for example, **wls-cluster-eastus-ejb120523**.
+1. Repeat steps 1-4 for the resource group of the primary WLS cluster, for example, **wls-cluster-westus-ejb120623**.
+1. Repeat steps 1-4 for the resource group of the secondary WLS cluster, for example, **wls-cluster-eastus-ejb120623**.
 
 ## Next steps
 
