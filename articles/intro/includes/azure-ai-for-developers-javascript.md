@@ -11,6 +11,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 * [Demo JavaScript fullstack video](https://aka.ms/azai/js/video)
 * [Demo JavaScript frontend with Python backend video](https://aka.ms/azai/js.py/video)
 
+
 ### Building blocks
 
 |Link|Description|
