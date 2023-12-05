@@ -8,6 +8,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |---|---|
 |[Get started with the Java enterprise chat sample using RAG](../../java/quickstarts/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 
+* [Demo video](https://aka.ms/azai/java/video)
+
 ### Building blocks
 
 |Link|Description|
