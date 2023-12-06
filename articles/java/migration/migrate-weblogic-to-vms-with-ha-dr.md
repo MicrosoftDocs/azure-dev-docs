@@ -17,6 +17,8 @@ This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure 
 
 The Azure Traffic Manager checks the health of your primary region and route the traffic from the non-healthy region to the healthy region. Both the primary region and the secondary region have a full deployment of WLS cluster. However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. Since both the Azure Application Gateway have IPs that can be health checked, and the WLS clusters are always up and running, this topology provides an option for going in for a low Recovery Time Objective (RTO) and failover without any manual intervention for the application tier.
 
+The database tier consists of an Azure SQL Database auto-failover group, which provides a read-write endpoint that remain unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period has expired. You do not have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective (RPO) and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -67,7 +69,7 @@ Create a single database in Azure SQL Database and add it to an auto-failover gr
       create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
       ```
 
-      These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later.
+      These database tables are used for storing transaction logs and sessions data for your WLS clusters and app later, see [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more background information.
 
 1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
    1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb120623*.
@@ -191,6 +193,8 @@ In this section, you configure WLS clusters for high availability and disaster r
 
 Build and package a sample CRUD Java/JakartaEE EE application that is deployed and running on WLS clusters for failover test later.
 
+The app uses [JDBC session persistence](https://github.com/Azure-Samples/azure-cafe/blob/main/weblogic-cafe/src/main/webapp/WEB-INF/weblogic.xml#L8) to permanently store data from an HTTP session object in datasource *jdbc/WebLogicCafeDB* to enable failover and load balancing across a cluster of WebLogic Servers. It configures [persistence schema](https://github.com/Azure-Samples/azure-cafe/blob/main/weblogic-cafe/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebLogicCafeDB*.
+
 1. Check out the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
 1. Locate the path where the repository was downloaded: `cd azure-cafe`.
 1. Change to its subdirctory *weblogic-cafe*: `cd weblogic-cafe`
@@ -311,8 +315,17 @@ If you're not going to continue to use the WLS clusters and other components, de
 
 ## Next steps
 
-Continue to explore options to run WLS on Azure.
+In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider shutdown all VMs in the passive WLS cluster and start them during the failover.
 
+> [!NOTE]
+> If you choose to start the passive cluster during the failover, make sure the admin server of the cluster is started and running before any other managed servers of the cluster.
+
+Continue to explore references used in this tutorial and options to run WLS on Azure.
+
+> [!div class="nextstepaction"]
+> [Automatic failover using Azure Traffic Manager](/azure/networking/disaster-recovery-dns-traffic-manager#automatic-failover-using-azure-traffic-manager)
+> [!div class="nextstepaction"]
+> [High Availability and Disaster Recovery Guide for Oracle WebLogic Server and Coherence](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wlcag/weblogic_ca_intro.html)
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 > [!div class="nextstepaction"]
