@@ -17,8 +17,8 @@ By mixing and matching the frontend and backend, you can create a multilanguage 
 
 Deploy the 2 reference architectures using the following articles. Make sure to use the same subscription for both deployments. Selecting the same region is also a good idea. The deployment may take up to 20 minutes. Leave the deployments up: don't complete the _Clean up resources_ section until you're done with this article.
 
-* Deploy the JavaScript chat app using this [article](https://learn.microsoft.com/en-us/azure/developer/javascript/get-started-app-chat-template)
-* Deploy the Python chat app using this [article](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template)
+* Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
+* Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
 
 ## Get the URLs for the frontend and backend
 
