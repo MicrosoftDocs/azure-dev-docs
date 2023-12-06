@@ -13,7 +13,7 @@ The Chat app is a reference application that demonstrates how to use the Azure O
 
 By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds. 
 
-* [Demo](https://aka.ms/azai/js.py/video) - frontend with Python backend video
+* [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
 This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
 
