@@ -29,15 +29,12 @@
     items: 
     - name: Develop with Azure AI Services
       href: azure-ai-for-javascript-developers.md    
-    - name: Get started with the JavaScript enterprise chat sample
+    - name: Get started with Enterprise chat
       href: get-started-app-chat-template.md
       display: Azure OpenAI, OpenAI, AI
-    - name: JavaScript frontend  + Python backend
+    - name: JavaScript frontend + Python backend
       href: chat-app-with-separate-front-back-end.md
       display: building block, frontend, backend
-    - name: Build a conversational CLI
-      href: openai-cli.md
-      display: Azure OpenAI, OpenAI, AI
     - name: Generate text completions
       href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
       display: Azure OpenAI, OpenAI, AI
@@ -192,6 +189,9 @@
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database
       href: how-to/with-visual-studio-code/create-azure-database.md
+  - name: Build an AI conversational CLI
+    href: openai-cli.md
+    display: Azure OpenAI, OpenAI, AI
   - name: Automation with Azure CLI
     items:
     - name: Get started

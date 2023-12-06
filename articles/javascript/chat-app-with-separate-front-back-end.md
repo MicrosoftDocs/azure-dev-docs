@@ -1,6 +1,6 @@
 ---
-title: Integrating JavaScript Frontend with Python Backend in Azure OpenAI Chat App
-description: This guide provides steps to integrate the JavaScript frontend with the Python backend in the Azure OpenAI Chat App. Learn how to create a multilanguage application that leverages the strengths of both JavaScript and Python.
+title: "AI Chat: JavaScript Frontend + Python Backend"
+description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
 ms.date: 12/06/2023
 ms.topic: get-started
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-js
@@ -12,6 +12,8 @@ ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-js
 The Chat app is a reference application that demonstrates how to use the Azure OpenAI service. Each programming language reference architecture provides slightly different functionality. This article describes how to use the JavaScript frontend with the Python backend.
 
 By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds. 
+
+* [Demo](https://aka.ms/azai/js.py/video) - frontend with Python backend video
 
 This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
 
