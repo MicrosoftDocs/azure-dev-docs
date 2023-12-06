@@ -32,6 +32,9 @@
     - name: Get started with the JavaScript enterprise chat sample
       href: get-started-app-chat-template.md
       display: Azure OpenAI, OpenAI, AI
+    - name: JavaScript frontend  + Python backend
+      href: chat-app-with-separate-front-back-end.md
+      display: building block, frontend, backend
     - name: Build a conversational CLI
       href: openai-cli.md
       display: Azure OpenAI, OpenAI, AI

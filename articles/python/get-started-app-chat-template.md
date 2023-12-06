@@ -31,6 +31,7 @@ Other articles in the collection include:
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
+* [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
 
 ## Architectural overview
 
