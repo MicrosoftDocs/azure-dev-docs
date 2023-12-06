@@ -5,7 +5,7 @@ documentationcenter: java
 manager: brborges
 author: KarlErickson
 ms.author: judubois
-ms.date: 06/12/2023
+ms.date: 12/06/2023
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -420,7 +420,7 @@ Now go to the [Azure portal](https://portal.azure.com) to find the `Function App
 Select the function:
 
 - In the function overview, note the function's URL.
-- On the left menu, select the **Log streaming** service to check your running function.
+- To check your running function, select **Log streaming** on the navigation menu.
 
 Now, as you did in the previous section, use cURL to access the running function, as shown in the following example. Be sure to replace `your-function-name` by your real function name.
 
