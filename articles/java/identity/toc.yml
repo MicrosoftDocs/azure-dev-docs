@@ -1,5 +1,5 @@
 items:
-- name: Securing Java apps using Azure Active Directory
+- name: Securing Java apps using Microsoft Entra ID
   href: index.yml
   items:
   - name: Get Started
@@ -7,10 +7,10 @@ items:
   - name: How-To
     expanded: true
     items: 
-    - name: Protect your Java Spring apps with Azure Active Directory
+    - name: Protect your Java Spring apps with Microsoft Entra ID
       expanded: true
       items:
-      - name: Enable Spring Apps to authenticate users with Azure AD
+      - name: Enable Spring Apps to authenticate users with Microsoft Entra ID
         href: enable-spring-apps-authn-azure-ad.md
       - name: Enable Spring Apps to authenticate users with Azure AD B2C
         href: enable-spring-apps-authn-azure-ad-b2c.md
@@ -27,7 +27,7 @@ items:
     - name: Protect your Java Servlet apps with the MSAL for Java
       expanded: true
       items:
-      - name: Enable Servlet Apps to authenticate users with Azure AD
+      - name: Enable Servlet Apps to authenticate users with Microsoft Entra ID
         href: enable-servlet-apps-authn-azure-ad.md
       - name: Enable Servlet Apps to authenticate users with Azure AD B2C
         href: enable-servlet-apps-authn-azure-ad-b2c.md
