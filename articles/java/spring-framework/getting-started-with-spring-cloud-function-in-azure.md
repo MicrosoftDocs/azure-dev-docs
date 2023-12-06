@@ -60,10 +60,10 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
 ```xml
     <properties>
-		<java.version>11</java.version>
+        <java.version>11</java.version>
 
-		<!-- Spring Boot start class. WARNING: correct class must be set -->
-		<start-class>com.example.DemoApplication</start-class>
+        <!-- Spring Boot start class. WARNING: correct class must be set -->
+        <start-class>com.example.DemoApplication</start-class>
 
         <!-- customize those properties. WARNING: the functionAppName should be unique across Azure -->
         <azure.functions.maven.plugin.version>1.29.0</azure.functions.maven.plugin.version>
