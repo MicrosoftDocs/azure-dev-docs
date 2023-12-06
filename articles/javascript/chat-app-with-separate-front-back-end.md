@@ -13,9 +13,15 @@ The Chat app is a reference application that demonstrates how to use the Azure O
 
 By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds. 
 
+This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+
+* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+* [Java](../java/quickstarts/get-started-app-chat-template.md)
+* [Python](../python/get-started-app-chat-template.md)
+
 ## Prerequisites
 
-Deploy the 2 reference architectures using the following articles. Make sure to use the same subscription for both deployments. Selecting the same region is also a good idea. The deployment may take up to 20 minutes. Leave the deployments up: don't complete the _Clean up resources_ section until you're done with this article.
+Deploy the 2 reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment may take up to 20 minutes. Leave the deployments up; don't complete the _Clean up resources_ section until you're done with this article.
 
 * Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
 * Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
