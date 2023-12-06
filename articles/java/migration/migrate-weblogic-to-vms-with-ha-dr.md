@@ -37,7 +37,7 @@ The database tier consists of an Azure SQL Database auto-failover group. This pr
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with either Windows, Linux or macOS installed.
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
-* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](https://learn.microsoft.com/en-us/java/openjdk/)).
+* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.9.3 or higher.
 
 ## Set up an Azure SQL Database failover group in paired regions
