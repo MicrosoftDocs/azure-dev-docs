@@ -56,7 +56,7 @@
 | Mixed Reality Authentication | NuGet [1.2.0](https://www.nuget.org/packages/Azure.MixedReality.Authentication/1.2.0) | [docs](/dotnet/api/overview/azure/MixedReality.Authentication-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.MixedReality.Authentication_1.2.0/sdk/mixedreality/Azure.MixedReality.Authentication/) |
 | Monitor Ingestion | NuGet [1.1.1](https://www.nuget.org/packages/Azure.Monitor.Ingestion/1.1.1) | [docs](/dotnet/api/overview/azure/Monitor.Ingestion-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.1.1/sdk/monitor/Azure.Monitor.Ingestion/) |
 | Monitor Query | NuGet [1.2.0](https://www.nuget.org/packages/Azure.Monitor.Query/1.2.0)<br>NuGet [1.3.0-beta.2](https://www.nuget.org/packages/Azure.Monitor.Query/1.3.0-beta.2) | [docs](/dotnet/api/overview/azure/Monitor.Query-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.2.0/sdk/monitor/Azure.Monitor.Query/)<br>GitHub [1.3.0-beta.2](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.3.0-beta.2/sdk/monitor/Azure.Monitor.Query/) |
-| OpenAI Inference | NuGet [1.0.0-beta.9](https://www.nuget.org/packages/Azure.AI.OpenAI/1.0.0-beta.9) | [docs](/dotnet/api/overview/azure/AI.OpenAI-readme?view=azure-dotnet-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.9](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.9/sdk/openai/Azure.AI.OpenAI/) |
+| OpenAI Inference | NuGet [1.0.0-beta.10](https://www.nuget.org/packages/Azure.AI.OpenAI/1.0.0-beta.10) | [docs](/dotnet/api/overview/azure/AI.OpenAI-readme?view=azure-dotnet-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.10](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.10/sdk/openai/Azure.AI.OpenAI/) |
 | OpenTelemetry AspNetCore | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore/1.0.0) | [docs](/dotnet/api/overview/azure/Monitor.OpenTelemetry.AspNetCore-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/) |
 | OpenTelemetry Exporter | NuGet [1.1.0](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/1.1.0) | [docs](/dotnet/api/overview/azure/Monitor.OpenTelemetry.Exporter-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.1.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/) |
 | Personalizer | NuGet [2.0.0-beta.2](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.2) | [docs](/dotnet/api/overview/azure/AI.Personalizer-readme?view=azure-dotnet-preview&amp;preserve-view=true) | GitHub [2.0.0-beta.2](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Personalizer_2.0.0-beta.2/sdk/personalizer/Azure.AI.Personalizer/) |
@@ -449,8 +449,8 @@
 | Microsoft.Azure.Functions.Worker.Core | NuGet [1.16.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Core/1.16.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Abstractions | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Abstractions/1.3.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights | NuGet [1.0.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/1.0.0-preview4) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.CosmosDB | NuGet [4.4.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.4.2) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.EventGrid | NuGet [3.4.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid/3.4.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.CosmosDB | NuGet [4.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.5.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.EventGrid | NuGet [3.4.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid/3.4.1) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.EventHubs | NuGet [6.0.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs/6.0.1) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Http | NuGet [3.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.1.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Kafka | NuGet [3.10.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka/3.10.0) |  |  |
@@ -459,7 +459,7 @@
 | Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ | NuGet [2.0.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ/2.0.3) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Rpc | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Rpc/1.0.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.SendGrid | NuGet [3.0.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid/3.0.3) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.ServiceBus | NuGet [5.14.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.14.1) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.ServiceBus | NuGet [5.15.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.15.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.SignalRService | NuGet [1.12.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/1.12.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Sql | NuGet [3.0.461](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/3.0.461) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Storage | NuGet [6.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/6.2.0) |  |  |
@@ -472,9 +472,9 @@
 | Microsoft.Azure.Functions.Worker.Grpc | NuGet [1.15.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Grpc/1.15.0) |  |  |
 | Microsoft.Azure.Functions.Worker.ItemTemplates | NuGet [4.0.2896](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ItemTemplates/4.0.2896) |  |  |
 | Microsoft.Azure.Functions.Worker.ProjectTemplates | NuGet [4.0.2896](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ProjectTemplates/4.0.2896) |  |  |
-| Microsoft.Azure.Functions.Worker.Sdk | NuGet [1.16.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.16.3)<br>NuGet [1.16.4-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.16.4-preview1) |  |  |
+| Microsoft.Azure.Functions.Worker.Sdk | NuGet [1.16.4](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.16.4) |  |  |
 | Microsoft.Azure.Functions.Worker.Sdk.Analyzers | NuGet [1.2.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk.Analyzers/1.2.1) |  |  |
-| Microsoft.Azure.Functions.Worker.Sdk.Generators | NuGet [1.1.5](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk.Generators/1.1.5)<br>NuGet [1.1.6-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk.Generators/1.1.6-preview1) |  |  |
+| Microsoft.Azure.Functions.Worker.Sdk.Generators | NuGet [1.1.6](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk.Generators/1.1.6) |  |  |
 | Microsoft.Azure.WebJobs.CosmosDb.ChangeProcessor | NuGet [1.0.4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.CosmosDb.ChangeProcessor/1.0.4) |  |  |
 | Microsoft.Azure.WebJobs.CosmosDb.Mongo | NuGet [1.0.4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.CosmosDb.Mongo/1.0.4) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.Kusto | NuGet [1.0.9-Preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto/1.0.9-Preview) |  |  |
@@ -500,8 +500,8 @@
 | Hyak Common - Tracing Etw | NuGet [1.0.2](https://www.nuget.org/packages/Hyak.Common.Tracing.Etw/1.0.2) |  |  |
 | Hyak Common - Tracing Log4Net | NuGet [1.0.2](https://www.nuget.org/packages/Hyak.Common.Tracing.Log4Net/1.0.2) |  |  |
 | Microsoft.Azure.SignalR.Emulator | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Emulator/1.1.0)<br>NuGet [1.0.0-preview1-10809](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Emulator/1.0.0-preview1-10809) |  |  |
-| MSBuild | NuGet [0.20.0](https://www.nuget.org/packages/Microsoft.TypeSpec.MSBuild/0.20.0) |  |  |
-| ProviderHub Controller | NuGet [0.7.0](https://www.nuget.org/packages/Microsoft.TypeSpec.ProviderHub.Controller/0.7.0) |  |  |
-| ProviderHub Templates | NuGet [0.8.0](https://www.nuget.org/packages/Microsoft.TypeSpec.ProviderHub.Templates/0.8.0) |  |  |
+| MSBuild | NuGet [0.21.0](https://www.nuget.org/packages/Microsoft.TypeSpec.MSBuild/0.21.0) |  |  |
+| ProviderHub Controller | NuGet [0.8.0](https://www.nuget.org/packages/Microsoft.TypeSpec.ProviderHub.Controller/0.8.0) |  |  |
+| ProviderHub Templates | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.TypeSpec.ProviderHub.Templates/1.0.0) |  |  |
 | Template | NuGet [1.0.2-preview1](https://www.nuget.org/packages/Microsoft.Azure.Template/1.0.2-preview1) |  |  |
 | Test HttpRecorder | NuGet [1.13.3](https://www.nuget.org/packages/Microsoft.Azure.Test.HttpRecorder/1.13.3) |  | GitHub [1.13.3](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mgmtcommon/TestFramework/Microsoft.Azure.Test.HttpRecorder) |
