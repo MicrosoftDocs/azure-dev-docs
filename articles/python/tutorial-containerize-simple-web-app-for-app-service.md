@@ -216,6 +216,9 @@ The `--detach` option runs the container in the background. The `--publish` opti
     --output tsv)
     ```
 
+    > [!NOTE]
+    > The registry name must be unique in Azure. If you get an error, try a different name. Registry names can consist of 5-50 alphanumeric characters. Hyphens and underscores are not allowed. To learn more, see [Azure Container Registry name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftcontainerregistry). If you do use a different name, make sure that you use your name rather than `webappacr123` in the commands that reference the registry in following sections.
+
     An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
 
     The commands for creating the registry and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
@@ -235,7 +238,7 @@ az acr build \
 
 The `--registry` option specifies the registry name, and the `--image` option specifies the image name. The image name is in the format `registry.azurecr.io/repository:tag`.
 
-## Deploy to web app to Azure
+## Deploy web app to Azure
 
 1. Create an App Service plan with the [az appservice plan][22] command.
 
@@ -261,7 +264,9 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     Notes:
 
-    * The web app name must be unique in Azure. If you run into an error, try a different name.
+    * The web app name must be unique in Azure. If get an error, try a different name. The name can consist of alphanumeric characters and hyphens, but cannot start or end with a hyphen. To learn more, see [Microsoft.Web name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+
+    * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--docker-registry-server-user` and `--deployment-container-image-name` parameters appropriately.
 
     * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
