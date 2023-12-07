@@ -1,7 +1,7 @@
 ---
 title: "AI Chat: JavaScript Frontend + Python Backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
-ms.date: 12/06/2023
+ms.date: 12/07/2023
 ms.topic: get-started
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-js
 # CustomerIntent: As a multilanguage developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
@@ -42,7 +42,7 @@ You should have each repo in a separate development environment, either locally 
     azd env get-values | grep WEBAPP_URI
     ```
 
-    This command gets all the cloud environment variables and filters for the `WEBAPP_URI` variable.
+    This command gets all the cloud environment variables and filters for the `WEBAPP_URI` variable. Make sure the URL doesn't end with a slash, `/`.
 
 1. Copy the URL.
 1. In the Python development environment, set the URL for the JavaScript frontend by running the following command:
@@ -64,7 +64,7 @@ You should have each repo in a separate development environment, either locally 
     azd env get-values | grep BACKEND_URI
     ```
     
-    This command gets all the cloud environment variables and filters for the `BACKEND_URI` variable.
+    This command gets all the cloud environment variables and filters for the `BACKEND_URI` variable. Make sure the URL doesn't end with a slash, `/`.
 
 1. Copy the URL.
 1. In the JavaScript development environment, set the URL for the Python backend by running the following command:
@@ -93,6 +93,10 @@ When you're done with the apps, you can delete the resources to avoid incurring 
 
 * Delete the JavaScript app with [these instructions](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
 * Delete the Python app with [these instructions](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
+
+## Troubleshooting
+
+* If you get an error, review the URLs you entered in the environment. Make sure they don't end with a slash, `/`.
 
 ## Next steps
 
