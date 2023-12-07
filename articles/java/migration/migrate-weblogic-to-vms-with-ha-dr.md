@@ -231,17 +231,21 @@ Repeat the same steps in WebLogic Server AdministrationConsole, but for the seco
 
 ### Configure Transaction Log Store
 
-Next, configure JDBC Transaction Log Store for all managed servers of clusters, starting from the primary cluster.
+Next, configure the JDBC Transaction Log Store for all managed servers of clusters, starting from the primary cluster. This practice is described in [Using Transaction Log Files to Recover Transactions](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wljta/trxcon.html#GUID-7EFC9496-CC51-440D-885D-7E8B3C85FA15).
 
-1. Make sure you signed in to WebLogic Server AdministrationConsole.
+Do this on the primary cluster, in US West.
+
+1. Make sure you signed in to WebLogic Server Administration Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select **Servers**.
 1. You should see server *msp1*, *msp2* and *msp3* listed in the servers table. 
-1. Select **msp1** > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC** for **Type**, select **jdbc/WebLogicCafeDB** for **Data Source**, set *TLOG_msp1_primary_* for **Prefix Name**. Select **Save**.
+1. Select **msp1** > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC**.
+1. For **Type**, select **jdbc/WebLogicCafeDB** for **Data Source**.
+1. for **Prefix Name**, enter *TLOG_msp1_primary_*. Select **Save**.
 1. Select **Servers** > **msp2**, and execute the same steps, except that setting *TLOG_msp2_primary_* for **Prefix Name** under **Transaction Log Store** section.
 1. Select **Servers** > **msp2**, and execute the same steps, except that setting *TLOG_msp3_primary_* for **Prefix Name** under **Transaction Log Store** section.
 1. Select **Activate Changes**.
 
-Repeat the same steps in WebLogic Server AdministrationConsole, but for the secondary cluster, except the following differences:
+Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in US East. Make the following changes in in the secondary cluster:
 
 1. For server **msp1**, set *TLOG_msp1_secondary_* for **Prefix Name** under **Transaction Log Store** section.
 1. For server **msp2**, set *TLOG_msp2_secondary_* for **Prefix Name** under **Transaction Log Store** section.
@@ -260,9 +264,9 @@ Repeat the same steps in WebLogic Server AdministrationConsole, but for the seco
 
 ### Verify app
 
-While the sample app is deployed and running on both clusters, the primary cluster acts as the active cluster and handles all user requests due to its higher priority configured in your Traffic Manager profile.
+While the sample app is deployed and running on both clusters, the primary cluster acts as the active cluster and handles all user requests. This is due to its higher priority configuration in your Traffic Manager profile.
 
-Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending with the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
 Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
@@ -298,12 +302,12 @@ Execute the following steps to failback to the primary site including database s
 1. Switch to the browser tab of your Azure SQL Database failover group. 
 1. Select **Failover** > **Yes**. Wait until it completes.
 1. Switch to the browser tab where the primary endpoint *myPrimaryEndpoint* of your Traffic Manager is displayed.
-1. Select **Enabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic back to the primary endpoint.
-1. Swtich to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
+1. Select **Enabled** for **Status**. Select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic back to the primary endpoint.
+1. In the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after fail back." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-   If you don't see the similar UI, that may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ## Clean up resources
 
@@ -319,7 +323,7 @@ If you're not going to continue to use the WLS clusters and other components, de
 
 ## Next steps
 
-In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider shutdown all VMs in the passive WLS cluster and start them during the failover.
+In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider keeping the VMS in the passive WLS cluster in the shut down state and starting them only in the event of a failover.
 
 > [!NOTE]
 > If you choose to start the passive cluster during the failover, make sure the admin server of the cluster is started and running before any other managed servers of the cluster.
@@ -333,7 +337,7 @@ Continue to explore references used in this tutorial and options to run WLS on A
 > [!div class="nextstepaction"]
 > [Automatic failover using Azure Traffic Manager](/azure/networking/disaster-recovery-dns-traffic-manager#automatic-failover-using-azure-traffic-manager)
 > [!div class="nextstepaction"]
-> [High Availability and Disaster Recovery Guide for Oracle WebLogic Server and Coherence, including maximum availability architectures (MAA)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wlcag/weblogic_ca_intro.html)
+> [Oracle Maximum Availability Architecture (MAA) and WebLogic Server](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wlcag/weblogic_ca_intro.html)
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 > [!div class="nextstepaction"]
