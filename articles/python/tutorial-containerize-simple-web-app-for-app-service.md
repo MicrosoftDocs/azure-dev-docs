@@ -217,7 +217,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
     ```
 
     > [!NOTE]
-    > The registry name must be unique in Azure. If you get an error, try a different name. Registry names can consist of 5-50 alphanumeric characters. Hyphens and underscores are not allowed. To learn more, see [Azure Container Registry name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftcontainerregistry). If you do use a different name, make sure that you use your name rather than `webappacr123` in the commands that reference the registry in following sections.
+    > The registry name must be unique in Azure. If you get an error, try a different name. Registry names can consist of 5-50 alphanumeric characters. Hyphens and underscores are not allowed. To learn more, see [Azure Container Registry name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftcontainerregistry). If you use a different name, make sure that you use your name rather than `webappacr123` in the commands that reference the registry and registry artifacts in following sections.
 
     An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
 
@@ -264,7 +264,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     Notes:
 
-    * The web app name must be unique in Azure. If get an error, try a different name. The name can consist of alphanumeric characters and hyphens, but cannot start or end with a hyphen. To learn more, see [Microsoft.Web name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+    * The web app name must be unique in Azure. If you get an error, try a different name. The name can consist of alphanumeric characters and hyphens, but can't start or end with a hyphen. To learn more, see [Microsoft.Web name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 
     * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--docker-registry-server-user` and `--deployment-container-image-name` parameters appropriately.
 
