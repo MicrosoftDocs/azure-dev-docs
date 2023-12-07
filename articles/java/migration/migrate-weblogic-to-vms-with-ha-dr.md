@@ -17,24 +17,24 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Use Azure optimized best practices to achieve high availability and disaster recovery
-> * Set up an Azure SQL Database failover group in paired regions.
+> * Set up a Microsoft Azure SQL Database failover group in paired regions.
 > * Set up paired WLS clusters on Azure VMs.
 > * Set up an Azure Traffic Manager
 > * Configure WLS clusters for high availability and disaster recovery.
 > * Test failover from primary to secondary.
 
-This diagram illustrates the architecture you'll build.
+This diagram illustrates the architecture you build.
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png" alt-text="Solution architecture of WLS on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png":::
 
 Azure Traffic Manager checks the health of your primary region and routes the traffic accordingly. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region receives traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. Each of the WLS clusters is always up and running. This solution implements a low Recovery Time Objective and failover without any manual intervention for the application tier.
 
-The database tier consists of an Azure SQL Database auto-failover group. This provides a read-write endpoint that remains unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period has expired. You don't have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+The database tier consists of an Azure SQL Database auto-failover group. Azure SQL Database provides a read-write endpoint that remains unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period expires. You don't have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
 ## Prerequisites
 
 * [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* Make sure have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with either Windows, Linux or macOS installed.
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 * Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)).
@@ -42,7 +42,7 @@ The database tier consists of an Azure SQL Database auto-failover group. This pr
 
 ## Set up an Azure SQL Database failover group in paired regions
 
-In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you'll configure WLS to store its session data and transaction logs to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA).
+In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction logs to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA).
 
 Create a single database in Azure SQL Database and add it to an auto-failover group by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
@@ -72,7 +72,7 @@ Create a single database in Azure SQL Database and add it to an auto-failover gr
       create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
       ```
 
-      These database tables are used for storing transaction logs and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more background information.
+      These database tables are used for storing transaction logs and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more information.
 
 1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
    1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb120623*.
@@ -141,15 +141,15 @@ Follow the same steps in as in the section [Set up the primary WLS cluster](#set
 
 ### Verify deployments of clusters
 
-Wait until both deployments of WLS clusters complete. In each cluster, there is an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
+Wait until both deployments of WLS clusters complete. In each cluster, there's an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
 
 Follow instructions to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
 
 1. On the **Your deployment is complete** page, select **Outputs**.
 1. Copy the value of property **appGatewayURL**. Append the string *weblogic/ready* and open that URL in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
-1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server AdministrationConsole**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing.
+1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing.
 
-Follow these steps to write down the IP address of the Azure Application Gateway for each cluster. You'll use these values when you set up the Azure Traffic Manager later.
+Follow these steps to write down the IP address of the Azure Application Gateway for each cluster. You use these values when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed. For example, select **Overview** to switch back Overview pane of the deployment page, and select **Go to resource group**.
 1. Find resource *gwip* with type **Public IP address**. Select to open. Look for **IP address** and write down its value.
@@ -200,8 +200,8 @@ The app uses WebLogic Server [JDBC session persistence](https://github.com/Azure
 
 1. Check out the repository: `git clone https://github.com/Azure-Samples/azure-cafe.git`.
 1. Locate the path where the repository was downloaded: `cd azure-cafe`.
-1. Check out the tag corresponding to this article: `git checkout 20231206`. If you see a message about `Detached HEAD`, it is safe to ignore.
-1. Change to its subdirctory *weblogic-cafe*: `cd weblogic-cafe`
+1. Check out the tag corresponding to this article: `git checkout 20231206`. If you see a message about `Detached HEAD`, it's safe to ignore.
+1. Change to its subdirectory *weblogic-cafe*: `cd weblogic-cafe`
 1. Compile and package the sample application: `mvn clean package`.
 
 The package should be successfully generated and located at `<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before continuing.
@@ -210,9 +210,9 @@ The package should be successfully generated and located at `<parent-path-to-you
 
 Now deploy sample app to clusters, starting from the primary cluster.
 
-1. Open *adminConsole* of the cluster in a new tab of your web browser, sign in to WebLogic Server AdministrationConsole with username and password of WebLogic Administrator you wrote down before.
-1. Locate to **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
-1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared above. 
+1. Open *adminConsole* of the cluster in a new tab of your web browser. Sign in to WebLogic Server Administration Console with the username and password of the WebLogic Administrator you wrote down before.
+1. Locate **Domain structure** > **wlsd** > **Deployments** in the left navigation area. Select **Deployments**.
+1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select *weblogic-cafe.war* you prepared previously. 
 1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
 1. Switch to **Control** tab and check **weblogic-cafe** from deployments table. Select **Start** with option **Servicing all requests** > **Yes**. Wait for a while and refresh the page, until you see the state of deployment *weblogic-cafe* is **Active**. Switch to **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open, you use it later for further configuration.
 
@@ -222,18 +222,18 @@ Repeat the same steps in WebLogic Server Administration Console, but for the sec
 
 The steps in this section make your WLS clusters aware of the Azure Traffic Manager. Since the Azure Traffic Manager is the entry point for user requests, update the **Front Host** of the WebLogic Server cluster to the DNS name of the Traffic Manager profile, starting from the primary cluster.
 
-1. Make sure you signed in to WebLogic Server AdministrationConsole.
+1. Make sure you signed in to WebLogic Server Administration Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the left navigation area. Select **Clusters**.
 1. Select **cluster1** from clusters table.
 1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://`. For example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
-Repeat the same steps in WebLogic Server AdministrationConsole, but for the secondary cluster.
+Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster.
 
 ### Configure Transaction Log Store
 
 Next, configure the JDBC Transaction Log Store for all managed servers of clusters, starting from the primary cluster. This practice is described in [Using Transaction Log Files to Recover Transactions](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wljta/trxcon.html#GUID-7EFC9496-CC51-440D-885D-7E8B3C85FA15).
 
-Do this on the primary cluster, in US West.
+Do the following steps on the primary WLS cluster, in US West.
 
 1. Make sure you signed in to WebLogic Server Administration Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select **Servers**.
@@ -245,7 +245,7 @@ Do this on the primary cluster, in US West.
 1. Select **Servers** > **msp2**, and execute the same steps, except that setting *TLOG_msp3_primary_* for **Prefix Name** under **Transaction Log Store** section.
 1. Select **Activate Changes**.
 
-Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in US East. Make the following changes in in the secondary cluster:
+Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in US East. Make the following changes in the secondary cluster:
 
 1. For server **msp1**, set *TLOG_msp1_secondary_* for **Prefix Name** under **Transaction Log Store** section.
 1. For server **msp2**, set *TLOG_msp2_secondary_* for **Prefix Name** under **Transaction Log Store** section.
@@ -255,29 +255,29 @@ Repeat the same steps in WebLogic Server Administration Console, but for the sec
 
 Then, restart all managed servers for the changes to take effect, starting from the primary cluster.
 
-1. Make sure you have signed in to WebLogic Server AdministrationConsole.
+1. Ensure you are signed in to WebLogic Server Administration Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the left navigation area. Select "Servers".
 1. Select **Control** tab. Check *msp1*, *msp2* and *msp3*. Select **Shutdown** with option **When work completes** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *SHUTDOWN*. Select refresh icon again to stop status monitoring.
 1. Check *msp1*, *msp2* and *msp3* again. Select **Start** > **Yes**. Select refresh icon. Wait until **Status of Last Action** is *TASK COMPLETED*. You should see **State** for selected servers is *RUNNING*. Select refresh icon again to stop status monitoring.
 
-Repeat the same steps in WebLogic Server AdministrationConsole, but for the secondary cluster.
+Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster.
 
 ### Verify app
 
-While the sample app is deployed and running on both clusters, the primary cluster acts as the active cluster and handles all user requests. This is due to its higher priority configuration in your Traffic Manager profile.
+The sample app is deployed and running on both clusters. Because the US West cluster has the higher priority configuration in your Traffic Manager profile, it handles all user requests until a failover event happens.
 
 Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
 Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-If you don't see the similar UI, you must troubleshoot and resolve the issue before continuing.
+If your UI doesn't look similar, troubleshoot and resolve the problem before continuing.
 
 Keep the page open and you use it for failover test later.
 
 ## Test failover from primary to secondary
 
-By default, both your Azure SQL database failover group and Azure Traffic Manager supports automatic failover.
+By default, both your Azure SQL database failover group and Azure Traffic Manager support automatic failover.
 
 To test failover, you manually fail your primary database server and cluster over to the secondary database server and cluster, and then fail back using the Azure portal in this section.
 
@@ -289,11 +289,11 @@ Execute the following steps to fail over to the secondary site including databas
 1. Select **Failover** > **Yes**. Wait until it completes.
 1. Switch to the browser tab where two endpoints of your Traffic Manager profile are listed. Select the primary endpoint *myPrimaryEndpoint*.
 1. Select **Disabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic to the secondary endpoint.
-1. Swtich to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
+1. Switch to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png":::
 
-   If you don't see the similar UI, that may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ### Fail back to the primary site
 
@@ -307,7 +307,7 @@ Execute the following steps to failback to the primary site including database s
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after fail back." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-   If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site, or your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ## Clean up resources
 
@@ -323,7 +323,7 @@ If you're not going to continue to use the WLS clusters and other components, de
 
 ## Next steps
 
-In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider keeping the VMS in the passive WLS cluster in the shut down state and starting them only in the event of a failover.
+In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider keeping the VMS in the passive WLS cluster in the shut-down state and starting them only when there's failover.
 
 > [!NOTE]
 > If you choose to start the passive cluster during the failover, make sure the admin server of the cluster is started and running before any other managed servers of the cluster.
