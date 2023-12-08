@@ -35,7 +35,7 @@ landingContent:
           - text: Databases for developers
             url: database-developer-guide.md
           - text: Storage for developers
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
+            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
   - title: Deploy and host apps
@@ -49,7 +49,7 @@ landingContent:
           - text: "Client: JamStack + auth"
             url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
           - text: "Migrate to serverless"
-            url: /azure/azure-functions/shift-expressjs?tabs=javascript
+            url: /azure/azure-functions/shift-expressjs?tabs=javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: "Serverless: Getting started"
             url: how-to/develop-serverless-apps.md          
           - text: "Server: Deploy Express.js"
@@ -73,7 +73,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Storage on Azure
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
+            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Databases on Azure
             url: database-developer-guide.md
           - text: Full stack serverless with Mongoose
@@ -83,14 +83,14 @@ landingContent:
           - text: Express.js + MongoDB (training)
             url: /training/modules/javascript-deploy-expressjs-app-service-with-database
           - text: Express.js + MongoDB (docs)
-            url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+            url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
 
   - title: AI/ML
     linkLists:
       - linkListType: quickstart
         links:
           - text: Add search to website
-            url: /azure/search/tutorial-javascript-overview
+            url: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Language detection
             url: /azure/cognitive-services/language-service/language-detection/quickstart?pivots=programming-language-javascript
           - text: Key phrase extraction
@@ -110,7 +110,7 @@ landingContent:
           - text: SDK latest version
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: SDK Reference Documentation
-            url: /javascript/api/overview/azure/
+            url: /javascript/api/overview/azure/?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: SDK Source code for JS
             url: https://github.com/Azure/azure-sdk-for-js
           - text: Samples browser
@@ -120,7 +120,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure Storage Dev Guide
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
+            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Azure Database Dev Guide
             url: database-developer-guide.md
   - title: End to end development
