@@ -29,6 +29,56 @@ When using `DefaultAzureCredential`, as shown in the following example, you can 
   
 ## Using your own cloud definition
 
-The following code uses `get_cloud_from_metadata_endpoint` with the Azure Resource Manager endpoint for a private cloud (such as one built on Azure Stack):
+In the following code, replace the values of the `authority`, `endpoint`, and `audience` variables with values appropriate for your private cloud. For example, for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#az-cloud-show) CLI command to return the properties of a registered cloud. The following output shows the values returned for the Azure public cloud:
+
+```output
+{
+  "endpoints": {
+    "activeDirectory": "https://login.microsoftonline.com",
+    "activeDirectoryDataLakeResourceId": "https://datalake.azure.net/",
+    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+    "activeDirectoryResourceId": "https://management.core.windows.net/",
+    "appInsightsResourceId": "https://api.applicationinsights.io",
+    "appInsightsTelemetryChannelResourceId": "https://dc.applicationinsights.azure.com/v2/track",
+    "attestationResourceId": "https://attest.azure.net",
+    "azmirrorStorageAccountResourceId": null,
+    "batchResourceId": "https://batch.core.windows.net/",
+    "gallery": "https://gallery.azure.com/",
+    "logAnalyticsResourceId": "https://api.loganalytics.io",
+    "management": "https://management.core.windows.net/",
+    "mediaResourceId": "https://rest.media.azure.net",
+    "microsoftGraphResourceId": "https://graph.microsoft.com/",
+    "ossrdbmsResourceId": "https://ossrdbms-aad.database.windows.net",
+    "portal": "https://portal.azure.com",
+    "resourceManager": "https://management.azure.com/",
+    "sqlManagement": "https://management.core.windows.net:8443/",
+    "synapseAnalyticsResourceId": "https://dev.azuresynapse.net",
+    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/arm-compute/quickstart-templates/aliases.json"
+  },
+  "isActive": true,
+  "name": "AzureCloud",
+  "profile": "latest",
+  "suffixes": {
+    "acrLoginServerEndpoint": ".azurecr.io",
+    "attestationEndpoint": ".attest.azure.net",
+    "azureDatalakeAnalyticsCatalogAndJobEndpoint": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystemEndpoint": "azuredatalakestore.net",
+    "keyvaultDns": ".vault.azure.net",
+    "mariadbServerEndpoint": ".mariadb.database.azure.com",
+    "mhsmDns": ".managedhsm.azure.net",
+    "mysqlServerEndpoint": ".mysql.database.azure.com",
+    "postgresqlServerEndpoint": ".postgres.database.azure.com",
+    "sqlServerHostname": ".database.windows.net",
+    "storageEndpoint": "core.windows.net",
+    "storageSyncEndpoint": "afs.azure.net",
+    "synapseAnalyticsEndpoint": ".dev.azuresynapse.net"
+  }
+}
+
+```
+
+The output for an Azure Stack private cloud should be similar. Set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and the `audience` to the value of `endpoints.activeDirectoryResourceId` property +  "/.default".
+
+For more information, see [Use Azure CLI with Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2) and [Get authentication information for Azure Stack Hub](/azure-stack/user/authenticate-azure-stack-hub).
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/private_cloud.py":::
