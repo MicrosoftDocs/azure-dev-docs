@@ -33,7 +33,7 @@ In the following code, replace the values of the `authority`, `endpoint`, and `a
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/private_cloud.py":::
 
-For example,for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#az-cloud-show) CLI command to return the details of a registered cloud. The following output shows the values returned for the Azure public cloud, but the output for an Azure Stack private cloud should be similar.
+For example, for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#az-cloud-show) CLI command to return the details of a registered cloud. The following output shows the values returned for the Azure public cloud, but the output for an Azure Stack private cloud should be similar.
 
 ```output
 {
