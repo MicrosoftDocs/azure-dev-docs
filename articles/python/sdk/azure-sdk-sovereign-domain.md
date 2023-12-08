@@ -1,7 +1,7 @@
 ---
 title: Connect to all regions using Azure libraries for Python multicloud 
 description: How to use the azure_cloud module of msrestazure to connect to Azure in different sovereign regions
-ms.date: 12/07/2023
+ms.date: 12/08/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -17,7 +17,6 @@ By default, the Azure libraries are configured to connect to the global Azure cl
 Pre-defined sovereign cloud constants are provided by the `AzureAuthorityHosts` module of the `azure.identity` library:
 
 - `AZURE_CHINA`
-- `AZURE_GERMANY`
 - `AZURE_GOVERNMENT`
 - `AZURE_PUBLIC_CLOUD`
 
@@ -81,6 +80,6 @@ For example, for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#a
 
 ```
 
-In the preceding code, you can set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and `audience` to the value of `endpoints.activeDirectoryResourceId` property +  "/.default".
+In the preceding code, you can set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and `audience` to the value of `endpoints.activeDirectoryResourceId` property +  ".default".
 
 For more information, see [Use Azure CLI with Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2) and [Get authentication information for Azure Stack Hub](/azure-stack/user/authenticate-azure-stack-hub).
