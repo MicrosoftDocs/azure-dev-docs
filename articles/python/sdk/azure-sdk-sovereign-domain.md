@@ -29,7 +29,11 @@ When using `DefaultAzureCredential`, as shown in the following example, you can 
   
 ## Using your own cloud definition
 
-In the following code, replace the values of the `authority`, `endpoint`, and `audience` variables with values appropriate for your private cloud. For example, for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#az-cloud-show) CLI command to return the properties of a registered cloud. The following output shows the values returned for the Azure public cloud:
+In the following code, replace the values of the `authority`, `endpoint`, and `audience` variables with values appropriate for your private cloud.
+
+:::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/private_cloud.py":::
+
+For example,for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#az-cloud-show) CLI command to return the details of a registered cloud. The following output shows the values returned for the Azure public cloud, but the output for an Azure Stack private cloud should be similar.
 
 ```output
 {
@@ -77,8 +81,6 @@ In the following code, replace the values of the `authority`, `endpoint`, and `a
 
 ```
 
-The output for an Azure Stack private cloud should be similar. Set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and the `audience` to the value of `endpoints.activeDirectoryResourceId` property +  "/.default".
+In the preceding code, you can set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and `audience` to the value of `endpoints.activeDirectoryResourceId` property +  "/.default".
 
 For more information, see [Use Azure CLI with Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2) and [Get authentication information for Azure Stack Hub](/azure-stack/user/authenticate-azure-stack-hub).
-
-:::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/private_cloud.py":::
