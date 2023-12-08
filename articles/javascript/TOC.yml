@@ -158,7 +158,7 @@
     - name: "Express.js convert text to speech"
       href: tutorial/convert-text-to-speech-cognitive-services.md
     - name: Add easy authentication
-      href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+      href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Use Microsoft Identity provider (MSAL.js)
       href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
   - name: Containerized Apps
