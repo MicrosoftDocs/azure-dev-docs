@@ -1,5 +1,5 @@
 ---
-title: "AI Chat: JavaScript Frontend + Python Backend"
+title: "AI Chat: JavaScript frontend + Python backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
 ms.date: 12/07/2023
 ms.topic: get-started
