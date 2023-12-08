@@ -349,7 +349,7 @@
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Core - Client - Asynciterator Polyfill | npm [1.0.2](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.2/sdk/core/core-asynciterator-polyfill/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
-| Cosmos DB Query Editor | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.4) |  |  |
+| Cosmos DB Query Editor | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.5) |  |  |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  |  |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  |  |
 | Custom Search | npm [2.0.0](https://www.npmjs.com/package/azure-cognitiveservices-customsearch/v/2.0.0) |  |  |
@@ -417,7 +417,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20231206.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231206.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20231208.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20231208.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
