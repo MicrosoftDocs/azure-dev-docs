@@ -92,7 +92,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
     |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
     |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
 
-    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles alot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file isn't created by default.
+    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles a lot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file isn't created by default.
 
 
 1. Run the default test to validate your test infrastructure is working.
