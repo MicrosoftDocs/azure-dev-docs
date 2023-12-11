@@ -31,6 +31,7 @@ Other articles in the collection include:
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
+* [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
 
 ## Architectural overview
 
@@ -168,7 +169,7 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. Its used as part of the resource group name. 
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
