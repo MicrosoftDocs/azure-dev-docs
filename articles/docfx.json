@@ -65,7 +65,7 @@
         "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues"
       },
       "feedback_help_link_type": "get-help-at-qna",
-      "feedback_help_link_url": "https://learn.microsoft.com/en-us/answers/questions/",
+      "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/",
       "_op_documentIdPathDepotMapping": {
         "python": {
           "depot_name": "MSDN.python-sdk",
