@@ -69,7 +69,7 @@ You can scale an existing resource in your deployment by changing its SKU. To de
   ```
 
   > [!IMPORTANT]
-  > As a result of this change, the price per hour will increase slightly. Details about the different service plans and their associated costs can be found on the [App Service pricing page](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/).
+  > As a result of this change, the price per hour will increase slightly. Details about the different service plans and their associated costs can be found on the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 2. Assuming you already have the application deployed in Azure, use the following command to deploy changes to the infrastructure while not redeploying the application code itself.
 
