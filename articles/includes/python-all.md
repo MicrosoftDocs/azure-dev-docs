@@ -299,6 +299,8 @@
 | Machine Learning | PyPI [1.2.0](https://pypi.org/project/azureml-sdk/1.2.0) |  |  |
 | Machine Learning - Table | PyPI [1.3.0](https://pypi.org/project/mltable/1.3.0) |  |  |
 | Machine Learning Monitoring | PyPI [0.1.0a3](https://pypi.org/project/azure-ai-mlmonitoring/0.1.0a3) |  |  |
+| MsRest | PyPI [0.7.1](https://pypi.org/project/msrest/0.7.1) |  | GitHub [0.7.1](https://github.com/Azure/msrest-for-python/tree/v0.6.18/msrest) |
+| MsRest Azure | PyPI [0.6.4](https://pypi.org/project/msrestazure/0.6.4) |  | GitHub [0.6.4](https://github.com/Azure/msrestazure-for-python/tree/v0.6.4/msrestazure) |
 | News Search | PyPI [2.0.0](https://pypi.org/project/azure-cognitiveservices-search-newssearch/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-search-newssearch_2.0.0/sdk/cognitiveservices/azure-cognitiveservices-search-newssearch/) |
 | Personalizer | PyPI [0.1.0](https://pypi.org/project/azure-cognitiveservices-personalizer/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-personalizer_0.1.0/sdk/cognitiveservices/azure-cognitiveservices-personalizer/) |
 | Purview Administration | PyPI [1.0.0b1](https://pypi.org/project/azure-purview-administration/1.0.0b1) |  | GitHub [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-administration_1.0.0b1/sdk/purview/azure-purview-administration/) |
