@@ -86,7 +86,7 @@ You can scale an existing resource in your deployment by changing its SKU. To de
 You can add a new resource to your deployment by making larger changes to the Bicep in the project. To demonstrate this, you'll add an instance of Azure Cache for Redis to your existing deployment in preparation for a fictitious new feature you plan to add some day.
 
   > [!IMPORTANT]
-  > As a result of this change, you will be paying for an instance of Azure Cache for Redis until you delete the resource manually or using `azd down`. Details about the different service plans and their associated costs can be found on the [Azure Cache for Redis pricing page](https://azure.microsoft.com/en-us/pricing/details/cache/).
+  > As a result of this change, you will be paying for an instance of Azure Cache for Redis until you delete the resource manually or using `azd down`. Details about the different service plans and their associated costs can be found on the [Azure Cache for Redis pricing page](https://azure.microsoft.com/pricing/details/cache/).
 
 1. Create a new file in the *infra* folder named *redis.bicep*. Copy and paste the following code into the new file:
 
