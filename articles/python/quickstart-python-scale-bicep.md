@@ -9,7 +9,8 @@ ms.custom: devx-track-python
 # Quickstart: Scale your azd Python web app with Bicep
 
 The Python web azd templates allow you to quickly create a new web application and deploy it to Azure. The azd templates were designed to use the most inexpensive Azure service options available. Undoubtedly, you will want to adjust to the service levels (or skus) for each of the services defined in the template to suit your scenario. To do that, you will need to make changes to the bicep templates in the infra folder, and then run the azd provision command.
-In this tutorial, you will update the appropriate bicep template files in a Python web azd template to scale up or add new services to your deployment. Then, you will execute the azd provision command and view the change you made to the Azure deployment.
+
+In this Quickstart, you will update the appropriate bicep template files in a Python web azd template to scale up and add new services to your deployment. Then, you will execute the `azd provision`` command and view the change you made to the Azure deployment.
 
 ## Prerequisites
 
@@ -41,19 +42,19 @@ To begin, you'll need a working azd deployment. You'll use the basic steps from 
 
   Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed as part of your new Resoruce Group and take note of the App Service pricing plan.
 
-1. In step 1 of the Quickstart article, you were instructed to create the azdtest folder. Open that folder in Visual Studio Code.
+2. In step 1 of the Quickstart article, you were instructed to create the azdtest folder. Open that folder in Visual Studio Code.
 
-1. In the Explorer pane, navigate to the infra folder. You will see the following files.
+3. In the Explorer pane, navigate to the infra folder. You will see the following files.
 
   <image>
 
-  The main.bicep file contains orchestrates the creation of all the services deployed when performing an `azd up` or `azd provision`. It calls into other files, like `db.bicep` and `web.bicep`, which in turn call into files contained in the *\core* subfolder.
+  The main.bicep file contains orchestrates the creation of all the services deployed when performing an `azd up` or `azd provision`. It calls into other files, like *db.bicep* and *web.bicep*, which in turn call into files contained in the *\core* subfolder.
 
   The core subfolder is a deeply nested folder structure containing bicep templates for many Azure services. These will be referenced by the three top level bicep files (main, db and hosting).
 
   The main.params.json which contains settings.
 
-1. Open the *web.bicep* file and locate the module appService definition. In particular, look for the property setting:
+4. Open the *web.bicep* file and locate the module appService definition. In particular, look for the property setting:
 
   ```bicep
       sku: {
@@ -65,23 +66,23 @@ To begin, you'll need a working azd deployment. You'll use the basic steps from 
 
   Details about the different service plans and their associated costs can be found on the [App Service pricing page](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/).
 
-1. Assuming you already have the application deployed in Azure, use the following command to deploy changes to the infrastructure while not redeploying the application code itself.
+5. Assuming you already have the application deployed in Azure, use the following command to deploy changes to the infrastructure while not redeploying the application code itself.
 
   ```shell
   azd provision
   ```
 
-  You will be prompted for a location and subscription. Choose the same location and subscription you previously deployed to.
+  You should not be prompted for a location and subscription. Those values are saved in the *.azure\<environment-name>\.env* file where `<environment-name>` is the environment name you provided during `azd init`.
 
-1. When complete, confirm your application still works.
+6. When `azd provision` is complete, confirm your web application still works.
 
 ## Add a new service definition
 
-Next, we’ll add an Azure Cache for Redis in preparation for a fictitious new feature we plan to add some day.
+Next, we’ll add an instance of Azure Cache for Redis to our deployment in preparation for a fictitious new feature we plan to add some day.
 
-To accomplish this, we'll add a new redis.bicep file with the core functionality, then modify the main.bicep to pass in arguments to the parameters defined in the redis.bicep file and accept the output.
+To accomplish this, we'll add a new *redis.bicep* file with the core functionality, then modify the *main.bicep* to pass in arguments to the parameters defined in the *redis.bicep* file and accept the output.
 
-1. Add a new file in the *infra* folder named *redis.bicep*. Copy and paste the following code into the new file:
+1. Create a new file in the *infra* folder named *redis.bicep*. Copy and paste the following code into the new file:
 
   ```python
   param name string
@@ -169,7 +170,7 @@ To accomplish this, we'll add a new redis.bicep file with the core functionality
   output REDIS_HOST string = redis.properties.hostName
   ```
 
-1. Modify the main.bicep file to create an instance of the redis resource.
+1. Modify the *main.bicep* file to create an instance of the redis resource.
 
   In the main.bicep file, add the following code below the ending curly braces associated with the *Web frontend* section and above the *secrets* section.
 
@@ -201,7 +202,7 @@ To accomplish this, we'll add a new redis.bicep file with the core functionality
   output REDIS_HOST string = redis.outputs.REDIS_HOST
   ```
 
-1. Confirm that the entire main.bicep file is identical to the following:
+1. Confirm that the entire *main.bicep* file is identical to the following:
 
   ```python
   targetScope = 'subscription'
@@ -383,7 +384,7 @@ Step 11. When complete, open the Azure Portal and confirm you now have an instan
 
 1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
-   ```Shell
+   ```shell
    azd down
    ```
 
