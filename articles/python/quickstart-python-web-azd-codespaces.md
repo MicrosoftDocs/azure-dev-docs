@@ -151,12 +151,9 @@ Once you've answered those questions, you'll see output that indicates the deplo
 
    :::image type="content" source="media/quickstart-python-web-azd-codespaces/codespaces.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working ReleCloud application deployed in Azure.":::
 
-   Copy the first URL after the word `- Endpoint:` and paste it into the location
-   bar of a web browser to see the sample web app project running live in Azure.
+   Ctrl + click the first URL after the word `- Endpoint:` to see the sample web app project running live in Azure.
 
-7. Open a new tab in your web browser, copy the second URL from the previous step and paste it into
-   the location bar. The Azure Portal displays all of the services in your new
-   resource group that have been deployed to host the sample web app project.
+7. Ctrl + click the second URL from the previous step to view the resources that were just created in the Azure Portal.
 
 ## Edit and redeploy
 
