@@ -78,8 +78,10 @@
         href: end-to-end/contoso-real-estate-serverless-api-migration.md
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
-      isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
-
+      displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
+    - name: Test APIs
+      href: end-to-end/contoso-real-estate-test-api-solution.md
+      displayName: test, test API, API, playwright
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps

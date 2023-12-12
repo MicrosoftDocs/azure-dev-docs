@@ -6,7 +6,7 @@ ms.author: haiche
 ms.topic: conceptual
 ms.date: 08/22/2022
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network
