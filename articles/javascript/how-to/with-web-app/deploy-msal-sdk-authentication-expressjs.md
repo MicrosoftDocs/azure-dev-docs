@@ -2,7 +2,7 @@
 title: Deploy MSAL-enabled Express.js
 description: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 12/12/2023
 ms.custom: devx-track-js, vscode-azure-extension-update-completed
 #intent: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ---
@@ -51,7 +51,7 @@ Make sure the following are installed on your local developer workstation:
 
 - An Azure account with **an active subscription, which you own**. [Create an account for free](https://azure.microsoft.com/free/). Ownership is required to provide the correct Microsoft Entra permissions to complete these steps.
 - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.
-- [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js LTS](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
@@ -66,7 +66,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
     ```bash
     git clone https://github.com/Azure-Samples/js-e2e-web-app-server-auth myexpressapp && \
-        cd myexpressapp && \
+        cd myexpressapp
         npm install
     ```
 
