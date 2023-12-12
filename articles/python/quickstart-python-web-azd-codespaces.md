@@ -12,10 +12,10 @@ This quickstart guides you through the easiest and fastest way to create and dep
 
 - Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
 - Create a new GitHub Codespace containing code generated from the azd template you selected.
-- Use GitHub Codespaces and the online Visual Studio Code's bash terminal with Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
-- Edit the web app in a GitHub Codspace and use an azd command to redeploy.
+- Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The bash terminal allows you to use Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Edit the web app in a GitHub Codespace and use an azd command to redeploy.
 - Use an azd command to clean up Azure resources.
-- Close and re-open your GitHub Codespace.
+- Close and reopen your GitHub Codespace.
 - Publish your new code to a GitHub repository.
 
 It should take less than 25 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
@@ -34,7 +34,7 @@ An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?
 A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 
 > [!IMPORTANT]
-> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. See [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
+> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
 
 ## Choose a template and create a codespace
 
@@ -74,9 +74,9 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-aca?quickstart=1)|
 |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-appservice?quickstart=1)|
 
-2. For your convenience, the last column of each table contains a link that will automatically begin initializing that template into a new Codespace in your GitHub account. Right-click and select "Open in new tab" on the Codespaces link next to the template name you selected to initiate the setup process.
+2. For your convenience, the last column of each table contains a link that creates a new Codespace and initializes the azd template in your GitHub account. Right-click and select "Open in new tab" on the "New Codespace" link next to the template name you selected to initiate the setup process.
 
-During this process, you may be prompted to log into your GitHub account, and you'll be asked to confirm that you want to create the Codespace. Click "Create Codespace" button, then you'll see the the "Setting up your codespace" page.
+During this process, you may be prompted to log into your GitHub account, and you're asked to confirm that you want to create the Codespace. Select the "Create Codespace" button to see the "Setting up your codespace" page.
 
 > [!NOTE]
 > There are several ways to use the azd templates. The easiest way is to use the following URL pattern, replacing the `<template-id>` with the template id from the first column of the tables.
@@ -84,13 +84,13 @@ During this process, you may be prompted to log into your GitHub account, and yo
 > So, for example:
 > `https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-aca?quickstart=1`
 
-3. After a few minutes, you should see a web-based version of Visual Studio Code in a browser tab with the Python web template loaded as a workspace in the Explorer view.
+3. After a few minutes, a web-based version of Visual Studio Code is loaded in a new browser tab with the Python web template loaded as a workspace in the Explorer view.
 
 ## Authenticate to Azure and deploy the azd template
 
-Now that you have a GitHub Codespace containing the newly generated code, you will use the azd utility from within the Codespace to publish the code to Azure.
+Now that you have a GitHub Codespace containing the newly generated code, you use the azd utility from within the Codespace to publish the code to Azure.
 
-1. In the web-based Visual Studio Code, the terminal should be open by default. If it is not, use the tilde `~` key to open the terminal. Furthermore, by default, the terminal should be a bash terminal. If it is not, change to bash in the upper right hand area of the terminal window.
+1. In the web-based Visual Studio Code, the terminal should be open by default. If it isn't, use the tilde `~` key to open the terminal. Furthermore, by default, the terminal should be a bash terminal. If it isn't, change to bash in the upper right hand area of the terminal window.
 
 2. In the bash terminal, enter the following command:
 
@@ -98,7 +98,7 @@ Now that you have a GitHub Codespace containing the newly generated code, you wi
 azd auth login
 ```
 
-This will begin the process of authenticating your Codespace to your Azure account.
+`azd auth login` begins the process of authenticating your Codespace to your Azure account.
 
 ```output
 Start by copying the next code: XXXXXXXXX
@@ -107,27 +107,33 @@ Then press enter and continue to log in from your browser...
 Waiting for you to complete authentication in the browser...
 ```
 
-3. Follow the instructions, which include copying a generated code, hitting enter to open a new browser tab and pasting the code into the text box, choosing your Azure account from a list, and confirming that you are trying to sign in to Microsoft Azure CLI.
+3. Follow the instructions, which include:
 
-4. When successful, you'll see the following message back in Codespaces tab at the terminal:
+- copying a generated code
+- selecting enter to open a new browser tab and pasting the code into the text box
+- choosing your Azure account from a list
+- confirming that you're trying to sign in to Microsoft Azure CLI
+
+4. When successful, the following message is displayed back in the Codespaces tab at the terminal:
 
 ```output
 Device code authentication completed.
 Logged in to Azure.
 ```
+
 5. Deploy your new application to Azure by entering the following command:
 
 ```bash
 azd up
 ```
 
-During this process, you'll be asked to:
+During this process, you're asked to:
 
 - Enter a new environment name
 - Select an Azure Subscription to use [Use arrows to move, type to filter]
 - Select an Azure location to use: [Use arrows to move, type to filter]
 
-Once you've answered those questions, you'll see output that indicates the deployment is progressing.
+Once you answer those questions, the output from azd indicates the deployment is progressing.
 
    >[!IMPORTANT]
    >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
@@ -153,7 +159,7 @@ Once you've answered those questions, you'll see output that indicates the deplo
 
    Ctrl + click the first URL after the word `- Endpoint:` to see the sample web app project running live in Azure.
 
-7. Ctrl + click the second URL from the previous step to view the resources that were just created in the Azure Portal.
+7. Ctrl + click the second URL from the previous step to view the provisioned resources in the Azure portal.
 
 ## Edit and redeploy
 
@@ -196,33 +202,33 @@ The next step is to make a small change to the web app and then redeploy.
 
 ## Optional: Find your codespace
 
-This section will demonstrate how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
+This section demonstrates how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
 
 1. Close all tabs related to this Quickstart article, or shut down your web browser entirely.
 
 2. Open your web browser and a new tab, and navigate to: [https://github.com/codespaces](https://github.com/codespaces)
 
-3. Near the bottom, you'l see a list of recent Codespaces. Look for the one you just created in a section titled "Owned by Azure-Samples".
+3. Near the bottom, you'l see a list of recent Codespaces. Look for the one you created in a section titled "Owned by Azure-Samples".
 
-4. Click the elipsis to the right of this Codespace to view a context menu. From here you can rename the codespace, publish to a new repository, change machine type, stop the codespace, and more.
+4. Select the ellipsis to the right of this Codespace to view a context menu. From here you can rename the codespace, publish to a new repository, change machine type, stop the codespace, and more.
 
 ## Optional: Publish a GitHub repository from Codespaces
 
-At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code is not stored into a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
+At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code isn't stored into a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
 
 1. From the context menu for the codespace, select "Publish to a new repository".
-2. In the "Publish to a new repository" dialog, rename your new repo and choose whether you want it to be a public or private repo. Click "Create repository".
-3. After a few moments, the repository will be created and the code you generated earlier in this Quickstart will be pushed to the new repository. Click the "See repository" button to navigate to the new repo.
-4. To re-open and continue editing code, click the green "< > Code" drop down, switch to the Codespaces tab, and click the name of the Codespace you were working on previously. You should now be returned to your Codespace Visual Studio Code development environment.
+2. In the "Publish to a new repository" dialog, rename your new repo and choose whether you want it to be a public or private repo. Select "Create repository".
+3. After a few moments, the repository will be created and the code you generated earlier in this Quickstart will be pushed to the new repository. Select the "See repository" button to navigate to the new repo.
+4. To reopen and continue editing code, select the green "< > Code" drop-down, switch to the Codespaces tab, and select the name of the Codespace you were working on previously. You should now be returned to your Codespace Visual Studio Code development environment.
 5. Use the Source Control pane to create new branches and stage and commit new changes to your code.
 
 ## Troubleshooting
 
 If you see errors during `azd up`, try the following steps:
 
-- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
-- Go to the Codespaces page for your GitHub account, find the Codespace created during this Quickstart, click the elipsis at the right and choose "Delete" from the context menu.
-- In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
+- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure portal.
+- Go to the Codespaces page for your GitHub account, find the Codespace created during this Quickstart, select the ellipsis at the right and choose "Delete" from the context menu.
+- In the Azure portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
 - Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
 - When retrying the quickstart steps, choose a different location.
 
