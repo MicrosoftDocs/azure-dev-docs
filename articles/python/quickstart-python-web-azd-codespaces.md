@@ -1,7 +1,7 @@
 ---
-title: Create and deploy a Python web app to Azure using an azd template
-description: Quickstart article featuring the use of an azd template to help you get started with a complete project in 15 minutes.
-ms.date: 9/18/2023
+title: Create and deploy a Python web app from GitHub Codespaces to Azure using an azd template
+description: Quickstart article featuring the use of GitHub Codespaces to create and publish an azd template.
+ms.date: 12/12/2023
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -34,7 +34,7 @@ An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?
 A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 
 > [!IMPORTANT]
-> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to better understand the costs. See [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
+> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. See [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
 
 ## Choose a template and create a codespace
 
