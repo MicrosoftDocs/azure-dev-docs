@@ -20,6 +20,8 @@
         href: overview-azd-templates.md
       - name: Quickstart
         href: quickstart-python-web-azd-templates.md
+      - name: Quickstart in Codespaces
+        href: quickstart-python-web-azd-codespaces.md
   - name: Web app solutions
     items:
     - name: Django/Flask
