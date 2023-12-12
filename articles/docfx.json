@@ -46,7 +46,12 @@
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
       "recommendations": true,
       "feedback_help_link_type": "get-help-at-qna",
-      "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/"
+      "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/",
+      "open_source_feedback_contributorGuideUrl": "https://learn.microsoft.com/en-us/contribute/content/how-to-write-overview",
+      "open_source_feedback_issueLabels": "Needs: triage :mag:",
+      "open_source_feedback_issueTitle": "",
+      "open_source_feedback_productName": "Azure developer documentation",
+      "open_source_feedback_issueUrl": ""
     },
     "fileMetadata": {
       "feedback_product_url" : {
