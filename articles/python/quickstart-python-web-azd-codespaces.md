@@ -138,22 +138,13 @@ During this process, you're asked to:
 Once you answer those questions, the output from azd indicates the deployment is progressing.
 
    >[!IMPORTANT]
-   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
+   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability. Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
 
    Follow the instructions when prompted to choose Azure Subscription to use for payment, then
    select an Azure location to use. Choose a region that is close to you geographically.
 
    Executing `azd up` could take several minutes since it's provisioning and
-   deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, try the following to fix the problem:
-
-   - Delete the *azd-quickstart* folder and the quickstart instructions from the beginning.
-   - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
-   - Choose a different location.
-
-   If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
-
-   >[!IMPORTANT]
-   >Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
+   deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
 6. When `azd up` completes successfully, the following output is displayed:
 
