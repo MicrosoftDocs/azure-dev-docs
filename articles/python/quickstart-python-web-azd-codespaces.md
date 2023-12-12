@@ -1,0 +1,242 @@
+---
+title: Create and deploy a Python web app to Azure using an azd template
+description: Quickstart article featuring the use of an azd template to help you get started with a complete project in 15 minutes.
+ms.date: 9/18/2023
+ms.topic: conceptual
+ms.custom: devx-track-python
+---
+
+# Quickstart: Create and deploy a Python web app from GitHub Codespaces to Azure using an azd template
+
+This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
+
+- Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
+- Create a new GitHub Codespace containing code generated from the azd template you selected.
+- Use GitHub Codespaces and the online Visual Studio Code's bash terminal with Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Edit the web app in a GitHub Codspace and use an azd command to redeploy.
+- Use an azd command to clean up Azure resources.
+- Close and re-open your GitHub Codespace.
+- Publish your new code to a GitHub repository.
+
+It should take less than 25 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
+
+To learn more about these azd templates for Python web app development:
+
+- [What are these templates?](./overview-azd-templates.md#what-are-the-python-web-azd-templates)
+- [How do the templates work?](./overview-azd-templates.md#how-do-the-templates-work)
+- [Why would I want to do this?](./overview-azd-templates.md#why-would-i-want-to-use-this)
+- [What are my other options?](./overview-azd-templates.md#what-are-my-other-options)
+
+## Prerequisites
+
+An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?azure-portal=true)
+
+A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
+
+> [!IMPORTANT]
+> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to better understand the costs. See [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
+
+## Choose a template and create a codespace
+
+Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+
+1. From the following list of templates, choose one that uses the technologies that you want to use in your new web application.
+
+**Django**
+
+|Template|Web Framework|Database|Hosting Platform|New Codespace|
+|----------|----------|----------|----------|----------|
+|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-aca?quickstart=1)|
+|azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-appservice?quickstart=1)|
+|azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-aca?quickstart=1)|
+|azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-appservice?quickstart=1)|
+|azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-addon-aca?quickstart=1)|
+
+**FastAPI**
+
+|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+|----------|----------|----------|----------|----------|
+|azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-flexible-aca?quickstart=1)|
+|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-flexible-appservice?quickstart=1)|
+|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-cosmos-postgres-aca?quickstart=1)|
+|azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-cosmos-postgres-appservice?quickstart=1)|
+|azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-addon-aca?quickstart=1)|
+
+**Flask**
+
+|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+|----------|----------|----------|----------|----------|
+|azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-aca?quickstart=1)|
+|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-appservice?quickstart=1)|
+|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-postgres-aca?quickstart=1)|
+|azure-flask-cosmos-postgres-appservice|Flask|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-postgres-appservice?quickstart=1)|
+|azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-addon-aca?quickstart=1)|
+|azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-aca?quickstart=1)|
+|azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-appservice?quickstart=1)|
+
+2. For your convenience, the last column of each table contains a link that will automatically begin initializing that template into a new Codespace in your GitHub account. Click on the Codespaces link next to the template name you selected to initiate the setup process.
+
+During this process, you may be prompted to log into your GitHub account, and you'll be asked to confirm that you want to create the Codespace. Click "Create Codespace" button, then you'll see the the "Setting up your codespace" page.
+
+> [!NOTE]
+> There are several ways to use the azd templates. The easiest way is to use the following URL pattern, replacing the `<template-id>` with the template id from the first column of the tables.
+> `https://codespaces.new/Azure-Samples/<template-id>?quickstart=1`
+> So, for example:
+> `https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-aca?quickstart=1`
+
+3. After a few minutes, you should see a web-based version of Visual Studio Code in a browser tab with the Python web template loaded as a workspace in the Explorer view.
+
+## Authenticate to Azure and deploy the azd template
+
+Now that you have a GitHub Codespace containing the newly generated code, you will use the azd utility from within the Codespace to publish the code to Azure.
+
+1. In the web-based Visual Studio Code, the terminal should be open by default. If it is not, use the tilde `~` key to open the terminal. Furthermore, by default, the terminal should be a bash terminal. If it is not, change to bash in the upper right hand area of the terminal window.
+
+2. In the bash terminal, enter the following command:
+
+```bash
+azd auth login
+```
+
+This will begin the process of authenticating your Codespace to your Azure account.
+
+```output
+Start by copying the next code: BHTJW2ZXP
+Then press enter and continue to log in from your browser...
+
+Waiting for you to complete authentication in the browser...
+```
+
+3. Follow the instructions, which include copying a generated code, hitting enter to open a new browser tab and pasting the code into the text box, choosing your Azure account from a list, and confirming that you are trying to sign in to Microsoft Azure CLI.
+
+4. When successful, you'll see the following message back in Codespaces tab at the terminal:
+
+```output
+Device code authentication completed.
+Logged in to Azure.
+```
+5. Deploy your new application to Azure by entering the following command:
+
+```bash
+azd up
+```
+
+During this process, you'll be asked to:
+
+- Enter a new environment name
+- Select an Azure Subscription to use [Use arrows to move, type to filter]
+- Select an Azure location to use: [Use arrows to move, type to filter]
+
+Once you've answered those questions, you'll see output that indicates the deployment is progressing.
+
+   >[!IMPORTANT]
+   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
+
+   Follow the instructions when prompted to choose Azure Subscription to use for payment, then
+   select an Azure location to use. Choose a region that is close to you geographically.
+
+   Executing `azd up` could take several minutes since it's provisioning and
+   deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, try the following to fix the problem:
+
+   - Delete the *azd-quickstart* folder and the quickstart instructions from the beginning.
+   - When prompted, choose a simpler name for your environment. Only use lower-case letters and dashes. No numbers, upper-case letters, or special characters.
+   - Choose a different location.
+
+   If you still have problems, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
+
+   >[!IMPORTANT]
+   >Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
+
+6. When `azd up` completes successfully, the following output is displayed:
+
+   :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
+
+   Copy the first URL after the word `- Endpoint:` and paste it into the location
+   bar of a web browser to see the sample web app project running live in Azure.
+
+7. Open a new tab in your web browser, copy the second URL from the previous step and paste it into
+   the location bar. The Azure Portal displays all of the services in your new
+   resource group that have been deployed to host the sample web app project.
+
+## Edit and redeploy
+
+The next step is to make a small change to the web app and then redeploy.
+
+1. Return to the browser tab containing Visual Studio Code, and use Visual Studio Code's Explorer view to navigate to *src/templates* folder, and open the *index.html* file. Locate the following line of code:
+
+   ```html
+   <h1 id="pagte-title">Welcome to ReleCloud</h1>
+   ```
+
+   Change the text inside of the H1:
+
+   ```html
+   <h1 id="pagte-title">Welcome to ReleCloud - UPDATED</h1>
+   ```
+
+   Your code is saved as you type.
+
+2. To redeploy the app with your change, in the terminal run the following command:
+
+   ```bash
+   azd deploy
+   ```
+
+3. Once the command completes, refresh the browser tab with the ReleCloud website to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
+
+   You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./overview-azd-templates.md#what-can-i-edit-or-delete)
+
+## Clean up resources
+
+1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
+
+   ```bash
+   azd down
+   ```
+
+   The `azd down` command deletes the Azure resources and the GitHub Actions workflow.
+   When prompted, agree to deleting all resources associated with the resource group.
+
+## Optional: Find your codespace
+
+This section will demonstrate how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
+
+1. Close all tabs related to this Quickstart article, or shut down your web browser entirely.
+
+2. Open your web browser and a new tab, and navigate to: [https://github.com/codespaces](https://github.com/codespaces)
+
+3. Near the bottom, you'l see a list of recent Codespaces. Look for the one you just created in a section titled "Owned by Azure-Samples".
+
+4. Click the elipsis to the right of this Codespace to view a context menu. From here you can rename the codespace, publish to a new repository, change machine type, stop the codespace, and more.
+
+## Optional: Push from Codespaces to a GitHub repository
+
+At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code is not stored into a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
+
+1. From the context menu for the codespace, select "Publish to a new repository".
+2. In the "Publish to a new repository" dialog, rename your new repo and choose whether you want it to be a public or private repo. Click "Create repository".
+3. After a few moments, the repository will be created and the code you generated earlier in this Quickstart will be pushed to the new repository. Click the "See repository" button to navigate to the new repo.
+4. To re-open and continue editing code, click the green "< > Code" drop down, switch to the Codespaces tab, and click the name of the Codespace you were working on previously. You should now be returned to your Codespace Visual Studio Code development environment.
+5. Use the Source Control pane to create new branches and stage and commit new changes to your code.
+
+## Troubleshooting
+
+If you see errors during `azd up`, try the following steps:
+
+- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
+- Go to the Codespaces page for your GitHub account, find the Codespace created during this Quickstart, click the elipsis at the right and choose "Delete" from the context menu.
+- In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
+- Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
+- When retrying the quickstart steps, choose a different location.
+
+See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
+
+## Related Content
+
+- [Learn more about the Python web azd templates](./overview-azd-templates.md)
+- [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
+- Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
+- [Learn more about GitHub Codespaces](https://docs.github.com/en/codespaces/getting-started/quickstart)
+- Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
+- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
+- Set up monitoring so that you can [Monitor your app using the Azure Developer CLI](/azure/developer/azure-developer-cli/monitor-your-app)
