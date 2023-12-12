@@ -162,7 +162,7 @@
     - name: Add easy authentication
       href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Use Microsoft Identity provider (MSAL.js)
-      href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+      href: /entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Containerized Apps
     items:
     - name: Backend microservice app
