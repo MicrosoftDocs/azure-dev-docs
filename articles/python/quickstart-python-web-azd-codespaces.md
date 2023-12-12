@@ -54,10 +54,6 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 # [FastAPI](#tab/fastapi)
 
-Content for Windows...
-
-# [FastAPI](#tab/fastapi)
-
 |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
 |azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-flexible-aca?quickstart=1)|
