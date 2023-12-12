@@ -46,7 +46,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 |Template|Web Framework|Database|Hosting Platform|New Codespace|
 |----------|----------|----------|----------|----------|
-|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-aca?quickstart=1)|
+|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-aca?quickstart=1&azure-portal=true)|
 |azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-appservice?quickstart=1)|
 |azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-aca?quickstart=1)|
 |azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-appservice?quickstart=1)|
@@ -101,7 +101,7 @@ azd auth login
 This will begin the process of authenticating your Codespace to your Azure account.
 
 ```output
-Start by copying the next code: BHTJW2ZXP
+Start by copying the next code: XXXXXXXXX
 Then press enter and continue to log in from your browser...
 
 Waiting for you to complete authentication in the browser...
@@ -209,7 +209,7 @@ This section will demonstrate how your code is (temporarily) running and persist
 
 4. Click the elipsis to the right of this Codespace to view a context menu. From here you can rename the codespace, publish to a new repository, change machine type, stop the codespace, and more.
 
-## Optional: Push from Codespaces to a GitHub repository
+## Optional: Publish a GitHub repository from Codespaces
 
 At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code is not stored into a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
 
