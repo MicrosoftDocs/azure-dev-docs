@@ -54,7 +54,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 # [FastAPI](#tab/fastapi)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+|Template|Web Framework|Database|Hosting Platform|New Codespace|
 |----------|----------|----------|----------|----------|
 |azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-flexible-aca?quickstart=1)|
 |azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-flexible-appservice?quickstart=1)|
@@ -64,7 +64,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 # [Flask](#tab/flask)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+|Template|Web Framework|Database|Hosting Platform|New Codespace|
 |----------|----------|----------|----------|----------|
 |azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-aca?quickstart=1)|
 |azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-appservice?quickstart=1)|
