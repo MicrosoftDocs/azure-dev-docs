@@ -29,9 +29,8 @@ To learn more about these azd templates for Python web app development:
 
 ## Prerequisites
 
-An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?azure-portal=true)
-
-A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?azure-portal=true)
+- A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 
 > [!IMPORTANT]
 > Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
@@ -42,7 +41,8 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 1. From the following list of templates, choose one that uses the technologies that you want to use in your new web application.
 
-**Django**
+
+# [Django](#tab/django)
 
 |Template|Web Framework|Database|Hosting Platform|New Codespace|
 |----------|----------|----------|----------|----------|
@@ -52,7 +52,11 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-appservice?quickstart=1)|
 |azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-addon-aca?quickstart=1)|
 
-**FastAPI**
+# [FastAPI](#tab/fastapi)
+
+Content for Windows...
+
+# [FastAPI](#tab/fastapi)
 
 |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
@@ -62,7 +66,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-cosmos-postgres-appservice?quickstart=1)|
 |azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-fastapi-postgres-addon-aca?quickstart=1)|
 
-**Flask**
+# [Flask](#tab/flask)
 
 |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
 |----------|----------|----------|----------|----------|
@@ -73,6 +77,8 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-postgres-addon-aca?quickstart=1)|
 |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-aca?quickstart=1)|
 |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-appservice?quickstart=1)|
+
+---
 
 2. For your convenience, the last column of each table contains a link that creates a new Codespace and initializes the azd template in your GitHub account. Right-click and select "Open in new tab" on the "New Codespace" link next to the template name you selected to initiate the setup process.
 
