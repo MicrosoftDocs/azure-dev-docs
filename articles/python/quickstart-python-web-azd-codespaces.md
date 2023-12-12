@@ -46,7 +46,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 |Template|Web Framework|Database|Hosting Platform|New Codespace|
 |----------|----------|----------|----------|----------|
-|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-aca?quickstart=1&azure-portal=true)|
+|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-aca?quickstart=1)|
 |azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-postgres-flexible-appservice?quickstart=1)|
 |azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-aca?quickstart=1)|
 |azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-django-cosmos-postgres-appservice?quickstart=1)|
@@ -74,7 +74,7 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-aca?quickstart=1)|
 |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[New Codespace](https://codespaces.new/Azure-Samples/azure-flask-cosmos-mongodb-appservice?quickstart=1)|
 
-2. For your convenience, the last column of each table contains a link that will automatically begin initializing that template into a new Codespace in your GitHub account. Click on the Codespaces link next to the template name you selected to initiate the setup process.
+2. For your convenience, the last column of each table contains a link that will automatically begin initializing that template into a new Codespace in your GitHub account. Right-click and select "Open in new tab" on the Codespaces link next to the template name you selected to initiate the setup process.
 
 During this process, you may be prompted to log into your GitHub account, and you'll be asked to confirm that you want to create the Codespace. Click "Create Codespace" button, then you'll see the the "Setting up your codespace" page.
 
@@ -149,7 +149,7 @@ Once you've answered those questions, you'll see output that indicates the deplo
 
 6. When `azd up` completes successfully, the following output is displayed:
 
-   :::image type="content" source="media/quickstart-python-web-azd-templates/success-endpoint.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working Relecloud application deployed in Azure.":::
+   :::image type="content" source="media/quickstart-python-web-azd-codespaces/codespaces.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working ReleCloud application deployed in Azure.":::
 
    Copy the first URL after the word `- Endpoint:` and paste it into the location
    bar of a web browser to see the sample web app project running live in Azure.
