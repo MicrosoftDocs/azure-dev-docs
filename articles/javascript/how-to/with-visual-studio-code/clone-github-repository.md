@@ -14,6 +14,14 @@ Learn the steps to clone a public repository from GitHub to your local computer 
 
 To get started, download the sample project, `https://github.com/Azure-Samples/js-e2e-express-server`, using the following steps:
 
+#### [Activity bar](#tab/activity-bar)
+
+This action isn't available from this feature. Select a different tab. 
+
+#### [Status bar](#tab/status-bar)
+
+This action isn't available from this feature. Select a different tab. 
+
 #### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
@@ -44,6 +52,7 @@ To get started, download the sample project, `https://github.com/Azure-Samples/j
     ```bash
     code .
     ```
+
 ---
 
 ## Initialize new repository
@@ -57,29 +66,33 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-initialize-repository.png" alt-text="Screenshot of Visual Studio showing the Initialize repository button.":::
 
+#### [Status bar](#tab/status-bar)
+
+This action isn't available from this feature. Select a different tab. 
+
 #### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Filter with `Git`, then select `Initialize repository`.
 1. Select the folder to select as the root of the repository.
 
+#### [Integrated terminal](#tab/integrated-terminal)
+
+1. Open an integrated terminal from **Terminal -> New Terminal**. 
+1. Initialize your folder with git with the following git command:
+
+    ```bash
+    git init
+    ```
+
 ---
 
 
 ## Create a branch for changes 
 
-#### [Command palette](#tab/command-palette)
+#### [Activity bar](#tab/activity-bar)
 
-
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
-1. Search for `git branch` and select `Git: Create Branch`.
-
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::
-
-1. Enter a new branch name, such as `test`. 
-1. The branch name is visible in the status bar. 
-
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
+This action isn't available from this feature. Select a different tab. 
 
 #### [Status bar](#tab/status-bar)
 
@@ -94,6 +107,18 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
+#### [Command palette](#tab/command-palette)
+
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Search for `git branch` and select `Git: Create Branch`.
+
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::
+
+1. Enter a new branch name, such as `test`. 
+1. The branch name is visible in the status bar. 
+
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
 #### [Integrated terminal](#tab/integrated-terminal)
 
@@ -118,11 +143,25 @@ Once you have made changes on your branch, commit the changes.
 
     ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png)
 
+#### [Status bar](#tab/status-bar)
+
+This action isn't available from this feature. Select a different tab. 
+
+
 #### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Commit`.
 1. Enter your commit message, then press <kbd>Enter</kbd>.
+
+#### [Integrated terminal](#tab/integrated-terminal)
+
+1. Open an integrated terminal from **Terminal -> New Terminal**. 
+1. Create a new branch named `MY-BRANCH` with the following git command:
+
+    ```bash
+    git commit -m "YOUR COMMIT MESSAGE"
+    ```
 
 ---
 
@@ -133,6 +172,14 @@ Once you have made changes on your branch, commit the changes.
 1. Select the Source Control icon from the activity bar. 
 1. Select **Publish Branch**. If the repository doesn't exist on GitHub, it creates the repository for you.
 
+#### [Status bar](#tab/status-bar)
+
+1. On the Visual Studio Code status bar, select the push icon to the right of the branch name. 
+
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-status-bar-push-commits.png" alt-text="Visual Studio Code status bar, with the push icon highlighted.":::
+
+1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
+
 #### [command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
@@ -140,13 +187,14 @@ Once you have made changes on your branch, commit the changes.
 1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
 
 
-#### [status bar](#tab/status-bar)
+#### [Integrated terminal](#tab/integrated-terminal)
 
-1. On the Visual Studio Code status bar, select the push icon to the right of the branch name. 
+1. Open an integrated terminal from **Terminal -> New Terminal**. 
+1. Create a new branch named `MY-BRANCH` with the following git command:
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-status-bar-push-commits.png" alt-text="Visual Studio Code status bar, with the push icon highlighted.":::
-
-1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
+    ```bash
+    git push <remote-name> <branch-name>
+    ```
 
 ---
 
