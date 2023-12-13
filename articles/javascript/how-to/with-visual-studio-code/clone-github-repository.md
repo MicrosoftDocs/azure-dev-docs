@@ -14,7 +14,7 @@ Learn the steps to clone a public repository from GitHub to your local computer 
 
 To get started, download the sample project, `https://github.com/Azure-Samples/js-e2e-express-server`, using the following steps:
 
-# [From command palette](#tab/command-palette)
+#### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 
@@ -28,7 +28,7 @@ To get started, download the sample project, `https://github.com/Azure-Samples/j
 1. Select (or create) the local directory into which you want to clone the project then select **Select as Repository Destination**.
 1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
 
-# [From integrated terminal](#tab/integrated-terminal)
+#### [Integrated terminal](#tab/integrated-terminal)
 
 1. Open an integrated terminal from **Terminal -> New Terminal**. 
 1. Clone your repo with the following git command:
@@ -54,14 +54,14 @@ To get started, download the sample project, `https://github.com/Azure-Samples/j
 
 If you don't have a GitHub repository yet, but would like to start your project locally, initialize your folder with git. 
 
-# [From activity bar](#tab/activity-bar)
+#### [Activity bar](#tab/activity-bar)
 
 1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 1. Select **Initialize repository**. 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-initialize-repository.png" alt-text="Screenshot of Visual Studio showing the Initialize repository button.":::
 
-# [From command palette](#tab/command-palette)
+#### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Filter with `Git`, then select `Initialize repository`.
@@ -72,7 +72,7 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
 ## Create a branch for changes 
 
-# [From command palette](#tab/command-palette)
+#### [Command palette](#tab/command-palette)
 
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
@@ -85,7 +85,7 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
-# [From status bar](#tab/status-bar)
+#### [Status bar](#tab/status-bar)
 
 1. Select the branch name in the status bar. This opens the command palette.
 
@@ -99,7 +99,7 @@ If you don't have a GitHub repository yet, but would like to start your project 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
 
-# [From integrated terminal](#tab/integrated-terminal)
+#### [Integrated terminal](#tab/integrated-terminal)
 
 1. Open an integrated terminal from **Terminal -> New Terminal**. 
 1. Create a new branch named `MY-BRANCH` with the following git command:
@@ -115,14 +115,14 @@ If you don't have a GitHub repository yet, but would like to start your project 
 
 Once you have made changes on your branch, commit the changes.
 
-# [From activity bar](#tab/activity-bar)
+#### [Activity bar](#tab/activity-bar)
 
 1. Select source control from the activity bar.
 1. Enter your commit message, then select **Commit**.
 
     ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png)
 
-# [From command palette](#tab/command-palette)
+#### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Commit`.
@@ -132,19 +132,19 @@ Once you have made changes on your branch, commit the changes.
 
 ## Push a local branch to GitHub
 
-# [From activity bar](#tab/activity-bar)
+#### [Activity bar](#tab/activity-bar)
 
 1. Select the Source Control icon from the activity bar. 
 1. Select **Publish Branch**. If the repository doesn't exist on GitHub, it creates the repository for you.
 
-# [From command palette](#tab/command-palette)
+#### [command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Push`.
 1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
 
 
-# [From status bar](#tab/push-status-bar)
+#### [status bar](#tab/status-bar)
 
 1. On the Visual Studio Code status bar, select the push icon to the right of the branch name. 
 
