@@ -12,7 +12,7 @@ Learn the steps to clone a public repository from GitHub to your local computer 
 
 ## Clone repository
 
-To get started, download the sample project, `https://github.com/Azure-Samples/js-e2e-express-server`, using the following steps:
+The act of cloning a GitHub repository means to bring the cloud-based source code into a local development environment.
 
 #### [Activity bar](#tab/activity-bar)
 
