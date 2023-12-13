@@ -20,7 +20,7 @@ To get started, download the sample project, `https://github.com/Azure-Samples/j
 
 1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, then select **Clone from GitHub** and press **Enter**.
 
-    ![gitcl command in the Visual Studio Code command palette prompt](../../media/how-to-clone-github-repo/visual-studio-code-git-clone.png)
+    ![gitcl command in the Visual Studio Code command palette prompt](../../media/C/visual-studio-code-git-clone.png)
 
 1. When prompted for the **Repository URL**, select clone from GitHub, then press **Enter**.
 1. If you are asked to sign into GitHub, complete the sign-in process.
