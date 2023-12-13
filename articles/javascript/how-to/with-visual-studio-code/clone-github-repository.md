@@ -114,12 +114,12 @@ This action isn't available from this feature. Select a different tab.
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Search for `git branch` and select `Git: Create Branch`.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Screenshot of a search for `git branch` and select `Git: Create Branch`.":::
 
 1. Enter a new branch name, such as `test`. 
 1. The branch name is visible in the status bar. 
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="Screenshot showing the branch name is visible in the status bar.":::
 
 #### [Integrated terminal](#tab/integrated-terminal)
 
@@ -181,7 +181,7 @@ This action isn't available from this feature. Select a different tab.
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
-#### [command palette](#tab/command-palette)
+#### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Push`.
