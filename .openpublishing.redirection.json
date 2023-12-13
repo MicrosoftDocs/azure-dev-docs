@@ -1198,6 +1198,10 @@
       {
         "source_path":"articles/python/quickstarts-cognitive-services.md",
         "redirect_url": "/azure/python/quickstarts-ai-services"        
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
+        "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
       }
     ]
   }
