@@ -1,5 +1,5 @@
 ---
-title: Clone GitHub repository with VSCode
+title: Clone GitHub repository with Visual Studio Code
 description: Clone a public repository from GitHub to your local computer using Visual Studio Code.
 ms.topic: how-to
 ms.date: 12/13/2023
@@ -27,7 +27,7 @@ This action isn't available from this feature. Select a different tab.
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, then select **Clone from GitHub** and press **Enter**.
 1. When prompted for the **Repository URL**, select clone from GitHub, then press **Enter**.
-1. If you are asked to sign into GitHub, complete the sign-in process.
+1. If you're asked to sign into GitHub, complete the sign-in process.
 1. Enter [azure-samples/js-e2e-express-server](https://github.com/Azure-Samples/js-e2e-express-server) in the **Repository URL** field. 
 1. Select (or create) the local directory into which you want to clone the project then select **Select as Repository Destination**.
 1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
@@ -84,7 +84,6 @@ This action isn't available from this feature. Select a different tab.
     ```bash
     git init
     ```
-
 ---
 
 
@@ -92,13 +91,15 @@ This action isn't available from this feature. Select a different tab.
 
 #### [Activity bar](#tab/activity-bar)
 
-This action isn't available from this feature. Select a different tab. 
+1. Select source control from the activity bar.
+1. Select ellipsis (...) next to **Source Control**.
+1. Select **Branch** -> **Create Branch**.
 
 #### [Status bar](#tab/status-bar)
 
 1. Select the branch name in the status bar. This opens the command palette.
 
-    The status bar is usually found at the bottom of Visual Studio code. 
+    The status bar is found at the bottom of Visual Studio Code. 
 
 1. In the command palette, select **+Create a new branch**.
 1. Enter your new branch name. 
