@@ -213,7 +213,7 @@ At this point, you have a Codespace, which is a container hosted by GitHub runni
 
 ## Troubleshooting
 
-If you see errors during `azd up`, try the following steps:
+If you see errors during `azd up`, try the following:
 
 - Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure portal.
 - Go to the Codespaces page for your GitHub account, find the Codespace created during this Quickstart, select the ellipsis at the right and choose "Delete" from the context menu.
