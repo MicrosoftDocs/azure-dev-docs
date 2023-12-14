@@ -696,7 +696,7 @@
       },
       {
         "source_path": "articles/python/sdk/index.yml",
-        "redirect_url": "/python/api/overview/azure/"
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
       },
       {
         "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
@@ -724,7 +724,7 @@
       },
       {
         "source_path": "articles/python/sdk.md",
-        "redirect_url": "/azure/developer/python/sdk-library-api-reference"
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
       },
       {
         "source_path": "articles/python/python-sdk-azure-sql-database-samples.md",
