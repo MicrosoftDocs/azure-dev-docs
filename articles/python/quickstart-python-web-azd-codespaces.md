@@ -12,7 +12,7 @@ This quickstart guides you through the easiest and fastest way to create and dep
 
 - Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
 - Create a new GitHub Codespace containing code generated from the azd template you selected.
-- Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The bash terminal allows you to use Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The terminal allows you to use Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
 - Edit the web app in a GitHub Codespace and use an azd command to redeploy.
 - Use an azd command to clean up Azure resources.
 - Close and reopen your GitHub Codespace.
@@ -207,7 +207,7 @@ This section demonstrates how your code is (temporarily) running and persisted s
 
 ## Optional: Publish a GitHub repository from Codespaces
 
-At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code isn't stored into a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
+At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code isn't stored in a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
 
 1. From the context menu for the codespace, select "Publish to a new repository".
 2. In the "Publish to a new repository" dialog, rename your new repo and choose whether you want it to be a public or private repo. Select "Create repository".
