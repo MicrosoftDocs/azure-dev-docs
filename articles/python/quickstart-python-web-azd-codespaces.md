@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
-- Choose an [Azure Developer CLI](../azure-developer-cli/overview) (`azd`) template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
+- Choose an [Azure Developer CLI](./overview-azd-templates.md) (`azd`) template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
 - Create a new GitHub Codespace containing code generated from the `azd` template you selected.
 - Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The terminal allows you to use Azure Developer CLI commands to run an `azd` template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
 - Edit the web app in a GitHub Codespace and use an `azd` command to redeploy.
