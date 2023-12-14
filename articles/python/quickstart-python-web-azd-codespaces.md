@@ -13,8 +13,8 @@ This quickstart guides you through the easiest and fastest way to create and dep
 - Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
 - Create a new GitHub Codespace containing code generated from the azd template you selected.
 - Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The terminal allows you to use Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
-- Edit the web app in a GitHub Codespace and use an azd command to redeploy.
-- Use an azd command to clean up Azure resources.
+- Edit the web app in a GitHub Codespace and use an `azd` command to redeploy.
+- Use an `azd` command to clean up Azure resources.
 - Close and reopen your GitHub Codespace.
 - Publish your new code to a GitHub repository.
 
@@ -80,17 +80,11 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 During this process, you may be prompted to log into your GitHub account, and you're asked to confirm that you want to create the Codespace. Select the "Create Codespace" button to see the "Setting up your codespace" page.
 
-> [!NOTE]
-> There are several ways to use the azd templates. The easiest way is to use the following URL pattern, replacing the `<template-id>` with the template id from the first column of the tables.
-> `https://codespaces.new/Azure-Samples/<template-id>?quickstart=1`
-> So, for example:
-> `https://codespaces.new/Azure-Samples/azure-flask-postgres-flexible-aca?quickstart=1`
-
 3. After a few minutes, a web-based version of Visual Studio Code is loaded in a new browser tab with the Python web template loaded as a workspace in the Explorer view.
 
 ## Authenticate to Azure and deploy the azd template
 
-Now that you have a GitHub Codespace containing the newly generated code, you use the azd utility from within the Codespace to publish the code to Azure.
+Now that you have a GitHub Codespace containing the newly generated code, you use the `azd` utility from within the Codespace to publish the code to Azure.
 
 1. In the web-based Visual Studio Code, the terminal should be open by default. If it isn't, use the tilde `~` key to open the terminal. Furthermore, by default, the terminal should be a bash terminal. If it isn't, change to bash in the upper right hand area of the terminal window.
 
@@ -148,11 +142,13 @@ Once you answer those questions, the output from azd indicates the deployment is
 
 6. When `azd up` completes successfully, the following output is displayed:
 
-   :::image type="content" source="media/quickstart-python-web-azd-codespaces/codespaces.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working ReleCloud application deployed in Azure.":::
+  :::image type="content" source="media/quickstart-python-web-azd-codespaces/codespaces.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working ReleCloud application deployed in Azure.":::
 
-   Ctrl + click the first URL after the word `- Endpoint:` to see the sample web app project running live in Azure.
+  If you see a default screen or error screen, the the app may be starting up. Please wait 5-10 minutes to see if the issue resolves itself before troubleshooting.
 
-7. Ctrl + click the second URL from the previous step to view the provisioned resources in the Azure portal.
+  Ctrl + click the first URL after the word `- Endpoint:` to see the sample web app project running live in Azure.
+
+8. Ctrl + click the second URL from the previous step to view the provisioned resources in the Azure portal.
 
 ## Edit and redeploy
 
