@@ -172,7 +172,7 @@ The next step is to make a small change to the web app and then redeploy.
 
    Your code is saved as you type.
 
-2. To redeploy the app with your change, in the terminal run the following command:
+2. To redeploy the app with your change, run the following command in the terminal:
 
    ```bash
    azd deploy
