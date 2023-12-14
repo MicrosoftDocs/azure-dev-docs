@@ -161,13 +161,13 @@ The next step is to make a small change to the web app and then redeploy.
 1. Return to the browser tab containing Visual Studio Code, and use Visual Studio Code's Explorer view to navigate to *src/templates* folder, and open the *index.html* file. Locate the following line of code:
 
    ```html
-   <h1 id="pagte-title">Welcome to ReleCloud</h1>
+   <h1 id="page-title">Welcome to ReleCloud</h1>
    ```
 
    Change the text inside of the H1:
 
    ```html
-   <h1 id="pagte-title">Welcome to ReleCloud - UPDATED</h1>
+   <h1 id="page-title">Welcome to ReleCloud - UPDATED</h1>
    ```
 
    Your code is saved as you type.
