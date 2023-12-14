@@ -151,7 +151,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell. If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell. If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 
