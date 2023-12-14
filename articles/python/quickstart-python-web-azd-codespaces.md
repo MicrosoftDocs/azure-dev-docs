@@ -33,7 +33,7 @@ To learn more about these azd templates for Python web app development:
 - A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 
 > [!IMPORTANT]
-> Both GitHub Codespaces and Azure are paid subscription based services. After some free alotments, you may be charged for using these services. Following this quickstart could affect these alotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
+> Both GitHub Codespaces and Azure are paid subscription based services. After some free allotments, you may be charged for using these services. Following this quickstart could affect these allotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
 
 ## Choose a template and create a codespace
 
