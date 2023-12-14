@@ -97,7 +97,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Configure environment variables for application
 
-You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime. The `DefaultAzureCredential` object looks for the service principal information in these environment variables.
+You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime. The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) object looks for the service principal information in these environment variables.
 
 When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.server` file as shown below.
 
