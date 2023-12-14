@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Quickstart: Create and deploy a Python web app from GitHub Codespaces to Azure using an azd template
+# Quickstart: Create and deploy a Python web app from GitHub Codespaces to Azure using an Azure Developer CLI template
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
-- Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
-- Create a new GitHub Codespace containing code generated from the azd template you selected.
-- Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The terminal allows you to use Azure Developer CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Choose an [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) (`azd`) template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
+- Create a new GitHub Codespace containing code generated from the `azd` template you selected.
+- Use GitHub Codespaces and the online Visual Studio Code's bash terminal. The terminal allows you to use Azure Developer CLI commands to run an `azd` template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
 - Edit the web app in a GitHub Codespace and use an `azd` command to redeploy.
 - Use an `azd` command to clean up Azure resources.
 - Close and reopen your GitHub Codespace.
@@ -20,7 +20,7 @@ This quickstart guides you through the easiest and fastest way to create and dep
 
 It should take less than 25 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
 
-To learn more about these azd templates for Python web app development:
+To learn more about these `azd` templates for Python web app development:
 
 - [What are these templates?](./overview-azd-templates.md#what-are-the-python-web-azd-templates)
 - [How do the templates work?](./overview-azd-templates.md#how-do-the-templates-work)
@@ -37,10 +37,9 @@ To learn more about these azd templates for Python web app development:
 
 ## Choose a template and create a codespace
 
-Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+Choose an `azd` template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
 
 1. From the following list of templates, choose one that uses the technologies that you want to use in your new web application.
-
 
 # [Django](#tab/django)
 
@@ -76,9 +75,9 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 
 ---
 
-2. For your convenience, the last column of each table contains a link that creates a new Codespace and initializes the azd template in your GitHub account. Right-click and select "Open in new tab" on the "New Codespace" link next to the template name you selected to initiate the setup process.
+2. For your convenience, the last column of each table contains a link that creates a new Codespace and initializes the `azd` template in your GitHub account. Right-click and select "Open in new tab" on the "New Codespace" link next to the template name you selected to initiate the setup process.
 
-During this process, you may be prompted to log into your GitHub account, and you're asked to confirm that you want to create the Codespace. Select the "Create Codespace" button to see the "Setting up your codespace" page.
+  During this process, you may be prompted to log into your GitHub account, and you're asked to confirm that you want to create the Codespace. Select the "Create Codespace" button to see the "Setting up your codespace" page.
 
 3. After a few minutes, a web-based version of Visual Studio Code is loaded in a new browser tab with the Python web template loaded as a workspace in the Explorer view.
 
@@ -90,55 +89,54 @@ Now that you have a GitHub Codespace containing the newly generated code, you us
 
 2. In the bash terminal, enter the following command:
 
-```bash
-azd auth login
-```
+  ```bash
+  azd auth login
+  ```
 
-`azd auth login` begins the process of authenticating your Codespace to your Azure account.
+  `azd auth login` begins the process of authenticating your Codespace to your Azure account.
 
-```output
-Start by copying the next code: XXXXXXXXX
-Then press enter and continue to log in from your browser...
-
-Waiting for you to complete authentication in the browser...
-```
+  ```output
+  Start by copying the next code: XXXXXXXXX
+  Then press enter and continue to log in from your browser...
+  
+  Waiting for you to complete authentication in the browser...
+  ```
 
 3. Follow the instructions, which include:
 
-- copying a generated code
-- selecting enter to open a new browser tab and pasting the code into the text box
-- choosing your Azure account from a list
-- confirming that you're trying to sign in to Microsoft Azure CLI
+  - copying a generated code
+  - selecting enter to open a new browser tab and pasting the code into the text box
+  - choosing your Azure account from a list
+  - confirming that you're trying to sign in to Microsoft Azure CLI
 
 4. When successful, the following message is displayed back in the Codespaces tab at the terminal:
 
-```output
-Device code authentication completed.
-Logged in to Azure.
-```
+  ```output
+  Device code authentication completed.
+  Logged in to Azure.
+  ```
 
 5. Deploy your new application to Azure by entering the following command:
 
-```bash
-azd up
-```
+  ```bash
+  azd up
+  ```
 
-During this process, you're asked to:
+  During this process, you're asked to:
 
-- Enter a new environment name
-- Select an Azure Subscription to use [Use arrows to move, type to filter]
-- Select an Azure location to use: [Use arrows to move, type to filter]
+  - Enter a new environment name
+  - Select an Azure Subscription to use [Use arrows to move, type to filter]
+  - Select an Azure location to use: [Use arrows to move, type to filter]
 
-Once you answer those questions, the output from azd indicates the deployment is progressing.
+  Once you answer those questions, the output from `azd` indicates the deployment is progressing.
 
-   >[!IMPORTANT]
-   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability. Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
+  > [!IMPORTANT]
+  > Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the `azd` templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability. Once you have finished working with the sample web app, use `azd down` to remove all of the services that were created by `azd up`.
 
-   Follow the instructions when prompted to choose Azure Subscription to use for payment, then
-   select an Azure location to use. Choose a region that is close to you geographically.
+  Follow the instructions when prompted to choose Azure Subscription to use for payment, then
+  select an Azure location to use. Choose a region that is close to you geographically.
 
-   Executing `azd up` could take several minutes since it's provisioning and
-   deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
+  Executing `azd up` could take several minutes since it's provisioning and deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
 6. When `azd up` completes successfully, the following output is displayed:
 
@@ -156,42 +154,41 @@ The next step is to make a small change to the web app and then redeploy.
 
 1. Return to the browser tab containing Visual Studio Code, and use Visual Studio Code's Explorer view to navigate to *src/templates* folder, and open the *index.html* file. Locate the following line of code:
 
-   ```html
-   <h1 id="page-title">Welcome to ReleCloud</h1>
-   ```
+  ```html
+  <h1 id="page-title">Welcome to ReleCloud</h1>
+  ```
 
-   Change the text inside of the H1:
+  Change the text inside of the H1:
 
-   ```html
-   <h1 id="page-title">Welcome to ReleCloud - UPDATED</h1>
-   ```
+  ```html
+  <h1 id="page-title">Welcome to ReleCloud - UPDATED</h1>
+  ```
 
-   Your code is saved as you type.
+  Your code is saved as you type.
 
 2. To redeploy the app with your change, run the following command in the terminal:
 
-   ```bash
-   azd deploy
-   ```
+  ```bash
+  azd deploy
+  ```
 
 3. Once the command completes, refresh the browser tab with the ReleCloud website to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
 
-   You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./overview-azd-templates.md#what-can-i-edit-or-delete)
+  You're now ready to edit and delete files in the template. For more information, see [What can I edit or delete in the template?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 
 ## Clean up resources
 
 1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
-   ```bash
-   azd down
-   ```
+  ```bash
+  azd down
+  ```
 
-   The `azd down` command deletes the Azure resources and the GitHub Actions workflow.
-   When prompted, agree to deleting all resources associated with the resource group.
+  The `azd down` command deletes the Azure resources and the GitHub Actions workflow. When prompted, agree to deleting all resources associated with the resource group.
 
 ## Optional: Find your codespace
 
-This section demonstrates how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
+  This section demonstrates how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
 
 1. Close all tabs related to this Quickstart article, or shut down your web browser entirely.
 
@@ -203,7 +200,7 @@ This section demonstrates how your code is (temporarily) running and persisted s
 
 ## Optional: Publish a GitHub repository from Codespaces
 
-At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an azd template. However, the code isn't stored in a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
+At this point, you have a Codespace, which is a container hosted by GitHub running your Visual Studio Code development environment with your new code generated from an `azd` template. However, the code isn't stored in a GitHub repository. If you plan on continuing to work on the code, you should make that a priority.
 
 1. From the context menu for the codespace, select "Publish to a new repository".
 2. In the "Publish to a new repository" dialog, rename your new repo and choose whether you want it to be a public or private repo. Select "Create repository".
