@@ -44,41 +44,49 @@ The database tier consists of an Azure SQL Database auto-failover group. Azure S
 
 In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction logs to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA).
 
-Create a single database in Azure SQL Database and add it to an auto-failover group by following the Azure portal steps in [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
+First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database.
 
-1. When you reach the section [1 - Create a database](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#1---create-a-database):
-   1. In step 7 for creating new resource group, write down **Resource group name**. For example, *myResourceGroup*.
-   1. In step 8 for database details, write down **Database name**. For example, *mySampleDatabase*.
-   1. In step 9 for creating the primary server:
+1. When you reach the section [Create a single database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#create-a-single-database):
+   1. In step 4 for creating new resource group, write down **Resource group name**. For example, *myResourceGroup*.
+   1. In step 5 for database name, write down **Database name**. For example, *mySampleDatabase*.
+   1. In step 6 for creating the server:
+      * Write down the unique server name. For example, *sqlserverprimary-ejb120623*.
       * Select **(US) West US** for **Location**.
+      * Select **Use SQL authentication** for **Authentication method**.
       * Write down **Server admin login**. For example, *azureuser*.
       * Write down **Password**.
-   1. In step 12 for **Networking** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
-   1. After the deployment completes, select **Go to resource** to open **SQL database** page.
-      1. In the **Query editor (preview)** pane, enter **azureuser** for **Login**, server admin login password you wrote down before for **Password**, and select **OK**. You should see **Query editor** window after successful login.
+   1. In step 8, select **Development** for **Workload environment**. Look at description and consider other options for your workload. 
+   1. In step 11, select **Locally-redundant backup storage** for **Backup storage redundancy**. Consider other options for your backups. To learn more, see [backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy).
+   1. In step 14 for **Firewall rules** configuration, select **Yes** for **Allow Azure services and resources to access this server**.
 
-      > [!NOTE]
-      > If login failed with an error message similar to **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until the server firewall rules complete updating and select **OK** again.
+1. When you reach the section [Query the database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#query-the-database):
+   1. In step 3, enter your **SQL authentication** server admin login information to login.
 
-      1. Copy and paste the following SQL query to the editor, and select **Run**. You should see message **Query succeeded: Affected rows: 0** after successful run.
+   > [!NOTE]
+   > If login failed with an error message similar to **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until the server firewall rules complete updating and select **OK** again.
+
+   1. After you run the sample query in step 5, clear the editor and enter the following query, and select **Run** again. You should see message **Query succeeded: Affected rows: 0** after successful run.
 
       ```sql
-      create table TLOG_msp1_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-      create table TLOG_msp2_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-      create table TLOG_msp3_primary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-      create table TLOG_msp1_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-      create table TLOG_msp2_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
-      create table TLOG_msp3_secondary_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp1_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp2_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
+      create table TLOG_msp3_WLStore (ID DECIMAL(38) NOT NULL, TYPE DECIMAL(38) NOT NULL, HANDLE DECIMAL(38) NOT NULL, RECORD VARBINARY(MAX) NOT NULL, PRIMARY KEY (ID));
       create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
       ```
 
       These database tables are used for storing transaction logs and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more information.
 
-1. When you reach the section [2 - Create the failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#2---create-the-failover-group):
-   1. In step 5 for creating the **Failover group**, write down the unique name for **Failover group name**. For example, *failovergroup-ejb120623*.
-   1. In step 5 for creating the secondary server, select **(US) East US** for **Location**. Make sure **Allow Azure services to access server** is checked.
+Then, create an Azure SQL Database auto-failover group by following the Azure portal steps in [Configure an auto-failover group for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need to execute some of sections: **Create failover group**, and **Test failover**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
-1. When you reach the section [3 - Test failover](/azure/azure-sql/database/failover-group-add-single-database-tutorial?view=azuresql-db&preserve-view=true&tabs=azure-portal#3---test-failover):
+1. When you reach the section [Create failover group](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group):
+   1. In step 5 for creating the **Failover group**, select to create a new secondary server:
+      1. Enter and write down the unique server name. For example, *sqlserversecondary-ejb120623*.
+      1. Enter the same server admin login and password as your primary server.
+      1. Select **(US) East US** for **Location**.
+      1. Make sure **Allow Azure services to access server** is checked.
+   1. In step 5 for configuring the **Databases within the group**, select database you create in the primary server. For example, *mySampleDatabase*.
+
+1. When you reach the section [Test failover](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-failover):
    1. After you complete all steps, keep the failover group page open and you use it for failover test of the WLS clusters later.
 
 ## Set up paired WLS clusters on Azure VMs
