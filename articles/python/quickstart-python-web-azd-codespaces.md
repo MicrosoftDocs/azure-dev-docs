@@ -104,10 +104,10 @@ Now that you have a GitHub Codespace containing the newly generated code, you us
 
 3. Follow the instructions, which include:
 
-   - copying a generated code
-   - selecting enter to open a new browser tab and pasting the code into the text box
-   - choosing your Azure account from a list
-   - confirming that you're trying to sign in to Microsoft Azure CLI
+   - Copying a generated code
+   - Selecting enter to open a new browser tab and pasting the code into the text box
+   - Choosing your Azure account from a list
+   - Confirming that you're trying to sign in to Microsoft Azure CLI
 
 4. When successful, the following message is displayed back in the Codespaces tab at the terminal:
 
@@ -137,11 +137,18 @@ Now that you have a GitHub Codespace containing the newly generated code, you us
 
    Executing `azd up` could take several minutes since it's provisioning and deploying multiple Azure services. As progress is displayed, watch for errors. If you see errors, see the [Troubleshooting](#troubleshooting) section at the bottom of this document.
 
-6. When `azd up` completes successfully, the following output is displayed:
+6. When `azd up` completes successfully, similar output is displayed:
 
-   :::image type="content" source="media/quickstart-python-web-azd-codespaces/codespaces.png" alt-text="Screenshot of successful output from the azd command line interface with a callout around the endpoint URL to view the working ReleCloud application deployed in Azure.":::
+   ```output
+   (✓) Done: Deploying service web
+   - Endpoint: https://xxxxx-xxxxxxxxxxxxx-ca.example-xxxxxxxx.westus.azurecontainerapps.io/
 
-   If you see a default screen or error screen, the the app may be starting up. Please wait 5-10 minutes to see if the issue resolves itself before troubleshooting.
+   SUCCESS: Your application was provisioned and deployed to Azure in 11 minutes 44 seconds.
+   You can view the resources created under the resource group xxxxx-rg in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx-rg/overview
+   ```
+
+   If you see a default screen or error screen, the app may be starting up. Please wait 5-10 minutes to see if the issue resolves itself before troubleshooting.
 
    Ctrl + click the first URL after the word `- Endpoint:` to see the sample web app project running live in Azure.
 
@@ -177,13 +184,13 @@ The next step is to make a small change to the web app and then redeploy.
 
 ## Clean up resources
 
-1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
+Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
-   ```bash
-   azd down
-   ```
+```bash
+azd down
+```
 
-   The `azd down` command deletes the Azure resources and the GitHub Actions workflow. When prompted, agree to deleting all resources associated with the resource group.
+The `azd down` command deletes the Azure resources and the GitHub Actions workflow. When prompted, agree to deleting all resources associated with the resource group.
 
 ## Optional: Find your codespace
 
@@ -219,7 +226,7 @@ If you see errors during `azd up`, try the following:
 
 See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more comprehensive list of possible issues and solutions.
 
-## Related Content
+## Related content
 
 - [Learn more about the Python web azd templates](./overview-azd-templates.md)
 - [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
