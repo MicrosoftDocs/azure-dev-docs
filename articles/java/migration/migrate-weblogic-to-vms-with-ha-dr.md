@@ -74,7 +74,7 @@ First, create the primary Azure SQL Database by following the Azure portal steps
       create table wl_servlet_sessions (wl_id VARCHAR(100) NOT NULL, wl_context_path VARCHAR(100) NOT NULL, wl_is_new CHAR(1), wl_create_time DECIMAL(20), wl_is_valid CHAR(1), wl_session_values VARBINARY(MAX), wl_access_time DECIMAL(20), wl_max_inactive_interval INTEGER, PRIMARY KEY (wl_id, wl_context_path));
       ```
 
-      These database tables are used for storing transaction logs and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more information.
+      These database tables are used for storing transaction log (TLOG) and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more information.
 
 Then, create an Azure SQL Database auto-failover group by following the Azure portal steps in [Configure an auto-failover group for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need to execute some of sections: **Create failover group**, and **Test failover**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
@@ -97,7 +97,7 @@ In this section, you create two WLS clusters on Azure VMs using [Oracle WebLogic
 
 First, open [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls-vm-cluster) offer in your browser and select **Create**. You should see **Basics** pane of the offer.
 
-The following steps show you how to fill out the **Basics** pane shown in the following screenshot.
+The following steps show you how to fill out the **Basics** pane.
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on Azure VMs Basics pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png":::
 
@@ -116,16 +116,29 @@ Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to *
 1. Select **Generate a self-signed certificate** for **Select desired TLS/SSL certificate option**.
 1. Select **Next** to go to the **Networking** pane.
 
-You should see all fields are prepopulated with the defaults, select **Next** to go to the **Database** pane.
+You should see all fields are prepopulated with the defaults in **Networking** pane. Execute the following steps to save the network configuration. 
+
+1. Select **Edit virtual network**. Write down address space of the virtual network. For example, *10.1.4.0/23*.
+
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on Azure VMs Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png":::
+
+1. Select **wls-subnet** to edit subnet. Under **Subnet details**, write down starting address and subnet size. For example, *10.1.5.0* and */28*.
+
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on Azure VMs WLS Subnet of Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png":::
+
+1. Save changes if you make any modifications. Return to **Networking** pane.
+1. Select **Next** to go to the **Database** pane.
+
+The following steps show you how to fill out the **Database** pane.
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on Azure VMs Database pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png":::
 
 1. Select **Yes** for **Connect to database?**.
 1. Select **Microsoft SQL Server (Support passwordless connection)** for **Choose database type**.
 1. Enter *jdbc/WebLogicCafeDB* for **JNDI Name**.
-1. For **DataSource Connection String**, Replace the placeholders with the values you wrote down from the preceding section. For example, *jdbc:sqlserver://failovergroup-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
+1. For **DataSource Connection String**, Replace the placeholders with the values you wrote down from the preceding section for the primary SQL Database. For example, *jdbc:sqlserver://sqlserverprimary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
 1. Select **None** for **Global transaction protocol**.
-1. For **Database username**, Replace the placeholders with the values you wrote down from the proceeding section, for example, *azureuser@failovergroup-ejb120623*.
+1. For **Database username**, Replace the placeholders with the values you wrote down from the preceding section for the primary SQL Database, for example, *azureuser@sqlserverprimary-ejb120623*.
 1. Enter server admin login password you wrote down before for **Database Password**. Enter the same value for **Confirm password**. 
 1. Leave the defaults for other fields.
 1. Select **Review + create**. 
@@ -147,13 +160,59 @@ Follow the same steps in as in the section [Set up the primary WLS cluster](#set
    1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group. For example, *wls-cluster-eastus-ejb120623*.
    1. Under **Instance details**, select **East US** for **Region**.
 
+1. In the "Networking" pane:
+   1. For **Edit virtual network**, enter same address space of the virtual network as your primary WLS cluster. For example, *10.1.4.0/23*.
+
+      > [!NOTE]
+      > You should see a similar warning message *Address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' overlaps with address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' of virtual network 'wls-vnet'. Virtual networks with overlapping address space cannot be peered. If you intend to peer these virtual networks, change address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)'*. Ignore it as you need two WLS clusters with the same network configuration.
+   
+   1. For **wls-subnet**, enter same starting address and subnet size as your primary WLS cluster. For example, *10.1.5.0* and */28*.
+
+1. In the "Database" pane:
+   1. For **DataSource Connection String**, Replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database. For example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
+   1. For **Database username**, Replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database, for example, *azureuser@sqlserversecondary-ejb120623*.
+
+### Mirror network settings for two clusters
+
+During the phase of resuming pending transactions in secondary WLS cluster after a failover, WLS checks the ownership of TLOG store. To successfully pass the check, all managed servers in the secondary cluster must have same private IP address as the primary cluster.
+
+Follow instructions to mirror network settings from the primary cluster to the secondary cluster. 
+
+First, configure network settings for the primary cluster after its deployment completes.
+
+1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
+1. Select network interface **adminVM_NIC_with_pub_ip**. 
+   1. Under **Settings**, select **IP configurations**. 
+   1. Select **ipconfig1**. 
+   1. Under **Private IP address settings**, select **Static** for **Allocation**. Write down private IP address.
+   1. Select **Save**.
+1. Return to resource group of the primary WLS cluster, repeat step 3 for network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**.
+1. Wait until all updates complete. You can select notifications icon from right-top of the Azure portal to open Notifications pane for status monitoring.
+
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon" lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
+1. Return to resource group of the primary WLS cluster, copy the name for resource with type **Private endpoint**, for example, *7e8c8bsaep*. Use that name to find the remaining network interface, for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow preceding instructions to write down its private IP address.
+
+Then, configure network settings for the secondary cluster after its deployment completes.
+
+1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
+1. For network interface **adminVM_NIC_with_pub_ip**, **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions to update private IP address allocation to **Static**.
+1. Wait until all updates complete.
+1. For network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions to update private IP address to the same value as of the primary cluster. Wait until the current update of netwrok interface completes before proceeding to next one. 
+
+   > [!NOTE]
+   > You can't change the properties of the network interface that is part of a private link. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for **adminVM_NIC_with_pub_ip** to an IP address that is not used. Depending on the allocation of private IP addresses in your two clusters, you may need to update the private IP address in the primary cluster as well.
+
+Here is an example about mirroring network settings for two clusters:
+
+
+
 ### Verify deployments of clusters
 
-Wait until both deployments of WLS clusters complete. In each cluster, there's an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
+In each cluster, there's an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
 
 Follow instructions to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
 
-1. On the **Your deployment is complete** page, select **Outputs**.
+1. Return to the **Deployment** page, select **Outputs**.
 1. Copy the value of property **appGatewayURL**. Append the string *weblogic/ready* and open that URL in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
 1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see login page of **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing.
 
