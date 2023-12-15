@@ -49,7 +49,7 @@
       - name: Azure Pipelines
         href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Add sign in
-      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+      href: /entra/identity-platform/quickstart-web-app-python-sign-in?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Store and retrieve secrets
       href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Set up Azure monitor
@@ -215,8 +215,8 @@
         href: /samples/browse/?languages=python&products=azure-storage
       - name: Redis Cache
         href: /samples/browse/?languages=python&products=azure-redis-cache
-  - name: Identity &  Security
-    href: /samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
+  - name: Identity & Security
+    href: /samples/browse/?languages=python&products=entra%2Cazure-key-vault
   - name: IoT
     href: /samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
   - name: Data science
