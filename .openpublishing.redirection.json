@@ -1206,6 +1206,10 @@
       {
         "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
         "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
+      },
+      {
+        "source_path": "articles/ansible/configure-in-docker-container.md",
+        "redirect_url": "/azure/developer/ansible"
       }
     ]
   }
