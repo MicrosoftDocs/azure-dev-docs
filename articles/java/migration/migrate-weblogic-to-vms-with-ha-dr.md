@@ -392,7 +392,7 @@ Execute the following steps to fail over to the secondary site including databas
 1. Select **Disabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic to the secondary endpoint.
 1. Switch to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
-   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui-failover.png":::
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
