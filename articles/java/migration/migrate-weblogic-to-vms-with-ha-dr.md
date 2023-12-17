@@ -29,7 +29,7 @@ This diagram illustrates the architecture you build.
 
 Azure Traffic Manager checks the health of your primary region and routes the traffic accordingly. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region receives traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. Each of the WLS clusters is always up and running. This solution implements a low Recovery Time Objective and failover without any manual intervention for the application tier.
 
-The database tier consists of an Azure SQL Database auto-failover group. Azure SQL Database provides a read-write endpoint that remains unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period expires. You don't have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+The database tier consists of an Azure SQL Database failover group. Azure SQL Database provides a read-write endpoint that remains unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period expires. You don't have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
 ## Prerequisites
 
@@ -76,9 +76,9 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 
       These database tables are used for storing transaction log (TLOG) and session data for your WLS clusters and app. See [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA) for more information.
 
-Then, create an Azure SQL Database auto-failover group by following the Azure portal steps in [Configure an auto-failover group for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need to execute some of sections: **Create failover group**, and **Test failover**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
+Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need to execute some of sections: **Create failover group**, and **Test failover**. Use the following directions as you go through the article, then return to this document after you create and configure the Azure SQL Database failover group.
 
-1. When you reach the section [Create failover group](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group):
+1. When you reach the section [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group):
    1. In step 5 for creating the **Failover group**, select to create a new secondary server:
       1. Enter and write down the unique server name. For example, *sqlserversecondary-ejb120623*.
       1. Enter the same server admin login and password as your primary server.
@@ -86,7 +86,7 @@ Then, create an Azure SQL Database auto-failover group by following the Azure po
       1. Make sure **Allow Azure services to access server** is checked.
    1. In step 5 for configuring the **Databases within the group**, select database you create in the primary server. For example, *mySampleDatabase*.
 
-1. When you reach the section [Test failover](/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-failover):
+1. When you reach the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover):
    1. After you complete all steps, keep the failover group page open and you use it for failover test of the WLS clusters later.
 
 ## Set up paired WLS clusters on Azure VMs
