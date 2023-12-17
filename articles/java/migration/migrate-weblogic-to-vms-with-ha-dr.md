@@ -197,18 +197,45 @@ Then, configure network settings for the secondary cluster after its deployment 
 1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
 1. For network interface **adminVM_NIC_with_pub_ip**, **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions to update private IP address allocation to **Static**.
 1. Wait until all updates complete.
-1. For network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions to update private IP address to the same value as of the primary cluster. Wait until the current update of netwrok interface completes before proceeding to next one. 
+1. For network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions but update private IP address to the same value as of the primary cluster. Wait until the current update of netwrok interface completes before proceeding to next one. 
 
    > [!NOTE]
-   > You can't change the properties of the network interface that is part of a private link. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for **adminVM_NIC_with_pub_ip** to an IP address that is not used. Depending on the allocation of private IP addresses in your two clusters, you may need to update the private IP address in the primary cluster as well.
+   > You can't change the private IP address of the network interface that is part of a private endpoint. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for **adminVM_NIC_with_pub_ip** to an IP address that is not used. Depending on the allocation of private IP addresses in your two clusters, you may need to update the private IP address in the primary cluster as well.
 
 Here is an example about mirroring network settings for two clusters:
 
+| Cluster   | Network interface                                   | Private IP address (Before) | Private IP address (After) | Update sequence |
+| --------- | --------------------------------------------------- | --------------------------- | -------------------------- | --------------- |
+| Primary   | 7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a | 10.1.5.4                    | 10.1.5.4                   |                 |
+| Primary   | adminVM_NIC_with_pub_ip                             | 10.1.5.7                    | 10.1.5.7                   |                 |
+| Primary   | mspVM1_NIC_with_pub_ip                              | 10.1.5.5                    | 10.1.5.5                   |                 |
+| Primary   | mspVM2_NIC_with_pub_ip                              | 10.1.5.8                    | 10.1.5.9                   | 1               |
+| Primary   | mspVM3_NIC_with_pub_ip                              | 10.1.5.6                    | 10.1.5.6                   |                 |
+| Secondary | 1696b0saep.nic.2e19bf46-9799-4acc-b64b-a2cd2f7a4ee1 | 10.1.5.8                    | 10.1.5.8                   |                 |
+| Secondary | adminVM_NIC_with_pub_ip                             | 10.1.5.5                    | 10.1.5.4                   | 4               |
+| Secondary | mspVM1_NIC_with_pub_ip                              | 10.1.5.7                    | 10.1.5.5                   | 5               |
+| Secondary | mspVM2_NIC_with_pub_ip                              | 10.1.5.6                    | 10.1.5.9                   | 2               |
+| Secondary | mspVM3_NIC_with_pub_ip                              | 10.1.5.4                    | 10.1.5.6                   | 3               |
 
+Check the set of private IP addresses for all managed servers, which consists of the backend pool of the Azure Application Gateway you deployed in each cluster. If it's updated, update the Azure Application Gateway backend pool accordingly.
+
+1. Open the resource group of the cluster.
+1. Find resource *myAppGateway* with type **Application gateway**. Select to open
+1. Under section **Settings**, select **Backend pools**. Select **myGatewayBackendPool**.
+1. Change the **Backend targets** with the updated private IP address(es). Select **Save**. Wait until it completes.
+1. Under section **Settings**, select **Health probes**. Select **HTTPhealthProbe**.
+1. Make sure **I want to test the backend health before adding the health probe** is checked. Select **Test**. You should see **Status** of backend pool *myGatewayBackendPool* is marked as healthy. If not, check if private IP addresses are updated as expected and the VMs are running, then test the health probe again. You must troubleshoot and resolve the issue before continuing.
+
+In this example, the Azure Application Gateway backend pool for each cluster is updated:
+
+| Cluster   | Azure Application Gateway backend pool  | Backend targets (Before)       | Backend targets (After)        |
+| --------- | --------------------------------------- | ------------------------------ | ------------------------------ |
+| Primary   | myGatewayBackendPool                    | (10.1.5.5, 10.1.5.8, 10.1.5.6) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
+| Primary   | myGatewayBackendPool                    | (10.1.5.7, 10.1.5.6, 10.1.5.4) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
 
 ### Verify deployments of clusters
 
-In each cluster, there's an Azure Application Gateway and WLS admin server deployed. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
+You've deployed an Azure Application Gateway and a WLS admin server in each cluster. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
 
 Follow instructions to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
 
