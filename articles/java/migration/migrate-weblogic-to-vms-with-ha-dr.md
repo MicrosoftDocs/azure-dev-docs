@@ -404,20 +404,24 @@ Then, start all servers in the secondary cluster.
 1. Switch to the browser tab of WebLogic Server AdministrationConsole for the secondary cluster, refresh the page until you see the welcome page for login.
 1. Switch back to the browser tab where all VMs in the secondary cluster are listed. For VM *mspVM1*, *mspVM2* and *mspVM3*, select to open and then select **Start**. 
 1. Monitor events **Starting virtual machine** for VM *mspVM1*, *mspVM2* and *mspVM3* in **Notifications** pane, wait until they become **Started virtual machine**.
+
+Finally, verify the sample app after endpoint *myFailoverEndpoint* is *Online*.
+
 1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Online*.
 1. Switch to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
 ### Fail back to the primary site
 
 Execute the same steps in [Failover to the secondary site](#failover-to-the-secondary-site) to failback to the primary site including database server and cluster, except for the following differences:
 
-1. First, shutdown VMs in the **secondary cluster**.
+1. First, shutdown VMs in the **secondary cluster**. You should see endpoint **myFailoverEndpoint** becomes *Degraded*.
 1. Next, failover the Azure SQL Database **from the secondary server to the primary server**.
 1. Then, start all servers in the **primary cluster**.
+1. Finally, verify the sample app after endpoint **myPrimaryEndpoint** is *Online*.
 
 ## Clean up resources
 
