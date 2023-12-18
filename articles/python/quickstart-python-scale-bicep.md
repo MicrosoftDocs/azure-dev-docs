@@ -366,7 +366,7 @@ You can add a new resource to your deployment by making larger changes to the Bi
 
 6. When `azd provision` completes, open the Azure portal, navigate to the Resource Group for your deployment, and in the list of services confirm you now have an instance of Azure Cache for Redis.
 
-This concludes the Quickstart, however there are many Azure services that can help you build more scalable and production-ready applications. A great place to start would be to learn about [Azure API Management](../api-management/api-management-key-concepts), [Azure Front Door](../frontdoor/front-door-overview), [Azure CDN](../cdn/cdn-overview), and [Azure Virtual Network](../virtual-network/virtual-networks-overview), to name a few.
+This concludes the Quickstart, however there are many Azure services that can help you build more scalable and production-ready applications. A great place to start would be to learn about [Azure API Management](../azure/api-management/api-management-key-concepts), [Azure Front Door](./azure/frontdoor/front-door-overview), [Azure CDN](/azure/cdn/cdn-overview), and [Azure Virtual Network](/virtual-network/virtual-networks-overview), to name a few.
 
 ## Clean up resources
 
