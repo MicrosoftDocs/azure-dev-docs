@@ -413,9 +413,9 @@ If you don't observe this behavior, it may be because the Traffic Manager is tak
 
 Execute the same steps in [Failover to the secondary site](#failover-to-the-secondary-site) to failback to the primary site including database server and cluster, except for the following differences:
 
-1. First, shutdown VMs in the secondary cluster.
-1. Next, failover the Azure SQL Database from the secondary server to the primary server.
-1. Then, start all servers in the primary cluster.
+1. First, shutdown VMs in the **secondary cluster**.
+1. Next, failover the Azure SQL Database **from the secondary server to the primary server**.
+1. Then, start all servers in the **primary cluster**.
 
 ## Clean up resources
 
@@ -431,13 +431,12 @@ If you're not going to continue to use the WLS clusters and other components, de
 
 ## Next steps
 
-In this tutorial, the passive WLS cluster in the secondary region is always up and running for a faster failover. If cost-saving is a higher priority than fast failover, consider keeping the VMS in the passive WLS cluster in the shut-down state and starting them only when there's failover.
+In this tutorial, you set up a HA/DR solution consisting of an active-passive application infrastructure tier with an active-passive database tier, and in which both tiers span two geographically different sites. At the first site, both the application infrastructure tier and the database tier are active. At the second site, the secondary domain is shutdown, and the secondary database is on standby.
 
-> [!NOTE]
-> If you choose to start the passive cluster during the failover, make sure the admin server of the cluster is started and running before any other managed servers of the cluster.
+Continue to explore references for more options to build HA/DR solutionsHA/DR and run WLS on Azure.
 
-Continue to explore references used in this tutorial and options to run WLS on Azure.
-
+> [!div class="nextstepaction"]
+> [Disaster Recovery solutions for Oracle Fusion Middleware products](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asdrg/index.html#Oracle%C2%AE-Fusion-Middleware)
 > [!div class="nextstepaction"]
 > [Azure reliability documentation](/azure/reliability)
 > [!div class="nextstepaction"]
