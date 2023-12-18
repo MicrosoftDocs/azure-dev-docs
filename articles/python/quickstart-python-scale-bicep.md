@@ -38,7 +38,7 @@ To begin, you need a working `azd` deployment. Once you have that in place, you'
    azd up
    ```
 
-   Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed in your new Resource Group and take note of the App Service pricing plan.
+   Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed in your new Resource Group and take note of the App Service pricing plan (see the App Service plan's Overview page, Essentials section, "Pricing plan" value).
 
 2. In step 1 of the Quickstart article, you were instructed to create the azdtest folder. Open that folder in Visual Studio Code.
 
@@ -366,7 +366,7 @@ You can add a new resource to your deployment by making larger changes to the Bi
 
 6. When `azd provision` completes, open the Azure portal, navigate to the Resource Group for your deployment, and in the list of services confirm you now have an instance of Azure Cache for Redis.
 
-This concludes the Quickstart, however there are many Azure services that can help you build more scalable and production-ready applications. A great place to start would be to learn about [Azure API Management](../azure/api-management/api-management-key-concepts), [Azure Front Door](./azure/frontdoor/front-door-overview), [Azure CDN](/azure/cdn/cdn-overview), and [Azure Virtual Network](/virtual-network/virtual-networks-overview), to name a few.
+This concludes the Quickstart, however there are many Azure services that can help you build more scalable and production-ready applications. A great place to start would be to learn about [Azure API Management](/azure/api-management/api-management-key-concepts), [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure CDN](/azure/cdn/cdn-overview), and [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), to name a few.
 
 ## Clean up resources
 
