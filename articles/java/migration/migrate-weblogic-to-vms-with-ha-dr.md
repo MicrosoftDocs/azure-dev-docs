@@ -16,10 +16,10 @@ This tutorial shows you a simple and effective way to implement high availabilit
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Use Azure optimized best practices to achieve high availability and disaster recovery
+> * Use Azure optimized best practices to achieve high availability and disaster recovery.
 > * Set up a Microsoft Azure SQL Database failover group in paired regions.
 > * Set up paired WLS clusters on Azure VMs.
-> * Set up an Azure Traffic Manager
+> * Set up an Azure Traffic Manager.
 > * Configure WLS clusters for high availability and disaster recovery.
 > * Test failover from primary to secondary.
 
@@ -27,9 +27,11 @@ This diagram illustrates the architecture you build.
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png" alt-text="Solution architecture of WLS on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png":::
 
-Azure Traffic Manager checks the health of your primary region and routes the traffic accordingly. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region receives traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. Each of the WLS clusters is always up and running. This solution implements a low Recovery Time Objective and failover without any manual intervention for the application tier.
+Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. The primary WLS cluster is running and the secondary cluster shutdown. For geo-failover RTO of the application tier, it depends on the time for starting VMs and running the secondary WLS cluster. The RPO depends on the Azure SQL Database since the data is persitsted and replicated in Azure SQL Database failover group.  
 
-The database tier consists of an Azure SQL Database failover group. Azure SQL Database provides a read-write endpoint that remains unchanged during geo-failovers.  The system triggers a geo-failover after the failure is detected and the grace period expires. You don't have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. For geo-failover Recovery Point Objective and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The primary server is in active read-write mode and connected to the primary WLS cluster. The secondary server is in passive ready-only mode and connected to the secondary WLS cluster. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+
+For more information, including on how to optimize the configuration of data sources for replication, please see [Configuring Data Sources for Oracle Fusion Middleware Active-Passive Deployment](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asdrg/setting-and-managing-disaster-recovery-sites.html#GUID-445693AB-B592-4E11-9B44-A208444B75F2).
 
 ## Prerequisites
 
@@ -443,8 +445,6 @@ Continue to explore references for more options to build HA/DR solutionsHA/DR an
 > [Build solutions for high availability](/azure/architecture/high-availability/building-solutions-for-high-availability)
 > [!div class="nextstepaction"]
 > [Automatic failover using Azure Traffic Manager](/azure/networking/disaster-recovery-dns-traffic-manager#automatic-failover-using-azure-traffic-manager)
-> [!div class="nextstepaction"]
-> [Oracle Maximum Availability Architecture (MAA) and WebLogic Server](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wlcag/weblogic_ca_intro.html)
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 > [!div class="nextstepaction"]
