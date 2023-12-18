@@ -30,23 +30,23 @@ To begin, you need a working azd deployment. Use the basic steps from the Quicks
 
 1. Follow steps 1 through 7 in the [Quickstart article](./quickstart-python-web-azd-templates.md). In step 2, use the `azure-django-postgres-flexible-appservice` template. For your convenience, here's the entire sequence of commands to issue from the command line:
 
-  ```shell
-  mkdir azdtest
-  cd azdtest
-  azd init --template azure-django-postgres-flexible-appservice
-  azd auth login
-  azd up
-  ```
+   ```shell
+   mkdir azdtest
+   cd azdtest
+   azd init --template azure-django-postgres-flexible-appservice
+   azd auth login
+   azd up
+   ```
 
-  Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed as part of your new Resource Group and take note of the App Service pricing plan.
+   Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed as part of your new Resource Group and take note of the App Service pricing plan.
 
 2. In step 1 of the Quickstart article, you were instructed to create the azdtest folder. Open that folder in Visual Studio Code.
 
 3. In the Explorer pane, navigate to the *infra* folder. Observe the subfolders and files in the *infra* folder.
 
-  The *main.bicep* file orchestrates the creation of all the services deployed when performing an `azd up` or `azd provision`. It calls into other files, like *db.bicep* and *web.bicep*, which in turn call into files contained in the *\core* subfolder.
+   The *main.bicep* file orchestrates the creation of all the services deployed when performing an `azd up` or `azd provision`. It calls into other files, like *db.bicep* and *web.bicep*, which in turn call into files contained in the *\core* subfolder.
 
-  The core subfolder is a deeply nested folder structure containing bicep templates for many Azure services. Some of the files in the core subfolder are referenced by the three top level bicep files (main, db and hosting) and some aren't used at all in this project.
+   The core subfolder is a deeply nested folder structure containing bicep templates for many Azure services. Some of the files in the core subfolder are referenced by the three top level bicep files (main, db and hosting) and some aren't used at all in this project.
 
 ## Scale a service by modifying its Bicep properties
 
@@ -54,30 +54,30 @@ You can scale an existing resource in your deployment by changing its SKU. To de
 
 1. Open the *web.bicep* file and locate the module appService definition. In particular, look for the property setting:
 
-  ```bicep
+   ```bicep
       sku: {
-        name: 'B1'
+         name: 'B1'
       }
-  ```
+   ```
 
-  Change the value from `B1` to `S1` as follows:
+   Change the value from `B1` to `S1` as follows:
 
-  ```bicep
+   ```bicep
       sku: {
-        name: 'S1'
+         name: 'S1'
       }
-  ```
+   ```
 
-  > [!IMPORTANT]
-  > As a result of this change, the price per hour will increase slightly. Details about the different service plans and their associated costs can be found on the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/).
+   > [!IMPORTANT]
+   > As a result of this change, the price per hour will increase slightly. Details about the different service plans and their associated costs can be found on the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 2. Assuming you already have the application deployed in Azure, use the following command to deploy changes to the infrastructure while not redeploying the application code itself.
 
-  ```shell
-  azd provision
-  ```
+   ```shell
+   azd provision
+   ```
 
-  You shouldn't be prompted for a location and subscription. Those values are saved in the *.azure\<environment-name>\.env* file where `<environment-name>` is the environment name you provided during `azd init`.
+   You shouldn't be prompted for a location and subscription. Those values are saved in the *.azure\<environment-name>\.env* file where `<environment-name>` is the environment name you provided during `azd init`.
 
 3. When `azd provision` is complete, confirm your web application still works. Also find the App Service Plan for your Resource Group and confirm that the Pricing Plan is set to the Standard Service Plan (S1).
 
@@ -85,296 +85,295 @@ You can scale an existing resource in your deployment by changing its SKU. To de
 
 You can add a new resource to your deployment by making larger changes to the Bicep in the project. To demonstrate this, you'll add an instance of Azure Cache for Redis to your existing deployment in preparation for a fictitious new feature you plan to add some day.
 
-  > [!IMPORTANT]
-  > As a result of this change, you will be paying for an instance of Azure Cache for Redis until you delete the resource manually or using `azd down`. Details about the different service plans and their associated costs can be found on the [Azure Cache for Redis pricing page](https://azure.microsoft.com/pricing/details/cache/).
+> [!IMPORTANT]
+> As a result of this change, you will be paying for an instance of Azure Cache for Redis until you delete the resource manually or using `azd down`. Details about the different service plans and their associated costs can be found on the [Azure Cache for Redis pricing page](https://azure.microsoft.com/pricing/details/cache/).
 
 1. Create a new file in the *infra* folder named *redis.bicep*. Copy and paste the following code into the new file:
 
-  ```python
-  param name string
-  param location string = resourceGroup().location
-  param tags object = {}
-  param keyVaultName string
-  param connStrKeyName string
-  param passwordKeyName string
-  param primaryKeyKeyName string
+   ```python
+   param name string
+   param location string = resourceGroup().location
+   param tags object = {}
+   param keyVaultName string
+   param connStrKeyName string
+   param passwordKeyName string
+   param primaryKeyKeyName string
 
-  @allowed([
-    'Enabled'
-    'Disabled'
-  ])
-  param publicNetworkAccess string = 'Enabled'
+   @allowed([
+     'Enabled'
+     'Disabled'
+   ])
+   param publicNetworkAccess string = 'Enabled'
 
-  @allowed([
-    'C'
-    'P'
-  ])
-  param skuFamily string = 'C'
+   @allowed([
+     'C'
+     'P'
+   ])
+   param skuFamily string = 'C'
 
-  @allowed([
-    0
-    1
-    2
-    3
-    4
-    5
-    6
-  ])
-  param skuCapacity int = 1
-  @allowed([
-    'Basic'
-    'Standard'
-    'Premium'
-  ])
-  param skuName string = 'Standard'
+   @allowed([
+     0
+     1
+     2
+     3
+     4
+     5
+     6
+   ])
+   param skuCapacity int = 1
+   @allowed([
+     'Basic'
+     'Standard'
+     'Premium'
+   ])
+   param skuName string = 'Standard'
 
-  param saveKeysToVault bool = true
+   param saveKeysToVault bool = true
 
-  resource redis 'Microsoft.Cache/redis@2020-12-01' = {
-    name: name
-    location: location
-    properties: {
-      sku: {
-        capacity: skuCapacity
-        family: skuFamily
-        name: skuName
-      }
-      publicNetworkAccess: publicNetworkAccess
-      enableNonSslPort: true    
-    }
-    tags: tags
-  }
+   resource redis 'Microsoft.Cache/redis@2020-12-01' = {
+     name: name
+     location: location
+     properties: {
+       sku: {
+         capacity: skuCapacity
+         family: skuFamily
+         name: skuName
+       }
+       publicNetworkAccess: publicNetworkAccess
+       enableNonSslPort: true    
+     }
+     tags: tags
+   }
 
-  resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
-    name: keyVaultName
-  }
+   resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+     name: keyVaultName
+   }
 
-  resource redisKey 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = if (saveKeysToVault) {
-    name: primaryKeyKeyName
-    parent: keyVault
-    properties: {
-      value: redis.listKeys().primaryKey
-    }
-  }
+   resource redisKey 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = if (saveKeysToVault) {
+     name: primaryKeyKeyName
+     parent: keyVault
+     properties: {
+       value: redis.listKeys().primaryKey
+     }
+   }
+ 
+   resource redisConnStr 'Microsoft.KeyVault/vaults/secrets@2018-02-14' = if (saveKeysToVault) {
+     name: connStrKeyName
+     parent: keyVault
+     properties: {
+       value: '${name}.redis.cache.windows.net,abortConnect=false,ssl=true,password=${redis.listKeys().primaryKey}'
+     }
+   }
+   resource redisPassword 'Microsoft.KeyVault/vaults/secrets@2018-02-14' = if (saveKeysToVault) {
+     name: passwordKeyName
+     parent: keyVault
+     properties: {
+       value: redis.listKeys().primaryKey
+     }
+   }
 
-  resource redisConnStr 'Microsoft.KeyVault/vaults/secrets@2018-02-14' = if (saveKeysToVault) {
-    name: connStrKeyName
-    parent: keyVault
-    properties: {
-      value: '${name}.redis.cache.windows.net,abortConnect=false,ssl=true,password=${redis.listKeys().primaryKey}'
-    }
-  }
-  resource redisPassword 'Microsoft.KeyVault/vaults/secrets@2018-02-14' = if (saveKeysToVault) {
-    name: passwordKeyName
-    parent: keyVault
-    properties: {
-      value: redis.listKeys().primaryKey
-    }
-  }
-
-  output REDIS_ID string = redis.id
-  output REDIS_HOST string = redis.properties.hostName
-  ```
+   output REDIS_ID string = redis.id
+   output REDIS_HOST string = redis.properties.hostName
+   ```
 
 2. Modify the *main.bicep* file to create an instance of the "redis" resource.
 
-  In the *main.bicep* file, add the following code below the ending curly braces associated with the *Web frontend* section and above the *secrets* section.
+   In the *main.bicep* file, add the following code below the ending curly braces associated with the *Web frontend* section and above the *secrets* section.
 
-  ```python
-  // Caching server
-  module redis 'redis.bicep' = {
-    name: 'redis'
-    scope: resourceGroup
-    params: {
-      name: replace('${take(prefix, 19)}-rds', '--', '-')
-      location: location
-      tags: tags
-      keyVaultName: keyVault.outputs.name
-      connStrKeyName: 'RedisConnectionString'
-      passwordKeyName: 'RedisPassword'
-      primaryKeyKeyName: 'RedisPrimaryKey'
-      publicNetworkAccess: 'Enabled'
-      skuFamily: 'C'
-      skuCapacity: 1
-      skuName: 'Standard'
-      saveKeysToVault: true
-    }
-  }
-  ```
+   ```python
+   // Caching server
+   module redis 'redis.bicep' = {
+     name: 'redis'
+     scope: resourceGroup
+     params: {
+       name: replace('${take(prefix, 19)}-rds', '--', '-')
+       location: location
+       tags: tags
+       keyVaultName: keyVault.outputs.name
+       connStrKeyName: 'RedisConnectionString'
+       passwordKeyName: 'RedisPassword'
+       primaryKeyKeyName: 'RedisPrimaryKey'
+       publicNetworkAccess: 'Enabled'
+       skuFamily: 'C'
+       skuCapacity: 1
+       skuName: 'Standard'
+       saveKeysToVault: true
+     }
+   }
+   ```
 
 3. Add output values to the bottom of the file:
 
-  ```python
-  output REDIS_ID string = redis.outputs.REDIS_ID
-  output REDIS_HOST string = redis.outputs.REDIS_HOST
-  ```
+   ```python
+   output REDIS_ID string = redis.outputs.REDIS_ID
+   output REDIS_HOST string = redis.outputs.REDIS_HOST
+   ```
 
 4. Confirm that the entire *main.bicep* file is identical to the following code passage:
 
-```python
-targetScope = 'subscription'
+   ```python
+   targetScope = 'subscription'
 
-@minLength(1)
-@maxLength(64)
-@description('Name which is used to generate a short unique hash for each resource')
-param name string
+   @minLength(1)
+   @maxLength(64)
+   @description('Name which is used to generate a short unique hash for each resource')
+   param name string
 
-@minLength(1)
-@description('Primary location for all resources')
-param location string
+   @minLength(1)
+   @description('Primary location for all resources')
+   param location string
 
-@secure()
-@description('DBServer administrator password')
-param dbserverPassword string
+   @secure()
+   @description('DBServer administrator password')
+   param dbserverPassword string
 
-@secure()
-@description('Secret Key')
-param secretKey string
+   @secure()
+   @description('Secret Key')
+   param secretKey string
 
-@description('Id of the user or app to assign application roles')
-param principalId string = ''
+   @description('Id of the user or app to assign application roles')
+   param principalId string = ''
 
-var resourceToken = toLower(uniqueString(subscription().id, name, location))
-var prefix = '${name}-${resourceToken}'
-var tags = { 'azd-env-name': name }
+   var resourceToken = toLower(uniqueString(subscription().id, name, location))
+   var prefix = '${name}-${resourceToken}'
+   var tags = { 'azd-env-name': name }
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: '${name}-rg'
-  location: location
-  tags: tags
-}
+   resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+     name: '${name}-rg'
+     location: location
+     tags: tags
+   }
 
-// Store secrets in a keyvault
-module keyVault './core/security/keyvault.bicep' = {
-  name: 'keyvault'
-  scope: resourceGroup
-  params: {
-    name: '${take(replace(prefix, '-', ''), 17)}-vault'
-    location: location
-    tags: tags
-    principalId: principalId
-  }
-}
+   // Store secrets in a keyvault
+   module keyVault './core/security/keyvault.bicep' = {
+     name: 'keyvault'
+     scope: resourceGroup
+     params: {
+       name: '${take(replace(prefix, '-', ''), 17)}-vault'
+       location: location
+       tags: tags
+       principalId: principalId
+     }
+   }
 
-module db 'db.bicep' = {
-  name: 'db'
-  scope: resourceGroup
-  params: {
-    name: 'dbserver'
-    location: location
-    tags: tags
-    prefix: prefix
-    dbserverDatabaseName: 'relecloud'
-    dbserverPassword: dbserverPassword
-  }
-}
+   module db 'db.bicep' = {
+     name: 'db'
+     scope: resourceGroup
+     params: {
+       name: 'dbserver'
+       location: location
+       tags: tags
+       prefix: prefix
+       dbserverDatabaseName: 'relecloud'
+       dbserverPassword: dbserverPassword
+     }
+   }
 
-// Monitor application with Azure Monitor
-module monitoring 'core/monitor/monitoring.bicep' = {
-  name: 'monitoring'
-  scope: resourceGroup
-  params: {
-    location: location
-    tags: tags
-    applicationInsightsDashboardName: '${prefix}-appinsights-dashboard'
-    applicationInsightsName: '${prefix}-appinsights'
-    logAnalyticsName: '${take(prefix, 50)}-loganalytics' // Max 63 chars
-  }
-}
+   // Monitor application with Azure Monitor
+   module monitoring 'core/monitor/monitoring.bicep' = {
+     name: 'monitoring'
+     scope: resourceGroup
+     params: {
+       location: location
+       tags: tags
+       applicationInsightsDashboardName: '${prefix}-appinsights-dashboard'
+       applicationInsightsName: '${prefix}-appinsights'
+       logAnalyticsName: '${take(prefix, 50)}-loganalytics' // Max 63 chars
+     }
+   }
 
-// Web frontend
-module web 'web.bicep' = {
-  name: 'web'
-  scope: resourceGroup
-  params: {
-    name: replace('${take(prefix, 19)}-appsvc', '--', '-')
-    location: location
-    tags: tags
-    applicationInsightsName: monitoring.outputs.applicationInsightsName
-    keyVaultName: keyVault.outputs.name
-    appCommandLine: 'entrypoint.sh'
-    pythonVersion: '3.12'
-    dbserverDomainName: db.outputs.dbserverDomainName
-    dbserverUser: db.outputs.dbserverUser
-    dbserverDatabaseName: db.outputs.dbserverDatabaseName
-  }
-}
+   // Web frontend
+   module web 'web.bicep' = {
+     name: 'web'
+     scope: resourceGroup
+     params: {
+       name: replace('${take(prefix, 19)}-appsvc', '--', '-')
+       location: location
+       tags: tags
+       applicationInsightsName: monitoring.outputs.applicationInsightsName
+       keyVaultName: keyVault.outputs.name
+       appCommandLine: 'entrypoint.sh'
+       pythonVersion: '3.12'
+       dbserverDomainName: db.outputs.dbserverDomainName
+       dbserverUser: db.outputs.dbserverUser
+       dbserverDatabaseName: db.outputs.dbserverDatabaseName
+     }
+   }
 
-// Caching server
-module redis 'redis.bicep' = {
-  name: 'redis'
-  scope: resourceGroup
-  params: {
-    name: replace('${take(prefix, 19)}-rds', '--', '-')
-    location: location
-    tags: tags
-    keyVaultName: keyVault.outputs.name
-    connStrKeyName: 'RedisConnectionString'
-    passwordKeyName: 'RedisPassword'
-    primaryKeyKeyName: 'RedisPrimaryKey'
-    publicNetworkAccess: 'Enabled'
-    skuFamily: 'C'
-    skuCapacity: 1
-    skuName: 'Standard'
-    saveKeysToVault: true
-  }
-}
+   // Caching server
+   module redis 'redis.bicep' = {
+     name: 'redis'
+     scope: resourceGroup
+     params: {
+       name: replace('${take(prefix, 19)}-rds', '--', '-')
+       location: location
+       tags: tags
+       keyVaultName: keyVault.outputs.name
+       connStrKeyName: 'RedisConnectionString'
+       passwordKeyName: 'RedisPassword'
+       primaryKeyKeyName: 'RedisPrimaryKey'
+       publicNetworkAccess: 'Enabled'
+       skuFamily: 'C'
+       skuCapacity: 1
+       skuName: 'Standard'
+       saveKeysToVault: true
+     }
+   }
 
-var secrets = [
-  {
-    name: 'DBSERVERPASSWORD'
-    value: dbserverPassword
-  }
-  {
-    name: 'SECRETKEY'
-    value: secretKey
-  }
-]
+   var secrets = [
+     {
+       name: 'DBSERVERPASSWORD'
+       value: dbserverPassword
+     }
+     {
+       name: 'SECRETKEY'
+       value: secretKey
+     }
+   ]
 
-@batchSize(1)
-module keyVaultSecrets './core/security/keyvault-secret.bicep' = [for secret in secrets: {
-  name: 'keyvault-secret-${secret.name}'
-  scope: resourceGroup
-  params: {
-    keyVaultName: keyVault.outputs.name
-    name: secret.name
-    secretValue: secret.value
-  }
-}]
+   @batchSize(1)
+   module keyVaultSecrets './core/security/keyvault-secret.bicep' = [for secret in secrets: {
+     name: 'keyvault-secret-${secret.name}'
+     scope: resourceGroup
+     params: {
+       keyVaultName: keyVault.outputs.name
+       name: secret.name
+       secretValue: secret.value
+     }
+   }]
 
-output AZURE_LOCATION string = location
-output AZURE_KEY_VAULT_ENDPOINT string = keyVault.outputs.endpoint
-output AZURE_KEY_VAULT_NAME string = keyVault.outputs.name
-output APPLICATIONINSIGHTS_NAME string = monitoring.outputs.applicationInsightsName
-output BACKEND_URI string = web.outputs.uri
+   output AZURE_LOCATION string = location
+   output AZURE_KEY_VAULT_ENDPOINT string = keyVault.outputs.endpoint
+   output AZURE_KEY_VAULT_NAME string = keyVault.outputs.name
+   output APPLICATIONINSIGHTS_NAME string = monitoring.outputs.applicationInsightsName
+   output BACKEND_URI string = web.outputs.uri
 
-output REDIS_ID string = redis.outputs.REDIS_ID
-output REDIS_HOST string = redis.outputs.REDIS_HOST
-```
+   output REDIS_ID string = redis.outputs.REDIS_ID
+   output REDIS_HOST string = redis.outputs.REDIS_HOST
+   ```
 
 5. Make sure all changes are saved, then use the following command to update your provisioned resources on Azure:
 
-  ```shell
-  azd provision
-  ```
+   ```shell
+   azd provision
+   ```
 
-  > [!NOTE]
-  > Depending on many factors, adding an instance of Azure Cache for Redis to the existing deployment could take a long time. In testing, we experienced execution times in excess of 20 minutes. As long as you do not see any errors, allow the process to continue until complete.
+   > [!NOTE]
+   > Depending on many factors, adding an instance of Azure Cache for Redis to the existing deployment could take a long time. In testing, we experienced execution times in excess of 20 minutes. As long as you do not see any errors, allow the process to continue until complete.
 
 6. When `azd provision` completes, open the Azure portal, navigate to the Resource Group for your deployment, and in the list of services confirm you now have an instance of Azure Cache for Redis.
 
 ## Clean up resources
 
-1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
+Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
-   ```shell
-   azd down
-   ```
+```shell
+azd down
+```
 
-   The `azd down` command deletes the Azure resources and the GitHub Actions workflow.
-   When prompted, agree to deleting all resources associated with the resource group.
+The `azd down` command deletes the Azure resources and the GitHub Actions workflow. When prompted, agree to deleting all resources associated with the resource group.
 
-   You can also delete the *azdtest* folder, or use it as the basis for your own application by modifying the files of the project.
+You can also delete the *azdtest* folder, or use it as the basis for your own application by modifying the files of the project.
 
 ## Related Content
 
