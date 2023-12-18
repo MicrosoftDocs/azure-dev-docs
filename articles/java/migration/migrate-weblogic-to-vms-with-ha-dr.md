@@ -356,7 +356,7 @@ Then, restart all managed servers of the primary cluster for the changes to take
 Now, stop all VMs in the secondary cluster to make it passive.
 
 1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb120623*.
-1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed.
+1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed, including *adminVM*, *mspVM1*, *mspVM2*, and *mspVM3*.
 1. Select to open each of VMs. Select **Stop** and confirm for each VM. 
 1. Select notifications icon from right-top of the Azure portal to open **Notifications** pane.
 1. Monitor event **Stopping virtual machine** for each VM until it becomes **Successfully stopped virtual machine**. Keep the page open and you use it for failover test later.
@@ -378,18 +378,31 @@ Keep the page open and you use it for failover test later.
 
 ## Test failover from primary to secondary
 
-By default, both your Azure SQL database failover group and Azure Traffic Manager support automatic failover.
-
 To test failover, you manually fail your primary database server and cluster over to the secondary database server and cluster, and then fail back using the Azure portal in this section.
 
 ### Failover to the secondary site
 
-Execute the following steps to fail over to the secondary site including database server and cluster.
+First, shutdown VMs in the primary cluster.
+
+1. Find the name of your resource group where the primary WLS cluster is deployed, for example, *wls-cluster-westus-ejb120623*. Then follow similar instructions in [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster), but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
+1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myPrimaryEndpoint* becomes *Degraded*.
+1. Switch to the browser tab of the sample app, refresh the page, you should see *504 Gateway Time-out* or *502 Bad Gateway* as none of endpoints is accessible.
+
+Next, failover the Azure SQL Database from the primary server to the secondary server.
 
 1. Switch to the browser tab of your Azure SQL Database failover group. 
-1. Select **Failover** > **Yes**. Wait until it completes.
-1. Switch to the browser tab where two endpoints of your Traffic Manager profile are listed. Select the primary endpoint *myPrimaryEndpoint*.
-1. Select **Disabled** for **Status**, select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic to the secondary endpoint.
+1. Select **Failover** > **Yes**. 
+1. Wait until it completes.
+
+Then, start all servers in the secondary cluster.
+
+1. Switch to the browser tab where you stopped all VMs in the secondary cluster.
+1. Select VM **adminVM**. Select **Start**. 
+1. Monitor event **Starting virtual machine** for *adminVM* in **Notifications** pane, wait until it becomes **Started virtual machine**.
+1. Switch to the browser tab of WebLogic Server AdministrationConsole for the secondary cluster, refresh the page until you see the welcome page for login.
+1. Switch back to the browser tab where all VMs in the secondary cluster are listed. For VM *mspVM1*, *mspVM2* and *mspVM3*, select to open and then select **Start**. 
+1. Monitor events **Starting virtual machine** for VM *mspVM1*, *mspVM2* and *mspVM3* in **Notifications** pane, wait until they become **Started virtual machine**.
+1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myFailoverEndpoint* becomes *Online*.
 1. Switch to the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
@@ -398,17 +411,11 @@ If you don't observe this behavior, it may be because the Traffic Manager is tak
 
 ### Fail back to the primary site
 
-Execute the following steps to failback to the primary site including database server and cluster.
+Execute the same steps in [Failover to the secondary site](#failover-to-the-secondary-site) to failback to the primary site including database server and cluster, except for the following differences:
 
-1. Switch to the browser tab of your Azure SQL Database failover group. 
-1. Select **Failover** > **Yes**. Wait until it completes.
-1. Switch to the browser tab where the primary endpoint *myPrimaryEndpoint* of your Traffic Manager is displayed.
-1. Select **Enabled** for **Status**. Select **Save**. Wait until it completes. Wait an extra minute so that the Traffic Manager routes the traffic back to the primary endpoint.
-1. In the browser tab of the sample app, refresh the page, you should see the same data persisted in application data table and session table displayed in the UI.
-
-   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after fail back." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
-
-   If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+1. First, shutdown VMs in the secondary cluster.
+1. Next, failover the Azure SQL Database from the secondary server to the primary server.
+1. Then, start all servers in the primary cluster.
 
 ## Clean up resources
 
