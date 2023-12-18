@@ -22,7 +22,7 @@ Pre-defined sovereign cloud constants are provided by the `AzureAuthorityHosts` 
 
 To use a definition, import the appropriate constant from `azure.identity.AzureAuthorityHosts` and apply it when creating client objects.
 
-When using `DefaultAzureCredential`, as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
+When using [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential), as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud.py":::
   

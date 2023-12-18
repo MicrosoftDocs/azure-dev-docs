@@ -18,10 +18,12 @@
     items:
       - name: Overview
         href: overview-azd-templates.md
-      - name: Quickstart
+      - name: Quickstart in local env
         href: quickstart-python-web-azd-templates.md
+      - name: Quickstart in Codespaces
+        href: quickstart-python-web-azd-codespaces.md
       - name: Scale with Bicep
-        href: quickstart-python-scale-bicep.md
+        href: quickstart-python-scale-bicep.md        
   - name: Web app solutions
     items:
     - name: Django/Flask
