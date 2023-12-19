@@ -106,6 +106,21 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
+    - title: Azure AI for Developers
+      imageSrc: ./intro/media/azure-openai.png
+      links:
+        - url: ./intro/azure-ai-for-developers.md
+          text: Develop apps that use Azure AI services
+        - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
+          text: Python enterprise chat sample using Rag 
+        - url: /dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
+          text: .NET enterprise chat sample using Rag
+        - url: /azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
+          text: JavaScript enterprise chat sample using Rag
+        - url: /azure/developer/java/quickstarts/get-started-app-chat-template?tabs=github-codespaces
+          text: Java enterprise chat sample using Rag
+        - url: /azure/ai-services/
+          text: Azure AI services documentation
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
@@ -149,21 +164,6 @@ productDirectory:
           text: Create a virtual machine
         - url: /cli/azure/
           text: See more in the Azure CLI developer center
-    - title: AI on Azure
-      imageSrc: ./intro/media/azure-openai.png
-      links:
-        - url: ./intro/azure-ai-for-developers.md
-          text: Develop apps that use Azure AI services
-        - url: /azure/search/retrieval-augmented-generation-overview
-          text: Retrieval Augmented Generation (RAG) in Azure AI Search 
-        - url: /azure/ai-services/
-          text: Azure AI services documentation                   
-        - url: https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
-          text: Python enterprise chat sample using Rag 
-        - url: https://learn.microsoft.com/en-us/dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
-          text: .NET enterprise chat sample using Rag
-        - url: https://learn.microsoft.com/en-us/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
-          text: JavaScript enterprise chat sample using Rag
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
