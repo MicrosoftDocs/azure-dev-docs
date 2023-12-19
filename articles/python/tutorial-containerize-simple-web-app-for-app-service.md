@@ -274,7 +274,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
 ## Make updates and redeploy
 
-After you make code changes, you can redeploy to App Service with the [az acr build][21] and [az webapp update][19] commands.
+After you make code changes, you can redeploy to App Service with the [az acr build][21] and [az webapp update][28] commands.
 
 ## Clean up
 
@@ -322,3 +322,4 @@ For more information, see the following resources:
 [25]: https://portal.azure.com/
 [26]: /azure/app-service/quickstart-python
 [27]: /cli/azure/webapp/log#az-webapp-log-tail
+[28]: /cli/azure/webapp#az-webapp-update
