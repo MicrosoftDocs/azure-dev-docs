@@ -149,21 +149,21 @@ productDirectory:
           text: Create a virtual machine
         - url: /cli/azure/
           text: See more in the Azure CLI developer center
-    - title: Mobile
-      imageSrc: https://static.docs.com/ui/media/product/azure/devices.svg
+    - title: AI on Azure
+      imageSrc: /intro/media/azure-openai.png"
       links:
-        - url: ./mobile-apps/serverless-compute.md
-          text: Build a serverless mobile app
-        - url: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-          text: Save data with Azure Cosmos DB
-        - url: ./mobile-apps/push-notifications.md
-          text: Send push notifications to engage users
-        - url: ./mobile-apps/authentication.md
-          text: Add authentication and manage user identities
-        - url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
-          text: Key concepts for new Azure Pipelines users
-        - url: ./mobile-apps/index.yml
-          text: See more in the Mobile app developer center
+        - url: ./intro/azure-ai-for-developers.md
+          text: Develop apps that use Azure AI services
+        - url: /azure/search/retrieval-augmented-generation-overview
+          text: Retrieval Augmented Generation (RAG) in Azure AI Search 
+        - url: /azure/ai-services/
+          text: Azure AI services documentation                   
+        - url: https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
+          text: Python enterprise chat sample using Rag 
+        - url: https://learn.microsoft.com/en-us/dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
+          text: .NET enterprise chat sample using Rag
+        - url: https://learn.microsoft.com/en-us/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
+          text: JavaScript enterprise chat sample using Rag
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
