@@ -274,7 +274,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
 ## Make updates and redeploy
 
-After you make code changes, you can redeploy to App Service with the [az acr build][18] and [az webapp update][19] commands.
+After you make code changes, you can redeploy to App Service with the [az acr build][21] and [az webapp update][19] commands.
 
 ## Clean up
 
