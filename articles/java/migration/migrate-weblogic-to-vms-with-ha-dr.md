@@ -25,6 +25,7 @@ In this tutorial, you learn how to:
 
 This diagram illustrates the architecture you build.
 
+<!-- Diagram source https://github.com/Azure-Samples/azure-cafe/blob/main/diagrams/weblogic-on-vms-ha-dr-solution-architecture.pptx -->
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png" alt-text="Solution architecture of WLS on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/solution-architecture.png":::
 
 Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. The primary WLS cluster is running and the secondary cluster shutdown. For geo-failover RTO of the application tier, it depends on the time for starting VMs and running the secondary WLS cluster. The RPO depends on the Azure SQL Database since the data is persitsted and replicated in Azure SQL Database failover group.  
