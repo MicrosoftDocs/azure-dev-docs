@@ -150,7 +150,7 @@ productDirectory:
         - url: /cli/azure/
           text: See more in the Azure CLI developer center
     - title: AI on Azure
-      imageSrc: /intro/media/azure-openai.png"
+      imageSrc: ./intro/media/azure-openai.png"
       links:
         - url: ./intro/azure-ai-for-developers.md
           text: Develop apps that use Azure AI services
