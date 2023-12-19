@@ -31,7 +31,7 @@ Azure Traffic Manager checks the health of your regions and routes the traffic a
 
 The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The primary server is in active read-write mode and connected to the primary WLS cluster. The secondary server is in passive ready-only mode and connected to the secondary WLS cluster. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
-For more information, including on how to optimize the configuration of data sources for replication, please see [Configuring Data Sources for Oracle Fusion Middleware Active-Passive Deployment](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asdrg/setting-and-managing-disaster-recovery-sites.html#GUID-445693AB-B592-4E11-9B44-A208444B75F2).
+This tutorial was written with Azure SQL Database service because the tutorial relies on the HA features of that service. Other database choices are possible, but the HA features of whatever database you chose must be considered. For more information, including on how to optimize the configuration of data sources for replication, please see [Configuring Data Sources for Oracle Fusion Middleware Active-Passive Deployment](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asdrg/setting-and-managing-disaster-recovery-sites.html#GUID-445693AB-B592-4E11-9B44-A208444B75F2).
 
 ## Prerequisites
 
@@ -235,6 +235,8 @@ In this example, the Azure Application Gateway backend pool for each cluster is 
 | Primary   | myGatewayBackendPool                    | (10.1.5.5, 10.1.5.8, 10.1.5.6) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
 | Secondary | myGatewayBackendPool                    | (10.1.5.7, 10.1.5.6, 10.1.5.4) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
 
+To automate the network settings mirroring, consider using Azure CLI. See [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) for more information.
+
 ### Verify deployments of clusters
 
 You've deployed an Azure Application Gateway and a WLS admin server in each cluster. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration. 
@@ -414,6 +416,8 @@ Finally, verify the sample app after endpoint *myFailoverEndpoint* is *Online*.
 
    If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
+To automate the failover, consider using alerts on Traffic Manager metrics and Azure Automation. See [Alerts on Traffic Manager metrics](/azure/traffic-manager/traffic-manager-metrics-alerts#alerts-on-traffic-manager-metrics) and [Use an alert to trigger an Azure Automation runbook](/azure/automation/automation-create-alert-triggered-runbook) for more information.
+
 ### Fail back to the primary site
 
 Execute the same steps in [Failover to the secondary site](#failover-to-the-secondary-site) to failback to the primary site including database server and cluster, except for the following differences:
@@ -439,7 +443,7 @@ If you're not going to continue to use the WLS clusters and other components, de
 
 In this tutorial, you set up a HA/DR solution consisting of an active-passive application infrastructure tier with an active-passive database tier, and in which both tiers span two geographically different sites. At the first site, both the application infrastructure tier and the database tier are active. At the second site, the secondary domain is shutdown, and the secondary database is on standby.
 
-Continue to explore references for more options to build HA/DR solutionsHA/DR and run WLS on Azure.
+Continue to explore references for more options to build HA/DR solutions and run WLS on Azure.
 
 > [!div class="nextstepaction"]
 > [Disaster Recovery solutions for Oracle Fusion Middleware products](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asdrg/index.html#Oracle%C2%AE-Fusion-Middleware)
