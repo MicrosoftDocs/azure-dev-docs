@@ -112,13 +112,13 @@ productDirectory:
         - url: ./intro/azure-ai-for-developers.md
           text: Develop apps that use Azure AI services
         - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
-          text: Python enterprise chat sample using Rag 
+          text: Python enterprise chat sample using RAG 
         - url: /dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
-          text: .NET enterprise chat sample using Rag
+          text: .NET enterprise chat sample using RAG
         - url: /azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
-          text: JavaScript enterprise chat sample using Rag
+          text: JavaScript enterprise chat sample using RAG
         - url: /azure/developer/java/quickstarts/get-started-app-chat-template?tabs=github-codespaces
-          text: Java enterprise chat sample using Rag
+          text: Java enterprise chat sample using RAG
         - url: /azure/ai-services/
           text: Azure AI services documentation
     - title: Go
