@@ -1,15 +1,21 @@
 ---
-title: 'Quickstart: Use GPT-35-Turbo via the Azure OpenAI Studio in IntelliJ IDEA'
+title: 'Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service using IntelliJ'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with IntelliJ IDEA. 
+description: Walkthrough on how to get started with Azure OpenAI Service and make your first chat completions call with IntelliJ IDEA. 
 services: cognitive-services
-manager: nitinme
 ms.service: azure-ai-openai
 ms.author: jialuogan
 ms.topic: include
 ms.date: 12/18/2023
 keywords: 
 ---
+
+
+# Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ
+
+This article shows you how to get started with Azure OpenAI Service and use the chat models such as GPT-3.5-Turbo and GPT-4 to test and experiment with different parameters and data sources in IntelliJ IDEA. 
+
+
 
 ## Prerequisites
 
@@ -78,22 +84,27 @@ In the Playground, you can start testing your deployments with different prompts
 
 1. Enter a follow-up question like: "which models support GPU?"
 
-     :::image type="content" source="media/chatgpt-intelliJ/surface2.png" alt-text="Screenshot of a first question and answer in playground.":::
+     :::image type="content" source="media/chatgpt-intelliJ/surface2.png" alt-text="Screenshot of a second question and answer in playground.":::
 
-1. Now that you have a basic conversation select **View code** from the panel and you'll have a replay of the code behind the entire conversation so far. You can generate code samples using the Java SDK. You can also select JSON or Curl from the dropdown menu.
+1. Now that you have a basic conversation select **View code** from the panel and you'll have a replay of the code behind the entire conversation so far. You can see the code samples for Java SDK, curl, and JSON that correspond to your chat session and settings. 
 
      :::image type="content" source="media/chatgpt-intelliJ/viewcode.png" alt-text="Screenshot of how to view code.":::
 
-1. If you want to embed it into your application, you can click the "Copy" for next steps.
+1. If you want to embed these code samples into your application, you can click the "Copy" to continue.
 
 ## Clean up resources
 
-Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+   > [!NOTE]
+   > Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+1. To delete your Azure OpenAI resources, navigate to the left-hand **Azure Explorer** sidebar and locate the **Azure OpenAI** item.
+
+1. Right-click the Azure OpenAI service you'd like to delete and click **Delete**.
+
+1. To delete your resource group, visit the [Azure portal](https://portal.azure.com) and manually delete the resources under your subscription.
+
 
 ## Next steps
 
-* Learn more about how to work with the new `gpt-35-turbo` model with the [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md).
+* Learn more about how to work with the new `gpt-35-turbo` model with the [GPT-35-Turbo & GPT-4 how-to guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions)
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
