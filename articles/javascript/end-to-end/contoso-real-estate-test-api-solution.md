@@ -24,7 +24,7 @@ The Contoso Real Estate application is an example end to end architecture, along
 
 ## API testing with Playwright
 
-The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For APIs, this requires tools that can automate test actions in the browser (web automation) and support this consistently across browsers.
+The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For APIs, this requires tools that can automate test actions and support this consistently across development, CICD, and production environments.
 
 Playwright is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
 
@@ -40,7 +40,7 @@ The API endpoint is available in an environment variable based on which environm
 
 * **Local development on a local machine**: The local computer is running the Azure Functions API locally. The API is available at `http://localhost:7071/api/`.
 * **GitHub Codespaces**: The Codespaces environment is run in a browser from a cloud-based container. Use environment variables to construct the API endpoint from the host and port:  `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`.
-* **Azure**: The API is deployed to Azure Functions. The deployed endpoint is available from the Azure Developer CLI's `.env` file based on the output variable using in the main.bicep. For this specific project, the environment variable name `SERVICE_API_ENDPOINTS`. This variable is a stringified array. In order to use it in the test, you need to parse it into an array and then select the first item in the array.
+* **Azure**: The API is deployed to Azure Functions. The deployed endpoint is available from the Azure Developer CLI's `.env` file based on the output variable used in the main.bicep. For this specific project, the environment variable name `SERVICE_API_ENDPOINTS`. This variable is a stringified array. In order to use it in the test, you need to parse it into an array and then select the first item in the array.
 
 ## Prerequisites 
 
@@ -49,7 +49,7 @@ The API endpoint is available in an environment variable based on which environm
 
 ## Prepare to test the APIs in Codespaces
 
-The Contoso Real Estate monorepo has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
+The Contoso Real Estate monorepo is configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
 
 Use the following steps to prepare to test the API when running the API locally. 
 
@@ -181,7 +181,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
     npm test
     ```
 
-1. The test should pass without output like the following:
+1. The test should pass with output like the following:
 
     ```console
      $ npm run test --workspace=api-test
