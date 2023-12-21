@@ -154,7 +154,7 @@ terminal and answer any prompts:
    bar of a web browser to see the sample web app project running live in Azure.
 
 7. Open a new tab in your web browser, copy the second URL from the previous step and paste it into
-   the location bar. The Azure Portal displays all of the services in your new
+   the location bar. The Azure portal displays all of the services in your new
    resource group that have been deployed to host the sample web app project.
 
 ## Edit and redeploy
@@ -208,9 +208,9 @@ The next step is to make a small change to the web app and then redeploy.
 
 If you see errors during `azd up`, try the following steps:
 
-- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
+- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure portal.
 - Delete the *azdtest* folder on your local computer.
-- In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
+- In the Azure portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
 - Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
 - When retrying the quickstart steps, choose a different location.
 
