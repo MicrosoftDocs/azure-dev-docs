@@ -41,37 +41,39 @@ Choose an `azd` template based on the Python web framework, Azure web hosting pl
 
 1. Select a template name (first column) from the following list of templates in the following tables. You'll use the template name during the `azd init` step in the next section.
 
-**Django**
+   # [Django](#tab/django)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
-|azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)|
-|azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
-|azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice)|
-|azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-addon-aca)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
+   |azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)|
+   |azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
+   |azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice)|
+   |azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-addon-aca)|
 
-**FastAPI**
+   # [FastAPI](#tab/fastapi)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
-|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)|
-|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
-|azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice)|
-|azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
+   |azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)|
+   |azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
+   |azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice)|
+   |azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca)|
 
-**Flask**
+   # [Flask](#tab/flask)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
-|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)|
-|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
-|azure-flask-cosmos-postgres-appservice|Flask|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice)|
-|azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-addon-aca)|
-|azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
-|azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
+   |azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)|
+   |azure-flask-cosmos-postgres-aca|Flask|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
+   |azure-flask-cosmos-postgres-appservice|Flask|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice)|
+   |azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-addon-aca)|
+   |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
+   |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
+
+   ---
 
    The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the `azd` CLI to interact with the template in a normal workflow.
 
