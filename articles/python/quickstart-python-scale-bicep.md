@@ -40,13 +40,13 @@ To begin, you need a working `azd` deployment. Once you have that in place, you'
 
    Once `azd up` finishes, open the Azure portal, navigate to the Azure App Service that was deployed in your new Resource Group and take note of the App Service pricing plan (see the App Service plan's Overview page, Essentials section, "Pricing plan" value).
 
-2. In step 1 of the Quickstart article, you were instructed to create the azdtest folder. Open that folder in Visual Studio Code.
+2. In step 1 of the Quickstart article, you were instructed to create the *azdtest* folder. Open that folder in Visual Studio Code.
 
 3. In the Explorer pane, navigate to the *infra* folder. Observe the subfolders and files in the *infra* folder.
 
    The *main.bicep* file orchestrates the creation of all the services deployed when performing an `azd up` or `azd provision`. It calls into other files, like *db.bicep* and *web.bicep*, which in turn call into files contained in the *\core* subfolder.
 
-   The core subfolder is a deeply nested folder structure containing bicep templates for many Azure services. Some of the files in the core subfolder are referenced by the three top level bicep files (main, db and hosting) and some aren't used at all in this project.
+   The *\core* subfolder is a deeply nested folder structure containing bicep templates for many Azure services. Some of the files in the *\core* subfolder are referenced by the three top level bicep files (*main.bicep*, *db.bicep* and *web.bicep*) and some aren't used at all in this project.
 
 ## Scale a service by modifying its Bicep properties
 
