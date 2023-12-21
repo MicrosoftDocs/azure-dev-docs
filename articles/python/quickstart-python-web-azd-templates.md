@@ -10,14 +10,14 @@ ms.custom: devx-track-python
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
-- Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
-- Use CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
-- Edit the web app on your local computer and use an azd command to redeploy.
-- Use an azd command to clean up Azure resources.
+- Choose an `azd` template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
+- Use CLI commands to run an `azd` template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Edit the web app on your local computer and use an `azd` command to redeploy.
+- Use an `azd` command to clean up Azure resources.
 
 It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
 
-To learn more about these azd templates for Python web app development:
+To learn more about these `azd` templates for Python web app development:
 
 - [What are these templates?](./overview-azd-templates.md#what-are-the-python-web-azd-templates)
 - [How do the templates work?](./overview-azd-templates.md#how-do-the-templates-work)
@@ -30,14 +30,14 @@ An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?
 
 You must have the following installed on your local computer:
 
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Choose a template
 
-Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+Choose an `azd` template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
 
 1. Select a template name (first column) from the following list of templates in the following tables. You'll use the template name during the `azd init` step in the next section.
 
@@ -73,11 +73,11 @@ Choose an azd template based on the Python web framework, Azure web hosting plat
 |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
 |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
 
-   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
+   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the `azd` CLI to interact with the template in a normal workflow.
 
 ## Run the template
 
-Running an azd template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
+Running an `azd` template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
 
 1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azdtest*. Then, change into that directory using the `cd` command.
 
@@ -100,7 +100,7 @@ Running an azd template is the same across languages and frameworks. And, the sa
    name. The environment name is used when naming Azure resource groups and resources. For
    best results, use a short name, lower case latters, no special characters.
 
-3. To authenticate azd to your Azure account, enter the following commands in your terminal and follow the prompt:
+3. To authenticate `azd` to your Azure account, enter the following commands in your terminal and follow the prompt:
 
    ```shell
    azd auth login
@@ -127,7 +127,7 @@ terminal and answer any prompts:
    ```
 
    >[!IMPORTANT]
-   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
+   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the `azd` templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
 
    Follow the instructions when prompted to choose Azure Subscription to use for payment, then
    select an Azure location to use. Choose a region that is close to you geographically.
@@ -183,7 +183,7 @@ The next step is to make a small change to the web app and then redeploy.
    azd deploy
    ```
 
-   Since you're using Dev Containers and are connected remotely into the container's shell, don't use Visual Studio Code's Terminal pane to run azd commands.
+   Since you're using Dev Containers and are connected remotely into the container's shell, don't use Visual Studio Code's Terminal pane to run `azd` commands.
 
 5. Once the command completes, refresh your web browser to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
 
@@ -191,7 +191,7 @@ The next step is to make a small change to the web app and then redeploy.
 
 ## Clean up resources
 
-1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
+1. Clean up the resources created by the template by running the [`azd down`](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
    ```Shell
    azd down
@@ -216,10 +216,10 @@ See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more
 
 ## Related Content
 
-- [Learn more about the Python web azd templates](./overview-azd-templates.md)
+- [Learn more about the Python web `azd` templates](./overview-azd-templates.md)
 - [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
 - Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 - [Learn more about Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
-- Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
-- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
+- [Update the Bicep templates to add or remove Azure services](./quickstart-python-scale-bicep.md). Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
+- [Use `azd` to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
 - Set up monitoring so that you can [Monitor your app using the Azure Developer CLI](/azure/developer/azure-developer-cli/monitor-your-app)
