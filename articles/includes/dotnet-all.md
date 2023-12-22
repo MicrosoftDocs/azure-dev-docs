@@ -283,7 +283,7 @@
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
 | Azure.Communication.CallingServer | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.CallingServer/1.0.0-beta.3) |  |  |
 | Azure.Core.Expressions.DataFactory | NuGet [1.0.0-beta.6](https://www.nuget.org/packages/Azure.Core.Expressions.DataFactory/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Expressions.DataFactory_1.0.0-beta.6/sdk/core/Azure.Core.Expressions.DataFactory/) |
-| Communication Calling Windows Client | NuGet [1.3.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.3.0)<br>NuGet [1.4.0-beta.2](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0-beta.2) |  |  |
+| Communication Calling Windows Client | NuGet [1.3.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.3.0)<br>NuGet [1.4.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0-beta.3) |  |  |
 | Unknown Display Name | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.AI.DocumentIntelligence/1.0.0-beta.1) |  |  |
 | Unknown Display Name | NuGet [12.0.0-beta.1](https://www.nuget.org/packages/Azure.Storage.DataMovement.Files.Shares/12.0.0-beta.1) |  |  |
 | Unknown Display Name | NuGet [1.0.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers/1.0.1) |  |  |
@@ -338,7 +338,7 @@
 | Image Search | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/2.0.0) |  |  |
 | IoT Edge Function | NuGet [3.5.3](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/3.5.3) |  |  |
 | IoT Models Repository | NuGet [1.0.0-preview.5](https://www.nuget.org/packages/Azure.IoT.ModelsRepository/1.0.0-preview.5) |  |  |
-| IoT Plug and Play - Devices Client | NuGet [1.42.1](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.42.1)<br>NuGet [2.0.0-preview007](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/2.0.0-preview007) |  |  |
+| IoT Plug and Play - Devices Client | NuGet [1.42.2](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.42.2)<br>NuGet [2.0.0-preview007](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/2.0.0-preview007) |  |  |
 | Kusto Data | NuGet [9.3.1](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/9.3.1) | [docs](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/about-kusto-data) | GitHub [9.3.1](https://github.com/Azure/azure-kusto-dotnet) |
 | Kusto Ingest | NuGet [9.3.1](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/9.3.1) | [docs](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/about-kusto-ingest) | GitHub [9.3.1](https://github.com/Azure/azure-kusto-dotnet) |
 | Local Search | NuGet [1.0.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.BingLocalSearch/1.0.0-preview.1) |  | GitHub [1.0.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingLocalSearch_1.0.0-preview.1/sdk/cognitiveservices/Search.BingLocalSearch) |
