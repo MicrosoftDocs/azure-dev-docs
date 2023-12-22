@@ -33,7 +33,7 @@ To learn more about these `azd` templates for Python web app development:
 - A GitHub Account - [Create one for free](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
 
 > [!IMPORTANT]
-> Both GitHub Codespaces and Azure are paid subscription based services. After some free allotments, you may be charged for using these services. Following this quickstart could affect these allotments or billing. When possible, the azd templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
+> Both GitHub Codespaces and Azure are paid subscription based services. After some free allotments, you may be charged for using these services. Following this quickstart could affect these allotments or billing. When possible, the `azd` templates were built using the least expensive tier of options, but some may not be free. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to better understand the costs. For more information, see [GitHub Codespaces pricing](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) for more details.
 
 ## Choose a template and create a codespace
 
@@ -194,7 +194,7 @@ The `azd down` command deletes the Azure resources and the GitHub Actions workfl
 
 ## Optional: Find your codespace
 
-   This section demonstrates how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
+This section demonstrates how your code is (temporarily) running and persisted short-term in a Codespace. If you plan on continuing to work on the code, you should publish the code to a new repository.
 
 1. Close all tabs related to this Quickstart article, or shut down your web browser entirely.
 
@@ -228,10 +228,10 @@ See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more
 
 ## Related content
 
-- [Learn more about the Python web azd templates](./overview-azd-templates.md)
+- [Learn more about the Python web `azd` templates](./overview-azd-templates.md)
 - [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
 - Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 - [Learn more about GitHub Codespaces](https://docs.github.com/en/codespaces/getting-started/quickstart)
-- Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
-- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
+- [Update the Bicep templates to add or remove Azure services](./quickstart-python-scale-bicep.md). Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
+- [Use `azd` to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
 - Set up monitoring so that you can [Monitor your app using the Azure Developer CLI](/azure/developer/azure-developer-cli/monitor-your-app)
