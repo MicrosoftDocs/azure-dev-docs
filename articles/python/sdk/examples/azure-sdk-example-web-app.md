@@ -78,7 +78,7 @@ python provision_deploy_web_app.py
 
 ## 6: Deploy the web app code
 
-The script sets up the resources needed to host your web app and sets the deployment source to the master branch of your fork using manual integration. With manual integration, you must trigger the web app to pull from the repository.
+The script sets up the resources needed to host your web app and sets the deployment source to your fork using manual integration. With manual integration, you must trigger the web app to pull from the configured repository and branch.
 
 Deploy your code by running the [az webapp deployment source sync](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-sync)
  command:
