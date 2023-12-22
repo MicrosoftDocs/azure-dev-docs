@@ -368,6 +368,9 @@ Now, stop all VMs in the secondary cluster to make it passive.
 
 Now switch to the browser tab where you monitor endpoints' status of the Traffic Manager, refresh the page until you see endpoint *myFailoverEndpoint* is *Degraded* and endpoint *myPrimaryEndpoint* is *Online*.
 
+> [!NOTE]
+> A production-ready HA/DR solution would probably want to achieve a lower RTO by leaving the VMs running but only stopping the WLS software running on the VMs. Then, in the event of failover, the VMs would already be running and the WLS software would take less time to start. This article chose to stop the VMs because the software deployed by [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls-vm-cluster) automatically starts the WLS software when the VMs start.
+
 ### Verify app
 
 Since the primary cluster is up and running, it acts as the active cluster and handles all user requests routed by your Traffic Manager profile.
@@ -416,6 +419,9 @@ Finally, verify the sample app after endpoint *myFailoverEndpoint* is *Online*.
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
    If you don't observe this behavior, it may be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be your browser has cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+   
+> [!NOTE]
+> A production-ready HA/DR solution would account for continually copying the WLS configuration from the primary to the secondary clusters on a regular schedule. For details on how to do this, see the references to the Oracle documentation at the end of the article.
 
 To automate the failover, consider using alerts on Traffic Manager metrics and Azure Automation. See [Alerts on Traffic Manager metrics](/azure/traffic-manager/traffic-manager-metrics-alerts#alerts-on-traffic-manager-metrics) and [Use an alert to trigger an Azure Automation runbook](/azure/automation/automation-create-alert-triggered-runbook) for more information.
 
