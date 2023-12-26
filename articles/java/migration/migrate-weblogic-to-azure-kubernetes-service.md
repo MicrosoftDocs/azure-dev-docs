@@ -36,6 +36,8 @@ If you don't use the prebuilt Azure Marketplace offer, you must learn how to use
 
 The remainder of this section provides some considerations for deciding to use the prebuilt Azure Marketplace offer or using the operator directly.
 
+#### A word on WebLogic Server domains
+
 First, you have to understand the concept of the WLS "domain". A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The prebuilt Azure Marketplace offer uses the first one in this table.
 
 | Domain home source type | Description                                                                                                                   | Positive aspects                                                                                                                                                                                                            | Negative aspects                                                                                                                                                                                                                          |
