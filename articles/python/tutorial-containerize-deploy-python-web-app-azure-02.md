@@ -58,6 +58,9 @@ If you're using one of the framework sample apps available for [Django](https://
 
 These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
+> [!NOTE]
+> The steps in this section require the docker daemon to be running. In some installations, for example on Windows, you need to start [Docker Desktop](https://www.docker.com/products/docker-desktop/) to run the docker daemon before proceeding.
+
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing how to open the Docker extension in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot showing how to open the Docker extension in Visual Studio Code." ::: |
@@ -67,6 +70,9 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 ### [Docker CLI](#tab/docker-cli)
 
 These instructions require [Docker](https://docs.docker.com/get-docker/).
+
+> [!NOTE]
+> The steps in this section require the docker daemon to be running. In some installations, for example on Windows, you need to start [Docker Desktop](https://www.docker.com/products/docker-desktop/) to run the docker daemon before proceeding.
 
 [!INCLUDE [Build an image with the Docker CLI](<./includes/tutorial-container-web-app/build-docker-image-docker-cli.md>)]
 
@@ -87,10 +93,26 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
 
 **Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
 
-Check if it's installed:
+You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/).
+
+- The following command enters the shell and gives you the version of both mongosh and mongoDB server installed on your system:
+
+  ```
+  mongosh
+  ```
+
+- The following command gives you just the version of MongoDB server installed on your system:
+  
+  ```
+  mongosh --quiet --exec 'db.version()'
+  ```
+
+If these commands don't work, you may need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
+  
+An alternative in some installations is to directly invoke the Mongo deamon.
 
 ```
-mongo --version
+mongod --version
 ```
 
 **Step 2:** Edit the *mongod.cfg* file to add your computer's IP address.
@@ -109,7 +131,7 @@ Restart MongoDB to pick up changes to the configuration file.
 
 **Step 3:** Create a database and collection in the local MongoDB database.
 
-Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MonogoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
+Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
 
 For the MongoDB shell, here are example commands to create the database and collection:
 
