@@ -342,7 +342,7 @@ Do the following steps on the primary WLS cluster, in US West.
 1. Check the value for **Prefix Name** is *TLOG_msp1_* by default, change if not. 
 1. Select **Save**.
 1. Select **Servers** > **msp2**, and execute the same steps, except that the default value for **Prefix Name** is *TLOG_msp2_*.
-1. Select **Servers** > **msp2**, and execute the same steps, except that the default value for **Prefix Name** is *TLOG_msp3_*.
+1. Select **Servers** > **msp3**, and execute the same steps, except that the default value for **Prefix Name** is *TLOG_msp3_*.
 1. Select **Activate Changes**.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in East US.
