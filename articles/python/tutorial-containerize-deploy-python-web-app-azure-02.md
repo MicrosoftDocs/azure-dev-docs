@@ -59,7 +59,7 @@ If you're using one of the framework sample apps available for [Django](https://
 These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 > [!NOTE]
-> The steps in this section require the docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the docker daemon, before proceeding.
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -72,7 +72,7 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 > [!NOTE]
-> The steps in this section require the docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the docker daemon, before proceeding.
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
 [!INCLUDE [Build an image with the Docker CLI](<./includes/tutorial-container-web-app/build-docker-image-docker-cli.md>)]
 
