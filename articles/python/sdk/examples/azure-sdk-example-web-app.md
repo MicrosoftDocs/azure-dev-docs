@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a Python web app to Azure App Service using the Azure SDK libraries
 description: Use Azure SDK for Python to create a web app and then deploy app code from a GitHub repository to Azure App Service.
-ms.date: 12/21/2023
+ms.date: 12/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -76,20 +76,7 @@ Create a Python file named *provision_deploy_web_app.py* with the following code
 python provision_deploy_web_app.py
 ```
 
-## 6: Deploy the web app code
-
-The script sets up the resources needed to host your web app and sets the deployment source to your fork using manual integration. With manual integration, you must trigger the web app to pull from the configured repository and branch.
-
-Deploy your code by running the [az webapp deployment source sync](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-sync)
- command:
-
-```azurecli
-az webapp deployment source sync --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
-```
-
-Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script.
-
-## 7: Verify the web app deployment
+## 6: Verify the web app deployment
 
 Visit the deployed web site by running the following command:
 
@@ -106,7 +93,31 @@ If you still don't see the expected output, then:
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups**, and find the resource group you created.
 1. Select the resource group name to view the resources it contains. Specifically, verify that there's an App Service Plan and the App Service.
-1. Select the App Service, and then select **Deployment Center** to view deployment logs.
+1. Select the App Service, and then select **Deployment Center**.
+1. Select the **logs** tab to view deployment logs.
+
+## 7: Redeploy the web app code (optional)
+
+The script sets up the resources needed to host your web app and sets the deployment source to your fork using manual integration. With manual integration, you must trigger the web app to pull from the configured repository and branch.
+
+The script calls the [WebSiteManagementClient.web_apps.sync_repository](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#azure-mgmt-web-v2019-08-01-operations-webappsoperations-sync-repository) method to trigger a pull from the web app. If you push subsequent code changes to your repository, you can redeploy your code by invoking this API or by using other Azure tooling like the Azure CLI or Azure portal.
+
+You can deploy your code with the Azure CLI by running the [az webapp deployment source sync](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-sync)
+ command:
+
+```azurecli
+az webapp deployment source sync --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
+```
+
+Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script.
+
+To deploy your code from Azure portal:
+
+1. Go to the [Azure portal](https://portal.azure.com).
+1. Select **Resource groups**, and find the resource group you created.
+1. Select the resource group name to view the resources it contains. Specifically, verify that there's an App Service Plan and the App Service.
+1. Select the App Service, and then select **Deployment Center**.
+1. On the top menu, select **Sync** to deploy your code.
 
 ## 8: Clean up resources
 
