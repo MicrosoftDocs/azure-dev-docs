@@ -146,9 +146,21 @@ docker login $ACR_LOGIN_SERVER -u $ACR_USER_NAME -p $ACR_PASSWORD
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-$Env:ACR_LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'loginServer' --output tsv)
-$Env:ACR_USER_NAME=$(az acr credential show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'username' --output tsv)
-$Env:ACR_PASSWORD=$(az acr credential show --name $Env:REGISTRY_NAME --resource-group $Env:RESOURCE_GROUP_NAME --query 'passwords[0].value' --output tsv)
+$Env:ACR_LOGIN_SERVER = $(az acr show `
+    --name $Env:REGISTRY_NAME `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --query 'loginServer' `
+    --output tsv)
+$Env:ACR_USER_NAME=$(az acr credential show `
+    --name $Env:REGISTRY_NAME `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --query 'username' `
+    --output tsv)
+$Env:ACR_PASSWORD=$(az acr credential show `
+    --name $Env:REGISTRY_NAME `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --query 'passwords[0].value' `
+    --output tsv)
 
 docker login $Env:ACR_LOGIN_SERVER -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD
 ```
@@ -175,7 +187,10 @@ az containerapp env create \
 
 ```powershell
 $Env:ACA_ENV = "youracaenvname"
-az containerapp env create --resource-group $Env:RESOURCE_GROUP_NAME --location eastus --name $Env:ACA_ENV
+az containerapp env create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --location eastus `
+    --name $Env:ACA_ENV
 ```
 
 ---
@@ -396,7 +411,12 @@ You can now use the following steps to test the Docker image locally before depl
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=$Env:DB_SERVER_NAME -e DB_NAME=$Env:DB_NAME -e DB_USER=$Env:DB_USER -e DB_PASSWORD=$Env:DB_PASSWORD javaee-cafe:v1
+   docker run -it --rm -p 9080:9080 `
+    -e DB_SERVER_NAME=$Env:DB_SERVER_NAME `
+    -e DB_NAME=$Env:DB_NAME `
+    -e DB_USER=$Env:DB_USER `
+    -e DB_PASSWORD=$Env:DB_PASSWORD `
+    javaee-cafe:v1
    ```
 
 1. After the container starts, go to `http://localhost:9080/` in your browser to access the application.
@@ -466,7 +486,17 @@ az containerapp create \
 
 ```powershell
 $Env:ACA_NAME = "youracainstancename"
-az containerapp create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --image $Env:ACR_LOGIN_SERVER/javaee-cafe:v1 --environment $Env:ACA_ENV --registry-server $Env:ACR_LOGIN_SERVER --registry-username $Env:ACR_USER_NAME --registry-password $Env:ACR_PASSWORD --target-port 9080 --env-vars DB_SERVER_NAME=$Env:DB_SERVER_NAME DB_NAME=$Env:DB_NAME DB_USER=$Env:DB_USER DB_PASSWORD=$Env:DB_PASSWORD --ingress 'external'
+az containerapp create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:ACA_NAME `
+    --image $Env:ACR_LOGIN_SERVER/javaee-cafe:v1 `
+    --environment $Env:ACA_ENV `
+    --registry-server $Env:ACR_LOGIN_SERVER `
+    --registry-username $Env:ACR_USER_NAME `
+    --registry-password $Env:ACR_PASSWORD `
+    --target-port 9080 `
+    --env-vars DB_SERVER_NAME=$Env:DB_SERVER_NAME DB_NAME=$Env:DB_NAME DB_USER=$Env:DB_USER DB_PASSWORD=$Env:DB_PASSWORD `
+    --ingress 'external'
 ```
 
 ---
@@ -489,7 +519,10 @@ echo https://$(az containerapp show \
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-Write-Host https://$(az containerapp show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --query properties.configuration.ingress.fqdn -o tsv)
+Write-Host https://$(az containerapp show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:ACA_NAME `
+    --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
 ---

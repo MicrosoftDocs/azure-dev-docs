@@ -54,48 +54,115 @@ This tutorial configures a WAS cluster with a deployment manager and two managed
 
 Create a resource group by using [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `eastus` location:
 
-```azurecli
-az group create \
-    --name abc1110rg \
-    --location eastus
+### [Bash](#tab/in-bash)
+
+```bash
+export RESOURCE_GROUP_NAME=abc1110rg
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
+### [PowerShell](#tab/in-powershell)
+
+```powershell
+$Env:RESOURCE_GROUP_NAME = "abc1110rg"
+az group create `
+--name $Env:RESOURCE_GROUP_NAME `
+--location eastus
+```
+---
+
 ### Create a virtual network
+
+> [!NOTE]
+> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified. 
+> If you run these commands in PowerShell, ensure to declare environment parameters as indicated in the commands above.
+> To break a command line into multiple lines, in PowerShell you can use the backtick character (`) at the end of each line.
 
 The resources comprising your WebSphere Server cluster must communicate with each other, and the public internet, by using a virtual network. For a complete guide to planning your virtual network, see the Cloud Adoption Framework for Azure guide [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). For more information, see [Azure Virtual Network frequently asked questions](/azure/virtual-network/virtual-networks-faq).
 
 Use the following steps to create the virtual network. The example in this section creates a virtual network with address space `192.168.0.0/16` and creates a subnet used for VMs.
 
 1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a network named `myVNet`:
-
-   ```azurecli
+    
+   ### [Bash](#tab/in-bash)
+   ```bash
    az network vnet create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myVNet \
        --address-prefixes 192.168.0.0/24
    ```
+   ### [PowerShell](#tab/in-powershell)
 
+    ```powershell
+    az network vnet create `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name myVNet `
+       --address-prefixes 192.168.0.0/24
+    ```
+   ---
+    
 1. Create a subnet for the WAS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
-   ```azurecli
+   ### [Bash](#tab/in-bash)
+   ```bash
    az network vnet subnet create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mySubnet \
        --vnet-name myVNet \
        --address-prefixes 192.168.0.0/25
    ```
+   ### [PowerShell](#tab/in-powershell)
+    ```powershell
+    az network vnet subnet create `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name mySubnet `
+       --vnet-name myVNet `
+       --address-prefixes 192.168.0.0/25
+    ```
+   ---
 
 1. Create a subnet for Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `wasGateway`:
 
-   ```azurecli
+   ### [Bash](#tab/in-bash)
+   ```bash
    az network vnet subnet create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name wasGateway \
        --vnet-name myVNet \
        --address-prefixes 192.168.0.128/25
    ```
+   ### [PowerShell](#tab/in-powershell)
+    ```powershell
+    az network vnet subnet create `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name wasGateway `
+       --vnet-name myVNet `
+       --address-prefixes 192.168.0.128/25
+    ```
+   ---
 
 [!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
+<!--### Create an availability set
+
+Create an availability set by using [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create), as shown in the following example. Creating an availability set is optional, but we recommend it. For more information, see [Example Azure infrastructure walkthrough for Windows VMs](/azure/virtual-machines/windows/infrastructure-example).
+
+   ### [Bash](#tab/in-bash)
+   ```bash
+   az vm availability-set create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name myAvailabilitySet \
+      --platform-fault-domain-count 2 \
+      --platform-update-domain-count 2
+   ```
+   ### [PowerShell](#tab/in-powershell)
+   ```powershell
+   az vm availability-set create `
+      --resource-group $Env:RESOURCE_GROUP_NAME `
+      --name myAvailabilitySet `
+      --platform-fault-domain-count 2 `
+      --platform-update-domain-count 2
+   ```
+   --->
 
 ## Install WAS on GNU/Linux
 
@@ -126,30 +193,63 @@ Next, use the following steps to create a basic VM, install all required tools o
 
    The following example creates a Red Hat Enterprise Linux machine by using a user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
-   ```azurecli
-   az vm create \
-       --resource-group abc1110rg \
-       --name adminVM \
-       --availability-set myAvailabilitySet \
-       --image RedHat:rhel-raw:86-gen2:latest \
-       --size Standard_DS1_v2  \
-       --admin-username azureuser \
-       --admin-password Secret123456 \
-       --public-ip-address "" \
-       --nsg ""
-   ```
+    ### [Bash](#tab/in-bash)
+    
+    ```bash
+    az vm create \
+           --resource-group $RESOURCE_GROUP_NAME \
+           --name adminVM \
+           --availability-set myAvailabilitySet \
+           --image RedHat:rhel-raw:86-gen2:latest \
+           --size Standard_DS1_v2  \
+           --admin-username azureuser \
+           --admin-password Secret123456 \
+           --public-ip-address "" \
+           --nsg ""
+    ```
+    
+    ### [PowerShell](#tab/in-powershell)
+    
+    ```powershell
+    az vm create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name adminVM `
+        --availability-set myAvailabilitySet `
+        --image RedHat:rhel-raw:86-gen2:latest `
+        --size Standard_DS1_v2 `
+        --admin-username azureuser `
+        --admin-password Secret123456 `
+        --public-ip-address '""' `
+        --nsg '""' 
+        # Ensure to wrap the "" in ''.
+    ```
+    ---
 
 1. Create and attach a new disk for WAS files by using the following command:
 
-   ```azurecli
-   az vm disk attach \
-       --resource-group abc1110rg \
-       --vm-name adminVM \
-       --name adminVM_Data_Disk_1 \
-       --new \
-       --size-gb 100 \
-       --sku StandardSSD_LRS
-   ```
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az vm disk attach \
+          --resource-group $RESOURCE_GROUP_NAME \
+          --vm-name adminVM \
+          --name adminVM_Data_Disk_1 \
+          --new \
+          --size-gb 100 \
+          --sku StandardSSD_LRS
+    ```
+    ### [PowerShell](#tab/in-powershell)
+        
+    ```powershell
+    az vm disk attach `
+          --resource-group $Env:RESOURCE_GROUP_NAME `
+          --vm-name adminVM `
+          --name adminVM_Data_Disk_1 `
+          --new `
+          --size-gb 100 `
+          --sku StandardSSD_LRS
+    ```
+    
+    ---
 
 ### Create Windows VM and set up X-server
 
@@ -440,120 +540,236 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following command to stop `adminVM`:
 
-   ```azurecli
-   az vm stop --resource-group abc1110rg --name adminVM
-   ```
+    ### [Bash](#tab/in-bash)
+    ```bash
+    # export RESOURCE_GROUP_NAME=abc1110rg
+    az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
+    ```
+    ### [PowerShell](#tab/in-powershell)
+        
+    ```powershell
+    # $Env:RESOURCE_GROUP_NAME = "abc1110rg"
+    az vm stop --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
+    ```
+    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
-   ```azurecli
-   export ADMIN_OS_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    export ADMIN_OS_DISK_ID=$(az vm show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --query storageProfile.osDisk.managedDisk.id \
        --output tsv)
-   az snapshot create \
-       --resource-group abc1110rg \
+    az snapshot create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAdminOSDiskSnapshot \
-       --source ${ADMIN_OS_DISK_ID}
-   ```
+       --source $ADMIN_OS_DISK_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    $Env:ADMIN_OS_DISK_ID=$(az vm show `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name adminVM `
+        --query storageProfile.osDisk.managedDisk.id `
+        --output tsv)
+    az snapshot create  `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name myAdminOSDiskSnapshot  `
+        --source $Env:ADMIN_OS_DISK_ID
+    ```
+    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk.
 
-   ```azurecli
-   export ADMIN_DATA_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    export ADMIN_DATA_DISK_ID=$(az vm show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --query 'storageProfile.dataDisks[0].managedDisk.id' \
        --output tsv)
-   az snapshot create \
-       --resource-group abc1110rg \
+    az snapshot create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAdminDataDiskSnapshot \
-       --source ${ADMIN_DATA_DISK_ID}
-   ```
+       --source $ADMIN_DATA_DISK_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    $Env:ADMIN_DATA_DISK_ID=$(az vm show `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name adminVM  `
+        --query 'storageProfile.dataDisks[0].managedDisk.id' `
+        --output tsv)
+    az snapshot create  `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name myAdminDataDiskSnapshot `
+        --source $Env:ADMIN_DATA_DISK_ID
+    ```
+    ---
 
 1. Use the following commands to query for the snapshot IDs that you use later:
 
-   ```azurecli
-   # Get the snapshot ID.
-   export OS_SNAPSHOT_ID=$(az snapshot show \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    # Get the snapshot ID.
+    export OS_SNAPSHOT_ID=$(az snapshot show \
        --name myAdminOSDiskSnapshot \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
-
-   export DATA_SNAPSHOT_ID=$(az snapshot show \
+    export DATA_SNAPSHOT_ID=$(az snapshot show \
        --name myAdminDataDiskSnapshot \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
-   ```
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    # Get the snapshot ID.
+    $Env:OS_SNAPSHOT_ID=$(az snapshot show `
+        --name myAdminOSDiskSnapshot `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --query '[id]' `
+        --output tsv)
+    $Env:DATA_SNAPSHOT_ID=$(az snapshot show  `
+        --name myAdminDataDiskSnapshot `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --query '[id]' `
+        --output tsv)
+    ```
+    ---
 
 Next, create `mspVM1` and `mspVM2`.
 
+### [Create mspVM1](#tab/mspVM1)
 Use the following steps to create `mspVM1`:
 
 1. First, create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
 
-   ```azurecli
-   # Create a new Managed Disk by using the OS snapshot ID.
-   # Note that the managed disk is created in the same location as the snapshot.
-   az disk create \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    # Create a new Managed Disk by using the OS snapshot ID.
+    # Note that the managed disk is created in the same location as the snapshot.
+    az disk create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM1_OsDisk_1 \
-       --source ${OS_SNAPSHOT_ID}
-   ```
+       --source $OS_SNAPSHOT_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    # Create a new Managed Disk by using the OS snapshot ID.
+    # Note that the managed disk is created in the same location as the snapshot.
+    az disk create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name mspVM1_OsDisk_1 `
+        --source $Env:OS_SNAPSHOT_ID
+    ```
+    ---
 
 1. Next, use the following commands to create the VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
 
-   ```azurecli
-   # Get the resource ID of the managed disk.
-   MSPVM1_OS_DISK_ID=$(az disk show \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    # Get the resource ID of the managed disk.
+    export MSPVM1_OS_DISK_ID=$(az disk show \
        --name mspVM1_OsDisk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
-   # Create the VM by attaching the existing managed disk as an OS.
-   az vm create \
-       --resource-group abc1110rg \
+    # Create the VM by attaching the existing managed disk as an OS.
+    az vm create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM1 \
-       --attach-os-disk ${MSPVM1_OS_DISK_ID} \
+       --attach-os-disk $MSPVM1_OS_DISK_ID \
        --os-type linux \
        --availability-set myAvailabilitySet \
        --public-ip-address "" \
        --nsg ""
-   ```
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    # Get the resource ID of the managed disk.
+    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
+        --name mspVM1_OsDisk_1 `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --query '[id]' `
+        --output tsv)
+
+    # Create the VM by attaching the existing managed disk as an OS.
+    az vm create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM1 `
+        --attach-os-disk $Env:MSPVM1_OS_DISK_ID `
+        --os-type linux `
+        --availability-set myAvailabilitySet `
+        --public-ip-address '""' ` 
+        --nsg '""' 
+        # Ensure to wrap the "" in ''.
+    ```
+    ---
 
 1. Next, create a managed disk from the data snapshot and attach to `mspVM1`.
 
-   ```azurecli
-   az disk create \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az disk create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM1_Data_Disk_1 \
-       --source ${DATA_SNAPSHOT_ID}
+       --source $DATA_SNAPSHOT_ID
 
-   MSPVM1_DATA_DISK_ID=$(az disk show \
+    export MSPVM1_DATA_DISK_ID=$(az disk show \
        --name mspVM1_Data_Disk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
-   az vm disk attach \
-       --resource-group abc1110rg \
+    az vm disk attach \
+       --resource-group $RESOURCE_GROUP_NAME \
        --vm-name mspVM1 \
-       --name ${MSPVM1_DATA_DISK_ID}
-   ```
+       --name $MSPVM1_DATA_DISK_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    az disk create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM1_Data_Disk_1 `
+        --source $Env:DATA_SNAPSHOT_ID
+
+    $Env:MSPVM1_DATA_DISK_ID=$(az disk show `
+        --name mspVM1_Data_Disk_1 `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --query '[id]' `
+        --output tsv)
+
+    az vm disk attach `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --vm-name mspVM1 `
+        --name $Env:MSPVM1_DATA_DISK_ID
+    ```
+    ---
 
 1. You've now created `mspVM1` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
-   ```azurecli
-   az vm run-command invoke \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az vm run-command invoke \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM1 \
        --command-id RunShellScript \
        --scripts "sudo hostnamectl set-hostname mspVM1"
-   ```
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    az vm run-command invoke `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM1 `
+        --command-id RunShellScript `
+        --scripts "sudo hostnamectl set-hostname mspVM1"
+    ```
+    ---
 
    When the command completes successfully, you're shown output similar to the following example:
 
@@ -571,69 +787,135 @@ Use the following steps to create `mspVM1`:
    }
    ```
 
-Now, use the following steps to create `mspVM2`:
+### [Create mspVM2](#tab/mspVM2)
+
+Use the following steps to create `mspVM2`:
 
 1. First, create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
 
-   ```azurecli
-   # Create a new Managed Disk by using the OS snapshot ID.
-   # Note that the managed disk is created in the same location as the snapshot.
-   az disk create \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+   ```bash
+    # Create a new Managed Disk by using the OS snapshot ID.
+    # Note that the managed disk is created in the same location as the snapshot.
+    az disk create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_OsDisk_1 \
-       --source ${OS_SNAPSHOT_ID}
-   ```
+       --source $OS_SNAPSHOT_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    # Create a new Managed Disk by using the OS snapshot ID.
+    # Note that the managed disk is created in the same location as the snapshot.
+    az disk create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name mspVM2_OsDisk_1 `
+        --source $Env:OS_SNAPSHOT_ID
+    ```
+    ---
 
 1. Next, use the following commands to create the VM `mspVM2`, attaching OS disk `mspVM2_OsDisk_1`:
 
-   ```azurecli
-   # Get the resource ID of the managed disk.
-   MSPVM2_OS_DISK_ID=$(az disk show \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    # Get the resource ID of the managed disk.
+    export MSPVM2_OS_DISK_ID=$(az disk show \
        --name mspVM2_OsDisk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
-   # Create the VM by attaching the existing managed disk as an OS.
-   az vm create \
-       --resource-group abc1110rg \
+    # Create the VM by attaching the existing managed disk as an OS.
+    az vm create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
-       --attach-os-disk ${MSPVM2_OS_DISK_ID} \
+       --attach-os-disk $MSPVM2_OS_DISK_ID \
        --os-type linux \
        --availability-set myAvailabilitySet \
        --public-ip-address "" \
        --nsg ""
-   ```
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    # Get the resource ID of the managed disk.
+    $Env:MSPVM2_OS_DISK_ID=$(az disk show `
+        --name mspVM2_OsDisk_1 `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --query '[id]' `
+        --output tsv)
+
+    # Create the VM by attaching the existing managed disk as an OS.
+    az vm create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM2 `
+        --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
+        --os-type linux `
+        --availability-set myAvailabilitySet `
+        --public-ip-address '""' `
+        --nsg '""' 
+        # Ensure to wrap the "" in ''.
+    ```
+    ---
+    
 
 1. Next, create a managed disk from the data snapshot and attach to `mspVM2`.
 
-   ```azurecli
-   az disk create \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az disk create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_Data_Disk_1 \
-       --source ${DATA_SNAPSHOT_ID}
+       --source $DATA_SNAPSHOT_ID
 
-   MSPVM2_DATA_DISK_ID=$(az disk show \
+    export MSPVM2_DATA_DISK_ID=$(az disk show \
        --name mspVM2_Data_Disk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
-   az vm disk attach \
-       --resource-group abc1110rg \
+    az vm disk attach \
+       --resource-group $RESOURCE_GROUP_NAME \
        --vm-name mspVM2 \
-       --name ${MSPVM2_DATA_DISK_ID}
-   ```
+       --name $MSPVM2_DATA_DISK_ID
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    az disk create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM2_Data_Disk_1 `
+        --source $Env:DATA_SNAPSHOT_ID
+
+    $Env:MSPVM2_DATA_DISK_ID=$(az disk show `
+        --name mspVM2_Data_Disk_1 `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --query '[id]' `
+        --output tsv)
+
+    az vm disk attach `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --vm-name mspVM2 `
+        --name $Env:MSPVM2_DATA_DISK_ID
+    ```
+    ---
 
 1. You've now created `mspVM2` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM2`:
 
-   ```azurecli
-   az vm run-command invoke \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az vm run-command invoke \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
        --command-id RunShellScript \
        --scripts "sudo hostnamectl set-hostname mspVM2"
-   ```
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    az vm run-command invoke `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM2 `
+        --command-id RunShellScript `
+        --scripts "sudo hostnamectl set-hostname mspVM2"
+    ```
+    ---
 
    When the command completes successfully, you're shown output similar to the following example:
 
@@ -650,48 +932,89 @@ Now, use the following steps to create `mspVM2`:
        ]
    }
    ```
-
+---
+ 
 Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Then, use the following steps to finish preparing the machines:
 
 1. To continue, use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
 
-   ```azurecli
-   az vm start --resource-group abc1110rg --name adminVM
-   ```
+    ### [Bash](#tab/in-bash)
+    ```bash
+    az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
+    ```
+    ---
 
 1. Use the following commands to get and show the private IP addresses, which you use in later sections:
 
-   ```azurecli
-   export ADMINVM_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+    ### [Bash](#tab/in-bash)
+    ```bash
+    export ADMINVM_NIC_ID=$(az vm show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)
-   export ADMINVM_IP=$(az network nic show \
-       --ids ${ADMINVM_NIC_ID} 
+    export ADMINVM_IP=$(az network nic show \
+       --ids $ADMINVM_NIC_ID 
        --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
-   export MSPVM1_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+    export MSPVM1_NIC_ID=$(az vm show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM1 \
        --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)
-   export MSPVM1_IP=$(az network nic show \
-       --ids ${MSPVM1_NIC_ID} \
+    export MSPVM1_IP=$(az network nic show \
+       --ids $MSPVM1_NIC_ID \
        --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
-   export MSPVM2_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+    export MSPVM2_NIC_ID=$(az vm show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)
-   export MSPVM2_IP=$(az network nic show \
-       --ids ${MSPVM2_NIC_ID} \
+    export MSPVM2_IP=$(az network nic show \
+       --ids $MSPVM2_NIC_ID \
        --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
-   echo "Private IP of adminVM: ${ADMINVM_IP}"
-   echo "Private IP of mspVM1: ${MSPVM1_IP}"
-   echo "Private IP of mspVM2: ${MSPVM2_IP}"
-   ```
+    echo "Private IP of adminVM: $ADMINVM_IP"
+    echo "Private IP of mspVM1: $MSPVM1_IP"
+    echo "Private IP of mspVM2: $MSPVM2_IP"
+    ```
+    ### [PowerShell](#tab/in-powershell)        
+    ```powershell
+    $Env:ADMINVM_NIC_ID=$(az vm show `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name adminVM `
+        --query networkProfile.networkInterfaces'[0]'.id `
+        --output tsv)
+    $Env:ADMINVM_IP=$(az network nic show `
+        --ids $Env:ADMINVM_NIC_ID `
+        --query ipConfigurations'[0]'.privateIPAddress `
+        --output tsv)
+    $Env:MSPVM1_NIC_ID=$(az vm show `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM1 `
+        --query networkProfile.networkInterfaces'[0]'.id `
+        --output tsv)
+    $Env:MSPVM1_IP=$(az network nic show `
+        --ids $Env:MSPVM1_NIC_ID `
+        --query ipConfigurations'[0]'.privateIPAddress `
+        --output tsv)
+    $Env:MSPVM2_NIC_ID=$(az vm show `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM2 --query networkProfile.networkInterfaces'[0]'.id `
+        --output tsv)
+    $Env:MSPVM2_IP=$(az network nic show `
+        --ids $Env:MSPVM2_NIC_ID `
+        --query ipConfigurations'[0]'.privateIPAddress `
+        --output tsv)
+    echo "Private IP of adminVM: $Env:ADMINVM_IP"
+    echo "Private IP of mspVM1: $Env:MSPVM1_IP"
+    echo "Private IP of mspVM2: $Env:MSPVM2_IP"
+    ```
+    ---   
 
 Now, all three machines are ready. Next, you configure a WAS cluster.
 
@@ -804,7 +1127,7 @@ Use the following steps to create and configure the management profile:
    firewall-cmd --zone=public --add-port=9100/tcp --permanent
    firewall-cmd --zone=public --add-port=9401/tcp --permanent
    firewall-cmd --zone=public --add-port=8879/tcp --permanent
-   firewall-cmd --zone=public --add-port=5555/tcp--permanent
+   firewall-cmd --zone=public --add-port=5555/tcp --permanent
    firewall-cmd --zone=public --add-port=7060/tcp --permanent
    firewall-cmd --zone=public --add-port=11005/udp --permanent
    firewall-cmd --zone=public --add-port=11006/tcp --permanent
@@ -843,6 +1166,8 @@ In this section, you use the X-server on `myWindowsVM` to create custom profiles
 Make sure you're still on your Windows machine. If you're not, remote connect to `myWindowsVM`.
 
 Then, configure custom profiles on `mspVM1` and `mspVM2`.
+
+### [Configure on mspVM1](#tab/mspVM1)
 
 Use the following steps to configure a custom profile on `mspVM1`:
 
@@ -984,7 +1309,9 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 
 You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
 
-Now, use the following steps to configure a custom profile on `mspVM2`:
+### [Configure on mspVM2](#tab/mspVM2)
+
+Use the following steps to configure a custom profile on `mspVM2`:
 
 1. Connect to `mspVM2` from a command prompt.
 
@@ -1124,7 +1451,9 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 
 You've now created a custom profile and `nodeagent` running on `mspVM2`. Exit from being `root` and exit the SSH connection to `mspVM2`.
 
-You've now prepared the custom profile for two managed servers. Continue ahead to create a WAS cluster.
+---
+
+You've now prepared the custom profile for two managed servers - `mspVM1` and `mspVM2`. Continue ahead to create a WAS cluster.
 
 ### Create a cluster and start servers
 
@@ -1203,6 +1532,12 @@ You've now configured `cluster1` with two managed servers and the cluster is up 
 
 ## Connect Azure Database for PostgreSQL
 
+<!-->> [!NOTE]
+> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified. 
+> If you run these commands in PowerShell, ensure to declare environment parameters as indicated in the commands above.
+> To break a command line into multiple lines, in PowerShell you can use the backtick character (`) at the end of each line.-->
+
+
 This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your WAS cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
 
 ### Create an Azure Database for PostgreSQL instance
@@ -1211,25 +1546,115 @@ Run the following commands in the shell where you have Azure CLI installed. This
 
 Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
 
-```azurecli
-export DB_SERVER_NAME="wasdb$(date +%s)"
-az postgres server create \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME}  \
+### [Bash](#tab/in-bash)
+ ```bash
+ az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
+ export DB_SERVER_NAME="wasdb$(date +%s)"
+
+ az postgres server create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME  \
     --location eastus \
     --admin-user azureuser \
     --ssl-enforcement Enabled \
     --admin-password Secret123456 \
     --sku-name GP_Gen5_2
-```
+ ```
+### [PowerShell](#tab/in-powershell)        
+ ```powershell
+ az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
+ $Env:DB_SERVER_NAME="wasdb$(Get-Date -UFormat %s)"
+
+ az postgres server create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:DB_SERVER_NAME `
+    --location eastus `
+    --admin-user azureuser `
+    --ssl-enforcement Enabled `
+    --admin-password Secret123456 `
+    --sku-name GP_Gen5_2
+ ```
+---
 
 [!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
 
+<!--Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:
+
+### [Bash](#tab/in-bash)
+ ```bash
+ export DB_RESOURCE_ID=$(az resource show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME \
+    --resource-type "Microsoft.DBforPostgreSQL/servers" \
+    --query "id" \
+    --output tsv)
+
+ az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --vnet-name myVNet  \
+    --subnet mySubnet \
+    --private-connection-resource-id $DB_RESOURCE_ID \
+    --group-id postgresqlServer \
+    --connection-name myConnection
+ ```
+### [PowerShell](#tab/in-powershell)        
+ ```powershell
+ $Env:DB_RESOURCE_ID=$(az resource show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:DB_SERVER_NAME `
+    --resource-type "Microsoft.DBforPostgreSQL/servers" `
+    --query "id" `
+    --output tsv)
+
+ az network private-endpoint create `
+    --name myPrivateEndpoint `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --vnet-name myVNet  `
+    --subnet mySubnet `
+    --private-connection-resource-id $Env:DB_RESOURCE_ID `
+    --group-id postgresqlServer `
+    --connection-name myConnection
+ ```
+---
+
+This example uses the private IP address of the PostgreSQL server for the datasource connection. The fully qualified domain name (FQDN) in the customer DNS setting doesn't resolve to the private IP configured. If you want set up a DNS zone for the configured FQDN, follow the steps in the [Configure the Private DNS Zone](/azure/postgresql/single-server/how-to-configure-privatelink-cli#configure-the-private-dns-zone) section of [Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI](/azure/postgresql/single-server/how-to-configure-privatelink-cli).
+
+Run the following command to get private IP address of the PostgreSQL server:
+
+### [Bash](#tab/in-bash)
+ ```bash
+ export DB_PRIVATE_IP=$(az network private-endpoint show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name myPrivateEndpoint \
+    --query customDnsConfigs'[0]'.ipAddresses'[0]' \
+    --output tsv)
+
+ echo $DB_PRIVATE_IP
+ ```
+### [PowerShell](#tab/in-powershell)        
+ ```powershell
+ $Env:DB_PRIVATE_IP=$(az network private-endpoint show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name myPrivateEndpoint `
+    --query customDnsConfigs'[0]'.ipAddresses'[0]' `
+    --output tsv)
+
+ echo $Env:DB_PRIVATE_IP
+ ```
+--->
+
 Print the database connection string by using the following command:
 
-```azurecli
-echo "jdbc:postgresql://${DB_PRIVATE_IP}:5432/postgres?user=azureuser@${DB_SERVER_NAME}&password=Secret123456&sslmode=require"
-```
+### [Bash](#tab/in-bash)
+ ```bash
+ echo "jdbc:postgresql://${DB_PRIVATE_IP}:5432/postgres?user=azureuser@${DB_SERVER_NAME}&password=Secret123456&sslmode=require"
+ ```
+### [PowerShell](#tab/in-powershell)        
+ ```powershell
+ echo "jdbc:postgresql://${Env:DB_PRIVATE_IP}:5432/postgres?user=azureuser@${Env:DB_SERVER_NAME}&password=Secret123456&sslmode=require"
+ ```
+---
 
 ### Configure the database connection for the WAS cluster
 
@@ -1324,25 +1749,42 @@ Use the following steps to create the gateway:
 
 1. To expose WAS to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. In the shell with Azure CLI installed, use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), as shown in the following example.
 
-   ```azurecli
-   az network public-ip create \
-       --resource-group abc1110rg \
+   ### [Bash](#tab/in-bash)
+   ```bash
+     az network public-ip create \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAGPublicIPAddress \
        --allocation-method Static \
        --sku Standard
 
-   export APPGATEWAY_IP=$(az network public-ip show \
-       --resource-group abc1110rg \
+    export APPGATEWAY_IP=$(az network public-ip show \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAGPublicIPAddress \
        --query '[ipAddress]' \
        --output tsv)
    ```
+   ### [PowerShell](#tab/in-powershell)        
+   ```powershell
+     az network public-ip create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name myAGPublicIPAddress `
+        --allocation-method Static  `
+        --sku Standard
+
+     $Env:APPGATEWAY_IP=$(az network public-ip show  `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name myAGPublicIPAddress `
+        --query '[ipAddress]' `
+        --output tsv)
+   ```
+   ---
 
 1. Next, create an Azure Application Gateway. The following example creates an application gateway with the WebSphere managed servers in the default backend pool:
 
-   ```azurecli
+   ### [Bash](#tab/in-bash)
+   ```bash
    az network application-gateway create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAppGateway \
        --public-ip-address myAGPublicIPAddress \
        --location eastus \
@@ -1356,6 +1798,24 @@ Use the following steps to create the gateway:
        --priority 1001 \
        --servers ${MSPVM1_IP} ${MSPVM2_IP}
    ```
+   ### [PowerShell](#tab/in-powershell)        
+   ```powershell
+     az network application-gateway create  `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --name myAppGateway `
+        --public-ip-address myAGPublicIPAddress `
+        --location eastus `
+        --capacity 2 `
+        --http-settings-port 80 `
+        --http-settings-protocol Http `
+        --frontend-port 80 `
+        --sku Standard_V2 `
+        --subnet wasGateway `
+        --vnet-name myVNet `
+        --priority 1001 `
+        --servers $Env:MSPVM1_IP $Env:MSPVM2_IP
+   ```
+   ---
 
    After the application gateway is created, you can see the following new features:
 
@@ -1365,9 +1825,10 @@ Use the following steps to create the gateway:
 
 1. The managed servers expose their workloads with port `9080`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `9080` and creating a probe for it:
 
-   ```azurecli
+   ### [Bash](#tab/in-bash)
+   ```bash
    az network application-gateway probe create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --name clusterProbe \
        --protocol http \
@@ -1376,33 +1837,54 @@ Use the following steps to create the gateway:
        --path "/"
 
    az network application-gateway http-settings update \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --name appGatewayBackendHttpSettings \
        --host-name-from-backend-pool true \
        --port 9080 \
        --probe clusterProbe
    ```
+   ### [PowerShell](#tab/in-powershell)        
+   ```powershell
+   az network application-gateway probe create  `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway  `
+        --name clusterProbe `
+        --protocol http `
+        --host-name-from-http-settings true `
+        --match-status-codes 404 `
+        --path "/"
+
+   az network application-gateway http-settings update `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --name appGatewayBackendHttpSettings `
+        --host-name-from-backend-pool true `
+        --port 9080 `
+        --probe clusterProbe
+   ```
+   ---
 
 1. Use the following commands to provision a rewrite rule for redirections:
 
-   ```azurecli
+   ### [Bash](#tab/in-bash)
+   ```bash
    # Create a rewrite rule set.
    az network application-gateway rewrite-rule set create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --name myRewriteRuleSet
 
    # Associated routing rules.
    az network application-gateway rule update \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --name rule1 \
        --rewrite-rule-set myRewriteRuleSet
 
    # Create a rewrite rule 1.
    az network application-gateway rewrite-rule create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --rule-set-name myRewriteRuleSet \
        --name myRewriteRule01 \
@@ -1411,7 +1893,7 @@ Use the following steps to create the gateway:
 
    # Create a rewrite rule condition.
    az network application-gateway rewrite-rule condition create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --rule-name myRewriteRule01 \
        --rule-set-name myRewriteRuleSet \
@@ -1422,7 +1904,7 @@ Use the following steps to create the gateway:
 
    # Create a rewrite rule 2.
    az network application-gateway rewrite-rule create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --rule-set-name myRewriteRuleSet \
        --name myRewriteRule02 \
@@ -1431,7 +1913,7 @@ Use the following steps to create the gateway:
 
    # Create a rewrite rule condition.
    az network application-gateway rewrite-rule condition create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --gateway-name myAppGateway \
        --rule-name myRewriteRule02 \
        --rule-set-name myRewriteRuleSet \
@@ -1440,12 +1922,75 @@ Use the following steps to create the gateway:
        --negate false \
        --pattern "(https?):\/\/192.168.0.7:9080(.*)$"
    ```
+   ### [PowerShell](#tab/in-powershell)        
+   ```powershell
+   # Create a rewrite rule set.
+    az network application-gateway rewrite-rule set create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --name myRewriteRuleSet
+
+    # Associated routing rules.
+    az network application-gateway rule update `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --name rule1 `
+        --rewrite-rule-set myRewriteRuleSet
+
+    # Create a rewrite rule 1. 
+    az network application-gateway rewrite-rule create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --rule-set-name myRewriteRuleSet `
+        --name myRewriteRule01 `
+        --sequence 100 `
+        --response-headers Location="http://${Env:APPGATEWAY_IP}{http_resp_Location_2}"
+
+    # Create a rewrite rule condition. 
+    az network application-gateway rewrite-rule condition create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --rule-name myRewriteRule01 `
+        --rule-set-name myRewriteRuleSet `
+        --variable "http_resp_Location" `
+        --ignore-case true `
+        --negate false `
+        --pattern '"(https?):\/\/192.168.0.6:9080(.*)$"' 
+        # Ensure to wrap the "" in ''
+ 
+    # Create a rewrite rule 2.
+    az network application-gateway rewrite-rule create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --rule-set-name myRewriteRuleSet `
+        --name myRewriteRule02 `
+        --sequence 100 `
+        --response-headers Location="http://${Env:APPGATEWAY_IP}{http_resp_Location_2}"
+
+    # Create a rewrite rule condition.
+    az network application-gateway rewrite-rule condition create `
+        --resource-group $Env:RESOURCE_GROUP_NAME  `
+        --gateway-name myAppGateway `
+        --rule-name myRewriteRule02 `
+        --rule-set-name myRewriteRuleSet `
+        --variable "http_resp_Location" `
+        --ignore-case true `
+        --negate false `
+        --pattern '"(https?):\/\/192.168.0.7:9080(.*)$"' 
+        # Ensure to wrap the "" in ''
+   ```
+   ---
 
 You're now able to access the application with the URL produced by the following command:
-
-```azurecli
+### [Bash](#tab/in-bash)
+```bash
 echo "http://${APPGATEWAY_IP}/websphere-cafe/"
 ```
+### [PowerShell](#tab/in-powershell)        
+```powershell
+echo "http://${Env:APPGATEWAY_IP}/websphere-cafe/"
+```
+---
 
 > [!NOTE]
 > This example sets up simple access to the WAS servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
@@ -1454,22 +1999,23 @@ echo "http://${APPGATEWAY_IP}/websphere-cafe/"
 
 If you don't want to use the jump box `myWindowsVM` to access the IBM console, but want to expose it to a public network, use the following commands to assign a public IP address to `adminVM`:
 
-```azurecli
+### [Bash](#tab/in-bash)
+```bash
 # Create a public IP address.
 az network public-ip create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAdminVMPublicIPAddress \
     --allocation-method Static \
     --sku Standard
 
 # Create a network security group.
 az network nsg create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminnsg
 
 # Create a network security group inbound rule.
 az network nsg rule create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --nsg-name adminnsg \
     --name ALLOW_IBM_CONSOLE \
     --access Allow \
@@ -1481,25 +2027,69 @@ az network nsg rule create \
 
 # Update NIC with nsg.
 az network nic update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVMVMNic \
     --network-security-group adminnsg
 
 # Update NIC with public IP.
 az network nic ip-config update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name ipconfigadminVM \
     --nic-name adminVMVMNic \
     --public-ip-address myAdminVMPublicIPAddress
 
 export ADMIN_PUBLIC_IP=$(az network public-ip show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAdminVMPublicIPAddress \
     --query '[ipAddress]' \
     --output tsv)
 
 echo "IBM Console public URL: https://${ADMIN_PUBLIC_IP}:9043/ibm/console/"
 ```
+### [PowerShell](#tab/in-powershell)        
+```powershell
+# Create a public IP address.
+az network public-ip create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name myAdminVMPublicIPAddress `
+    --allocation-method Static `
+    --sku Standard
+
+# Create a network security group.
+az network nsg create `
+    --resource-group $Env:RESOURCE_GROUP_NAME  `
+    --name adminnsg
+
+# Create a network security group inbound rule.
+az network nsg rule create `
+    --resource-group $Env:RESOURCE_GROUP_NAME  `
+    --nsg-name adminnsg `
+    --name ALLOW_IBM_CONSOLE `
+    --access Allow `
+    --direction Inbound `
+    --source-address-prefixes '["*"]' `
+    --destination-port-ranges 9043 `
+    --protocol Tcp `
+    --priority 500
+
+# Update NIC with nsg.
+az network nic update `
+    --resource-group $Env:RESOURCE_GROUP_NAME  `
+    --name adminVMVMNic `
+    --network-security-group adminnsg 
+
+# Update NIC with public IP.
+az network nic ip-config update --resource-group $Env:RESOURCE_GROUP_NAME  --name ipconfigadminVM --nic-name adminVMVMNic --public-ip-address myAdminVMPublicIPAddress
+
+$Env:ADMIN_PUBLIC_IP=$(az network public-ip show `
+    --resource-group $Env:RESOURCE_GROUP_NAME  `
+    --name myAdminVMPublicIPAddress `
+    --query '[ipAddress]' `
+    --output tsv)
+
+echo "IBM Console public URL: https://${Env:ADMIN_PUBLIC_IP}:9043/ibm/console/"
+```
+---
 
 ## Test the WAS cluster configuration
 
@@ -1523,9 +2113,15 @@ If desired, remove the Windows machine by using the following commands. Alternat
 
 Delete `abc1110rg` by using the following command:
 
+### [Bash](#tab/in-bash)
 ```azurecli
-az group delete --name abc1110rg --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
+### [PowerShell](#tab/in-powershell)        
+```powershell
+az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
+```
+---
 
 ## Next steps
 
