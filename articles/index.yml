@@ -74,8 +74,6 @@ productDirectory:
           text: Deploy a serverless application
         - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
-        - url: /azure/cosmos-db/create-mongodb-nodejs
-          text: Migrate a MongoDB app to Azure Cosmos DB
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
     - title: Java
