@@ -64,6 +64,8 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=javascript
+          text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
         - url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli
