@@ -8,10 +8,10 @@ products:
   - azure-active-directory
   - entra
 urlFragment: msal-java-authorization-roles
-description: "This sample demonstrates how to add authorization using app roles & roles claims to a Java servlet web app that signs-in users with the Microsoft identity platform"
+description: "This sample demonstrates how to add authorization using app roles & roles claims to a Java Websphere web app that signs-in users with the Microsoft identity platform"
 ---
 
-# Add authorization using app roles & roles claims to Java servlet Web app that signs-in users with the Microsoft identity platform
+# Add authorization using app roles & roles claims to Java Websphere Web app that signs-in users with the Microsoft identity platform
 
 - [Overview](#overview)
 - [Scenario](#scenario)
@@ -209,11 +209,25 @@ Open the project in your IDE to configure the code.
 
 #### Deploying the Sample
 
-Our samples can be deployed to a number of application servers, such as Tomcat, WebLogic, or Webshpere, and MSAL Java itself can generally be integrated into existing applications without changes to your existing deployment set up.
+(These instructions assume you have installed Websphere and set up some server ) Before you can deploy to Websphere, you will need to make some configuration changes in the sample itself and (re)build the package:
 
-You can find instructions for deploying our samples [here on MSAL Java's Github wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki/Deployment-Instructions-for-MSAL-Java-Samples).
+1. In the sample there is likely an application.properties or authentication.properties file where you configured the client ID, tenant, redirect URL, etc.
+2. In the above mentioned file, changed references to localhost:8080 or localhost:8443 to the URL/port Websphere will run on, which by default should be localhost:9080
+3. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
-![Experience](./media/app.png)
+Top deploy the sample using the Websphere's Integrated Solutions Console:
+
+1. In the 'Applications' tab, select 'New Application', then 'New Enterprise Application'
+
+2. Choose the .war you built, then click 'next' until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
+
+3. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://localhost:9080/msal4j-servlet-auth/ then the context root should just be 'msal4j-servlet-auth'
+
+4. Click 'Finish', and after the application finishes installing go to the 'Websphere enterprise applications' section of the 'Applications' tab
+
+5. Select the .war you just installed from the list of applications and click 'Start' to deploy
+
+6. One it finishes deploying, navigate to http://localhost:9080/{whatever you set as the context root} and you should be able to see the application
 
 ## Explore the sample
 

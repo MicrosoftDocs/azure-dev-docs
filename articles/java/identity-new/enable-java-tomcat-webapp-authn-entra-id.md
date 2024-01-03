@@ -8,10 +8,10 @@ products:
   - azure-active-directory
   - entra
 urlFragment: msal-java-authentication-sign-in
-description: "This sample demonstrates a Java Servlet web app that signs in users with the Microsoft identity platform"
+description: "This sample demonstrates a Java Tomcat web app that signs in users with the Microsoft identity platform"
 ---
 
-# Enable your Java Servlet web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+# Enable your Java Tomcat web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
 
 - [Overview](#overview)
 - [Scenario](#scenario)
@@ -39,7 +39,7 @@ description: "This sample demonstrates a Java Servlet web app that signs in user
 
 This sample demonstrates a Java Servlet web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-![Overview](./media/topology-sgin-in.png)
+![Overview](./media/topology-sign-in.png)
 
 ## Scenario
 
@@ -173,11 +173,15 @@ Open the project in your IDE to configure the code.
 
 #### Deploying the Sample
 
-Our samples can be deployed to a number of application servers, such as Tomcat, WebLogic, or Webshpere, and MSAL Java itself can generally be integrated into existing applications without changes to your existing deployment set up.
+To run the sample on Tomcat:
 
-You can find instructions for deploying our samples [here on MSAL Java's Github wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki/Deployment-Instructions-for-MSAL-Java-Samples).
+1. In your Tomcat installation, ensure there is a entry in tomcat/conf/server.xml for the address you want to host your application on
 
-![Experience](./media/app.png)
+     - By default, our samples just expect to connect to http://localhost:8080 or https://localhost:8443, as defined in the app.homePage value in authentication.properties file
+
+2. Copy the .war file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
+
+3. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
 ## Explore the sample
 

@@ -8,10 +8,10 @@ products:
   - azure-active-directory-domain
   - entra
 urlFragment: msal-java-servlet-sign-in-b2c
-description: "This sample demonstrates a Java Servlet webapp that signs in users with Azure AD B2C"
+description: "This sample demonstrates a Java Tomcat webapp that signs in users with Azure AD B2C"
 ---
 
-# Java Servlet Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+# Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 
  1. [Overview](#overview)
  1. [Scenario](#scenario)
@@ -150,9 +150,16 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 
 ## Deploying the Sample
 
-Our samples can be deployed to a number of application servers, such as Tomcat, WebLogic, or Webshpere, and MSAL Java itself can generally be integrated into existing applications without changes to your existing deployment set up.
+To run the sample on Tomcat:
 
-You can find instructions for deploying our samples [here on MSAL Java's Github wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki/Deployment-Instructions-for-MSAL-Java-Samples).
+1. In your Tomcat installation, ensure there is a entry in tomcat/conf/server.xml for the address you want to host your application on
+
+     - By default, our samples just expect to connect to http://localhost:8080 or https://localhost:8443, as defined in the app.homePage value in authentication.properties file
+
+2. Copy the .war file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
+
+3. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
+
 
 ![Experience](./media/app.png)
 
