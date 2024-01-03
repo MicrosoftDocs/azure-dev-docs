@@ -705,8 +705,8 @@ Use the following steps to create `mspVM1`:
         --attach-os-disk $Env:MSPVM1_OS_DISK_ID `
         --os-type linux `
         --availability-set myAvailabilitySet `
-        --public-ip-address '""' ` 
-        --nsg '""' 
+        --public-ip-address '""' `
+        --nsg '""'
         # Ensure to wrap the "" in ''.
     ```
     ---
