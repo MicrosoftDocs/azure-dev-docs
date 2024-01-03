@@ -141,8 +141,8 @@ Use the following steps to create the virtual network. The example in this secti
     ```
    ---
 
-[!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
-<!--### Create an availability set
+<!--[!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]-->
+### Create an availability set
 
 Create an availability set by using [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create), as shown in the following example. Creating an availability set is optional, but we recommend it. For more information, see [Example Azure infrastructure walkthrough for Windows VMs](/azure/virtual-machines/windows/infrastructure-example).
 
@@ -162,7 +162,7 @@ Create an availability set by using [az vm availability-set create](/cli/azure/v
       --platform-fault-domain-count 2 `
       --platform-update-domain-count 2
    ```
-   --->
+   ---
 
 ## Install WAS on GNU/Linux
 
@@ -1576,9 +1576,9 @@ Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-cr
  ```
 ---
 
-[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
+<!--[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]-->
 
-<!--Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:
+Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:
 
 ### [Bash](#tab/in-bash)
  ```bash
@@ -1642,7 +1642,7 @@ Run the following command to get private IP address of the PostgreSQL server:
 
  echo $Env:DB_PRIVATE_IP
  ```
---->
+---
 
 Print the database connection string by using the following command:
 
