@@ -128,6 +128,8 @@ productDirectory:
           text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=go
+          text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage
         - url: https://github.com/azure-samples/azure-sdk-for-go-samples
