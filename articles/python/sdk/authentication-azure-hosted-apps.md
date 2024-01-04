@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python
 description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 12/15/2023
+ms.date: 01/04/2024
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -144,6 +144,4 @@ blob_service_client = BlobServiceClient(
         credential=token_credential)
 ```
 
-As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code.
-
-For example, when the preceding code is run on your workstation during local development, `DefaultAzureCredential` first checks the environment variables for an application service principal. If it doesn't find a service principal, it checks for a user signed in via the Azure CLI or Azure PowerShell to determine a set of developer credentials. It will use either the application service principal or the developer credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` will use either an application service principal, as determined by environment settings, or developer credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
