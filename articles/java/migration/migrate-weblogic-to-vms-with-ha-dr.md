@@ -52,11 +52,11 @@ First, create the primary Azure SQL Database by following the Azure portal steps
    1. In step 4 for creating new resource group, write down the **Resource group name** value - for example, *myResourceGroup*.
    1. In step 5 for database name, write down the **Database name** value - for example, *mySampleDatabase*.
    1. In step 6 for creating the server, use the following steps:
-      * Write down the unique server name - for example, *sqlserverprimary-ejb120623*.
-      * For **Location**, select **(US) West US**.
-      * For **Authentication method**, select **Use SQL authentication**.
-      * Write down the **Server admin login** value - for example, *azureuser*.
-      * Write down the **Password** value.
+      1. Write down the unique server name - for example, *sqlserverprimary-ejb120623*.
+      1. For **Location**, select **(US) West US**.
+      1. For **Authentication method**, select **Use SQL authentication**.
+      1. Write down the **Server admin login** value - for example, *azureuser*.
+      1. Write down the **Password** value.
    1. In step 8, for **Workload environment**, select **Development**. Look at the description and consider other options for your workload.
    1. In step 11, for **Backup storage redundancy**, select **Locally-redundant backup storage**. Consider other options for your backups. For more information, see the [Backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy) section of [Automated backups in Azure SQL Database](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true).
    1. In step 14, in the **Firewall rules** configuration, for **Allow Azure services and resources to access this server**, select **Yes**.
@@ -160,100 +160,100 @@ In the meantime, you can set up the secondary WLS cluster in parallel.
 
 Follow the same steps in as in the section [Set up the primary WLS cluster](#set-up-the-primary-wls-cluster) to set up the secondary WLS cluster in East US region, except for the following differences:
 
-1. In the "Basics" pane:
-   1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group. For example, *wls-cluster-eastus-ejb120623*.
-   1. Under **Instance details**, select **East US** for **Region**.
+1. In the "Basics" pane, use the following steps:
+   1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
+   1. Under **Instance details**, for **Region**, select **East US**.
 
-1. In the "Networking" pane:
-   1. For **Edit virtual network**, enter same address space of the virtual network as your primary WLS cluster. For example, *10.1.4.0/23*.
+1. In the "Networking" pane, use the following steps:
+   1. For **Edit virtual network**, enter same address space of the virtual network as your primary WLS cluster - for example, *10.1.4.0/23*.
 
       > [!NOTE]
-      > You should see a similar warning message *Address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' overlaps with address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' of virtual network 'wls-vnet'. Virtual networks with overlapping address space cannot be peered. If you intend to peer these virtual networks, change address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)'*. Ignore it as you need two WLS clusters with the same network configuration.
+      > You should see a similar warning message `Address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' overlaps with address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' of virtual network 'wls-vnet'. Virtual networks with overlapping address space cannot be peered. If you intend to peer these virtual networks, change address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)'`. You can ignore this message because you need two WLS clusters with the same network configuration.
 
-   1. For **wls-subnet**, enter same starting address and subnet size as your primary WLS cluster. For example, *10.1.5.0* and */28*.
+   1. For **wls-subnet**, enter same starting address and subnet size as your primary WLS cluster - for example, *10.1.5.0* and */28*.
 
-1. In the "Database" pane:
-   1. For **DataSource Connection String**, Replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database. For example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
-   1. For **Database username**, Replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database, for example, *azureuser@sqlserversecondary-ejb120623*.
+1. In the "Database" pane, use the following steps:
+   1. For **DataSource Connection String**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
+   1. For **Database username**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *azureuser@sqlserversecondary-ejb120623*.
 
-### Mirror network settings for two clusters
+### Mirror the network settings for the two clusters
 
-During the phase of resuming pending transactions in secondary WLS cluster after a failover, WLS checks the ownership of TLOG store. To successfully pass the check, all managed servers in the secondary cluster must have same private IP address as the primary cluster.
+During the phase of resuming pending transactions in the secondary WLS cluster after a failover, WLS checks the ownership of the TLOG store. To successfully pass the check, all managed servers in the secondary cluster must have same private IP address as the primary cluster.
 
-Follow instructions to mirror network settings from the primary cluster to the secondary cluster.
+Use the following steps to mirror the network settings from the primary cluster to the secondary cluster.
 
-First, configure network settings for the primary cluster after its deployment completes.
+First, use the following steps to configure network settings for the primary cluster after its deployment completes:
 
 1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
-1. Select network interface **adminVM_NIC_with_pub_ip**.
+1. Select the network interface `adminVM_NIC_with_pub_ip`.
    1. Under **Settings**, select **IP configurations**.
    1. Select **ipconfig1**.
-   1. Under **Private IP address settings**, select **Static** for **Allocation**. Write down private IP address.
+   1. Under **Private IP address settings**, select **Static** for **Allocation**. Write down the private IP address.
    1. Select **Save**.
-1. Return to resource group of the primary WLS cluster, repeat step 3 for network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**.
-1. Wait until all updates complete. You can select notifications icon from right-top of the Azure portal to open Notifications pane for status monitoring.
+1. Return to the resource group of the primary WLS cluster, then repeat step 3 for the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`.
+1. Wait until all updates complete. You can select the notifications icon in the Azure portal to open the **Notifications** pane for status monitoring.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
 
-1. Return to resource group of the primary WLS cluster, copy the name for resource with type **Private endpoint**, for example, *7e8c8bsaep*. Use that name to find the remaining network interface, for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow preceding instructions to write down its private IP address.
+1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding instructions to write down its private IP address.
 
-Then, configure network settings for the secondary cluster after its deployment completes.
+Then, use the following steps to configure the network settings for the secondary cluster after its deployment completes:
 
-1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
-1. For network interface **adminVM_NIC_with_pub_ip**, **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions to update private IP address allocation to **Static**.
+1. In the **Overview** pane of the **Deployment** page, select **Go to resource group**.
+1. For the network interfaces `adminVM_NIC_with_pub_ip`, `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding instructions to update the private IP address allocation to *Static*.
 1. Wait until all updates complete.
-1. For network interface **mspVM1_NIC_with_pub_ip**, **mspVM2_NIC_with_pub_ip**, and **mspVM3_NIC_with_pub_ip**, follow preceding instructions but update private IP address to the same value as of the primary cluster. Wait until the current update of network interface completes before proceeding to next one.
+1. For the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding instructions but update the private IP address to the same value used with the primary cluster. Wait until the current update of network interface completes before proceeding to next one.
 
    > [!NOTE]
-   > You can't change the private IP address of the network interface that is part of a private endpoint. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for **adminVM_NIC_with_pub_ip** to an IP address that is not used. Depending on the allocation of private IP addresses in your two clusters, you may need to update the private IP address in the primary cluster as well.
+   > You can't change the private IP address of the network interface that is part of a private endpoint. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for `adminVM_NIC_with_pub_ip` to an IP address that isn't used. Depending on the allocation of private IP addresses in your two clusters, you might need to update the private IP address in the primary cluster as well.
 
-The following table shows an example of mirroring network settings for two clusters:
+The following table shows an example of mirroring the network settings for two clusters:
 
-| Cluster   | Network interface                                   | Private IP address (Before) | Private IP address (After) | Update sequence |
-| --------- | --------------------------------------------------- | --------------------------- | -------------------------- | --------------- |
-| Primary   | 7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a | 10.1.5.4                    | 10.1.5.4                   |                 |
-| Primary   | adminVM_NIC_with_pub_ip                             | 10.1.5.7                    | 10.1.5.7                   |                 |
-| Primary   | mspVM1_NIC_with_pub_ip                              | 10.1.5.5                    | 10.1.5.5                   |                 |
-| Primary   | mspVM2_NIC_with_pub_ip                              | 10.1.5.8                    | 10.1.5.9                   | 1               |
-| Primary   | mspVM3_NIC_with_pub_ip                              | 10.1.5.6                    | 10.1.5.6                   |                 |
-| Secondary | 1696b0saep.nic.2e19bf46-9799-4acc-b64b-a2cd2f7a4ee1 | 10.1.5.8                    | 10.1.5.8                   |                 |
-| Secondary | adminVM_NIC_with_pub_ip                             | 10.1.5.5                    | 10.1.5.4                   | 4               |
-| Secondary | mspVM1_NIC_with_pub_ip                              | 10.1.5.7                    | 10.1.5.5                   | 5               |
-| Secondary | mspVM2_NIC_with_pub_ip                              | 10.1.5.6                    | 10.1.5.9                   | 2               |
-| Secondary | mspVM3_NIC_with_pub_ip                              | 10.1.5.4                    | 10.1.5.6                   | 3               |
+| Cluster   | Network interface                                     | Private IP address (before) | Private IP address (after) | Update sequence |
+|-----------|-------------------------------------------------------|-----------------------------|----------------------------|-----------------|
+| Primary   | `7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a` | `10.1.5.4`                  | `10.1.5.4`                 |                 |
+| Primary   | `adminVM_NIC_with_pub_ip`                             | `10.1.5.7`                  | `10.1.5.7`                 |                 |
+| Primary   | `mspVM1_NIC_with_pub_ip`                              | `10.1.5.5`                  | `10.1.5.5`                 |                 |
+| Primary   | `mspVM2_NIC_with_pub_ip`                              | `10.1.5.8`                  | `10.1.5.9`                 | 1               |
+| Primary   | `mspVM3_NIC_with_pub_ip`                              | `10.1.5.6`                  | `10.1.5.6`                 |                 |
+| Secondary | `1696b0saep.nic.2e19bf46-9799-4acc-b64b-a2cd2f7a4ee1` | `10.1.5.8`                  | `10.1.5.8`                 |                 |
+| Secondary | `adminVM_NIC_with_pub_ip`                             | `10.1.5.5`                  | `10.1.5.4`                 | 4               |
+| Secondary | `mspVM1_NIC_with_pub_ip`                              | `10.1.5.7`                  | `10.1.5.5`                 | 5               |
+| Secondary | `mspVM2_NIC_with_pub_ip`                              | `10.1.5.6`                  | `10.1.5.9`                 | 2               |
+| Secondary | `mspVM3_NIC_with_pub_ip`                              | `10.1.5.4`                  | `10.1.5.6`                 | 3               |
 
-Check the set of private IP addresses for all managed servers, which consists of the backend pool of the Azure Application Gateway you deployed in each cluster. If it's updated, update the Azure Application Gateway backend pool accordingly.
+Check the set of private IP addresses for all managed servers, which consists of the backend pool of the Azure Application Gateway you deployed in each cluster. If it's updated, use the following steps to update the Azure Application Gateway backend pool accordingly:
 
 1. Open the resource group of the cluster.
-1. Find resource *myAppGateway* with type **Application gateway**. Select to open
-1. Under section **Settings**, select **Backend pools**. Select **myGatewayBackendPool**.
-1. Change the **Backend targets** with the updated private IP address(es). Select **Save**. Wait until it completes.
-1. Under section **Settings**, select **Health probes**. Select **HTTPhealthProbe**.
-1. Make sure **I want to test the backend health before adding the health probe** is checked. Select **Test**. You should see **Status** of backend pool *myGatewayBackendPool* is marked as healthy. If not, check if private IP addresses are updated as expected and the VMs are running, then test the health probe again. You must troubleshoot and resolve the issue before continuing.
+1. Find the resource *myAppGateway* with the type **Application gateway**. Select it to open it.
+1. In the **Settings** section, select **Backend pools**, then select **myGatewayBackendPool**.
+1. Change the **Backend targets** values with the updated private IP address or addresses, then select **Save**. Wait until it completes.
+1. In the **Settings** section, select **Health probes**, then select **HTTPhealthProbe**.
+1. Make sure **I want to test the backend health before adding the health probe** is selected, then select **Test**. You should see that the **Status** value of the backend pool `myGatewayBackendPool` is marked as healthy. If it isn't, check whether private IP addresses are updated as expected and the VMs are running, then test the health probe again. You must troubleshoot and resolve the issue before you continue.
 
-In this example, the Azure Application Gateway backend pool for each cluster is updated:
+In the following example, the Azure Application Gateway backend pool for each cluster is updated:
 
-| Cluster   | Azure Application Gateway backend pool  | Backend targets (Before)       | Backend targets (After)        |
-| --------- | --------------------------------------- | ------------------------------ | ------------------------------ |
-| Primary   | myGatewayBackendPool                    | (10.1.5.5, 10.1.5.8, 10.1.5.6) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
-| Secondary | myGatewayBackendPool                    | (10.1.5.7, 10.1.5.6, 10.1.5.4) | (10.1.5.5, 10.1.5.9, 10.1.5.6) |
+| Cluster   | Azure Application Gateway backend pool | Backend targets (before)             | Backend targets (after)              |
+|-----------|----------------------------------------|--------------------------------------|--------------------------------------|
+| Primary   | `myGatewayBackendPool`                 | (`10.1.5.5`, `10.1.5.8`, `10.1.5.6`) | (`10.1.5.5`, `10.1.5.9`, `10.1.5.6`) |
+| Secondary | `myGatewayBackendPool`                 | (`10.1.5.7`, `10.1.5.6`, `10.1.5.4`) | (`10.1.5.5`, `10.1.5.9`, `10.1.5.6`) |
 
 To automate the network settings mirroring, consider using Azure CLI. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-### Verify deployments of clusters
+### Verify the deployments of the clusters
 
 You deployed an Azure Application Gateway and a WLS admin server in each cluster. The Azure Application Gateway acts as load balancer for all managed servers in the cluster. The WLS admin server provides a web console for cluster configuration.
 
-Follow instructions to verify if the Azure Application Gateway and WLS admin console in each cluster work before moving to next step.
+Use the following steps to verify whether the Azure Application Gateway and WLS admin console in each cluster work before moving to next step:
 
-1. Return to the **Deployment** page, select **Outputs**.
-1. Copy the value of property **appGatewayURL**. Append the string *weblogic/ready* and open that URL in a new browser tab. You should see an empty page without any error message. If not, you must troubleshoot and resolve the issue before continuing.
-1. Copy and write down the value of property **adminConsole**. Open it in a new browser tab. You should see sign-in page of the **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before continuing.
+1. Return to the **Deployment** page, then select **Outputs**.
+1. Copy the value of the property **appGatewayURL**. Append the string *weblogic/ready* and open that URL in a new browser tab. You should see an empty page without any error message. If you don't, you must troubleshoot and resolve the issue before you continue.
+1. Copy and write down the value of the property **adminConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue.
 
-Follow these steps to write down the IP address of the Azure Application Gateway for each cluster. You use these values when you set up the Azure Traffic Manager later.
+Use the following steps to write down the IP address of the Azure Application Gateway for each cluster. You use these values when you set up the Azure Traffic Manager later.
 
-1. Open the resource group where your cluster is deployed. For example, select **Overview** to switch back Overview pane of the deployment page, and select **Go to resource group**.
-1. Find resource *gwip* with type **Public IP address**. Select to open. Look for **IP address** and write down its value.
+1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page, and then select **Go to resource group**.
+1. Find the resource `gwip` with the type **Public IP address**, then select it to open it. Look for the **IP address** field and write down its value.
 
 ## Set up an Azure Traffic Manager
 
@@ -262,9 +262,9 @@ In this section, you create an Azure Traffic Manager for distributing traffic to
 Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need to execute some of sections: **Create a Traffic Manager profile**, **Add Traffic Manager endpoints**, and **Test Traffic Manager profile**. Use the following directions as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
 
 1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile):
-   1. In step 2 **Create Traffic Manager profile**:
-      * Write down the unique Traffic Manager profile name for **Name**. For example, *tmprofile-ejb120623*.
-      * Write down the new resource group name for **Resource group**. For example, *myResourceGroupTM1*.
+   1. In step 2 **Create Traffic Manager profile**, use the following steps:
+      1. Write down the unique Traffic Manager profile name for **Name** - for example, *tmprofile-ejb120623*.
+      1. Write down the new resource group name for **Resource group** - for example, *myResourceGroupTM1*.
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints):
    1. After you open the Traffic Manager profile in step 2, in the **Configuration** page:
@@ -272,20 +272,20 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       1. Under **Endpoint monitor settings**, enter */weblogic/ready* for **Path**.
       1. Under **Fast endpoint failover settings**, enter *10* for **Probing internal**, *3* for **Tolerated number of failures**, *5* for **Probe timeout**.
       1. Select **Save**. Wait until it completes.
-   1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`:
-      * Select **Public IP address** for **Target resource type**.
-      * Select the **Choose public IP address** dropdown and enter the IP address of the *gwip* resource deployed in the **West US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
-   1. In step 6 for adding a failover / secondary endpoint *myFailoverEndpoint*:
-      * Select **Public IP address** for **Target resource type**.
-      * Select the  **Choose public IP address** dropdown and enter the IP address of the *gwip* resource deployed in the **East US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
+      1. Select **Public IP address** for **Target resource type**.
+      1. Select the **Choose public IP address** dropdown and enter the IP address of the `gwip` resource deployed in the **West US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. In step 6 for adding a failover / secondary endpoint *myFailoverEndpoint*, use the following steps:
+      1. Select **Public IP address** for **Target resource type**.
+      1. Select the  **Choose public IP address** dropdown and enter the IP address of the `gwip` resource deployed in the **East US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while. Select **Refresh** until the **Monitor status** value for both endpoints is *Online*.
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile):
-   1. In subsection [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name):
-      * In step 3, write down the DNS name of your Traffic Manager profile, for example, `http://tmprofile-ejb120623.trafficmanager.net`.
-   1. In subsection [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action):
-      * In step 1 and 3, append */weblogic/ready* to the DNS name of your Traffic Manager profile in your web browser, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
-      * After completing all steps, make sure to **enable** your primary endpoint by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
+   1. In subsection [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name), use the following step:
+      * In step 3, write down the DNS name of your Traffic Manager profile - for example, `http://tmprofile-ejb120623.trafficmanager.net`.
+   1. In subsection [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action), use the following steps:
+      1. In step 1 and 3, append */weblogic/ready* to the DNS name of your Traffic Manager profile in your web browser - for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
+      1. After completing all steps, make sure to **enable** your primary endpoint by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
 
 Now you have both endpoints **Enabled** and **Online** in the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status later.
 
@@ -305,7 +305,7 @@ The app uses WebLogic Server [JDBC session persistence](https://github.com/Azure
 1. Change to its subdirectory *weblogic-cafe*: `cd weblogic-cafe`
 1. Compile and package the sample application: `mvn clean package`.
 
-The package should be successfully generated and located at `<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before continuing.
+The package should be successfully generated and located at `<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before you continueg.
 
 ### Deploy sample app
 
@@ -326,7 +326,7 @@ The steps in this section make your WLS clusters aware of the Azure Traffic Mana
 1. Make sure you signed in to WebLogic Server Administration Console.
 1. Locate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the navigation pane. Select **Clusters**.
 1. Select **cluster1** from clusters table.
-1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://`. For example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without leading `http://` - for example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in East US.
 
@@ -362,7 +362,7 @@ Then, restart all managed servers of the primary cluster for the changes to take
 
 Now, stop all VMs in the secondary cluster to make it passive.
 
-1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed, for example, *wls-cluster-eastus-ejb120623*.
+1. Open the Azure portal home in a new tab of your browser, select **All resources**. In **Filter for any field...** box, enter resource group name where the secondary cluster is deployed - for example, *wls-cluster-eastus-ejb120623*.
 1. Select **Type equals all** to open **Type** filter. Enter *Virtual machine* for **Value**, you should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed, including *adminVM*, *mspVM1*, *mspVM2*, and *mspVM3*.
 1. Select to open each of VMs. Select **Stop** and confirm for each VM.
 1. Select notifications icon from right-top of the Azure portal to open **Notifications** pane.
@@ -377,12 +377,12 @@ Now, switch to the browser tab where you monitor the endpoints' status of the Tr
 
 Since the primary cluster is up and running, it acts as the active cluster and handles all user requests routed by your Traffic Manager profile.
 
-Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending the context root */weblogic-cafe* of the deployed app, for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
+Open the DNS name of your Azure Traffic Manager profile in a new tab of the browser, appending the context root */weblogic-cafe* of the deployed app - for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic-cafe`.
 Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. You should see the similar UI of the sample app:
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::
 
-If your UI doesn't look similar, troubleshoot and resolve the problem before continuing.
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
 
 Keep the page open and you use it for failover test later.
 
@@ -394,7 +394,7 @@ To test failover, you manually fail your primary database server and cluster ove
 
 First, shutdown VMs in the primary cluster.
 
-1. Find the name of your resource group where the primary WLS cluster is deployed, for example, *wls-cluster-westus-ejb120623*. Then follow similar instructions in [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster), but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
+1. Find the name of your resource group where the primary WLS cluster is deployed - for example, *wls-cluster-westus-ejb120623*. Then follow similar instructions in [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster), but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
 1. Switch to the browser tab of your Traffic Manager, refresh the page until you see **Monitor status** of endpoint *myPrimaryEndpoint* becomes *Degraded*.
 1. Switch to the browser tab of the sample app, refresh the page, you should see *504 Gateway Time-out* or *502 Bad Gateway* as none of endpoints is accessible.
 
