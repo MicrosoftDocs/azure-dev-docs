@@ -111,11 +111,10 @@ When your code is running in Azure and managed identity has been enabled on the 
 
 1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH` and (optionally) `AZURE_CLIENT_CERTIFICATE_PASSWORD`.
 1. Check keyword parameters for a user-assigned managed identity. You can pass in a user-assigned managed identity by specifying its client ID in the `managed_identity_client_id` parameter.
-1. Check the `AZURE_CLIENT_ID` environment variable for a user-assigned managed identity. This variable can be set to the client ID of a user-assigned managed identity.
-1. If it's enabled, use the system-assigned managed identity for the Azure resource.
+1. Check the `AZURE_CLIENT_ID` environment variable for the client ID of a user-assigned managed identity.
+1. Use the system-assigned managed identity for the Azure resource if it's enabled.
 
-> [!NOTE]
-> You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` parameter `True`.
+You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` keyword parameter `True`.
 
 In this article, we're using the system-assigned managed identity for an Azure App Service web app, so we don't need to configure a managed identity in the environment or pass it in as a parameter. The following steps show you how to use `DefaultAzureCredential`.
 
