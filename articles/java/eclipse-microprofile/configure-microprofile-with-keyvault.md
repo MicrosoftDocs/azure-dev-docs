@@ -50,14 +50,14 @@ You use the Azure CLI to create the Azure Key Vault resource and populate it wit
 
 First, sign into the Azure and set a subscription to be the current active subscription.
 
-```azurecli
+```azurecli-interactive
 az login
 az account set --subscription <subscription-id>
 ```
 
 Next, create a resource group with a unique name, for example, *mp-kv-rg-ejb010424*.
 
-```azurecli
+```azurecli-interactive
 RESOURCE_GROUP_NAME=mp-kv-rg-ejb010424
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
@@ -66,7 +66,7 @@ az group create \
 
 Now create an Azure Key Vault resource with a unique name (for example, *kvejb010424*), add two secrets, and export the Key Vault uri as an environment variable.
 
-```azurecli
+```azurecli-interactive
 KEY_VAULT_NAME=kv-ejb010424
 az keyvault create \
     --name "${KEY_VAULT_NAME}" \
@@ -97,7 +97,7 @@ That's it! You now have Key Vault running in Azure with two secrets. You can now
 
 This example is based on a sample application available on GitHub, switch to the terminal you opened before and run the following commands to clone the repo and run the app locally.
 
-```
+```azurecli-interactive
 git clone https://github.com/Azure/azure-microprofile.git
 cd azure-microprofile/integration-tests/open-liberty-sample
 mvn package liberty:run
@@ -107,9 +107,9 @@ mvn package liberty:run
 > The library uses [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) to authenticate in Azure.
 > Since you've authenticated an account via the Azure CLI `az login` command locally, `DefaultAzureCredential` authenticates with that account to access the Azure Key Vault.
 
-Wait until you see the similar output *The defaultServer server is ready to run a smarter planet*. Open a new terminal and run the following commands to test the sample.
+Wait until you see the similar output **The defaultServer server is ready to run a smarter planet**. Open a new terminal and run the following commands to test the sample.
 
-```
+```azurecli-interactive
 # Get the value of secret "secret" stored in the Azure key vault. You should see 1234 in the response.
 echo $(curl -s http://localhost:9080/config/value/secret -X GET)
 
