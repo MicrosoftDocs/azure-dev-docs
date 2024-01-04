@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Install WebSphere Application Server Network Deployment traditional on the VMs by using the graphical interface manually.
+> - Install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface manually.
 > - Configure a WAS cluster by using the Profile Management Tool.
 > - Configure a PostgreSQL datasource connection in the cluster.
 > - Deploy and run a Java EE application in the cluster.
@@ -141,28 +141,8 @@ Use the following steps to create the virtual network. The example in this secti
     ```
    ---
 
-<!--[!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]-->
-### Create an availability set
+[!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
 
-Create an availability set by using [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create), as shown in the following example. Creating an availability set is optional, but we recommend it. For more information, see [Example Azure infrastructure walkthrough for Windows VMs](/azure/virtual-machines/windows/infrastructure-example).
-
-   ### [Bash](#tab/in-bash)
-   ```bash
-   az vm availability-set create \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name myAvailabilitySet \
-      --platform-fault-domain-count 2 \
-      --platform-update-domain-count 2
-   ```
-   ### [PowerShell](#tab/in-powershell)
-   ```powershell
-   az vm availability-set create `
-      --resource-group $Env:RESOURCE_GROUP_NAME `
-      --name myAvailabilitySet `
-      --platform-fault-domain-count 2 `
-      --platform-update-domain-count 2
-   ```
-   ---
 
 ## Install WAS on GNU/Linux
 
@@ -211,6 +191,7 @@ Next, use the following steps to create a basic VM, install all required tools o
     ### [PowerShell](#tab/in-powershell)
     
     ```powershell
+    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
     az vm create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
         --name adminVM `
@@ -221,7 +202,6 @@ Next, use the following steps to create a basic VM, install all required tools o
         --admin-password Secret123456 `
         --public-ip-address '""' `
         --nsg '""' 
-        # Ensure to wrap the "" in ''.
     ```
     ---
 
@@ -374,6 +354,7 @@ You store all the installation files and configurations to the data disk. Use th
    ```bash
    export IM_INSTALL_DIRECTORY=/datadrive/IBM/InstallationManager/V1.9
    export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V9
+   # export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V85
    export IM_SHARED_DIRECTORY=/datadrive/IBM/IMShared
    mkdir -p ${IM_INSTALL_DIRECTORY}
    mkdir -p ${WAS_ND_INSTALL_DIRECTORY}
@@ -447,6 +428,8 @@ Next, you continue to install WebSphere Application Server on `adminVM`, so keep
 
 ### Install WebSphere Application Server Network Deployment traditional
 
+### [Install WAS ND V9](#tab/was-nd-v9)
+
 In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional 9.0 running on `adminVM`. Use the following steps to view the installer and install the server:
 
 1. If you aren't using the previous terminal, set the `DISPLAY` variable by running `export DISPLAY=<my-windows-vm-private-ip>:0.0`.
@@ -518,7 +501,86 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    If this file doesn't exist, correct the problem before proceeding.
 
-You've now installed WebSphere Application Server Network Deployment in directory */datadrive/IBM/WebSphere/ND/V9*. Next, you install the PostgreSQL JDBC driver on `adminVM`, so keep this terminal open.
+You've now installed WebSphere Application Server Network Deployment in directory */datadrive/IBM/WebSphere/ND/V9*.
+
+### [Install WAS ND V85](#tab/was-nd-v85)
+
+In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional 8.5 running on `adminVM`. Use the following steps to view the installer and install the server:
+
+1. If you aren't using the previous terminal, set the `DISPLAY` variable by running `export DISPLAY=<my-windows-vm-private-ip>:0.0`.
+
+1. Then, use the following commands to start the process to install WAS:
+
+   ```bash
+   cd /datadrive/IBM/InstallationManager/V1.9/eclipse/
+   ./IBMIM
+   ```
+
+   After a while, the installer displays, as shown in the following screenshot. If you don't see the user interface, troubleshoot the problem before proceeding.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png" alt-text="Screenshot of IBM WebSphere Application Server installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png":::
+
+1. Select **Files** > **Preferences**. Because you haven't connected to a repository, you need to configure a repository connection.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png" alt-text="Screenshot of IBM WebSphere Application Server edit preferences." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png":::
+
+1. In **Repositories** pane, click **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be *https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85*. Fill in with the URL in the **Repository** pane, click **OK**
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png" alt-text="Screenshot of IBM WebSphere Application Server add the product repository." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png":::
+
+1. After a while, the **Password Required** pane asks you to input your IBMid. Fill in your user name and password and select **Save password**.  
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of IBM WebSphere Application Server Password Required." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
+
+1. Select **OK**. It takes a while to connect to the repository. If there's an error, you must make sure the IBMid and password are correct, and your IBMid has been entitled to access the product repository for IBM WebSphere Application Server Network Deployment V8.5.
+
+1. After the connection is complete, the product repository URL is in the **Repositories** list.
+
+    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of IBM WebSphere Application Server the product repository added." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
+
+1. Click **OK** to close **Preferences** pane. You are back to the landing page of IBM Installation Manager.
+
+1. Select **Install**. It takes a while to prepare the installer. You may see a message similar to **Waiting for www-147.ibm.com**.
+
+1. Once the connection is established, the **Install Packages** pane will be displayed. Select the top level IBM WebSphere Application Server Network Deployment version 8.5.5.x, as shown in the following screenshot. The exact version number can be different, but it must be the latest 8.5.5 version shown. Be sure to select the sub-checkboxes.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png" alt-text="Screenshot of IBM WebSphere Application Server WAS8.5.5 installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png":::
+
+1. Select **Next**. It takes a while to prepare the installer. You may see a message similar to Waiting for www-147.ibm.com. If you are prompted to install fixes, please accept the installation of the recommended fixes and proceed.
+
+1. Accept the license by selecting **I accept the terms in the license agreement**.
+
+1. Select **Next**. Set **Shared Resources Directory** to */datadrive/IBM/IMShared*.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Shared Resources Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png":::
+
+1. Select **Next**. Set **Installation Directory** to */datadrive/IBM/WebSphere/ND/V85*.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Installation Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png":::
+
+1. Select **Next**. On the **Install Packages** pane, keep **Translations** with the default value and select **Next**. On the next pane, keep the default value of IBM JDK selected. Select **Next**. Then the **summary** pane shows.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png" alt-text="Screenshot of IBM WebSphere Application summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png":::
+
+1. Select **Install**. The install process should complete without errors. For **Which program do you want to start?**, select **None**.
+
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png" alt-text="Screenshot of IBM WebSphere Application Server Install Complete." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png":::
+
+1. Select **Finish**. If the **WebSphere Customization Toolbox** appears, close it. Exit the IBM Installation Manager.
+
+1. Back in the shell from which you started the installation manager, verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
+
+   ```bash
+   ls -la /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement/pmt.sh
+   ```
+
+   If this file doesn't exist, correct the problem before proceeding.
+
+You've now installed WebSphere Application Server Network Deployment in directory */datadrive/IBM/WebSphere/ND/V85*.
+
+---
+
+Next, you install the PostgreSQL JDBC driver on `adminVM`, so keep this terminal open.
 
 ### Download the PostgreSQL JDBC driver
 
@@ -699,6 +761,7 @@ Use the following steps to create `mspVM1`:
         --output tsv)
 
     # Create the VM by attaching the existing managed disk as an OS.
+    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
     az vm create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
         --name mspVM1 `
@@ -707,7 +770,6 @@ Use the following steps to create `mspVM1`:
         --availability-set myAvailabilitySet `
         --public-ip-address '""' `
         --nsg '""'
-        # Ensure to wrap the "" in ''.
     ```
     ---
 
@@ -844,6 +906,7 @@ Use the following steps to create `mspVM2`:
         --output tsv)
 
     # Create the VM by attaching the existing managed disk as an OS.
+    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
     az vm create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
         --name mspVM2 `
@@ -852,7 +915,7 @@ Use the following steps to create `mspVM2`:
         --availability-set myAvailabilitySet `
         --public-ip-address '""' `
         --nsg '""' 
-        # Ensure to wrap the "" in ''.
+        
     ```
     ---
     
@@ -1020,7 +1083,7 @@ Now, all three machines are ready. Next, you configure a WAS cluster.
 
 ## Create WAS profiles and a cluster
 
-This section shows you how to create and configure a WAS cluster.
+This section shows you how to create and configure a WAS cluster. When it comes to creating WAS profiles and a cluster, there is no significant difference between versions V9 and V8.5. All the screenshots in this section have been captured using V9 as the basis.
 
 ### Configure a deployment manager profile
 
@@ -1048,6 +1111,7 @@ Use the following steps to create and configure the management profile:
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
+   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
 
@@ -1071,7 +1135,7 @@ Use the following steps to create and configure the management profile:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png" alt-text="Screenshot of IBM Profile Management Tool, Optional Application Deployment, Deploy the administrative console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png":::
 
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
+1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
@@ -1140,6 +1204,7 @@ Use the following steps to create and configure the management profile:
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
+   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1167,7 +1232,7 @@ Make sure you're still on your Windows machine. If you're not, remote connect to
 
 Then, configure custom profiles on `mspVM1` and `mspVM2`.
 
-### [Configure on mspVM1](#tab/mspVM1)
+### [Configure mspVM1](#tab/mspVM1)
 
 Use the following steps to configure a custom profile on `mspVM1`:
 
@@ -1243,6 +1308,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
+   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
 
@@ -1256,7 +1322,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png":::
 
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
+1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
@@ -1290,6 +1356,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
+   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1309,7 +1376,7 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 
 You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
 
-### [Configure on mspVM2](#tab/mspVM2)
+### [Configure mspVM2](#tab/mspVM2)
 
 Use the following steps to configure a custom profile on `mspVM2`:
 
@@ -1385,6 +1452,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
+   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
 
@@ -1398,7 +1466,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-2.png":::
 
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
+1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location-2.png":::
 
@@ -1432,6 +1500,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
+   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1511,24 +1580,31 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
 1. Use the following steps to configure the Application Server Monitoring Policy settings to automatically start the managed server after the Node Agent starts.
 
-   1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
-   1. Select the hyperlink for Application Server **msp1**.
-   1. Select **Java and process management** under the **Server Infrastructure** section.
-   1. Select **Monitoring policy**.
-   1. Ensure that **Automatic restart** is selected and then select **RUNNING** as the Node restart state, as shown in the following screenshot.
-   1. Select **Ok**.
-   1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
-   1. Select the hyperlink for Application Server **msp2**.
-   1. Select **Java and process management** under the **Server Infrastructure** section.
-   1. Select **Monitoring policy**.
-   1. Ensure that **Automatic restart** is selected and then select **RUNNING** as Node restart state, as shown in the following screenshot.
-   1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
-   1. You're shown a message saying "The configuration synchronization complete for cell."
-   1. Select **OK** to exit the configuration.
+   ### [Configure msp1](#tab/mspVM1)
+    1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
+    1. Select the hyperlink for Application Server **msp1**.
+    1. Select **Java and process management** under the **Server Infrastructure** section.
+    1. Select **Monitoring policy**.
+    1. Ensure that **Automatic restart** is selected and then select **RUNNING** as the Node restart state, as shown in the following screenshot.
+    1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
+    1. You're shown a message saying "The configuration synchronization complete for cell."
+    1. Select **OK** to exit the configuration.
+    
+    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Server, Restart." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png":::
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Server, Restart." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png":::
+   ### [Configure msp2](#tab/mspVM2)
+    1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
+    1. Select the hyperlink for Application Server **msp2**.
+    1. Select **Java and process management** under the **Server Infrastructure** section.
+    1. Select **Monitoring policy**.
+    1. Ensure that **Automatic restart** is selected and then select **RUNNING** as Node restart state, as shown in the following screenshot.
+    1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
+    1. You're shown a message saying "The configuration synchronization complete for cell."
+    1. Select **OK** to exit the configuration.
+   ---
 
-You've now configured `cluster1` with two managed servers and the cluster is up and running.
+You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and the cluster is up and running.
+    
 
 ## Connect Azure Database for PostgreSQL
 
@@ -1576,73 +1652,7 @@ Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-cr
  ```
 ---
 
-<!--[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]-->
-
-Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:
-
-### [Bash](#tab/in-bash)
- ```bash
- export DB_RESOURCE_ID=$(az resource show \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $DB_SERVER_NAME \
-    --resource-type "Microsoft.DBforPostgreSQL/servers" \
-    --query "id" \
-    --output tsv)
-
- az network private-endpoint create \
-    --name myPrivateEndpoint \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --vnet-name myVNet  \
-    --subnet mySubnet \
-    --private-connection-resource-id $DB_RESOURCE_ID \
-    --group-id postgresqlServer \
-    --connection-name myConnection
- ```
-### [PowerShell](#tab/in-powershell)        
- ```powershell
- $Env:DB_RESOURCE_ID=$(az resource show `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name $Env:DB_SERVER_NAME `
-    --resource-type "Microsoft.DBforPostgreSQL/servers" `
-    --query "id" `
-    --output tsv)
-
- az network private-endpoint create `
-    --name myPrivateEndpoint `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --vnet-name myVNet  `
-    --subnet mySubnet `
-    --private-connection-resource-id $Env:DB_RESOURCE_ID `
-    --group-id postgresqlServer `
-    --connection-name myConnection
- ```
----
-
-This example uses the private IP address of the PostgreSQL server for the datasource connection. The fully qualified domain name (FQDN) in the customer DNS setting doesn't resolve to the private IP configured. If you want set up a DNS zone for the configured FQDN, follow the steps in the [Configure the Private DNS Zone](/azure/postgresql/single-server/how-to-configure-privatelink-cli#configure-the-private-dns-zone) section of [Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI](/azure/postgresql/single-server/how-to-configure-privatelink-cli).
-
-Run the following command to get private IP address of the PostgreSQL server:
-
-### [Bash](#tab/in-bash)
- ```bash
- export DB_PRIVATE_IP=$(az network private-endpoint show \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name myPrivateEndpoint \
-    --query customDnsConfigs'[0]'.ipAddresses'[0]' \
-    --output tsv)
-
- echo $DB_PRIVATE_IP
- ```
-### [PowerShell](#tab/in-powershell)        
- ```powershell
- $Env:DB_PRIVATE_IP=$(az network private-endpoint show `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name myPrivateEndpoint `
-    --query customDnsConfigs'[0]'.ipAddresses'[0]' `
-    --output tsv)
-
- echo $Env:DB_PRIVATE_IP
- ```
----
+[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
 
 Print the database connection string by using the following command:
 
