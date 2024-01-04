@@ -9,7 +9,7 @@ ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, devx-track-azurecli
 ---
 
-> Note:
+> [!NOTE]
 > For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
 
 # Deploy a Spring app to App Service with MySQL
