@@ -107,12 +107,15 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-When your code is running in Azure and managed identity has been enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class behaves in the following manner:
+When your code is running in Azure and managed identity has been enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) determines the credentials to use in the following order:
 
-1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE`.
-1. Check keyword parameters for a managed identity or exclusion. You can pass in a user-defined managed identity by specifying its `principalId` in the `managed_identity_client_id` parameter. You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` parameter `True`.
-1. If parameters don't specify a managed identity or exclude managed identities, check for the `AZURE_CLIENT_ID` environment variable. This variable can be set to the `principalId` of a user-defined managed identity.
-1. If a user-defined managed identity isn't specified in the parameters or the environment and managed identities aren't excluded in the parameters, use the system-assigned managed identity for the Azure resource.
+1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH` and (optionally) `AZURE_CLIENT_CERTIFICATE_PASSWORD`.
+1. Check keyword parameters for a user-assigned managed identity. You can pass in a user-assigned managed identity by specifying its client ID in the `managed_identity_client_id` parameter.
+1. Check the `AZURE_CLIENT_ID` environment variable for a user-assigned managed identity. This variable can be set to the client ID of a user-assigned managed identity.
+1. If it's enabled, use the system-assigned managed identity for the Azure resource.
+
+> [!NOTE]
+> You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` parameter `True`.
 
 In this article, we're using the system-assigned managed identity for an Azure App Service web app, so we don't need to configure a managed identity in the environment or pass it in as a parameter. The following steps show you how to use `DefaultAzureCredential`.
 
@@ -142,6 +145,6 @@ blob_service_client = BlobServiceClient(
         credential=token_credential)
 ```
 
-As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment specific code.
+As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code.
 
 For example, when the preceding code is run on your workstation during local development, `DefaultAzureCredential` first checks the environment variables for an application service principal. If it doesn't find a service principal, it checks for a user signed in via the Azure CLI or Azure PowerShell to determine a set of developer credentials. It will use either the application service principal or the developer credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
