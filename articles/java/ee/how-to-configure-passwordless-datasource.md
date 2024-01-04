@@ -527,11 +527,11 @@ First, begin the process of deploying an offer. The following offers support pas
 - [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wls-aks-portal)
   - [Quickstart](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
-  - [Quickstart](./weblogic-server-azure-virtual-machine.md)
+  - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Oracle WebLogic Server with Admin Server on VMs](https://aka.ms/wls-vm-admin)
-  - [Quickstart](./weblogic-server-azure-virtual-machine.md)
+  - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Oracle WebLogic Server Dynamic Cluster on VMs](https://aka.ms/wls-vm-dynamic-cluster)
-  - [Quickstart](./weblogic-server-azure-virtual-machine.md)
+  - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 Fill in the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, fill in the passwordless configuration as shown in the following steps.
 
