@@ -64,6 +64,8 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=javascript
+          text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
         - url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli
@@ -72,8 +74,6 @@ productDirectory:
           text: Deploy a serverless application
         - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
-        - url: /azure/cosmos-db/create-mongodb-nodejs
-          text: Migrate a MongoDB app to Azure Cosmos DB
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
     - title: Java
@@ -128,6 +128,8 @@ productDirectory:
           text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=go
+          text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage
         - url: https://github.com/azure-samples/azure-sdk-for-go-samples
