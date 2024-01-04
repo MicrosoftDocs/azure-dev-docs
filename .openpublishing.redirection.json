@@ -1,6 +1,14 @@
 {
     "redirections": [
       {
+        "source_path": "articles/java/ee/jboss-eap-single-server-azure-vm.md",
+        "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
+      },
+      {
+        "source_path": "articles/java/ee/weblogic-server-azure-virtual-machine.md",
+        "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
+      },
+      {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
       },
