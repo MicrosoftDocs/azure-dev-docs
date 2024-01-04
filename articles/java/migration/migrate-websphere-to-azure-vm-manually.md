@@ -463,7 +463,7 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-secure-password.png" alt-text="Screenshot of IBM WebSphere Application Server Secure Password." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-secure-password.png":::
 
-1. Select **OK**. It takes a while to connect to the repository. If there's an error, you must make sure the IBMid is correct.
+1. Select **OK**. It takes a while to connect to the repository. If there's an error, you must make sure the IBMid and password are correct.
 
 1. After the connection is complete, you're shown the **Install Packages** pane. On the **Install Packages** pane, type *network* into the text field. When the results refresh in the table, select the top level **IBM WebSphere Application Server Network Deployment** version **9.0.5.x**, as shown in the following screenshot. The exact version number is different, but it must be the latest 9.0 version shown. Be sure to select the sub-checkboxes.
 
@@ -505,7 +505,7 @@ You've now installed WebSphere Application Server Network Deployment in director
 
 ### [Install WAS ND V85](#tab/was-nd-v85)
 
-In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional 8.5 running on `adminVM`. Use the following steps to view the installer and install the server:
+In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional V8.5 running on `adminVM`. Use the following steps to view the installer and install the server:
 
 1. If you aren't using the previous terminal, set the `DISPLAY` variable by running `export DISPLAY=<my-windows-vm-private-ip>:0.0`.
 
