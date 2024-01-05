@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python
 description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 11/29/2023
+ms.date: 01/04/2024
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -107,7 +107,16 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources. As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment specific code.
+When your code is running in Azure and managed identity has been enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) determines the credentials to use in the following order:
+
+1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH` and (optionally) `AZURE_CLIENT_CERTIFICATE_PASSWORD`.
+1. Check keyword parameters for a user-assigned managed identity. You can pass in a user-assigned managed identity by specifying its client ID in the `managed_identity_client_id` parameter.
+1. Check the `AZURE_CLIENT_ID` environment variable for the client ID of a user-assigned managed identity.
+1. Use the system-assigned managed identity for the Azure resource if it's enabled.
+
+You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` keyword parameter `True`.
+
+In this article, we're using the system-assigned managed identity for an Azure App Service web app, so we don't need to configure a managed identity in the environment or pass it in as a parameter. The following steps show you how to use `DefaultAzureCredential`.
 
 First, add the `azure.identity` package to your application.
 
@@ -135,4 +144,4 @@ blob_service_client = BlobServiceClient(
         credential=token_credential)
 ```
 
-When the above code is run on your local workstation during local development, the SDK method, _DefaultAzureCredential()_, attempts to authenticate. The authentication process checks the environment variables for an application service principal, a user signed in via the Azure CLI or Azure PowerShell for a set of developer credentials. The benefit of this approach is that the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+As discussed in the [Azure SDK for Python authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` will use either an application service principal, as determined by environment settings, or developer tool credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
