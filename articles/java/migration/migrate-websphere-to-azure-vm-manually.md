@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface manually.
+> - Install WebSphere Application Server Network Deployment traditional (9.0.5 or 8.5.5) on the VMs by using the graphical interface manually.
 > - Configure a WAS cluster by using the Profile Management Tool.
 > - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
