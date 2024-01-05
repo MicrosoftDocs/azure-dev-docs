@@ -15,9 +15,9 @@ ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-
 
 # Configure MicroProfile with Azure Key Vault
 
-This tutorial will demonstrate how to configure a [MicroProfile](http://microprofile.io) application to retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) using the [MicroProfile Config APIs](https://microprofile.io/project/eclipse/microprofile-config) to create a direct connection to Azure Key Vault. Developers benefit from a standard API for retrieving and injecting configuration data into their microservices by using the MicroProfile Config APIs.
+This tutorial demonstrates how to configure a [MicroProfile](http://microprofile.io) application to retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) using the [MicroProfile Config APIs](https://microprofile.io/project/eclipse/microprofile-config) to create a direct connection to Azure Key Vault. Developers benefit from a standard API for retrieving and injecting configuration data into their microservices by using the MicroProfile Config APIs.
 
-Before you dive in, lets quickly take a look at what a combination of Azure Key Vault and the MicroProfile Config API enables us to write in our code. Here's a code snippet of a field in a class that has been annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is what will be set if the secret isn't discovered. The end result is that the secret value stored in Azure Key Vault, or the default value, will be injected automatically into the field at runtime, simplifying the life of developers as they no longer need to pass values around in constructors and setter methods, instead leaving it to MicroProfile to handle.
+Before you dive in, lets quickly take a look at what a combination of Azure Key Vault and the MicroProfile Config API enables us to write in our code. Here's a code snippet of a field in a class that is annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is used if the secret isn't discovered. The end result is that the secret value stored in Azure Key Vault, or the default value, is injected automatically into the field at runtime, which simplifies the life of developers as they no longer need to pass values around in constructors and setter methods, instead leaves it to MicroProfile to handle.
 
 ```java
 @Inject
@@ -123,15 +123,16 @@ echo $(curl -s http://localhost:9080/config/propertyNames -X GET)
 echo $(curl -s http://localhost:9080/config/properties -X GET)
 ```
 
-You should see the expected outputs described above. Switch back to the terminal where the app is running, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the app.
+You should see the expected outputs described in the comments. Switch back to the terminal where the app is running, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the app.
 
 ## Running on Azure Container Apps
 
 In this section, you containerize the app, configure a user-assigned managed identity to access the Azure Key Vault, and deploy the containerized app on Azure Container Apps.
+Switch back to the terminal where you ran the app locally, and use it throughout this section.
 
 ### Setting up an Azure Container Registry
 
-You use the Azure Container Registry to containerize the app and store the app image. Switch back to the termial where you ran the app locally.
+You use the Azure Container Registry to containerize the app and store the app image.
 
 First, create an Azure Container Registry with a unique name, for example, *acrejb010424*.
 
@@ -144,7 +145,7 @@ az acr create \
     --admin-enabled
 ```
 
-Next, containerize the app and push the app image to your Azure Azure Container Registry. Make sure you're in the path of the sample app, for example, *azure-microprofile/integration-tests/open-liberty-sample*.
+Next, containerize the app and push the app image to your Azure Container Registry. Make sure you're in the path of the sample app, for example, *azure-microprofile/integration-tests/open-liberty-sample*.
 
 ```azurecli-interactive
 az acr build \
@@ -170,11 +171,11 @@ ACR_PASSWORD=$(az acr credential show \
     --output tsv)
 ```
 
-### Setting up an user-assigned managed identity
+### Setting up a user-assigned managed identity
 
-As you notice before, the library uses [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) to authenticate in Azure. When you deploy the app to Azure Container Apps, you set environment variable `AZURE_CLIENT_ID` to configure [DefaultAzureCredential](/azure/developer/java/sdk/identity-azure-hosted-auth#configure-defaultazurecredential) to authenticate as a user-defined managed identity, which has required permissions to access the Azure Key Vault and is assigned to Azure Container Apps later.
+As you notice before, the library uses [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) to authenticate in Azure. When you deploy the app to Azure Container Apps, you set environment variable `AZURE_CLIENT_ID` to configure [DefaultAzureCredential](/azure/developer/java/sdk/identity-azure-hosted-auth#configure-defaultazurecredential) to authenticate as a user-defined managed identity, which has permissions to access the Azure Key Vault and is assigned to Azure Container Apps later.
 
-First, create an user-assigned managed identity with a unique name, for example, *uamiejb010424*. See [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1) for more information.
+First, create a user-assigned managed identity with a unique name, for example, *uamiejb010424*. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1).
 
 ```azurecli-interactive
 USER_ASSIGNED_IDENTITY_NAME=uamiejb010424
@@ -183,7 +184,7 @@ az identity create \
     -n ${USER_ASSIGNED_IDENTITY_NAME}
 ```
 
-Next, grant it permissions to get and list secrets from the Azure Key Vault. See [Assign the access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-cli#assign-the-access-policy) for more information.
+Next, grant it permissions to get and list secrets from the Azure Key Vault. For more information, see [Assign the access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-cli#assign-the-access-policy).
 
 ```azurecli-interactive
 USER_ASSIGNED_IDENTITY_OBJECT_ID="$(az identity show \
@@ -197,7 +198,7 @@ az keyvault set-policy --name "${KEY_VAULT_NAME}" \
     --object-id "${USER_ASSIGNED_IDENTITY_OBJECT_ID}"
 ```
 
-Then, retrieve id and client id of the user-assigned managed identity so you can assign it to your Azure Container Apps later for acccessing the Azure Key Vault.
+Then, retrieve ID and client ID of the user-assigned managed identity so you can assign it to your Azure Container Apps later for accessing the Azure Key Vault.
 
 ```azurecli-interactive
 USER_ASSIGNED_IDENTITY_ID="$(az identity show \
@@ -212,7 +213,7 @@ USER_ASSIGNED_IDENTITY_CLIENT_ID="$(az identity show \
 
 ### Deploying the app on Azure Container Apps
 
-You have containerized the app and configured a user-assigned managed identity to access the Azure Key Vault, you can deploy the containerized app on Azure Container Apps now.
+You containerized the app and configured a user-assigned managed identity to access the Azure Key Vault, you can deploy the containerized app on Azure Container Apps now.
 
 First, create an environment for Azure Container Apps. An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment with a unique name (for example, *acaenvejb010424*), as shown in the following example.
 
@@ -271,7 +272,7 @@ echo $(curl -s  ${APP_URL}/config/propertyNames -X GET)
 echo $(curl -s  ${APP_URL}/config/properties -X GET)
 ```
 
-You should see the expected outputs described above. If you don't see them, the app may be starting. Wait for a while and try again.
+You should see the expected outputs described in the comments. If you don't see them, the app may be starting. Wait for a while and try again.
 
 ## Cleaning up resources
 
