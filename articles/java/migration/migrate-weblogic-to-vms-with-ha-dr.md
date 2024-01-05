@@ -320,7 +320,7 @@ Now use the following steps to deploy the sample app to the clusters, starting f
 1. Locate **Domain structure** > **wlsd** > **Deployments** in the navigation pane. Select **Deployments**.
 1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select the *weblogic-cafe.war* file that you prepared previously.
 1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for the deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
-1. Switch to the **Control** tab and select **weblogic-cafe** from the deployments table. Select **Start** with the ption **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment `weblogic-cafe` is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open so you can use it later for further configuration.
+1. Switch to the **Control** tab and select **weblogic-cafe** from the deployments table. Select **Start** with the option **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment `weblogic-cafe` is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open so you can use it later for further configuration.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in the East US region.
 
@@ -396,7 +396,7 @@ To test failover, you manually fail your primary database server and cluster ove
 
 ### Failover to the secondary site
 
-First, use the following steps to shutdown the VMs in the primary cluster:
+First, use the following steps to shut down the VMs in the primary cluster:
 
 1. Find the name of your resource group where the primary WLS cluster is deployed - for example, *wls-cluster-westus-ejb120623*. Then follow the instructions in the [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster) section, but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
 1. Switch to the browser tab of your Traffic Manager, refresh the page until you see that the **Monitor status** value of the endpoint *myPrimaryEndpoint* becomes *Degraded*.
@@ -435,14 +435,14 @@ To automate the failover, consider using alerts on Traffic Manager metrics and A
 
 Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster, except for the following differences:
 
-1. First, shutdown the VMs in the **secondary cluster**. You should see that endpoint `myFailoverEndpoint` becomes *Degraded*.
+1. First, shut down the VMs in the **secondary cluster**. You should see that endpoint `myFailoverEndpoint` becomes *Degraded*.
 1. Next, failover the Azure SQL Database **from the secondary server to the primary server**.
 1. Then, start all servers in the **primary cluster**.
 1. Finally, verify the sample app after the endpoint `myPrimaryEndpoint` is *Online*.
 
 ## Clean up resources
 
-If you're not going to continue to use the WLS clusters and other components, euse the following steps to delete the resource groups to clean up the resources used in this tutorial:
+If you're not going to continue to use the WLS clusters and other components, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
 
 1. Enter the resource group name of Azure SQL Database servers (for example, `myResourceGroup`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
 1. Select **Delete resource group**.
