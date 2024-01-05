@@ -195,14 +195,14 @@ First, use the following steps to configure network settings for the primary clu
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
 
-1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding instructions to write down its private IP address.
+1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding steps to write down its private IP address.
 
 Then, use the following steps to configure the network settings for the secondary cluster after its deployment completes:
 
 1. In the **Overview** pane of the **Deployment** page, select **Go to resource group**.
-1. For the network interfaces `adminVM_NIC_with_pub_ip`, `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding instructions to update the private IP address allocation to *Static*.
+1. For the network interfaces `adminVM_NIC_with_pub_ip`, `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding steps to update the private IP address allocation to *Static*.
 1. Wait until all updates complete.
-1. For the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding instructions but update the private IP address to the same value used with the primary cluster. Wait until the current update of network interface completes before proceeding to next one.
+1. For the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`, follow the preceding steps but update the private IP address to the same value used with the primary cluster. Wait until the current update of network interface completes before proceeding to next one.
 
    > [!NOTE]
    > You can't change the private IP address of the network interface that is part of a private endpoint. To easily mirror the private IP addresses of network interfaces for managed servers, consider updating the private IP address for `adminVM_NIC_with_pub_ip` to an IP address that isn't used. Depending on the allocation of private IP addresses in your two clusters, you might need to update the private IP address in the primary cluster as well.
@@ -398,7 +398,7 @@ To test failover, you manually fail your primary database server and cluster ove
 
 First, use the following steps to shut down the VMs in the primary cluster:
 
-1. Find the name of your resource group where the primary WLS cluster is deployed - for example, *wls-cluster-westus-ejb120623*. Then follow the instructions in the [Stop VMs in the secondary cluster](#stop-vms-in-the-secondary-cluster) section, but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
+1. Find the name of your resource group where the primary WLS cluster is deployed - for example, *wls-cluster-westus-ejb120623*. Then follow the steps in the [Stop VMs in the secondary cluster](#stop-the-vms-in-the-secondary-cluster) section, but change the target resource group to your primary WLS cluster, to stop all VMs in that cluster.
 1. Switch to the browser tab of your Traffic Manager, refresh the page until you see that the **Monitor status** value of the endpoint *myPrimaryEndpoint* becomes *Degraded*.
 1. Switch to the browser tab of the sample app and refresh the page. You should see *504 Gateway Time-out* or *502 Bad Gateway* because none of endpoints is accessible.
 
