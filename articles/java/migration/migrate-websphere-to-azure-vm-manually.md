@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Install WebSphere Application Server Network Deployment traditional (9.0.5 or 8.5.5) on the VMs by using the graphical interface manually.
+> - Install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface manually.
 > - Configure a WAS cluster by using the Profile Management Tool.
 > - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
@@ -1340,6 +1340,16 @@ Use the following steps to configure a custom profile on `mspVM1`:
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
+   
+### [WAS ND V85](#tab/was-nd-v85-pmt)
+
+   ```bash
+   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
+   ./pmt.sh
+   ```
+
+---
+
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
@@ -1403,8 +1413,8 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-
-### [WAS ND V85](#tab/was-nd-v85)
+   
+### [WAS ND V85](#tab/was-nd-v85-service-vm1)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
@@ -1416,6 +1426,7 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
+
 ---
 
 
