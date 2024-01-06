@@ -6,7 +6,7 @@ ms.date: 06/02/2023
 ms.author: asirveda
 author: KarlErickson
 ms.service: azure
-ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, passwordless-dotnet, passwordless-go, passwordless-java, passwordless-js, passwordless-python
+ms.custom: devx-track-java, devx-track-javaee, passwordless-dotnet, passwordless-go, passwordless-java, passwordless-js, passwordless-python
 ---
 
 # Passwordless connections for Azure services
