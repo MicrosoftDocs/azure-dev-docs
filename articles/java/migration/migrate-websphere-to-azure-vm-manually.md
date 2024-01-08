@@ -1236,7 +1236,7 @@ Make sure you're still on your Windows machine. If you're not, remote connect to
 
 Then, configure custom profiles on `mspVM1` and `mspVM2`.
 
-### [Configure mspVM1](#tab/mspVM1)
+### [Configure msp1](#tab/mspVM1)
 
 Use the following steps to configure a custom profile on `mspVM1`:
 
@@ -1410,7 +1410,7 @@ You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit fr
 
 Make sure to go back to the beginning of this section and do the same steps again for mspVM2.
 
-### [Configure mspVM2](#tab/mspVM2)
+### [Configure msp2](#tab/mspVM2)
 
 Use the following steps to configure a custom profile on `mspVM2`:
 
