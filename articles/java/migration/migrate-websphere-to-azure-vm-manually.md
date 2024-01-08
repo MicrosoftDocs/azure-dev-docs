@@ -524,11 +524,14 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png" alt-text="Screenshot of IBM WebSphere Application Server edit preferences." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png":::
 
-1. In **Repositories** pane, click **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be *https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85*. Fill in with the URL in the **Repository** pane, click **OK**
+1. In **Repositories** pane, select **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be *https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85*. Fill in with the URL in the **Repository** pane, select **OK**
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png" alt-text="Screenshot of IBM WebSphere Application Server add the product repository." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png":::
 
-1. After a while, the **Password Required** pane asks you to input your IBMid. Fill in your user name and password and select **Save password**.  
+1. After a while, the **Password Required** pane asks you to input your IBMid. Fill in your user name and password and select **Save password**.
+
+> [!NOTE]
+> The IBMid you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, please contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of IBM WebSphere Application Server Password Required." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
 
@@ -538,7 +541,7 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
     :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of IBM WebSphere Application Server the product repository added." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
 
-1. Click **OK** to close **Preferences** pane. You are back to the landing page of IBM Installation Manager.
+1. Select **OK** to close **Preferences** pane. You are back to the landing page of IBM Installation Manager.
 
 1. Select **Install**. It takes a while to prepare the installer. You may see a message similar to **Waiting for www-147.ibm.com**.
 
@@ -1083,7 +1086,7 @@ Now, all three machines are ready. Next, you configure a WAS cluster.
 
 ## Create WAS profiles and a cluster
 
-This section shows you how to create and configure a WAS cluster. When it comes to creating WAS profiles and a cluster, there is no significant difference between versions V9 and V8.5. All the screenshots in this section have been captured using V9 as the basis.
+This section shows you how to create and configure a WAS cluster. When it comes to creating WAS profiles and a cluster, there is no significant difference between the 9.x series and the 8.5.x series. All the screenshots in this section have been captured using V9 as the basis.
 
 ### Configure a deployment manager profile
 
@@ -1202,9 +1205,10 @@ Use the following steps to create and configure the management profile:
 
 1. To start the deployment manager automatically at boot, create a Linux service for the process. Run the following commands to create a Linux service:
 
+### [WAS ND V9](#tab/was-nd-v9-service)
+
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
-   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1213,6 +1217,21 @@ Use the following steps to create and configure the management profile:
    # Add service.
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
+   
+### [WAS ND V85](#tab/was-nd-v85-service)
+
+   ```bash
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01
+
+   # Configure SELinux so systemctl has access on server start/stop script files.
+   semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
+   restorecon -r -v ${PROFILE_PATH}/bin
+
+   # Add service.
+   ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
+   ```
+
+---
 
 You must see the following output before continuing:
 
@@ -1306,11 +1325,22 @@ Use the following steps to configure a custom profile on `mspVM1`:
 
 1. Use the following commands to start Profile Management Tool:
 
+### [WAS ND V9](#tab/was-nd-v9-pmt)
+
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
-   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
+   
+### [WAS ND V85](#tab/was-nd-v85-pmt)
+
+   ```bash
+   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
+   ./pmt.sh
+   ```
+
+---
+
 
    After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
 
@@ -1354,9 +1384,10 @@ Use the following steps to configure a custom profile on `mspVM1`:
 
 1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
+### [WAS ND V9](#tab/was-nd-v9-service-vm1)
+
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
-   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1365,6 +1396,22 @@ Use the following steps to configure a custom profile on `mspVM1`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
+   
+### [WAS ND V85](#tab/was-nd-v85-service-vm1)
+
+   ```bash
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
+
+   # Configure SELinux so systemctl has access on server start/stop script files.
+   semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
+   restorecon -r -v ${PROFILE_PATH}/bin
+
+   # Add service to start nodeagent.
+   ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
+   ```
+
+---
+
 
 You must see the following output before continuing:
 
@@ -1375,6 +1422,8 @@ CWSFU0013I: Service [mspvm1Node01] added successfully.
 If you don't see this output, troubleshoot and resolve the problem before continuing.
 
 You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
+
+Make sure to go back to the beginning of this section and do the same steps again for mspVM2.
 
 ### [Configure mspVM2](#tab/mspVM2)
 
@@ -1450,11 +1499,21 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
 1. Use the following commands to start Profile Management Tool:
 
+### [WAS ND V9](#tab/was-nd-v9-service-vm2)
+
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
-   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
+
+### [WAS ND V85](#tab/was-nd-v85-service-vm2)
+
+   ```bash
+   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
+   ./pmt.sh
+   ```
+
+---
 
    After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
 
@@ -1486,7 +1545,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports-2.png" alt-text="Screenshot of IBM Profile Management Tool, Port Values Assignment 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports-2.png":::
 
-1. Select **Next**. It takes a while to complete the steps. Eventually, youmre shown the **Profile Creation Summary**.
+1. Select **Next**. It takes a while to complete the steps. Eventually, you're shown the **Profile Creation Summary**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Summary 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary-2.png":::
 
@@ -1498,9 +1557,10 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
 1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
+### [WAS ND V9](#tab/was-nd-v9-service-vm2)
+
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
-   # export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
 
    # Configure SELinux so systemctl has access on server start/stop script files.
    semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
@@ -1509,6 +1569,20 @@ Use the following steps to configure a custom profile on `mspVM2`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm2Node01 -serverName nodeagent -profilePath ${PROFILE_PATH}
    ```
+   
+### [WAS ND V85](#tab/was-nd-v85-service-vm2)
+
+   ```bash
+   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
+
+   # Configure SELinux so systemctl has access on server start/stop script files.
+   semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
+   restorecon -r -v ${PROFILE_PATH}/bin
+
+   # Add service to start nodeagent.
+   ${PROFILE_PATH}/bin/wasservice.sh -add mspvm2Node01 -serverName nodeagent -profilePath ${PROFILE_PATH}
+   ```
+---
 
 You must see the following output before continuing:
 
@@ -1540,13 +1614,13 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1` and the node is `mspvm1Node01 (ND 9.0.5.12)`.
+1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1` and the node is `mspvm1Node01 (ND 9.0.5.12)`. For V8.5, the node is `mspvm1Node01 (ND 8.5.5.24)` or similar.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Member 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 3: Create more cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2` and the node is `mspvm2Node01 (ND 9.0.5.12)`.
+1. For **Create a new cluster** > **Step 3: Create more cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2` and the node is `mspvm2Node01 (ND 9.0.5.12)`. For V8.5, the node is `mspvm2Node01 (ND 8.5.5.24)` or similar.
 
 1. Select **Add Member** to add the second node. There are two members listed in the table, as shown in the following screenshot:
 
@@ -1601,18 +1675,15 @@ In this section, you use the IBM console to create a WAS cluster and start manag
     1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
     1. You're shown a message saying "The configuration synchronization complete for cell."
     1. Select **OK** to exit the configuration.
+
+Go back to the beginning of the section and do the same steps for msp2.
+
    ---
 
 You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and the cluster is up and running.
     
 
 ## Connect Azure Database for PostgreSQL
-
-<!-->> [!NOTE]
-> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified. 
-> If you run these commands in PowerShell, ensure to declare environment parameters as indicated in the commands above.
-> To break a command line into multiple lines, in PowerShell you can use the backtick character (`) at the end of each line.-->
-
 
 This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your WAS cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
 
@@ -1623,33 +1694,37 @@ Run the following commands in the shell where you have Azure CLI installed. This
 Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
- ```bash
- az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
- export DB_SERVER_NAME="wasdb$(date +%s)"
 
- az postgres server create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $DB_SERVER_NAME  \
-    --location eastus \
-    --admin-user azureuser \
-    --ssl-enforcement Enabled \
-    --admin-password Secret123456 \
-    --sku-name GP_Gen5_2
- ```
+```bash
+az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
+export DB_SERVER_NAME="wasdb$(date +%s)"
+
+az postgres server create \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --name $DB_SERVER_NAME  \
+   --location eastus \
+   --admin-user azureuser \
+   --ssl-enforcement Enabled \
+   --admin-password Secret123456 \
+   --sku-name GP_Gen5_2
+```
+
 ### [PowerShell](#tab/in-powershell)        
- ```powershell
- az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
- $Env:DB_SERVER_NAME="wasdb$(Get-Date -UFormat %s)"
 
- az postgres server create `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name $Env:DB_SERVER_NAME `
-    --location eastus `
-    --admin-user azureuser `
-    --ssl-enforcement Enabled `
-    --admin-password Secret123456 `
-    --sku-name GP_Gen5_2
- ```
+```powershell
+az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
+
+$Env:DB_SERVER_NAME="wasdb$([int][double]::Parse((Get-Date (Get-Date) -UFormat %s)))"
+
+az postgres server create `
+   --resource-group $Env:RESOURCE_GROUP_NAME `
+   --name $Env:DB_SERVER_NAME `
+   --location eastus `
+   --admin-user azureuser `
+   --ssl-enforcement Enabled `
+   --admin-password Secret123456 `
+   --sku-name GP_Gen5_2
+```
 ---
 
 [!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
@@ -1826,12 +1901,6 @@ Use the following steps to create the gateway:
         --servers $Env:MSPVM1_IP $Env:MSPVM2_IP
    ```
    ---
-
-   After the application gateway is created, you can see the following new features:
-
-   - `appGatewayBackendPool` - A backend address pool that includes the managed servers.
-   - `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
-   - `rule1` - The default routing rule that's associated with `appGatewayHttpListener`.
 
 1. The managed servers expose their workloads with port `9080`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `9080` and creating a probe for it:
 

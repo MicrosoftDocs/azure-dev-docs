@@ -11,7 +11,6 @@ Create an availability set by using [az vm availability-set create](/cli/azure/v
 
 ### [Bash](#tab/in-bash)
 ```bash
-# export RESOURCE_GROUP_NAME = "abc1110rg"
 az vm availability-set create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name myAvailabilitySet \
@@ -20,7 +19,6 @@ az vm availability-set create \
 ```
 ### [PowerShell](#tab/in-powershell)
 ```powershell
-# $Env:RESOURCE_GROUP_NAME = "abc1110rg"
 az vm availability-set create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name myAvailabilitySet `
