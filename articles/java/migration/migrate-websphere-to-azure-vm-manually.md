@@ -1495,42 +1495,25 @@ You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and
     
 ## Deploy an application
 
-Use the following steps to deploy a Java EE application to the WAS cluster. [websphere-cafe](https://github.com/Azure-Samples/websphere-cafe) is a sample application connection with a data source for WAS.
+1. On the administrative console that you signed into earlier, select **Applications > New Application** and then select **New Enterprise Application**.
 
-1. Use the following steps to build [websphere-cafe](https://github.com/Azure-Samples/websphere-cafe):
+2. On the next panel, select **Remote file system** and then select **Browse…**. You're given the option to browse the file systems of your installed servers.
 
-   1. Use the following command to clone the source code from GitHub:
+3. Select the system that begins with **adminvm**. You're shown the VM’s file system. From there, select **V9** (or **V85**) and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
 
-      ```bash
-      git clone https://github.com/Azure-Samples/websphere-cafe.git
-      ```
+Then, you're taken back to the page for selecting the application, which should look like the following screenshot:
 
-   1. Use the following command to build the source code:
+:::image type="content" source="media/migrate-websphere-to-azure-vm-manually/select-test-app-page.png" alt-text="Screenshot of IBM WebSphere 'Specify the EAR, WAR, JAR, or SAR module to upload and install' dialog.":::
 
-      ```bash
-      mvn -DskipTests clean install --file websphere-cafe/pom.xml
-      ```
+Select **Next** and then **Next** for all the remaining steps in the **Install New Application** workflow. Then select **Finish**.
 
-   This command creates the file *websphere-cafe/websphere-cafe-web/target/websphere-cafe.war*. You upload this file in the next step.
+You should see a message **Application DefaultApplication.ear installed successfully**. If you do not see this message, troubleshoot and resolve the problem before continuing.
 
-1. Use the following steps to deploy [websphere-cafe](https://github.com/Azure-Samples/websphere-cafe):
+1. Select the hyperlink for **Save directly to the master configuration**.
 
-   1. Make sure you're still on your Windows machine. If you aren't, remote connect to `myWindowsVM`.
-   1. Copy *websphere-cafe/websphere-cafe-web/target/websphere-cafe.war* to `myWindowsVM`.
-   1. Open the IBM console with the URL `http://<adminvm-private-ip>:9060/ibm/console/` from a browser. In this example, the URL is `http://192.168.0.4:9060/ibm/console/`. Then, sign in with your admin account and password. In this example, they're `websphere/Secret123456`.
-   1. In the navigation panel, select **Applications**, **Application Types**, then **WebSphere enterprise applications**. On the **Enterprise Applications** pane, select **Install**.
-   1. For **Path to the new application**, select **Local file system**. Select **Choose file**, then select *websphere-cafe.war*.
-   1. Select **Next** for all of the remaining steps, then select **Finish**.
-   1. You're shown a message saying `Application websphere-cafe_war installed successfully.`, as shown in the following screenshot:
+Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
 
-      :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-messages.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Application, message." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-messages.png":::
-
-   1. Select the **Review** hyperlink, then select **Synchronize changes with Nodes**.
-   1. Select **Save** to save the changes. You're shown a status message saying `The configuration synchronization completed successfully for node: mspvm1Node01` and also for node `mspvm2Node01`.
-   1. Select **OK**. Now, the status of the application is **Stopped**.
-   1. From the application table, select **websphere-cafe_war**, then select **Start** to start the application. It takes a while for the application to be ready. When it's ready, you see the status message, as shown in the following screenshot:
-
-      :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-status.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Application, status." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-status.png":::
+1. In the table of **All Applications**, in the **Status** column, select the icon that looks like two arrows pointing to each other. After a few times refreshing the table in this way, a green arrow should show in the **Status** column for **DefaultApplication.ear**.
 
 The application is now installed in your WAS cluster. Next, you expose the application to the public internet by using Azure Application Gateway.
 
@@ -1773,11 +1756,11 @@ Use the following steps to create the gateway:
 You're now able to access the application with the URL produced by the following command:
 ### [Bash](#tab/in-bash)
 ```bash
-echo "http://${APPGATEWAY_IP}/websphere-cafe/"
+echo "http://${APPGATEWAY_IP}/snoop/"
 ```
 ### [PowerShell](#tab/in-powershell)        
 ```powershell
-echo "http://${Env:APPGATEWAY_IP}/websphere-cafe/"
+echo "http://${Env:APPGATEWAY_IP}/snoop/"
 ```
 ---
 
@@ -1885,8 +1868,8 @@ echo "IBM Console public URL: https://${Env:ADMIN_PUBLIC_IP}:9043/ibm/console/"
 You've now finished configuring the WAS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
-1. Navigate to the application with the URL `http://<gateway-public-ip-address>/websphere-cafe/`.
-1. Submit a new coffee to validate the application.
+1. Navigate to the application with the URL `http://<gateway-public-ip-address>/snoop/`.
+1. When you continually refresh the browser, the app cycles through the server instances. Look at the value of the **Host** request header and note that it changes after reloading several times.
 
 ## Clean up resources
 
