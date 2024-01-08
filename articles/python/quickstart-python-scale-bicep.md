@@ -3,7 +3,7 @@ title: Scale your azd Python web app with Bicep
 description: Quickstart article featuring the modification of Bicep files and using azd provision to scale your azd Python web app.
 ms.date: 12/11/2023
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-bicep
 ---
 
 # Quickstart: Scaling services deployed with the azd Python web templates using Bicep
