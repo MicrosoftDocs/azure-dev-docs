@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines"
-description: Provides step-by-step guidance to install IBM WebSphere Application Server on Azure VMs and form a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
+description: Provides step-by-step guidance to install IBM WebSphere Application Server on Azure VMs and form a cluster and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -19,7 +19,6 @@ In this tutorial, you learn how to:
 > - Create a custom virtual network and create the VMs within the network.
 > - Install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface manually.
 > - Configure a WAS cluster by using the Profile Management Tool.
-> - Configure a PostgreSQL datasource connection in the cluster.
 > - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
@@ -39,7 +38,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 
 ## Prepare the environment
 
-In this section, you set up the infrastructure within which you install IBM Installation Manager, WebSphere Application Server Network Deployment traditional, and the PostgreSQL JDBC driver.
+In this section, you set up the infrastructure within which you install IBM Installation Manager and WebSphere Application Server Network Deployment traditional.
 
 ### Assumptions
 
@@ -583,23 +582,9 @@ You've now installed WebSphere Application Server Network Deployment in director
 
 ---
 
-Next, you install the PostgreSQL JDBC driver on `adminVM`, so keep this terminal open.
-
-### Download the PostgreSQL JDBC driver
-
-Use the following command to download PostgreSQL JDBC driver and store it. This command assumes you're still on `adminVM` and signed in with the `root` user. If you're working with any other user, run `sudo su -` to switch to `root`.
-
-```bash
-mkdir -p "/datadrive/externallibs"
-export DRIVER_PATH="/datadrive/externallibs/postgresql-42.5.0.jar"
-curl -L https://jdbc.postgresql.org/download/postgresql-42.5.0.jar -o ${DRIVER_PATH}
-```
-
-Later, you configure the data source connection by using the driver. For now, you can exit from being `root` and exit the SSH connection to `adminVM`.
-
 ### Create machines for managed servers
 
-You've now installed WebSphere Application Server Network Deployment and PostgreSQL JDBC driver on `adminVM`, which runs the deployment manager. You still need to prepare machines to run the two managed servers. Next, you create a snapshot from disks of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've now installed WebSphere Application Server Network Deployment on `adminVM`, which runs the deployment manager. You still need to prepare machines to run the two managed servers. Next, you create a snapshot from disks of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then use the following steps. This terminal isn't the Windows jump box.
 
@@ -1557,7 +1542,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
 
 1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
-### [WAS ND V9](#tab/was-nd-v9-service-vm2)
+### [Install WAS ND V9](#tab/was-nd-v9)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
@@ -1570,7 +1555,7 @@ Use the following steps to configure a custom profile on `mspVM2`:
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm2Node01 -serverName nodeagent -profilePath ${PROFILE_PATH}
    ```
    
-### [WAS ND V85](#tab/was-nd-v85-service-vm2)
+### [Install WAS ND V85](#tab/was-nd-v85)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
@@ -1682,107 +1667,6 @@ Go back to the beginning of the section and do the same steps for msp2.
 
 You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and the cluster is up and running.
     
-
-## Connect Azure Database for PostgreSQL
-
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your WAS cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
-
-### Create an Azure Database for PostgreSQL instance
-
-Run the following commands in the shell where you have Azure CLI installed. This shell isn't the Windows jump box VM, or any of the GNU/Linux servers forming the WebSphere cluster.
-
-Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
-
-### [Bash](#tab/in-bash)
-
-```bash
-az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
-export DB_SERVER_NAME="wasdb$(date +%s)"
-
-az postgres server create \
-   --resource-group $RESOURCE_GROUP_NAME \
-   --name $DB_SERVER_NAME  \
-   --location eastus \
-   --admin-user azureuser \
-   --ssl-enforcement Enabled \
-   --admin-password Secret123456 \
-   --sku-name GP_Gen5_2
-```
-
-### [PowerShell](#tab/in-powershell)        
-
-```powershell
-az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
-
-$Env:DB_SERVER_NAME="wasdb$([int][double]::Parse((Get-Date (Get-Date) -UFormat %s)))"
-
-az postgres server create `
-   --resource-group $Env:RESOURCE_GROUP_NAME `
-   --name $Env:DB_SERVER_NAME `
-   --location eastus `
-   --admin-user azureuser `
-   --ssl-enforcement Enabled `
-   --admin-password Secret123456 `
-   --sku-name GP_Gen5_2
-```
----
-
-[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
-
-Print the database connection string by using the following command:
-
-### [Bash](#tab/in-bash)
- ```bash
- echo "jdbc:postgresql://${DB_PRIVATE_IP}:5432/postgres?user=azureuser@${DB_SERVER_NAME}&password=Secret123456&sslmode=require"
- ```
-### [PowerShell](#tab/in-powershell)        
- ```powershell
- echo "jdbc:postgresql://${Env:DB_PRIVATE_IP}:5432/postgres?user=azureuser@${Env:DB_SERVER_NAME}&password=Secret123456&sslmode=require"
- ```
----
-
-### Configure the database connection for the WAS cluster
-
-In this section, you use the IBM console to configure the data source connection in the WAS cluster by using the browser on `myWindowsVM`. Make sure you're still on your Windows machine. If you aren't, remote connect to `myWindowsVM`. Then, use the following steps:
-
-1. Open and sign in at the IBM console with the URI `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the URL is `http://192.168.0.4:9060/ibm/console/`.
-
-1. In the navigation pane, select **Resources**, **JDBC**, **Data sources**. For **Scope**, select **Cluster=cluster1**. Select the **New...** button.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-new.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Data sources, new." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-new.png":::
-
-1. Use the following steps to fill in the required information:
-
-   1. For **Step 1: Enter basic data source information**:
-      - For **Data source name**, enter `WebSphereCafeDB`.
-      - For **JNDI Name**, enter `jdbc/WebSphereCafeDB`. Select **Next** to continue.
-   1. For **Step 2.1: Create new JDBC provider**:
-      - For **Database type**, select **User-defined**.
-      - For **Implementation class name**, enter *org.postgresql.ds.PGConnectionPoolDataSource*.
-      - Keep the other fields with default values.
-   1. Select **Next** to continue.
-   1. For **Step 2.2: Enter database class path information**:
-      - For **Class path**, replace the default value with */datadrive/externallibs/postgresql-42.5.0.jar*.
-   1. Select **Next** to continue.
-   1. For **Step 3: Enter database specific properties for the data source**: keep the default settings and select **Next** to continue.
-   1. For **Step 4: Setup security aliases**: keep the default settings and select **Next** to continue.
-   1. For **Step 5: Summary**: select **Finish** to continue.
-   1. You're now shown `WebSphereCafeDB` listed in the table. Use the following steps to set the connection string:
-      1. Select the data source **WebSphereCafeDB**. In the **Additional Properties** section, select **Custom properties**.
-      1. Determine whether there's a property named **URL**, then use one of the following steps:
-         - If there is, select **URL**. For **Value**, enter the connection string printed from previous section, and then select **OK**.
-         - If there isn't, select the **New** button to create a new property. For **Name**, enter `URL`. For **Value**, enter the connection string printed from previous section, then select **OK**.
-   1. Review and save changes. Now, you're back to the **Data sources** pane. Complete the following steps:
-      1. Select **Review** link in the **Messages** panel.
-      1. Select **Synchronize changes with Nodes**.
-      1. Select **Save**. If the configuration succeeds, you see a status message, as shown in the following screenshot:
-
-         :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-status.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Data sources, status." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-status.png":::
-
-1. Test the connection. Go back to **Data sources** pane, select **WebSphereCafeDB**, and then select **Test connection** to test the connection. If the connection configuration is correct, you're shown a message similar to the messages on the following screenshot:
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-test.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Data sources, test." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-datasource-test.png":::
-
 ## Deploy an application
 
 Use the following steps to deploy a Java EE application to the WAS cluster. [websphere-cafe](https://github.com/Azure-Samples/websphere-cafe) is a sample application connection with a data source for WAS.
