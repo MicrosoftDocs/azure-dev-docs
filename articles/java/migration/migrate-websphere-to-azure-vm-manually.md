@@ -1236,7 +1236,7 @@ Make sure you're still on your Windows machine. If you're not, remote connect to
 
 Then, configure custom profiles on `mspVM1` and `mspVM2`.
 
-### [Configure msp1](#tab/mspVM1)
+#### Configure the custom profile for mspVM1
 
 Use the following steps to configure a custom profile on `mspVM1`:
 
@@ -1316,18 +1316,16 @@ Use the following steps to configure a custom profile on `mspVM1`:
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
-   
+
 ### [WAS ND V85](#tab/was-nd-v85-pmt)
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
-
 ---
 
-
-   After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
+After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
 
 1. Select **Create**. On the **Environment Selection** pane, select **Custom profile**.
 
@@ -1381,7 +1379,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-   
+
 ### [WAS ND V85](#tab/was-nd-v85-service-vm1)
 
    ```bash
@@ -1394,7 +1392,6 @@ Use the following steps to configure a custom profile on `mspVM1`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-
 ---
 
 
@@ -1408,178 +1405,7 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 
 You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
 
-Make sure to go back to the beginning of this section and do the same steps again for mspVM2.
-
-### [Configure msp2](#tab/mspVM2)
-
-Use the following steps to configure a custom profile on `mspVM2`:
-
-1. Connect to `mspVM2` from a command prompt.
-
-   ```bash
-   set MSPVM2VM_IP="192.168.0.7"
-   ssh azureuser@%MSPVM2VM_IP%
-   ```
-
-1. Use the following commands to become the `root` user and set the `DISPLAY` variable:
-
-   ```bash
-   sudo su -
-
-   export DISPLAY=<my-windows-vm-private-ip>:0.0
-   # export DISPLAY=192.168.0.5:0.0
-   ```
-
-1. To access the deployment manager on `adminVM`, open firewall ports by using the following commands:
-
-   ```bash
-   firewall-cmd --zone=public --add-port=9080/tcp --permanent
-   firewall-cmd --zone=public --add-port=9443/tcp --permanent
-   firewall-cmd --zone=public --add-port=2809/tcp --permanent
-   firewall-cmd --zone=public --add-port=9405/tcp --permanent
-   firewall-cmd --zone=public --add-port=9406/tcp --permanent
-   firewall-cmd --zone=public --add-port=9353/tcp --permanent
-   firewall-cmd --zone=public --add-port=9633/tcp --permanent
-   firewall-cmd --zone=public --add-port=5558/tcp --permanent
-   firewall-cmd --zone=public --add-port=5578/tcp --permanent
-   firewall-cmd --zone=public --add-port=9100/tcp --permanent
-   firewall-cmd --zone=public --add-port=9404/tcp --permanent
-   firewall-cmd --zone=public --add-port=7276/tcp --permanent
-   firewall-cmd --zone=public --add-port=7286/tcp --permanent
-   firewall-cmd --zone=public --add-port=5060/tcp --permanent
-   firewall-cmd --zone=public --add-port=5061/tcp --permanent
-   firewall-cmd --zone=public --add-port=8880/tcp --permanent
-   firewall-cmd --zone=public --add-port=11003/udp --permanent
-   firewall-cmd --zone=public --add-port=11004/tcp --permanent
-   firewall-cmd --zone=public --add-port=2810/tcp --permanent
-   firewall-cmd --zone=public --add-port=9201/tcp --permanent
-   firewall-cmd --zone=public --add-port=9202/tcp --permanent
-   firewall-cmd --zone=public --add-port=9354/tcp --permanent
-   firewall-cmd --zone=public --add-port=9626/tcp --permanent
-   firewall-cmd --zone=public --add-port=9629/tcp --permanent
-   firewall-cmd --zone=public --add-port=7272/tcp --permanent
-   firewall-cmd --zone=public --add-port=5001/tcp --permanent
-   firewall-cmd --zone=public --add-port=5000/tcp --permanent
-   firewall-cmd --zone=public --add-port=9900/tcp --permanent
-   firewall-cmd --zone=public --add-port=9901/tcp --permanent
-   firewall-cmd --zone=public --add-port=8878/tcp --permanent
-   firewall-cmd --zone=public --add-port=7061/tcp --permanent
-   firewall-cmd --zone=public --add-port=7062/tcp --permanent
-   firewall-cmd --zone=public --add-port=11001/udp --permanent
-   firewall-cmd --zone=public --add-port=11002/tcp --permanent
-   firewall-cmd --zone=public --add-port=9809/tcp --permanent
-   firewall-cmd --zone=public --add-port=9402/tcp --permanent
-   firewall-cmd --zone=public --add-port=9403/tcp --permanent
-   firewall-cmd --zone=public --add-port=9352/tcp --permanent
-   firewall-cmd --zone=public --add-port=9632/tcp --permanent
-   firewall-cmd --zone=public --add-port=9401/tcp --permanent
-   firewall-cmd --zone=public --add-port=11005/udp --permanent
-   firewall-cmd --zone=public --add-port=11006/tcp --permanent
-   firewall-cmd --zone=public --add-port=8879/tcp --permanent
-   firewall-cmd --zone=public --add-port=9060/tcp --permanent
-   firewall-cmd --zone=public --add-port=9043/tcp --permanent
-
-   firewall-cmd --reload
-   ```
-
-1. Use the following commands to start Profile Management Tool:
-
-### [WAS ND V9](#tab/was-nd-v9-service-vm2)
-
-   ```bash
-   cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
-   ./pmt.sh
-   ```
-
-### [WAS ND V85](#tab/was-nd-v85-service-vm2)
-
-   ```bash
-   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
-   ./pmt.sh
-   ```
-
----
-
-   After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
-
-1. Select **Create**. On the **Environment Selection** pane, select **Custom profile**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-2.png" alt-text="Screenshot of IBM Profile Management Tool, Custom profile 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-2.png":::
-
-1. Select **Next**. On the **Profile Creation Options** pane, select **Advanced profile creation**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-2.png":::
-
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location-2.png":::
-
-1. Select **Next**. On the **Node and Host Names** pane, enter your node name and host. The value of host is private IP address of `mspVM2`. In this example, the host is `192.168.0.7` and the node name is `mspvm2Node01`.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name-2.png" alt-text="Screenshot of IBM Profile Management Tool, Node and Host Names 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name-2.png":::
-
-1. Select **Next**. On the **Federation** pane, enter the deployment manager hostname and authentication. For **Deployment manager host name or IP address**, the value is private IP address of `adminVM`, which is `192.168.0.4` here. For the **Deployment manager authentication**, in this example, the user name is `websphere`, and the password is `Secret123456`.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager-2.png" alt-text="Screenshot of IBM Profile Management Tool, Federation 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager-2.png":::
-
-1. Select **Next**. For the security certificate (part 1), input your certificate if you have one. This example uses the default self-signed certificate.
-
-1. Select **Next**. For the security certificate (part 2), input your certificate if you have one. This example uses the default self-signed certificate.
-
-1. Select **Next**. On the **Port Values Assignment**, keep the default ports.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports-2.png" alt-text="Screenshot of IBM Profile Management Tool, Port Values Assignment 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports-2.png":::
-
-1. Select **Next**. It takes a while to complete the steps. Eventually, you're shown the **Profile Creation Summary**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Summary 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary-2.png":::
-
-1. Select **Create**. It takes a while to create the custom profile. On the **Profile Creation Complete** pane, unselect **Launch the First steps console**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete-2.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Complete 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete-2.png":::
-
-1. Select **Finish** to exit profile creation and close Profiles Management Tool.
-
-1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
-
-### [Install WAS ND V9](#tab/was-nd-v9)
-
-   ```bash
-   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
-
-   # Configure SELinux so systemctl has access on server start/stop script files.
-   semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
-   restorecon -r -v ${PROFILE_PATH}/bin
-
-   # Add service to start nodeagent.
-   ${PROFILE_PATH}/bin/wasservice.sh -add mspvm2Node01 -serverName nodeagent -profilePath ${PROFILE_PATH}
-   ```
-   
-### [Install WAS ND V85](#tab/was-nd-v85)
-
-   ```bash
-   export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
-
-   # Configure SELinux so systemctl has access on server start/stop script files.
-   semanage fcontext -a -t bin_t "${PROFILE_PATH}/bin(/.*)?"
-   restorecon -r -v ${PROFILE_PATH}/bin
-
-   # Add service to start nodeagent.
-   ${PROFILE_PATH}/bin/wasservice.sh -add mspvm2Node01 -serverName nodeagent -profilePath ${PROFILE_PATH}
-   ```
----
-
-You must see the following output before continuing:
-
-```bash
-CWSFU0013I: Service [mspvm2Node01] added successfully.
-```
-
-If you don't see this output, troubleshoot and resolve the problem before continuing.
-
-You've now created a custom profile and `nodeagent` running on `mspVM2`. Exit from being `root` and exit the SSH connection to `mspVM2`.
-
----
+Make sure to go back to the beginning of this section, **Configure the custom profile for mspVM1** and do the same steps again for mspVM2. That is, wherever you used mspVM1 or similar, do the same, but for mspVM2.
 
 You've now prepared the custom profile for two managed servers - `mspVM1` and `mspVM2`. Continue ahead to create a WAS cluster.
 
