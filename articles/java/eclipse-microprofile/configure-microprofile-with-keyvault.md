@@ -15,9 +15,9 @@ ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-
 
 # Configure MicroProfile with Azure Key Vault
 
-This tutorial demonstrates how to configure a [MicroProfile](http://microprofile.io) application to retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) using the [MicroProfile Config APIs](https://microprofile.io/project/eclipse/microprofile-config) to create a direct connection to Azure Key Vault. Developers benefit from a standard API for retrieving and injecting configuration data into their microservices by using the MicroProfile Config APIs.
+This tutorial demonstrates how to configure a [MicroProfile](http://microprofile.io) application to retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) using the [MicroProfile Config APIs](https://microprofile.io/project/eclipse/microprofile-config). Developers benefit from the open standard MicroProfile Config API for retrieving and injecting configuration data into their microservices.
 
-Before you dive in, lets quickly take a look at what a combination of Azure Key Vault and the MicroProfile Config API enables us to write in our code. Here's a code snippet of a field in a class that is annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is used if the secret isn't discovered. The end result is that the secret value stored in Azure Key Vault, or the default value, is injected automatically into the field at runtime, which simplifies the life of developers as they no longer need to pass values around in constructors and setter methods, instead leaves it to MicroProfile to handle.
+Let's take a quick look at power of combining Azure Key Vault and the MicroProfile Config API. Here's a code snippet of a field in a class that is annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is used if the secret isn't discovered. The secret value stored in Azure Key Vault, or the default value if no such secret exists, is injected automatically into the field at runtime. This provides numerous benefits, including no longer needing to pass values around in constructors and setter methods, and externalizes the configuration from the code. One of the most powerful benefits is having separate sets of values for dev, test, and prod environments.
 
 ```java
 @Inject
@@ -25,7 +25,7 @@ Before you dive in, lets quickly take a look at what a combination of Azure Key 
 String keyValue;
 ```
 
-It's also possible to access the MicroProfile config directly, to request secrets as necessary, for example:
+It's also possible to access the MicroProfile config imperatively:
 
 ```java
 public class DemoClass {
@@ -38,7 +38,7 @@ public class DemoClass {
 }
 ```
 
-This sample makes use of [Open Liberty](https://openliberty.io/) and [MicroProfile](https://microprofile.io/) to create a tiny Java war file that you can run locally on your machine. The sample also demonstrates how to containerize and run the application on Azure.
+This sample uses the [Open Liberty](https://openliberty.io/) implementation of [MicroProfile](https://microprofile.io/). For a complete list of compatible implementations, see [https://microprofile.io/compatible/](MicroProfile Compatible Implementations). The sample also demonstrates how to containerize and run the application on Azure.
 
 This sample also makes use of a free and open source library that creates a config source (using the MicroProfile Config API) for Azure Key Vault. You can learn more about this library, and review the code, on the [project GitHub page](https://github.com/Azure/azure-microprofile/tree/main/config-keyvault). You can focus on configuration of the library and retrieving secrets stored in Azure Key Vault by using this library, and you don't need to write any Azure-specific code.
 
