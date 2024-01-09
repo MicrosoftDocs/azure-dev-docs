@@ -13,6 +13,8 @@ ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-tr
 
 This article shows you how to quickly deploy a cluster of WebSphere Application Server (tWAS) instances on Azure Virtual Machines (VMs).
 
+This article uses the Azure Marketplace offer for WebSphere Application Server Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM JDK 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. To see the offer, visit the [Azure portal](https://aka.ms/twas-cluster-portal). If you prefer manual step-by-step guidance for installing WebSphere Application Server Cluster that doesn't utilize the automation enabled by the offer, see [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](../migration/migrate-websphere-to-azure-vm-manually.md).
+
 ## Prerequisites
 
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).

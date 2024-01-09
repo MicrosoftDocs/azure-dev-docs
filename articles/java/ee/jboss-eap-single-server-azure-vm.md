@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-
 
 This article shows you how to quickly deploy JBoss EAP Server on an Azure virtual machine (VM) using the Azure portal.
 
+This article uses the Azure Marketplace offer for JBoss EAP standalone to accelerate your journey to Azure VM. The offer automatically provisions a number of resources including an Azure Red Hat Enterprise Linux (RHEL) VM, a JBoss EAP standalone instance, a Red Hat build of OpenJDK, and a JBoss EAP management console. To see the offer, visit the [Azure portal](https://aka.ms/eap-vm-single-portal). If you prefer a solution that installs a JBoss EAP Cluster on Azure VMs using the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines using the Azure portal](jboss-eap-cluster-azure-vms.md).
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
