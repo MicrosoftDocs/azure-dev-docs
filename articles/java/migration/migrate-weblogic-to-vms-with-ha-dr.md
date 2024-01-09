@@ -46,7 +46,7 @@ This tutorial was written with the Azure SQL Database service because the tutori
 
 In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction logs to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA).
 
-First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Execute the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database.
+First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
 
 1. When you reach the section [Create a single database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#create-a-single-database), use the following steps:
    1. In step 4 for creating new resource group, write down the **Resource group name** value - for example, *myResourceGroup*.
@@ -64,8 +64,8 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 1. When you reach the section [Query the database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#query-the-database), use the following steps:
    1. In step 3, enter your **SQL authentication** server admin sign-in information to sign in.
 
-   > [!NOTE]
-   > If sign-in fails with an error message similar to **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until the server firewall rules complete updating, then select **OK** again.
+      > [!NOTE]
+      > If sign-in fails with an error message similar to **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until the server firewall rules complete updating, then select **OK** again.
 
    1. After you run the sample query in step 5, clear the editor and enter the following query, then select **Run** again.
 
@@ -80,10 +80,10 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 
       These database tables are used for storing transaction log (TLOG) and session data for your WLS clusters and app. For more information, see [Using a JDBC TLOG Store](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/store/jdbc.html#GUID-6522B5CF-0775-4EEE-BF23-A5AD2C0F08EF) and [Using a Database for Persistent Storage (JDBC Persistence)](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wbapp/sessions.html#GUID-32648CF4-5189-43BB-B0FE-4A99B4EF9FDA).
 
-Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need to execute some of the sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group.
+Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
 1. When you reach the section [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group), use the following steps:
-   1. In step 5 for creating the failover group, select the option to create a new secondary server and use the following steps:
+   1. In step 5 for creating the failover group, select the option to create a new secondary server and then use the following steps:
       1. Enter and write down the unique server name - for example, *sqlserversecondary-ejb120623*.
       1. Enter the same server admin and password as your primary server.
       1. For **Location**, select **(US) East US**.
@@ -102,8 +102,6 @@ First, open the [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls
 
 Use the following steps to fill out the **Basics** pane:
 
-:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Basics pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png":::
-
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wls-cluster-westus-ejb120623*.
 1. Under **Instance details**, for **Region**, select **West US**.
@@ -111,21 +109,23 @@ Use the following steps to fill out the **Basics** pane:
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **TLS/SSL Configuration** pane.
 
-Leave the defaults in the **TLS/SSL Configuration** pane, then select **Next** to go to **Azure Application Gateway** pane.
+:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Basics pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-basics.png":::
 
-:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-azure-app-gateway.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Azure Application Gateway pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-azure-app-gateway.png":::
+Leave the defaults in the **TLS/SSL Configuration** pane, select **Next** to go to **Azure Application Gateway** pane, and then use the following steps.
 
 1. For **Connect to Azure Application Gateway?**, select **Yes**.
 1. For **Select desired TLS/SSL certificate option**, select **Generate a self-signed certificate**.
 1. Select **Next** to go to the **Networking** pane.
 
-You should see all fields pre-populated with the defaults in the **Networking** pane. Execute the following steps to save the network configuration:
+:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-azure-app-gateway.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Azure Application Gateway pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-azure-app-gateway.png":::
+
+You should see all fields pre-populated with the defaults in the **Networking** pane. Use the following steps to save the network configuration:
 
 1. Select **Edit virtual network**. Write down the address space of the virtual network - for example, *10.1.4.0/23*.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png":::
 
-1. Select **wls-subnet** to edit the subnet. Under **Subnet details**, write down the starting address and subnet size - for example, *10.1.5.0* and */28*.
+1. Select `wls-subnet` to edit the subnet. Under **Subnet details**, write down the starting address and subnet size - for example, *10.1.5.0* and */28*.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs WLS Subnet of Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png":::
 
@@ -134,8 +134,6 @@ You should see all fields pre-populated with the defaults in the **Networking** 
 1. Select **Next** to go to the **Database** pane.
 
 The following steps show you how to fill out the **Database** pane:
-
-:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Database pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png":::
 
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server (Support passwordless connection)** .
@@ -146,8 +144,11 @@ The following steps show you how to fill out the **Database** pane:
 1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
 1. Leave the defaults for the other fields.
 1. Select **Review + create**.
+1. Wait until **Running final validation...** successfully completes, then select **Create**.
 
-Wait until **Running final validation...** successfully completes, then select **Create**. After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
+:::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Database pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png":::
+
+After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
 > [!NOTE]
 > If you see any problems during **Running final validation...**, fix them and try again.
@@ -160,19 +161,19 @@ In the meantime, you can set up the secondary WLS cluster in parallel.
 
 Follow the same steps in as in the section [Set up the primary WLS cluster](#set-up-the-primary-wls-cluster) to set up the secondary WLS cluster in East US region, except for the following differences:
 
-1. In the "Basics" pane, use the following steps:
+1. In the **Basics** pane, use the following steps:
    1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
    1. Under **Instance details**, for **Region**, select **East US**.
 
-1. In the "Networking" pane, use the following steps:
+1. In the **Networking** pane, use the following steps:
    1. For **Edit virtual network**, enter same address space of the virtual network as your primary WLS cluster - for example, *10.1.4.0/23*.
 
       > [!NOTE]
-      > You should see a similar warning message `Address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' overlaps with address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' of virtual network 'wls-vnet'. Virtual networks with overlapping address space cannot be peered. If you intend to peer these virtual networks, change address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)'`. You can ignore this message because you need two WLS clusters with the same network configuration.
+      > You should see a warning message similar to the following one: **Address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' overlaps with address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)' of virtual network 'wls-vnet'. Virtual networks with overlapping address space cannot be peered. If you intend to peer these virtual networks, change address space '10.1.4.0/23 (10.1.4.0 - 10.1.5.255)'**. You can ignore this message because you need two WLS clusters with the same network configuration.
 
-   1. For **wls-subnet**, enter same starting address and subnet size as your primary WLS cluster - for example, *10.1.5.0* and */28*.
+   1. For `wls-subnet`, enter same starting address and subnet size as your primary WLS cluster - for example, *10.1.5.0* and */28*.
 
-1. In the "Database" pane, use the following steps:
+1. In the **Database** pane, use the following steps:
    1. For **DataSource Connection String**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
    1. For **Database username**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *azureuser@sqlserversecondary-ejb120623*.
 
@@ -180,20 +181,20 @@ Follow the same steps in as in the section [Set up the primary WLS cluster](#set
 
 During the phase of resuming pending transactions in the secondary WLS cluster after a failover, WLS checks the ownership of the TLOG store. To successfully pass the check, all managed servers in the secondary cluster must have same private IP address as the primary cluster.
 
-Use the following steps to mirror the network settings from the primary cluster to the secondary cluster.
+This section shows you how to mirror the network settings from the primary cluster to the secondary cluster.
 
 First, use the following steps to configure network settings for the primary cluster after its deployment completes:
 
 1. In **Overview** pane of the **Deployment** page, select **Go to resource group**.
 1. Select the network interface `adminVM_NIC_with_pub_ip`.
    1. Under **Settings**, select **IP configurations**.
-   1. Select **ipconfig1**.
+   1. Select `ipconfig1`.
    1. Under **Private IP address settings**, select **Static** for **Allocation**. Write down the private IP address.
    1. Select **Save**.
 1. Return to the resource group of the primary WLS cluster, then repeat step 3 for the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`.
 1. Wait until all updates complete. You can select the notifications icon in the Azure portal to open the **Notifications** pane for status monitoring.
 
-   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png":::
+   :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon.":::
 
 1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding steps to write down its private IP address.
 
@@ -226,7 +227,7 @@ Check the set of private IP addresses for all managed servers, which consists of
 
 1. Open the resource group of the cluster.
 1. Find the resource *myAppGateway* with the type **Application gateway**. Select it to open it.
-1. In the **Settings** section, select **Backend pools**, then select **myGatewayBackendPool**.
+1. In the **Settings** section, select **Backend pools**, then select `myGatewayBackendPool`.
 1. Change the **Backend targets** values with the updated private IP address or addresses, then select **Save**. Wait until it completes.
 1. In the **Settings** section, select **Health probes**, then select **HTTPhealthProbe**.
 1. Make sure **I want to test the backend health before adding the health probe** is selected, then select **Test**. You should see that the **Status** value of the backend pool `myGatewayBackendPool` is marked as healthy. If it isn't, check whether private IP addresses are updated as expected and the VMs are running, then test the health probe again. You must troubleshoot and resolve the issue before you continue.
@@ -259,7 +260,7 @@ Use the following steps to write down the IP address of the Azure Application Ga
 
 In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the Azure Application Gateway in the primary WLS cluster, and the secondary endpoint points to the Azure Application Gateway in the secondary WLS cluster.
 
-Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need to execute some of sections: **Create a Traffic Manager profile**, **Add Traffic Manager endpoints**, and **Test Traffic Manager profile**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
+Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile**, **Add Traffic Manager endpoints**, and **Test Traffic Manager profile**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
 
 1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile), use the following steps:
    1. In step 2 **Create Traffic Manager profile**, use the following steps:
@@ -272,7 +273,7 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       1. Under **Endpoint monitor settings**, for **Path**, enter */weblogic/ready*.
       1. Under **Fast endpoint failover settings**, use the following values:
          * For **Probing internal**, enter *10*.
-         * For **Tolerated number of failures**, enter  *3*. 
+         * For **Tolerated number of failures**, enter *3*.
          * For **Probe timeout**, *5*.
       1. Select **Save**. Wait until it completes.
    1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
@@ -280,12 +281,12 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       1. Select the **Choose public IP address** dropdown and enter the IP address of the `gwip` resource deployed in the **West US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
    1. In step 6 for adding a failover / secondary endpoint *myFailoverEndpoint*, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
-      1. Select the  **Choose public IP address** dropdown and enter the IP address of the `gwip` resource deployed in the **East US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the IP address of the `gwip` resource deployed in the **East US** WLS cluster that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while. Select **Refresh** until the **Monitor status** value for both endpoints is *Online*.
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile), use the following steps:
    1. In subsection [Check the DNS name](/azure/traffic-manager/quickstart-create-traffic-manager-profile#check-the-dns-name), use the following step:
-      * In step 3, write down the DNS name of your Traffic Manager profile - for example, `http://tmprofile-ejb120623.trafficmanager.net`.
+      1. In step 3, write down the DNS name of your Traffic Manager profile - for example, `http://tmprofile-ejb120623.trafficmanager.net`.
    1. In subsection [View Traffic Manager in action](/azure/traffic-manager/quickstart-create-traffic-manager-profile#view-traffic-manager-in-action), use the following steps:
       1. In step 1 and 3, append */weblogic/ready* to the DNS name of your Traffic Manager profile in your web browser - for example, `http://tmprofile-ejb120623.trafficmanager.net/weblogic/ready`. You should see an empty page without any error message.
       1. After completing all steps, make sure to **enable** your primary endpoint by referencing step 2, but replace **Disabled** with **Enabled**. Then return to **Endpoints** page.
@@ -319,8 +320,8 @@ Now use the following steps to deploy the sample app to the clusters, starting f
 1. Open the *adminConsole* of the cluster in a new tab of your web browser. Sign in to the WebLogic Server Administration Console with the username and password of the WebLogic Administrator you wrote down before.
 1. Locate **Domain structure** > **wlsd** > **Deployments** in the navigation pane. Select **Deployments**.
 1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select the *weblogic-cafe.war* file that you prepared previously.
-1. Select **Next** > **Next** > **Next**. Select **cluster1** with option **All servers in the cluster** for the deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
-1. Switch to the **Control** tab and select **weblogic-cafe** from the deployments table. Select **Start** with the option **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment `weblogic-cafe` is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open so you can use it later for further configuration.
+1. Select **Next** > **Next** > **Next**. Select `cluster1` with option **All servers in the cluster** for the deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
+1. Switch to the **Control** tab and select `weblogic-cafe` from the deployments table. Select **Start** with the option **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment `weblogic-cafe` is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is */weblogic-cafe*. Keep the WLS admin console open so you can use it later for further configuration.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in the East US region.
 
@@ -330,7 +331,7 @@ Use the following steps to make your WLS clusters aware of the Azure Traffic Man
 
 1. Make sure you're signed in to WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the navigation pane. Select **Clusters**.
-1. Select **cluster1** from the clusters table.
+1. Select `cluster1` from the clusters table.
 1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without the leading `http://` - for example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
 Repeat the same steps in the WebLogic Server Administration Console, but for the secondary cluster in the East US region.
@@ -344,12 +345,12 @@ Use the following steps on the primary WLS cluster in the US West region:
 1. Make sure you're signed in to the WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the navigation pane. Select **Servers**.
 1. You should see servers `msp1`, `msp2`, and `msp3` listed in the servers table.
-1. Select **msp1** > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC**.
-1. For **Type** > **Data Source**, select **jdbc/WebLogicCafeDB**.
+1. Select `msp1` > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC**.
+1. For **Type** > **Data Source**, select `jdbc/WebLogicCafeDB`.
 1. Confirm that the value for **Prefix Name** is *TLOG_msp1_*, which is the default value. If the value is different, change it to *TLOG_msp1_*.
 1. Select **Save**.
-1. Select **Servers** > **msp2**, and repeat the same steps, except that the default value for **Prefix Name** is *TLOG_msp2_*.
-1. Select **Servers** > **msp3**, and repeat the same steps, except that the default value for **Prefix Name** is *TLOG_msp3_*.
+1. Select **Servers** > `msp2`, and repeat the same steps, except that the default value for **Prefix Name** is *TLOG_msp2_*.
+1. Select **Servers** > `msp3`, and repeat the same steps, except that the default value for **Prefix Name** is *TLOG_msp3_*.
 1. Select **Activate Changes**.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in the East US region.
@@ -435,9 +436,9 @@ To automate the failover, consider using alerts on Traffic Manager metrics and A
 
 Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster, except for the following differences:
 
-1. First, shut down the VMs in the **secondary cluster**. You should see that endpoint `myFailoverEndpoint` becomes *Degraded*.
-1. Next, failover the Azure SQL Database **from the secondary server to the primary server**.
-1. Then, start all servers in the **primary cluster**.
+1. First, shut down the VMs in the secondary cluster. You should see that endpoint `myFailoverEndpoint` becomes *Degraded*.
+1. Next, failover the Azure SQL Database from the secondary server to the primary server.
+1. Then, start all servers in the primary cluster.
 1. Finally, verify the sample app after the endpoint `myPrimaryEndpoint` is *Online*.
 
 ## Clean up resources
