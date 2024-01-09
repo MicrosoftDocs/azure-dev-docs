@@ -19,6 +19,9 @@ In this quickstart, you will:
 
 This quickstart assumes a basic understanding of WLS concepts. For more information, see [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
 
+This article uses the Azure Marketplace offer for WebLogic Server with Admin console to accelerate your journey to Azure VM. The offer automatically provisions a number of resources including an Oracle Linux or Red Hat Enterprise Linux (RHEL) VM, a single WLS Enterprise Edition Admin Server instance, an Oracle JDK, and a WebLogic domain. To see the offer, visit the [Azure portal](https://aka.ms/wls-vm-admin). If you prefer manual step-by-step guidance for installing WebLogic cluster on Azure 
+VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines](../migration/migrate-weblogic-to-azure-vm-manually.md).
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
