@@ -206,7 +206,7 @@ The sample app uses environment variables (app settings) define connection infor
 
 The repo code shown uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
 
-If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. If a system-assigned managed identity isn't configured, the code will fall back to using a service principal. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+If the AZURE_CLIENT_ID environment variable doesn't exist, a system-assigned managed identity will be used if configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
 ## Create roles for the managed identity
 
