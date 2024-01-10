@@ -30,7 +30,7 @@
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-    - name: Passwordless auth - system managed identity
+    - name: Passwordless auth - system-assigned managed identity
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
       href: tutorial-python-managed-identity-user-assigned-cli.md
