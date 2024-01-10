@@ -225,27 +225,27 @@ name: Run Azure Login with OpenID Connect and PowerShell
 on: [push]
 
 permissions:
-      id-token: write
-      contents: read
+  id-token: write
+  contents: read
       
 jobs: 
   Windows-latest:
-      runs-on: windows-latest
-      steps:
-        - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-          uses: azure/login@v1
-          with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
-            enable-AzPSSession: true
+    runs-on: windows-latest
+    steps:
+      - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+          enable-AzPSSession: true
 
-        - name: 'Get resource group with PowerShell action'
-          uses: azure/powershell@v1
-          with:
-             inlineScript: |
-               Get-AzResourceGroup
-             azPSVersion: "latest"
+      - name: 'Get resource group with PowerShell action'
+        uses: azure/powershell@v1
+        with:
+          inlineScript: |
+            Get-AzResourceGroup
+          azPSVersion: "latest"
 ```
 
 ---
@@ -354,19 +354,19 @@ name: AzureLoginSample
 
 jobs:
 build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
+  runs-on: ubuntu-latest
+  steps:
 
     - name: Log in with Azure
         uses: azure/login@v1
         with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Azure CLI script
         uses: azure/CLI@v1
         with:
-        azcliversion: 2.0.72
-        inlineScript: |
+          azcliversion: 2.0.72
+          inlineScript: |
             az account show
             az storage -h
 ```
