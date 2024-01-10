@@ -377,7 +377,7 @@
 | azure-core-metrics-opentelemetry | Maven [1.0.0-beta.15](https://search.maven.org/artifact/com.azure/azure-core-metrics-opentelemetry/1.0.0-beta.15/jar/) |  |  |
 | azure-cosmos-cassandra-spring-data-extensions | Maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-spring-data-extensions/1.1.0/jar/)<br>Maven [1.1.2-1](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-spring-data-extensions/1.1.2-1/jar/) |  |  |
 | azure-functions-java-library-kusto | Maven [1.0.9-Preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-kusto/1.0.9-Preview/jar/) |  |  |
-| azure-gradle-plugins-common | Maven [1.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.8.0/jar/) |  |  |
+| azure-gradle-plugins-common | Maven [1.9.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.9.0/jar/) |  |  |
 | azure-kusto-log4j | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/azure-kusto-log4j/1.0.0/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
 | azure-sdk-template-three | Maven [1.2.1-beta.1001](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.2.1-beta.1001/jar/) |  |  |
