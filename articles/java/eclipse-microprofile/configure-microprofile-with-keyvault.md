@@ -364,7 +364,7 @@ echo $(curl -s  ${APP_URL}/config/propertyNames -X GET)
 echo $(curl -s  ${APP_URL}/config/properties -X GET)
 ```
 
-You should see the expected outputs described in the comments. If you don't see them, the app could stil be starting up. Wait for a while and try again.
+You should see the expected outputs described in the comments. If you don't see them, the app could still be starting up. Wait for a while and try again.
 
 ## Cleaning up resources
 
