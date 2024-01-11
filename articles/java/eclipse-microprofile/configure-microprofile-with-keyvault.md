@@ -131,10 +131,6 @@ You should see the expected outputs described in the comments. Switch back to th
 
 ## Examining the sample app
 
-The maven POM for the sample app is actually part of the integration test for the Azure MicroProfile library. As such, it pulls in the dependencies from its the POM and parent POM.
-
-### Connecting to Azure Key Vault
-
 The important dependency for this sample is the following.
 
 ```xml
@@ -143,6 +139,8 @@ The important dependency for this sample is the following.
   <artifactId>azure-microprofile-config-keyvault</artifactId>
 </dependency>
 ```
+
+### Connecting to Azure Key Vault
 
 The `azure-microprofile-config-keyvault` library connects your app to Azure Key Vault without introducing any direct dependencies on Azure APIs. The library provides an implementation of the MicroProfile Config specification [ConfigSource](https://download.eclipse.org/microprofile/microprofile-config-3.1/apidocs/org/eclipse/microprofile/config/spi/ConfigSource.html) interface that knows how to read from Azure Key Vault. The remainder of the implementation of MicroProfile Config is provided by the Open Liberty runtime. For a link to the specification, see [Next steps](#next-steps). 
 
@@ -191,7 +189,7 @@ public class ConfigResource {
 }
 ```
 
-The `getConfigValue()` method uses the injected `Config` implementation to look up a value from the application configuration sources. Any value lookups on the `Config` implementation will be found through the search algorithm defined by the MicroProfile Config specification. The `azure-microprofile-config-keyvault` library adds Azure Key Vault as a configuration source.
+The `getConfigValue()` method uses the injected `Config` implementation to look up a value from the application configuration sources. Any value lookups on the `Config` implementation are found through the search algorithm defined by the MicroProfile Config specification. The `azure-microprofile-config-keyvault` library adds Azure Key Vault as a configuration source.
 
 The `getConfigSource()` method avoids the search algorithm and goes straight to the `AzureKeyVaultConfigSource` to resolve properties. This method is used by the `getConfigPropertyNames()` and `getConfigProperties()` methods.
 
@@ -228,7 +226,7 @@ az acr build \
     .
 ```
 
-You should see build output that concludes with a message similar to `Run ID: ca1 was successful after 1m28s`. If you do not see a similar message, troubleshoot and resolve the problem before continuing.
+You should see build output that concludes with a message similar to `Run ID: ca1 was successful after 1m28s`. If you don't see a similar message, troubleshoot and resolve the problem before continuing.
 
 Retrieve connection information that is required for accessing the image when you deploy the app on Azure Container Apps later.
 
@@ -288,7 +286,7 @@ The output must contain the following JSON in order to be considered successful.
 }
 ```
 
-If the output does not contain this JSON, troubleshoot and resolve the problem before continuing.
+If the output doesn't contain this JSON, troubleshoot and resolve the problem before continuing.
 
 Then, retrieve ID and client ID of the user-assigned managed identity so you can assign it to your Azure Container Apps later for accessing the Azure Key Vault.
 
@@ -366,7 +364,7 @@ echo $(curl -s  ${APP_URL}/config/propertyNames -X GET)
 echo $(curl -s  ${APP_URL}/config/properties -X GET)
 ```
 
-You should see the expected outputs described in the comments. If you don't see them, the app may be starting. Wait for a while and try again.
+You should see the expected outputs described in the comments. If you don't see them, the app could stil be starting up. Wait for a while and try again.
 
 ## Cleaning up resources
 
