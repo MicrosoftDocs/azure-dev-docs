@@ -15,13 +15,12 @@ description: "Tutorial: Enable your Java Jboss EAP webapp to sign users in, prot
 urlFragment: msal-java-jboss-eap-web-app
 ---
 
-# Tutorial: Enable your Java Tpmcat web app to sign in users and call APIs with the Microsoft identity platform
+# Tutorial: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
 
 The [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview), along with [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Entra ID) and [Azure Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the **Azure** cloud ecosystem. This tutorial aims to take you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 
 We recommend following the chapters in successive order. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
 
-> :warning: This is a *work in progress*. Come back frequently to discover more samples.
 
 ## Prerequisites
 
@@ -70,11 +69,9 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |                 |               |
 |-----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](./4-Deployment/deploy-to-azure-app-service) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
+| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
 
-## We'd love your feedback!
 
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpURDQwVUxQWENUMlpLUlA0QzdJNVE3TUJRSyQlQCN0PWcu).
 
 ## More information
 
@@ -94,24 +91,3 @@ See more code samples:
 - [MSAL code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
 - [MSAL B2C code samples](https://docs.microsoft.com/azure/active-directory-b2c/code-samples)
 
-## Community Help and Support
-
-Use [Stack Overflow](http://stackovergrant.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`ms-identity` `azure-ad` `azure-ad-b2c` `msal` `java`].
-
-If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
-
-To provide a recommendation, visit the following [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
-
-## Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
-
-## Code of Conduct
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

@@ -1,45 +1,21 @@
 ---
-page_type: sample
-languages:
-  - java
-products:
-  - azure
-  - msal-java
-  - azure-active-directory
-  - entra
-urlFragment: msal-java-sign-in-b2c
-description: "This sample demonstrates a Java Spring MVC web app that authenticates users with Azure AD B2C"
+title: Enable your Java Spring Boot Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+description: Shows you how to develop a Java Spring Boot web app which supports sign-in by Azure Active Directory B2C.
+services: active-directory
+documentationcenter: java
+ms.date: 01/01/2024
+ms.service: active-directory-b2c
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Enable your Java Spring Boot web app to sign in users on your Azure Active Directory B2C tenant with the Microsoft identity platform (Azure AD B2C)
 
-- [Overview](#overview)
-- [Scenario](#scenario)
-- [Contents](#contents)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [Clone or download this repository](#clone-or-download-this-repository)
-  - [Register the sample application(s) with your Azure Active Directory tenant](#register-the-sample-applications-with-your-azure-active-directory-tenant)
-  - [Choose the Azure AD tenant where you want to create your applications](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-  - [Register the webApp app (java-spring-webapp-auth)](#register-the-webapp-app-java-spring-webapp-auth)
-- [Running the sample](#running-the-sample)
-- [Explore the sample](#explore-the-sample)
-- [We'd love your feedback!](#wed-love-your-feedback)
-- [About the code](#about-the-code)
-  - [Project Initialization](#project-initialization)
-  - [ID Token Claims](#id-token-claims)
-  - [Sign-in and sign-out links](#sign-in-and-sign-out-links)
-  - [Authentication-dependent UI elements](#authentication-dependent-ui-elements)
-  - [Protecting routes with AADWebSecurityConfigurerAdapter](#protecting-routes-with-aadwebsecurityconfigureradapter)
-- [More information](#more-information)
-- [Community Help and Support](#community-help-and-support)
-- [Contributing](#contributing)
+This article demonstrates a Java Spring MVC web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory-b2c). It uses the OpenID Connect protocol.
 
-<!-- ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/<BuildNumber>/badge) -->
-
-## Overview
-
-This sample demonstrates a Java Spring MVC web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory-b2c). It uses the OpenID Connect protocol.
 ## Scenario
 
 1. The client Java Spring web app leverages the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID Token from **Azure AD B2C**.
@@ -84,11 +60,11 @@ From your shell or command line:
 
 or download and extract the repository .zip file.
 
-> :warning: To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
+> [!IMPORTANT]
+> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
 
-> :warning: This sample comes with a pre-registered application for demo purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application on Azure portal. Otherwise, continue with the steps for Running the sample.
-<details>
-  <summary>Expand this section to see steps for configuring your own tenant:</summary>
+This sample comes with a pre-registered application for demo purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application on Azure portal. Otherwise, continue with the steps for Running the sample.
+
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
@@ -143,7 +119,6 @@ Open the [application.yml](src/main/resources/application.yml) file.
 Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 1. Find the references to the references to `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
-</details>
 
 ## Running the sample
 
@@ -166,11 +141,7 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 - You also have the option to edit your profile. Click the `edit profile` link on the top-right of the navbar to change details like your display name, place of residence, and profession.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
-> :information_source: Did the sample not work for you as expected? Did you encounter issues trying this sample? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
 
-## We'd love your feedback!
-
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/r/iTZtCTrZrH).
 
 ## About the code
 
@@ -264,9 +235,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 } 
 ```
 
-## Deployment
-
-[Deploy to Azure App Service](../../4-Deployment/deploy-to-azure-app-service). Prepare your app for deployment to Azure App Service, configure authentication parameters and use various Azure services for managing your operations.
 
 ## More information
 
@@ -287,19 +255,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 - [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
-
-## Community Help and Support
-
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`azure-active-directory` `azure-ad-b2c` `ms-identity` `adal` `msal` `java`].
-
-If you find a bug in the sample, raise the issue on [GitHub Issues](../../../../issues).
-
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
-
-## Contributing
-
-If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

@@ -1,50 +1,20 @@
 ---
-page_type: sample
-languages:
-  - java
-products:
-  - ms-graph
-  - azure-active-directory
-  - entra
-urlFragment: msal-java-spring-boot-groups
-description: "This sample demonstrates a Java Spring Boot web app that authenticates users against Azure AD"
+title: Enable your Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
+description: Shows you how to develop a Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
+services: active-directory
+documentationcenter: java
+ms.date: 01/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Enable your Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
 
-- [Overview](#overview)
-- [Scenario](#scenario)
-- [Contents](#contents)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [Clone or download this repository](#clone-or-download-this-repository)
-  - [Register the sample application with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-active-directory-tenant)
-  - [Choose the Azure AD tenant where you want to create your applications](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-  - [Register the web app (java-spring-webapp-groups)](#register-the-web-app-java-spring-webapp-groups)
-  - [Create Security Groups](#create-security-groups)
-  - [Configure Security Groups](#configure-security-groups)
-  - [Configure your code sample to use your app registration and security groups (java-spring-webapp-groups)](#configure-your-code-sample-to-use-your-app-registration-and-security-groups-java-spring-webapp-groups)
-- [Running the sample](#running-the-sample)
-- [Explore the sample](#explore-the-sample)
-- [We'd love your feedback!](#wed-love-your-feedback)
-- [About the code](#about-the-code)
-  - [Project Initialization](#project-initialization)
-  - [ID Token Claims](#id-token-claims)
-  - [Processing Groups claim in the ID token](#processing-groups-claim-in-the-id-token)
-  - [Sign-in and sign-out links](#sign-in-and-sign-out-links)
-  - [Authentication-dependent UI elements](#authentication-dependent-ui-elements)
-  - [Protecting routes with AADWebSecurityConfigurerAdapter](#protecting-routes-with-aadwebsecurityconfigureradapter)
-  - [The Groups Overage Claim](#the-groups-overage-claim)
-  - [Deploying web app to Azure App Services](#deploying-web-app-to-azure-app-services)
-- [More information](#more-information)
-- [Community Help and Support](#community-help-and-support)
-- [Contributing](#contributing)
-
-<!-- ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/<BuildNumber>/badge) -->
-
-## Overview
-
-This sample demonstrates a Java Spring Boot web app that uses the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-openid-connect-code) protocol to sign in users, and restricts access to pages based on Azure Active Directory security group membership.
+This article demonstrates a Java Spring Boot web app that uses the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-openid-connect-code) protocol to sign in users, and restricts access to pages based on Azure Active Directory security group membership.
 
 ![Overview](./media/topology-spring.png)
 
@@ -95,7 +65,8 @@ From your shell or command line:
 
 or download and extract the repository .zip file.
 
-> :warning: To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
+> [!IMPORTANT]
+> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
 
 ### Register the sample application with your Azure Active Directory tenant
 
@@ -106,10 +77,11 @@ There is one project in this sample. To register it, you can:
   - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
-<details>
-  <summary>Expand this section if you want to use this automation:</summary>
 
-> :warning: If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+> [!IMPORTANT]
+> If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+
+### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
 1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
@@ -130,7 +102,7 @@ There is one project in this sample. To register it, you can:
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
-</details>
+### [Manual](#tab/Manual)
 
 ### Choose the Azure AD tenant where you want to create your applications
 
@@ -255,7 +227,7 @@ To run this sample from the terminal, follow the steps below.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
-![Experience](./ReadmeFiles/app.png)
+![Experience](./media/app-spring-group.png)
 
 ## Explore the sample
 
@@ -271,11 +243,7 @@ To run this sample from the terminal, follow the steps below.
 - Click the **Regular Users** button to view the `/regular_user` page. Only users belonging to the **UserGroup** security group will be able to view this page. Otherwise an authorization failure message will be displayed.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
-> :information_source: Did the sample not work for you as expected? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
 
-## We'd love your feedback!
-
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](Enter_Survey_Form_Link).
 
 ## About the code
 
@@ -417,15 +385,10 @@ Azure AD Boot Starter (v3.5 and above) parses the groups claim automatically and
 
 When attending to overage scenarios, which requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, your app will need to have the [User.Read](https://docs.microsoft.com/graph/permissions-reference#user-permissions) and [GroupMember.Read.All](https://docs.microsoft.com/graph/permissions-reference#group-permissions) for the [getMemberGroups](https://docs.microsoft.com/graph/api/user-getmembergroups) function to execute successfully.
 
-> :warning: For the overage scenario, make sure you have granted **Admin Consent** for the MS Graph API's **GroupMember.Read.All** scope for both the Client and the Service apps (see the **App Registration** steps above).
+> [!IMPORTANT]
+> For the overage scenario, make sure you have granted **Admin Consent** for the MS Graph API's **GroupMember.Read.All** scope for both the Client and the Service apps (see the **App Registration** steps above).
 
-### Deploying web app to Azure App Services
 
-There is one web app in this sample. To deploy it to **Azure App Services**, you'll need to:
-
-- create an **Azure App Service**
-- publish the projects to the **App Services**, and
-- update its client(s) to call the website instead of the local environment.
 
 #### Update the Azure AD app registration (java-spring-webapp-groups)
 
@@ -436,7 +399,8 @@ In the left-hand navigation pane, select the **Azure Active Directory** service,
    - In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment. For example:
       - `https://java-spring-webapp-groups.azurewebsites.net/login/oauth2/code/`
 
-> :warning: If your app is using an *in-memory* storage, **Azure App Services** will spin down your web site if it is inactive, and any records that your app was keeping will emptied. In addition, if you increase the instance count of your website, requests will be distributed among the instances. Your app's records, therefore, will not be the same on each instance.
+> [!IMPORTANT]
+> If your app is using an *in-memory* storage, **Azure App Services** will spin down your web site if it is inactive, and any records that your app was keeping will emptied. In addition, if you increase the instance count of your website, requests will be distributed among the instances. Your app's records, therefore, will not be the same on each instance.
 
 ## More information
 
@@ -453,18 +417,3 @@ In the left-hand navigation pane, select the **Azure Active Directory** service,
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
 
-## Community Help and Support
-
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`azure-active-directory` `azure-ad-b2c` `ms-identity` `adal` `msal`].
-
-If you find a bug in the sample, raise the issue on [GitHub Issues](../../../../issues).
-
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
-
-## Contributing
-
-If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

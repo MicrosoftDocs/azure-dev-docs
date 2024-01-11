@@ -1,45 +1,20 @@
 ---
-page_type: sample
-languages:
-  - java
-products:
-  - azure
-  - msal-java
-  - azure-active-directory
-  - entra
-urlFragment: msal-java-spring-boot-sign-in
-description: "This sample demonstrates a Java Spring MVC web app that authenticates users with Azure AD"
+title: Enable your Java Spring Boot web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+description: Shows you how to develop a Java Spring Boot web app which supports sign-in by Microsoft Entra account.
+services: active-directory
+documentationcenter: java
+ms.date: 01/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Enable your Java Spring Boot web app to sign in users on your Azure Active Directory tenant with the Microsoft identity platform
 
-- [Overview](#overview)
-- [Scenario](#scenario)
-- [Contents](#contents)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [Clone or download this repository](#clone-or-download-this-repository)
-  - [Register the sample application(s) with your Azure Active Directory tenant](#register-the-sample-applications-with-your-azure-active-directory-tenant)
-  - [Choose the Azure AD tenant where you want to create your applications](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-  - [Register the webApp app (java-spring-webapp-auth)](#register-the-webapp-app-java-spring-webapp-auth)
-- [Running the sample](#running-the-sample)
-- [Explore the sample](#explore-the-sample)
-- [We'd love your feedback!](#wed-love-your-feedback)
-- [About the code](#about-the-code)
-  - [Project Initialization](#project-initialization)
-  - [ID Token Claims](#id-token-claims)
-  - [Sign-in and sign-out links](#sign-in-and-sign-out-links)
-  - [Authentication-dependent UI elements](#authentication-dependent-ui-elements)
-  - [Protecting routes with AADWebSecurityConfigurerAdapter](#protecting-routes-with-aadwebsecurityconfigureradapter)
-- [More information](#more-information)
-- [Community Help and Support](#community-help-and-support)
-- [Contributing](#contributing)
-
-<!-- ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/<BuildNumber>/badge) -->
-
-## Overview
-
-This sample demonstrates a Java Spring MVC web app that signs in users on your Azure Active Directory tenant using the [Azure AD Spring Boot Starter client library for Java](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory). It uses the OpenID Connect protocol.
+This article demonstrates a Java Spring MVC web app that signs in users on your Azure Active Directory tenant using the [Azure AD Spring Boot Starter client library for Java](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory). It uses the OpenID Connect protocol.
 
 ![Overview](./media/topology-spring.png)
 
@@ -89,31 +64,29 @@ From your shell or command line:
 
 or download and extract the repository .zip file.
 
-> :warning: To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
+> [!IMPORTANT]
+> To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
 
 ### Register the sample application(s) with your Azure Active Directory tenant
 
-There is one project in this sample. To register it, you can:
+There is one project in this sample. To register the app on the portal, you can:
 
-- follow the steps below for manually register your apps
+- either follow manual configuration steps below
 - or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - **automatically** create the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
+  - by default, the automation scripts set up an application that works with **accounts in your organizational directory only**.
 
-<details>
-  <summary>Expand this section if you want to use this automation:</summary>
+### [Powershell](#tab/Powershell)
 
-> :warning: If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
-
-1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
-1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+1. On Windows, run PowerShell and navigate to the root of the cloned directory
 1. In PowerShell run:
 
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Azure AD application and configure the code of the sample application accordingly.
+1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
 1. In PowerShell run:
 
    ```PowerShell
@@ -124,7 +97,6 @@ There is one project in this sample. To register it, you can:
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
-</details>
 
 ### Choose the Azure AD tenant where you want to create your applications
 
@@ -182,11 +154,6 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 - If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
-> :information_source: Did the sample not work for you as expected? Did you encounter issues trying this sample? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
-
-## We'd love your feedback!
-
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/r/iTZtCTrZrH).
 
 ## About the code
 
@@ -272,9 +239,6 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 }
 ```
 
-## Deployment
-
-[Deploy to Azure App Service](../../4-Deployment/deploy-to-azure-app-service). Prepare your app for deployment to Azure App Service, configure authentication parameters and use various Azure services for managing your operations.
 
 ## More information
 
@@ -294,19 +258,3 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 - [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
-
-## Community Help and Support
-
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`azure-active-directory` `azure-ad-b2c` `ms-identity` `adal` `msal`, `java`].
-
-If you find a bug in the sample, raise the issue on [GitHub Issues](../../../../issues).
-
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
-
-## Contributing
-
-If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

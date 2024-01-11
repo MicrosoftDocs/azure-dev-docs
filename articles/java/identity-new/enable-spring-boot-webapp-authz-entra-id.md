@@ -1,47 +1,20 @@
 ---
-page_type: sample
-languages:
-  - java
-products:
-  - azure
-  - msal-java
-  - azure-active-directory
-  - entra
-urlFragment: msal-java-spring-boot-graph
-description: "This sample demonstrates a Java Spring MVC web app that signs in users and calls Microsoft Graph"
+title: Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
+description: Shows you how to develop a Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
+services: active-directory
+documentationcenter: java
+ms.date: 01/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
-# Enable your Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform
+# Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
 
-- [Overview](#overview)
-- [Scenario](#scenario)
-- [Contents](#contents)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [Clone or download this repository](#clone-or-download-this-repository)
-  - [Register the sample application(s) with your Azure Active Directory tenant](#register-the-sample-applications-with-your-azure-active-directory-tenant)
-  - [Choose the Azure AD tenant where you want to create your applications](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-  - [Register the webApp app (java-spring-webapp-call-graph)](#register-the-webapp-app-java-spring-webapp-call-graph)
-- [Running the sample](#running-the-sample)
-- [Explore the sample](#explore-the-sample)
-- [We'd love your feedback!](#wed-love-your-feedback)
-- [About the code](#about-the-code)
-  - [Project Initialization](#project-initialization)
-  - [ID Token Claims](#id-token-claims)
-  - [Sign-in and sign-out links](#sign-in-and-sign-out-links)
-  - [Authentication-dependent UI elements](#authentication-dependent-ui-elements)
-  - [Protecting routes with AADWebSecurityConfigurerAdapter](#protecting-routes-with-aadwebsecurityconfigureradapter)
-  - [Call Graph](#call-graph)
-  - [Scopes](#scopes)
-- [More information](#more-information)
-- [Community Help and Support](#community-help-and-support)
-- [Contributing](#contributing)
-
-<!-- ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/<BuildNumber>/badge) -->
-
-## Overview
-
-This sample demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](https://docs.microsoft.com/graph/overview). It uses the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory) for authentication, authorization, and token acquisition. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
+This article demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](https://docs.microsoft.com/graph/overview). It uses the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory) for authentication, authorization, and token acquisition. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
 
 ![Overview](./ReadmeFiles/topology.png)
 
@@ -89,7 +62,8 @@ From your shell or command line:
 
 or download and extract the repository .zip file.
 
-> :warning: To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
+> [!IMPORTANT]
+> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
 
 ### Register the sample application(s) with your Azure Active Directory tenant
 
@@ -100,10 +74,11 @@ There is one project in this sample. To register it, you can:
   - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
-<details>
-  <summary>Expand this section if you want to use this automation:</summary>
+> [!IMPORTANT]
+> If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 
-> :warning: If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+
+### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
 1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
@@ -124,7 +99,7 @@ There is one project in this sample. To register it, you can:
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
-</details>
+### [Manual](#tab/Manual)
 
 ### Choose the Azure AD tenant where you want to create your applications
 
@@ -174,7 +149,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
-![Experience](./ReadmeFiles/app.png)
+![Experience](./media/app-spring.png)
 
 ## Explore the sample
 
@@ -189,11 +164,6 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 - Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) endpoint and see a selection of user details obtained.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
-> :information_source: Did the sample not work for you as expected? Did you encounter issues trying this sample? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
-
-## We'd love your feedback!
-
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/r/iTZtCTrZrH).
 
 ## About the code
 
@@ -341,18 +311,3 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request built and made t
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
 
-## Community Help and Support
-
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`azure-active-directory` `azure-ad-b2c` `ms-identity` `adal` `msal`, `java`].
-
-If you find a bug in the sample, raise the issue on [GitHub Issues](../../../../issues).
-
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
-
-## Contributing
-
-If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

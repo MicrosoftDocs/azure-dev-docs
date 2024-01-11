@@ -1,44 +1,18 @@
 ---
-page_type: sample
-languages:
-  - java
-products:
-  - azure
-  - msal-java
-  - azure-active-directory
-  - entra
-urlFragment: msal-java-spring-boot-restrict-routes
-description: "This sample demonstrates a Java Spring MVC web app that authenticates users with Azure AD and restricts access to routes based on the roles claim from the ID token."
+title: Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
+description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
+services: active-directory
+documentationcenter: java
+ms.date: 01/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
-
-- [Overview](#overview)
-- [Scenario](#scenario)
-- [Contents](#contents)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [Clone or download this repository](#clone-or-download-this-repository)
-  - [Register the sample application with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-active-directory-tenant)
-  - [Choose the Azure AD tenant where you want to create your applications](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-  - [Register the web app (java-spring-webapp-roles)](#register-the-web-app-java-spring-webapp-roles)
-- [Running the sample](#running-the-sample)
-- [Explore the sample](#explore-the-sample)
-- [We'd love your feedback!](#wed-love-your-feedback)
-- [About the code](#about-the-code)
-  - [Project Initialization](#project-initialization)
-  - [ID Token Claims](#id-token-claims)
-  - [Processing Roles claim in the ID token](#processing-roles-claim-in-the-id-token)
-  - [Sign-in and sign-out links](#sign-in-and-sign-out-links)
-  - [Authentication-dependent UI elements](#authentication-dependent-ui-elements)
-  - [Protecting routes with AADWebSecurityConfigurerAdapter](#protecting-routes-with-aadwebsecurityconfigureradapter)
-- [More information](#more-information)
-- [Community Help and Support](#community-help-and-support)
-- [Contributing](#contributing)
-
-<!-- ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/<BuildNumber>/badge) -->
-
-## Overview
 
 This sample demonstrates a Java Spring Boot web app that uses the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-openid-connect-code) protocol to sign in users, and restricts access to some routes using [**Azure AD Application Roles (app roles)**](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) for authorization.
 
@@ -224,11 +198,7 @@ To run the sample in Visual Studio Code, ensure that you have installed the [Jav
 - Click the **Regular Users** button to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** will be able to view this page. Otherwise an authorization failure message will be displayed.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
-> :information_source: Did the sample not work for you as expected? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
 
-## We'd love your feedback!
-
-Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/r/iTZtCTrZrH).
 
 ## About the code
 
