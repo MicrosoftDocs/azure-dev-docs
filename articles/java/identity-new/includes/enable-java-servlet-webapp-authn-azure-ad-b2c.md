@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 1. The client web application uses **MSAL4J** to sign-in users and obtains an [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) from **Azure AD B2C**:
 2. The **ID Token** proves that the user has successfully authenticated against a **Azure AD B2C** tenant.
 
-![Overview](./media/topology-sign-in.png)
+![Overview](../media/topology-sign-in.png)
 
 ## Contents
 
