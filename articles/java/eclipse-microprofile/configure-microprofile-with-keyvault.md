@@ -150,7 +150,7 @@ The library defines the `azure.keyvault.url` config property to bind your app to
 
 ### Key classes in the sample app
 
-We have explained how the library connects to Azure Key Vault. Let's examine the REST resource the preceding cURL commands have been calling. This REST resource is defined in the class `ConfigResource.java` in the `integration-tests/open-liberty-sample` project.
+Let's examine the REST resource the preceding cURL commands have been calling. This REST resource is defined in the class `ConfigResource.java` in the `integration-tests/open-liberty-sample` project.
 
 ```java
 @Path("/config")
@@ -191,7 +191,7 @@ public class ConfigResource {
 }
 ```
 
-The `getConfigValue()` method shows the simplest interaction pattern. It uses the injected `Config` implementation to look up a value from the application configuration. Because `AzureKeyVaultConfigSource` has been added as a configuration source, the value comes from the Azure Key Vault, according to the search algorithm defined by the MicroProfile Config specification.
+The `getConfigValue()` method uses the injected `Config` implementation to look up a value from the application configuration sources. Any value lookups on the `Config` implementation will be found through the search algorithm defined by the MicroProfile Config specification. The `azure-microprofile-config-keyvault` library adds Azure Key Vault as a configuration source.
 
 The `getConfigSource()` method avoids the search algorithm and goes straight to the `AzureKeyVaultConfigSource` to resolve properties. This method is used by the `getConfigPropertyNames()` and `getConfigProperties()` methods.
 
