@@ -133,7 +133,67 @@ You should see the expected outputs described in the comments. Switch back to th
 
 The maven POM for the sample app is actually part of the integration test for the Azure MicroProfile library. As such, it pulls in the dependencies from its parent POM, as well as from the dependencies declared in the POM for the sample app.
 
-PENDING: WIP
+### Dependencies used by the sample app
+
+The important dependency for this sample is the following.
+
+```xml
+<dependency>
+  <groupId>com.azure.microprofile</groupId>
+  <artifactId>azure-microprofile-config-keyvault</artifactId>
+</dependency>
+```
+
+This is how the `azure-microprofile-config-keyvault` library connects to Azure Key Vault. The library provides an implementation of [ConfigSource](https://download.eclipse.org/microprofile/microprofile-config-3.1/apidocs/org/eclipse/microprofile/config/spi/ConfigSource.html) that knows how to read from Azure Key Vault. The interface `ConfigSource` is defined in the MicroProfile Config specification. For a link to the specification, see [Next steps](#next-steps). The remainder of the implementation of MicroProfile Config is provided by the Open Liberty runtime. 
+
+The library defines the `azure.keyvault.url` config property to bind your app to a specific Key Vault. The MicroProfile Config specification defines the "Environment Variables Mapping Rules" for how the value for a config property, such as `azure.keyvault.url` is discovered at runtime. One of these rules states that properties are converted to environment variables. The property `azure.keyvault.url` causes the environment variable `AZURE_KEYVAULT_URL` to be consulted.
+
+### Key classes in the sample app
+
+Now that we have explained how the library connects to Azure Key Vault, let's examine the REST resource the preceding cURL commands have been calling. This REST resource is defined in the class `ConfigResource.java` in the `integration-tests/open-liberty-sample` project.
+
+```java
+@Path("/config")
+public class ConfigResource {
+
+    @Inject
+    private Config config;
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/value/{name}")
+    public String getConfigValue(@PathParam("name") String name) {
+        return config.getConfigValue(name).getValue();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/propertyNames")
+    public Set<String> getConfigPropertyNames() {
+        ConfigSource configSource = getConfigSource(AzureKeyVaultConfigSource.class.getSimpleName());
+        return configSource.getPropertyNames();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/properties")
+    public Map<String, String> getConfigProperties() {
+        ConfigSource configSource = getConfigSource(AzureKeyVaultConfigSource.class.getSimpleName());
+        return configSource.getProperties();
+    }
+
+    private ConfigSource getConfigSource(String name) {
+        return StreamSupport.stream(config.getConfigSources().spliterator(), false)
+                .filter(source -> source.getName().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("ConfigSource not found: " + name));
+    }
+}
+```
+
+The `getConfigValue()` method shows the simplest interaction pattern. It uses the injected `Config` implementation to look up a value from the application configuration. Because `AzureKeyVaultConfigSource` has been added as a configuration source, the value comes from the Azure Key Vault, according to the search algorithm defined by the MicroProfile Config specification.
+
+The `getConfigSource()` method avoids the search algorithm and goes straight to the `AzureKeyVaultConfigSource` to resolve properties. This method is used by the `getConfigPropertyNames()` and `getConfigProperties()` methods.
 
 ## Running on Azure Container Apps
 
@@ -279,7 +339,7 @@ az containerapp create \
 
 > [!NOTE]
 > You assign the user-assigned managed identity to the Container Apps instance with the parameter `--user-assigned ${USER_ASSIGNED_IDENTITY_ID}`.
-> The Container Apps instance can access the Azure Key Vault with two environment variables provided in the parameters `--env-vars AZURE_CLIENT_ID=${USER_ASSIGNED_IDENTITY_CLIENT_ID} AZURE_KEYVAULT_URL=${AZURE_KEYVAULT_URL}`.
+> The Container Apps instance can access the Azure Key Vault with two environment variables provided in the parameters `--env-vars AZURE_CLIENT_ID=${USER_ASSIGNED_IDENTITY_CLIENT_ID} AZURE_KEYVAULT_URL=${AZURE_KEYVAULT_URL}`. Remember, the `AZURE_KEYVAULT_URL` environment variable is consulted due to the Environment Variables Mapping Rules defined by the MicroProfile Config specification.
 
 Then, retrieve a fully qualified url to access the app by using the following command.
 
@@ -335,6 +395,7 @@ You can learn more from the following references:
 * [Jakarta EE on Azure](/azure/developer/java/ee)
 * [Azure Extensions for MicroProfile](https://github.com/Azure/azure-microprofile)
 * [MicroProfile](http://microprofile.io)
+* [MicroProfile Config Specification](https://download.eclipse.org/microprofile/microprofile-config-3.1/microprofile-config-spec-3.1.html)
 * [MicroProfile Config APIs](https://microprofile.io/specifications/microprofile-config/) 
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
