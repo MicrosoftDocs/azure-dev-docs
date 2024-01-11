@@ -1,15 +1,11 @@
 ---
 title: Configure MicroProfile with Azure Key Vault
 description: Learn how to inject secrets into a MicroProfile web service with Azure Key Vault
-services: key-vault
-documentationcenter: java
 author: KarlErickson
 ms.author: jogiles
-ms.date: 09/07/2018
+ms.date: 01/12/2024
 ms.service: key-vault
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: web
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-track-javaee, devx-track-javaee-mp, devx-track-javaee-mp-aca
 ---
 
@@ -58,7 +54,7 @@ az account set --subscription <subscription-id>
 Next, create a resource group with a unique name, for example, *mp-kv-rg-ejb010424*.
 
 ```azurecli-interactive
-RESOURCE_GROUP_NAME=mp-kv-rg-ejb010424
+export RESOURCE_GROUP_NAME=mp-kv-rg-ejb010424
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
@@ -67,10 +63,10 @@ az group create \
 Now create an Azure Key Vault resource with a unique name (for example, *kvejb010424*), add two secrets, and export the Key Vault uri as an environment variable.
 
 ```azurecli-interactive
-KEY_VAULT_NAME=kv-ejb010424
+export KEY_VAULT_NAME=kv-ejb010424
 az keyvault create \
-    --name "${KEY_VAULT_NAME}" \
     --resource-group "${RESOURCE_GROUP_NAME}" \
+    --name "${KEY_VAULT_NAME}" \
     --location eastus
 
 az keyvault secret set \
@@ -83,9 +79,10 @@ az keyvault secret set \
     --value 5678
 
 export AZURE_KEYVAULT_URL=$(az keyvault show \
-  --resource-group "${RESOURCE_GROUP_NAME}" \
-  --name "${KEY_VAULT_NAME}" \
-  --query properties.vaultUri -o tsv)
+    --resource-group "${RESOURCE_GROUP_NAME}" \
+    --name "${KEY_VAULT_NAME}" \
+    --query properties.vaultUri \
+    --output tsv)
 echo $AZURE_KEYVAULT_URL
 ```
 
@@ -205,7 +202,7 @@ You use the Azure Container Registry to containerize the app and store the app i
 First, create an Azure Container Registry with a unique name, for example, *acrejb010424*.
 
 ```azurecli-interactive
-ACR_NAME=acrejb010424
+export ACR_NAME=acrejb010424
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACR_NAME \
@@ -231,15 +228,15 @@ You should see build output that concludes with a message similar to `Run ID: ca
 Retrieve connection information that is required for accessing the image when you deploy the app on Azure Container Apps later.
 
 ```azurecli-interactive
-ACR_LOGIN_SERVER=$(az acr show \
+export ACR_LOGIN_SERVER=$(az acr show \
     --name $ACR_NAME \
     --query 'loginServer' \
     --output tsv)
-ACR_USER_NAME=$(az acr credential show \
+export ACR_USER_NAME=$(az acr credential show \
     --name $ACR_NAME \
     --query 'username' \
     --output tsv)
-ACR_PASSWORD=$(az acr credential show \
+export ACR_PASSWORD=$(az acr credential show \
     --name $ACR_NAME \
     --query 'passwords[0].value' \
     --output tsv)
@@ -252,19 +249,20 @@ As stated earlier, the library uses [Default Azure credential](/azure/developer/
 First, create a user-assigned managed identity with a unique name, for example, *uamiejb010424*. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1).
 
 ```azurecli-interactive
-USER_ASSIGNED_IDENTITY_NAME=uamiejb010424
+export USER_ASSIGNED_IDENTITY_NAME=uamiejb010424
 az identity create \
-    -g ${RESOURCE_GROUP_NAME} \
-    -n ${USER_ASSIGNED_IDENTITY_NAME}
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --name ${USER_ASSIGNED_IDENTITY_NAME}
 ```
 
 Next, grant it permissions to get and list secrets from the Azure Key Vault. For more information, see [Assign the access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-cli#assign-the-access-policy).
 
 ```azurecli-interactive
-USER_ASSIGNED_IDENTITY_OBJECT_ID="$(az identity show \
-    --name "${USER_ASSIGNED_IDENTITY_NAME}" \
+export USER_ASSIGNED_IDENTITY_OBJECT_ID="$(az identity show \
     --resource-group "${RESOURCE_GROUP_NAME}" \
-    --query 'principalId' -o tsv)"
+    --name "${USER_ASSIGNED_IDENTITY_NAME}" \
+    --query 'principalId' \
+    --output tsv)"
 
 az keyvault set-policy --name "${KEY_VAULT_NAME}" \
     --resource-group "${RESOURCE_GROUP_NAME}" \
@@ -291,14 +289,16 @@ If the output doesn't contain this JSON, troubleshoot and resolve the problem be
 Then, retrieve ID and client ID of the user-assigned managed identity so you can assign it to your Azure Container Apps later for accessing the Azure Key Vault.
 
 ```azurecli-interactive
-USER_ASSIGNED_IDENTITY_ID="$(az identity show \
+export USER_ASSIGNED_IDENTITY_ID="$(az identity show \
+    --resource-group "${RESOURCE_GROUP_NAME}" \
+    --name "${USER_ASSIGNED_IDENTITY_NAME}" \
+    --query 'id' \
+    --output tsv)"
+export USER_ASSIGNED_IDENTITY_CLIENT_ID="$(az identity show \
     --name "${USER_ASSIGNED_IDENTITY_NAME}" \
     --resource-group "${RESOURCE_GROUP_NAME}" \
-    --query 'id' -o tsv)"
-USER_ASSIGNED_IDENTITY_CLIENT_ID="$(az identity show \
-    --name "${USER_ASSIGNED_IDENTITY_NAME}" \
-    --resource-group "${RESOURCE_GROUP_NAME}" \
-    --query 'clientId' -o tsv)"
+    --query 'clientId' \
+    --output tsv)"
 echo $USER_ASSIGNED_IDENTITY_ID
 echo $USER_ASSIGNED_IDENTITY_CLIENT_ID
 ```
@@ -310,7 +310,7 @@ You containerized the app and configured a user-assigned managed identity to acc
 First, create an environment for Azure Container Apps. An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment with a unique name (for example, *acaenvejb010424*), as shown in the following example.
 
 ```azurecli-interactive
-ACA_ENV=acaenvejb010424
+export ACA_ENV=acaenvejb010424
 az containerapp env create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location eastus \
@@ -320,17 +320,19 @@ az containerapp env create \
 Next, use the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to create a Container Apps instance with a unique name (for example, *acaappejb010424*) to run the app after pulling the image from the Container Registry.
 
 ```azurecli-interactive
-ACA_NAME=acaappejb010424
+export ACA_NAME=acaappejb010424
 az containerapp create \
-    --name ${ACA_NAME} \
     --resource-group ${RESOURCE_GROUP_NAME} \
+    --name ${ACA_NAME} \
     --environment ${ACA_ENV} \
     --image ${ACR_LOGIN_SERVER}/open-liberty-mp-azure-keyvault:latest  \
     --registry-server $ACR_LOGIN_SERVER \
     --registry-username $ACR_USER_NAME \
     --registry-password $ACR_PASSWORD \
     --user-assigned ${USER_ASSIGNED_IDENTITY_ID} \
-    --env-vars AZURE_CLIENT_ID=${USER_ASSIGNED_IDENTITY_CLIENT_ID} AZURE_KEYVAULT_URL=${AZURE_KEYVAULT_URL} \
+    --env-vars \
+        AZURE_CLIENT_ID=${USER_ASSIGNED_IDENTITY_CLIENT_ID} \
+        AZURE_KEYVAULT_URL=${AZURE_KEYVAULT_URL} \
     --target-port 9080 \
     --ingress 'external'
 ```
@@ -342,10 +344,11 @@ az containerapp create \
 Then, retrieve a fully qualified url to access the app by using the following command.
 
 ```azurecli-interactive
-APP_URL=https://$(az containerapp show \
+export APP_URL=https://$(az containerapp show \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${ACA_NAME} \
-    --query properties.configuration.ingress.fqdn -o tsv)
+    --query properties.configuration.ingress.fqdn \
+    --output tsv)
 ```
 
 Finally, run the similar commands again to test the sample running on the Container Apps instance.
@@ -372,8 +375,8 @@ To avoid Azure charges, you should clean up unneeded resources. When the resourc
 
 ```azurecli-interactive
 az keyvault delete \
-    --name "${KEY_VAULT_NAME}" \
-    --resource-group "${RESOURCE_GROUP_NAME}"
+    --resource-group "${RESOURCE_GROUP_NAME}" \
+    --name "${KEY_VAULT_NAME}"
 
 az keyvault purge \
     --name "${KEY_VAULT_NAME}" \
