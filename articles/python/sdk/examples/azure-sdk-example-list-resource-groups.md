@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 06/24/2021
+ms.date: 01/11/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -55,7 +55,7 @@ By default, the code lists resources in "myResourceGroup". To use a different re
 
 Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create and list resource groups in your Azure subscription, the code will run successfully.
 
-To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../sdk/authentication-overview.md). You'll need to ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
+To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
 ### Reference links for classes used in the code
 
@@ -64,7 +64,7 @@ To use such code in a production script, you can set environment variables to us
 
 ## 4: Run the scripts
 
-If you haven't already, sign in to Azure using the Azure CLI with the following command:
+If you haven't already, sign in to Azure using the Azure CLI:
 
 ```azurecli
 az login
@@ -90,7 +90,7 @@ The following Azure CLI command lists resource groups in a subscription:
 az group list
 ```
 
-The following command lists resources within the "myResourceGroup" in the centralus region (the location argument is necessary to identify a specific data center):
+The following command lists resources within the "myResourceGroup" in the centralus region (the `location` argument is necessary to identify a specific data center):
 
 ```azurecli
 az resource list --resource-group myResourceGroup --location centralus
