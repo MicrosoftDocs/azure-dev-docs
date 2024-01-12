@@ -358,13 +358,13 @@ build-and-deploy:
   steps:
 
     - name: Log in with Azure
-        uses: azure/login@v1
-        with:
+      uses: azure/login@v1
+      with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
+      uses: azure/CLI@v1
+      with:
           azcliversion: 2.0.72
           inlineScript: |
             az account show
