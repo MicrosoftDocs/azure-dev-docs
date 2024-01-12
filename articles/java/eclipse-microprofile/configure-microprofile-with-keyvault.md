@@ -13,6 +13,23 @@ ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-
 
 This tutorial demonstrates how to configure a [MicroProfile](http://microprofile.io) application to retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) using the [MicroProfile Config APIs](https://microprofile.io/project/eclipse/microprofile-config). Developers benefit from the open standard MicroProfile Config API for retrieving and injecting configuration data into their microservices.
 
+## Prerequisites
+
+## Prerequisites
+
+- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
+- Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
+  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
+  - This article requires at least version 2.55.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
+  - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
+  - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
+  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  - Install [cURL](https://curl.se/download.html).
+
+
+
 Let's take a quick look at power of combining Azure Key Vault and the MicroProfile Config API. Here's a code snippet of a field in a class that is annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is used if the secret isn't discovered. The secret value stored in Azure Key Vault, or the default value if no such secret exists, is injected automatically into the field at runtime. Injecting property values in this way provides numerous benefits. For example, you no longer need to pass values around in constructors and setter methods, and the configuration is externalized from the code. One of the most powerful benefits is having separate sets of values for dev, test, and prod environments.
 
 ```java
