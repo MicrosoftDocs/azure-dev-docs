@@ -26,7 +26,7 @@ This tutorial demonstrates how to configure a [MicroProfile](http://microprofile
   - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Install [cURL](https://curl.se/download.html).
 
-
+## Connecting MicroProfile Config with Azure Key Vault
 
 Let's take a quick look at power of combining Azure Key Vault and the MicroProfile Config API. Here's a code snippet of a field in a class that is annotated with `@Inject` and `@ConfigProperty`. The `name` specified in the annotation is the name of the secret to look up in Azure Key Vault, and the `defaultValue` is used if the secret isn't discovered. The secret value stored in Azure Key Vault, or the default value if no such secret exists, is injected automatically into the field at runtime. Injecting property values in this way provides numerous benefits. For example, you no longer need to pass values around in constructors and setter methods, and the configuration is externalized from the code. One of the most powerful benefits is having separate sets of values for dev, test, and prod environments.
 
