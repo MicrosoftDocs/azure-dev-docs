@@ -15,8 +15,6 @@ This tutorial demonstrates how to configure a [MicroProfile](http://microprofile
 
 ## Prerequisites
 
-## Prerequisites
-
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
