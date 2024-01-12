@@ -129,7 +129,11 @@ You should see the expected outputs described in the comments. Switch back to th
 
 ## Examine the sample app
 
-The important dependency for this sample is the following one:
+Let's gain a deeper understanding of how MicroProfile Config works in general, and the MicroProfile Key Vault Custom ConfigSource library works in particular.
+
+### Library dependency
+
+Include MicroProfile Key Vault Custom ConfigSource in your app with this maven dependency.
 
 ```xml
 <dependency>
