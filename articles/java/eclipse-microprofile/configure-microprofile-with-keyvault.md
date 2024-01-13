@@ -148,7 +148,7 @@ Let's gain a deeper understanding of how MicroProfile Config works in general, a
 
 ### Library dependency
 
-Include MicroProfile Key Vault Custom ConfigSource in your app with this maven dependency.
+Include MicroProfile Key Vault Custom ConfigSource in your app with the following Maven dependency:
 
 ```xml
 <dependency>
@@ -157,7 +157,7 @@ Include MicroProfile Key Vault Custom ConfigSource in your app with this maven d
 </dependency>
 ```
 
-### Connect to Azure Key Vault
+### Connecting to Azure Key Vault
 
 The `azure-microprofile-config-keyvault` library connects your app to Azure Key Vault without introducing any direct dependencies on Azure APIs. The library provides an implementation of the MicroProfile Config specification [ConfigSource](https://download.eclipse.org/microprofile/microprofile-config-3.1/apidocs/org/eclipse/microprofile/config/spi/ConfigSource.html) interface that knows how to read from Azure Key Vault. The remainder of the implementation of MicroProfile Config is provided by the Open Liberty runtime. For a link to the specification, see [Next steps](#next-steps).
 
@@ -246,7 +246,7 @@ az acr build \
 
 You should see build output that concludes with a message similar to `Run ID: ca1 was successful after 1m28s`. If you don't see a similar message, troubleshoot and resolve the problem before continuing.
 
-Use the following commands to retrieve connection information that's required for accessing the image when you deploy the app on Azure Container Apps later.
+Use the following commands to retrieve connection information required for accessing the image when you deploy the app on Azure Container Apps later.
 
 ```azurecli-interactive
 export ACR_LOGIN_SERVER=$(az acr show \
@@ -414,13 +414,13 @@ az group delete \
 
 You can learn more from the following references:
 
-* [Azure Container Apps](https://azure.microsoft.com/products/container-apps)
-* [Jakarta EE on Azure](/azure/developer/java/ee)
-* [Azure Extensions for MicroProfile](https://github.com/Azure/azure-microprofile)
-* [MicroProfile](http://microprofile.io)
-* [MicroProfile Config Specification](https://download.eclipse.org/microprofile/microprofile-config-3.1/microprofile-config-spec-3.1.html)
-* [MicroProfile Config APIs](https://microprofile.io/specifications/microprofile-config/)
-* [Open Liberty](https://openliberty.io/)
-* [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
-* [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
-* [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
+- [Azure Container Apps](https://azure.microsoft.com/products/container-apps)
+- [Jakarta EE on Azure](/azure/developer/java/ee)
+- [Azure Extensions for MicroProfile](https://github.com/Azure/azure-microprofile)
+- [MicroProfile](http://microprofile.io)
+- [MicroProfile Config Specification](https://download.eclipse.org/microprofile/microprofile-config-3.1/microprofile-config-spec-3.1.html)
+- [MicroProfile Config APIs](https://microprofile.io/specifications/microprofile-config/)
+- [Open Liberty](https://openliberty.io/)
+- [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+- [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
+- [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
