@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Create Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains and Azure Storage account and a Blob storage container. 
+In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains an Azure Storage account and a Blob storage container.
 
 After creating the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
 
@@ -18,7 +18,7 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 ## 1: Set up your local development environment
 
-If you haven't already, set up an environment where you can run this code. Here are some options:
+If you haven't already, set up an environment where you can run the code. Here are some options:
 
 [!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
@@ -36,7 +36,7 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 ## 3: Write code to create storage resources
 
-Create a Python file named *provision_blob.py* with the following code. The comments explain the details. In particular, you must define your subscription ID as an environment variable `AZURE_SUBSCRIPTION_ID`. The resource group name, location, storage account name, and container name are all defined as constants in the code.
+Create a Python file named *provision_blob.py* with the following code. The comments explain the details. The script reads your subscription ID from an environment variable, `AZURE_SUBSCRIPTION_ID`. You set this variable in a later step. The resource group name, location, storage account name, and container name are all defined as constants in the code.
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
@@ -54,17 +54,33 @@ To use such code in a production script, you can set environment variables to us
 
 ## 4. Run the script
 
-If you haven't already, sign in to Azure using the Azure CLI:
+1. If you haven't already, sign in to Azure using the Azure CLI:
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
-Run the script:
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-```cmd
-python provision_blob.py
-```
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    ---
+
+1. Run the script:
+
+    ```cmd
+    python provision_blob.py
+    ```
 
 The script will take a minute or two to complete.
 
