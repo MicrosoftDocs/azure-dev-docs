@@ -138,7 +138,7 @@ For these reasons, we recommend using the authentication method in production co
     # [cmd](#tab/cmd)
 
     ```azurecli
-    az role assignment create --assignee <AZURE_CLIENT_ID> ^
+    az role assignment create --assignee %AZURE_CLIENT_ID% ^
         --role "Storage Blob Data Contributor" ^
         --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
@@ -146,18 +146,18 @@ For these reasons, we recommend using the authentication method in production co
     # [bash](#tab/bash)
 
     ```azurecli
-    az role assignment create --assignee <AZURE_CLIENT_ID> \
+    az role assignment create --assignee $AZURE_CLIENT_ID \
         --role "Storage Blob Data Contributor" \
         --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     ---
 
-    The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the container named "blob-container-01".
+    The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the service principal for the container named "blob-container-01".
 
     Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
-    The `--scope` argument in this command also uses the \<AZURE_CLIENT_ID> and \<AZURE_SUBSCRIPTION_ID> variables. You can specify them in the command directly or with environment variables. If you use environmental variables, you might see a warning later about incomplete environment configuration when you run the code again.
+    The `--scope` argument in this command also uses the \<AZURE_SUBSCRIPTION_ID> variable. You can specify your Azure subscription ID in the command directly or with an environment variable. If you use an environment variable, make sure to change the command to read it from the environment. You can look at how `AZURE_CLIENT_ID` is specified in the command for an example.
 
     > [!TIP]
     > If the role assignment command returns an error "No connection adapters wer found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
