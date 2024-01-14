@@ -1,14 +1,14 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access an existing blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 12/14/2022
+ms.date: 01/15/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Example: Access Azure Storage using the Azure libraries for Python
 
-This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you've created the resources shown in [Example: Create Azure Storage](azure-sdk-example-storage.md).
+In this article, you learn how to use the Azure client libraries in Python application code to upload a file to an Azure Blob storage container. The article assumes you've created the resources shown in [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
@@ -40,13 +40,13 @@ Create a source file named *sample-source.txt*. This file name is what the code 
 
 The following two sections demonstrate two ways to access the blob container created through [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (with authentication)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (with authentication)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Python apps to Azure services during local development using service principals](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (with connection string)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
-- A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
+- A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed.
 
-- A connection string contains an access info in plain text and therefore presents potential vulnerabilities if it's improperly constructed or improperly secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
+- A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
 For these reasons, we recommend using the authentication method in production code.
 
@@ -68,9 +68,9 @@ For these reasons, we recommend using the authentication method in production co
 
     ---
 
-    Replace "pythonazurestorage12345" with the name of your specific storage account.
+    Replace "pythonazurestorage12345" with the name of your storage account.
 
-    This `AZURE_STORAGE_BLOB_URL` environment variable is used only by this example and it not used by the Azure libraries.
+    The `AZURE_STORAGE_BLOB_URL` environment variable is used only by this example. It isn't used by the Azure libraries.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -79,6 +79,51 @@ For these reasons, we recommend using the authentication method in production co
     Reference links:
       - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
       - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
+
+1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command creates the app registration for the app at the same time.
+
+    ```azurecli
+    az ad sp create-for-rbac --name {service-principal-name}
+    ```
+
+    The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next step and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
+
+    ```json
+    {
+      "appId": "00000000-0000-0000-0000-000000000000",
+      "displayName": "{service-principal-name}",
+      "password": "abcdefghijklmnopqrstuvwxyz",
+      "tenant": "33333333-3333-3333-3333-333333333333"
+    }
+    ```
+
+    Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+1. Create environment variables for the application service principal:
+
+    Create the following environment variables with the values from the output of the previous command. These variables tell `DefaultAzureCredential` to use the application service principal.
+
+    - `AZURE_CLIENT_ID` &rarr; The app ID value.
+    - `AZURE_TENANT_ID` &rarr; The tenant ID value.
+    - `AZURE_CLIENT_SECRET` &rarr; The password/credential generated for the app.
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
+    set AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
+    set AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
+    AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
+    AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+    ```
+
+    ---
 
 1. Attempt to run the code (which fails intentionally):
 
@@ -108,11 +153,11 @@ For these reasons, we recommend using the authentication method in production co
 
     ---
 
-    The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
+    The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the container named "blob-container-01".
 
-    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
+    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
-    The `--scope` argument in this command also uses the \<AZURE_CLIENT_ID> and \<AZURE_SUBSCRIPTION_ID> variables. You can specify them in the command directly or with environment variables. If you use environmental variables, you may see a warning later about incomplete environment configuration when you run the code again.
+    The `--scope` argument in this command also uses the \<AZURE_CLIENT_ID> and \<AZURE_SUBSCRIPTION_ID> variables. You can specify them in the command directly or with environment variables. If you use environmental variables, you might see a warning later about incomplete environment configuration when you run the code again.
 
     > [!TIP]
     > If the role assignment command returns an error "No connection adapters wer found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
@@ -151,11 +196,11 @@ az storage blob list --container-name blob-container-01
 
 ## 6: Clean up resources
 
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+
 ```azurecli
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
-
-Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
