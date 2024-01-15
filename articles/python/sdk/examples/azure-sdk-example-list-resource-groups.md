@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 01/11/2024
+ms.date: 01/15/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -64,23 +64,41 @@ To use such code in a production script, you can set environment variables to us
 
 ## 4: Run the scripts
 
-If you haven't already, sign in to Azure using the Azure CLI:
+1. If you haven't already, sign in to Azure using the Azure CLI:
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
-List all resources groups in the subscription:
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-```cmd
-python list_groups.py
-```
+    # [cmd](#tab/cmd)
 
-List all resources in a resource group:
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
 
-```cmd
-python list_resources.py
-```
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    ---
+
+1. List all resources groups in the subscription:
+
+    ```cmd
+    python list_groups.py
+    ```
+
+1. List all resources in a resource group:
+
+    ```cmd
+    python list_resources.py
+    ```
+
+    By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
 ### For reference: equivalent Azure CLI commands
 
