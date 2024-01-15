@@ -133,7 +133,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. Observe the error "This request is not authorized to perform this operation using this permission." The error is expected because the local service principal that you're using doesn't yet have permission to access the blob container.
 
-1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) (it's a long one!):
+1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
 
     # [cmd](#tab/cmd)
 
@@ -219,7 +219,7 @@ If you followed the instructions to use blob storage with authentication, it's a
 # [cmd](#tab/cmd)
 
 ```cmd
-az ad app delete --id %AZURE_CLIENT_ID$
+az ad app delete --id %AZURE_CLIENT_ID%
 ```
 
 # [bash](#tab/bash)
