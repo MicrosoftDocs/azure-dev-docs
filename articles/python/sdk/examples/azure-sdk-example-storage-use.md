@@ -160,7 +160,7 @@ For these reasons, we recommend using the authentication method in production co
     The `--scope` argument in this command also uses the \<AZURE_SUBSCRIPTION_ID> variable. You can specify your Azure subscription ID in the command directly or with an environment variable. If you use an environment variable, make sure to change the command to read it from the environment. You can look at how `AZURE_CLIENT_ID` is specified in the command for an example.
 
     > [!TIP]
-    > If the role assignment command returns an error "No connection adapters wer found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
+    > If the role assignment command returns an error "No connection adapters were found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
 
 1. **Wait a minute or two for the permissions to propagate**, then run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
@@ -168,11 +168,19 @@ For more information on role assignments, see [How to assign role permissions us
 
 ### 4b: Use blob storage with a connection string
 
-1. Create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, the value of which is the full connection string for the storage account. (This environment variable is also used by various Azure CLI comments.)
-
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
     :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_conn_string.py":::
+
+1. Create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, the value of which is the full connection string for the storage account. (This environment variable is also used by various Azure CLI comments.) You can get the connection string for your storage account by running the [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) command.
+
+    ```azurecli
+    az storage account show-connection-string --resource-group PythonAzureExample-Storage-rg -name pythonazurestorage12345
+    ```
+
+    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account.
+
+    When you set the environment variable, use the entire value of the `connectionString` property in the output including the quotes.
 
 1. Run the code:
 
@@ -194,6 +202,8 @@ If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, 
 az storage blob list --container-name blob-container-01
 ```
 
+If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4b: Use blob storage with a connection string](#4b-use-blob-storage-with-a-connection-string). Use the whole connection string including the quotes.
+
 ## 6: Clean up resources
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
@@ -203,6 +213,22 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
+
+If you followed the instructions to use blob storage with authentication, it's a good idea to delete the application service principal you created. You can use the [az ad app delete](/cli/azure/ad/app#az-ad-app-delete) command.
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    az ad app delete --id %AZURE_CLIENT_ID$
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    az ad app delete --id $AZURE_CLIENT_ID
+    ```
+
+    ---
 
 ## See also
 
