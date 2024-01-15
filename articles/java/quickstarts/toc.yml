@@ -6,7 +6,7 @@ items:
       expanded: false
       items:
         - name: WebLogic Server on Azure VM
-          href: ../ee/weblogic-server-azure-virtual-machine.md?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: Oracle WebLogic Server on AKS
           href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: Traditional WebSphere on Azure VMs

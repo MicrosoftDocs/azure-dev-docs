@@ -10,7 +10,7 @@ items:
       - name: IBM WebSphere Liberty and Open Liberty on Azure Container Apps
         href: deploy-java-liberty-app-aca.md
       - name: Oracle WebLogic Server on Azure VM
-        href: weblogic-server-azure-virtual-machine.md
+        href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Oracle WebLogic Server on AKS
         href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Traditional WebSphere on Azure VMs
@@ -18,7 +18,7 @@ items:
       - name: Red Hat JBoss EAP Cluster on Azure VMs
         href: jboss-eap-cluster-azure-vms.md
       - name: Red Hat JBoss EAP Server on Azure VM
-        href: jboss-eap-single-server-azure-vm.md
+        href: /azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
         href: jboss-eap-on-aro.md
       - name: Red Hat Quarkus on Azure Container Apps
