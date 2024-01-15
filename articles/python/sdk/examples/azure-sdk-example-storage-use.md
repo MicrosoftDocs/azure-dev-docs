@@ -216,19 +216,19 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 If you followed the instructions to use blob storage with authentication, it's a good idea to delete the application service principal you created. You can use the [az ad app delete](/cli/azure/ad/app#az-ad-app-delete) command.
 
-    # [cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
-    ```cmd
-    az ad app delete --id %AZURE_CLIENT_ID$
-    ```
+```cmd
+az ad app delete --id %AZURE_CLIENT_ID$
+```
 
-    # [bash](#tab/bash)
+# [bash](#tab/bash)
 
-    ```bash
-    az ad app delete --id $AZURE_CLIENT_ID
-    ```
+```bash
+az ad app delete --id $AZURE_CLIENT_ID
+```
 
-    ---
+---
 
 ## See also
 
