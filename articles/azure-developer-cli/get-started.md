@@ -368,7 +368,7 @@ When you run the `azd init` command, you'll be prompted to provide the following
 
 ### Open DevContainer
 
-Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
+Open the project in VS Code, hit F1 and choose: `Dev Containers: Rebuild and Reopen in Container`
 
 ### Run `up` command
 

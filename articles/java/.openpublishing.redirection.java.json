@@ -194,6 +194,10 @@
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-weblogic"
         },
         {
+            "source_path": "migration/migrate-tomcat-to-azure-spring-apps.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service"
+        },
+        {
             "source_path": "sdk/java-sdk-add-certificate-ca-store.md",
             "redirect_url": "/azure/developer/java/sdk"
         },

@@ -6,14 +6,14 @@ ms.date: 04/13/2023
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Deploy a Flask or FastAPI web app on Azure App Service
+# Deploy a containerized Flask or FastAPI web app on Azure App Service
 
 This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
 In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. And, you use the [Azure CLI][8] to create a Docker image in Azure and deploy it to Azure App Service. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
 > [!NOTE]
-> This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][4].
+> This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json).
 
 ## Prerequisites
 
@@ -274,7 +274,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
 ## Make updates and redeploy
 
-After you make code changes, you can redeploy to App Service with the [az acr build][18] and [az webapp update][19] commands.
+After you make code changes, you can redeploy to App Service with the [az acr build][21] and [az webapp update][28] commands.
 
 ## Clean up
 
@@ -322,3 +322,4 @@ For more information, see the following resources:
 [25]: https://portal.azure.com/
 [26]: /azure/app-service/quickstart-python
 [27]: /cli/azure/webapp/log#az-webapp-log-tail
+[28]: /cli/azure/webapp#az-webapp-update

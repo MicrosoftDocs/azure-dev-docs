@@ -5,35 +5,21 @@ author: adrianhall
 ms.service: mobile-services
 ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 10/13/2023
+ms.date: 01/12/2024
 ms.author: adhal
 recommendations: false
-zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
-zone_pivot_groups: vs-platform-options
 ---
 
 # Add authentication to your .NET MAUI app
 
 In this tutorial, you add Microsoft authentication to the TodoApp project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
-> This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered at the moment.
-
 > [!TIP]
 > Although we use Microsoft Entra ID for authentication, you can use any authentication library you wish with Azure Mobile Apps.
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-auth-backend.md)]
-
-::: zone-end
 
 ## Register your app with the identity service
 
@@ -45,17 +31,7 @@ The Microsoft Data sync Framework has built-in support for any authentication pr
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.MAUI` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.MAUI` project:
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE [Configure the M S A L library on Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE [Configure the M S A L library on a Mac](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
-
-::: zone-end
 
 Open the `MainPage.xaml.cs` class in the `TodoApp.MAUI` project. Add the following `using` statements:
 
@@ -235,59 +211,9 @@ When the Android requires authentication, it obtains an identity client, then sw
 
 Set `TodoApp.MAUI` as the startup project, select an android emulator as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
-::: zone pivot="vs2022-windows"
-
 ## Test the Windows app
 
 Set `TodoApp.MAUI` as the startup project, select **Windows Machine** as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-## Configure the iOS app for authentication
-
-Open `MauiProgram.cs`.  Include the following `using` statements at the top of the file:
-
-``` csharp
-using Microsoft.Identity.Client;
-```
-
-Update the builder to the following code:
-
-``` csharp
-    builder
-        .UseMauiApp<App>()
-        .ConfigureLifecycleEvents(events =>
-        {
-#if IOS
-            events.AddiOS(platform =>
-            {
-                platform.OpenUrl((app, url, options) =>
-                {
-                    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
-                });
-            });
-#endif
-        })
-        .ConfigureFonts(fonts =>
-        {
-            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-        });
-```
-
-If you're doing this step after updating the application for Android, add the code designated by the `#if IOS` (including the `#if` and `#endif`).  The compiler picks the correct piece of code based on the platform that is being compiled.  This code can be placed either before or after the existing block for Android.
-
-> In your own app, you would need to create an `Entitlements.plist` file to provide keychain access.  For more information on entitlements for .NET MAUI, see [Entitlements and capabilities](/dotnet/maui/ios/deployment/entitlements).
-
-## Test the iOS app
-
-[!INCLUDE [Provisioning profile is required](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/ios-provisioning-profile.md)]
- 
-Set `TodoApp.MAUI` as the startup project, select an iOS simulator as the target, then press **F5** to build and run the app.  When the app starts, you're prompted to sign in to the app.  On the first run, you're asked to consent to the app.  Once authentication is complete, the app runs as normal.
-
-::: zone-end
 
 ## Next steps
 
