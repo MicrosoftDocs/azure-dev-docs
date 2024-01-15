@@ -52,6 +52,14 @@ For these reasons, we recommend using the authentication method in production co
 
 ### 4a: Use blob storage with authentication
 
+1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
+
+    :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth.py":::
+
+    Reference links:
+      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
+      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
+
 1. Create an environment variable named `AZURE_STORAGE_BLOB_URL`:
 
     # [cmd](#tab/cmd)
@@ -72,15 +80,7 @@ For these reasons, we recommend using the authentication method in production co
 
     The `AZURE_STORAGE_BLOB_URL` environment variable is used only by this example. It isn't used by the Azure libraries.
 
-1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
-
-    :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth.py":::
-
-    Reference links:
-      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
-      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
-
-1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command creates the app registration for the app at the same time.
+1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command creates the app registration for the app at the same time. Give the service principal a name of your choosing.
 
     ```azurecli
     az ad sp create-for-rbac --name {service-principal-name}
