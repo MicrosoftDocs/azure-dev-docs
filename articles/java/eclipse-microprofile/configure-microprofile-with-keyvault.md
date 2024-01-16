@@ -112,7 +112,7 @@ This example is based on a sample application available on GitHub. Switch to the
 ```azurecli-interactive
 git clone https://github.com/Azure/azure-microprofile.git
 cd azure-microprofile
-git checkout 20240109
+git checkout 20240116
 cd integration-tests/open-liberty-sample
 mvn package liberty:run
 ```
