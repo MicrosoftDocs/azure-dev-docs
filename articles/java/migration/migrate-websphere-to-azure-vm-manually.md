@@ -152,6 +152,14 @@ If want to use WAS V9, the instructions will use an Azure VM image that is maint
 
 IBM and Microsoft maintain a VM base image that has WAS V9 pre-installed on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
 
+```azurecli
+export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+```
+
+```powershell
+$Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+```
+
 ### [Install WAS ND V85](#tab/was-nd-v85)
 
 The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
@@ -171,6 +179,13 @@ The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2
 >
 > If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
+```azurecli
+export VM_URN="RedHat:rhel-raw:86-gen2:latest"
+```
+
+```powershell
+$Env:VM_URN="RedHat:rhel-raw:86-gen2:latest"
+```
 
 ---
 
@@ -216,7 +231,12 @@ Next, use the following steps to create a basic VM, ensure all the required tool
 
 1. Create and attach a new disk for WAS files by using the following command:
 
-    ### [Bash](#tab/in-bash)
+    ### [Install WAS ND V9](#tab/was-nd-v9)
+    
+    This step is already performed for you when using the VM base image.
+    
+    ### [Install WAS ND V85](#tab/was-nd-v85)
+
     ```bash
     az vm disk attach \
           --resource-group $RESOURCE_GROUP_NAME \
@@ -226,8 +246,6 @@ Next, use the following steps to create a basic VM, ensure all the required tool
           --size-gb 100 \
           --sku StandardSSD_LRS
     ```
-    ### [PowerShell](#tab/in-powershell)
-        
     ```powershell
     az vm disk attach `
           --resource-group $Env:RESOURCE_GROUP_NAME `
