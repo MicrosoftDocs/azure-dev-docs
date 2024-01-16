@@ -153,11 +153,11 @@ If want to use WAS V9, the instructions will use an Azure VM image that is maint
 IBM and Microsoft maintain a VM base image that has WAS V9 pre-installed on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
 
 ```azurecli
-export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
 ```
 
 ```powershell
-$Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+$Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
 ```
 
 ### [Install WAS ND V85](#tab/was-nd-v85)
@@ -310,6 +310,12 @@ Later, you continue to mount the data disk on `adminVM`, so keep this terminal o
 
 ### Mount the data disk
 
+### [Install WAS ND V9](#tab/was-nd-v9)
+
+This step is already performed for you when using the VM base image. Set the following environment variables in the shell on `adminVM`.
+
+### [Install WAS ND V85](#tab/was-nd-v85)
+
 You store all the installation files and configurations to the data disk. Use the following steps to mount the disk. Run the commands as the `root` user. If you aren't working with `root`, run `sudo su -` to switch users.
 
 1. Use the following command to check for the last created disk device that you format for holding WAS files:
@@ -380,8 +386,7 @@ You store all the installation files and configurations to the data disk. Use th
 
    ```bash
    export IM_INSTALL_DIRECTORY=/datadrive/IBM/InstallationManager/V1.9
-   export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V9
-   # export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V85
+   export WAS_ND_INSTALL_DIRECTORY=/datadrive/IBM/WebSphere/ND/V85
    export IM_SHARED_DIRECTORY=/datadrive/IBM/IMShared
    mkdir -p ${IM_INSTALL_DIRECTORY}
    mkdir -p ${WAS_ND_INSTALL_DIRECTORY}
