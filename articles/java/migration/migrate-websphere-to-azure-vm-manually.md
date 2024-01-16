@@ -33,7 +33,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an IBMid. If you don't have one, create an IBM account at [Log in to IBM](https://myibm.ibm.com/dashboard/) and select **Create an IBMid**. Make note of your IBMid password and email.
-   - If you plan to use Version 8.5.5 of IBM WebSphere Application Server Network deployment, this IBMid must be entitled to use that version of the software.
+   - If you plan to use Version 8.5.5 of IBM WebSphere Application Server Network deployment, this IBMid must be entitled to use that version of the software. To learn about entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access or follow steps at [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement). 
 
 ## Prepare the environment
 
@@ -142,9 +142,27 @@ Use the following steps to create the virtual network. The example in this secti
 [!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
 
 
-## Install WAS on GNU/Linux
+## Get or install WAS on GNU/Linux
 
-The following sections describe the steps for installing WAS on GNU/Linux. You can choose the operating system, and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
+The following sections describe the steps for getting or installing WAS on GNU/Linux. You can choose the operating system, and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
+
+If want to use WAS V9, the instructions will use an Azure VM image that is maintained by IBM and Microsoft containing the latest supported version of the software. For the full list of WAS base images maintained by IBM and Microsoft, see [Azure Marketplace](https://aka.ms/was-vm-base-images). If you want to use WAS V8.5, the instructions will start with a base Red Hat Enterprise Linux VM and walk you through the steps of installing all of the necessary dependencies.
+
+### [Install WAS ND V9](#tab/was-nd-v9)
+
+IBM and Microsoft maintain a VM base image that has WAS V9 pre-installed on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
+
+   ### [Bash](#tab/in-bash)
+   ```azurecli
+   export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+   ```
+   ### [PowerShell](#tab/in-powershell)
+   ```powershell
+   $Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest"
+   ```
+   ---
+
+### [Install WAS ND V85](#tab/was-nd-v85)
 
 The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
 
@@ -163,11 +181,21 @@ The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2
 >
 > If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
-If you are able to use WAS V9, instead of 8.5.5, you can skip the sections for installing WAS on a base VM. IBM and Microsoft maintain a VM base image that has WAS V9 pre-installed on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
+   ### [Bash](#tab/in-bash)
+   ```azurecli
+   export VM_URN="RedHat:rhel-raw:86-gen2:latest"
+   ```
+   ### [PowerShell](#tab/in-powershell)
+   ```powershell
+   $Env:VM_URN="RedHat:rhel-raw:86-gen2:latest"
+   ```
+   ---
+
+---
 
 ### Create a Red Hat Enterprise Linux machine
 
-Next, use the following steps to create a basic VM, install all required tools on it, take snapshot of its disk, and then create replicas based on the snapshot:
+Next, use the following steps to create a basic VM, ensure all the required tools are installed on it on it, take snapshot of its disk, and then create replicas based on the snapshot:
 
 1. Create a VM by using [az vm create](/cli/azure/vm). You run the deployment manager on this VM.
 
@@ -180,7 +208,7 @@ Next, use the following steps to create a basic VM, install all required tools o
            --resource-group $RESOURCE_GROUP_NAME \
            --name adminVM \
            --availability-set myAvailabilitySet \
-           --image RedHat:rhel-raw:86-gen2:latest \
+           --image $VM_URN \
            --size Standard_DS1_v2  \
            --admin-username azureuser \
            --admin-password Secret123456 \
@@ -196,7 +224,7 @@ Next, use the following steps to create a basic VM, install all required tools o
         --resource-group $Env:RESOURCE_GROUP_NAME `
         --name adminVM `
         --availability-set myAvailabilitySet `
-        --image RedHat:rhel-raw:86-gen2:latest `
+        --image $Env:VM_URN `
         --size Standard_DS1_v2 `
         --admin-username azureuser `
         --admin-password Secret123456 `
