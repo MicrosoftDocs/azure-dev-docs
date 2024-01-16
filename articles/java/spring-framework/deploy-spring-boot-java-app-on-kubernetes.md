@@ -11,6 +11,9 @@ ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
 ---
 
+> [!NOTE]
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still choose to use Azure Kubernetes Service as a destination. 
+
 # Deploy Spring Boot Application to the Azure Kubernetes Service
 
 This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
