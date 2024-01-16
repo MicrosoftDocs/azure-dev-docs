@@ -458,82 +458,13 @@ Use the following steps to download and install IBM Installation Manager by usin
 
 Next, you continue to install WebSphere Application Server on `adminVM`, so keep this terminal open.
 
+---
+
 ### Install WebSphere Application Server Network Deployment traditional
 
 ### [Install WAS ND V9](#tab/was-nd-v9)
 
-In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional 9.0 running on `adminVM`. Use the following steps to view the installer and install the server:
-
-1. If you aren't using the previous terminal, set the `DISPLAY` variable by running `export DISPLAY=<my-windows-vm-private-ip>:0.0`.
-
-1. Then, use the following commands to start the process to install WAS:
-
-   ```bash
-   cd /datadrive/IBM/InstallationManager/V1.9/eclipse/
-   ./IBMIM
-   ```
-
-   After a while, the installer displays, as shown in the following screenshot. If you don't see the user interface, troubleshoot the problem before proceeding.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png" alt-text="Screenshot of IBM WebSphere Application Server installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png":::
-
-1. Select **Install**. Because you haven't connected to a repository, the **Install Packages** pane asks you to configure a repository connection.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-install-packages.png" alt-text="Screenshot of IBM WebSphere Application Server install packages." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-install-packages.png":::
-
-1. Select **Passport Advantage** by selecting the link. You can set your IBMid from the **Passport Advantage** pane.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport.png" alt-text="Screenshot of IBM WebSphere Application Server Passport Advantage." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport.png":::
-
-1. Select **Connect to Passport Advantage**, select **Apply**, then select **OK**.
-
-1. After a while, the **Password Required** pane asks you to input your IBMid. Fill in your user name and password and select **Save password**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of IBM WebSphere Application Server Password Required." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
-
-1. Select **OK**. The **Secure Storage** pane asks you to enter a password for secure storage. Select **Use master password** and fill in the same password as in the previous dialog.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-secure-password.png" alt-text="Screenshot of IBM WebSphere Application Server Secure Password." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-secure-password.png":::
-
-1. Select **OK**. It takes a while to connect to the repository. If there's an error, you must make sure the IBMid and password are correct.
-
-1. After the connection is complete, you're shown the **Install Packages** pane. On the **Install Packages** pane, type *network* into the text field. When the results refresh in the table, select the top level **IBM WebSphere Application Server Network Deployment** version **9.0.5.x**, as shown in the following screenshot. The exact version number is different, but it must be the latest 9.0 version shown. Be sure to select the sub-checkboxes.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-select-packages.png" alt-text="Screenshot of IBM WebSphere Application Server Install Packages selected." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-select-packages.png":::
-
-1. Select **Next**. It takes a while to prepare the installer. You may see a message similar to **Waiting for www-147.ibm.com**.
-
-1. If you're shown an option to install fixes, accept installing the fixes and continue.
-
-1. Accept the license by selecting **I accept the terms in the license agreement**.
-
-1. Select **Next**. Set **Shared Resources Directory** to */datadrive/IBM/IMShared*.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-shared-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Shared Resources Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-shared-directory.png":::
-
-1. Select **Next**. Set **Installation Directory** to */datadrive/IBM/WebSphere/ND/V9*.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Installation Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-directory.png":::
-
-1. Select **Next**. On the **Install Packages** pane, keep **Translations** with the default value and select **Next**. On the next pane, keep the default value of IBM SDK selected. Select **Next**. Then the **summary** pane shows.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-summary.png" alt-text="Screenshot of IBM WebSphere Application summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-summary.png":::
-
-1. Select **Install**. The install process should complete without errors. For **Which program do you want to start?**, select **None**.
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-complete.png" alt-text="Screenshot of IBM WebSphere Application Server Install Complete." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-complete.png":::
-
-1. Select **Finish**. If the **WebSphere Customization Toolbox** appears, close it. Exit the IBM Installation Manager.
-
-1. Back in the shell from which you started the installation manager, verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
-
-   ```bash
-   ls -la /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement/pmt.sh
-   ```
-
-   If this file doesn't exist, correct the problem before proceeding.
-
-You've now installed WebSphere Application Server Network Deployment in directory */datadrive/IBM/WebSphere/ND/V9*.
+By using the base image, WebSphere Application Server Network Deployment is already installed in directory */datadrive/IBM/WebSphere/ND/V9*.
 
 ### [Install WAS ND V85](#tab/was-nd-v85)
 
@@ -753,7 +684,6 @@ Use the following steps to create `mspVM1`:
 
 1. Next, use the following commands to create the VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
 
-    ### [Bash](#tab/in-bash)
    ```bash
     # Get the resource ID of the managed disk.
     export MSPVM1_OS_DISK_ID=$(az disk show \
@@ -761,7 +691,53 @@ Use the following steps to create `mspVM1`:
        --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
+   ```
+   
+    ```powershell
+    # Get the resource ID of the managed disk.
+    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
+        --name mspVM1_OsDisk_1 `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --query '[id]' `
+        --output tsv)
+   ```
 
+   ### [Install WAS ND V9](#tab/was-nd-v9)
+   
+   ```bash
+    # Create the VM by attaching the existing managed disk as an OS.
+    az vm create \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name mspVM1 \
+       --attach-os-disk $MSPVM1_OS_DISK_ID \
+       --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops \
+       --plan-product 2023-03-27-twas-cluster-base-image \
+       --plan-name 2023-03-27-twas-cluster-base-image \
+       --os-type linux \
+       --availability-set myAvailabilitySet \
+       --public-ip-address "" \
+       --nsg ""
+    ```
+    
+    ```powershell
+    # Create the VM by attaching the existing managed disk as an OS.
+    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
+    az vm create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name mspVM1 `
+        --attach-os-disk $Env:MSPVM1_OS_DISK_ID `
+        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops `
+        --plan-product 2023-03-27-twas-cluster-base-image `
+        --plan-name 2023-03-27-twas-cluster-base-image
+        --os-type linux `
+        --availability-set myAvailabilitySet `
+        --public-ip-address '""' `
+        --nsg '""'
+    ```
+   
+   ### [Install WAS ND V85](#tab/was-nd-v85)
+   
+   ```bash
     # Create the VM by attaching the existing managed disk as an OS.
     az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -772,15 +748,8 @@ Use the following steps to create `mspVM1`:
        --public-ip-address "" \
        --nsg ""
     ```
-    ### [PowerShell](#tab/in-powershell)        
+    
     ```powershell
-    # Get the resource ID of the managed disk.
-    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
-        --name mspVM1_OsDisk_1 `
-        --resource-group $Env:RESOURCE_GROUP_NAME `
-        --query '[id]' `
-        --output tsv)
-
     # Create the VM by attaching the existing managed disk as an OS.
     # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
     az vm create `
@@ -792,7 +761,9 @@ Use the following steps to create `mspVM1`:
         --public-ip-address '""' `
         --nsg '""'
     ```
-    ---
+   
+   ---
+
 
 1. Next, create a managed disk from the data snapshot and attach to `mspVM1`.
 
