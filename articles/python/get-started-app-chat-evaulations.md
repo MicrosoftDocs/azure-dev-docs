@@ -180,9 +180,27 @@ Generate questions and answers from documents stored in Azure AI Search.
 
 A Python script loads the current Azure Developer CLI environment's variables, installs the requirements for the evaluation, and runs the evaluation against the local app.
 
-```shell
-python3 -m scripts evaluate --config=example_config.json
-```
+1. Create a `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder which contains the following values:
+
+    ```json
+    {
+        "testdata_path": "example_input/qa.jsonl",
+        "target_url": "http://<CHAT-APP-URL/chat",
+        "results_dir": "example_results/experiment<TIMESTAMP>"
+    }
+    ```
+
+1. Replace the value of `<CHAT-APP-URL` with the URL of your chat app. You can find the URL in the Azure portal on the **Overview** page of the App Service resource.
+
+    Don't replace the value of `<TIMESTAMP>`.
+
+1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+
+    ````shell
+    python3 -m scripts evaluate --config=example_config.json
+    ````
+
+## Review the results
 
 ## Clean up resources
 
