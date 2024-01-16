@@ -26,8 +26,8 @@ To run the sample on Tomcat:
 
      - By default, our samples just expect to connect to http://localhost:8080 or https://localhost:8443, as defined in the app.homePage value in authentication.properties file
 
-2. Copy the .war file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
+1. Copy the .war file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
 
-3. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
+1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
 [!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md)]

@@ -151,10 +151,10 @@ Open the project in your IDE to configure the code.
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `./src/main/resources/authentication.properties` file
-2. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Azure AD tenant ID.
-3. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
-4. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.
-5. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser` (or substitute the names of your specific roles).
+1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Azure AD tenant ID.
+1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
+1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.
+1. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser` (or substitute the names of your specific roles).
 
 ## Running The Sample
 #### Build .war File Using Maven

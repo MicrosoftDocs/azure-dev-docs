@@ -43,15 +43,15 @@ To deploy the sample to WebLogic via the web console:
 
 1. Start the WebLogic server with DOMAIN_NAME\bin\startWebLogic.cmd
 
-2. Navigate to the WebLogic web console in your browser, http://localhost:7001/console
+1. Navigate to the WebLogic web console in your browser, http://localhost:7001/console
 
-3. Go to Domain Structure > Deployments, click Install, click upload your files, and find the .war file you built with Maven
+1. Go to Domain Structure > Deployments, click Install, click upload your files, and find the .war file you built with Maven
 
-4. Select Install this deployment as an application, click Next, click Finish, and then Save
+1. Select Install this deployment as an application, click Next, click Finish, and then Save
 
     - Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://localhost:7001/msal4j-servlet-auth then you should name the application 'msal4j-servlet-auth'
-5. Go back to Domain Structure > Deployments, and Start your application
+1. Go back to Domain Structure > Deployments, and Start your application
 
-6. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
+1. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
 
 [!INCLUDE [enable-java-servlet-webapp-authz-role-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-role-entra-id-explore.md)]

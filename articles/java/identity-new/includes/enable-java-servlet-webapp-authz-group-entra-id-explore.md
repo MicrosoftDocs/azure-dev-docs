@@ -119,8 +119,8 @@ In this sample, these values are read from the [authentication.properties](src/m
       - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
       - Full list of scopes requested by the app can be found in the [authentication.properties file](./src/main/resources/authentication.properties). You can add more scopes like User.Read and so on.
 
-2. The user is presented with a sign-in prompt by Azure Active Directory. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
-3. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Azure Active Directory.
+1. The user is presented with a sign-in prompt by Azure Active Directory. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Azure Active Directory.
 
     ```Java
     // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
@@ -138,7 +138,7 @@ In this sample, these values are read from the [authentication.properties](src/m
     - **REDIRECT_URI**: The redirect URI used in the previous step must be passed again.
     - **SCOPES**: The scopes used in the previous step must be passed again.
 
-4. If `acquireToken` is successful, the token claims are extracted. If the nonce check passes, the results are placed in `context` (an instance of `IdentityContextData`) and saved to the session. The application can then instantiate this from the session (by way of an instance of `IdentityContextAdapterServlet`) whenever it needs access to it:
+1. If `acquireToken` is successful, the token claims are extracted. If the nonce check passes, the results are placed in `context` (an instance of `IdentityContextData`) and saved to the session. The application can then instantiate this from the session (by way of an instance of `IdentityContextAdapterServlet`) whenever it needs access to it:
 
     ```java
     // parse IdToken claims from the IAuthenticationResult:
@@ -156,8 +156,8 @@ In this sample, these values are read from the [authentication.properties](src/m
     handleGroupsOverage(contextAdapter);
     ```
 
-5. After previous step, group memberships may be extracted by calling `context.getGroups()` (an instance of `IdentityContextData`).
-6. If the user is a member of too many groups (>200), a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` will return `true`, signalling that an overage has occurred, and that getting the full list of groups will require a call to Microsoft Graph. See `handleGroupsOverage()` method in `AuthHelper.java` for this application uses `context.setGroups()` when there is an overage.
+1. After previous step, group memberships may be extracted by calling `context.getGroups()` (an instance of `IdentityContextData`).
+1. If the user is a member of too many groups (>200), a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` will return `true`, signalling that an overage has occurred, and that getting the full list of groups will require a call to Microsoft Graph. See `handleGroupsOverage()` method in `AuthHelper.java` for this application uses `context.setGroups()` when there is an overage.
 
 ### Protecting the routes
 

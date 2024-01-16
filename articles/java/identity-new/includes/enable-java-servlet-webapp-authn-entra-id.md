@@ -8,8 +8,8 @@ ms.custom: devx-track-java
 ## Scenario
 
 1. This web application uses **MSAL for Java (MSAL4J)** to sign in users to their own Microsoft Entra ID tenant and obtains an [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) from **Microsoft Entra ID**.
-2. The **ID Token** proves that a user has successfully authenticated with this tenant.
-3. The web application protects one of its routes according to user's authentication status.
+1. The **ID Token** proves that a user has successfully authenticated with this tenant.
+1. The web application protects one of its routes according to user's authentication status.
 
 ## Prerequisites
 
@@ -101,13 +101,13 @@ Open the project in your IDE to configure the code.
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `./src/main/resources/authentication.properties` file
-2. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
+1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
     - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
     - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
     - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
     - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
-3. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-authentication` application copied from the Azure portal.
-4. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
+1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-authentication` application copied from the Azure portal.
+1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
 
 
 ## Running The Sample

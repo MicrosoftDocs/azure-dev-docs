@@ -208,15 +208,15 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 Open the `src\main\resources\application.yml` file.
   
 1. Find the key `Enter_Your_Tenant_ID_Here` and replace the existing value with your Azure AD tenant ID.
-2. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID (clientId) of `java-spring-webapp-groups` app copied from the Azure portal.
-3. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-groups` copied from the Azure portal.
-4. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with objectId of your **AdminGroup**.
-5. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the objectId of your **UserGroup**
+1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID (clientId) of `java-spring-webapp-groups` app copied from the Azure portal.
+1. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-groups` copied from the Azure portal.
+1. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with objectId of your **AdminGroup**.
+1. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the objectId of your **UserGroup**
 
 Open the `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java` file.
 
 1. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with objectId of your **AdminGroup**.
-2. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the objectId of your **UserGroup**
+1. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the objectId of your **UserGroup**
 
 ## Running the sample
 
