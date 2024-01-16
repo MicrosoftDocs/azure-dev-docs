@@ -31,7 +31,7 @@ Create a file named *requirements.txt* with the following contents:
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```cmd
+```console
 pip install -r requirements.txt
 ```
 
@@ -88,13 +88,13 @@ To use such code in a production script, you can set environment variables to us
 
 1. List all resources groups in the subscription:
 
-    ```cmd
+    ```console
     python list_groups.py
     ```
 
 1. List all resources in a resource group:
 
-    ```cmd
+    ```console
     python list_resources.py
     ```
 
