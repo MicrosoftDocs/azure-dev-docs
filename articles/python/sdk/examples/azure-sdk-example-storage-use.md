@@ -1,7 +1,7 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access an existing blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 01/15/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
@@ -26,7 +26,7 @@ In your *requirements.txt* file, add lines for the client library package you'll
 
 Then, in your terminal or command prompt, install the requirements.
 
-```cmd
+```console
 pip install -r requirements.txt
 ```
 
@@ -127,37 +127,27 @@ For these reasons, we recommend using the authentication method in production co
 
 1. Attempt to run the code (which fails intentionally):
 
-    ```cmd
+    ```console
     python use_blob_auth.py
     ```
 
 1. Observe the error "This request is not authorized to perform this operation using this permission." The error is expected because the local service principal that you're using doesn't yet have permission to access the blob container.
 
-1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
-
-    # [cmd](#tab/cmd)
+1. Grant contributor permissions on the blob container to the service principal using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) Azure CLI command:
 
     ```azurecli
-    az role assignment create --assignee %AZURE_CLIENT_ID% ^
-        --role "Storage Blob Data Contributor" ^
-        --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
-    ```
-
-    # [bash](#tab/bash)
-
-    ```azurecli
-    az role assignment create --assignee $AZURE_CLIENT_ID \
+    az role assignment create --assignee <AZURE_CLIENT_ID> \
         --role "Storage Blob Data Contributor" \
         --scope "/subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
 
-    ---
+    The `--assignee` argument identifies the service principal. Replace \<AZURE_CLIENT_ID> placeholder with the app ID of your service principal.
 
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the service principal for the container named "blob-container-01".
 
-    Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
+    - Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account. Also, adjust the name of the blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
 
-    The `--scope` argument in this command also uses the \<AZURE_SUBSCRIPTION_ID> variable. You can specify your Azure subscription ID in the command directly or with an environment variable. If you use an environment variable, make sure to change the command to read it from the environment. You can look at how `AZURE_CLIENT_ID` is specified in the command for an example.
+    - Replace the \<AZURE_SUBSCRIPTION_ID> place holder with your Azure subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output.)
 
     > [!TIP]
     > If the role assignment command returns an error "No connection adapters were found" when using bash shell, try setting `export MSYS_NO_PATHCONV=1` to avoid path translation. For more information, see this [issue](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846).
@@ -184,7 +174,7 @@ For more information on role assignments, see [How to assign role permissions us
 
 1. Run the code:
 
-    ```bash
+    ```console
     python use_blob_conn_string.py
     ```
 
@@ -206,7 +196,7 @@ If you followed the instructions to use blob storage with authentication, you ca
 
 ## 6: Clean up resources
 
-Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
@@ -214,21 +204,11 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
-If you followed the instructions to use blob storage with authentication, it's a good idea to delete the application service principal you created. You can use the [az ad app delete](/cli/azure/ad/app#az-ad-app-delete) command.
+If you followed the instructions to use blob storage with authentication, it's a good idea to delete the application service principal you created. You can use the [az ad app delete](/cli/azure/ad/app#az-ad-app-delete) command. Replace the \<AZURE_CLIENT_ID> placeholder with the app ID of your service principal.
 
-# [cmd](#tab/cmd)
-
-```cmd
-az ad app delete --id %AZURE_CLIENT_ID%
+```console
+az ad app delete --id <AZURE_CLIENT_ID>
 ```
-
-# [bash](#tab/bash)
-
-```bash
-az ad app delete --id $AZURE_CLIENT_ID
-```
-
----
 
 ## See also
 
