@@ -9,13 +9,13 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with evaluating prompt answers in a chat app
 
-This article shows you how to evaluate a chat app that uses the RAG architecture. Whenever you are making changes to a RAG chat with the goal of improving the answers, you should evaluate the results. This demo application offers a tool you can use today to make it easier to run evaluations.
+This article shows you how to evaluate a chat app that uses the RAG architecture. Whenever you're making changes to a RAG chat with the goal of improving the answers, you should evaluate the results. This demo application offers a tool you can use today to make it easier to run evaluations.
 
 [Video overview of evaluations app](https://www.youtube.com/watch?v=mM8pZAI2C5w)
 
 By following the instructions in this article, you will:
 
-- Generate sample prompts for evaulation.
+- Generate sample prompts for evaluation.
 - Run evaluations against sample prompts.
 - Review analysis of prompts.
 
@@ -27,7 +27,7 @@ A simple architecture of the evaluations app is shown in the following diagram:
 
 Key components of the architecture include:
 
-* **Azure App Service**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol which allows the evaluations app to run against any chat app that conforms to the protocol.
+* **Azure App Service**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 * **Azure AI Search**: The chat app uses Azure AI Search to store the data from your own documents. 
 * **Sample prompts generator**: Can generate N number of prompts for each document. The more prompts, the longer the evaluation.
 * **Evaluations app** runs sample prompts against the chat app and returns the results.
@@ -36,9 +36,9 @@ Key components of the architecture include:
 
 * Azure subscription with Azure OpenAI enabled. It's best to use a GPT-4 model for performing the evaluation, even if your chat app uses GPT-3.5 or another model. 
 
-* Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Do not complete the **Clean up resources** section of the previous procedure.     
+* Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
-    You will need the following environment variables from that deployment:
+    You'll need the following environment variables from that deployment:
 
     * AZURE_SEARCH_SERVICE: The name of the Azure AI Search resource name.
     * AZURE_SEARCH_INDEX: The name of the Azure AI Search index where your documents are stored.
@@ -151,7 +151,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Generate ground truth data in your dev container
+## Generate ground truth data
 
 In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. 
 
@@ -171,36 +171,124 @@ Generate questions and answers from documents stored in Azure AI Search.
 1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to generate the sample prompts:
 
     ```shell
-    python3 -m scripts generate --output=example_input/qa.jsonl --numquestions=14 --persource=2
+    python3 -m scripts generate --output=example_input/qa-new.jsonl --numquestions=14 --persource=2
     ```
 
-    The prompts are generated and stored them in `example_input/qa.jsonl` as input to the evaluator used in the next step.
+    The prompts are generated and stored them in `example_input/qa-new.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, around 200. This would cause the evaluation to take a longer amount of time.
 
-## Run an evaluation in your dev container
+## Run first evaluation with refined prompt
 
 A Python script loads the current Azure Developer CLI environment's variables, installs the requirements for the evaluation, and runs the evaluation against the local app.
 
-1. Create a `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder which contains the following values:
+1. Create a `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder, which contains the following values:
 
     ```json
     {
-        "testdata_path": "example_input/qa.jsonl",
-        "target_url": "http://<CHAT-APP-URL/chat",
-        "results_dir": "example_results/experiment<TIMESTAMP>"
+        "testdata_path": "example_input/qa-new.jsonl",
+        "target_url": "<CHAT-APP-URL>/chat",
+        "results_dir": "new_results/experiment<TIMESTAMP>",
+        "target_parameters": {
+            "overrides": {
+                "semantic_ranker": false,
+                "prompt_template": "<READFILE>example_input/prompt_refined.txt"
+            }
+        }
     }
     ```
 
-1. Replace the value of `<CHAT-APP-URL` with the URL of your chat app. You can find the URL in the Azure portal on the **Overview** page of the App Service resource.
+    Use the following table to understand the object:
 
-    Don't replace the value of `<TIMESTAMP>`.
+    |Property|Description & action|
+    |--|--|
+    | **testdata_path** | This is the path to the generated prompts. No action needed.|
+    | **target_url** | This is the value of your Chat app, which must conform to the Chat protocol. **Action**: Replace the value of `<CHAT-APP-URL>` with the URL of your chat app.|
+    | **results_dir** | This is the path to the folder where the evaluation results are stored. No action needed.  Don't replace the value of `<TIMESTAMP>`. This postpends the timestamp to the evaluation results folder. |
+    |**Action**| Replace the value of `<TIMESTAMP>` with the timestamp of the evaluation. No action needed.|
+    | **target_parameters** | This is the parameters that are passed to the chat app. Action: for the first evaluation, use the default `prompt_template`. The subsequent two evaluations, you change the `prompt_template` value. |
+
+    The refined prompt, a deeply contextual prompt for the subject domain, was iterated on over many attempts. It looks like:
+
+    |Prompt|
+    |--|
+    | You're an experienced HR generalist that delights in their role of helping employees with their healthcare plan and the employee handbook.
+    
+    Give an answer using ONLY with the facts listed in the list of sources below indicated by “Sources:”.
+    
+    If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
+    
+    Use clear and concise language and write in a confident yet friendly tone. In your answers ensure the employee understands how your response connects to the information in the sources and include all citations necessary to help the employee validate the answer provided.
+    
+    For tabular information return it as an html table. Do not return markdown format. If the question is not in English, answer in the language used in the question.
+    
+    Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brackets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].|
 
 1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
 
     ````shell
-    python3 -m scripts evaluate --config=example_config.json
+    python3 -m scripts evaluate --config=config.json --numquestions=14
     ````
 
-## Review the results
+    This step created a new folder in `new_results` with the timestamp of the evaluation, for example `experiment1705453171`. The folder contains the results of the evaluation.
+
+    * `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
+    * `summary.json`: The overall results, like the average GPT metrics.
+
+## Run second evaluation with weak prompt
+
+1. Change the `config.json` file's `prompt_template` to `<READFILE>example_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. That template looks like this:
+
+    ```txt
+    You are a helpful assistant.
+    ```
+
+1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+
+    ````shell
+    python3 -m scripts evaluate --config=config.json --numquestions=14
+    ````
+
+## Run third evaluation with nondomain prompt
+
+The subject domain of the chat app is HR. The prompt template isn't in the domain of HR. 
+
+1. Change the `config.json` file's `prompt_template` to `<READFILE>example_input/prompt_piglatin.txt` to use the nonsensical prompt template in the next evaluation. That template looks like this:
+
+    ```txt
+    Your job is to translate the user's question into Pig Latin. Ignore any sources provided and just translate the question. DO NOT answer the question.
+    ```
+    
+1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+
+    ````shell
+    python3 -m scripts evaluate --config=config.json --numquestions=14
+    ````
+
+## Review the evaluation results
+
+You now have three evaluations with different prompts. The results are stored in the `new_results` folder. Review how the results differ based on the prompts.
+
+1. Use the review tool to see the results of the evaluations: 
+
+    ```shell
+    python3 -m review_tools summary new_results
+    ```
+    
+1. The results look like: 
+
+    ```console
+    TBD
+    ```
+
+    Each value is returned as a number and a percentage.
+
+1. Use the following table to understand the meaning of the values.
+
+    |Value|Description|
+    |--|--|
+    | Groundedness |  This refers to how well the model's responses are based on factual, verifiable information. A response is considered grounded if it's factually accurate and reflects reality.|
+    | Relevance | This measures how closely the model's responses align with the context or the prompt. A relevant response directly addresses the user's query or statement. |
+    | Coherence | This refers to how logically consistent the model's responses are. A coherent response maintains a logical flow and doesn't contradict itself. |
+
 
 ## Clean up resources
 
@@ -246,6 +334,9 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ---
 
+After you clean up for the evaluations app, return to the Chat app and clean up its resources. 
+
+
 ## Get help
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
@@ -254,6 +345,7 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 ## Next steps
 
+* [Evaluations repository](https://github.com/Azure-Samples/ai-rag-chat-evaluator)
 * [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)

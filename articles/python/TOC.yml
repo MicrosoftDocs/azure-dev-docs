@@ -10,6 +10,9 @@
   - name: Get started with the Python enterprise chat sample
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
+  - name: Evaluate your chat app
+    href: get-started-app-chat-evaluations.md
+    display: Azure OpenAI
 - name: Web
   items:
   - name: Set up local web dev environment
