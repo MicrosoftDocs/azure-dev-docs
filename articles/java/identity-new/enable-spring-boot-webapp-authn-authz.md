@@ -1,17 +1,15 @@
 ---
-page_type: sample
-languages:
-- java
-products:
-- ms-graph
-- azure-app-service
-- azure-storage
-- azure-key-vault
-- azure-active-directory
-- azure-active-directory-b2c
-- entra
+title: Enable your Java Spring MVC web app to sign users in, protect endpoints, call APIs with the Microsoft identity platform
 description: "Tutorial: Enable your Java Spring MVC webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform"
-urlFragment: msal-java-spring-mvc
+services: active-directory
+documentationcenter: java
+ms.date: 02/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Tutorial: Enable your Java Spring MVC web app to sign users in, protect endpoints, call APIs with the Microsoft identity platform

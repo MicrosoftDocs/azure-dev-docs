@@ -1,18 +1,15 @@
 ---
-page_type: sample
-languages:
-- java
-products:
-- ms-graph
-- azure-app-service
-- azure-storage
-- azure-key-vault
-- azure-active-directory
-- azure-active-directory-b2c
-- microsoft-identity-platform
-- entra
-description: "Tutorial: Enable your Java Jboss EAP webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform"
-urlFragment: msal-java-jboss-eap-web-app
+title: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
+description: "Tutorial: Enable your Java Jboss EAP webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform."
+services: active-directory
+documentationcenter: java
+ms.date: 02/01/2024
+ms.service: active-directory
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: identity
+ms.custom: devx-track-java, devx-track-extended-java
+adobe-target: true
 ---
 
 # Tutorial: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
