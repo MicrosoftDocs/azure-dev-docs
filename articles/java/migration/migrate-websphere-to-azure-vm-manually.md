@@ -1340,16 +1340,6 @@ Use the following steps to configure a custom profile on `mspVM1`:
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
-   
-### [WAS ND V85](#tab/was-nd-v85-pmt)
-
-   ```bash
-   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
-   ./pmt.sh
-   ```
-
----
-
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
@@ -1413,8 +1403,8 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-   
-### [WAS ND V85](#tab/was-nd-v85-service-vm1)
+
+### [WAS ND V85](#tab/was-nd-v85)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
@@ -1426,7 +1416,6 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-
 ---
 
 
@@ -1936,3 +1925,4 @@ Learn more about deploying IBM WebSphere family on Azure by following this link:
 
 > [!div class="nextstepaction"]
 > [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
+
