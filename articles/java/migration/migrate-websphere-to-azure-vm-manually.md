@@ -729,7 +729,7 @@ Use the following steps to create `mspVM1`:
        --attach-os-disk $Env:MSPVM1_OS_DISK_ID `
        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops `
        --plan-product 2023-03-27-twas-cluster-base-image `
-       --plan-name 2023-03-27-twas-cluster-base-image
+       --plan-name 2023-03-27-twas-cluster-base-image `
        --os-type linux `
        --availability-set myAvailabilitySet `
        --public-ip-address '""' `
@@ -884,6 +884,9 @@ Use the following steps to create `mspVM2`:
       --resource-group $RESOURCE_GROUP_NAME \
       --name mspVM2 \
       --attach-os-disk $MSPVM2_OS_DISK_ID \
+      --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops \
+      --plan-product 2023-03-27-twas-cluster-base-image \
+      --plan-name 2023-03-27-twas-cluster-base-image \
       --os-type linux \
       --availability-set myAvailabilitySet \
       --public-ip-address "" \
@@ -904,6 +907,9 @@ Use the following steps to create `mspVM2`:
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2 `
        --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
+       --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops `
+       --plan-product 2023-03-27-twas-cluster-base-image `
+       --plan-name 2023-03-27-twas-cluster-base-image `
        --os-type linux `
        --availability-set myAvailabilitySet `
        --public-ip-address '""' `
@@ -1013,7 +1019,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
       --query networkProfile.networkInterfaces'[0]'.id \
       --output tsv)
    export ADMINVM_IP=$(az network nic show \
-      --ids $ADMINVM_NIC_ID 
+      --ids $ADMINVM_NIC_ID \
       --query ipConfigurations'[0]'.privateIPAddress \
       --output tsv)
    export MSPVM1_NIC_ID=$(az vm show \
@@ -1037,7 +1043,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
    echo "Private IP of mspVM1: $MSPVM1_IP"
    echo "Private IP of mspVM2: $MSPVM2_IP"
    ```
-   ### [PowerShell](#tab/in-powershell)        
+   ### [PowerShell](#tab/in-powershell)
    ```powershell
    $Env:ADMINVM_NIC_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1101,11 +1107,18 @@ Use the following steps to create and configure the management profile:
 
 1. Use the following commands to start Profile Management Tool:
 
+   ### [WAS ND V9](#tab/was-nd-v9)
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
-   # cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
+   ### [WAS ND V85](#tab/was-nd-v85)
+   ```bash
+   cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
+   ./pmt.sh
+   ```
+   ---
+
 
    After a while, the Profile Management Tool displays, as shown in the following screenshot. If you don't see the user interface, check behind the command prompt.
 
@@ -1127,11 +1140,18 @@ Use the following steps to create and configure the management profile:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png" alt-text="Screenshot of IBM Profile Management Tool, Optional Application Deployment, Deploy the administrative console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png":::
 
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location depends on your WAS version.
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+   In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
+
+   ### [WAS ND V85](#tab/was-nd-v85)
+   In Was V85, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+   ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
-1. Select **Next**. On the **Node, Host, and Cell Names** pane, enter your node name, host name, and cell name. The host is the private IP address of `adminVM`. In this example, the host value is `192.168.0.4`, the node name is `adminvmCellManager01`, and the cell name is `adminvmCell01`.
+1. Select **Next**. On the **Node, Host, and Cell Names** pane, enter your node name, host name, and cell name. The host is the private IP address of `adminVM`. In this example, the node name is `adminvmCellManager01`, the host value is `192.168.0.4`, and the cell name is `adminvmCell01`.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png" alt-text="Screenshot of IBM Profile Management Tool, Node, Host, and Cell Name." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png":::
 
