@@ -1,7 +1,7 @@
 ---
 title: Create Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 01/13/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -30,7 +30,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 1. In your terminal with the virtual environment activated, install the requirements:
 
-    ```cmd
+    ```console
     pip install -r requirements.txt
     ```
 
@@ -78,7 +78,7 @@ To use such code in a production script, you can set environment variables to us
 
 1. Run the script:
 
-    ```cmd
+    ```console
     python provision_blob.py
     ```
 
@@ -116,7 +116,7 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 Leave the resources in place if you want to follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use these resources in app code. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
 
-Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
