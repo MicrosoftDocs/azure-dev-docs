@@ -52,7 +52,7 @@
 | Digital Twins - Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
-| Event Grid | npm [5.0.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.0.0)<br>npm [5.1.0-beta.1](https://www.npmjs.com/package/@azure/eventgrid/v/5.1.0-beta.1) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.0.0/sdk/eventgrid/eventgrid/)<br>GitHub [5.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.0-beta.1/sdk/eventgrid/eventgrid/) |
+| Event Grid | npm [5.1.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.1.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.0/sdk/eventgrid/eventgrid/) |
 | Event Hubs | npm [5.11.3](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.3) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.3/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
@@ -69,7 +69,7 @@
 | Maps Geolocation | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/maps-geolocation/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.3/sdk/maps/maps-geolocation-rest/) |
 | Maps Render | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/maps-render/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_1.0.0-beta.3/sdk/maps/maps-render-rest/) |
 | Maps Route | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/maps-route/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.3/sdk/maps/maps-route-rest/) |
-| Maps Search | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/maps-search/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_1.0.0-beta.3/sdk/maps/maps-search-rest/) |
+| Maps Search | npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-search/v/2.0.0-beta.1) |  | GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_2.0.0-beta.1/sdk/maps/maps-search-rest/) |
 | Maps Search | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/maps-search/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/maps-search-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.2/sdk/maps/maps-search/) |
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
 | Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
@@ -352,7 +352,7 @@
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Core - Client - Asynciterator Polyfill | npm [1.0.2](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.2/sdk/core/core-asynciterator-polyfill/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
-| Cosmos DB Query Editor | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.5) |  |  |
+| Cosmos DB Query Editor | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.6) |  |  |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  |  |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  |  |
 | Custom Search | npm [2.0.0](https://www.npmjs.com/package/azure-cognitiveservices-customsearch/v/2.0.0) |  |  |
@@ -420,7 +420,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240115.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240115.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240116.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240116.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -449,11 +449,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.11.0) |  |  |
+| @azure-tools/cadl-ranch | npm [0.11.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.11.1) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.6.0) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.10.0) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.28.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.28.5) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.11.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.28.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.28.6) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -500,7 +500,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.61](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.61) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.672](https://www.npmjs.com/package/@autorest/powershell/v/4.0.672) |  | GitHub [4.0.672](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.673](https://www.npmjs.com/package/@autorest/powershell/v/4.0.673) |  | GitHub [4.0.673](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.12.2](https://www.npmjs.com/package/@autorest/python/v/6.12.2) |  | GitHub [6.12.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
