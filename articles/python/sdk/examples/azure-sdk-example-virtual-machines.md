@@ -49,7 +49,7 @@ To use such code in a production script, you can set environment variables to us
 
 ### Reference links for classes used in the code
 
-- [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazureccredential)
+- [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 - [NetworkManagementClient (azure.mgmt.network)](/python/api/azure-mgmt-network/azure.mgmt.network.networkmanagementclient)
 - [ComputeManagementClient (azure.mgmt.compute)](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)
