@@ -1445,7 +1445,7 @@ You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit fr
 
 ### Do the same steps to set up mspVM2
 
-Make sure to go back to the beginning of this section, **Configure the custom profile for mspVM1** and do the same steps again for mspVM2. That is, wherever you used mspVM1 or similar, do the same, but for mspVM2.
+Make sure to go back to the beginning of this section, [Configure the custom profile for mspVM1](#configure-the-custom-profile-for-mspvm1) and do the same steps again for mspVM2. That is, wherever you used mspVM1 or similar, do the same, but for mspVM2.
 
 - On the **Node and Host Names** panel, enter `mspvm2Node01` for the **Node name** and `192.168.0.7` for the **Host name**.
 
