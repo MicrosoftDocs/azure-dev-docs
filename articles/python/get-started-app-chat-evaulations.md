@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: "Evaluating Chat App Prompts with Azure OpenAI"
+description: "Learn how to effectively evaluate the prompt answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/16/2024
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
