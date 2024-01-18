@@ -672,7 +672,7 @@ Use the following steps to create `mspVM1`:
       --name mspVM1_OsDisk_1 \
       --source $OS_SNAPSHOT_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+   ### [PowerShell](#tab/in-powershell)
    ```powershell
    # Create a new Managed Disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -694,7 +694,7 @@ Use the following steps to create `mspVM1`:
       --query '[id]' \
       --output tsv)
    ```
-   ### [PowerShell](#tab/in-powershell)        
+   ### [PowerShell](#tab/in-powershell)
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
@@ -1143,17 +1143,17 @@ Use the following steps to create and configure the management profile:
 
 1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location depends on your WAS version.
 
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
+
    ### [WAS ND V9](#tab/was-nd-v9)
 
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
 
    ### [WAS ND V85](#tab/was-nd-v85)
 
-   In Was V85, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+   In WAS V85, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
 
    ---
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
 1. Select **Next**. On the **Node, Host, and Cell Names** pane, enter your node name, host name, and cell name. The host is the private IP address of `adminVM`. In this example, the node name is `adminvmCellManager01`, the host value is `192.168.0.4`, and the cell name is `adminvmCell01`.
 
@@ -1365,6 +1365,8 @@ After a while, the Profile Management Tool displays. If you don't see the user i
 
 1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location depends on your WAS version.
 
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
+
    ### [WAS ND V9](#tab/was-nd-v9)
 
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
@@ -1374,8 +1376,6 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
 
    ---
-
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
 1. Select **Next**. On the **Node and Host Names** pane, enter your node name and host. The value of host is the private IP address of `mspVM1`. In this example, the host is `192.168.0.6` and the node name is `mspvm1Node01`.
 
