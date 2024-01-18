@@ -111,7 +111,7 @@ The Marketplace image that you use to create the VMs is `Oracle:Oracle-Linux:8:l
 
 ### Create Oracle Linux machines
 
-In this section, you create Oracle Linux machines, with JDK 11，WebLogic 14.1.1.0.0 and PostgreSQL JDBC driver installed, for admin server and managed servers.
+In this section, you create Oracle Linux machines, with JDK 11，WebLogic 14.1.1.0.0, and PostgreSQL JDBC driver installed, for admin server and managed servers.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
@@ -1535,20 +1535,18 @@ Verify that you can log into the Administration Server console. If you can't, tr
 
 ## Deploy a sample application
 
-This section shows how to deploy a simple application to the WLS cluster. You can download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle. Save the file to your local filesystem.
-
-Use the following steps to deploy the application:
+This section shows you how to deploy a simple application to the WLS cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
 
 1. Open a web browser.
 1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
 1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
 1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *cargo-tracker.war* built in the preceding step. Select **Next** then **Next**.
 1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
-1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, and then select **Next** then **Finish**.
-1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
+1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, select **Next**, then select **Finish**.
+1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.
 1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
 1. Select **Yes**.
-1. You're shown a message saying "Start requests have been sent to the selected deployments." The status of the application must be **Active**.
+1. You're shown a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
 
 ## Test the WLS cluster configuration
 
