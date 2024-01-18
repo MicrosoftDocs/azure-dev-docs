@@ -38,11 +38,13 @@ Key components of the architecture include:
 
 * Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
-    You'll need the following environment variables from that deployment:
+    You'll need the following Azure service resource information from that deployment:
 
-    * AZURE_SEARCH_SERVICE: The name of the Azure AI Search resource name.
-    * AZURE_SEARCH_INDEX: The name of the Azure AI Search index where your documents are stored.
-    * AZURE_SEARCH_KEY: The admin key for the Azure AI Search resource.
+    * Web API URI: The URI of the deployed chat app. This URI is used as the `target_url` in the evaluations app's configuration file.
+    * Azure AI Search. The following values are used in a `.env` file.
+        * Resource name: The name of the Azure AI Search resource name.
+        * Index name: The name of the Azure AI Search index where your documents are stored.
+        * Query key: The key to query your Search index.
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
@@ -151,14 +153,12 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Generate ground truth data
+## Prepare environment values and configuration information
 
-In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. 
+Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the evaluations app.
 
-Generate questions and answers from documents stored in Azure AI Search.
-
-1. Create a `.env` file at the root of the **ai-rag-chat-evaluator** folder.
-1. Fill in the values for your Azure AI Search instance:
+1. Copy the existing `.env.sample` file at the root of the **ai-rag-chat-evaluator** folder into a new `.env` file.
+1. Edit the values for your Azure AI Search instance, which you gathered in the [prerequisites](#prerequisites) section. :
 
     ```shell
     AZURE_SEARCH_SERVICE="<service-name>"
@@ -166,96 +166,81 @@ Generate questions and answers from documents stored in Azure AI Search.
     AZURE_SEARCH_KEY=""
     ```
 
-    The key may not be necessary if it's configured for keyless access from your account.
-
-1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to generate the sample prompts:
+1. Use the following command to get values from the deployment you completed in this article:
 
     ```shell
-    python3 -m scripts generate --output=example_input/qa-new.jsonl --numquestions=14 --persource=2
+    azd env get-values
     ```
 
-    The prompts are generated and stored them in `example_input/qa-new.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, around 200. This would cause the evaluation to take a longer amount of time.
+1. Update the `.env` file with the values from the previous step.
 
-## Run first evaluation with refined prompt
-
-A Python script loads the current Azure Developer CLI environment's variables, installs the requirements for the evaluation, and runs the evaluation against the local app.
-
-1. Create a `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder, which contains the following values:
-
-    ```json
-    {
-        "testdata_path": "example_input/qa-new.jsonl",
-        "target_url": "<CHAT-APP-URL>/chat",
-        "results_dir": "new_results/experiment<TIMESTAMP>",
-        "target_parameters": {
-            "overrides": {
-                "semantic_ranker": false,
-                "prompt_template": "<READFILE>example_input/prompt_refined.txt"
-            }
-        }
-    }
+    ```shell
+    AZURE_OPENAI_EVAL_DEPLOYMENT="<deployment-name>"
+    AZURE_OPENAI_SERVICE="<service-name>"
+    AZURE_OPENAI_KEY=""
     ```
 
-    Use the following table to understand the object:
+1. Copy the `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder into a new file `my_config.json`. Update the `target_url`, which you gathered in the [prerequisites](#prerequisites) section.
 
     |Property|Description & action|
     |--|--|
-    | **testdata_path** | This is the path to the generated prompts. No action needed.|
     | **target_url** | This is the value of your Chat app, which must conform to the Chat protocol. **Action**: Replace the value of `<CHAT-APP-URL>` with the URL of your chat app.|
-    | **results_dir** | This is the path to the folder where the evaluation results are stored. No action needed.  Don't replace the value of `<TIMESTAMP>`. This postpends the timestamp to the evaluation results folder. |
-    |**Action**| Replace the value of `<TIMESTAMP>` with the timestamp of the evaluation. No action needed.|
-    | **target_parameters** | This is the parameters that are passed to the chat app. Action: for the first evaluation, use the default `prompt_template`. The subsequent two evaluations, you change the `prompt_template` value. |
 
-    The refined prompt, a deeply contextual prompt for the subject domain, was iterated on over many attempts. It looks like:
+## Generate sample prompts
 
-    |Prompt|
-    |--|
-    | You're an experienced HR generalist that delights in their role of helping employees with their healthcare plan and the employee handbook.
-    
-    Give an answer using ONLY with the facts listed in the list of sources below indicated by “Sources:”.
-    
-    If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
-    
-    Use clear and concise language and write in a confident yet friendly tone. In your answers ensure the employee understands how your response connects to the information in the sources and include all citations necessary to help the employee validate the answer provided.
-    
-    For tabular information return it as an html table. Do not return markdown format. If the question is not in English, answer in the language used in the question.
-    
-    Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brackets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].|
+In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search.
+
+In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to generate the sample prompts:
+
+```shell
+python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
+```
+
+The prompts are generated and stored them in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, around 200. This would cause the evaluation to take a longer amount of time.
+
+> [!NOTE]
+> The few number of questions and questions per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and questions per source.
+
+## Run first evaluation with refined prompt
+
+1. Edit the `my_config.json` config file. 
+
+    * Change property `testdata_path` to use the new input location, `my_input/qa.json`.
+    * Change property `results_dir` to use a new output location, `my_results`.
+
 
 1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
 
-    ````shell
-    python3 -m scripts evaluate --config=config.json --numquestions=14
-    ````
+````shell
+python3 -m scripts evaluate --config=my_config.json --numquestions=14
+````
 
-    This step created a new folder in `new_results` with the timestamp of the evaluation, for example `experiment1705453171`. The folder contains the results of the evaluation.
+This created a new experiment folder in `my_results` with the timestamp of the evaluation, for example `./my_results/experiment1705453171/`. The folder contains the results of the evaluation including:
 
-    * `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
-    * `summary.json`: The overall results, like the average GPT metrics.
+* `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
+* `summary.json`: The overall results, like the average GPT metrics.
 
 ## Run second evaluation with weak prompt
 
-1. Change the `config.json` file's `prompt_template` to `<READFILE>example_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. That template looks like this:
+1. Change the `my_config.json` file's `prompt_template` to `<READFILE>example_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. That template looks like this:
 
     ```txt
     You are a helpful assistant.
     ```
 
+    This prmopt has no context about the subject domain. 
+
 1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
 
     ````shell
     python3 -m scripts evaluate --config=config.json --numquestions=14
     ````
 
-## Run third evaluation with nondomain prompt
+## Run third evaluation with refined and trimmed prompt
 
-The subject domain of the chat app is HR. The prompt template isn't in the domain of HR. 
+Use a refined prompt but with shorter length. This is a common scenario when you want to use a refined prompt but don't want to use the full prompt length.
 
-1. Change the `config.json` file's `prompt_template` to `<READFILE>example_input/prompt_piglatin.txt` to use the nonsensical prompt template in the next evaluation. That template looks like this:
-
-    ```txt
-    Your job is to translate the user's question into Pig Latin. Ignore any sources provided and just translate the question. DO NOT answer the question.
-    ```
+1. Change the `my_config.json` file's `prompt_template` to `<READFILE>example_input/prompt_refined_trimmed.txt` in the next evaluation. That template looks like this:
     
 1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
 
@@ -265,12 +250,12 @@ The subject domain of the chat app is HR. The prompt template isn't in the domai
 
 ## Review the evaluation results
 
-You now have three evaluations with different prompts. The results are stored in the `new_results` folder. Review how the results differ based on the prompts.
+You now have three evaluations with different prompts. The results are stored in the `my_results` folder. Review how the results differ based on the prompts.
 
 1. Use the review tool to see the results of the evaluations: 
 
     ```shell
-    python3 -m review_tools summary new_results
+    python3 -m review_tools summary my_results
     ```
     
 1. The results look like: 
