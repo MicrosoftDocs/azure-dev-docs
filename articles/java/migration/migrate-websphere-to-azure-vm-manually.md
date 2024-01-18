@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install IBM WebSphere Application
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 01/17/2024
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-was, devx-track-javaee-websphere, migration-java
 ---
@@ -685,6 +685,7 @@ Use the following steps to create `mspVM1`:
 
 1. Next, use the following commands to create the VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
 
+   ### [Bash](#tab/in-bash)
    ```bash
    # Get the resource ID of the managed disk.
    export MSPVM1_OS_DISK_ID=$(az disk show \
@@ -693,7 +694,7 @@ Use the following steps to create `mspVM1`:
       --query '[id]' \
       --output tsv)
    ```
-   
+   ### [PowerShell](#tab/in-powershell)        
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
@@ -702,6 +703,7 @@ Use the following steps to create `mspVM1`:
        --query '[id]' `
        --output tsv)
    ```
+   ---
 
    ### [WAS ND V9](#tab/was-nd-v9)
    
@@ -718,7 +720,7 @@ Use the following steps to create `mspVM1`:
       --availability-set myAvailabilitySet \
       --public-ip-address "" \
       --nsg ""
-    ```
+   ```
     
    ```powershell
    # Create the VM by attaching the existing managed disk as an OS.
@@ -765,8 +767,7 @@ Use the following steps to create `mspVM1`:
    
    ---
 
-
-1. Next, create a managed disk from the data snapshot and attach to `mspVM1`.
+1. Next, create a managed disk from the data disk snapshot and attach to `mspVM1`.
 
    ### [Bash](#tab/in-bash)
    ```bash
@@ -1143,10 +1144,13 @@ Use the following steps to create and configure the management profile:
 1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location depends on your WAS version.
 
    ### [WAS ND V9](#tab/was-nd-v9)
+
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
 
    ### [WAS ND V85](#tab/was-nd-v85)
+
    In Was V85, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+
    ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
@@ -1359,7 +1363,17 @@ After a while, the Profile Management Tool displays. If you don't see the user i
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png":::
 
-1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*. Or if you've installed WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
+1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location depends on your WAS version.
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+
+   In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
+
+   ### [WAS ND V85](#tab/was-nd-v85)
+
+   In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
+
+   ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
@@ -1429,7 +1443,11 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 
 You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
 
+### Do the same steps to set up mspVM2
+
 Make sure to go back to the beginning of this section, **Configure the custom profile for mspVM1** and do the same steps again for mspVM2. That is, wherever you used mspVM1 or similar, do the same, but for mspVM2.
+
+- On the **Node and Host Names** panel, enter `mspvm2Node01` for the **Node name** and `192.168.0.7` for the **Host name**.
 
 You've now prepared the custom profile for two managed servers - `mspVM1` and `mspVM2`. Continue ahead to create a WAS cluster.
 
@@ -1449,13 +1467,33 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1` and the node is `mspvm1Node01 (ND 9.0.5.12)`. For V8.5, the node is `mspvm1Node01 (ND 8.5.5.24)` or similar.
+1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1`. 
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+
+   The node is `mspvm1Node01 (ND 9.0.5.12)`. 
+   
+   ### [WAS ND V85](#tab/was-nd-v85)
+   
+   The node is `mspvm1Node01 (ND 8.5.5.24)`.
+   
+   ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Member 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 3: Create more cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2` and the node is `mspvm2Node01 (ND 9.0.5.12)`. For V8.5, the node is `mspvm2Node01 (ND 8.5.5.24)` or similar.
+1. For **Create a new cluster** > **Step 3: Create additional cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2`.
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+
+   The node is `mspvm2Node01 (ND 9.0.5.12)`. 
+   
+   ### [WAS ND V85](#tab/was-nd-v85)
+   
+   The node is `mspvm2Node01 (ND 8.5.5.24)`.
+   
+   ---
 
 1. Select **Add Member** to add the second node. There are two members listed in the table, as shown in the following screenshot:
 
@@ -1510,10 +1548,6 @@ In this section, you use the IBM console to create a WAS cluster and start manag
     1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
     1. You're shown a message saying "The configuration synchronization complete for cell."
     1. Select **OK** to exit the configuration.
-
-Go back to the beginning of the section and do the same steps for msp2.
-
-   ---
 
 You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and the cluster is up and running.
     
