@@ -120,7 +120,7 @@ The Marketplace image that you use to create the VMs is `Oracle:weblogic-141100-
 > [!NOTE]
 > You can query all the available Oracle WebLogic images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --publisher oracle --output table --all | grep "weblogic"`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 
-### Create Oracle Linux machines
+### Create Oracle Linux machine for admin server
 
 In this section, you create Oracle Linux machines, with JDK 11，WebLogic 14.1.1.0.0, and PostgreSQL JDBC driver installed, for admin server and managed servers.
 
@@ -141,6 +141,24 @@ az vm create \
     --admin-password Secret123456 \
     --public-ip-address "" \
     --nsg ""
+```
+
+### Create Windows VM and set up X-server
+
+This tutorial uses the graphical interface of WebLogic Server to complete the installation and configuration. You use a Windows VM as a "jump box" and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WLS cluster.
+
+Follow these steps to provision a Windows 10 machine and install an X-server. If you already have a Windows machine within the same network as the Oracle Linux machine, you don't need to provision a new one from Azure. You can jump to the section that installs the X-server.
+
+[!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
+
+### Create Oracle Linux machines for managed servers
+
+Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
+
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
+
+```azurecli
+export IMAGE=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
 
 az vm create \
     --resource-group ${RESOURCE_GROUP_NAME} \
@@ -164,14 +182,6 @@ az vm create \
     --public-ip-address "" \
     --nsg ""
 ```
-
-### Create Windows VM and set up X-server
-
-This tutorial uses the graphical interface of WebLogic Server to complete the installation and configuration. You use a Windows VM as a "jump box" and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WLS cluster.
-
-Follow these steps to provision a Windows 10 machine and install an X-server. If you already have a Windows machine within the same network as the Oracle Linux machine, you don't need to provision a new one from Azure. You can jump to the section that installs the X-server.
-
-[!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
 
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
@@ -221,7 +231,7 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
    sudo su - oracle
 
    export DISPLAY=<my-windows-vm-private-ip>:0.0
-   #export DISPLAY=192.168.0.7:0.0
+   #export DISPLAY=192.168.0.5:0.0
    ```
 
 1. Run the following command to launch the Oracle Configuration Wizard:
@@ -340,8 +350,8 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
    scp /tmp/cluster.jar azureuser@<mspvm2-private-ip>:/tmp/cluster.jar
-   #scp /tmp/cluster.jar azureuser@192.168.0.5:/tmp/cluster.jar
    #scp /tmp/cluster.jar azureuser@192.168.0.6:/tmp/cluster.jar
+   #scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
    ```
 
 1. Use the following instructions to apply domain configuration to `mspVM1`.
@@ -349,7 +359,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    Open a new command prompt, and use the following commands to connect to `mspVM1`. Replace `192.168.0.6` with your `mspVM1` private IP address:
 
    ```cmd
-   set MSPVM1_IP="192.168.0.5"
+   set MSPVM1_IP="192.168.0.6"
    ssh azureuser@%MSPVM1_IP%
    ```
 
@@ -398,7 +408,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    Connect `mspVM2` in a new command prompt. Replace `192.168.0.7` with your `mspVM2` private IP address:
 
    ```cmd
-   set MSPVM2_IP="192.168.0.6"
+   set MSPVM2_IP="192.168.0.7"
    ssh azureuser@%MSPVM2_IP%
    ```
 
