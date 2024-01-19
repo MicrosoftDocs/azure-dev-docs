@@ -55,27 +55,11 @@ You can monitor end-to-end by aggregating logs and metrics in Log Analytics, a t
 
 That said, we realize that customers who are bringing their Java applications to Azure may want to continue using the same APM tools they're using to monitor their on-premises applications. To support this, we partnered with New Relic, AppDynamics, Dynatrace, and Elastic to integrate their monitoring solutions with Azure App Service and Azure Spring Apps. Monitoring agents run side-by-side with your code, and we'll install and keep the agents updated for you. When you deploy to Azure Container Apps, Azure Kubernetes Service, or Virtual Machines, you can run any of these agents (including New Relic, AppDynamics, Dynatrace, Elastic and Datadog) alongside your applications, but you'll need to install and manage them on your own. Likewise, you can monitor end-to-end by aggregating logs and metrics in Elastic and Splunk.
 
-"We are proud of our strategic collaboration with Microsoft. This is reflected in the deep integrations between Dynatrace and Azure, which enable our customers to drive innovation faster, more efficiently, and with greater impact. Our newest integration for Azure Spring Apps is a great example. This will help our joint customers accelerate their digital transformation journeys, with unparalleled observability, application security, and AIOps."
--  Eric Horsman, Global Director, Strategic Alliances, Dynatrace
-
-"With Azure's integration, you can use New Relic One to visualize your data and troubleshoot critical issues all on one, unified platform. You can easily combine your Spring Boot app data with events, traces, and log data from other entities across your software stack. This fully connected view makes troubleshooting easier and provides shared context across for teams so that your applications stay available, reliable, and fast."
-- Rachel Siemens, Principal Product Marketing Manager, New Relic
-
-"I'm excited by our continued partnership with Microsoft. AppDynamics will provide developers working within Azure Spring Apps with real-time visibility and correlated insights that enable them to isolate the root cause of any performance issues and optimize microservices with context to the business impact."
--  Gregg Ostrowski, Executive CTO, AppDynamics
-
-We also realize that many customers want to continue using Grafana to query, visualize, alert on, and understand their metrics. That's why we partnered with Grafana Labs to deliver Azure Managed Grafana, a fully managed service that lets customers run Grafana natively on Azure. The service makes it easy to deploy secure and scalable Grafana instances and connect them to open-source, cloud, and third-party data sources for visualization and analysis. It's optimized for Azure-native data sources like Azure Monitor and Azure Data Explorer, and it includes application performance monitoring (APM) integrations with Azure compute services like Azure App Service, Azure Spring Apps, 
-Azure Kubernetes Service, Splunk, Datadog, and Azure Virtual Machines.
-
-"At Grafana Labs, we don't believe in a ‘one size fits all' approach to observability deployment - we want our customers to be able to deploy Grafana where it makes the most sense for their infrastructure, whether that's on a local server or in a public cloud platform like Microsoft Azure. Through our strategic partnership with Microsoft to bring Grafana directly to the Azure cloud platform, we're giving millions of users instant access to the gold standard for monitoring and visualizing their cloud data, and the ability to upgrade at any point to integrate with even more data sources."
--  Raj Dutt, CEO and co-founder, Grafana Labs
+We also realize that many customers want to continue using Grafana to query, visualize, alert on, and understand their metrics. That's why we partnered with Grafana Labs to deliver Azure Managed Grafana, a fully managed service that lets customers run Grafana natively on Azure. The service makes it easy to deploy secure and scalable Grafana instances and connect them to open-source, cloud, and third-party data sources for visualization and analysis. It's optimized for Azure-native data sources like Azure Monitor and Azure Data Explorer, and it includes application performance monitoring (APM) integrations with Azure compute services like Azure App Service, Azure Spring Apps, Azure Kubernetes Service, Splunk, Datadog, and Azure Virtual Machines.
 
 ## Accelerate Java applications using caching
 
 As the workloads for your Java applications grow, you can increase performance by using Azure Cache for Redis to implement an in-memory caching layer for query results, session states, and static content. It's a great way to improve application throughput and reduce latency without having to rearchitect your underlying database. Azure Cache for Redis Enterprise tiers, developed in partnership with Redis and fully managed by Microsoft, is the most highly available and scalable deployment option for running Redis on Azure - including features such as active geo-replication, externalized session management, and high-speed search and indexing.
-
-"Companies can now effortlessly incorporate the performance and reliability of Redis Enterprise with the breadth and simplicity of consumption Azure offers to serve a variety of low-latency use cases. This unique service enables customers confidently operate Redis at scale with five-nines availability and active geo-redundancy, expanded use cases with Redis modules, and operate at a very attractive cost on Azure."
--  Ofer Bengal, CEO and Co-Founder, Redis Labs
 
 ## Automatic scaling
 

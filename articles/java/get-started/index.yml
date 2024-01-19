@@ -2,6 +2,7 @@
 
 title: Get started with Java on Azure
 summary: 
+Explains how to bring your existing Java applications to the cloud or how to build new cloud-native applications.
 
 metadata:
   title: Get started with Java on Azure
@@ -16,17 +17,17 @@ landingContent:
     linkLists:
     - linkListType: get-started
       links:
-      - text: 
-        url: 
+      - text: Code using the Java tools you know and love
+        url: code.md
   - title: Deploy
     linkLists:
     - linkListType: get-started
       links:
-      - text: 
-        url: 
+      - text: Deploy Java applications with confidence and ease
+        url: deploy.md
   - title: Scale
     linkLists:
     - linkListType: overview
       links:
-      - text: 
-        url: 
+      - text: Scale with end-to-end security, monitoring, and automation
+        url: scale.md
