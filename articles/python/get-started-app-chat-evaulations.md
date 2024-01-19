@@ -15,11 +15,10 @@ This article shows you how to evaluate a chat app that uses the RAG architecture
 
 By following the instructions in this article, you will:
 
-- Generate sample prompts for evaluation.
-- Run evaluations against sample prompts.
-- Review analysis of prompts.
-
-Once you complete this procedure, you can evaluate your own chat app.
+- Use provided sample prompts tailored to the subject domain. These are already in the repository.
+- Generate sample user questions and ground truth answers from your own documents.
+- Run evaluations using a sample prompt with the generated user questions.
+- Review analysis of answers.
 
 ## Architectural overview
 
@@ -27,7 +26,7 @@ A simple architecture of the evaluations app is shown in the following diagram:
 
 Key components of the architecture include:
 
-* **Azure App Service**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
+* **Azure-hosted Chat app**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 * **Azure AI Search**: The chat app uses Azure AI Search to store the data from your own documents. 
 * **Sample prompts generator**: Can generate N number of prompts for each document. The more prompts, the longer the evaluation.
 * **Evaluations app** runs sample prompts against the chat app and returns the results.
@@ -193,7 +192,7 @@ Update the environment values and configuration information with the information
         "target_parameters": {
             "overrides": {
                 "semantic_ranker": false,
-                "prompt_template": "<READFILE>example_input/prompt_refined.txt"
+                "prompt_template": "<READFILE>my_input/prompt_refined.txt"
             }
         }
     }
@@ -205,59 +204,83 @@ Update the environment values and configuration information with the information
 
 In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **Chat app**.
 
+1. Copy the `example_input` folder into a new folder named`my_input`.
+
 1. In a terminal, run the following command to generate the sample prompts:
 
 ```shell
 python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
 ```
 
-The prompts are generated and stored them in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, around 200. This would cause the evaluation to take a longer amount of time.
+The prompts are generated and stored in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, more than 200. This would cause the evaluation to take a longer amount of time.
 
 > [!NOTE]
-> The few number of questions and questions per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and questions per source.
+> The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
 
 ## Run first evaluation with refined prompt
 
-1. Edit the `my_config.json` config file. 
+1. Edit the `my_config.json` config file properties:
 
-    * Change property `testdata_path` to use the new input location, `my_input/qa.jsonl`.
-    * Change property `results_dir` to use a new output location, `my_results`.
+    * Change `results_dir` to include the name of the prompt: `my_results/experiment_refined`
 
-
-1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+1. In a terminal, run the following command to run the evaluation:
 
 ````shell
 python3 -m scripts evaluate --config=my_config.json --numquestions=14
 ````
 
-This created a new experiment folder in `my_results` with the timestamp of the evaluation, for example `./my_results/experiment1705453171/`. The folder contains the results of the evaluation including:
+This created a new experiment folder in `my_results` with the evaluation. The folder contains the results of the evaluation including:
 
 * `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
 * `summary.json`: The overall results, like the average GPT metrics.
 
 ## Run second evaluation with weak prompt
 
-1. Change the `my_config.json` file's `prompt_template` to `<READFILE>example_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. That template looks like this:
+1. Edit the `my_config.json` config file properties:
+
+    * Change `results_dir` to: `my_results/experiment_weak`
+    * Change `prompt_template` to: `<READFILE>my_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. 
+
+    That weak prompt has no context about the subject domain:
 
     ```txt
     You are a helpful assistant.
     ```
 
-    This prmopt has no context about the subject domain. 
-
-1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+1. In a terminal, run the following command to run the evaluation:
 
     ````shell
-    python3 -m scripts evaluate --config=config.json --numquestions=14
+    python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
-## Run third evaluation with refined and trimmed prompt
+## Run third evaluation with a specific temperature
 
 Use a refined prompt but with shorter length. This is a common scenario when you want to use a refined prompt but don't want to use the full prompt length.
 
-1. Change the `my_config.json` file's `prompt_template` to `<READFILE>example_input/prompt_refined_trimmed.txt` in the next evaluation. That template looks like this:
-    
-1. In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to run the evaluation:
+1. Edit the `my_config.json` config file properties:
+
+    * Change `results_dir` to: `experiment_ignoresources_temp02`
+    * Change `prompt_template` to: `<READFILE>my_input/prompt_ignoresources.txt` 
+    * Add a new override, `temperature`: `0.2`
+
+1. The config object should like like the following except use your own `results_dir`:
+
+    ```json
+    {
+        "testdata_path": "my_input/qa.jsonl",
+        "results_dir": "my_results/experiment_ignoresources_temp02",
+        "target_url": "https://YOUR-CHAT-APP/chat",
+        "target_parameters": {
+            "overrides": {
+                "temperature": 0.2,
+                "semantic_ranker": false,
+                "prompt_template": "<READFILE>my_input/prompt_ignoresources.txt"
+            }
+        }
+    }
+    ```
+
+1. In a terminal, run the following command to run the evaluation:
 
     ````shell
     python3 -m scripts evaluate --config=config.json --numquestions=14
@@ -288,6 +311,10 @@ You now have three evaluations with different prompts. The results are stored in
     | Groundedness |  This refers to how well the model's responses are based on factual, verifiable information. A response is considered grounded if it's factually accurate and reflects reality.|
     | Relevance | This measures how closely the model's responses align with the context or the prompt. A relevant response directly addresses the user's query or statement. |
     | Coherence | This refers to how logically consistent the model's responses are. A coherent response maintains a logical flow and doesn't contradict itself. |
+    | Citation | This indicates if the answer was returned in the format requested in the prompt.|
+    | Length | This measures the length of the response.|
+
+1. The results should indicate all 3 evaluations had high relevance 
 
 
 ## Clean up resources
