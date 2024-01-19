@@ -104,7 +104,7 @@ The following code is that shown in [Example: Use a storage account](./examples/
 The logging output is as follows:
 
 ```output
-Request URL: 'https://pythonazurestorage01600.blob.core.windows.net/blob-container-01/sample-blob-5588e.txt'
+Request URL: 'https://pythonazurestorage12345.blob.core.windows.net/blob-container-01/sample-blob-5588e.txt'
 Request method: 'PUT'
 Request headers:
     'Content-Length': '77'
