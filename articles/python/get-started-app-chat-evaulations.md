@@ -298,7 +298,7 @@ You now have three evaluations with different prompts. The results are stored in
     
 1. The results look like: 
 
-    :::image type="content" source="./media/get-started-app-chat-template/evaluation_review_summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluation_review_summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
 
     Each value is returned as a number and a percentage.
 
@@ -328,7 +328,7 @@ Compare the returned answers from the evaluations.
 
 1. Review the results.
 
-    :::image type="content" source="./media/get-started-app-chat-template/evaluations_difference_between_evaluation_answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations_difference_between_evaluation_answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
 
 ## Suggestions for further evaluations
 
@@ -362,11 +362,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -374,7 +374,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
