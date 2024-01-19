@@ -2,9 +2,9 @@
 title: Express.js app converts text to speech with Cognitive Services Speech
 description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 01/18/2024
 ms.custom: languages:JavaScript, devx-track-js, devx-track-azurecli
-# Verified full run: diberry 08/16/2021
+# Verified full run with CommonJS: 01/18/2024
 ---
 
 # Express.js app converts text to speech with Cognitive Services Speech
@@ -34,7 +34,7 @@ This application provides three different calls to convert speech to text:
 ## Prerequisites
 
 
-- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js LTS](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
@@ -82,7 +82,7 @@ npm install microsoft-cognitiveservices-speech-sdk
 ## Create a Speech module for the Express.js app
 
 1. To integrate the Speech SDK into the Express.js application, create a file in the `src` folder named `azure-cognitiveservices-speech.js`.
-1. Add the following code, immediately after the default root route, to pull in dependencies and create a function to convert text to speech.
+1. Add the following code to pull in dependencies and create a function to convert text to speech.
 
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/azure-cognitiveservices-speech.js" highlight="3,21,32" :::
 
@@ -103,7 +103,7 @@ npm install microsoft-cognitiveservices-speech-sdk
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="3"  :::
     
 
-1. Add a new API route to call the **textToSpeech** method created in the previous section of the tutorial. 
+1. Add a new API route to call the **textToSpeech** method created in the previous section of the tutorial. Add this code after the `/api/hello` route.
 
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="30-51" highlight="45-50" :::
 
