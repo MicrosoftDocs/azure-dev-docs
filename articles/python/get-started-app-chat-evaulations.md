@@ -38,13 +38,18 @@ Key components of the architecture include:
 
 * Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
-    You'll need the following Azure service resource information from that deployment:
+    You'll need the following Azure service resource information from that deployment, which is referred to as the **Chat app** in this article:
 
     * Web API URI: The URI of the deployed chat app. This URI is used as the `target_url` in the evaluations app's configuration file.
     * Azure AI Search. The following values are used in a `.env` file.
         * Resource name: The name of the Azure AI Search resource name.
         * Index name: The name of the Azure AI Search index where your documents are stored.
         * Query key: The key to query your Search index.
+    * If you experimented with the Chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
+
+    Once you have this information collected, you shouldn't need to use the **Chat app** development environment again. It is referred to later in this article several times to indicate how the **Chat app** is used by the **Evauations app**. Do not delete the **Chat app** resources until you complete the entire procedure in this article.
+
+## Start development environment
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
@@ -66,7 +71,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. 
+Begin now with a development environment that has all the dependencies installed to complete this article. You should arrange your monitor workspace so you can see both this documentation and the development environment at the same time. 
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -101,9 +106,10 @@ Begin now with a development environment that has all the dependencies installed
     azd up
     ```
 
-    This doesn't deploy the evaluations app, but it does create the Azure resources required to run the app locally.
+    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
+1. The name of the GitHub repository is shown in the search bar. This will help you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -146,10 +152,11 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd up
     ```
 
-    This doesn't deploy the evaluations app, but it does create the Azure resources required to run the app locally.
+    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
 
 1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
+1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This will help you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 ---
 
@@ -157,8 +164,13 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the evaluations app.
 
-1. Copy the existing `.env.sample` file at the root of the **ai-rag-chat-evaluator** folder into a new `.env` file.
-1. Edit the values for your Azure AI Search instance, which you gathered in the [prerequisites](#prerequisites) section. :
+1. Use the following command to get the **Evaluations** app into a `.env` file.:
+
+    ```shell
+    azd env get-values > .env
+    ```
+
+1. Edit the following values from the **Chat app** for its **Azure AI Search** instance, which you gathered in the [prerequisites](#prerequisites) section:
 
     ```shell
     AZURE_SEARCH_SERVICE="<service-name>"
@@ -166,31 +178,34 @@ Update the environment values and configuration information with the information
     AZURE_SEARCH_KEY=""
     ```
 
-1. Use the following command to get values from the deployment you completed in this article:
+    The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance. 
 
-    ```shell
-    azd env get-values
+
+1. Copy the `example_config.json` file at the root of the **Evaluations app** folder into a new file `my_config.json`. 
+1. Replace the existing content of `my_config.json` with the following content:
+
+
+    ```json
+    {
+        "testdata_path": "my_input/qa.jsonl",
+        "results_dir": "my_results/experiment<TIMESTAMP>",
+        "target_url": "http://localhost:50505/chat",
+        "target_parameters": {
+            "overrides": {
+                "semantic_ranker": false,
+                "prompt_template": "<READFILE>example_input/prompt_refined.txt"
+            }
+        }
+    }
     ```
 
-1. Update the `.env` file with the values from the previous step.
-
-    ```shell
-    AZURE_OPENAI_EVAL_DEPLOYMENT="<deployment-name>"
-    AZURE_OPENAI_SERVICE="<service-name>"
-    AZURE_OPENAI_KEY=""
-    ```
-
-1. Copy the `example_config.json` file at the root of the **ai-rag-chat-evaluator** folder into a new file `my_config.json`. Update the `target_url`, which you gathered in the [prerequisites](#prerequisites) section.
-
-    |Property|Description & action|
-    |--|--|
-    | **target_url** | This is the value of your Chat app, which must conform to the Chat protocol. **Action**: Replace the value of `<CHAT-APP-URL>` with the URL of your chat app.|
+1. Change the `target_url` to the URI value of your **Chat app**, which you gathered in the [prerequisites](#prerequisites) section. The Chat app must conform to the Chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
 ## Generate sample prompts
 
-In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search.
+In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **Chat app**.
 
-In a terminal in the **ai-rag-chat-evaluator** dev container, run the following command to generate the sample prompts:
+1. In a terminal, run the following command to generate the sample prompts:
 
 ```shell
 python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
@@ -205,7 +220,7 @@ The prompts are generated and stored them in `my_input/qa.jsonl` as input to the
 
 1. Edit the `my_config.json` config file. 
 
-    * Change property `testdata_path` to use the new input location, `my_input/qa.json`.
+    * Change property `testdata_path` to use the new input location, `my_input/qa.jsonl`.
     * Change property `results_dir` to use a new output location, `my_results`.
 
 
