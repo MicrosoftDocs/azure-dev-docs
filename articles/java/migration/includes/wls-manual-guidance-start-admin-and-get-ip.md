@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 
    ```azurecli
    export ADMINVM_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group ${RESOURCE_GROUP_NAME} \
        --name adminVM \
        --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli
        --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
    export MSPVM1_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group ${RESOURCE_GROUP_NAME} \
        --name mspVM1 \
        --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)
@@ -27,7 +27,7 @@ ms.custom: devx-track-azurecli
        --query ipConfigurations'[0]'.privateIPAddress \
        --output tsv)
    export MSPVM2_NIC_ID=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group ${RESOURCE_GROUP_NAME} \
        --name mspVM2 \
        --query networkProfile.networkInterfaces'[0]'.id \
        --output tsv)

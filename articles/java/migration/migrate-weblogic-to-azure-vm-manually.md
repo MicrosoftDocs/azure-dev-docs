@@ -56,8 +56,10 @@ In this tutorial, you configure a WLS cluster with an administration server and 
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `eastus` location:
 
 ```azurecli
+export RESOURCE_GROUP_NAME=abc1110rg
+
 az group create \
-    --name abc1110rg \
+    --name ${RESOURCE_GROUP_NAME} \
     --location eastus
 ```
 
@@ -71,7 +73,7 @@ First, create a virtual network by using [az network vnet create](/cli/azure/net
 
 ```azurecli
 az network vnet create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myVNet \
     --address-prefixes 192.168.0.0/24
 ```
@@ -80,7 +82,7 @@ Create a subnet for the WLS cluster by using [az network vnet subnet create](/cl
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mySubnet \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.0/25
@@ -90,7 +92,7 @@ Create a subnet for Application Gateway by using [az network vnet subnet create]
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name wlsVMGateway \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.128/25
@@ -103,7 +105,7 @@ Create an availability set by using [az vm availability-set create](/cli/azure/v
 
 ```bash
 az vm availability-set create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myAvailabilitySet \
     --platform-fault-domain-count 2 \
     --platform-update-domain-count 2
@@ -130,7 +132,7 @@ The following example creates Oracle Linux VMs using user name and password pair
 export IMAGE=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
 
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name adminVM \
     --availability-set myAvailabilitySet \
     --image ${IMAGE} \
@@ -141,7 +143,7 @@ az vm create \
     --nsg ""
 
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM1 \
     --availability-set myAvailabilitySet \
     --image ${IMAGE} \
@@ -152,7 +154,7 @@ az vm create \
     --nsg ""
 
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM2 \
     --availability-set myAvailabilitySet \
     --image ${IMAGE} \
@@ -806,7 +808,7 @@ The following example creates a Windows Server 2022 Datacenter Azure Edition mac
 
 ```azurecli
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name adminVM \
     --availability-set myAvailabilitySet \
     --image MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest \
@@ -934,7 +936,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
 
    ```azurecli
-   az vm start --resource-group abc1110rg --name adminVM
+   az vm start --resource-group ${RESOURCE_GROUP_NAME} --name adminVM
    ```
 
 [!INCLUDE [start-admin-get-ip](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
@@ -1298,7 +1300,7 @@ In order to remote connect to the Windows Server machines, all of them are assig
 
 ```azurecli
 export ADMINVM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name adminVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1321,18 +1323,18 @@ export ADMINVM_NSG_ID=$(az network nic show \
 
 az network nic ip-config update \
     --name ${ADMINVM_NIC_IP_CONFIG} \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --nic-name ${ADMINVM_NIC_NAME} \
     --remove PublicIpAddress
 az network public-ip delete --ids ${ADMINVM_PUBLIC_IP}
 az network nic update \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${ADMINVM_NIC_NAME} \
     --remove networkSecurityGroup
 az network nsg delete --ids ${ADMINVM_NSG_ID}
 
 export MSPVM1VM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM1 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1355,18 +1357,18 @@ export MSPVM1VM_NSG_ID=$(az network nic show \
 
 az network nic ip-config update \
     --name ${MSPVM1VM_NIC_IP_CONFIG} \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --nic-name ${MSPVM1VM_NIC_NAME} \
     --remove PublicIpAddress
 az network public-ip delete --ids ${MSPVM1VM_PUBLIC_IP}
 az network nic update \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${MSPVM1VM_NIC_NAME} \
     --remove networkSecurityGroup
 az network nsg delete --ids ${MSPVM1VM_NSG_ID}
 
 export MSPVM2VM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM2 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1389,12 +1391,12 @@ export MSPVM2VM_NSG_ID=$(az network nic show \
 
 az network nic ip-config update \
     --name ${MSPVM2VM_NIC_IP_CONFIG} \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --nic-name ${MSPVM2VM_NIC_NAME} \
     --remove PublicIpAddress
 az network public-ip delete --ids ${MSPVM2VM_PUBLIC_IP}
 az network nic update \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${MSPVM2VM_NIC_NAME} \
     --remove networkSecurityGroup
 az network nsg delete --ids ${MSPVM2VM_NSG_ID}
@@ -1412,7 +1414,7 @@ To expose WLS to the internet, a public IP address is required. Create the publi
 
 ```azurecli
 az network public-ip create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myAGPublicIPAddress \
     --allocation-method Static \
     --sku Standard
@@ -1422,7 +1424,7 @@ You add the backend servers to Application Gateway backend pool. Query backend I
 
 ```azurecli
 export ADMINVM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name adminVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1431,7 +1433,7 @@ export ADMINVM_IP=$(az network nic show \
     --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM1_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM1 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1440,7 +1442,7 @@ export MSPVM1_IP=$(az network nic show \
     --query ipConfigurations[0].privateIPAddress \
     --output tsv)
 export MSPVM2_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM2 \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -1454,7 +1456,7 @@ Next, create an Azure Application Gateway. The following example creates an appl
 
 ```azurecli
 az network application-gateway create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myAppGateway \
     --public-ip-address myAGPublicIPAddress \
     --location eastus \
@@ -1473,7 +1475,7 @@ The managed servers expose their workloads with port `8001`. Use the following c
 
 ```azurecli
 az network application-gateway probe create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --gateway-name myAppGateway \
     --name clusterProbe \
     --protocol http \
@@ -1481,7 +1483,7 @@ az network application-gateway probe create \
     --path /weblogic/ready
 
 az network application-gateway http-settings update \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --gateway-name myAppGateway \
     --name appGatewayBackendHttpSettings \
     --port 8001 \
@@ -1492,13 +1494,13 @@ The next commands provision a basic rule `rule1`. This example adds a path to th
 
 ```azurecli
 az network application-gateway address-pool create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --gateway-name myAppGateway \
     --name adminServerAddressPool \
     --servers ${ADMINVM_IP}
 
 az network application-gateway probe create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --gateway-name myAppGateway \
     --name adminProbe \
     --protocol http \
@@ -1506,7 +1508,7 @@ az network application-gateway probe create \
     --path /weblogic/ready
 
 az network application-gateway http-settings create \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --gateway-name myAppGateway \
     --name adminBackendSettings \
     --port 7001 \
@@ -1517,7 +1519,7 @@ az network application-gateway url-path-map create \
     --gateway-name myAppGateway \
     --name urlpathmap \
     --paths /console/* \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --address-pool adminServerAddressPool \
     --default-address-pool appGatewayBackendPool \
     --default-http-settings appGatewayBackendHttpSettings \
@@ -1531,7 +1533,7 @@ Next, use [az network application-gateway rule update](/cli/azure/network/applic
 az network application-gateway rule update \
     --gateway-name myAppGateway \
     --name rule1 \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --http-listener appGatewayHttpListener \
     --rule-type PathBasedRouting \
     --url-path-map urlpathmap \
@@ -1544,7 +1546,7 @@ You're now able to access the Administration Server with the URL `http://<gatewa
 
 ```azurecli
 export APPGATEWAY_IP=$(az network public-ip show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myAGPublicIPAddress \
     --query [ipAddress] \
     --output tsv)
@@ -1585,7 +1587,7 @@ You've now finished configuring the WLS cluster and deploying the Java EE applic
 Delete `abc1110rg` with the following command:
 
 ```azurecli
-az group delete --name abc1110rg --yes --no-wait
+az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
 ```
 
 ## Next steps
