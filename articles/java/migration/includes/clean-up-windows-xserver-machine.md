@@ -20,9 +20,8 @@ export WINDOWSVM_DISK_ID=$(az vm show \
     --name myWindowsVM \
     --query storageProfile.osDisk.managedDisk.id \
     --output tsv)
-export WINDOWSVM_PUBLIC_IP=$(az network nic show \
-    --ids ${WINDOWSVM_NIC_ID} \
-    --query ipConfigurations[0].publicIpAddress.id \
+export WINDOWSVM_PUBLIC_IP=$(az network public-ip list \
+    -g abc1110rg --query [0].id \
     --output tsv)
 
 echo "deleting myWindowsVM"
