@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 As Java developers, we love the tools we use. We have our own unique way of working with them that gets us "into the flow" just as we have our shortcuts and secrets for getting things done faster and better. Whether we use IntelliJ, Eclipse, or VS Code for coding, or Junit for testing, or Maven or Gradle for dependency management and build automation, there is nothing that can compel us to toss aside our go-to tools and learn something new. That's why Azure empowers Java developers to bring their applications to the cloud on your favorite tools and frameworks and on the operating system of your choice. Let's take a closer look at some of these tools.
 
-## IDEs – VS Code, IntelliJ, and Eclipse
+## IDEs - VS Code, IntelliJ, and Eclipse
 
 An ideal IDE includes tools for editing source-code, compilation, local build automation, testing, and debugging - along with controls and monitoring tools for backend services for data management, caching, messaging, and eventing. An integrated toolset that supports all these tasks makes developers more productive, enabling them to avoid having to learn and constantly switch between standalone tools for each task. IntelliJ, Eclipse, and Visual Studio Code are the popular Java IDEs.
 
@@ -42,7 +42,7 @@ Microsoft is actively investing time and resources to provide additional functio
 
 The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key Java libraries and drivers, including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to Java Web Apps to Azure App Service and custom containers in App Service, deploy Spring Boot applications to Azure Spring Apps and deploy serverless applications to Azure Functions using Maven or Gradle plugins - all through the Eclipse IDE.
 
-## Dependency management and build automation – Maven, Gradle, and GitHub
+## Dependency management and build automation - Maven, Gradle, and GitHub
 
 Maven and Gradle are two popular project management, dependency management, and build automation tools for Java applications. These tools are well-integrated into popular Java IDEs, with one-click deployment to Azure supported through a set of plug-ins for each tool.
 
@@ -64,7 +64,7 @@ GitHub is a popular repository for Java applications, providing a DevOps environ
 
 GitHub Actions makes it easy to automate all your Java software workflow using world-class CI/CD. You can build, test and deploy your code to Azure right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. You can deploy to any of the Azure services for running your Java applications.
 
-GitHub also supports development containers for Java, which you can access via GitHub Codespaces or VS Code Remote – Containers.
+GitHub also supports development containers for Java, which you can access via GitHub Codespaces or VS Code Remote - Containers.
 
 ## Jenkins Pipelines
 
@@ -78,6 +78,22 @@ Azure Pipelines, part of the Azure DevOps service, lets you continuously build, 
 
 The Azure Command-Line Interface (CLI) is a cross-platform command-line tool for creating, connecting to, and managing Azure resources - including the execution of terminal commands via command-line prompts or scripts. You can install the Azure CLI locally on Linux, macOS, or Windows-based machines; run it from within a container; or access the Azure CLI from a browser through Azure Cloud Shell.
 
-(Azure CLI – deploy apps to Azure Spring Apps)
+The following example shows how to use Azure CLI to deploy apps to Azure Spring Apps:
+
+```azurecli
+# Deploy Payment Service
+az spring app deploy \
+    --name ${PAYMENT_SERVICE_APP} \
+    --config-file-pattern payment/default \
+    --source-path apps/acme-payment
+
+# Deploy Catalog Service
+az spring app deploy \
+    --name ${CATALOG_SERVICE_APP} \
+    --config-file-pattern catalog/default \
+    --source-path apps/acme-catalog
+```
 
 Microsoft believes in and respects your right to choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines - and you can deploy your application to Azure on any application server or with any embedded application server.
+
+:::image type="content" source="media/code-using-tools-you-know.png" alt-text="Image with the text 'Code using the Java tools you know and love' and logos for IntelliJ IDEA, Eclipse, Maven, GitHub, Gradle, Playwright, Visual Studio Code, and Azure DevOps." lightbox="media/code-using-tools-you-know.png":::

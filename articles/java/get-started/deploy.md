@@ -16,7 +16,7 @@ Typically, to run your Java application, you'll deploy it to an application serv
 
 Tomcat, JBoss EAP, WildFly, WebLogic, and WebSphere are popular application servers. Similarly, Spring Boot, Quarkus, and Open Liberty are popular frameworks for building standalone applications with embedded application servers. Azure supports them all, enabling you to use any Java application server and deploy your Java application with confidence and ease.
 
-## Deploy Spring Boot or Java app to any application server – Tomcat and Jakarta EE
+## Deploy Spring Boot or Java app to any application server - Tomcat and Jakarta EE
 
 With Azure, you can run any version and any distribution of Java and any application server, without restrictions, and without having to manage your own physical infrastructure. You decide how much control you want, or how much day-to-day management you want Azure to handle for you with options like virtual machines, containers, and fully managed services. If you are using a commercially supported Java app servers or frameworks -- such as VMware Spring Runtime, Red Hat JBoss EAP, Oracle WebLogic Server, or IBM WebSphere, Liberty, or OpenLiberty -- Azure offers jointly developed and supported offerings for all of them.
 
@@ -38,11 +38,13 @@ You're free to use any distribution and version of Java - and any application se
 
 While you can deploy any Java runtime on all these IaaS and CaaS services, we recommend that you use:
 
-- Microsoft Build of OpenJDK for Java 11 or 17 – the base container images for which are supplied and maintained by Microsoft.
+- Microsoft Build of OpenJDK for Java 11 or 17 - the base container images for which are supplied and maintained by Microsoft.
 
-- Eclipse Adoptium Temurin for Java 8 – the Java runtime for which is provided by the Eclipse Adoptium project (formerly the OpenJDK project).
+- Eclipse Adoptium Temurin for Java 8 - the Java runtime for which is provided by the Eclipse Adoptium project (formerly the OpenJDK project).
 
 Both of these builds are available free-of-charge for local development and testing, and for building production-ready binaries using any platform or DevOps tools - without having to pay any licensing fees. We recommend them as a matter of convenience; when you use one of these builds, if you have any issues and have a qualifying support plan for Azure, you can simply open an Azure support ticket - without any additional costs. That said, it's worth pointing out that these recommendations are just that - the options that we recommend among various other freely-available builds of OpenJDK for ease-of-support.
+
+:::image type="content" source="media/build-migrate.png" alt-text="todo" lightbox="media/build-migrate.png":::
 
 All the above IaaS and CaaS deployment options let you easily deploy the Apache Tomcat application server. If you're using a commercial offering - such as Spring Runtime from VMware, JBoss EAP from Red Hat, WebLogic Server from Oracle, or WebSphere from IBM - Azure offers jointly developed and supported hosting options from those vendors as well. They're covered below, under Jointly built and supported solutions with Java ecosystem partners.
 
@@ -65,6 +67,8 @@ Sometimes you don't need an entire Java application. For example, for real-time 
 ## Jointly built and supported solutions with Java ecosystem partners
 
 Microsoft has partnered with leading vendors in the Java ecosystem to deliver best-in-class solutions for running Java on Azure - ranging from jointly developed and supported managed services to Azure Marketplace offerings for popular Java application servers. We also integrated popular application monitoring tools, which are covered later in this eBook.
+
+:::image type="content" source="media/strong-partner-ecosystem.png" alt-text="{alt-text}":::
 
 ## Azure Spring Apps (Pivotal/VMware)
 
@@ -93,3 +97,5 @@ Today, the customer experience is simpler, safer, and more seamless. Customers c
 Joint development with partners for many of the above offerings is a continual, ongoing effort. As our partners continue to innovate on their offerings, we're working closely with them to quickly bring those same innovations to Azure - so that customers can deploy and scale their Java applications with confidence and ease.
 
 In summary, Azure supports your workload with an abundance of choice regardless of what you're doing with Java. You can build any Java app, use any framework, run any application server, and support any application architecture - from monolithic applications running on VMs or in containers to cloud-native, microservices-based applications running on fully managed services.
+
+:::image type="content" source="media/deploy-with-confidence.png" alt-text="{alt-text}":::

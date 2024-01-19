@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 While designing applications, we need to determine how to adapt to changes in workload, recover from unexpected failures, minimize security risks, and so on. While one could start with a trial-and-error approach, that takes time away from other organizational objectives, and could adversely impact our reputation. Azure provides architectural guidance needed to get things right from the start. You also have everything you need to build a scalable application - from state-of-the-art security and auto-scaling to supporting services for data, messaging, caching, performance monitoring, and automation. Many of these supporting services are based on popular open-source software as well - such as PostgreSQL, Redis, JMS, and Kafka - so you won't get locked into proprietary solutions.
 
+:::image type="content" source="media/platform-services.png" alt-text="{alt-text}":::
+
 Now let's take a look at some key Azure services and features - and how you can put them to use to build scalable Java applications.
 
 ## Extend the capabilities for Java applications - databases and messaging
@@ -20,11 +22,17 @@ In addition to providing several options for running your Java code, Azure offer
 
 Azure Service Bus Premium tier supports JMS, the Java Messaging Service programming model. Regardless of whether your applications are running on VMs, in Kubernetes, or on fully managed PaaS services, you can quickly provision and leverage these fully managed data and messaging services using open-source clients, Azure Java SDKs, Spring starters, and application server integrations. They all provide the compliance, availability, and reliability guarantees that you would expect from Microsoft and Azure. Many Java and Spring developers want to use idiomatic libraries to simplify connections to their preferred cloud services. Microsoft maintains a comprehensive list of libraries, drivers, and modules that let you easily interact with Azure services across data, messaging, cache, storage, eventing, directory, and secrets management.
 
-## Zero-Trust – Secure network
+:::image type="content" source="media/spring-cloud-azure.png" alt-text="{alt-text}":::
+
+:::image type="content" source="media/extend-capabilities.png" alt-text="{alt-text}":::
+
+## Zero-Trust - Secure network
 
 You can secure your Java applications by deploying them in an Azure Virtual Network (VNET) - the fundamental building block for your own private networks in Azure. VNET enables many types of Azure resources to securely communicate with each other, with the internet, and with your on-premises networks and systems. You can use a VNET to isolate your applications and supporting backend services from the Internet and place them on your private networks. You can assume full control of ingress and egress for your applications and backend systems.
 
-## Zero-Trust – Secure communications end-to-end
+:::image type="content" source="azure-spring-apps-reference-architecture.png" alt-text="{alt-text}":::
+
+## Zero-Trust - Secure communications end-to-end
 
 Implementing secure communications as part of a solution architecture can be challenging. Many companies manually rotate their certificates or build their own solutions to automate provisioning and configuration. Even then, there are still data exfiltration risks, such as unauthorized copying or data transfer.
 
@@ -34,12 +42,13 @@ Based on the principle of "never trust, always verify, and credential-free", Zer
 
 Java or Spring Boot apps can securely load certificates from Azure Key Vault (discussed next). With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates using managed identities, role-based access control, and the principle of least privilege. This secure loading is powered using the Azure Key Vault JCA (Java Cryptography Architecture) Provider.
 
-"Implementing end-to-end encryption and Zero Trust has been at the top of the list of security requirements for our new API platform. Neither requirement was ever achievable on our old platform. Azure Spring Apps, and its built-in integrations with services like Azure Key Vault and Managed Identities, will finally help us to meet those requirements in an easily automated and manageable way."
-– Claus Lund, Senior Infrastructure Engineering Lead, National Life Group
+:::image type="content" source="media/secure-communications.png" alt-text="{alt-text}":::
 
-## Zero-Trust – Manage secrets
+## Zero-Trust - Manage secrets
 
 Many Java applications connect to supporting services using URLs and credentials - information that, if exposed, could be used to gain unauthorized access to sensitive data. Embedding such information in an app itself presents a huge security risk for many reasons, including discovery via a code repository. Many developers externalize such credentials using environment variables, so that multiple applications can load them, but this only shifts the risk from the code itself to the execution environment.
+
+:::image type="content" source="media/zero-trust.png" alt-text="{alt-text}":::
 
 Azure Key Vault provides a better, safer, and more secure way to safeguard secrets. It gives you full control over the storage and distribution of application secrets, using Role Based Access Control (RBAC) and the principle of least privilege to limit access. You keep control over your application secrets  - simply grant permission for your applications to use them as needed. Upon application startup, prior to granting access to secrets, the application authenticates with Azure Active Directory and Azure Key Vault authorizes using Azure RBAC. Azure Key Vault includes full audit capabilities and has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module (HSM)-protected keys.
 
@@ -55,15 +64,21 @@ You can monitor end-to-end by aggregating logs and metrics in Log Analytics, a t
 
 That said, we realize that customers who are bringing their Java applications to Azure may want to continue using the same APM tools they're using to monitor their on-premises applications. To support this, we partnered with New Relic, AppDynamics, Dynatrace, and Elastic to integrate their monitoring solutions with Azure App Service and Azure Spring Apps. Monitoring agents run side-by-side with your code, and we'll install and keep the agents updated for you. When you deploy to Azure Container Apps, Azure Kubernetes Service, or Virtual Machines, you can run any of these agents (including New Relic, AppDynamics, Dynatrace, Elastic and Datadog) alongside your applications, but you'll need to install and manage them on your own. Likewise, you can monitor end-to-end by aggregating logs and metrics in Elastic and Splunk.
 
+:::image type="content" source="media/monitor-end-to-end.png" alt-text="{alt-text}":::
+
 We also realize that many customers want to continue using Grafana to query, visualize, alert on, and understand their metrics. That's why we partnered with Grafana Labs to deliver Azure Managed Grafana, a fully managed service that lets customers run Grafana natively on Azure. The service makes it easy to deploy secure and scalable Grafana instances and connect them to open-source, cloud, and third-party data sources for visualization and analysis. It's optimized for Azure-native data sources like Azure Monitor and Azure Data Explorer, and it includes application performance monitoring (APM) integrations with Azure compute services like Azure App Service, Azure Spring Apps, Azure Kubernetes Service, Splunk, Datadog, and Azure Virtual Machines.
 
 ## Accelerate Java applications using caching
 
 As the workloads for your Java applications grow, you can increase performance by using Azure Cache for Redis to implement an in-memory caching layer for query results, session states, and static content. It's a great way to improve application throughput and reduce latency without having to rearchitect your underlying database. Azure Cache for Redis Enterprise tiers, developed in partnership with Redis and fully managed by Microsoft, is the most highly available and scalable deployment option for running Redis on Azure - including features such as active geo-replication, externalized session management, and high-speed search and indexing.
 
+:::image type="content" source="media/accelerate-scale.png" alt-text="{alt-text}":::
+
 ## Automatic scaling
 
 All Azure "compute" services for running Java applications support automatic scaling (auto-scaling), which can help you maximize cost-efficiency and adapt to changing workloads without paying for more capacity than needed. Once enabled, you can rest assured that auto-scale will take care of your underlying infrastructure and your application workloads.
+
+:::image type="content" source="media/drive-higher-utilization.png" alt-text="{alt-text}":::
 
 You can automatically scale in or out based on load or schedule. In load-based (or metric-based) mode, your applications are horizontally scaled-out to the resources needed to handle the load, up to the limits that you set. Similarly, when load decreases, resources are horizontally scaled-in, never falling below the minimums that you set.
 
@@ -73,18 +88,33 @@ In schedule-based mode, your applications are scaled-in and scaled-out based on 
 
 As you move your applications to the cloud, you'll want to automate everything - as needed for Java development at enterprise scale. Of course, you'll need to consider auto-scaling to address application workloads, as covered above. But you'll also need to scale and automate your cloud environment as a whole - ideally from idea to production - including how to rapidly provision of new environments for test, QA, production, blue/green deployments, geographic expansion, and so on.
 
+:::image type="content" source="media/automate-idea-production.png" alt-text="{alt-text}":::
+
 Azure lets you automate from idea to production using a broad range of tools and platforms. At a high level, such automation pipelines can be broken down into three categories:
 
-- Provisioning pipelines – You can provision Azure resources using Terraform, Azure Resource Manager (ARM) templates, Bicep templates, or the Azure CLI, as needed to create repeatable scripts for consistently spinning-up and spinning-down environments.
+- Provisioning pipelines - You can provision Azure resources using Terraform, Azure Resource Manager (ARM) templates, Bicep templates, or the Azure CLI, as needed to create repeatable scripts for consistently spinning-up and spinning-down environments.
 
-- Build pipelines – Based on tools such as Maven or Gradle, as discussed earlier in this eBook.
+- Build pipelines - Based on tools such as Maven or Gradle, as discussed earlier in this eBook.
 
-- Deployment pipelines – You can use GitHub Actions, Azure Pipelines, Jenkins Pipelines, GitLab Pipelines, or the Azure CLI to automate code deployments, including blue/green deployments that keep critical systems in production as you deploy code updates.
+- Deployment pipelines - You can use GitHub Actions, Azure Pipelines, Jenkins Pipelines, GitLab Pipelines, or the Azure CLI to automate code deployments, including blue/green deployments that keep critical systems in production as you deploy code updates.
 
 ## Continue to use existing practices and systems
 
-As you migrate or build and then scale your Java applications on Azure, you can use your existing investments in networking, monitoring, automation, identity providers, on-premises systems, development and build tool, and app libraries. The following table provides some examples.
+As you migrate or build and then scale your Java applications on Azure, you can use your existing investments in networking, monitoring, automation, identity providers, on-premises systems, development and build tool, and app libraries. The following table provides some examples:
+
+| Category           | Java ecosystem products and services                                                                                                                                       |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Networking         | F5, Palo Alto, Cloudflare, Checkpoint, Infoblox                                                                                                                            |
+| Monitoring         | New Relic, Dynatrace, AppDynamics, Elastic, Splunk                                                                                                                         |
+| Automation         | GitHub Actions, Azure Pipelines, Jenkins, GitLab                                                                                                                           |
+| Identity providers | Microsoft Entra ID, ForgeRock, Auth0, Ping, Okta                                                                                                                           |
+| On-premises system | Databases (such as Oracle DB or IBM DB2), messaging (such as IBM MQ or TIBCO EMS), eventing (such as Kafka), directories (such as Microsoft Entra ID, OpenLDAP, or IBM ID) |
+| Development tools  | IntelliJ, Visual Studio Code, Eclipse, Spring Tool Suite, Maven, Gradle                                                                                                    |
 
 ## Reference architectures
 
-The Azure Architecture Center provides guidance for building solutions on Azure using established patterns and practices, including how to put the above capabilities to use. These reference architectures are based on what we've learned from customer engagements, taking into consideration cost optimization, operational excellence, performance efficiency, reliability, scalability, security, monitoring, smoke-testing, and more. They also address solution design components such as Azure landing zones - environments for hosting your workloads that are pre-provisioned through infrastructure-as-code, as needed to enable Java application migrations and greenfield development at enterprise scale. For example, here's a reference architecture for Azure Spring Apps, showing how to implement a hub-and-spoke design in which Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. It's built with components to achieve the tenets in the Microsoft Azure Well-Architected Framework. To explore an implementation of this architecture, see the Azure Spring Apps Reference Architecture repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure "compute" destination - such as Azure App Service, Azure Container Apps, or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we've got a comprehensive set of migration guides and recommended strategies.
+The Azure Architecture Center provides guidance for building solutions on Azure using established patterns and practices, including how to put the above capabilities to use. These reference architectures are based on what we've learned from customer engagements, taking into consideration cost optimization, operational excellence, performance efficiency, reliability, scalability, security, monitoring, smoke-testing, and more. They also address solution design components such as Azure landing zones - environments for hosting your workloads that are pre-provisioned through infrastructure-as-code, as needed to enable Java application migrations and greenfield development at enterprise scale. 
+
+For example, here's a reference architecture for Azure Spring Apps, showing how to implement a hub-and-spoke design in which Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. It's built with components to achieve the tenets in the Microsoft Azure Well-Architected Framework. To explore an implementation of this architecture, see the Azure Spring Apps Reference Architecture repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure "compute" destination - such as Azure App Service, Azure Container Apps, or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we've got a comprehensive set of migration guides and recommended strategies.
+
+:::image type="content" source="media/scale-end-to-end.png" alt-text="{alt-text}":::
