@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). A less automated, but still accelerated option is to skip the steps of installing JDK and WLS on the operating system by using a preconfigured Oracle or Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
 ## Prerequisites
 
@@ -338,8 +338,8 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
    scp /tmp/cluster.jar azureuser@<mspvm2-private-ip>:/tmp/cluster.jar
+   #scp /tmp/cluster.jar azureuser@192.168.0.5:/tmp/cluster.jar
    #scp /tmp/cluster.jar azureuser@192.168.0.6:/tmp/cluster.jar
-   #scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
    ```
 
 1. Use the following instructions to apply domain configuration to `mspVM1`.
@@ -347,7 +347,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    Open a new command prompt, and use the following commands to connect to `mspVM1`. Replace `192.168.0.6` with your `mspVM1` private IP address:
 
    ```cmd
-   set MSPVM1_IP="192.168.0.6"
+   set MSPVM1_IP="192.168.0.5"
    ssh azureuser@%MSPVM1_IP%
    ```
 
@@ -396,7 +396,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    Connect `mspVM2` in a new command prompt. Replace `192.168.0.7` with your `mspVM2` private IP address:
 
    ```cmd
-   set MSPVM2_IP="192.168.0.7"
+   set MSPVM2_IP="192.168.0.6"
    ssh azureuser@%MSPVM2_IP%
    ```
 
