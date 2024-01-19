@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines"
-description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs and form a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
+description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs and form a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -17,11 +17,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Install the desired JDK and WLS on the VMs manually.
+> - Provision VMs with desired JDK and WLS installed.
 > - Configure a WLS domain and a WLS cluster using the Oracle Configuration Wizard.
-> - Configure a PostgreSQL datasource connection in the cluster.
-> - Configure JMS in the cluster.
-> - Deploy and run a domain-driven Java EE application in the cluster.
+> - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
@@ -40,7 +38,7 @@ If you prefer a fully automated solution that does all of these steps on your be
 
 ## Prepare the environment
 
-In this section, you set up the infrastructure within which you install the JDK, WLS, and the PostgreSQL JDBC driver.
+In this section, you set up the infrastructure within which you install the JDK and WLS.
 
 ### Assumptions
 
@@ -122,7 +120,7 @@ The Marketplace image that you use to create the VMs is `Oracle:weblogic-141100-
 
 ### Create Oracle Linux machine for admin server
 
-In this section, you create Oracle Linux machines, with JDK 11，WebLogic 14.1.1.0.0, and PostgreSQL JDBC driver installed, for admin server and managed servers.
+In this section, you create Oracle Linux machines, with JDK 11，and WebLogic 14.1.1.0 installed, for admin server and managed servers.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
@@ -1042,20 +1040,6 @@ Select **Next**. Finally, the URL of the Administration Server is shown. The ser
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-end.png" alt-text="Windows - Oracle Configuration Wizard - End." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-end.png":::
 
 You've now finished configuring the `wlsd` domain with a cluster `cluster1` including two managed servers.
-
-#### Install the PostgreSQL JDBC driver
-
-This tutorial shows you how to connect PostgreSQL within the Oracle WebLogic cluster. First, you install the PostgreSQL JDBC driver.
-
-Assuming you're still on `adminVM`, download [postgresql-42.2.8.jar](https://jdbc.postgresql.org/download/postgresql-42.2.8.jar) and save it to *C:\domains\wlsd\lib*. Libraries in this folder are added to the server classpath when it's booted. Then, run the following commands in a command prompt.
-
-```cmd
-C:
-cd C:\domains\wlsd\lib
-curl --output postgresql-42.2.8.jar https://jdbc.postgresql.org/download/postgresql-42.2.8.jar
-```
-
-Next, apply the domain configuration to `mspVM1` and `mspVM2`.
 
 #### Create replicas using the pack and unpack command
 
