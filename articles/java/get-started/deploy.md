@@ -1,10 +1,10 @@
 ---
-title: Deploy Java Applications with Confidence and Ease
+title: Deploy Java applications with confidence and ease
 description: This article ...
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 01/19/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

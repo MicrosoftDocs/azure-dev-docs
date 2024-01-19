@@ -1,10 +1,10 @@
 ---
-title: Scale with End-to-End Security, Monitoring, and Automation
+title: Scale with end-to-end security, monitoring, and automation
 description: This article ...
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 01/19/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -113,7 +113,7 @@ As you migrate or build and then scale your Java applications on Azure, you can 
 
 ## Reference architectures
 
-The Azure Architecture Center provides guidance for building solutions on Azure using established patterns and practices, including how to put the above capabilities to use. These reference architectures are based on what we've learned from customer engagements, taking into consideration cost optimization, operational excellence, performance efficiency, reliability, scalability, security, monitoring, smoke-testing, and more. They also address solution design components such as Azure landing zones - environments for hosting your workloads that are pre-provisioned through infrastructure-as-code, as needed to enable Java application migrations and greenfield development at enterprise scale. 
+The Azure Architecture Center provides guidance for building solutions on Azure using established patterns and practices, including how to put the above capabilities to use. These reference architectures are based on what we've learned from customer engagements, taking into consideration cost optimization, operational excellence, performance efficiency, reliability, scalability, security, monitoring, smoke-testing, and more. They also address solution design components such as Azure landing zones - environments for hosting your workloads that are pre-provisioned through infrastructure-as-code, as needed to enable Java application migrations and greenfield development at enterprise scale.
 
 For example, here's a reference architecture for Azure Spring Apps, showing how to implement a hub-and-spoke design in which Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. It's built with components to achieve the tenets in the Microsoft Azure Well-Architected Framework. To explore an implementation of this architecture, see the Azure Spring Apps Reference Architecture repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure "compute" destination - such as Azure App Service, Azure Container Apps, or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we've got a comprehensive set of migration guides and recommended strategies.
 

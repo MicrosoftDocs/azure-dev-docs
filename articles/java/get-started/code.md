@@ -1,10 +1,10 @@
 ---
-title: Code Using the Java Tools You Know and Love
+title: Code using the Java tools you know and love
 description: This article ...
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 01/19/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
