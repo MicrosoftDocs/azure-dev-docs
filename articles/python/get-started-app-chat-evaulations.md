@@ -46,7 +46,7 @@ Key components of the architecture include:
         * Query key: The key to query your Search index.
     * If you experimented with the Chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
 
-    Once you have this information collected, you shouldn't need to use the **Chat app** development environment again. It is referred to later in this article several times to indicate how the **Chat app** is used by the **Evauations app**. Do not delete the **Chat app** resources until you complete the entire procedure in this article.
+    Once you have this information collected, you shouldn't need to use the **Chat app** development environment again. It's referred to later in this article several times to indicate how the **Chat app** is used by the **Evaluations app**. Don't delete the **Chat app** resources until you complete the entire procedure in this article.
 
 ## Start development environment
 
@@ -108,7 +108,7 @@ Begin now with a development environment that has all the dependencies installed
     This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
-1. The name of the GitHub repository is shown in the search bar. This will help you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the search bar. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -155,7 +155,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
-1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This will help you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 ---
 
@@ -208,9 +208,9 @@ In order to evaluate new answers, they must be compared to "ground truth" answer
 
 1. In a terminal, run the following command to generate the sample prompts:
 
-```shell
-python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
-```
+    ```shell
+    python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
+    ```
 
 The prompts are generated and stored in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, more than 200. This would cause the evaluation to take a longer amount of time.
 
@@ -261,9 +261,9 @@ Use a refined prompt but with shorter length. This is a common scenario when you
 
     * Change `results_dir` to: `experiment_ignoresources_temp02`
     * Change `prompt_template` to: `<READFILE>my_input/prompt_ignoresources.txt` 
-    * Add a new override, `temperature`: `0.2`
+    * Add a new override, `"temperature": 0.2`
 
-1. The config object should like like the following except use your own `results_dir`:
+1. The config object should like the following except use your own `results_dir`:
 
     ```json
     {
@@ -298,9 +298,7 @@ You now have three evaluations with different prompts. The results are stored in
     
 1. The results look like: 
 
-    ```console
-    TBD
-    ```
+    :::image type="content" source="./media/get-started-app-chat-template/evaluation_review_summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
 
     Each value is returned as a number and a percentage.
 
@@ -314,7 +312,29 @@ You now have three evaluations with different prompts. The results are stored in
     | Citation | This indicates if the answer was returned in the format requested in the prompt.|
     | Length | This measures the length of the response.|
 
-1. The results should indicate all 3 evaluations had high relevance 
+1. The results should indicate all 3 evaluations had high relevance while the `experiment_ignoresources_temp02` had the lowest relevance.
+
+1. Select the folder to see the configuration for the evaluation.
+
+## Compare the answers
+
+Compare the returned answers from the evaluations. 
+
+1. Select two of the evaluations to compare then use the same review tool to compare the answers:
+
+    ```shell
+    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_weak
+    ```
+
+1. Review the results.
+
+    :::image type="content" source="./media/get-started-app-chat-template/evaluations_difference_between_evaluation_answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
+
+## Suggestions for further evaluations
+
+* Edit the prompts in `my_input ` to tailor the answers such as subject domain, length, and other factors.
+* Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
+* Compare different answers to understand how the prompt and question impact the value of the answers. 
 
 
 ## Clean up resources
@@ -340,9 +360,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
