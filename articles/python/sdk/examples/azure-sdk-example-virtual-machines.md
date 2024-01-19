@@ -1,7 +1,7 @@
 ---
 title: Create a virtual machine using the Azure SDK libraries for Python
 description: How to create an Azure virtual machine using Python and the Azure SDK management libraries.
-ms.date: 01/17/2023
+ms.date: 01/19/2023
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -116,7 +116,7 @@ If you get an error about capacity restrictions, you can try a different size or
 
 Leave the resources in place if you want to continue to use the virtual machine and network you created in this article. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group.
 
-Resource groups don't incur any ongoing charges in your subscription, but resources contained in the group, like virtual machines, might continue to mincur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Resource groups don't incur any ongoing charges in your subscription, but resources contained in the group, like virtual machines, might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
 az group delete -n PythonAzureExample-VM-rg --no-wait
