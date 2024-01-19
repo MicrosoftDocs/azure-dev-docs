@@ -96,18 +96,27 @@ az network vnet subnet create \
     --address-prefixes 192.168.0.128/25
 ```
 
-[!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
+### Create an availability set
+
+Create an availability set by using [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create), as shown in the following example. Creating an availability set is optional, but we recommend it. For more information, see [Example Azure infrastructure walkthrough for Windows VMs](/azure/virtual-machines/windows/infrastructure-example).
+
+
+```bash
+az vm availability-set create \
+    --resource-group abc1110rg \
+    --name myAvailabilitySet \
+    --platform-fault-domain-count 2 \
+    --platform-update-domain-count 2
+```
 
 The following sections describe the steps for installing WLS on either GNU/Linux or Windows Server. You can choose the operating system, JDK version, and WLS version according to your requirements, but you should verify that they're available in [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html). Also, consider system and platform-specific requirements carefully before proceeding. For more information, see [System Requirements and Specifications](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/sysrs/system-requirements-and-specifications.html#GUID-A077A2B4-5967-42E0-A063-0F7A0A2254FB). Select the tab for your chosen operating system.
 
 #### [Oracle Linux](#tab/oracle-linux)
 
-The Marketplace image that you use to create the VMs is `Oracle:Oracle-Linux:8:latest`.
+The Marketplace image that you use to create the VMs is `Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest`.
 
 > [!NOTE]
 > You can query all the available Oracle WebLogic images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --publisher oracle --output table --all | grep "weblogic"`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
->
-> If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
 ### Create Oracle Linux machines
 
@@ -118,11 +127,13 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
 
 ```azurecli
+export IMAGE=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
+
 az vm create \
     --resource-group abc1110rg \
     --name adminVM \
     --availability-set myAvailabilitySet \
-    --image weblogic-141100-jdk11-ol91 \
+    --image ${IMAGE} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
@@ -133,7 +144,7 @@ az vm create \
     --resource-group abc1110rg \
     --name mspVM1 \
     --availability-set myAvailabilitySet \
-    --image weblogic-141100-jdk11-ol91 \
+    --image ${IMAGE} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
@@ -144,7 +155,7 @@ az vm create \
     --resource-group abc1110rg \
     --name mspVM2 \
     --availability-set myAvailabilitySet \
-    --image weblogic-141100-jdk11-ol91 \
+    --image ${IMAGE} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
