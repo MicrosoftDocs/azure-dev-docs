@@ -204,13 +204,22 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
    chown oracle:oracle -R ${DOMAIN_PATH}
    ```
 
+1. Install dependency for X-server.
+
+   ```bash
+   # install dependencies for X-server
+   sudo yum install -y libXtst libSM libXrender
+   # install dependencies to run a Java GUI client
+   sudo yum install -y fontconfig urw-base35-fonts
+   ```
+
 1. Use the following commands to become the `oracle` user and set the `DISPLAY` variable.
 
    ```bash
    sudo su - oracle
 
    export DISPLAY=<my-windows-vm-private-ip>:0.0
-   #export DISPLAY=192.168.0.5:0.0
+   #export DISPLAY=192.168.0.7:0.0
    ```
 
 1. Run the following command to launch the Oracle Configuration Wizard:
@@ -922,6 +931,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       ```powershell
       Rename-Computer -NewName mspvm2 -Restart
       ```
+1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
+
+   ```azurecli
+   az vm start --resource-group abc1110rg --name adminVM
+   ```
 
 [!INCLUDE [start-admin-get-ip](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 

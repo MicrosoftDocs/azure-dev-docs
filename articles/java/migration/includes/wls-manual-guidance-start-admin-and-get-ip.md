@@ -5,13 +5,7 @@ ms.date: 11/30/2022
 ms.custom: devx-track-azurecli
 ---
 
-5. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
-
-   ```azurecli
-   az vm start --resource-group abc1110rg --name adminVM
-   ```
-
-   Use the following commands to get and show the private IP addresses, which you use in later sections.
+1. Use the following commands to get and show the private IP addresses, which you use in later sections.
 
    ```azurecli
    export ADMINVM_NIC_ID=$(az vm show \
