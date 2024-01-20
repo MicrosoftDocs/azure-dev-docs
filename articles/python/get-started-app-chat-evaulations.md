@@ -166,13 +166,13 @@ Update the environment values and configuration information with the information
 
 1. Use the following command to get the **Evaluations** app resource information into a `.env` file.:
 
-    ```shell
+    ```bash
     azd env get-values > .env
     ```
 
 1. Add the following values from the **Chat app** for its **Azure AI Search** instance to the `.env`, which you gathered in the [prerequisites](#prerequisites) section:
 
-    ```shell
+    ```bash
     AZURE_SEARCH_SERVICE="<service-name>"
     AZURE_SEARCH_INDEX="<index-name>"
     ```
@@ -208,7 +208,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
 
 1. In a terminal, run the following command to generate the sample prompts:
 
-    ```shell
+    ```bash
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
@@ -225,7 +225,7 @@ The prompts are generated and stored in `my_input/qa.jsonl` as input to the eval
 
 1. In a terminal, run the following command to run the evaluation:
 
-    ````shell
+    ````bash
     python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
@@ -249,7 +249,7 @@ The prompts are generated and stored in `my_input/qa.jsonl` as input to the eval
 
 1. In a terminal, run the following command to run the evaluation:
 
-    ````shell
+    ````bash
     python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
@@ -282,7 +282,7 @@ Use a refined prompt but with shorter length. This is a common scenario when you
 
 1. In a terminal, run the following command to run the evaluation:
 
-    ````shell
+    ````bash
     python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
@@ -292,7 +292,7 @@ You have three evaluations created from different prompts. The results are store
 
 1. Use the review tool to see the results of the evaluations: 
 
-    ```shell
+    ```bash
     python3 -m review_tools summary my_results
     ```
     
@@ -323,7 +323,7 @@ Compare the returned answers from the evaluations.
 
 1. Select two of the evaluations to compare then use the same review tool to compare the answers:
 
-    ```shell
+    ```bash
     python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp02
     ```
 
