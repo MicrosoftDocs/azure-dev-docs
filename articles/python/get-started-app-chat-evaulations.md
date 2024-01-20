@@ -22,14 +22,14 @@ By following the instructions in this article, you will:
 
 ## Architectural overview
 
-A simple architecture of the evaluations app is shown in the following diagram:
-
 Key components of the architecture include:
 
 * **Azure-hosted Chat app**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 * **Azure AI Search**: The chat app uses Azure AI Search to store the data from your own documents. 
-* **Sample prompts generator**: Can generate N number of prompts for each document. The more prompts, the longer the evaluation.
-* **Evaluations app** runs sample prompts against the chat app and returns the results.
+* **Sample questions generator**: Can generate a number of questions for each document along with the ground truth answer. The more questions, the longer the evaluation.
+* **Evaluations app** runs sample questions and prompts against the chat app and returns the results.
+* **Review tool** allows you to review the results of the evaluations.
+* **Diff tool** allows you to compare the answers between evaluations.
 
 ## Prerequisites
 
@@ -37,10 +37,10 @@ Key components of the architecture include:
 
 * Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
-    You'll need the following Azure service resource information from that deployment, which is referred to as the **Chat app** in this article:
+    You'll need the following Azure resource information from that deployment, which is referred to as the **Chat app** in this article:
 
-    * Web API URI: The URI of the deployed chat app. This URI is used as the `target_url` in the evaluations app's configuration file.
-    * Azure AI Search. The following values are used in a `.env` file.
+    * Web API URI: The URI of the deployed chat app API. 
+    * Azure AI Search. The following values are required:
         * Resource name: The name of the Azure AI Search resource name.
         * Index name: The name of the Azure AI Search index where your documents are stored.
         * Query key: The key to query your Search index.
@@ -97,9 +97,11 @@ Begin now with a development environment that has all the dependencies installed
     azd auth login
     ```
 
+    If you are prompted to update the Azure Developer CLI (azd), complete that step then authenticate again.
+
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-1. Provision the required Azure resources for the evaluations app.
+1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
 
     ```bash
     azd up
@@ -135,17 +137,17 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
-1. Open a new terminal in the editor.
-
-1. If you intend to create a new Azure OpenAI resource for evaluations, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
     ```
 
-    When prompted, copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+    If you are prompted to update the Azure Developer CLI (azd), complete that step then authenticate again.
 
-1. Provision the required Azure resources for the evaluations app.
+    Follow the instructions to authenticate with your Azure account.
+
+1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
 
     ```bash
     azd up
@@ -153,7 +155,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
 
-1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
@@ -163,18 +164,17 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the evaluations app.
 
-1. Use the following command to get the **Evaluations** app into a `.env` file.:
+1. Use the following command to get the **Evaluations** app resource information into a `.env` file.:
 
     ```shell
     azd env get-values > .env
     ```
 
-1. Edit the following values from the **Chat app** for its **Azure AI Search** instance, which you gathered in the [prerequisites](#prerequisites) section:
+1. Add the following values from the **Chat app** for its **Azure AI Search** instance to the `.env`, which you gathered in the [prerequisites](#prerequisites) section:
 
     ```shell
     AZURE_SEARCH_SERVICE="<service-name>"
     AZURE_SEARCH_INDEX="<index-name>"
-    AZURE_SEARCH_KEY=""
     ```
 
     The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance. 
@@ -202,7 +202,7 @@ Update the environment values and configuration information with the information
 
 ## Generate sample prompts
 
-In order to evaluate new answers, they must be compared to "ground truth" answers: the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **Chat app**.
+In order to evaluate new answers, they must be compared to a "ground truth" answer, which is the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **Chat app**.
 
 1. Copy the `example_input` folder into a new folder named`my_input`.
 
@@ -212,12 +212,12 @@ In order to evaluate new answers, they must be compared to "ground truth" answer
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
-The prompts are generated and stored in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, more than 200. This would cause the evaluation to take a longer amount of time.
+The prompts are generated and stored in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, perhaps more than 200 for this dataset. 
 
 > [!NOTE]
 > The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
 
-## Run first evaluation with refined prompt
+## Run first evaluation with a refined prompt
 
 1. Edit the `my_config.json` config file properties:
 
@@ -225,16 +225,16 @@ The prompts are generated and stored in `my_input/qa.jsonl` as input to the eval
 
 1. In a terminal, run the following command to run the evaluation:
 
-````shell
-python3 -m scripts evaluate --config=my_config.json --numquestions=14
-````
+    ````shell
+    python3 -m scripts evaluate --config=my_config.json --numquestions=14
+    ````
 
-This created a new experiment folder in `my_results` with the evaluation. The folder contains the results of the evaluation including:
-
-* `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
-* `summary.json`: The overall results, like the average GPT metrics.
-
-## Run second evaluation with weak prompt
+    This created a new experiment folder in `my_results` with the evaluation. The folder contains the results of the evaluation including:
+    
+    * `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
+    * `summary.json`: The overall results, like the average GPT metrics.
+    
+## Run second evaluation with a weak prompt
 
 1. Edit the `my_config.json` config file properties:
 
@@ -259,7 +259,7 @@ Use a refined prompt but with shorter length. This is a common scenario when you
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to: `experiment_ignoresources_temp02`
+    * Change `results_dir` to: `my_results/experiment_ignoresources_temp02`
     * Change `prompt_template` to: `<READFILE>my_input/prompt_ignoresources.txt` 
     * Add a new override, `"temperature": 0.2`
 
@@ -283,12 +283,12 @@ Use a refined prompt but with shorter length. This is a common scenario when you
 1. In a terminal, run the following command to run the evaluation:
 
     ````shell
-    python3 -m scripts evaluate --config=config.json --numquestions=14
+    python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
 ## Review the evaluation results
 
-You now have three evaluations with different prompts. The results are stored in the `my_results` folder. Review how the results differ based on the prompts.
+You have three evaluations created from different prompts. The results are stored in the `my_results` folder. Review how the results differ based on the prompts.
 
 1. Use the review tool to see the results of the evaluations: 
 
@@ -315,6 +315,7 @@ You now have three evaluations with different prompts. The results are stored in
 1. The results should indicate all 3 evaluations had high relevance while the `experiment_ignoresources_temp02` had the lowest relevance.
 
 1. Select the folder to see the configuration for the evaluation.
+1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> exit the app and return to the terminal.
 
 ## Compare the answers
 
@@ -323,18 +324,22 @@ Compare the returned answers from the evaluations.
 1. Select two of the evaluations to compare then use the same review tool to compare the answers:
 
     ```shell
-    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_weak
+    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp02
     ```
 
 1. Review the results.
 
     :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations_difference_between_evaluation_answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
 
+1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> exit the app and return to the terminal.
+
 ## Suggestions for further evaluations
 
 * Edit the prompts in `my_input ` to tailor the answers such as subject domain, length, and other factors.
 * Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
-* Compare different answers to understand how the prompt and question impact the value of the answers. 
+* Compare different answers to understand how the prompt and question impact the value of the answers.
+* Generate a separate set of questions and ground truth answers for each document in the Azure AI Search index. Then rerun the evaluations to see how the answers differ.
+* Alter the prompts to indicate shorter or longer answers by adding the requirement to the end of the prompt. For example, `Please answer in about 3 sentences.` 
 
 
 ## Clean up resources
@@ -381,14 +386,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ---
 
-After you clean up for the evaluations app, return to the Chat app and clean up its resources. 
-
-
-## Get help
-
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
-
-If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues).
+1. After you clean up for the evaluations app, return to the Chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
 
 ## Next steps
 
