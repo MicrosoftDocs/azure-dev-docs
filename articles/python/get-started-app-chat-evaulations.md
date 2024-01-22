@@ -1,7 +1,7 @@
 ---
 title: "Evaluating Chat App Prompts with Azure OpenAI"
-description: "Learn how to effectively evaluate the prompt answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
-ms.date: 01/16/2024
+description: "Learn how to effectively evaluate prompt answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
+ms.date: 01/22/2024
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want evaluate the prompt answers of my chat app.
@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with evaluating prompt answers in a chat app
 
-This article shows you how to evaluate a chat app that uses the RAG architecture. Whenever you're making changes to a RAG chat with the goal of improving the answers, you should evaluate the results. This demo application offers a tool you can use today to make it easier to run evaluations.
+This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you making changes to a Chat application which effects the answer, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
 [Video overview of evaluations app](https://www.youtube.com/watch?v=mM8pZAI2C5w)
 
@@ -33,7 +33,10 @@ Key components of the architecture include:
 
 ## Prerequisites
 
-* Azure subscription with Azure OpenAI enabled. It's best to use a GPT-4 model for performing the evaluation, even if your chat app uses GPT-3.5 or another model. 
+* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
+* Access granted to Azure OpenAI in the desired Azure subscription.
+
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.    
 
 * Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
@@ -48,25 +51,22 @@ Key components of the architecture include:
 
     Once you have this information collected, you shouldn't need to use the **Chat app** development environment again. It's referred to later in this article several times to indicate how the **Chat app** is used by the **Evaluations app**. Don't delete the **Chat app** resources until you complete the entire procedure in this article.
 
-## Start development environment
+* A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+    #### [Codespaces (recommended)](#tab/github-codespaces)
+    
+    1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
+    1. GitHub account
+    
+    #### [Visual Studio Code](#tab/visual-studio-code)
+    1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+    1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+    1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+    1. [Visual Studio Code](https://code.visualstudio.com/)
+    1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    
+    ---
 
-To use this article, you need the following prerequisites:
-
-#### [Codespaces (recommended)](#tab/github-codespaces)
-
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-1. GitHub account
-
-#### [Visual Studio Code](#tab/visual-studio-code)
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
----
 
 ## Open development environment
 
@@ -212,7 +212,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
-The prompts are generated and stored in `my_input/qa.jsonl` as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, perhaps more than 200 for this dataset. 
+The prompts are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, perhaps more than 200 for this dataset. 
 
 > [!NOTE]
 > The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
@@ -335,7 +335,7 @@ Compare the returned answers from the evaluations.
 
 ## Suggestions for further evaluations
 
-* Edit the prompts in `my_input ` to tailor the answers such as subject domain, length, and other factors.
+* Edit the prompts in `my_input` to tailor the answers such as subject domain, length, and other factors.
 * Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
 * Compare different answers to understand how the prompt and question impact the value of the answers.
 * Generate a separate set of questions and ground truth answers for each document in the Azure AI Search index. Then rerun the evaluations to see how the answers differ.
