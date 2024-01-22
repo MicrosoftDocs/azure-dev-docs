@@ -52,13 +52,13 @@ The following steps walk you through the Azure sign-in process in your IntelliJ 
 1. In the **Create Azure OpenAI Service** dialog box, specify the following information and click **OK**:
 
       * **Name**: A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. This will also be your custom domain name in your endpoint. Your resource name can only include alphanumeric characters and hyphens, and can't start or end with a hyphen.
-      * **Region**: The location of your instance. Different locations can introduce latency, but they don't affect the runtime availability of your resource.
-      * **Sku**: The resource offers different pricing tiers to fit your needs. The pricing tier you select determines how much you will be billed each month.
+      * **Region**: The location of your instance. Certain models are only available in [specific regions](/azure/ai-services/openai/concepts/models).
+      * **Sku**: Standard Azure OpenAI resources are billed based on token usage. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information.
 
 1. Before you can use chat completions, you need to deploy a model. Right click your Azure OpenAI instance, and choose "Create New Deployment".  In the pop-up **Create Azure OpenAI Deployment** dialog box, specify the following information and click **OK**:
 
       * **Deployment Name**: Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs.
-      * **Model**: Select a provided base model to try it out or choose a custom model that’s fine-tuned to your specific use case and data. Model availability varies by region.
+      * **Model**: Select a model . Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability).
 
 1. The toolkit will display a status message when the deployment is complete and ready for use.
 
