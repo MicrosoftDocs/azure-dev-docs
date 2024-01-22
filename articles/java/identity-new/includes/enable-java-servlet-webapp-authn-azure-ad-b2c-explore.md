@@ -16,6 +16,19 @@ ms.custom: devx-track-java
 - You can also use the button on the top right to sign out.
 - After signing out, click this link to the token details page: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details` to observe how the app displays a `401: unauthorized` error instead of the ID token claims.
 
+## Contents
+
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `AuthHelper.java` | Helper functions for authentication. |
+| `Config.java` | Runs on startup and configures properties reader and logger. |
+| `authentication.properties`| Azure AD and program configuration. |
+| `AuthenticationFilter.java`| Redirects unauthenticated requests to protected resources to a 401 page. |
+| `MsalAuthSession` | Instantiated with an HttpSession, stores all MSAL related session attributes in session attribute. |
+| `____Servlet.java`    | All of the endpoints available are defined in .java classes ending in ____Servlet.java |
+| `CHANGELOG.md`    | List of changes to the sample.             |
+| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
+| `LICENSE`         | The license for the sample.                |
 
 ## About the code
 

@@ -12,19 +12,6 @@ ms.custom: devx-track-java
 
 ![Overview](../media/topology-sign-in.png)
 
-## Contents
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `AuthHelper.java` | Helper functions for authentication. |
-| `Config.java` | Runs on startup and configures properties reader and logger. |
-| `authentication.properties`| Azure AD and program configuration. |
-| `AuthenticationFilter.java`| Redirects unauthenticated requests to protected resources to a 401 page. |
-| `MsalAuthSession` | Instantiated with an HttpSession, stores all MSAL related session attributes in session attribute. |
-| `____Servlet.java`    | All of the endpoints available are defined in .java classes ending in ____Servlet.java |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `LICENSE`         | The license for the sample.                |
 
 ## Prerequisites
 
@@ -94,9 +81,10 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
 
 Open the project in your IDE (like **Visual Studio Code**) to configure the code.
 
+> [!NOTE]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
-1. Open the [authentication.properties](src/main/resources/authentication.properties) file.
+1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/resources/authentication.properties) file.
 1. Find the key `aad.clientId` and replace the existing value with the application ID (clientId) of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.secret` and replace the existing value with the key you saved during the creation of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.scopes` and replace the existing application clientId with the value you placed into `aad.clientId` in step 1 of this section.
@@ -110,7 +98,7 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 
 ## Running The Sample
 
-####Build .war File Using Maven
+### Build .war File Using Maven
 
 1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
     ```
