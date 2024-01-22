@@ -7,17 +7,17 @@ ms.custom: devx-track-java
 
 ## Scenario
 
-1. This web application uses **MSAL for Java (MSAL4J)** to sign in users to their own Microsoft Entra ID tenant and obtains an [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) from **Microsoft Entra ID**.
+1. This web application uses **MSAL for Java (MSAL4J)** to sign in users to their own Microsoft Entra ID tenant and obtain an [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) from **Microsoft Entra ID**.
 1. The **ID Token** proves that a user has successfully authenticated with this tenant.
-1. The web application protects one of its routes according to user's authentication status.
+1. The web application protects one of its routes according to the user's authentication status.
 
 ## Prerequisites
 
 - [JDK Version 8 or higher](https://jdk.java.net/8/)
 - [Maven 3](https://maven.apache.org/download.cgi)
 - A Microsoft Entra ID tenant. For more information on how to get an Microsoft Entra ID tenant, see [How to get an Microsoft Entra ID tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- A user account in your own Microsoft Entra ID tenant if you want to work with **accounts in your organizational directory only** (single-tenant mode). If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your AD tenant yet, you should do so before proceeding.
-- A user account in any organization's Microsoft Entra ID tenant if you want to work with **accounts in any organizational directory** (multi-tenant mode).  This sample must be modified to work with a **personal Microsoft account**. If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your AD tenant yet, you should do so before proceeding.
+- A user account in your own Microsoft Entra ID tenant if you want to work with **accounts in your organizational directory only** (single-tenant mode). If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your Microsoft Entra ID tenant, you should do so before proceeding.
+- A user account in any organization's Microsoft Entra ID tenant if you want to work with **accounts in any organizational directory** (multi-tenant mode).  This sample must be modified to work with a **personal Microsoft account**. If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your Microsoft Entra ID tenant yet, you should do so before proceeding.
 - A personal Microsoft account (e.g., Xbox, Hotmail, Live, etc) if you want to work with **personal Microsoft accounts**
 
 ## Setup
@@ -63,7 +63,7 @@ There is one project in this sample. To register the app on the portal, you can:
    .\Configure.ps1
    ```
 
-   > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
@@ -113,7 +113,7 @@ Open the project in your IDE to configure the code.
 ## Running The Sample
 ### Build .war File Using Maven
 
-1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
+1. Navigate to the directory containing the pom.xml file for this sample, and run the following Maven command:
     ```
     mvn clean package
     ```
