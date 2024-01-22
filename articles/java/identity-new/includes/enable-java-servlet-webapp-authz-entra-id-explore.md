@@ -127,8 +127,8 @@ The following code is all that is required for an application developer to write
 
 - [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
 
-- [Understanding Azure AD application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)
-- [Understand user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
-- [MSAL code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Understanding Azure AD application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [MSAL code samples](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)
