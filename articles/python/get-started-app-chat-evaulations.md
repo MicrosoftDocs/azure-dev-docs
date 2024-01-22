@@ -55,7 +55,6 @@ Key components of the architecture include:
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
     
-    1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
     1. GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
