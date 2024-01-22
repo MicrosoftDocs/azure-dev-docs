@@ -99,11 +99,12 @@ Enabling HTTP logging for a credential object enables logging for all operations
 
 The following code is that shown in [Example: Use a storage account](./examples/azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-23,28-49":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py":::
 
-The logging output is as follows:
+The output is as follows:
 
 ```output
+Logger enabled for ERROR=True, WARNING=True, INFO=True, DEBUG=True
 Request URL: 'https://pythonazurestorage12345.blob.core.windows.net/blob-container-01/sample-blob-5588e.txt'
 Request method: 'PUT'
 Request headers:
