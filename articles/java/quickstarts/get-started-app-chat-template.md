@@ -9,7 +9,9 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java
 
 # Get started with the Java enterprise chat sample using RAG
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
+This article shows you how to deploy and run the [Enterprise chat app sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
+
+* [Demo video](https://aka.ms/azai/java/video)
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)

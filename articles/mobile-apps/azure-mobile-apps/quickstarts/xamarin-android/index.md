@@ -4,11 +4,9 @@ description: Get up to speed with Xamarin.Android and Azure Mobile Apps with our
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 09/07/2023
+ms.date: 01/12/2024
 ms.author: adhal
 recommendations: false
-zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
-zone_pivot_groups: vs-platform-options
 ---
 
 # Build a Xamarin.Android app with Azure Mobile Apps
@@ -20,8 +18,6 @@ You must complete this tutorial before other Xamarin Android tutorials about usi
 ## Prerequisites
 
 To complete this tutorial, you need:
-
-::: zone pivot="vs2022-windows"
 
 * [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
   * ASP.NET and web development
@@ -35,69 +31,22 @@ To complete this tutorial, you need:
   * Phone: Any phone image - we use the Pixel 5 for testing.
   * System Image: Android 11 (API 30 with Google APIs)
 
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-* [Visual Studio 2022 for Mac](/visualstudio/mac/installation?view=vsmac-2022&preserve-view=true)
-* An [Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure CLI](/cli/azure/install-azure-cli).
-  * Sign in with `az login` and select an appropriate subscription before starting.
-* (Optional) The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
-* An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
-  * Phone: Any phone image - we use the Pixel 5 for testing.
-  * System Image: Android 11 (API 30 with Google APIs)
-
-::: zone-end
-
 ## Download the sample app
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE [Instructions to download the sample from GitHub on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/download-sample.md)]
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE [Instructions to download the sample from GitHub on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/download-sample.md)]
-
-::: zone-end
 
 ## Deploy the backend to Azure
 
 > [!NOTE]
 > If you have already deployed the backend from another quick start, you can use the same backend and skip this step.
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE [Instructions for deploying a backend service on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/deploy-backend.md)]
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE [Instructions for deploying a backend service on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-back-end.md)]
-
-::: zone-end
 
 ## Configure the sample app
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE [Instructions for configuring the sample code on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-sample.md)]
 
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE [Instructions for configuring the sample code on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-sample.md)]
-
-::: zone-end
-
 ## Build and run the app
-
-::: zone pivot="vs2022-windows"
 
 1. In the solutions explorer, expand the `xamarin-native` folder.
 2. Right-click the `TodoApp.Android` project and select **Set as Startup Project**.
@@ -134,28 +83,6 @@ Once the app has started, you see an empty list and a floating action button to 
 * Press the refresh icon to reload data from the service.
 
 ![Screenshot of the running Android app.](./media/running-app.png)
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-1. In the solutions explorer, expand the `xamarin-native` folder.
-2. Right-click the `TodoApp.Android` project and select **Set as Startup Project**.
-3. In the top bar, select an appropriate Android emulator:
-
-   ![Screenshot showing how to select an Android emulator on a Mac.](./media/mac-android-configuration.png)
-
-4. In the top menu, select **Debug** > **Start Debugging**.
-
-Once the app has started, you see an empty list and a text box to add items in the emulator.  You can:
-
-* Press the **+** button to add an item.
-* Select an item to set or clear the completed flag.
-* Press the refresh icon to reload data from the service.
-
-![Screenshot of the running Android app showing the to do list running on a Mac.](./media/mac-running-app.png)
-
-::: zone-end
 
 ## Next steps
 

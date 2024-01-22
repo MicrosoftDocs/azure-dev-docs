@@ -1,6 +1,14 @@
 {
     "redirections": [
       {
+        "source_path": "articles/java/ee/jboss-eap-single-server-azure-vm.md",
+        "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
+      },
+      {
+        "source_path": "articles/java/ee/weblogic-server-azure-virtual-machine.md",
+        "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
+      },
+      {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
       },
@@ -695,6 +703,10 @@
         "redirect_url": "/python/api/overview/azure/"
       },
       {
+        "source_path": "articles/python/sdk/index.yml",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
+      },
+      {
         "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
         "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
       },
@@ -720,7 +732,7 @@
       },
       {
         "source_path": "articles/python/sdk.md",
-        "redirect_url": "/azure/developer/python/sdk-library-api-reference"
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
       },
       {
         "source_path": "articles/python/python-sdk-azure-sql-database-samples.md",
@@ -1198,6 +1210,14 @@
       {
         "source_path":"articles/python/quickstarts-cognitive-services.md",
         "redirect_url": "/azure/python/quickstarts-ai-services"        
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
+        "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
+      },
+      {
+        "source_path": "articles/ansible/configure-in-docker-container.md",
+        "redirect_url": "/azure/developer/ansible"
       }
     ]
   }
