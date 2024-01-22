@@ -32,6 +32,10 @@ A *breaking change version* of a service isn't backwards compatible. Adopting a 
 
 Breaking change versions are rare, announced via documentation, and are typically preceded by publication of a preview version. Publication of a breaking change version may prompt the eventual retirement of existing stable versions, which will remain available for at least three years after the breaking change version releases. For breaking changes published due to security or compliance issues, existing stable service versions may remain available for one year or less depending on the severity of the issue.
 
+Due to the rapid innovation and developments in AI, AI-driven services may have a reduced minimum availability of one year. Each service will publish its breaking change policy.
+
+Any Azure service dependent on a non-Microsoft component can shrink its support policy to match that of the component's policy. Any breaking change due to this will link to the component vendor's policy showing the date when the component is no longer supported.
+
 ### Preview versions
 
 Occasionally, Microsoft publishes a *preview version* of a service to gather feedback about proposed changes and new features. Preview service versions are identified with the suffix `-preview` in their `api-version` - for example, `2022-07-07-preview`.

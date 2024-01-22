@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Install the desired JDK and WLS on the VMs by using the graphical interface manually.
+> - Install the desired JDK and WLS on the VMs manually.
 > - Configure a WLS domain and a WLS cluster using the Oracle Configuration Wizard.
 > - Configure a PostgreSQL datasource connection in the cluster.
 > - Configure JMS in the cluster.
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](../ee/weblogic-server-azure-virtual-machine.md). A less automated, but still accelerated option is to skip the steps of installing JDK and WLS on the operating system by using a preconfigured Oracle or Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). A less automated, but still accelerated option is to skip the steps of installing JDK and WLS on the operating system by using a preconfigured Oracle or Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
 ## Prerequisites
 
@@ -105,24 +105,46 @@ The following sections describe the steps for installing WLS on either GNU/Linux
 The Marketplace image that you use to create the VMs is `Oracle:Oracle-Linux:8:latest`.
 
 > [!NOTE]
-> You can query all the available Oracle Linux images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --offer Oracle-Linux --publisher oracle --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
+> You can query all the available Oracle WebLogic images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --publisher oracle --output table --all | grep "weblogic"`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 >
 > If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
-### Create an Oracle Linux machine
+### Create Oracle Linux machines
 
-In this section, you create a basic VM, install all required tools on it, take a snapshot of it, and then create replicas based on the snapshot.
+In this section, you create Oracle Linux machines, with JDK 11，WebLogic 14.1.1.0.0, and PostgreSQL JDBC driver installed, for admin server and managed servers.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates an Oracle Linux VM using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
 
 ```azurecli
 az vm create \
     --resource-group abc1110rg \
     --name adminVM \
     --availability-set myAvailabilitySet \
-    --image Oracle:Oracle-Linux:8:latest \
+    --image weblogic-141100-jdk11-ol91 \
+    --size Standard_DS1_v2  \
+    --admin-username azureuser \
+    --admin-password Secret123456 \
+    --public-ip-address "" \
+    --nsg ""
+
+az vm create \
+    --resource-group abc1110rg \
+    --name mspVM1 \
+    --availability-set myAvailabilitySet \
+    --image weblogic-141100-jdk11-ol91 \
+    --size Standard_DS1_v2  \
+    --admin-username azureuser \
+    --admin-password Secret123456 \
+    --public-ip-address "" \
+    --nsg ""
+
+az vm create \
+    --resource-group abc1110rg \
+    --name mspVM2 \
+    --availability-set myAvailabilitySet \
+    --image weblogic-141100-jdk11-ol91 \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
@@ -138,369 +160,9 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 [!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
 
-Now, you're ready to connect to the Oracle Linux machine and install the required tools with graphical the interface. The following sections guide you to install Oracle GraalVM and Oracle WebLogic 14c Enterprise Edition. You use `myWindowsVM` for the installation and configuration.
-
-> [!NOTE]
-> Although this guide uses Oracle GraalVM Enterprise Edition, WLS is certified to run on the standard Java VM from Oracle as well.
-
-### Download Oracle GraalVM and Oracle WebLogic 14c
-
-Oracle WebLogic 14c is certified to run on Oracle GraalVM Enterprise Edition. In general, you can anticipate up to a 5-10% performance improvement over non-GraalVM. For more information, see [About Oracle WebLogic Server on GraalVM Enterprise Edition](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wlgvm/index.html#WLGVM-GUID-F6B2A95F-11A6-4594-99BE-D2E7C1A4747F).
-
-1. Download the archive by using the following steps on `myWindowsVM`.
-
-   1. Open a web browser, navigate to the [Oracle GraalVM downloads page](https://www.oracle.com/downloads/graalvm-downloads.html), accept the Oracle License Agreement, and then download the appropriate version for your platform. This example uses Oracle GraalVM Enterprise Edition 22.2.0 Linux x86 for Java 11 with the file *graalvm-ee-java11-linux-amd64-22.2.0.1.tar.gz*.
-
-   1. Navigate to the [Oracle Fusion Middleware Software downloads page](https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html). Select the **Generic Installer**, accept the Oracle License Agreement, and then download the ZIP archive. You get a file with the name *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*.
-
-   > [!NOTE]
-   > If you want to use JDK 11, download it from the [Oracle JDK 11 download page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html).
-
-1. Use the following steps to copy the files to `adminVM`.
-
-   1. Get the private IP address of `adminVM`. From the Azure portal, select the resource group `abc1110rg`. In the list of resources, select `adminVM`. On the overview page, select **Properties**. In the **Networking**, copy the value of **Private IP address**. In this example, the value is `192.168.0.4`.
-
-   1. Open a command prompt from `myWindowsVM` and then use the following instructions to copy the files to `adminVM` using Secure Copy Protocol.
-
-      The following example uploads `graalvm-ee-java11-linux-amd64-22.2.0.1.tar.gz`. Replace the file name with the name of the file you downloaded.
-
-      > [!NOTE]
-      > You may find it helpful to copy the commands from this article into Notepad, change the values to match your actual values, and then copy the updated commands from Notepad back to the command line.
-
-      ```cmd
-      cd Downloads
-      set ADMINVM_IP="192.168.0.4"
-      set GRAALVM_FILE_NAME="graalvm-ee-java11-linux-amd64-22.2.0.1.tar.gz"
-      scp %GRAALVM_FILE_NAME% azureuser@%ADMINVM_IP%:/tmp/%GRAALVM_FILE_NAME%
-      ```
-
-      Type `yes` and enter the password *Secret123456*.
-
-      Use the following command to upload *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*.
-
-      ```cmd
-      scp fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip azureuser@%ADMINVM_IP%:/tmp/fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
-      ```
-
-      Enter the password *Secret123456*.
-
-1. Use the following steps to SSH into `adminVM` and create the `oracle` user.
-
-   1. First, SSH into your Oracle VM in Azure in order to create `oracle` user and change the owner of the files. In the same command prompt for `myWindowsVM`, SSH into `adminVM` with `ssh`, as shown in the following example.
-
-   ```cmd
-   ssh azureuser@%ADMINVM_IP%
-   ```
-
-   1. Input the password *Secret123456*.
-
-   1. Next, use the following instructions to create the `oracle` user and group, and move the files. You install Oracle GraalVM to */u01/app/jdk* and install Oracle WebLogic Server to */u01/app/wls*.
-
-      Many of the commands in this guide must be run as root, use the following command to become the root user.
-
-      ```bash
-      sudo su
-      ```
-
-      Then, use the following commands to add the `oracle` user and group.
-
-      ```bash
-      export groupname="oracle"
-      export username="oracle"
-      export user_home_dir="/u01/oracle"
-      sudo mkdir -p ${user_home_dir}
-      sudo groupadd $groupname
-      sudo useradd -d ${user_home_dir} -g $groupname $username
-      sudo chown ${username}:${groupname} ${user_home_dir} -R
-
-      export JDK_PATH="/u01/app/jdk"
-      export WLS_PATH="/u01/app/wls"
-      sudo mkdir -p $JDK_PATH
-      sudo mkdir -p $WLS_PATH
-
-      #Replace the version with yours
-      export GRAALVM_VERSION="22.2.0.1"
-      export GRAALVM_FILE_NAME="graalvm-ee-java11-linux-amd64-${GRAALVM_VERSION}.tar.gz"
-      sudo mv /tmp/${GRAALVM_FILE_NAME} $JDK_PATH/${GRAALVM_FILE_NAME}
-      sudo mv /tmp/fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip $WLS_PATH/fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
-      ```
-
-### Install Oracle GraalVM
-
-This section shows you how to install Oracle GraalVM on `adminVM` under the `oracle` user.
-
-First, run the following commands:
-
-```bash
-sudo tar -zxvf $JDK_PATH/${GRAALVM_FILE_NAME} --directory $JDK_PATH
-sudo chown -R $username:$groupname $JDK_PATH
-
-export JAVA_HOME=$JDK_PATH/graalvm-ee-java11-${GRAALVM_VERSION}
-export PATH=$JAVA_HOME/bin:$PATH
-```
-
-Next, verify your JDK install.
-
-```bash
-java --version
-```
-
-In this example, the output is:
-
-```output
-java 11.0.16.1 2022-08-18 LTS
-Java(TM) SE Runtime Environment GraalVM EE 22.2.0.1 (build 11.0.16.1+1-LTS-jvmci-22.2-b08)
-Java HotSpot(TM) 64-Bit Server VM GraalVM EE 22.2.0.1 (build 11.0.16.1+1-LTS-jvmci-22.2-b08, mixed mode, sharing)
-```
-
-If you don't see output similar to this example, troubleshoot and resolve the problem before continuing. You continue to install Oracle WebLogic 14c on `adminVM`, so keep this terminal.
-
-### Install Oracle WebLogic Server 14c Enterprise Edition
-
-In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WLS 14c running on `adminVM`.
-
-You install WLS 14c as the `oracle` user. Use the following commands to unzip the installer and change its owner:
-
-```bash
-sudo unzip -o $WLS_PATH/fmw_*.zip -d $WLS_PATH
-sudo chown -R $username:$groupname $WLS_PATH
-```
-
-Next, use the following commands to install dependencies：
-
-```bash
-# install dependencies for X-server
-sudo yum install -y libXtst libSM libXrender
-# install dependencies to run a Java GUI client
-sudo yum install -y fontconfig urw-base35-fonts
-```
-
-Then use the following command to become the `oracle` user:
-
-```bash
-sudo su - oracle
-```
-
-Before launching the installer, use the following command to set the `DISPLAY` variable. This variable allows the graphical installer to run on the Oracle Linux VM, but display on `myWindowsVM`. The value of the `DISPLAY` variable includes the private IP address of `myWindowsVM`. You can find this IP address by going to the Azure portal. In the portal, select `myWindowsVM`. On the overview page, under **Properties**, in the **Networking** section, see **Private IP address**. In this example, the IP address is `192.168.0.5`. Following the IP address of `myWindowsVM` is the display number. In the X Windows System, the most common display number is `:0.0`.
-
-```bash
-export DISPLAY=<my-windows-vm-private-ip>:0.0
-#export DISPLAY=192.168.0.5:0.0
-```
-
-Next, use the following commands to start the process to install WLS 14c. If you're using a different JVM, replace the `JAVA_HOME` value with your appropriate value. Make sure the X server is running on `myWindowsVM`, with access control disabled.
-
-```bash
-#Replace the version with yours
-export GRAALVM_VERSION="22.2.0.1"
-export JAVA_HOME=/u01/app/jdk/graalvm-ee-java11-${GRAALVM_VERSION}
-${JAVA_HOME}/bin/java -jar /u01/app/wls/fmw_14.1.1.0.0_wls_lite_generic.jar
-```
-
-This command produces output similar to the following example:
-
-```output
-Launcher log file is /tmp/OraInstall2022-09-22_06-29-26AM/launcher2022-09-22_06-29-26AM.log.
-Extracting the installer . . . . . . . Done
-Checking if CPU speed is above 300 MHz. Actual 2294.687 MHz    Passed
-Checking monitor: must be configured to display at least 256 colors. Actual unknown. Failed <<<<
-Checking swap space: must be greater than 512 MB. Actual 2047 MB    Passed
-Checking temp space: must be greater than 300 MB. Actual 23650 MB    Passed
-
-Some system prerequisite checks failed.
-You must fulfill these requirements before continuing.
-
-Continue? (yes [y] / no [n]) [n]
-```
-
-Press <kbd>y</kbd> to continue.
-
-After a while, the installer displays, as shown in the following screenshot. If you don't see the user interface, check behind the command prompt.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-inventory-setup.png" alt-text="Screenshot of Oracle WebLogic Server Installation Inventory Setup." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-inventory-setup.png":::
-
-Select **OK**.
-
-When the fusion middleware installer appears, select **Next**. On the **Auto Updates** page, select **Next**. On the next screen, set **Oracle Home** to */u01/app/wls/install/oracle/middleware/oracle_home*, as shown in the following screenshot. This value is different from the default value.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-location.png" alt-text="Screenshot of Oracle WebLogic Server Installation Location." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-location.png":::
-
-Select **Next**. Select the installation type **WebLogic Server**. Select **Next**.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-type.png" alt-text="Screenshot of Oracle WebLogic Server Installation Type." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-type.png":::
-
-You should find that all the prerequisite checks successfully pass. If not, you must resolve the error before proceeding.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-prerequisite-checks.png" alt-text="Screenshot of Oracle WebLogic Server Installation Prerequisite Checks." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-prerequisite-checks.png":::
-
-Select **Next**, then select **Install**. The installation progress is shown.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-progress.png" alt-text="Screenshot of Oracle WebLogic Server Installation Progress." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-progress.png":::
-
-All of the listed installation should complete without error. Select **Next** and you're shown the installation summary.
-
-Finally, you see the **Installation Complete** page. Unselect the **Next Steps**, as shown in the following screenshot. You configure the WebLogic domain after all the machines are ready.
-
-:::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-complete.png" alt-text="Screenshot of Oracle WebLogic Server Installation Complete." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-complete.png":::
-
-Select **Finish**.
-
-You've finished installing WLS 14c on `adminVM`. Next, you install the database driver for PostgreSQL.
-
-> [!NOTE]
-> If you want to install Oracle Weblogic Server Critical Patch updates, download the patches from [My Oracle Support](https://support.oracle.com/) and apply them following the instructions at [Installing WebLogic PSU in Linux Environment Videos](https://www.youtube.com/playlist?list=PLH9MtFwUgY2KwO4Z5hJmZoXG9x1KcfcBY). To install the patches to all the machines running WLS, make sure you've patched `adminVM` before taking a snapshot from it's OS disk.
-
-### Install the PostgreSQL JDBC driver
-
-The steps in this section show you how to connect PostgreSQL to the Oracle WebLogic Server cluster.
-
-This section shows you how to download PostgreSQL JDBC driver and install it. This section assumes you're still on `adminVM` and signed in with the `oracle` user. If you're working with any other user, run `sudo su - oracle` to switch to `oracle`.
-
-```bash
-export DRIVER_PATH="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver/server/lib/postgresql-42.2.8.jar"
-
-curl -L https://jdbc.postgresql.org/download/postgresql-42.2.8.jar -o ${DRIVER_PATH}
-```
-
-To load the driver successfully, you must include the driver jar in the classpath. For more information, see [Adding Third-Party JDBC Drivers Not Installed with WebLogic Server](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/jdbca/third_party_drivers.html). The following example adds the path to *commExtEnv.sh*, so all domains created on the servers are able to load the driver.
-
-```bash
-#Replace with your version
-export GRAALVM_VERSION="22.2.0.1"
-export JAVA_HOME=/u01/app/jdk/graalvm-ee-java11-${GRAALVM_VERSION}
-export WL_HOME="/u01/app/wls/install/oracle/middleware/oracle_home/wlserver"
-sed -i 's;^WEBLOGIC_CLASSPATH=\"${JAVA_HOME}.*;&\nWEBLOGIC_CLASSPATH="${WL_HOME}/server/lib/postgresql-42.2.8.jar:${WEBLOGIC_CLASSPATH}";' ${WL_HOME}/../oracle_common/common/bin/commExtEnv.sh
-```
-
-### Create machines for managed servers
-
-You've now installed Oracle GraalVM (or another approved JVM), Oracle WebLogic Server 14c Enterprise Edition, and PostgreSQL JDBC driver on `adminVM`, which runs the WLS Administration Server. You still need to prepare machines to run the two managed servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
-
-This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then follow these steps:
-
-1. Use the following command to stop `adminVM`:
-
-   ```azurecli
-   az vm stop --resource-group abc1110rg --name adminVM
-   ```
-
-1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
-
-   ```azurecli
-   export ADMIN_OS_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
-       --name adminVM \
-       --query storageProfile.osDisk.managedDisk.id \
-       --output tsv)
-   az snapshot create \
-       --resource-group abc1110rg \
-       --name myAdminOSDiskSnapshot \
-       --source ${ADMIN_OS_DISK_ID}
-   ```
-
-1. Create `mspVM1`.
-
-   First, create a managed disk for `mspVM1` with [az disk create](/cli/azure/disk#az-disk-create):
-
-   ```azurecli
-   # Get the snapshot ID.
-   export SNAPSHOT_ID=$(az snapshot show \
-       --name myAdminOSDiskSnapshot \
-       --resource-group abc1110rg \
-       --query [id] \
-       --output tsv)
-
-   # Create a new Managed Disks using the snapshot ID.
-   # Note that managed disk is created in the same location as the snapshot.
-   az disk create \
-       --resource-group abc1110rg \
-       --name mspVM1_OsDisk_1 \
-       --source ${SNAPSHOT_ID}
-   ```
-
-   Next, create VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
-
-   ```azurecli
-   # Get the resource Id of the managed disk.
-   MSPVM1_DISK_ID=$(az disk show \
-       --name mspVM1_OsDisk_1 \
-       --resource-group abc1110rg \
-       --query [id] \
-       --output tsv)
-
-   # Create the VM by attaching the existing managed disk as an OS.
-   az vm create \
-       --resource-group abc1110rg \
-       --name mspVM1 \
-       --attach-os-disk ${MSPVM1_DISK_ID} \
-       --os-type linux \
-       --availability-set myAvailabilitySet \
-       --public-ip-address "" \
-       --nsg ""
-   ```
-
-   You've now created `mspVM1` with JDK and WLS installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
-
-   ```azurecli
-   az vm run-command invoke \
-       --resource-group abc1110rg \
-       --name mspVM1 \
-       --command-id RunShellScript \
-       --scripts "sudo hostnamectl set-hostname mspVM1"
-   ```
-
-   When the command completes successfully, you see output similar to the following example:
-
-   ```json
-   {
-       "value": [
-           {
-           "code": "ProvisioningState/succeeded",
-           "displayStatus": "Provisioning succeeded",
-           "level": "Info",
-           "message": "Enable succeeded: \n[stdout]\n\n[stderr]\n",
-           "time": null
-           }
-       ]
-   }
-   ```
-
-1. Create `mspVM2`.
-
-   The steps to create `mspVM2` are the same as creating `mspVM1`.
-
-   ```azurecli
-   #Create a new Managed Disks for mspVM2
-   az disk create --resource-group abc1110rg --name mspVM2_OsDisk_1 --source ${SNAPSHOT_ID}
-
-   #Get the resource Id of the managed disk
-   MSPVM2_DISK_ID=$(az disk show \
-   --name mspVM2_OsDisk_1 \
-   --resource-group abc1110rg \
-   --query [id] \
-   --output tsv)
-
-   #Create VM by attaching existing managed disks as OS
-   az vm create \
-       --resource-group abc1110rg \
-       --name mspVM2 \
-       --attach-os-disk ${MSPVM2_DISK_ID} \
-       --availability-set myAvailabilitySet \
-       --os-type linux \
-       --public-ip-address "" \
-       --nsg ""
-
-   #Set hostname
-   az vm run-command invoke \
-       --resource-group abc1110rg \
-       --name mspVM2 \
-       --command-id RunShellScript \
-       --scripts "sudo hostnamectl set-hostname mspVM2"
-   ```
-
 [!INCLUDE [start-admin-get-ips](includes/wls-manual-guidance-start-admin-and-get-ip.md)]
 
-Now, all three machines are ready. Next, you configure a WebLogic cluster.
+Now, you're ready to connect to the Oracle Linux machine to configure a WebLogic cluster with graphical interface.
 
 ### Configure WebLogic Server domain and cluster
 
@@ -1782,12 +1444,6 @@ az network application-gateway create \
     --servers ${MSPVM1_IP} ${MSPVM2_IP}
 ```
 
-After the application gateway is created, you can see these new features:
-
-- `appGatewayBackendPool` - A backend address pool includes the managed servers.
-- `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
-- `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
-
 The managed servers expose their workloads with port `8001`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `8001` and creating a probe for it.
 
 ```azurecli
@@ -1877,128 +1533,27 @@ Verify that you can log into the Administration Server console. If you can't, tr
 >
 > This example exposes the Administration Server console via the Application Gateway. Don't do this in a production environment.
 
-## Connect Azure Database for PostgreSQL
+## Deploy a sample application
 
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your WLS cluster. Remember that you installed the PostgreSQL JDBC driver in an earlier step. This driver is required.
-
-### Create an Azure Database for PostgreSQL instance
-
-Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure.
-
-```azurecli
-export DB_SERVER_NAME="wlsdb$(date +%s)"
-az postgres server create \
-    --resource-group abc1110rg \
-    --name ${DB_SERVER_NAME}  \
-    --location eastus \
-    --admin-user weblogic \
-    --ssl-enforcement Enabled \
-    --admin-password Secret123456 \
-    --sku-name GP_Gen5_2
-```
-
-[!INCLUDE [create-azure-database-for-postgresql](includes/create-azure-database-for-postgresql.md)]
-
-### Configure the database connection for the WLS cluster
-
-Now that you've started the database server and obtained the necessary resource ID, the steps in this section use the WebLogic Administration Console portal to configure a datasource connection with the PostgreSQL instance created previously.
+This section shows you how to deploy a simple application to the WLS cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
 
 1. Open a web browser.
 1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
 1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-1. Expand **Services**, then select **Data Sources**. Select **New**, then **Generic Data Source**.
-
-   1. For **JDBC Data Source Properties**, fill in **Name** with the value *CargoTrackerDB*, and **JNDI Name** with the value *jdbc/CargoTrackerDB*. For **Database Type**, select **PostgreSQL**. These values are specific to the sample application you deploy later. If you're deploying a different application, use the correct values for that application. Select **Next**.
-   1. For **Database Driver**, ensure that **PostgreSQL's Driver** is selected. There should be only one value matching that description. Select **Next**.
-   1. Under **Transaction Options**:
-      1. Leave **Supports Global Transactions** at its default value.
-      1. Select **Emulate Two-Phase Commit**. Select **Next**.
-   1. For **Connection Properties**, fill in **Database Name** with the value *postgres*. Fill in **Host Name** with the host name of the PostgreSQL instance. The value is `${DB_PRIVATE_IP}` in this example.
-   1. Leave **Port** at its default value.
-   1. Fill in **Database Username** with the user name of the PostgreSQL server. In this example, the value is `weblogic@${DB_SERVER_NAME}`.
-   1. For password, in this example, the value is *Secret123456*. Select **Next**.
-   1. Select **Test configuration**. You're shown a message saying "Connection test succeeded", as the following screenshot shows. If you don't see this message, troubleshoot and resolve the problem before continuing.
-
-      :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection.png" alt-text="Screenshot of Oracle Configuration Wizard - Create Datasource." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection.png":::
-
-   1. Select **Finish**.
-
-1. You can determine that there's a datasource named **CargoTrackerDB** listed in **Summary of JDBC Data Sources**, **Configuration** page. Select **CargoTrackerDB** and **Targets**. Under **Clusters**, select `cluster1`, then select **Save**.
-1. Under the **Change Center**, if such a button exists, select **Activate Changes**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-
-   :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection-activate-changes.png" alt-text="Screenshot of Oracle Configuration Wizard - Create JDBC Datasource - Activate Changes." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-db-connection-activate-changes.png":::
-
-1. You should see the message "All changes have been activated. No restarts are necessary.".
-
-## Configure the JMS servers
-
-The steps in this section use the WebLogic Administration Console portal to configure JMS for the sample app. Follow these steps to add JMS Servers to the cluster.
-
-1. Select the home of the administration console.
-1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-1. Expand **Services** then **Messaging**. Select **JMS Servers**. Select **New**. Add the five JMS servers in the following table to `cluster1`. These values are specific to the sample application you deploy later. If you're deploying a different application, use the correct values for that application. For each server listed in the table, follow these steps:
-
-   1. Enter the name and select **Next**.
-   1. Leave the **Persistent Store** at its default value. Select **Next**.
-   1. Set the **Target** to `cluster1`.
-   1. Select **Finish**.
-
-   Complete this process for all rows in the following table. It's essential that there are no typos in the **Name** field.
-
-   | Name                                    | Persistent store | Target     |
-   |-----------------------------------------|------------------|------------|
-   | `CargoHandledQueue`                     | None             | `cluster1` |
-   | `DeliveredCargoQueue`                   | None             | `cluster1` |
-   | `HandlingEventRegistrationAttemptQueue` | None             | `cluster1` |
-   | `MisdirectedCargoQueue`                 | None             | `cluster1` |
-   | `RejectedRegistrationAttemptsQueue`     | None             | `cluster1` |
-
-1. Under the **Change Center**, if such a button exists, select **Activate Changes**. If this button exists, you must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**. To minimize the chance of error, compare your values with the following screenshot.
-
-   :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-jms-activate-changes.png" alt-text="Screenshot of Oracle Configuration Wizard - Create JMS Datasource - Activate Changes." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-jms-activate-changes.png":::
-
-1. You should see the message "All changes have been activated. No restarts are necessary.".
-
-## Deploy Eclipse Cargo Tracker
-
-This section shows how to deploy Eclipse Cargo Tracker to the WLS cluster. Eclipse Cargo Tracker is an applied Domain-Driven Design Blueprints for Jakarta EE.
-
-1. Following these instructions to build Eclipse Cargo Tracker:
-
-   Use the following command to clone the source code from GitHub:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/cargotracker-azure --branch=20221123
-   ```
-
-   Build the source code.
-
-   ```bash
-   mvn -DskipTests clean install -PweblogicVmCluster --file cargotracker-azure/pom.xml
-   ```
-
-   This command creates the file *cargotracker-azure/target/cargo-tracker.war*. You upload this file in the next step.
-
-1. Use the following steps to deploy Eclipse Cargo Tracker:
-
-   1. Open a web browser.
-   1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
-   1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-   1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *cargo-tracker.war* built in the preceding step. Select **Next** then **Next**.
-   1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
-   1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, and then select **Next** then **Finish**.
-   1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-   1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
-   1. Select **Yes**.
-   1. You're shown a message saying "Start requests have been sent to the selected deployments." The status of the application must be **Active**.
+1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *cargo-tracker.war* built in the preceding step. Select **Next** then **Next**.
+1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
+1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, select **Next**, then select **Finish**.
+1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.
+1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
+1. Select **Yes**.
+1. You're shown a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
 
 ## Test the WLS cluster configuration
 
 You've now finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
 
 1. Open a web browser.
-1. Navigate to the application with the URL `http://<gateway-public-ip-address>/cargo-tracker/`.
-1. To explore the application, follow the steps in [Exploring the Application](https://github.com/Azure-Samples/cargotracker-azure#exploring-the-application).
+1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.
 
 ## Clean up resources
 

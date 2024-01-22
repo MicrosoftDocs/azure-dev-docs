@@ -1,15 +1,15 @@
 ---
-title: Create and deploy a Flask Python web app to Azure with managed identity
-description: Use the Azure CLI to create and deploy a Flask Python web app to Azure App Service.
+title: Create and deploy a Flask Python web app to Azure with system-assigned managed identity
+description: Use the Azure CLI to create and deploy a Flask Python web app to Azure App Service using a system-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/23/2023
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Create and deploy a Flask Python web app to Azure with managed identity
+# Create and deploy a Flask Python web app to Azure with system-assigned managed identity
 
-In this tutorial, you deploy Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
+In this tutorial, you deploy Python **[Flask](https://flask.palletsprojects.com/)** code to create and deploy a web app running in Azure App Service. The web app uses its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
 You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 

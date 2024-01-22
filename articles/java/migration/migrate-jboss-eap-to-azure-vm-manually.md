@@ -25,7 +25,7 @@ In this tutorial, you learn how to do the following tasks:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](../ee/jboss-eap-single-server-azure-vm.md).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
@@ -184,7 +184,7 @@ az network vnet subnet update \
 The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
 
 > [!NOTE]
-> You can query all the available Red Hat Enterprise Linux images provided by Oracle with the [az vm image list](/cli/azure/vm/image#az-vm-image-list) command - for example: `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
+> You can query all the available Red Hat Enterprise Linux images provided by Red Hat with the [az vm image list](/cli/azure/vm/image#az-vm-image-list) command - for example: `az vm image list --offer RHEL --publisher RedHat --output table --all`. For more information, see [Overview of Red Hat Enterprise Linux images](/azure/virtual-machines/workloads/redhat/redhat-images).
 >
 > If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
 
