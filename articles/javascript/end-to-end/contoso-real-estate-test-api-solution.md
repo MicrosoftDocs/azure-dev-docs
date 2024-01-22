@@ -26,7 +26,7 @@ The Contoso Real Estate application is an example end to end architecture, along
 
 The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For APIs, this requires tools that can automate test actions and support this consistently across development, CICD, and production environments.
 
-Playwright is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
+[Playwright](https://playwright.dev/) is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
 
 **What kinds of things can we test with Playwright?**
 
@@ -44,8 +44,8 @@ The API endpoint is available in an environment variable based on which environm
 
 ## Prerequisites 
 
-* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 * Azure subscription: a free account can be created [here](https://azure.microsoft.com/free/)
+* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 
 ## Prepare to test the APIs in Codespaces
 
@@ -63,69 +63,28 @@ Use the following steps to prepare to test the API when running the API locally.
     npm start
     ```
 
+    This is equivalent to running `docker compose up -d`, the `-d` indicates a detached state of the process, so the output of each service isn't shown in the terminal. This leaves the terminal free for other commands.
+
 Now that the services and applications are running, you can test the API.
 
 ## Install Playwright in a new `test-api` package.
 
-While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separate from the application code. This helps with troubleshooting. 
+While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separated from the application code. This helps with troubleshooting. 
 
 1. Create a new `api-testing` package in the `./packages` folder.
 
     ```bash
     cd packages
     mkdir api-testing
+    cd api-testing
     ```
 
-1. Initialize the package for Playwright
-
-    ```bash
-    npm init playwright@latest
-    ```
-
-    Answer the prompts as follows:
-
-    |Question|Answer|
-    |--|--|
-    |Do you want to use TypeScript or JavaScript?|TypeScript|
-    |Where to put your end-to-end tests?|tests|
-    |Add a GitHub Actions workflow? (y/N)|false|
-    |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
-    |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
-
-    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles a lot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file isn't created by default.
-
-
-1. Run the default test to validate your test infrastructure is working.
-
-    ```bash
-    npx playwright test
-    ```
-
-    The test should pass. Notice that the default test is a browser-based test but this tutorial is about API testing. There isn't any harm in installing the browsers and running the default test. You can remove the browsers later if you want to. Now you know the test infrastructure works. 
-
-
-## Playwright test configuration
-
-
-
-1. Open the `package.json` file and add the following script. This allows the tests to be run from the workspace root.
-
-    ```json
-    "scripts": {
-      "test": "playwright test"
-    },
-    ```
-
-1. The default Playwright test is a browser-based test. You need to switch the project to API testing. Open the `playwright.config.ts` and remote the `projects` property and its values. This isn't needed for API testing.
+[!INCLUDE [Initialize the package for Playwright](../../includes/contoso-real-estate-test/initialize-playwright.md)]
 
 ## Create an API test 
 
-1. Delete this `tests/example.spec.ts` test file.
-1. Create a new test file in the `tests` folder called `api.spec.ts`.
 
-    ```bash
-    touch tests/api.spec.ts
-    ```
+1. Create a new test file in the `tests` folder called `api.spec.ts`.
 
 1. Add the following code to the `api.spec.ts` file.
 
@@ -178,7 +137,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
 1. Run the test. This validates the API is running and can connect to the two databases.
 
     ```bash
-    npm test
+    npx playwright test
     ```
 
 1. The test should pass with output like the following:

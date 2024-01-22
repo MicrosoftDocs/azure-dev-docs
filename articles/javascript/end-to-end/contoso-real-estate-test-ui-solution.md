@@ -26,7 +26,7 @@ The Contoso Real Estate application is an example end to end architecture, along
 
 The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For UIs, this requires tools that can automate test actions in the browser (web automation) and support this consistently across browsers.
 
-Playwright is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
+[Playwright](https://playwright.dev/) is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
 
 **What kinds of things can we test with Playwright?**
 
@@ -44,8 +44,8 @@ The portal UI endpoint is available in an environment variable based on which en
 
 ## Prerequisites 
 
-* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 * Azure subscription: a free account can be created [here](https://azure.microsoft.com/free/)
+* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 
 ## Prepare to test the portal UI in Codespaces
 
@@ -63,65 +63,27 @@ Use the following steps to prepare to test the portal UI locally.
     npm start
     ```
 
+    This is equivalent to running `docker compose up -d`, the `-d` indicates a detached state of the process, so the output of each service isn't shown in the terminal. This leaves the terminal free for other commands.
+
 Now that the services and applications are running, you can test the poral UI.
 
 ## Install Playwright in a new `testing` package.
 
-While you could install the testing infrastructure into the `./packages/portal` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separate from the application code. This helps with troubleshooting. 
+While you could install the testing infrastructure into the `./packages/portal` folder (monorepo package), for this tutorial you'll create a new package to keep the end-to-end testing infrastructure separated from the application code. This helps with troubleshooting. 
 
-1. Create a new `testing` package in the `./packages` folder.
+1. Create a new `ui-testing` package in the `./packages` folder.
 
     ```bash
     cd packages
-    mkdir api-testing
+    mkdir ui-testing
+    cd ui-testing
     ```
 
-1. Initialize the package for Playwright
-
-    ```bash
-    npm init playwright@latest
-    ```
-
-    Answer the prompts as follows:
-
-    |Question|Answer|
-    |--|--|
-    |Do you want to use TypeScript or JavaScript?|TypeScript|
-    |Where to put your end-to-end tests?|tests|
-    |Add a GitHub Actions workflow? (y/N)|false|
-    |Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n)|y|
-    |Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N)|y|
-
-    The initialization process created the typical Node.js file, `package.json` and also created the Playwright configuration file, `playwright.config.ts`. Playwright handles a lot of the infrastructure for you. One example is that while this is a TypeScript test project, the `tsconfig.json` file isn't created by default.
-
-
-1. Run the default test to validate your test infrastructure is working.
-
-    ```bash
-    npx playwright test
-    ```
-
-    The test should pass. Now you know the test infrastructure works. 
-
-
-## Playwright test configuration
-
-Open the `package.json` file and add the following script. This allows the tests to be run from the workspace root.
-
-```json
-"scripts": {
-    "test": "playwright test"
-},
-```
+[!INCLUDE [Initialize the package for Playwright](../../includes/contoso-real-estate-test/initialize-playwright.md)]
 
 ## Create a UI test 
 
-1. Delete this `tests/example.spec.ts` test file.
 1. Create a new test file in the `tests` folder called `portal.spec.ts`.
-
-    ```bash
-    touch tests/portal.spec.ts
-    ```
 
 1. Add the following code to the `portal.spec.ts` file.
 
@@ -175,10 +137,10 @@ Open the `package.json` file and add the following script. This allows the tests
     });
     ````
 
-1. Run the test. This validates the API is running and can connect to the two databases.
+1. Run the test. 
 
     ```bash
-    npm test
+    npx playwright test
     ```
 
 1. The test should pass with output like the following:
