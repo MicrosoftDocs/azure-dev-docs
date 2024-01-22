@@ -9,6 +9,10 @@
         "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
       },
       {
+        "source_path": "articles/javascript/how-to/with-azure-sdk/stop-start-virtual-machine.md",
+        "redirect_url": "/cli/azure/vm"
+      },
+      {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
       },

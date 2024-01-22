@@ -181,8 +181,6 @@
       href: tutorial/run-nodejs-virtual-machine.md
     - name: "Create and delete VM with SDK"
       href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-    - name: "Manage VM with SDK"
-      href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Development with Visual Studio Code
     items:
     - name: Install and debug local project
