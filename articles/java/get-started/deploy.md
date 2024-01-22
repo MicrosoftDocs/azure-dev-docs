@@ -62,7 +62,7 @@ For Azure Container Apps, since you'll need to build and manage your own contain
 
 ## Serverless functions
 
-Sometimes you don't need an entire Java application. For example, for real-time data processing, you might just need a small piece of code that can be triggered at scale - perhaps by millions and millions of events. Such events can be ingested via Azure Event Hubs, processed by event-driven serverless Java code running at scale in Azure Functions, and saved into a data store such as Azure Cosmos DB. FedEx, Best Buy, and UBS are great examples of real-time, event driven Java.
+Sometimes you don't need an entire Java application. For example, for real-time data processing, you might just need a small piece of code that can be triggered at scale - perhaps by millions and millions of events. Such events can be ingested via Azure Event Hubs, processed by event-driven serverless Java code running at scale in Azure Functions, and saved into a data store such as Azure Cosmos DB.
 
 ## Jointly built and supported solutions with Java ecosystem partners
 
