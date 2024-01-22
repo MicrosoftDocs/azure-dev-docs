@@ -19,9 +19,9 @@ ms.custom: devx-track-java
 
 ## About the code
 
-This sample shows how to use **MSAL for Java (MSAL4J)** to sign in users into your Microsoft Entra ID tenant. If you'd like to use MSAL4J in your own applications, must add it to your projects using Maven.
+This sample shows how to use **MSAL for Java (MSAL4J)** to sign in users into your Microsoft Entra ID tenant. If you'd like to use MSAL4J in your own applications, you must add it to your projects using Maven.
 
-If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You'll also need the [authentication.properties file](src/main/resources/authentication.properties). These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the [src/main/java/com/microsoft/azuresamples/msal4j package](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j). You'll also need the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
 A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](src/main/java/com/microsoft/azuresamples/authentication/AuthHelper.java) class. This object helps craft the Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
