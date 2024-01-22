@@ -7,7 +7,7 @@ ms.custom: devx-track-java
 
 ## Scenario
 
-1. This web application uses **MSAL for Java (MSAL4J)** to sign in users to their own Microsoft Entra ID tenant and obtain an [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) from **Microsoft Entra ID**.
+1. This web application uses **MSAL for Java (MSAL4J)** to sign in users to their own Microsoft Entra ID tenant and obtain an [ID Token](https://learn.microsoft.com/entra/identity-platform/id-tokens) from **Microsoft Entra ID**.
 1. The **ID Token** proves that a user has successfully authenticated with this tenant.
 1. The web application protects one of its routes according to the user's authentication status.
 
@@ -15,9 +15,9 @@ ms.custom: devx-track-java
 
 - [JDK Version 8 or higher](https://jdk.java.net/8/)
 - [Maven 3](https://maven.apache.org/download.cgi)
-- A Microsoft Entra ID tenant. For more information on how to get an Microsoft Entra ID tenant, see [How to get an Microsoft Entra ID tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- A user account in your own Microsoft Entra ID tenant if you want to work with **accounts in your organizational directory only** (single-tenant mode). If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your Microsoft Entra ID tenant, you should do so before proceeding.
-- A user account in any organization's Microsoft Entra ID tenant if you want to work with **accounts in any organizational directory** (multi-tenant mode).  This sample must be modified to work with a **personal Microsoft account**. If have not yet [created a user account](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) in your Microsoft Entra ID tenant yet, you should do so before proceeding.
+- A Microsoft Entra ID tenant. For more information on how to get an Microsoft Entra ID tenant, see [How to get an Microsoft Entra ID tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant)
+- A user account in your own Microsoft Entra ID tenant if you want to work with **accounts in your organizational directory only** (single-tenant mode). If have not yet [created a user account](https://learn.microsoft.com/entra/fundamentals/add-users) in your Microsoft Entra ID tenant, you should do so before proceeding.
+- A user account in any organization's Microsoft Entra ID tenant if you want to work with **accounts in any organizational directory** (multi-tenant mode).  This sample must be modified to work with a **personal Microsoft account**. If have not yet [created a user account](https://learn.microsoft.com/entra/fundamentals/add-users) in your Microsoft Entra ID tenant yet, you should do so before proceeding.
 - A personal Microsoft account (e.g., Xbox, Hotmail, Live, etc) if you want to work with **personal Microsoft accounts**
 
 ## Setup
@@ -68,7 +68,7 @@ There is one project in this sample. To register the app on the portal, you can:
 
 ### [Manual](#tab/Manual)
 
-[Register a new web app](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
+[Register a new web app](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
