@@ -7,9 +7,9 @@ ms.custom: devx-track-java
 
 ## Explore the sample
 
-- Note the signed-in or signed-out status displayed at the center of the screen.P
+- Note the signed-in or signed-out status displayed at the center of the screen.
 - Click the context-sensitive button at the top right (it will read `Sign In` on first run)
-- Follow the instructions on the next page to sign in with an account in the Azure AD tenant.
+- Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
@@ -20,13 +20,13 @@ ms.custom: devx-track-java
 
 | File/folder                                                        | Description                                                                            |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| `AppCreationScripts/`                                              | Scripts to automatically configure Azure AD app registrations.                         |
+| `AppCreationScripts/`                                              | Scripts to automatically configure Microsoft Entra ID app registrations.                         |
 | `src/main/java/com/microsoft/azuresamples/msal4j/callgraphwebapp/` | This directory contains the classes that define the web app's backend business logic.  |
 | `src/main/java/com/microsoft/azuresamples/msal4j/authservlets/`    | This directory contains the classes that are used for sign in and sign out endpoints.  |
 | `____Servlet.java`                                                 | All of the endpoints available are defined in .java classes ending in ____Servlet.java.|
 | `src/main/java/com/microsoft/azuresamples/msal4j/helpers/`         | Helper classes for authentication.                                                     |
 | `AuthenticationFilter.java`                                        | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
-| `src/main/resources/authentication.properties`                     | Azure AD and program configuration.                                                    |
+| `src/main/resources/authentication.properties`                     | Microsoft Entra ID and program configuration.                                                    |
 | `src/main/webapp/`                                                 | This directory contains the UI (JSP templates)                                         |
 | `CHANGELOG.md`                                                     | List of changes to the sample.                                                         |
 | `CONTRIBUTING.md`                                                  | Guidelines for contributing to the sample.                                             |
@@ -35,9 +35,9 @@ ms.custom: devx-track-java
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You'll also need the [authentication.properties file](src/main/resources/authentication.properties). These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the [src/main/java/com/microsoft/azuresamples/msal4j](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j) package. You'll also need the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/resources/authentication.properties). These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
-A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/helpers/AuthHelper.java) class. This object helps craft the AAD authorization URL and also helps exchange the authentication token for an access token.
+A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/helpers/AuthHelper.java) class. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
 ```Java
 // getConfidentialClientInstance method
@@ -52,9 +52,9 @@ The following parameters need to be provided upon instantiation:
 
 - The **Client ID** of the app
 - The **Client Secret**, which is a requirement for Confidential Client Applications
-- The **Azure AD Authority**, which includes your AAD tenant ID.
+- The **Microsoft Entra ID Authority**, which includes your AAD tenant ID.
 
-In this sample, these values are read from the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties) file using a properties reader in the class [Config.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/helpers/Config.java).
+In this sample, these values are read from the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/resources/authentication.properties) file using a properties reader in the class [Config.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/helpers/Config.java).
 
 ### Step-by-step walkthrough
 
@@ -71,11 +71,11 @@ In this sample, these values are read from the [authentication.properties](https
 
     - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
     - **REDIRECT_URI**: Where Microsoft Entra ID will redirect the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
-    - **SCOPES**: [Scopes](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#scopes) are permissions requested by the application.
+    - **SCOPES**: [Scopes](https://learn.microsoft.com/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
       - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
-      - Full list of scopes requested by the app can be found in the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). You can add more scopes like User.Read and so on.
+      - Full list of scopes requested by the app can be found in the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/resources/authentication.properties). You can add more scopes like User.Read and so on.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-auth-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
 
     ```Java
@@ -111,11 +111,11 @@ In this sample, these values are read from the [authentication.properties](https
 
 ### Protecting the routes
 
-See [AuthenticationFilter.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/authservlets/AuthenticationFilter.java) for how the sample app filters access to routes. In the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties) file, the key `app.protect.authenticated` contains the comma-separated routes that are to be accessed by authenticated users only.
+See [AuthenticationFilter.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/authservlets/AuthenticationFilter.java) for how the sample app filters access to routes. In the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/resources/authentication.properties) file, the key `app.protect.authenticated` contains the comma-separated routes that are to be accessed by authenticated users only.
 
 ```ini
 # e.g., /token_details requires any user to be signed in and does not require special roles or groups claim(s)
-app.protect.authenticated=/token_details
+app.protect.authenticated=/token_details, /call_graph
 ```
 
 ### Call Graph
@@ -131,10 +131,10 @@ The following code is all that is required for an application developer to write
 
 ### Scopes
 
-- [Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
+- [Scopes](https://learn.microsoft.com/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
-- Note the scope requested by the application by referring to [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). By default, the application sets the scopes value to `User.Read`.
+- Note the scope requested by the application by referring to [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/src/main/resources/authentication.properties). By default, the application sets the scopes value to `User.Read`.
 - This particular MS Graph API scope is for accessing the information of the currently-signed-in user. The graph endpoint for accessing this info is `https://graph.microsoft.com/v1.0/me`
 - Any valid requests made to this endpoint must bear an `access_token` that contains the scope `User.Read` in the Authorization header.
 
@@ -145,6 +145,6 @@ The following code is all that is required for an application developer to write
 - [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
 
-- [Understanding Azure AD application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
+- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [MSAL code samples](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)

@@ -23,7 +23,7 @@ This sample shows how to use **MSAL for Java (MSAL4J)** to sign in users into yo
 
 If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the [src/main/java/com/microsoft/azuresamples/msal4j package](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j). You'll also need the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
-A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](src/main/java/com/microsoft/azuresamples/authentication/AuthHelper.java) class. This object helps craft the Entra ID authorization URL and also helps exchange the authentication token for an access token.
+A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/helpers/AuthHelper.java) class. This object helps craft the Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
 ```Java
 // getConfidentialClientInstance method
@@ -40,7 +40,7 @@ The following parameters need to be provided upon instantiation:
 - The **Client Secret**, which is a requirement for Confidential Client Applications
 - The **Microsoft Entra ID Authority**, which includes your Entra ID tenant ID.
 
-In this sample, these values are read from the [authentication.properties](src/main/resources/authentication.properties) file using a properties reader in the class [Config.java](src/main/java/com/microsoft/azuresamples/authentication/Config.java).
+In this sample, these values are read from the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties) file using a properties reader in the class [Config.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/helpers/Config.java).
 
 ### Step-by-step walkthrough
 
@@ -57,11 +57,11 @@ In this sample, these values are read from the [authentication.properties](src/m
 
     - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
     - **REDIRECT_URI**: Where Entra ID will redirect the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
-    - **SCOPES**: [Scopes](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#scopes) are permissions requested by the application.
+    - **SCOPES**: [Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
       - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
-      - Full list of scopes requested by the app can be found in the [authentication.properties file](./src/main/resources/authentication.properties). You can add more scopes like User.Read and so on.
+      - Full list of scopes requested by the app can be found in the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). You can add more scopes like User.Read and so on.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-auth-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
 
     ```Java
@@ -106,17 +106,17 @@ app.protect.authenticated=/token_details
 
 ### Scopes
 
-- [Scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) tell Microsoft Entra ID the level of access that the application is requesting.
+- [Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
-- Note the scopes requested by the application by referring to [authentication.properties](./src/main/resources/authentication.properties). These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
+- Note the scopes requested by the application by referring to [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/src/main/resources/authentication.properties). These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
 
 ## More information
 
 - [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL Java Reference Documentation](http://javadoc.io/doc/com.microsoft.azure/msal4j)
 - [Microsoft identity platform (Microsoft Entra ID for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
-- [Understanding Microsoft Entra ID application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)
-- [Understand user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
-- [MSAL code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
+- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
+- [MSAL code samples](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)
