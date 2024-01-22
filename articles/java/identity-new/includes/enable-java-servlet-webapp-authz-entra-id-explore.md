@@ -16,6 +16,22 @@ ms.custom: devx-track-java
 - Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
 - You can also use the button on the top right to sign out.
 
+## Contents
+
+| File/folder                                                        | Description                                                                            |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `AppCreationScripts/`                                              | Scripts to automatically configure Azure AD app registrations.                         |
+| `src/main/java/com/microsoft/azuresamples/msal4j/callgraphwebapp/` | This directory contains the classes that define the web app's backend business logic.  |
+| `src/main/java/com/microsoft/azuresamples/msal4j/authservlets/`    | This directory contains the classes that are used for sign in and sign out endpoints.  |
+| `____Servlet.java`                                                 | All of the endpoints available are defined in .java classes ending in ____Servlet.java.|
+| `src/main/java/com/microsoft/azuresamples/msal4j/helpers/`         | Helper classes for authentication.                                                     |
+| `AuthenticationFilter.java`                                        | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
+| `src/main/resources/authentication.properties`                     | Azure AD and program configuration.                                                    |
+| `src/main/webapp/`                                                 | This directory contains the UI (JSP templates)                                         |
+| `CHANGELOG.md`                                                     | List of changes to the sample.                                                         |
+| `CONTRIBUTING.md`                                                  | Guidelines for contributing to the sample.                                             |
+| `LICENSE`                                                          | The license for the sample.                                                            |
+
 
 ## About the code
 
