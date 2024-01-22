@@ -41,7 +41,7 @@ Please refer to each sample's README for sample-specific recommendations.
 
 ## Contents
 
-### Chapter 1: Enable your web application to sign in users
+### Chapter 1: Enable your Java Jboss EAP web application to sign in users
 
 |               |               |
 |---------------|---------------|
