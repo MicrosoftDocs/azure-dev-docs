@@ -34,7 +34,7 @@ ms.custom: devx-track-java
 
 This sample demonstrates how to use **MSAL4J** to sign in users into your Azure AD B2C tenant.
 
-A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](src/main/java/com/microsoft/azuresamples/webapp/AuthHelper.java) class. This object helps craft the AAD B2C authorization URL and also helps exchange the authentication token for an access token.
+A **ConfidentialClientApplication** instance is created in the [AuthHelper.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/authenticationb2c/AuthHelper.java) class. This object helps craft the AAD B2C authorization URL and also helps exchange the authentication token for an access token.
 
 ```Java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
@@ -50,7 +50,7 @@ The following parameters need to be provided upon instantiation:
 - The **Client Secret**, which is a requirement for Confidential Client Applications
 - The **Azure AD B2C Authority** concatenated with the appropriate **UserFlowPolicy** for sign-up/sign-in or profile-edit or password-reset.
 
-In this sample, these values are read from the [authentication.properties](src/main/resources/authentication.properties) file using a properties reader in the class [Config.java](src/main/java/com/microsoft/azuresamples/webapp/Config.java).
+In this sample, these values are read from the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/authenticationb2c/TokenDetailsServlet.java) file using a properties reader in the class [Config.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/authenticationb2c/Config.java).
 
 ### Step-by-step walkthrough
 
@@ -75,10 +75,10 @@ In this sample, these values are read from the [authentication.properties](src/m
       - However, MSAL4J requires all responses from AAD B2C to also contain an Access Token.
       - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
       - Since this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
-      - Full list of scopes requested by the app can be found in the [authentication.properties file](./src/main/resources/authentication.properties).
+      - Full list of scopes requested by the app can be found in the [authentication.properties file](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/resources/authentication.properties).
     - **ResponseMode.QUERY**: AAD can return the response as form params in an HTTP POST request or as query string params in an HTTP GET request.
     - **Prompt.SELECT_ACCOUNT**: AAD B2C should ask the user to select the account that they intend to authenticate against.
-    - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the [/auth_redirect endpoint](src/main/java/com/microsoft/azuresamples/authenticationb2c/AADRedirectServlet.java) are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks.
+    - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the [/auth_redirect endpoint](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/authenticationb2c/AADRedirectServlet.java) are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks.
     - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed AAD, thereby ensuring that there is no token-replay attack occurring.
 
 1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/en-us/azure/active-directory-b2c/authorization-code-flow).
@@ -108,7 +108,7 @@ In this sample, these values are read from the [authentication.properties](src/m
     processSuccessfulAuthentication(msalAuth);
     ```
 
-1. If the nonce is successfully validated, authentication status is put into a server-side session, leveraging methods exposed by the class [MsalAuthSession.java](src/main/java/com/microsoft/azuresamples/webapp/authentication/MsalAuthSession.java):
+1. If the nonce is successfully validated, authentication status is put into a server-side session, leveraging methods exposed by the class [MsalAuthSession.java](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/authenticationb2c/MsalAuthSession.java):
 
     ```Java
     msalAuth.setAuthenticated(true);
