@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/java/migration/cloud-suitability-analyzer.md",
+      "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
+      "redirect_document_id": false
+    },
       {
         "source_path": "articles/java/ee/jboss-eap-single-server-azure-vm.md",
         "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
