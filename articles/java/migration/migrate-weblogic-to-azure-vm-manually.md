@@ -108,9 +108,11 @@ az vm availability-set create \
 
 The following sections describe the steps for installing WLS on either GNU/Linux or Windows Server. You can choose the operating system, JDK version, and WLS version according to your requirements, but you should verify that they're available in [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html). Also, consider system and platform-specific requirements carefully before proceeding. For more information, see [System Requirements and Specifications](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/sysrs/system-requirements-and-specifications.html#GUID-A077A2B4-5967-42E0-A063-0F7A0A2254FB). Select the tab for your chosen operating system.
 
+This article will use an Azure VM image that is maintained by Oracle and Microsoft containing the latest supported version of the software. For the full list of WLS base images maintained by Oracle and Microsoft, see [Azure Marketplace](https://aka.ms/wls-vm-base-images). If you want to use Windows OS, the instructions will start with a base Windows VM and walk you through the steps of installing all of the necessary dependencies.
+
 #### [Oracle Linux](#tab/oracle-linux)
 
-The Marketplace image that you use to create the VMs is `Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest`.
+The Marketplace image that you use to create the VMs in this article is `Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest`.
 
 > [!NOTE]
 > You can query all the available Oracle WebLogic images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --publisher oracle --output table --all | grep "weblogic"`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
@@ -848,7 +850,7 @@ To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow 
 
 1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file similar to *jdk-11.\*_windows-x64_bin.exe*.
 
-1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file similar to *fmw_14.\*_wls_lite_Disk1_1of1.zip*.
+1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file similar to *fmw_14.\*_wls_lite_Disk1_1of1.zip*. Pay attention to the support lifetime of the WebLogic Server version you download. For details, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
 
 ### Install Oracle JDK 11
 
@@ -873,7 +875,8 @@ Open the download folder that contains WLS installer ZIP file. Here the file nam
 Open a command prompt, then run the following command to install WLS.
 
 ```cmd
-java -jar C:\Users\azureuser\Downloads\fmw_14.1.1.0.0_wls_lite_Disk1_1of1\fmw_14.1.1.0.0_wls_lite_generic.jar
+set WLS_VERSION_PREFIX=fmw_14.1.1.0.0_wls_lite
+java -jar C:\Users\azureuser\Downloads\%WLS_VERSION_PREFIX%_Disk1_1of1\%WLS_VERSION_PREFIX%_wls_lite_generic.jar
 ```
 
 The command launches the WLS installer, as shown in the following screenshot:
