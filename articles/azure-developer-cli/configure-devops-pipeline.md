@@ -25,7 +25,7 @@ In this article, you'll learn how to use the Azure Developer CLI (`azd`) to push
 All [`azd` templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`, which is required to setup CI/CD. This configuration file provisions your Azure resources and deploy your code to the main branch. You can find `azure-dev.yml`:
 
 - **For GitHub Actions:** in the `.github/workflow` directory.
-- **For Azure DevOps:** in the `azdo/pipeline` directory. 
+- **For Azure DevOps:** in the `.azdo/pipelines` directory.
 
 To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
 
@@ -39,7 +39,7 @@ For more granular control over this process, you can also [manually configure a 
 [All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploys your code to the main branch. You can find `azure-dev.yml`:
 
 - **For GitHub Actions:** in the `.github/workflow` directory.
-- **For Azure DevOps:** in the `azdo/pipeline` directory.
+- **For Azure DevOps:** in the `.azdo/pipelines` directory.
  
 You can use the configuration file as-is or modify it to suit your needs.
 
