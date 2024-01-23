@@ -136,3 +136,6 @@ Response headers:
 Response content:
 b''
 ```
+
+> [!NOTE]
+> If you get an authorization error, make sure the identity you're running under is assigned the "Storage Blob Data Contributor" role on your blob container. To learn more, see [Use blob storage with authentication](./examples/azure-sdk-example-storage-use.md#4a-use-blob-storage-with-authentication).
