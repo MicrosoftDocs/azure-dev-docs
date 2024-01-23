@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines"
-description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs and form a cluster, and expose it with Azure Application Gateway.
+description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, form a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -124,13 +124,13 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
 
 ```azurecli
-export IMAGE=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
+export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
 
 az vm create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name adminVM \
     --availability-set myAvailabilitySet \
-    --image ${IMAGE} \
+    --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
@@ -153,13 +153,13 @@ Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers 
 The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
 
 ```azurecli
-export IMAGE=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
+export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
 
 az vm create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM1 \
     --availability-set myAvailabilitySet \
-    --image ${IMAGE} \
+    --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
@@ -170,7 +170,7 @@ az vm create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name mspVM2 \
     --availability-set myAvailabilitySet \
-    --image ${IMAGE} \
+    --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --admin-password Secret123456 \
