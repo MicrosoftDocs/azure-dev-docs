@@ -249,7 +249,7 @@
                   href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
             - name: Virtual Network
               items:
-                - name: Create an Azure virtual network and subnets
+                - name: Create a network and subnets
                   href: /azure/virtual-network/quick-create-terraform
         - name: Security
           items:
