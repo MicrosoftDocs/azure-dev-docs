@@ -6,9 +6,12 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the .NET enterprise chat sample using RAG](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
+|[Get started with the .NET enterprise chat sample using RAG](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. [Demo video](https://aka.ms/azai/net/video) |
+|[Build GPT-automated customer support](https://aka.ms/acsaisampleapp)| This sample uses [Azure Communication Services](aka.ms/acsdocs) along with RAG, Azure AI Services and Azure Open AI to build a GPT powered customer support system that uses chat, calling and Email. [Demo video](https://aka.ms/acs-mech) |
 
-* [Demo video](https://aka.ms/azai/net/video)
+
+
+
 
 ### Building blocks
 
