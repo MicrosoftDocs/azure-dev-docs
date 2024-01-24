@@ -35,7 +35,7 @@ or download and extract the repository .zip file.
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
 
-## Register the sample application with your Azure Active Directory tenant
+## Register the sample application with your Microsoft Entra ID tenant
 
 There is one project in this sample. To register the app on the portal, you can:
 

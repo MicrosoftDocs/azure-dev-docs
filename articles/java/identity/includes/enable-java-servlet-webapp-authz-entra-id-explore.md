@@ -60,7 +60,7 @@ In this sample, these values are read from the `authentication.properties` file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Azure Active Directory Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user will sign in.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user will sign in.
 
     ```Java
     final ConfidentialClientApplication client = getConfidentialClientInstance();
@@ -144,7 +144,7 @@ The following code is all that is required for an application developer to write
 ## More information
 
 - [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
-- [Microsoft identity platform (Azure Active Directory for developers)](https://learn.microsoft.com/entra/identity-platform/)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](https://learn.microsoft.com/entra/identity-platform/)
 - [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
 
 - [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)

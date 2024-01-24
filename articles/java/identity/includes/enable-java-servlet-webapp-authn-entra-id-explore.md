@@ -22,13 +22,13 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 | File/folder                                                        | Description                                                                            |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| `AppCreationScripts/`                                              | Scripts to automatically configure Azure AD app registrations.                         |
+| `AppCreationScripts/`                                              | Scripts to automatically configure Microsoft Entra ID app registrations.                         |
 | `src/main/java/com/microsoft/azuresamples/msal4j/authwebapp/`      | This directory contains the classes that define the web app's backend business logic.  |
 | `src/main/java/com/microsoft/azuresamples/msal4j/authservlets/`    | This directory contains the classes that are used for sign in and sign out endpoints.  |
 | `____Servlet.java`                                                 | All of the endpoints available are defined in .java classes ending in ____Servlet.java.|
 | `src/main/java/com/microsoft/azuresamples/msal4j/helpers/`         | Helper classes for authentication.                                                     |
 | `AuthenticationFilter.java`                                        | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
-| `src/main/resources/authentication.properties`                     | Azure AD and program configuration.                                                    |
+| `src/main/resources/authentication.properties`                     | Microsoft Entra ID and program configuration.                                                    |
 | `src/main/webapp/`                                                 | This directory contains the UI (JSP templates)                                         |
 | `CHANGELOG.md`                                                     | List of changes to the sample.                                                         |
 | `CONTRIBUTING.md`                                                  | Guidelines for contributing to the sample.                                             |

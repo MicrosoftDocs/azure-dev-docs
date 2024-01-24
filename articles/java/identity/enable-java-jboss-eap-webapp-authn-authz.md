@@ -80,7 +80,7 @@ Learn more about the **Microsoft identity platform**:
 - [Application types for Microsoft identity platform](https://learn.microsoft.com/entra/identity-platform/v2-app-types)
 - [Understanding Entra ID application consent experiences](https://learn.microsoft.com/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](https://learn.microsoft.com/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [Application and service principal objects in Azure Active Directory](https://learn.microsoft.com/entra/identity-platform/app-objects-and-service-principals)
+- [Application and service principal objects in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/app-objects-and-service-principals)
 - [Microsoft identity platform best practices and recommendations](https://learn.microsoft.com/entra/identity-platform/identity-platform-integration-checklist)
 
 See more code samples:
