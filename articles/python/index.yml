@@ -38,9 +38,9 @@ landingContent:
             url: ./quickstart-python-web-azd-templates.md
           - text: Deploy a Django or Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Deploy Web App w/ PostgreSQL
+          - text: Deploy Web App with PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Deploy Web App w/ Managed Identity
+          - text: Deploy Web App with Managed Identity
             url: ./tutorial-python-managed-identity-cli.md
           - text: Deploy using GitHub Actions
             url: ./python-web-app-github-actions-app-service.md
