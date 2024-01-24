@@ -1,5 +1,3 @@
-- name: Azure Mobile Apps Overview
-  href: overview.md
 - name: Get Started
   items:
   - name: Avalonia
@@ -15,7 +13,7 @@
     - name: Introduction
       href: quickstarts/maui/index.md
     - name: Add Authentication
-      href: quickstarts/maui/authentication.md     
+      href: quickstarts/maui/authentication.md
     - name: Add Offline Sync
       href: quickstarts/maui/offline.md
   - name: Uno Platform
@@ -31,7 +29,7 @@
     - name: Introduction
       href: quickstarts/uwp/index.md
     - name: Add Authentication
-      href: quickstarts/uwp/authentication.md     
+      href: quickstarts/uwp/authentication.md
     - name: Add Offline Sync
       href: quickstarts/uwp/offline.md
   - name: Windows (WinUI3)
@@ -39,7 +37,7 @@
     - name: Introduction
       href: quickstarts/winui/index.md
     - name: Add Authentication
-      href: quickstarts/winui/authentication.md     
+      href: quickstarts/winui/authentication.md
     - name: Add Offline Sync
       href: quickstarts/winui/offline.md
   - name: Windows (WPF)
@@ -47,7 +45,7 @@
     - name: Introduction
       href: quickstarts/wpf/index.md
     - name: Add Authentication
-      href: quickstarts/wpf/authentication.md   
+      href: quickstarts/wpf/authentication.md
     - name: Add Offline Sync
       href: quickstarts/wpf/offline.md
   - name: Xamarin.Android
@@ -83,7 +81,7 @@
   - name: Server SDK
     href: howto/server/dotnet-core.md
 - name: v4.2.0 Documentation (Retired)
-  items: 
+  items:
   - name: Apache Cordova
     href: howto/client/cordova.md
   - name: .NET Client
