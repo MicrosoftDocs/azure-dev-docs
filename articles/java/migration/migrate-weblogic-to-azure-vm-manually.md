@@ -117,13 +117,13 @@ The Marketplace image that you use to create the VMs in this article is `Oracle:
 > [!NOTE]
 > You can query all the available Oracle WebLogic images provided by Oracle with [az vm image list](/cli/azure/vm/image#az-vm-image-list) `az vm image list --publisher oracle --output table --all | grep "weblogic"`. For more information, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 
-### Create Oracle Linux machine for admin server
+### Create an Oracle Linux machine for admin server
 
-In this section, you create Oracle Linux machines, with JDK 11，and WebLogic 14.1.1.0 installed, for admin server and managed servers.
+In this section, you create Oracle Linux machines with JDK 11 and WebLogic 14.1.1.0 installed, for the admin server and managed servers.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -140,7 +140,7 @@ az vm create \
     --nsg ""
 ```
 
-### Create Windows VM and set up X-server
+### Create a Windows VM and set up X-server
 
 This tutorial uses the graphical interface of WebLogic Server to complete the installation and configuration. You use a Windows VM as a "jump box" and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WLS cluster.
 
@@ -152,7 +152,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -196,14 +196,14 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
 
 1. Connect to `adminVM` from a command prompt.
 
-   Run the following commands on your Windows machine `myWindowsVM`.
+   Run the following commands on your Windows machine `myWindowsVM`:
 
    ```cmd
    set ADMINVM_IP="192.168.0.4"
    ssh azureuser@%ADMINVM_IP%
    ```
 
-1. Use the following commands to initialize the folder for domain configuration.
+1. Use the following commands to initialize the folder for domain configuration:
 
    ```bash
    sudo su
@@ -213,7 +213,7 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
    chown oracle:oracle -R ${DOMAIN_PATH}
    ```
 
-1. Install dependency for X-server.
+1. Use the following commands to Install the dependency for X-server:
 
    ```bash
    # install dependencies for X-server
@@ -222,7 +222,7 @@ The following section shows how to create a new WLS domain on the `adminVM`. Mak
    sudo yum install -y fontconfig urw-base35-fonts
    ```
 
-1. Use the following commands to become the `oracle` user and set the `DISPLAY` variable.
+1. Use the following commands to become the `oracle` user and set the `DISPLAY` variable:
 
    ```bash
    sudo su - oracle
@@ -241,7 +241,7 @@ The Oracle Configuration Wizard starts and directs you to configure the domain. 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png" alt-text="Screenshot of Oracle Configuration Wizard - Create Domain." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png":::
 
-Select **Next**, then select **Create Domain Using Product Templates**. Keep the default selected template, as shown in the following screenshot.
+Select **Next**, then select **Create Domain Using Product Templates**. Keep the default selected template, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png" alt-text="Screenshot of Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png":::
 
@@ -298,7 +298,7 @@ Select **Next**. For **Assign Servers to Machines**, assign server `admin` to `a
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png" alt-text="Screenshot of Oracle Configuration Wizard - Assign Servers to Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png":::
 
-Select **Next**. You're shown the **Configuration Summary**, which should look like the following screenshot.
+Select **Next**. You're shown the **Configuration Summary**, which should look like the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png" alt-text="Screenshot of Oracle Configuration Wizard - Configuration Summary." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png":::
 
@@ -320,14 +320,14 @@ You use the pack and unpack command to extend the domain.
 
 This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F).
 
-1. Pack the domain configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `oracle` user.
+1. Pack the domain configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `oracle` user:
 
    ```bash
    cd /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin
    bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
    ```
 
-   If the command is completed successfully, you see output similar the following example.
+   If the command is completed successfully, you see output similar the following example:
 
    ```output
    [oracle@adminVM bin]$ bash pack.sh -domain=/u01/domains/wlsd -managed=true -template=/tmp/cluster.jar -template_name="wlsd"
@@ -351,7 +351,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    #scp /tmp/cluster.jar azureuser@192.168.0.7:/tmp/cluster.jar
    ```
 
-1. Use the following instructions to apply domain configuration to `mspVM1`.
+1. Use the following instructions to apply domain configuration to `mspVM1`:
 
    Open a new command prompt, and use the following commands to connect to `mspVM1`. Replace `192.168.0.6` with your `mspVM1` private IP address:
 
@@ -362,7 +362,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
    You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
-   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to be owned by `oracle`.
+   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to be owned by `oracle`:
 
    ```bash
    sudo su
@@ -374,7 +374,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    chown oracle:oracle -R ${DOMAIN_PATH}
    ```
 
-   As the `oracle` user, use the following commands to apply the domain configuration.
+   As the `oracle` user, use the following commands to apply the domain configuration:
 
    ```bash
    sudo su - oracle
@@ -383,7 +383,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
    ```
 
-   If the command completes successfully, you see output similar to the following example.
+   If the command completes successfully, you see output similar to the following example:
 
    ```output
    [oracle@mspVM1 bin]$ bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
@@ -400,7 +400,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    >>  succeed: close template
    ```
 
-1. Use the following instructions to apply domain configuration to `mspVM2`.
+1. Use the following instructions to apply domain configuration to `mspVM2`:
 
    Connect `mspVM2` in a new command prompt. Replace `192.168.0.7` with your `mspVM2` private IP address:
 
@@ -411,7 +411,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
    You're asked for a password for the connection. For this example, the password is *Secret123456*.
 
-   You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration.
+   You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
 
    ```bash
    sudo su
@@ -454,7 +454,7 @@ If you aren't working with the `oracle` user, log in with `oracle`:
 sudo su - oracle
 ```
 
-The following command persists the `admin` account to */u01/domains/wlsd/servers/admin/security/boot.properties* to enable automatically starting the `admin` server without asking for credentials.
+The following command persists the `admin` account to */u01/domains/wlsd/servers/admin/security/boot.properties* to enable automatically starting the `admin` server without asking for credentials:
 
 Replace the username and password with yours.
 
@@ -474,7 +474,7 @@ ls -la /u01/domains/wlsd/servers/admin/security/boot.properties
 cat /u01/domains/wlsd/servers/admin/security/boot.properties
 ```
 
-The output should look nearly identical to the following example.
+The output should look nearly identical to the following example:
 
 ```output
 [oracle@adminVM bin]$ ls -la /u01/domains/wlsd/servers/admin/security/boot.properties
@@ -850,7 +850,7 @@ To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow 
 
 1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file similar to *jdk-11.\*_windows-x64_bin.exe*.
 
-1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file similar to *fmw_14.\*_wls_lite_Disk1_1of1.zip*. Pay attention to the support lifetime of the WebLogic Server version you download. For details, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
+1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file similar to *fmw_14.\*_wls_lite_Disk1_1of1.zip*. Pay attention to the support lifetime of the WebLogic Server version you download. For more information, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
 
 ### Install Oracle JDK 11
 
@@ -858,7 +858,7 @@ This section shows you how to install Oracle JDK 11 on Windows Server.
 
 Open the download folder that contains JDK installer. Here the installer name is *jdk-11.0.16_windows-x64_bin.exe*. Right click the file and select **Run as administrator**. Install the JDK to the default folder *C:\Program Files\Java\jdk-11.0.16\\*.
 
-After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following.
+After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following example:
 
 ```output
 java version "11.0.16" 2022-07-19 LTS
@@ -872,7 +872,7 @@ This section shows you how to install WLS 14c on Windows Server.
 
 Open the download folder that contains WLS installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
 
-Open a command prompt, then run the following command to install WLS.
+Open a command prompt, then run the following command to install WLS:
 
 ```cmd
 set WLS_VERSION_PREFIX=fmw_14.1.1.0.0_wls_lite
@@ -916,31 +916,32 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Stop `adminVM`. Open `adminVM` from the Azure portal, then select **Stop** to stop the machine. Make sure the machine is stopped completely before doing the next step.
 
-1. Use the following steps to take a snapshot of the `adminVM` OS disk.
+1. Use the following steps to take a snapshot of the `adminVM` OS disk:
 
    1. Open `adminVM` from the Azure portal. Under **Settings**, select **Disks**, then **OS Disk**. Select the OS disk starting with *adminVM_OsDisk_*.
    1. Select **Create snapshot**. Under **Instance details**, fill in **Name** with *snapshotAdminVMOsDisk*.
    1. Select **Review and create** then **Create**. It takes several seconds to take the snapshot.
 
-1. Use the following steps to create `mspVM1`.
+1. Use the following steps to create `mspVM1`:
 
    1. First, create the OS disk for `mspVM1`. Open the snapshot you created in previous step, **snapshotAdminVMOsDisk**. Select **Create disk**. Under **Disk details**, fill in **Disk name** with *mspVM1_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
    1. Create the virtual machine `mspVM1`. Open the OS disk you created previously. In this example, its name is `mspVM1_Os_Disk_1`. Select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM1*. Select **Review and create** then **Create**. Ensure you have no errors before proceeding. The process takes several minutes.
-   1. The machine is created from the snapshot of `adminVM`, it has the same computer name as `adminVM`. To change computer name to `mspVM1`, first remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command.
+   1. The machine is created from the snapshot of `adminVM`, it has the same computer name as `adminVM`. To change computer name to `mspVM1`, first remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command:
 
       ```powershell
       Rename-Computer -NewName mspvm1 -Restart
       ```
 
-1. Use the following steps to create `mspVM2`.
+1. Use the following steps to create `mspVM2`:
 
    1. Create the OS disk for `mspVM2`. Open the snapshot you created previously. In this example, its name is `snapshotAdminVMOsDisk`. If you can't find the disk, search for *snapshotAdminVMOsDisk* in the **Search resources, services and docs**. Select **Create disk**. Under **Disk details**, fill in **Name** with *mspVM2_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
    1. Create virtual machine `mspVM2`. Open the OS disk you created previously, `mspVM2_Os_Disk_1`， select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM2*. Select **Review + create** then **Create**. It takes several minutes.
-   1. Remote connect to the machine, the user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command to change computer name.
+   1. Remote connect to the machine, the user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command to change computer name:
 
       ```powershell
       Rename-Computer -NewName mspvm2 -Restart
       ```
+
 1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`.
 
    ```azurecli
@@ -959,7 +960,7 @@ Now, all the machines are ready. Next, you configure a WebLogic cluster.
 
 This section shows the steps to create a new WLS domain on `adminVM`.
 
-Connect to `adminVM`, open a command prompt, and run the following command to start Oracle Configuration Wizard.
+Connect to `adminVM`, open a command prompt, and run the following command to start Oracle Configuration Wizard:
 
 ```cmd
 cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
@@ -970,7 +971,7 @@ The Oracle Configuration Wizard directs you to configure the domain. The followi
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-location.png" alt-text="Windows - Oracle Configuration Wizard - Domain Location." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-location.png":::
 
-Select **Next**, select **Create Domain Using Product Templates**, and keep the default selected template, as shown in the following screenshot.
+Select **Next**, select **Create Domain Using Product Templates**, and keep the default selected template, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-templates.png" alt-text="Windows - Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-templates.png":::
 
@@ -1027,7 +1028,7 @@ Select **Next**. For **Assign Servers to Machines**, assign server `admin` to `a
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png" alt-text="Windows - Oracle Configuration Wizard - Assign Servers to Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png":::
 
-Select **Next**. You're shown the **Configuration Summary**, as shown in the following screenshot.
+Select **Next**. You're shown the **Configuration Summary**, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-summary.png" alt-text="Windows - Oracle Configuration Wizard - Configuration Summary" lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-summary.png":::
 
@@ -1043,18 +1044,18 @@ You've now finished configuring the `wlsd` domain with a cluster `cluster1` incl
 
 #### Create replicas using the pack and unpack command
 
-This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F). Use the following steps to create the replicas.
+This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F). Use the following steps to create the replicas:
 
 1. First, pack the domain configuration on `adminVM` by following these instructions:
 
-   Remote connect to the machine and run the following command.
+   Remote connect to the machine and run the following command:
 
    ```cmd
    cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
    pack.cmd -domain=C:\domains\wlsd -managed=true -template=C:\Temp\cluster.jar -template_name="wlsd"
    ```
 
-   You're shown output similar to the following example if the command completes successfully.
+   You're shown output similar to the following example if the command completes successfully:
 
    ```output
    C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin>pack.cmd -domain=C:\domains\wlsd -managed=true -template=C:\Temp\cluster.jar -template_name="wlsd"
@@ -1073,14 +1074,14 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
 1. Next, apply the domain configuration to `mspVM1`.
 
-   Remote connect to the machine and run the following command.
+   Remote connect to the machine and run the following command:
 
    ```cmd
    cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
    unpack.cmd -domain=C:\domains\wlsd -template=C:\Temp\cluster.jar
    ```
 
-   You're shown output similar to the following example if the command completes successfully.
+   You're shown output similar to the following example if the command completes successfully:
 
    ```output
    C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin>unpack.cmd -domain=C:\domains\wlsd -template=C:\Temp\cluster.jar
@@ -1106,7 +1107,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 
 1. Next, apply the domain configuration to `mspVM2`.
 
-   Remote connect to the machine and run the following command.
+   Remote connect to the machine and run the following command:
 
    ```cmd
    cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
@@ -1134,7 +1135,7 @@ This section uses a Windows service to configure Oracle WebLogic Server to start
 
 #### Set up the Administration Server as Windows service
 
-You're now ready to start the Administration Server. Use the following instructions to create a Windows service to start the Administration Server.
+You're now ready to start the Administration Server. Use the following instructions to create a Windows service to start the Administration Server:
 
 Remote connect to `adminVM`. In the command prompt, change to the directory *C:\domains\wlsd*. Enter *startWebLogic.cmd*. For the credentials of the admin account, enter *weblogic* for the username and *Secret123456* for the password. If the server is running, it prints a line to standard out that is similar to the following output:
 
@@ -1147,7 +1148,7 @@ Enter password to boot WebLogic server:Secret123456
 <Oct 18, 2022, 6:48:56,997 AM Coordinated Universal Time> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to RUNNING.>
 ```
 
-Create a Boot Identity file *C:\domains\wlsd\servers\admin\security\boot.properties* and save the admin account user name and password to the file. For more information, see [Boot Identity Files](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/start/overview.html#GUID-FAA04F2F-41F3-4632-8B40-620B8A67E856). Paste the following text into a command prompt.
+Create a Boot Identity file *C:\domains\wlsd\servers\admin\security\boot.properties* and save the admin account user name and password to the file. For more information, see [Boot Identity Files](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/start/overview.html#GUID-FAA04F2F-41F3-4632-8B40-620B8A67E856). Paste the following text into a command prompt:
 
 ```cmd
 MKDIR C:\domains\wlsd\servers\admin\security
@@ -1216,7 +1217,7 @@ Next, start the managed server from the Administration Console portal. Open a br
 
 The steps in this section show how to create a Windows service for each of the managed servers. This service starts the managed server automatically when the machine is rebooted.
 
-1. Use the following instructions to set up `msp1` as a Windows service.
+1. Use the following instructions to set up `msp1` as a Windows service:
 
    Remote connect to `mspVM1`. Open a command prompt and paste the following text, replacing `ADMIN_URL` with the actual value. Press <kbd>Enter</kbd>, <kbd>Ctrl</kbd>+<kbd>Z</kbd>, <kbd>Enter</kbd>.
 
@@ -1240,7 +1241,7 @@ The steps in this section show how to create a Windows service for each of the m
 
    Create a Boot Identity file *C:\domains\wlsd\servers\msp1\security\boot.properties* and save the admin account user name and password to the file.
 
-   Paste the following text into a command prompt.
+   Paste the following text into a command prompt:
 
    ```cmd
    MKDIR C:\domains\wlsd\servers\msp1\security
@@ -1275,7 +1276,7 @@ The steps in this section show how to create a Windows service for each of the m
 
    Create a Boot Identity file *C:\domains\wlsd\servers\msp1\security\boot.properties* and save the admin account user name and password to the file.
 
-   Paste the following text into a command prompt.
+   Paste the following text into a command prompt:
 
    ```cmd
    MKDIR C:\domains\wlsd\servers\msp2\security
@@ -1414,7 +1415,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-You add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands.
+You add the backend servers to Application Gateway backend pool. Query backend IP addresses using the following commands:
 
 ```azurecli
 export ADMINVM_NIC_ID=$(az vm show \
@@ -1446,7 +1447,7 @@ export MSPVM2_IP=$(az network nic show \
     --output tsv)
 ```
 
-Next, create an Azure Application Gateway. The following example creates an application gateway with managed servers in the default backend pool.
+Next, create an Azure Application Gateway. The following example creates an application gateway with managed servers in the default backend pool:
 
 ```azurecli
 az network application-gateway create \
@@ -1465,7 +1466,7 @@ az network application-gateway create \
     --servers ${MSPVM1_IP} ${MSPVM2_IP}
 ```
 
-The managed servers expose their workloads with port `8001`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `8001` and creating a probe for it.
+The managed servers expose their workloads with port `8001`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `8001` and creating a probe for it:
 
 ```azurecli
 az network application-gateway probe create \
@@ -1536,7 +1537,7 @@ az network application-gateway rule update \
     --http-settings appGatewayBackendHttpSettings
 ```
 
-You're now able to access the Administration Server with the URL `http://<gateway-public-ip-address>/console/`. Run the following commands to get the URL.
+You're now able to access the Administration Server with the URL `http://<gateway-public-ip-address>/console/`. Run the following commands to get the URL:
 
 ```azurecli
 export APPGATEWAY_IP=$(az network public-ip show \
@@ -1571,7 +1572,7 @@ This section shows you how to deploy a simple application to the WLS cluster. Fi
 
 ## Test the WLS cluster configuration
 
-You've now finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings.
+You've now finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.

@@ -5,7 +5,7 @@ ms.date: 11/30/2022
 ms.custom: devx-track-azurecli
 ---
 
-Use the following commands to get and show the private IP addresses, which you use in later sections.
+Use the following commands to get and show the private IP addresses, which you use in later sections:
 
 ```azurecli
 export ADMINVM_NIC_ID=$(az vm show \
