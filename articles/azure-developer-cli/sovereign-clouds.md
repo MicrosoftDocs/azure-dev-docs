@@ -91,7 +91,8 @@ cloud:
 
 Configure cloud for specific environments by updating the environment
 configuration file in `.azure/<environment-name>/config.json`. This enables,
-for example, deployment in 
+for example, deployment in different clouds for different environments.
+
 
 ```json
 {
