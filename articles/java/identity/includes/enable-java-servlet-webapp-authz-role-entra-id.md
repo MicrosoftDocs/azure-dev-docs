@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 ## Scenario
 
-1. This web application uses [**MSAL for Java (MSAL4J)**](https://github.com/AzureAD/microsoft-authentication-library-for-java) to sign in a user and obtain an [ID Token](https://learn.microsoft.com/en-us/entra/identity-platform/id-tokens) from **Microsoft Entra ID**:
+1. This web application uses [**MSAL for Java (MSAL4J)**](https://github.com/AzureAD/microsoft-authentication-library-for-java) to sign in a user and obtain an [ID Token](https://learn.microsoft.com/entra/identity-platform/id-tokens) from **Microsoft Entra ID**:
 
 This sample first leverages the  **MSAL for Java (MSAL4J)** to sign in the user. On the home page it displays an option for the user to view the claims in their ID Tokens. This web application also allows the users to view a **privileged admin page** or a **regular user page** depending on the app role they have been assigned to. The idea is to provide an example of how, within an application, access to certain functionality/page is restricted to subsets of users depending on which role they belong to.
 
