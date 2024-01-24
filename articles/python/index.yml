@@ -34,13 +34,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Fastest way to create + deploy using templates
+          - text: Create new Django / Flask / FastAPI app + deploy using `azd` templates
             url: ./quickstart-python-web-azd-templates.md
           - text: Deploy a Django / Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Deploy Django / Flask / PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Deploy Django / Flask / Managed Identity
+          - text: Deploy Web App w/ Managed Identity
             url: ./tutorial-python-managed-identity-cli.md
           - text: Deploy using GitHub Actions
             url: ./python-web-app-github-actions-app-service.md
@@ -50,7 +50,7 @@ landingContent:
         links:
           - text: Develop using Azure AI services
             url: ./azure-ai-for-python-developers.md
-          - text: Python enterprise chat sample using RAG
+          - text: Python enterprise RAG chat sample
             url: ./get-started-app-chat-template.md
   - title: Containers
     linkLists:
