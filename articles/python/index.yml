@@ -46,7 +46,7 @@ landingContent:
             url: ./python-web-app-github-actions-app-service.md
   - title: AI
     linkLists:
-      - listListType: quickstart
+      - linkListType: quickstart
         links:
           - text: Develop Python apps that use Azure AI services
             url: ./azure-ai-for-python-developers.md
