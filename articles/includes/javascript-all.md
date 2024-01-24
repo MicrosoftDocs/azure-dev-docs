@@ -13,7 +13,7 @@
 | Azure AI Search | npm [12.0.0](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0/sdk/search/search-documents/) |
 | Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Identity Broker | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.0/sdk/identity/identity-broker/) |
-| Azure Monitor OpenTelemetry | npm [1.1.1](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.1.1) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.1.1/sdk/monitor/monitor-opentelemetry/) |
+| Azure Monitor OpenTelemetry | npm [1.2.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.2.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.2.0/sdk/monitor/monitor-opentelemetry/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Common | npm [1.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/1.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.1.0/sdk/communication/communication-call-automation/) |
@@ -45,7 +45,7 @@
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.4](https://www.npmjs.com/package/@azure/core-xml/v/1.3.4) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.4/sdk/core/core-xml/) |
 | Core - Paging | npm [1.5.0](https://www.npmjs.com/package/@azure/core-paging/v/1.5.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.5.0/sdk/core/core-paging/) |
-| Cosmos DB | npm [4.0.0](https://www.npmjs.com/package/@azure/cosmos/v/4.0.0)<br>npm [4.0.1-beta.1](https://www.npmjs.com/package/@azure/cosmos/v/4.0.1-beta.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.0/sdk/cosmosdb/cosmos/)<br>GitHub [4.0.1-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.1/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [4.0.0](https://www.npmjs.com/package/@azure/cosmos/v/4.0.0)<br>npm [4.0.1-beta.2](https://www.npmjs.com/package/@azure/cosmos/v/4.0.1-beta.2) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.0/sdk/cosmosdb/cosmos/)<br>GitHub [4.0.1-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.2/sdk/cosmosdb/cosmos/) |
 | Defender EASM | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.1/sdk/easm/defender-easm-rest/) |
 | Dev Center | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.3/sdk/devcenter/developer-devcenter-rest/) |
 | Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest/) |
@@ -77,7 +77,7 @@
 | Monitor Ingestion | npm [1.0.0](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0/sdk/monitor/monitor-ingestion/) |
 | Monitor Query | npm [1.1.1](https://www.npmjs.com/package/@azure/monitor-query/v/1.1.1)<br>npm [1.2.0-beta.3](https://www.npmjs.com/package/@azure/monitor-query/v/1.2.0-beta.3) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.1/sdk/monitor/monitor-query/)<br>GitHub [1.2.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0-beta.3/sdk/monitor/monitor-query/) |
 | OpenAI | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure/openai/v/1.0.0-beta.10) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [1.0.0-beta.10](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.10/sdk/openai/openai/) |
-| OpenTelemetry Exporter | npm [1.0.0-beta.18](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.18) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.18](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.18/sdk/monitor/monitor-opentelemetry-exporter/) |
+| OpenTelemetry Exporter | npm [1.0.0-beta.19](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.19) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.19](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.19/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest/) |
 | Purview Administration | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-administration/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-administration_1.0.0-beta.1/sdk/purview/purview-administration-rest/) |
 | Purview Catalog | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure-rest/purview-catalog/v/1.0.0-beta.5) |  | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-catalog_1.0.0-beta.5/sdk/purview/purview-catalog-rest/) |
@@ -331,9 +331,9 @@
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| tmlanguage-generator | npm [0.5.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.1) |  |  |
+| tmlanguage-generator | npm [0.5.2](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.2) |  |  |
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.6.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.3.0) |  |  |
+| Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.4.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.3) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
@@ -353,7 +353,7 @@
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Core - Client - Asynciterator Polyfill | npm [1.0.2](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.2/sdk/core/core-asynciterator-polyfill/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
-| Cosmos DB Query Editor | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.7) |  |  |
+| Cosmos DB Query Editor | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.8) |  |  |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  |  |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  |  |
 | Custom Search | npm [2.0.0](https://www.npmjs.com/package/azure-cognitiveservices-customsearch/v/2.0.0) |  |  |
@@ -421,7 +421,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240118.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240118.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240124.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240124.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
