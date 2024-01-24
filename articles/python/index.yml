@@ -34,11 +34,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create new Django / Flask / FastAPI app + deploy using `azd` templates
+          - text: Create new Django/Flask/FastAPI apps + deploy quickly
             url: ./quickstart-python-web-azd-templates.md
-          - text: Deploy a Django / Flask Web App
+          - text: Deploy a Django or Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Deploy Django / Flask / PostgreSQL
+          - text: Deploy Web App w/ PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
           - text: Deploy Web App w/ Managed Identity
             url: ./tutorial-python-managed-identity-cli.md
