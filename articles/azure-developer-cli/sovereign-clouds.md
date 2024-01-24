@@ -96,7 +96,7 @@ for example, deployment in different clouds for different environments.
 
 ```json
 {
-    "cloud": { 
+    "cloud": {
         "name": "AzureCloud"
     }
 }
@@ -104,7 +104,7 @@ for example, deployment in different clouds for different environments.
 
 ```json
 {
-    "cloud": { 
+    "cloud": {
         "name": "AzureChinaCloud"
     }
 }
@@ -112,7 +112,7 @@ for example, deployment in different clouds for different environments.
 
 ```json
 {
-    "cloud": { 
+    "cloud": {
         "name": "AzureUSGovernment"
     }
 }
@@ -123,7 +123,15 @@ for example, deployment in different clouds for different environments.
 When deploying to a sovereign cloud using `azd` and Terraform, the `az` CLI must
 also be configured to use the desired cloud. See Terraform's [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli) documentation.
 
-Select the appropriate cloud using the `az` CLI: 
+Set the environment variable `ARM_ENVIRONMENT` to the desired environment.
+Common values are:
+
+* `public` (default)
+* `usgovernment`
+* `german`
+* `china`
+
+Select the appropriate cloud using the `az` CLI:
 
 ```bash
 az cloud set --name AzureCloud
