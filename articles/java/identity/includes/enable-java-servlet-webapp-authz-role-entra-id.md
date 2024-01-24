@@ -127,7 +127,7 @@ Following this guide, you must:
 
 #### Assign users to the Application roles
 
- To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](https://learn.microsoft.com/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-roles)
+ To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](https://learn.microsoft.com/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
 
 ### Configure the web app (java-servlet-webapp-roles) to use your app registration
 

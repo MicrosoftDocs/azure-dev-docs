@@ -132,7 +132,7 @@ app.protect.authenticated=/token_details
 
 - [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL Java Reference Documentation](http://javadoc.io/doc/com.microsoft.azure/msal4j)
-- [Microsoft identity platform (Microsoft Entra ID for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](https://learn.microsoft.com/entra/identity-platform/)
 - [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
 - [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
