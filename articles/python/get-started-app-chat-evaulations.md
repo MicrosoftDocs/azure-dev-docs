@@ -211,7 +211,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
-The prompts are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more prompts, perhaps more than 200 for this dataset. 
+The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, perhaps more than 200 for this dataset. 
 
 > [!NOTE]
 > The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
