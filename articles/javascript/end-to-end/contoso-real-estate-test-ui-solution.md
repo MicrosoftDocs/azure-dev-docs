@@ -71,7 +71,7 @@ Now that the services and applications are running, you can test the portal UI.
 
 While you could install the testing infrastructure into the `./packages/portal` folder (monorepo package), for this tutorial you'll create a new package to keep the end-to-end testing infrastructure separated from the application code. This helps with troubleshooting. 
 
-Create a new `ui-testing` package in the `./packages` folder.
+1. Create a new `ui-testing` package in the `./packages` folder.
 
     ```bash
     cd packages
