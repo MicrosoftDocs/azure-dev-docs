@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 04/06/2023
-ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-was, devx-track-javaee-websphere
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere
 
 ---
 
