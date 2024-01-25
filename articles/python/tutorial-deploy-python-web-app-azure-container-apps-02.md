@@ -29,7 +29,7 @@ Follow the steps to fork the directory to your GitHub account. You can also down
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
 
-```bash
+```console
 # Django
 git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps.git python-container
 
@@ -39,7 +39,7 @@ git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps
 
 **Step 3.** Change directory.
 
-```bash
+```console
 cd python-container
 ```
 
@@ -105,7 +105,7 @@ After following these steps, you'll have an Azure Container Registry that contai
     :::column span="1":::
         **Step 6.** Use the [az acr build][5] command to build the image from the repo.
 
-        ```bash
+        ```azurecli
         az acr build --registry <registry-name> \
            --resource-group pythoncontainer-rg \ 
            --image pythoncontainer:latest <repo-path>
@@ -168,7 +168,7 @@ These steps require the [Docker extension][6] for VS Code.
     :::column span="1":::
         **Step 4.** Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
 
-        ```bash
+        ```azurecli
         az acr update --name <registry-name> \
            --resource-group pythoncontainer-rg \
            --admin-enabled true
@@ -178,7 +178,7 @@ These steps require the [Docker extension][6] for VS Code.
 
         You can view the credentials created for admin with:
 
-        ```bash
+        ```azurecli
         az acr credential show \
            --name  <registry-name> \
            --resource-group pythoncontainer-rg
@@ -194,7 +194,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 1.** Create a resource group with the [az group create][17] command.
 
-        ```bash        
+        ```azurecli        
         az group create \
            --name pythoncontainer-rg \
            --location <location>
@@ -207,7 +207,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 2.** Create a container registry with the [az acr create][18] command.
 
-        ```bash
+        ```azurecli
         az acr create \
            --resource-group pythoncontainer-rg \
            --name <registry-name> \
@@ -219,7 +219,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         You can view the credentials created for admin with:
 
-        ```bash
+        ```azurecli
         az acr credential show \
            --name <registry-name> \
            --resource-group pythoncontainer-rg
@@ -230,7 +230,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 3.** Sign in to the registry using the [az acr sign in][19] command.
 
-        ```bash
+        ```azurecli
         az acr login --name <registry-name>
         ```
         
@@ -241,7 +241,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 4.** Build the image with the [az acr build][5] command.
 
-        ```bash
+        ```azurecli
         az acr build \
            --registry <registry-name> \
            --resource-group pythoncontainer-rg \
@@ -261,7 +261,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 5.** Confirm the container image was created with the [az acr repository list][20] command.
 
-        ```bash
+        ```azurecli
         az acr repository list --name <registry-name>
         ```
         :::column-end:::
@@ -409,7 +409,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 **Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
 
-```bash
+```azurecli
 az postgres flexible-server create \
    --resource-group pythoncontainer-rg \
    --name <postgres-server-name>  \
@@ -485,7 +485,7 @@ You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Sh
 
 **Step 1** Use the [az postgres flexible-server db create][27] command to create a "restaurants_reviews" database.
 
-```bash
+```azurecli
 az postgres flexible-server db create \
    --resource-group pythoncontainer-rg \
    --server-name <postgres-server-name> \
@@ -736,7 +736,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column:::
         **Step 1.** Sign in to Azure and authenticate, if needed.
 
-        ```bash
+        ```azurecli
         az login
         ```
     :::column-end:::
@@ -745,7 +745,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
         
-        ```bash
+        ```azurecli
         az extension add --name containerapp --upgrade
         ```
         
@@ -755,7 +755,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
 
-        ```bash
+        ```azurecli
         az containerapp env create \
         --name python-container-env \
         --resource-group pythoncontainer-rg \
@@ -769,7 +769,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 4.** Get the sign-in credentials for the Azure Container Registry.
 
-        ```bash
+        ```azurecli
         az acr credential show -n <registry-name>
         ```
 
@@ -782,7 +782,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 5.** Create a container app in the environment with the [az containerapp create][12] command.
 
-        ```bash
+        ```azurecli
         az containerapp create \
         --name python-container-app \
         --resource-group pythoncontainer-rg \
@@ -819,7 +819,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         Connect with the [az containerapp exec][31] command:
 
-        ```bash
+        ```azurecli
             az containerapp exec \
                 --name python-container-app \
                 --resource-group pythoncontainer-rg
