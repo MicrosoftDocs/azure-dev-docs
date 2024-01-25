@@ -320,7 +320,7 @@ You have three evaluations created from different prompts. The results are store
 
 Compare the returned answers from the evaluations. 
 
-1. Select two of the evaluations to compare then use the same review tool to compare the answers:
+1. Select two of the evaluations to compare, then use the same review tool to compare the answers:
 
     ```bash
     python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp02
