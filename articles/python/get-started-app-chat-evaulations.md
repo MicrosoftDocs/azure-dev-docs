@@ -106,7 +106,7 @@ Begin now with a development environment that has all the dependencies installed
     azd up
     ```
 
-    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
+    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a GPT-4 deployment that's required to run the evaluations locally in the development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
 1. The name of the GitHub repository is shown in the search bar. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
