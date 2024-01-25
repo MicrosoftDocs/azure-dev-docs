@@ -336,7 +336,7 @@ Compare the returned answers from the evaluations.
 
 * Edit the prompts in `my_input` to tailor the answers such as subject domain, length, and other factors.
 * Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
-* Compare different answers to understand how the prompt and question impact the value of the answers.
+* Compare different answers to understand how the prompt and question impact the answer quality.
 * Generate a separate set of questions and ground truth answers for each document in the Azure AI Search index. Then rerun the evaluations to see how the answers differ.
 * Alter the prompts to indicate shorter or longer answers by adding the requirement to the end of the prompt. For example, `Please answer in about 3 sentences.` 
 
