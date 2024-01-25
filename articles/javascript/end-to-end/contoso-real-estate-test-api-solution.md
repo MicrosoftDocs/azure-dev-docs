@@ -91,14 +91,12 @@ While you could install the testing infrastructure into the `./packages/api` fol
     ```typescript
     import { test, expect  } from '@playwright/test';
     
-    // create base URL from 3 sources:
-    // 1. Azure: JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0] - output array as string from `./infra/main.bicep`
-    // 2. GitHub Codespaces: `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`
-    // 3. Local development on a local machine: `localhost:7071`
+    const LOCAL_BASE_URL = 'http://localhost:7072';
+
     const BASE_URL = process.env.SERVICE_API_ENDPOINTS
       ? JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0]
       : process.env.CODESPACE_NAME
-        ? 'http://localhost:7072';
+        ? LOCAL_BASE_URL;
     
     console.log(`BASE_URL: ${BASE_URL}`);
     
@@ -182,10 +180,6 @@ While you could install the testing infrastructure into the `./packages/api` fol
       ✓  2 function.api.spec.ts:32:5 › should get users (351ms)
     
       2 passed (1.1s)
-    
-    To open last HTML report run:
-    
-      npx playwright show-report
     ```
 
 ## Debug the test with Visual Studio extension for Playwright
@@ -209,5 +203,6 @@ Once you know the line that is causing the error, you can debug the test. The Co
 
 ## More resources
 
+* [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate)
 * [Playwright](https://playwright.dev/)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)

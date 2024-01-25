@@ -2,7 +2,7 @@
 title: Contoso Real Estate test Portal solution
 description: Learn how to test the Contoso Real Estate Portal with Playwright.
 ms.topic: tutorial
-ms.date: 12/01/2023
+ms.date: 01/24/2024
 ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
 ---
 
@@ -38,7 +38,7 @@ The purpose of **Test Automation** is about executing tests automatically to val
 
 The portal UI endpoint is available in an environment variable based on which environment the application is running in:
 
-* **Local development on a local machine**: The local computer is running the portal locally. The portal UI is available at `http://localhost:4280/`.
+* **Local development on a local machine**: The local computer is running the portal locally. The portal UI is available at `http://127.0.0.1:4280/`.
 * **GitHub Codespaces**: The Codespaces environment is run in a browser from a cloud-based container. Use environment variables to construct the portal UI endpoint from the host and port:  `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`.
 * **Azure**: The portal UI is deployed to Azure Static Web Apps. The deployed endpoint is available from the Azure Developer CLI's `.env` file based on the output variable used in the main.bicep. For this specific project, the environment variable name `SERVICE_WEB_UI`. 
 
@@ -65,7 +65,7 @@ Use the following steps to prepare to test the portal UI locally.
 
     This is equivalent to running `docker compose up -d`, the `-d` indicates a detached state of the process, so the output of each service isn't shown in the terminal. This leaves the terminal free for other commands.
 
-Now that the services and applications are running, you can test the poral UI.
+Now that the services and applications are running, you can test the portal UI.
 
 ## Install Playwright in a new `testing` package.
 
@@ -81,61 +81,138 @@ While you could install the testing infrastructure into the `./packages/portal` 
 
 [!INCLUDE [Initialize the package for Playwright](../../includes/contoso-real-estate-test/initialize-playwright.md)]
 
-## Create a UI test 
+## Create a TypeScript class for the Home page 
+
+Create a new class file to define the Home Page named `home-page.ts`.
+
+```TypeScript
+import { expect, Locator, Page } from "@playwright/test";
+import { CONFIG } from "../config";
+
+interface Config {
+    navProfileMenuName: string;
+    footerAboutLinkName: string;
+    guestLoginLinkName: string;
+    navLinkName: string;
+    heroTitleName: string;
+    footerLogoName: string;
+}
+
+export class HomePage {
+
+    readonly page: Page;
+    readonly path: string = CONFIG.BASE_URL + "/home";
+
+    readonly appShortName = "Contoso Rentals"
+    readonly appLongName = "Contoso Real Estate"
+
+    readonly config: Config = {
+    navProfileMenuName: "User profile menu",
+    footerAboutLinkName: "About",
+    guestLoginLinkName: "Login",
+    navLinkName: `${this.appShortName}`,
+    heroTitleName: `${this.appLongName}`,
+    footerLogoName: `${this.appShortName}`,
+    };
+    navLogo: Locator;
+    navAuth: Locator;
+    heroTitle: Locator;
+    heroLogo: Locator;
+    guestLoginLink: Locator;
+    footerLogo: Locator;
+    footerAboutLink: Locator;
+
+    constructor(page: Page) {
+    this.page = page;
+
+        // Get elements of page
+        this.navLogo = this.createLocator("mat-toolbar", "img", this.config.navLinkName);
+        this.navAuth = this.createLocator("mat-toolbar", "button", this.config.navProfileMenuName);
+        this.heroLogo = this.page.locator(".stage").locator("img");
+        this.heroTitle = this.createLocator(undefined, "heading", this.config.heroTitleName);
+        this.guestLoginLink = this.createLocator(undefined, "menuitem", this.config.guestLoginLinkName);
+        this.footerLogo = this.createLocator("contentinfo", "link", this.config.footerLogoName);
+        this.footerAboutLink = this.createLocator(undefined, "link", this.config.footerAboutLinkName);
+
+    }
+    createLocator(parentSelector: string | undefined, role: string, name: string) {
+    if (parentSelector) {
+        return this.page.locator(parentSelector);
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return this.page.getByRole(role as any, { name });
+    }
+
+    async goto() {
+    await this.page.goto(this.path);
+    }
+    async isAtHome() {
+    expect(this.page.url().endsWith(this.path));
+    }
+    async hasNavBar() {
+    await expect(this.navLogo).toBeVisible();
+    await expect(this.navAuth).toBeVisible();
+    }
+    async hasHeroSection() {
+    await expect(this.heroLogo).toBeVisible();
+    await expect(this.heroTitle).toBeVisible();
+    }
+    async hasFooter() {
+    await expect(this.footerAboutLink).toBeVisible();
+    await expect(this.footerLogo).toBeVisible();
+    }
+}
+```
+
+This TypeScript code defines the class `HomePage`` that represents the portal's home page in the Contoso Real Estate application. The class contains properties for interacting with various elements on the page using the Playwright testing library.
+
+## Create Playwright test for the Home page
 
 1. Create a new test file in the `tests` folder called `portal.spec.ts`.
 
 1. Add the following code to the `portal.spec.ts` file.
 
     ```typescript
-    import { test, expect  } from '@playwright/test';
+    import { test } from "@playwright/test";
     import { HomePage } from "../models/home-page";
-
-    // create base URL from 3 sources:
-    // 1. Azure: JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0] - output array as string from `./infra/main.bicep`
-    // 2. GitHub Codespaces: `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`
-    // 3. Local development on a local machine: `localhost:7071`
-    const BASE_URL = process.env.SERVICE_WEB_UI
-      ? SERVICE_WEB_UI
-      : process.env.CODESPACE_NAME
-        ? 'http://localhost:4280';
     
-    console.log(`BASE_URL: ${BASE_URL}`);
+    console.log(`Running on base: ${process.env.SERVICE_WEB_URI}`)
     
     test.use({
-      baseURL: BASE_URL
+      baseURL: process.env.SERVICE_WEB_URI,
     });
     
-    import { test, expect } from "@playwright/test";
-    
-    /**
-     * Test Hooks
-     * (set state or take actions before/after each test)
-     */
     test.beforeEach(async ({ page }) => {
       await page.goto("/");
     });
     test.afterEach(async ({ page }) => {});
-
-
-    test.describe("As guest, I visit the Portal ", () => {
-        test("it should have the /home route", async ({ page }) => {
-        await new HomePage(page).isAtHome();
-        });
-        test("it should have a navbar", async ({ page }) => {
-        await new HomePage(page).hasNavBar();
-        });
-        test("it should have a hero section", async ({ page }) => {
-        await new HomePage(page).hasHeroSection();
-        });
-        test("it should have featured listings", async ({ page }) => {
-        await new HomePage(page).hasFeaturedListings();
-        });
-        test("it should have a footer", async ({ page }) => {
-        await new HomePage(page).hasFooter();
-        });
+    
+    // ----- E2E Walkthrough ----
+    test.describe("As a guest, I visit the Contoso HR Home page", () => {
+      test("should validate parts of Home page", async ({ page }) => {
+    
+        // 1. Set Page Object Model to match context page
+        const homePage = new HomePage(page);
+    
+        // 2. Check that I'm on the right page (path)
+        await homePage.isAtHome();
+    
+        // // 3. Check that page layout is correct
+        await homePage.hasNavBar();
+        await homePage.hasHeroSection();
+        await homePage.hasFooter();
+      });
     });
-    ````
+    ```
+
+    The value of `BASE_URL` is set based on the environment. The possible three values are:
+
+    |Environment|Value|
+    |--|--|
+    |`LOCAL_BASE_URL` - Local development on a local machine where the client application is started with the SWA CLI. The SWA CLI is used to proxy API requests to the server.|`http://localhost:4280`|
+    |`CODESPACE_NAME` - The GitHub Codespaces name for the environment. By default the Codespaces is given a name. You can rename your Codespace to be more meaningful to you.|`https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`|
+    |`SERVICE_WEB_UI` - Azure Static Web Apps|`http://localhost:7072`|
+
 
 1. Run the test. 
 
@@ -146,39 +223,25 @@ While you could install the testing infrastructure into the `./packages/portal` 
 1. The test should pass with output like the following:
 
     ```console
-
+     $ npm run test --workspace=testing
+    
+    > api-test@1.0.0 test
+    > npx playwright test
+    
+    BASE_URL: http://127.0.0.1:4280
+    
+    Running 2 tests using 1 worker
+    BASE_URL: http:///127.0.0.1:4280
+      1 passed (1.5s)
+    
+    To open last HTML report run:
+    
+      npx playwright show-report
     ```
-
-## Change test reporter
-
-1. In case you see errors in the output, change the reporter to include the line which errored. Open the `playwright.config.ts` file and change the `reporter` property to the following:
-
-    ```JSON
-    reporter: [['list'],['html']],
-    ```
-
-1. Run the test again with `npm test` to see the new output:
-
-    ```console
-    ```
-
-## Debug the test with Visual Studio extension for Playwright
-
-Once you know the line that is causing the error, you can debug the test. The Contoso Real Estate project has been configured with the [Visual Studio Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). This extension allows you to debug the test in the browser.
-
-1. Open the `portal.spec.ts` file and set a breakpoint on the line that is causing the error. For example, if the following line is causing an error, set a breakpoint:
-
-    ```typescript
-    await new HomePage(page).isAtHome();
-    ```
-
-1. Open the **Testing** explorer (the icon with the test tube). 
-1. Select the **Debug test** button next to the test. 
-
-1. The test will run and stop at the breakpoint.
 
 
 ## More resources
 
+* [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate)
 * [Playwright](https://playwright.dev/)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)
