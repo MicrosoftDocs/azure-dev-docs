@@ -287,7 +287,7 @@ Use a refined prompt but with shorter length. This is a common scenario when you
 
 ## Review the evaluation results
 
-You have three evaluations created from different prompts. The results are stored in the `my_results` folder. Review how the results differ based on the prompts.
+You have performed three evaluations based on different prompts and app settings. The results are stored in the `my_results` folder. Review how the results differ based on the settings.
 
 1. Use the review tool to see the results of the evaluations: 
 
