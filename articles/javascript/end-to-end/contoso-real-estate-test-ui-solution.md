@@ -79,7 +79,7 @@ While you could install the testing infrastructure into the `./packages/portal` 
     cd ui-testing
     ```
 
-[!INCLUDE [Initialize the package for Playwright](../../includes/contoso-real-estate-test/initialize-playwright.md)]
+[!INCLUDE [Initialize the package for Playwright](includes/contoso-real-estate-test/initialize-playwright.md)]
 
 ## Create a TypeScript class for the Home page 
 

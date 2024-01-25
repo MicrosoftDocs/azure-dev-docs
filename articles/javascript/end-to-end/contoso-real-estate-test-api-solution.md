@@ -79,7 +79,7 @@ While you could install the testing infrastructure into the `./packages/api` fol
     cd api-testing
     ```
 
-[!INCLUDE [Initialize the package for Playwright](../../includes/contoso-real-estate-test/initialize-playwright.md)]
+[!INCLUDE [Initialize the package for Playwright](includes/contoso-real-estate-test/initialize-playwright.md)]
 
 ## Create an API test 
 
