@@ -2,7 +2,7 @@
 title: Configure CI/CD for a Python web app in Azure Container Apps
 description: Set up CI/CD for a Python web app container in Azure Container Apps using GitHub Actions triggered on changes (like PRs) to the main branch of a repo.
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 01/26/2024
 ms.custom: devx-track-python
 ---
 
@@ -97,8 +97,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
-        ```bash        
-        export MSYS_NO_PATHCONV=1
+        ```azurecli        
         az ad sp create-for-rbac \
         --name <app-name> \
         --role Contributor \
@@ -118,7 +117,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 2.** Configure GitHub Actions with [az containerapp github-action add][11] command.
 
-        ```bash
+        ```azurecli
         az containerapp github-action add \
         --resource-group <resource-group-name> \
         --name python-container-app \
@@ -194,7 +193,7 @@ If you haven't already, use `git clone` to pull your forked repository to your d
 
 **Step 1.** Start in *main*.
 
-```Bash
+```console
 git checkout main
 git pull
 ```
@@ -205,7 +204,7 @@ Go to the *./templates/base.html* file and change the phrase "Azure Restaurant R
 
 **Step 3.** Commit and push the change to GitHub.
 
-```Bash
+```console
 git commit -a -m "Redeploy with title change."
 git push
 ```
@@ -240,7 +239,7 @@ These steps use the [GitHub CLI][18].
 
 **Step 1.** Get a summary of your workflow.
 
-```Bash
+```console
 gh workflow view
 ```
 
@@ -248,7 +247,7 @@ This command prompts you to select a workflow and then gives an overview of rece
 
 **Step 2.** Go to GitHub for details of run of workflow.
 
-```bash
+```console
 gh workflow view --web
 ```
 
