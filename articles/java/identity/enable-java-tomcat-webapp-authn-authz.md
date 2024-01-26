@@ -66,7 +66,7 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |                 |               |
 |-----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
+| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=java-maven-tomcat) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
 
 
 ## More information
