@@ -27,6 +27,8 @@ items:
       href: managing-virtual-machines-using-azure-explorer.md
     - name: Azure Redis Cache - Manage Azure Redis Cache
       href: managing-redis-caches-using-azure-explorer.md
+    - name: Azure OpenAI - Get Started
+      href: chatgpt-intellij.md
   - name: Release notes
     href: https://github.com/Microsoft/azure-tools-for-java/releases
   - name: Marketplace
