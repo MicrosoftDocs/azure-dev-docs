@@ -62,11 +62,11 @@ Please refer to each sample's README for sample-specific recommendations.
 | <img src="media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-java-websphere-webapp-authz-role-entra-id) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
 | <img src="media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-java-websphere-webapp-authz-group-entra-id) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
 
-### Chapter 4: Deploy your app to Azure
+### Chapter 4: Deploy your app to Azure Virtual Machines
 
 |                 |               |
 |-----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure Virtual Machines**](https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-websphere-to-virtual-machines) </br> Prepare your app for deployment to Azure Virtual Machines. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
+| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure Virtual Machines**](https://learn.microsoft.com/azure/developer/java/migration/migrate-websphere-to-azure-vm-manually?tabs=in-bash%2Cwas-nd-v9) </br> Prepare your app for deployment to Azure Virtual Machines. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
 
 
 

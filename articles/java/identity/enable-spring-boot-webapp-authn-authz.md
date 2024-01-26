@@ -65,7 +65,7 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |                 |               |
 |-----------------|---------------|
-| <img src="./media/sign-in.png" width="200"> | [**4.1 Deploy to Azure Spring Apps**](https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps) </br> Prepare your app for deployment to Azure SPring Apps. Learn how to package and upload files, configure parameters and use various Azure services for managing your operations. |
+| <img src="./media/sign-in.png" width="200"> | [**4.1 Deploy to Azure Spring Apps**](https://learn.microsoft.com/azure/spring-apps/how-to-launch-from-source) </br> Prepare your app for deployment to Azure SPring Apps. Learn how to package and upload files, configure parameters and use various Azure services for managing your operations. |
 
 
 
