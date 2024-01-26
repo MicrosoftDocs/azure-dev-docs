@@ -11,7 +11,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which effects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
-[Video overview of evaluations app](https://www.youtube.com/watch?v=mM8pZAI2C5w)
+[Evaluation app video](https://www.youtube.com/watch?v=mM8pZAI2C5w)
 
 By following the instructions in this article, you will:
 
