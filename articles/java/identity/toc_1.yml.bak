@@ -7,35 +7,35 @@ items:
   - name: How-To
     expanded: true
     items: 
-    - name: Secure your Java Jboss EAP web app using the Microsoft identity platform
+    - name: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
         href: enable-java-jboss-eap-webapp-authn-authz.md
-      - name: Enable sign in for your Java Jboss EAP web app
+      - name: Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
         href: enable-java-jboss-eap-webapp-authn-entra-id.md
-      - name: Enable B2C sign in for your Java Jboss EAP web app
+      - name: Enable your Java Jboss EAP Web App using MSAL4J to authenticate users into Azure Active Directory B2C
         href: enable-java-jboss-eap-webapp-authn-azure-ad-b2c.md
-      - name: Access user details in your Java Jboss EAP web app
+      - name: Enable your Java Jboss EAP web app to sign in users and access resources on Microsoft Graph
         href: enable-java-jboss-eap-webapp-authz-entra-id.md
-      - name: Use roles & role claims in your Java Jboss EAP Web app
+      - name: Add authorization using app roles & roles claims to Java Jboss EAP Web app that signs-in users with the Microsoft identity platform
         href: enable-java-jboss-eap-webapp-authz-role-entra-id.md      
-      - name: Use groups and group claims in your Java Jboss EAP web app
+      - name: Enable your Java Jboss EAP web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
         href: enable-java-jboss-eap-webapp-authz-group-entra-id.md      
-    - name: Secure your Java Tomcat web app using the Microsoft identity platform
+    - name: Enable your Java Tomcat web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
         href: enable-java-tomcat-webapp-authn-authz.md
-      - name: Enable sign in for your Java Tomcat web app 
+      - name: Enable your Java Tomcat web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
         href: enable-java-tomcat-webapp-authn-entra-id.md
-      - name: Enable B2C sign in for your Java Tomcat web app
+      - name: Enable your Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
         href: enable-java-tomcat-webapp-authn-azure-ad-b2c.md
-      - name: Access user details in your Java Tomcat web app
+      - name: Enable your Java Tomcat web app to sign in users and access resources on Microsoft Graph
         href: enable-java-tomcat-webapp-authz-entra-id.md
-      - name: Use roles & role claims in your Java Tomcat Web app
+      - name: Add authorization using app roles & roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
         href: enable-java-tomcat-webapp-authz-role-entra-id.md      
-      - name: Use groups and group claims in your Java Tomcat web app
+      - name: Enable your Java Tomcat web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
         href: enable-java-tomcat-webapp-authz-group-entra-id.md
     - name: Enable your Java WebLogic web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
