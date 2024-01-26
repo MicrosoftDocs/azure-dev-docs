@@ -11,7 +11,7 @@
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
   - name: Evaluate your chat app
-    href: get-started-app-chat-evaulations.md
+    href: get-started-app-chat-evaluations.md
     display: Azure OpenAI
 - name: Web
   items:

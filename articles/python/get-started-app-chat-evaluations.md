@@ -1,15 +1,15 @@
 ---
 title: "Evaluating Chat App Prompts with Azure OpenAI"
-description: "Learn how to effectively evaluate prompt answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
+description: "Learn how to effectively evaluate answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/22/2024
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
-# CustomerIntent: As a python developer new to Azure OpenAI, I want evaluate the prompt answers of my chat app.
+# CustomerIntent: As a python developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 
-# Get started with evaluating prompt answers in a chat app
+# Get started with evaluating answers in a chat app
 
-This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your Chat application which effects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
+This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which effects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
 [Video overview of evaluations app](https://www.youtube.com/watch?v=mM8pZAI2C5w)
 
@@ -24,7 +24,7 @@ By following the instructions in this article, you will:
 
 Key components of the architecture include:
 
-* **Azure-hosted Chat app**: The chat app runs in Azure App Service. The chat app conforms to the Chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
+* **Azure-hosted chat app**: The chat app runs in Azure App Service. The chat app conforms to the chat protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 * **Azure AI Search**: The chat app uses Azure AI Search to store the data from your own documents. 
 * **Sample questions generator**: Can generate a number of questions for each document along with the ground truth answer. The more questions, the longer the evaluation.
 * **Evaluator** runs sample questions and prompts against the chat app and returns the results.
@@ -38,18 +38,18 @@ Key components of the architecture include:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
-* Complete the [previous Chat App procedure](get-started-app-chat-template.md) to deploy the Chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
+* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
-    You'll need the following Azure resource information from that deployment, which is referred to as the **Chat app** in this article:
+    You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
     * Web API URI: The URI of the deployed chat app API. 
     * Azure AI Search. The following values are required:
         * Resource name: The name of the Azure AI Search resource name.
         * Index name: The name of the Azure AI Search index where your documents are stored.
         * Query key: The key to query your Search index.
-    * If you experimented with the Chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
+    * If you experimented with the chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
 
-    Once you have this information collected, you shouldn't need to use the **Chat app** development environment again. It's referred to later in this article several times to indicate how the **Chat app** is used by the **Evaluations app**. Don't delete the **Chat app** resources until you complete the entire procedure in this article.
+    Once you have this information collected, you shouldn't need to use the **chat app** development environment again. It's referred to later in this article several times to indicate how the **chat app** is used by the **Evaluations app**. Don't delete the **chat app** resources until you complete the entire procedure in this article.
 
 * A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
@@ -58,7 +58,6 @@ Key components of the architecture include:
     1. GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
     1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     1. [Visual Studio Code](https://code.visualstudio.com/)
@@ -79,7 +78,7 @@ Begin now with a development environment that has all the dependencies installed
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/ai-rag-chat-evaluator`](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository.
-1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
+1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
 
     > [!div class="nextstepaction"]
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&repo=721389005)
@@ -93,7 +92,7 @@ Begin now with a development environment that has all the dependencies installed
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -107,7 +106,7 @@ Begin now with a development environment that has all the dependencies installed
     This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a GPT-4 deployment that's required to run the evaluations locally in the development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
-1. The name of the GitHub repository is shown in the search bar. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the search bar. This helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -137,7 +136,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
     Follow the instructions to authenticate with your Azure account.
@@ -151,7 +150,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
 
 1. The remaining exercises in this project take place in the context of this development container.
-1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This helps you distinguish between this evaluations app from the Chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 ---
 
@@ -165,7 +164,7 @@ Update the environment values and configuration information with the information
     azd env get-values > .env
     ```
 
-1. Add the following values from the **Chat app** for its **Azure AI Search** instance to the `.env`, which you gathered in the [prerequisites](#prerequisites) section:
+1. Add the following values from the **chat app** for its **Azure AI Search** instance to the `.env`, which you gathered in the [prerequisites](#prerequisites) section:
 
     ```bash
     AZURE_SEARCH_SERVICE="<service-name>"
@@ -194,15 +193,15 @@ Update the environment values and configuration information with the information
     }
     ```
 
-1. Change the `target_url` to the URI value of your **Chat app**, which you gathered in the [prerequisites](#prerequisites) section. The Chat app must conform to the Chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
+1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The chat app must conform to the chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
-## Generate sample prompts
+## Generate sample data
 
-In order to evaluate new answers, they must be compared to a "ground truth" answer, which is the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **Chat app**.
+In order to evaluate new answers, they must be compared to a "ground truth" answer, which is the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **chat app**.
 
 1. Copy the `example_input` folder into a new folder named`my_input`.
 
-1. In a terminal, run the following command to generate the sample prompts:
+1. In a terminal, run the following command to generate the sample data:
 
     ```bash
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
@@ -402,7 +401,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ---
 
-1. After you clean up for the evaluations app, return to the Chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
+1. After you clean up for the evaluations app, return to the chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
 
 ## Next steps
 
