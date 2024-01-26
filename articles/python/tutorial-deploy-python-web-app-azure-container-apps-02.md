@@ -228,7 +228,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 3.** Sign in to the registry using the [az acr sign in][19] command.
+        **Step 3.** Sign in to the registry using the [az acr login][19] command.
 
         ```azurecli
         az acr login --name <registry-name>
