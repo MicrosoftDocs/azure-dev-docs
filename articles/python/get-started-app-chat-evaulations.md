@@ -96,8 +96,6 @@ Begin now with a development environment that has all the dependencies installed
     azd auth login
     ```
 
-    If you are prompted to update the Azure Developer CLI (azd), complete that step then authenticate again.
-
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
@@ -142,8 +140,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd auth login
     ```
 
-    If you are prompted to update the Azure Developer CLI (azd), complete that step then authenticate again.
-
     Follow the instructions to authenticate with your Azure account.
 
 1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
@@ -174,6 +170,7 @@ Update the environment values and configuration information with the information
     ```bash
     AZURE_SEARCH_SERVICE="<service-name>"
     AZURE_SEARCH_INDEX="<index-name>"
+    AZURE_SEARCH_KEY="<query-key>"
     ```
 
     The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance. 
@@ -220,7 +217,20 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to include the name of the prompt: `my_results/experiment_refined`
+    * Change `results_dir` to include the name of the prompt: `my_results/experiment_refined`.
+    * Change `prompt_template` to: `<READFILE>my_input/experiment_refined.txt` to use the refined prompt template in the evaluation. 
+
+    The refined prompt is very specific about the subject domain.
+
+    ```txt
+    If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
+
+    Use clear and concise language and write in a confident yet friendly tone. In your answers ensure the employee understands how your response connects to the information in the sources and include all citations necessary to help the employee validate the answer provided.
+    
+    For tabular information return it as an html table. Do not return markdown format. If the question is not in English, answer in the language used in the question.
+    
+    Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brackets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].
+    ```
 
 1. In a terminal, run the following command to run the evaluation:
 
@@ -254,24 +264,31 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 
 ## Run third evaluation with a specific temperature
 
-Use a refined prompt but with shorter length. This is a common scenario when you want to use a refined prompt but don't want to use the full prompt length.
+Use a prompt which allows for more creativity. 
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to: `my_results/experiment_ignoresources_temp02`
+    * Change `results_dir` to: `my_results/experiment_ignoresources_temp09`
     * Change `prompt_template` to: `<READFILE>my_input/prompt_ignoresources.txt` 
-    * Add a new override, `"temperature": 0.2`
+    * Add a new override, `"temperature": 0.9` - the default temperature is 0.7. The higher the temperature, the more creative the answers.
+
+    The ignore prompt is short: 
+
+    ```text
+    Your job is to answer questions to the best of your ability. You will be given sources but you should IGNORE them. Be creative!
+    ```
+
 
 1. The config object should like the following except use your own `results_dir`:
 
     ```json
     {
         "testdata_path": "my_input/qa.jsonl",
-        "results_dir": "my_results/experiment_ignoresources_temp02",
+        "results_dir": "my_results/experiment_ignoresources_temp09",
         "target_url": "https://YOUR-CHAT-APP/chat",
         "target_parameters": {
             "overrides": {
-                "temperature": 0.2,
+                "temperature": 0.9,
                 "semantic_ranker": false,
                 "prompt_template": "<READFILE>my_input/prompt_ignoresources.txt"
             }
@@ -311,7 +328,7 @@ You have performed three evaluations based on different prompts and app settings
     | Citation | This indicates if the answer was returned in the format requested in the prompt.|
     | Length | This measures the length of the response.|
 
-1. The results should indicate all 3 evaluations had high relevance while the `experiment_ignoresources_temp02` had the lowest relevance.
+1. The results should indicate all 3 evaluations had high relevance while the `experiment_ignoresources_temp09` had the lowest relevance.
 
 1. Select the folder to see the configuration for the evaluation.
 1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> exit the app and return to the terminal.
@@ -323,7 +340,7 @@ Compare the returned answers from the evaluations.
 1. Select two of the evaluations to compare, then use the same review tool to compare the answers:
 
     ```bash
-    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp02
+    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
     ```
 
 1. Review the results.
