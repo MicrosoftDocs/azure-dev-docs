@@ -65,7 +65,7 @@ To trigger the completion, you can input some text as a prompt. The model genera
 
 To start a chat session, follow these steps:
 
-1. In the chat session pane, you can start with a simple prompt like this one: "I'm interested in buying a new Surface". After you type the prompt, select **Send**. You receive a response similar to the following example:
+1. In the chat session pane, you can start with a simple prompt like this one: "I'm interested in buying a new Surface." After you type the prompt, select **Send**. You receive a response similar to the following example:
 
    ```output
    Great! Which Surface model are you interested in? There are several options available such as the Surface Pro, Surface Laptop, Surface Book, Surface Go, and Surface Studio. Each one has its own unique features and specifications, so it's important to choose the one that best fits your needs.
