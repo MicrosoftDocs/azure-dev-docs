@@ -27,7 +27,9 @@ For more information about how the protocols work in this scenario and other sce
 
 [!INCLUDE [enable-java-servlet-webapp-authz-role-entra-id.md](includes/enable-java-servlet-webapp-authz-role-entra-id.md)]
 
-#### Deploying the Sample
+[!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
+
+#### Running the sample locally
 
 To run the sample on Tomcat:
 

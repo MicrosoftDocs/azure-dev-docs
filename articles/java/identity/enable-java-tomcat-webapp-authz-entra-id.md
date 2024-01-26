@@ -20,7 +20,9 @@ This article demonstrates a Java Tomcat web app that signs in users and obtains 
 
 [!INCLUDE [enable-java-servlet-webapp-authz-entra-id.md](includes/enable-java-servlet-webapp-authz-entra-id.md)]
 
-#### Deploying the Sample
+[!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
+
+#### Running the sample locally
 
 To run the sample on Tomcat:
 

@@ -18,7 +18,9 @@ This article demonstrates a Java Tomcat web application that authenticates users
 
 [!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c.md)]
 
-## Deploying the Sample
+[!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
+
+#### Running the sample locally
 
 To run the sample on Tomcat:
 

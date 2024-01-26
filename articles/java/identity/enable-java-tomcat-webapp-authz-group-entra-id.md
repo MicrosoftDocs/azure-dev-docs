@@ -23,7 +23,9 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 [!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id.md](includes/enable-java-servlet-webapp-authz-group-entra-id.md)]
 
 
-#### Deploying the Sample
+[!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
+
+#### Running the sample locally
 
 To run the sample on Tomcat:
 
