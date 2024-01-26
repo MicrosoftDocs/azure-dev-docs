@@ -20,7 +20,9 @@ This article demonstrates a Java Tomcat web app that signs in users to your Micr
 
 [!INCLUDE [enable-java-servlet-webapp-authn-entra-id.md](includes/enable-java-servlet-webapp-authn-entra-id.md)]
 
-#### Deploying the Sample
+[!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
+
+#### Running the sample locally
 
 To run the sample on Tomcat:
 

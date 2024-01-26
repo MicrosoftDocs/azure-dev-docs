@@ -12,7 +12,7 @@ items:
       items:
       - name: Overview
         href: enable-java-jboss-eap-webapp-authn-authz.md
-      - name: Enable sign
+      - name: Enable sign in
         href: enable-java-jboss-eap-webapp-authn-entra-id.md
       - name: Enable B2C sign in
         href: enable-java-jboss-eap-webapp-authn-azure-ad-b2c.md
