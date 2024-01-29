@@ -1,5 +1,5 @@
 ---
-title: "Evaluating Chat App Prompts with Azure OpenAI"
+title: "Evaluating chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/22/2024
 ms.topic: get-started
@@ -9,9 +9,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with evaluating answers in a chat app
 
-This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which effects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
-
-[Evaluation app video](https://www.youtube.com/watch?v=mM8pZAI2C5w)
+This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
 By following the instructions in this article, you will:
 
@@ -55,13 +53,13 @@ Key components of the architecture include:
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
     
-    1. GitHub account
+    * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-    1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    1. [Visual Studio Code](https://code.visualstudio.com/)
-    1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+    * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     
     ---
 
@@ -158,7 +156,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the evaluations app.
 
-1. Use the following command to get the **Evaluations** app resource information into a `.env` file.:
+1. Use the following command to get the **Evaluations** app resource information into a `.env` file:
 
     ```bash
     azd env get-values > .env
@@ -392,16 +390,16 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+:::image type="content" source="./media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
-1. After you clean up for the evaluations app, return to the chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
+After you clean up for the evaluations app, return to the chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
 
 ## Next steps
 
