@@ -2,7 +2,7 @@
 title: Configure CI/CD for a Python web app in Azure Container Apps
 description: Set up CI/CD for a Python web app container in Azure Container Apps using GitHub Actions triggered on changes (like PRs) to the main branch of a repo.
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 01/29/2024
 ms.custom: devx-track-python
 ---
 
@@ -17,7 +17,7 @@ The service diagram shown below highlights the components covered in this articl
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Sections highlighted are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
 
 > [!NOTE]
-> If you're running the commands in this tutorial in a GitBash shell on a Windows computer, enter the following command before proceeding:
+> If you're running the commands in this tutorial in a Git Bash shell on a Windows computer, enter the following command before proceeding:
 >
 > ```bash
 > export MSYS_NO_PATHCONV=1
@@ -37,7 +37,7 @@ To set up continuous deployment, you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In this section, you'll set up continuous deployment, which means a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
+In this section, you set up continuous deployment using a GitHub Actions workflow. With continous deployment, a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
 
 ### [Azure CLI](#tab/azure-cli)
 
