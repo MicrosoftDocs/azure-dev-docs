@@ -33,7 +33,7 @@ To set up continuous deployment, you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In the steps below, you'll set up continuous deployment, which means a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
+In this section, you'll set up continuous deployment, which means a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -106,10 +106,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         Where: 
         * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
-        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure.
-        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level.
+        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
+        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous article in this tutorial, the resource group name is `pythoncontainer-rg`.
 
-        Save the output of this command for the next step, in  particular, the client ID and client secret.
+        Save the output of this command for the next step, in  particular, the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
 
     :::column-end:::
 :::row-end:::
@@ -121,7 +121,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         az containerapp github-action add \
         --resource-group <resource-group-name> \
         --name python-container-app \
-        --repo-url https://github.com/userid/repo \
+        --repo-url <https://github.com/userid/> \
         --branch main \
         --registry-url <registry-name>.azurecr.io \
         --service-principal-client-id <client-id> \
@@ -132,10 +132,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         Where:
         * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<registry-name>* is an existing registry you created for this tutorial, or one that you can use.
-        * *\<client-id>* is a value from the previous `az ad sp` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is a value from the previous `az ad sp` command. The ID is also a GUID similar to the client id.
-        * *\<client-secret>* is a value from the previous `az ad sp` command.
+        * *\<https://github.com/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/<User ID>/msdocs-python-django-azure-container-apps or https://github.com/<User ID>/msdocs-python-flask-azure-container-apps; where \<User ID> is your GitHub user ID.
+        * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
+        * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+        * *\<tenant-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
+        * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
 
     :::column-end:::
 :::row-end:::
@@ -200,7 +201,7 @@ git pull
 
 **Step 2.** Make a change.
 
-Go to the *./templates/base.html* file and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+Go to the *./templates/base.html* file (*./restaurant_review/templates/restaruant_review/base.html* for django) and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
 **Step 3.** Commit and push the change to GitHub.
 
@@ -237,13 +238,20 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
 These steps use the [GitHub CLI][18].
 
-**Step 1.** Get a summary of your workflow.
+**Step 1.** Get a summary of your workflow. Run the following command in folder that contains your clone:
 
 ```console
 gh workflow view
 ```
 
-This command prompts you to select a workflow and then gives an overview of recent runs of that workflow. The first time using `gh` you may be prompted to authentication. Follow the GitHub CLI prompts to authenticate.
+This command prompts you to select a workflow and then gives an overview of recent runs of that workflow.
+
+> [!NOTE]
+> The first time using `gh` you may be prompted to authentication. Follow the GitHub CLI prompts to authenticate.
+>
+> If you have more than one remote configured, you might be asked to run `gh repo set-default` to select a default remote repository. Select your fork from the options presented.
+>
+> You can run the `gh workflow view` command from any folder without the need to set a default repository by adding the `--repo [HOST/]OWNER/REPO` parameter.
 
 **Step 2.** Go to GitHub for details of run of workflow.
 
@@ -255,7 +263,7 @@ gh workflow view --web
 
 ### Workflow secrets
 
-In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository **Settings** under **Security**/**Actions**.
+In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository **Settings** under **Security**/**Secrets and variables**/**Actions**.
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Actions secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
