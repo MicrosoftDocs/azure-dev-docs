@@ -39,6 +39,58 @@ In a previous article of this tutorial, you created and configured a container a
 
 In this section, you'll set up continuous deployment, which means a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
 
+### [Azure CLI](#tab/azure-cli)
+
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+
+:::row:::
+    :::column span="1":::
+        **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
+
+        ```azurecli        
+        az ad sp create-for-rbac \
+        --name <app-name> \
+        --role Contributor \
+        --scopes "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>"
+        ```
+
+        Where: 
+        * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
+        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
+        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous article in this tutorial, the resource group name is `pythoncontainer-rg`.
+
+        Save the output of this command for the next step, in  particular, the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 2.** Configure GitHub Actions with [az containerapp github-action add][11] command.
+
+        ```azurecli
+        az containerapp github-action add \
+        --resource-group <resource-group-name> \
+        --name python-container-app \
+        --repo-url <https://github.com/userid/repo> \
+        --branch main \
+        --registry-url <registry-name>.azurecr.io \
+        --service-principal-client-id <client-id> \
+        --service-principal-tenant-id <tenant-id> \
+        --service-principal-client-secret <client-secret> \
+        --login-with-github
+        ```
+
+        Where:
+        * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
+        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/userid/msdocs-python-django-azure-container-apps or https://github.com/userid/msdocs-python-flask-azure-container-apps; where `userid` is your GitHub user ID.
+        * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
+        * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+        * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
+        * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
+
+    :::column-end:::
+:::row-end:::
+
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
@@ -90,58 +142,6 @@ In this section, you'll set up continuous deployment, which means a new Docker i
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
-
-:::row:::
-    :::column span="1":::
-        **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
-
-        ```azurecli        
-        az ad sp create-for-rbac \
-        --name <app-name> \
-        --role Contributor \
-        --scopes "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>"
-        ```
-
-        Where: 
-        * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
-        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
-        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous article in this tutorial, the resource group name is `pythoncontainer-rg`.
-
-        Save the output of this command for the next step, in  particular, the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
-
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Configure GitHub Actions with [az containerapp github-action add][11] command.
-
-        ```azurecli
-        az containerapp github-action add \
-        --resource-group <resource-group-name> \
-        --name python-container-app \
-        --repo-url <https://github.com/userid/repo> \
-        --branch main \
-        --registry-url <registry-name>.azurecr.io \
-        --service-principal-client-id <client-id> \
-        --service-principal-tenant-id <tenant-id> \
-        --service-principal-client-secret <client-secret> \
-        --login-with-github
-        ```
-
-        Where:
-        * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/userid/msdocs-python-django-azure-container-apps or https://github.com/userid/msdocs-python-flask-azure-container-apps; where `userid` is your GitHub user ID.
-        * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
-        * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
-        * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
-
     :::column-end:::
 :::row-end:::
 
