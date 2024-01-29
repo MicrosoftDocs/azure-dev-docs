@@ -125,7 +125,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         az containerapp github-action add \
         --resource-group <resource-group-name> \
         --name python-container-app \
-        --repo-url <https://github.com/userid/> \
+        --repo-url <https://github.com/userid/repo> \
         --branch main \
         --registry-url <registry-name>.azurecr.io \
         --service-principal-client-id <client-id> \
@@ -136,10 +136,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         Where:
         * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<https://github.com/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/<User ID>/msdocs-python-django-azure-container-apps or https://github.com/<User ID>/msdocs-python-flask-azure-container-apps; where \<User ID> is your GitHub user ID.
+        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/userid/msdocs-python-django-azure-container-apps or https://github.com/userid/msdocs-python-flask-azure-container-apps; where `userid` is your GitHub user ID.
         * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
         * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
+        * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
         * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
 
     :::column-end:::
