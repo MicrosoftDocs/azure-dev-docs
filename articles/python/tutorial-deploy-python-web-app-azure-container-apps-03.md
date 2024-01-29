@@ -17,7 +17,11 @@ The service diagram shown below highlights the components covered in this articl
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Sections highlighted are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
 
 > [!NOTE]
-> Command lines in this tutorial are shown in the Bash shell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`"). Or, remove the continuation characters and enter the command on one line.
+> If you're running the commands in this tutorial in a GitBash shell on a Windows computer, enter the following command before proceeding:
+>
+> ```bash
+> export MSYS_NO_PATHCONV=1
+> ```
 
 ## Prerequisites
 
