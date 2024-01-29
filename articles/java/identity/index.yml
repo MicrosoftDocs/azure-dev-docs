@@ -14,72 +14,70 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+          - text: Enable sign in with Entra ID
             url: enable-java-jboss-eap-webapp-authn-entra-id.md
-          - text: Enable your Java Jboss EAP Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+          - text: Enable sign in with Azure AD B2C
             url: enable-java-jboss-eap-webapp-authn-azure-ad-b2c.md
-          - text: Enable your Java Jboss EAP web app to sign in users and access resources on Microsoft Graph
+          - text: Access user details
             url: enable-java-jboss-eap-webapp-authz-entra-id.md
-          - text: Add authorization using app roles & roles claims to Java Jboss EAP Web app that signs-in users with the Microsoft identity platform
+          - text: Use roles & role claims
             url: enable-java-jboss-eap-webapp-authz-role-entra-id.md      
-          - text: Enable your Java Jboss EAP web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+          - text: Use groups and group claims
             url: enable-java-jboss-eap-webapp-authz-group-entra-id.md 
   - title: Enable security for your Java Tomcat web app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Overview
-            url: enable-java-tomcat-webapp-authn-authz.md
-          - text: Enable your Java Tomcat web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+          - text: Enable sign in with Entra ID
             url: enable-java-tomcat-webapp-authn-entra-id.md
-          - text: Enable your Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+          - text: Enable sign in with Azure AD B2C
             url: enable-java-tomcat-webapp-authn-azure-ad-b2c.md
-          - text: Enable your Java Tomcat web app to sign in users and access resources on Microsoft Graph
+          - text: Access user details
             url: enable-java-tomcat-webapp-authz-entra-id.md
-          - text: Add authorization using app roles & roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
+          - text: Use roles & role claims
             url: enable-java-tomcat-webapp-authz-role-entra-id.md      
-          - text: Enable your Java Tomcat web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+          - text: Use groups and group claims
             url: enable-java-tomcat-webapp-authz-group-entra-id.md 
   - title: Enable security for your Java WebLogic web app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable your Java WebLogic web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+          - text: Enable sign in with Entra ID
             url: enable-java-weblogic-webapp-authn-entra-id.md
-          - text: Enable your Java WebLogic Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+          - text: Enable sign in with Azure AD B2C
             url: enable-java-weblogic-webapp-authn-azure-ad-b2c.md
-          - text: Enable your Java WebLogic web app to sign in users and access resources on Microsoft Graph
+          - text: Access user details
             url: enable-java-weblogic-webapp-authz-entra-id.md
-          - text: Add authorization using app roles & roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
+          - text: Use roles & role claims
             url: enable-java-weblogic-webapp-authz-role-entra-id.md      
-          - text: Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+          - text: Use groups and group claims
             url: enable-java-weblogic-webapp-authz-group-entra-id.md 
   - title: Enable security for your Java Webshpere web app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable your Java WebSphere web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+          - text: Enable sign in with Entra ID
             url: enable-java-websphere-webapp-authn-entra-id.md
-          - text: Enable your Java WebSphere Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+          - text: Enable sign in with Azure AD B2C
             url: enable-java-websphere-webapp-authn-azure-ad-b2c.md
-          - text: Enable your Java WebSphere web app to sign in users and access resources on Microsoft Graph
+          - text: Access user details
             url: enable-java-websphere-webapp-authz-entra-id.md
-          - text: Add authorization using app roles & roles claims to Java WebSphere Web app that signs-in users with the Microsoft identity platform
+          - text: Use roles & role claims
             url: enable-java-websphere-webapp-authz-role-entra-id.md      
-          - text: Enable your Java WebSphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+          - text: Use groups and group claims
             url: enable-java-websphere-webapp-authz-group-entra-id.md 
   - title: Enable security for your Java Spring MVC web app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable your Java Spring MVC web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+          - text: Enable sign in with Entra ID
             url: enable-spring-boot-webapp-authn-entra-id.md
-          - text: Enable your Java Spring MVC Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+          - text: Enable sign in with Azure AD B2C
             url: enable-spring-boot-webapp-authn-azure-ad-b2c.md
-          - text: Enable your Java Spring MVC web app to sign in users and access resources on Microsoft Graph
+          - text: Access user details
             url: enable-spring-boot-webapp-authz-entra-id.md
-          - text: Add authorization using app roles & roles claims to Java Spring MVC Web app that signs-in users with the Microsoft identity platform
+          - text: Use roles & role claims
             url: enable-spring-boot-webapp-authz-role-entra-id.md      
-          - text: Enable your Java Spring MVC web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+          - text: Use groups and group claims
             url: enable-spring-boot-webapp-authz-group-entra-id.md                                         
     

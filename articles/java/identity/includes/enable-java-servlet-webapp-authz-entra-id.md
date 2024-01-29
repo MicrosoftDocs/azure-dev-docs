@@ -19,6 +19,8 @@ ms.custom: devx-track-java
 - A user account in any organization's Microsoft Entra ID tenant if you want to work with **accounts in any organizational directory** (multi-tenant mode).  This sample must be modified to work with a **personal Microsoft account**. If have not yet [created a user account](https://learn.microsoft.com/entra/fundamentals/add-users) in your AD tenant yet, you should do so before proceeding.
 - A personal Microsoft account (e.g., Xbox, Hotmail, Live, etc) if you want to work with **personal Microsoft accounts**
 
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 ## Setup
 
 ### Clone or download this repository

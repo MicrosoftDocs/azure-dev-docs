@@ -21,6 +21,9 @@ ms.custom: devx-track-java
 - A user account in your own Microsoft Entra ID tenant.
 - Two security groups, **GroupAdmin** and **GroupMember**, containing users you want to test with.
 
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
+
 ## Setup
 
 ### Clone or download this repository

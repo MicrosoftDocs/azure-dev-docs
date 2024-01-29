@@ -20,6 +20,8 @@ ms.custom: devx-track-java
 - An **Azure AD B2C** tenant. For more information see: [How to get an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)
 - A user account in your **Azure AD B2C**.
 
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 ## Setup
 
 ### Clone or download this repository
