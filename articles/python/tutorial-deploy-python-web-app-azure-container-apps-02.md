@@ -47,145 +47,6 @@ cd python-container
 
 After following these steps, you'll have an Azure Container Registry that contains a Docker container image built from the sample code.
 
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column span="2":::
-        **Step 1.** In the [Azure portal][3], search for "container registries" and select the **Container Registries** service in the results.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to search for container registries services in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Select **+ Create** to start the create process.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Fill out the form and specify.
-        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-        * **Location** &rarr; Select a location. 
-        * **SKU** &rarr; Select **Standard**.
-
-        When finished, select **Review + create**. After  validation is complete, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-03.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-03.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** Enable the administrator user account.
-
-        * In the Container registry you just created, go to the **Access Keys** resource.
-        * Select **Enabled** for the **Admin user**.
-
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-05.png" alt-text="Screenshot showing how to set enable administrator user account for Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-05.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and building an image.
-
-        You can also go directly to [Azure Cloud Shell][4].
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 6.** Use the [az acr build][5] command to build the image from the repo.
-
-        ```azurecli
-        az acr build --registry <registry-name> \
-           --resource-group pythoncontainer-rg \ 
-           --image pythoncontainer:latest <repo-path>
-        ```
-        Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
-
-        After the command completes, go to the registry's **Repositories** resource and confirm the image shows up.
-    :::column-end:::
-:::row-end:::
-
-### [VS Code](#tab/vscode-aztools)
-
-These steps require the [Docker extension][6] for VS Code.
-
-:::row:::
-    :::column span="2":::
-        **Step 1.** Start the build image task.
-        
-        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        * Type "Azure Container Registry".
-        * Select the task **Azure Container Registry: Build Image in Azure**.      
-
-        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
-        
-        * **Tag image as** &rarr; Enter *pythoncontainer:latest*.
-        * **Create new registry** &rarr; Select this option to create new registry.
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **Select a SKU** &rarr; Select **Basic**.
-        * **Create a new resource group** &rarr; Select this option to create resource group.
-        * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
-        * **Location** &rarr; Select a location and wait a few seconds for the final prompt for the base image OS.
-        * **Select OS** &rarr; Select **Linux**.
-
-        If you see an error in the **Output** window, see the [Troubleshooting section](#troubleshoot-deployment).
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-02.gif" alt-text="Screenshot showing how to specify configuration of a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-02.gif":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Confirm the registry was created.
-
-        Select the Docker extension and to the **Registries** section. Expand the Azure node to find the new Azure Container Registry.  
-      
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot showing how to confirm the Azure Container Registry was created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 4.** Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
-
-        ```azurecli
-        az acr update --name <registry-name> \
-           --resource-group pythoncontainer-rg \
-           --admin-enabled true
-        ```
-
-        Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions int the portal tab of this article.
-
-        You can view the credentials created for admin with:
-
-        ```azurecli
-        az acr credential show \
-           --name  <registry-name> \
-           --resource-group pythoncontainer-rg
-        ```
-    :::column-end:::
-:::row-end:::
-
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
@@ -267,20 +128,84 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         :::column-end:::
 :::row-end:::
 
----
+### [VS Code](#tab/vscode-aztools)
 
-## Create a PostgreSQL Flexible Server instance
+These steps require the [Docker extension][6] for VS Code.
 
-The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you'll create the server that will contain the database.
+:::row:::
+    :::column span="2":::
+        **Step 1.** Start the build image task.
+        
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "Azure Container Registry".
+        * Select the task **Azure Container Registry: Build Image in Azure**.      
+
+        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
+        
+        * **Tag image as** &rarr; Enter *pythoncontainer:latest*.
+        * **Create new registry** &rarr; Select this option to create new registry.
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+        * **Select a SKU** &rarr; Select **Basic**.
+        * **Create a new resource group** &rarr; Select this option to create resource group.
+        * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
+        * **Location** &rarr; Select a location and wait a few seconds for the final prompt for the base image OS.
+        * **Select OS** &rarr; Select **Linux**.
+
+        If you see an error in the **Output** window, see the [Troubleshooting section](#troubleshoot-deployment).
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-02.gif" alt-text="Screenshot showing how to specify configuration of a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-02.gif":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Confirm the registry was created.
+
+        Select the Docker extension and to the **Registries** section. Expand the Azure node to find the new Azure Container Registry.  
+      
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot showing how to confirm the Azure Container Registry was created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 4.** Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
+
+        ```azurecli
+        az acr update --name <registry-name> \
+           --resource-group pythoncontainer-rg \
+           --admin-enabled true
+        ```
+
+        Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions int the portal tab of this article.
+
+        You can view the credentials created for admin with:
+
+        ```azurecli
+        az acr credential show \
+           --name  <registry-name> \
+           --resource-group pythoncontainer-rg
+        ```
+    :::column-end:::
+:::row-end:::
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In [Azure portal][3], search for "postgres flexible" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+        **Step 1.** In the [Azure portal][3], search for "container registries" and select the **Container Registries** service in the results.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png" alt-text="Screenshot showing how to search for Azure PostgreSQL Flexible Server resources in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to search for container registries services in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -288,49 +213,98 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
         **Step 2.** Select **+ Create** to start the create process.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png" alt-text="Screenshot showing how to create an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Basics** settings as follows:
+        **Step 3.** Fill out the form and specify.
+        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+        * **Location** &rarr; Select a location. 
+        * **SKU** &rarr; Select **Standard**.
 
-        * **Resource group** &rarr; The resource group used in this tutorial "pythoncontainer-rg".
-        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
-        * **Region** &rarr; The same region you used for the resource group.
-        * **Admin username** &rarr; Use *demoadmin*.
-        * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
-
-        For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
-
+        When finished, select **Review + create**. After  validation is complete, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-03.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-03.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Networking** settings as follows:
+        **Step 4.** Enable the administrator user account.
 
-        * **Connectivity method** &rarr; Select **Public access**.
-        * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
-        * **Add current client IP address** &rarr; Select (add) if you plan on accessing the database from your local server.
-
-        For all other settings, leave the defaults. Select **Review + Create** to continue.
+        * In the Container registry you just created, go to the **Access Keys** resource.
+        * Select **Enabled** for the **Admin user**.
 
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-05.png" alt-text="Screenshot showing how to set enable administrator user account for Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-05.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Review the information and when satisfied, select **Create**.
+        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and building an image.
+
+        You can also go directly to [Azure Cloud Shell][4].
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 6.** Use the [az acr build][5] command to build the image from the repo.
+
+        ```azurecli
+        az acr build --registry <registry-name> \
+           --resource-group pythoncontainer-rg \ 
+           --image pythoncontainer:latest <repo-path>
+        ```
+        Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
+
+        After the command completes, go to the registry's **Repositories** resource and confirm the image shows up.
+    :::column-end:::
+:::row-end:::
+
+---
+
+## Create a PostgreSQL Flexible Server instance
+
+The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you'll create the server that will contain the database.
+
+### [Azure CLI](#tab/azure-cli)
+
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+
+**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
+
+```azurecli
+az postgres flexible-server create \
+   --resource-group pythoncontainer-rg \
+   --name <postgres-server-name>  \
+   --location <location> \
+   --admin-user <admin-username> \
+   --admin-password <admin-password> \
+   --sku-name Standard_D2s_v3 \
+   --public-access 0.0.0.0 
+```
+
+* "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
+* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
+* *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+* *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+* *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
+    > [!IMPORTANT]
+    > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
+
+* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+
+* `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
+
+> [!NOTE]
+> If you plan on working the PostgreSQL server from your local workstation with tools other than Azure CLI, you'll need to add a firewall rule with the [az postgres flexible-server firewall-rule create][28] command.
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -403,38 +377,64 @@ These steps require the [Azure Databases extension][26] for VS Code.
     :::column-end:::
 :::row-end:::
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure portal](#tab/azure-portal)
 
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+:::row:::
+    :::column span="2":::
+        **Step 1.** In [Azure portal][3], search for "postgres flexible" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png" alt-text="Screenshot showing how to search for Azure PostgreSQL Flexible Server resources in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Select **+ Create** to start the create process.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png" alt-text="Screenshot showing how to create an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Fill out the **Basics** settings as follows:
 
-**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
+        * **Resource group** &rarr; The resource group used in this tutorial "pythoncontainer-rg".
+        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+        * **Region** &rarr; The same region you used for the resource group.
+        * **Admin username** &rarr; Use *demoadmin*.
+        * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
 
-```azurecli
-az postgres flexible-server create \
-   --resource-group pythoncontainer-rg \
-   --name <postgres-server-name>  \
-   --location <location> \
-   --admin-user <admin-username> \
-   --admin-password <admin-password> \
-   --sku-name Standard_D2s_v3 \
-   --public-access 0.0.0.0 
-```
+        For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
 
-* "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
-* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
-* *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
-* *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
-* *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Fill out the **Networking** settings as follows:
 
-    > [!IMPORTANT]
-    > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
+        * **Connectivity method** &rarr; Select **Public access**.
+        * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
+        * **Add current client IP address** &rarr; Select (add) if you plan on accessing the database from your local server.
 
-* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+        For all other settings, leave the defaults. Select **Review + Create** to continue.
 
-* `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
-
-> [!NOTE]
-> If you plan on working the PostgreSQL server from your local workstation with tools other than Azure CLI, you'll need to add a firewall rule with the [az postgres flexible-server firewall-rule create][28] command.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Review the information and when satisfied, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
+    :::column-end:::
+:::row-end:::
 
 ---
 
@@ -506,6 +506,214 @@ You can also connect to Azure PostgreSQL Flexible server and create a database u
 ## Deploy the web app to Container Apps
 
 Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you'll create the environment, a container inside the environment, and configure the container so that the website is visible externally.
+
+### [Azure CLI](#tab/azure-cli)
+
+:::row:::
+    :::column:::
+        **Step 1.** Sign in to Azure and authenticate, if needed.
+
+        ```azurecli
+        az login
+        ```
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
+        
+        ```azurecli
+        az extension add --name containerapp --upgrade
+        ```
+        
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
+
+        ```azurecli
+        az containerapp env create \
+        --name python-container-env \
+        --resource-group pythoncontainer-rg \
+        --location <location>
+        ```
+        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 4.** Get the sign-in credentials for the Azure Container Registry.
+
+        ```azurecli
+        az acr credential show -n <registry-name>
+        ```
+
+        Use the username and one of the passwords returned from the output of the above command.
+
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column span="1":::
+        **Step 5.** Create a container app in the environment with the [az containerapp create][12] command.
+
+        ```azurecli
+        az containerapp create \
+        --name python-container-app \
+        --resource-group pythoncontainer-rg \
+        --image <registry-name>.azurecr.io/pythoncontainer:latest \
+        --environment python-container-env \
+        --ingress external \
+        --target-port 8000 \
+        --registry-server <registry-name>.azurecr.io \
+        --registry-username <registry-username> \
+        --registry-password <registry-password> \
+        --env-vars <env-variable-string>
+        --query properties.configuration.ingress.fqdn
+        ```
+
+        *\<env-variable-string>* is a string composed of space-separated values in the key="value" format with the following values.
+
+        * AZURE_POSTGRESQL_HOST=\<postgres-server-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
+        * AZURE_POSTGRESQL_USERNAME=demoadmin
+        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
+        * RUNNING_IN_PRODUCTION=1
+        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
+
+        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+
+        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-server.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"
+        AZURE_SECRET_KEY=asdfasdfasdf`.
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+
+        Connect with the [az containerapp exec][31] command:
+
+        ```azurecli
+            az containerapp exec \
+                --name python-container-app \
+                --resource-group pythoncontainer-rg
+        ```
+
+        Then, at the shell command prompt type `python manage.py migrate`.
+
+        You don't need to migrate for revisions of the container.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 8.** Test the website.
+
+        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io". Navigate to the Url.
+
+    :::column-end:::
+:::row-end:::
+
+### [VS Code](#tab/vscode-aztools)
+
+These steps require the [Azure Container Apps extension][11] for VS Code.
+
+:::row:::
+    :::column span="1":::
+        **Step 1.** Create an *.env* file that you'll reference during the creation of the container app.
+
+        In the sample repo, there is an *.env.example* file you can start from. Create the *.env* file with the following values:
+        
+        ```
+        AZURE_POSTGRESQL_HOST=<postgres-server-name>.postgres.database.azure.com
+        AZURE_POSTGRESQL_DATABASE=restaurants_reviews
+        AZURE_POSTGRESQL_USERNAME=demoadmin
+        AZURE_POSTGRESQL_PASSWORD=<db-password>
+        RUNNING_IN_PRODUCTION=1* 
+        AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
+        ```
+
+        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Start the container apps create task.
+
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "containers apps".
+        * Select the task **Azure Container Apps: Create Container Apps Environment**
+
+        Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
+
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps create task in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Follow the steps to create the container environment.
+
+        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment** and specify a name.
+        * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
+
+        It will take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette.
+
+        * **Select a resource** &rarr; Select the environment created above.
+        * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
+        * **Select a container registry** &rarr; Select **Azure Container Registries**.
+        * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
+        * **Select a repository** &rarr; Select **pythoncontainer**.
+        * **Select a tag** &rarr; Select **latest**.
+        * **Set with environment variables file** &rarr; Select the *.env* file you created above.
+        * **Enable ingress for applications** &rarr; Select **Enable**.
+        * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
+        * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
+
+        To start the container task, you can also go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+
+        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
+        * Choose a startup command and select **Connect**.
+        * At the shell prompt, type `python manage.py migrate`.
+
+        You don't need to migrate for revisions of the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6.** Test the website.
+
+        * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
+
+        If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**.
+
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot showing how to browse to an Azure Container app after it is created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
+    :::column-end:::
+:::row-end:::
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -628,214 +836,6 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-10.png" alt-text="Screenshot showing how to find the website Url of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-10.png":::
-    :::column-end:::
-:::row-end:::
-
-### [VS Code](#tab/vscode-aztools)
-
-These steps require the [Azure Container Apps extension][11] for VS Code.
-
-:::row:::
-    :::column span="1":::
-        **Step 1.** Create an *.env* file that you'll reference during the creation of the container app.
-
-        In the sample repo, there is an *.env.example* file you can start from. Create the *.env* file with the following values:
-        
-        ```
-        AZURE_POSTGRESQL_HOST=<postgres-server-name>.postgres.database.azure.com
-        AZURE_POSTGRESQL_DATABASE=restaurants_reviews
-        AZURE_POSTGRESQL_USERNAME=demoadmin
-        AZURE_POSTGRESQL_PASSWORD=<db-password>
-        RUNNING_IN_PRODUCTION=1* 
-        AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
-        ```
-
-        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Start the container apps create task.
-
-        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        * Type "containers apps".
-        * Select the task **Azure Container Apps: Create Container Apps Environment**
-
-        Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
-
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps create task in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Follow the steps to create the container environment.
-
-        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment** and specify a name.
-        * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
-
-        It will take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette.
-
-        * **Select a resource** &rarr; Select the environment created above.
-        * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
-        * **Select a container registry** &rarr; Select **Azure Container Registries**.
-        * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
-        * **Select a repository** &rarr; Select **pythoncontainer**.
-        * **Select a tag** &rarr; Select **latest**.
-        * **Set with environment variables file** &rarr; Select the *.env* file you created above.
-        * **Enable ingress for applications** &rarr; Select **Enable**.
-        * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
-        * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
-
-        To start the container task, you can also go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
-
-        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
-        * Choose a startup command and select **Connect**.
-        * At the shell prompt, type `python manage.py migrate`.
-
-        You don't need to migrate for revisions of the container.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 6.** Test the website.
-
-        * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
-
-        If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**.
-
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot showing how to browse to an Azure Container app after it is created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-:::row:::
-    :::column:::
-        **Step 1.** Sign in to Azure and authenticate, if needed.
-
-        ```azurecli
-        az login
-        ```
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
-        
-        ```azurecli
-        az extension add --name containerapp --upgrade
-        ```
-        
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
-
-        ```azurecli
-        az containerapp env create \
-        --name python-container-env \
-        --resource-group pythoncontainer-rg \
-        --location <location>
-        ```
-        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
-
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 4.** Get the sign-in credentials for the Azure Container Registry.
-
-        ```azurecli
-        az acr credential show -n <registry-name>
-        ```
-
-        Use the username and one of the passwords returned from the output of the above command.
-
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column span="1":::
-        **Step 5.** Create a container app in the environment with the [az containerapp create][12] command.
-
-        ```azurecli
-        az containerapp create \
-        --name python-container-app \
-        --resource-group pythoncontainer-rg \
-        --image <registry-name>.azurecr.io/pythoncontainer:latest \
-        --environment python-container-env \
-        --ingress external \
-        --target-port 8000 \
-        --registry-server <registry-name>.azurecr.io \
-        --registry-username <registry-username> \
-        --registry-password <registry-password> \
-        --env-vars <env-variable-string>
-        --query properties.configuration.ingress.fqdn
-        ```
-
-        *\<env-variable-string>* is a string composed of space-separated values in the key="value" format with the following values.
-
-        * AZURE_POSTGRESQL_HOST=\<postgres-server-name>.postgres.database.azure.com
-        * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
-        * AZURE_POSTGRESQL_USERNAME=demoadmin
-        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
-        * RUNNING_IN_PRODUCTION=1
-        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
-
-        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
-
-        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-server.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"
-        AZURE_SECRET_KEY=asdfasdfasdf`.
-
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
-
-        Connect with the [az containerapp exec][31] command:
-
-        ```azurecli
-            az containerapp exec \
-                --name python-container-app \
-                --resource-group pythoncontainer-rg
-        ```
-
-        Then, at the shell command prompt type `python manage.py migrate`.
-
-        You don't need to migrate for revisions of the container.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 8.** Test the website.
-
-        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io". Navigate to the Url.
-
     :::column-end:::
 :::row-end:::
 
