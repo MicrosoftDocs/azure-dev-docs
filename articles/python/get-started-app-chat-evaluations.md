@@ -311,7 +311,7 @@ You have performed three evaluations based on different prompts and app settings
     
 1. The results look like: 
 
-    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations_review_summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations-review-summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
 
     Each value is returned as a number and a percentage.
 
@@ -342,7 +342,7 @@ Compare the returned answers from the evaluations.
 
 1. Review the results.
 
-    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations_difference_between_evaluation_answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
+    :::image type="content" source="./media/get-started-app-chat-evaluations/evaluations-difference-between-evaluation-answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
 
 1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> exit the app and return to the terminal.
 
