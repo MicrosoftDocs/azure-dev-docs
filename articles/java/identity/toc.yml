@@ -11,77 +11,77 @@ items:
       expanded: true
       items:
       - name: Overview
-        href: enable-java-jboss-eap-webapp-authn-authz.md
+        href: enable-java-jboss-eap-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
-        href: enable-java-jboss-eap-webapp-authn-entra-id.md
+        href: enable-java-jboss-eap-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
-        href: enable-java-jboss-eap-webapp-authn-azure-ad-b2c.md
+        href: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
       - name: Access user details
-        href: enable-java-jboss-eap-webapp-authz-entra-id.md
+        href: enable-java-jboss-eap-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-jboss-eap-webapp-authz-role-entra-id.md      
+        href: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
-        href: enable-java-jboss-eap-webapp-authz-group-entra-id.md      
+        href: enable-java-jboss-eap-webapp-authorization-group-entra-id.md      
     - name: Secure your Java Tomcat web app using the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
-        href: enable-java-tomcat-webapp-authn-authz.md
+        href: enable-java-tomcat-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
-        href: enable-java-tomcat-webapp-authn-entra-id.md
+        href: enable-java-tomcat-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
-        href: enable-java-tomcat-webapp-authn-azure-ad-b2c.md
+        href: enable-java-tomcat-webapp-authentication-azure-ad-b2c.md
       - name: Access user details
-        href: enable-java-tomcat-webapp-authz-entra-id.md
+        href: enable-java-tomcat-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-tomcat-webapp-authz-role-entra-id.md      
+        href: enable-java-tomcat-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
-        href: enable-java-tomcat-webapp-authz-group-entra-id.md
+        href: enable-java-tomcat-webapp-authorization-group-entra-id.md
     - name: Enable your Java WebLogic web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
-        href: enable-java-weblogic-webapp-authn-authz.md
+        href: enable-java-weblogic-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
-        href: enable-java-weblogic-webapp-authn-entra-id.md
+        href: enable-java-weblogic-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
-        href: enable-java-weblogic-webapp-authn-azure-ad-b2c.md
+        href: enable-java-weblogic-webapp-authentication-azure-ad-b2c.md
       - name: Access user details
-        href: enable-java-weblogic-webapp-authz-entra-id.md
+        href: enable-java-weblogic-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-weblogic-webapp-authz-role-entra-id.md      
+        href: enable-java-weblogic-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
-        href: enable-java-weblogic-webapp-authz-group-entra-id.md
+        href: enable-java-weblogic-webapp-authorization-group-entra-id.md
     - name: Enable your Java Websphere web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
-        href: enable-java-websphere-webapp-authn-authz.md
+        href: enable-java-websphere-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
-        href: enable-java-websphere-webapp-authn-entra-id.md
+        href: enable-java-websphere-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
-        href: enable-java-websphere-webapp-authn-azure-ad-b2c.md
+        href: enable-java-websphere-webapp-authentication-azure-ad-b2c.md
       - name: Access user details
-        href: enable-java-websphere-webapp-authz-entra-id.md
+        href: enable-java-websphere-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-websphere-webapp-authz-role-entra-id.md      
+        href: enable-java-websphere-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
-        href: enable-java-websphere-webapp-authz-group-entra-id.md    
+        href: enable-java-websphere-webapp-authorization-group-entra-id.md    
     - name: Enable your Java Spring MVC web app web app to sign in users and call APIs with the Microsoft identity platform
       expanded: true
       items:
       - name: Overview
-        href: enable-spring-boot-webapp-authn-authz.md
+        href: enable-spring-boot-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
-        href: enable-spring-boot-webapp-authn-entra-id.md
+        href: enable-spring-boot-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
-        href: enable-spring-boot-webapp-authn-azure-ad-b2c.md
+        href: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
       - name: Access user details
-        href: enable-spring-boot-webapp-authz-entra-id.md
+        href: enable-spring-boot-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-spring-boot-webapp-authz-role-entra-id.md      
+        href: enable-spring-boot-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
-        href: enable-spring-boot-webapp-authz-group-entra-id.md    
+        href: enable-spring-boot-webapp-authorization-group-entra-id.md    
   - name: Release notes
     href: https://github.com/Azure-Samples/ms-identity-msal-java-samples/releases
   - name: Overview of the Microsoft Authentication Library (MSAL)

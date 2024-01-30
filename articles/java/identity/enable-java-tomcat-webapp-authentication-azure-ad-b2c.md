@@ -1,10 +1,10 @@
 ---
-title: Enable your Java Tomcat web app to sign in users and access resources on Microsoft Graph
-description: Shows you how to develop a Java Tomcat web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
+title: Enable your Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+description: Shows you how to develop a Java Tomcat web app which supports sign-in by Azure Active Directory B2C.
 services: active-directory
 documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory
+ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -12,13 +12,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Enable your Java Tomcat web app to sign in users and access resources on Microsoft Graph
+# Enable your  Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 
-This article demonstrates a Java Tomcat web app that signs in users and obtains an access token for calling [Microsoft Graph](https://docs.microsoft.com/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java Tomcat web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-![Overview](./media/topology.png)
-
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id.md](includes/enable-java-servlet-webapp-authz-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
 
@@ -34,4 +32,4 @@ To run the sample on Tomcat:
 
 1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md)]

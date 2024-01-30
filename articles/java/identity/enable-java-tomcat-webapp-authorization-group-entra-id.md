@@ -20,7 +20,7 @@ This article demonstrates how to create a Java Tomcat web app that signs in user
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id.md](includes/enable-java-servlet-webapp-authz-group-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
@@ -38,4 +38,4 @@ To run the sample on Tomcat:
 1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
 
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-group-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-group-entra-id-explore.md)]

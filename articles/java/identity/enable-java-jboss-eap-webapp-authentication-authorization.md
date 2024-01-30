@@ -1,6 +1,6 @@
 ---
-title: Enable your Java Tomcat web app to sign in users and call APIs with the Microsoft identity platform
-description: "Tutorial: Enable your Java Tomcat webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform"
+title: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
+description: "Tutorial: Enable your Java Jboss EAP webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform."
 services: active-directory
 documentationcenter: java
 ms.date: 02/01/2024
@@ -12,9 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Tutorial: Enable your Java Tomcat web app to sign in users and call APIs with the Microsoft identity platform
+# Tutorial: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
 
-The [Microsoft identity platform](https://learn.microsoft.com/entra/identity-platform/v2-overview), along with [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) and [Azure Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the **Azure** cloud ecosystem. This tutorial aims to take you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+The [Microsoft identity platform](https://learn.microsoft.com/entra/identity-platform/v2-overview), along with [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) (Entra ID) and [Azure Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the **Azure** cloud ecosystem. This tutorial aims to take you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 
 We recommend following the chapters in successive order. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
 
@@ -23,7 +23,7 @@ We recommend following the chapters in successive order. However, the code sampl
 
 - Java 8. This sample has been developed on Java 8 but should be compatible with some higher versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
-- [Tomcat 9](https://tomcat.apache.org/download-90.cgi)
+- [JBoss EAP](https://developers.redhat.com/products/eap/download)
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
@@ -35,38 +35,39 @@ Please refer to each chapter's README for sample-specific prerequisites.
 - Some familiarity with Linux/OSX terminal or Windows PowerShell
 - [jwt.ms](https://jwt.ms) for inspecting your tokens.
 - [Fiddler](https://www.telerik.com/fiddler) for monitoring your network activity and troubleshooting.
-- Follow the [Entra ID Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to stay up-to-date with the latest developments.
+- Follow the [Microsoft Entra ID Blog](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/bg-p/Identity) to stay up-to-date with the latest developments.
 
 Please refer to each sample's README for sample-specific recommendations.
 
 ## Contents
 
-### Chapter 1: Enable your web application to sign in users
+### Chapter 1: Enable your Java Jboss EAP web application to sign in users
 
 |               |               |
 |---------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-tomcat-webapp-authn-entra-id) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
-| <img src="media/sign-in-2.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-java-tomcat-webapp-authn-azure-ad-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
+| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-jboss-eap-webapp-authentication-entra-id) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
+| <img src="media/sign-in.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-java-jboss-eap-webapp-authentication-azure-ad-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
 
 ### Chapter 2: Get an Access Token and call Microsoft Graph
 
 |                |               |
 |----------------|---------------|
-| <img src="media/topology.png" width="200"> | [**2.1 Acquire an Access Token from Entra ID and call Microsoft Graph**](./enable-java-tomcat-webapp-authz-entra-id) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
+| <img src="media/topology.png" width="200"> | [**2.1 Acquire an Access Token from Entra ID and call Microsoft Graph**](./enable-java-jboss-eap-webapp-authorization-entra-id) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
 
 
 ### Chapter 3: Restrict access to routes based on group and / or role membership
 
 |                |               |
 |----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-java-tomcat-webapp-authz-role-entra-id) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
-| <img src="media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-java-tomcat-webapp-authz-group-entra-id) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
+| <img src="media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-java-jboss-eap-webapp-authorization-role-entra-id) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
+| <img src="media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-java-jboss-eap-webapp-authorization-group-entra-id) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
 
 ### Chapter 4: Deploy your app to Azure
 
 |                 |               |
 |-----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=java-maven-tomcat) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
+| <img src="media/sign-in.png" width="200"> | [**4.1 Deploy to Azure App Service**](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=java-maven-jboss) </br> Prepare your app for deployment to Azure App Service. Learn how to package and upload files, configure authentication parameters and use various Azure services for managing your operations. |
+
 
 
 ## More information

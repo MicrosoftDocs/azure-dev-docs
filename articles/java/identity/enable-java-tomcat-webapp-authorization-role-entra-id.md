@@ -25,7 +25,7 @@ Using RBAC with Application Roles and Role Claims, developers can securely enfor
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](http://go.microsoft.com/fwlink/?LinkId=394414).
 
-[!INCLUDE [enable-java-servlet-webapp-authz-role-entra-id.md](includes/enable-java-servlet-webapp-authz-role-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-role-entra-id.md](includes/enable-java-servlet-webapp-authorization-role-entra-id.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
 
@@ -41,4 +41,4 @@ To run the sample on Tomcat:
 
 1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authz-role-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-role-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-role-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-role-entra-id-explore.md)]

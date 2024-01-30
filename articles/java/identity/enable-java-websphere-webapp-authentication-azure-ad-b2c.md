@@ -1,10 +1,10 @@
 ---
-title: Enable your Java Websphere web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
-description: Shows you how to develop a Java Websphere web app which supports sign-in by Microsoft Entra account.
+title: Enable your Java Websphere Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+description: Shows you how to develop a Java Websphere web app which supports sign-in by Azure Active Directory B2C.
 services: active-directory
 documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory
+ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -12,21 +12,19 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Enable your Java Websphere web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+# Enable your Java Websphere Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 
-This sample demonstrates a Java Websphere web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java Servlet web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-![Overview](./media/topology-sign-in.png)
-
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id.md](includes/enable-java-servlet-webapp-authn-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
 
-#### Deploying the Sample
+## Deploying the Sample
 
 (These instructions assume you have installed Websphere and set up some server ) Before you can deploy to Websphere, you will need to make some configuration changes in the sample itself and (re)build the package:
 
 1. In the sample there is likely an application.properties or authentication.properties file where you configured the client ID, tenant, redirect URL, etc.
-1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port Websphere will run on, which by default should be localhost:9080
+1. In the above mentioned file, changed references to localhost:8080 or localhost:8443 to the URL/port Websphere will run on, which by default should be localhost:9080
 1. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
 Top deploy the sample using the Websphere's Integrated Solutions Console:
@@ -43,4 +41,4 @@ Top deploy the sample using the Websphere's Integrated Solutions Console:
 
 1. One it finishes deploying, navigate to http://localhost:9080/{whatever you set as the context root} and you should be able to see the application
 
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id-explore.md](includes/enable-java-servlet-webapp-authn-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md)]

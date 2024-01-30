@@ -18,7 +18,7 @@ This article demonstrates a Java WebLogic web app that signs in users and obtain
 
 ![Overview](./media/topology.png)
 
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id.md](includes/enable-java-servlet-webapp-authz-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
 #### Deploying the Sample
 
@@ -47,4 +47,4 @@ To deploy the sample to WebLogic via the web console:
 
 1. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-entra-id-explore.md)]

@@ -18,7 +18,7 @@ This article demonstrates a Java Tomcat web app that signs in users to your Micr
 
 ![Overview](./media/topology-sign-in.png)
 
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id.md](includes/enable-java-servlet-webapp-authn-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
 
@@ -34,4 +34,4 @@ To run the sample on Tomcat:
 
 1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id-explore.md](includes/enable-java-servlet-webapp-authn-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id-explore.md](includes/enable-java-servlet-webapp-authentication-entra-id-explore.md)]

@@ -18,7 +18,7 @@ This article demonstrates a Java WebLogic web app that signs in users to your Mi
 
 ![Overview](./media/topology-sign-in.png)
 
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id.md](includes/enable-java-servlet-webapp-authn-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 
 
 #### Deploying the Sample
@@ -48,4 +48,4 @@ To deploy the sample to WebLogic via the web console:
 
 1. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authn-entra-id-explore.md](includes/enable-java-servlet-webapp-authn-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id-explore.md](includes/enable-java-servlet-webapp-authentication-entra-id-explore.md)]

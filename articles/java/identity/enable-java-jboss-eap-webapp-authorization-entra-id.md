@@ -18,7 +18,7 @@ This sample demonstrates a Java Jboss EAP web app that signs in users and obtain
 
 ![Overview](./media/topology.png)
 
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id.md](includes/enable-java-servlet-webapp-authz-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
 #### Deploying the Sample
 
@@ -44,4 +44,4 @@ To deploy the sample to JBoss EAP via the web console:
 
 6. Once the application starts, navigate to http://localhost:9990/{whatever you named the application}/, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authz-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-entra-id-explore.md)]

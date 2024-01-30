@@ -1,10 +1,10 @@
 ---
-title: Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
-description: Shows you how to develop a Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+title: Enable your Java WebLogic Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+description: Shows you how to develop a Java WebLogic web app which supports sign-in by Azure Active Directory B2C.
 services: active-directory
 documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory
+ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -12,17 +12,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+# Enable your Java WebLogic Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 
-This article demonstrates how to create a Java WebLogic web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
+This article demonstrates a Java Servlet web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-![Overview](./media/topology.png)
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
-An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id.md](includes/enable-java-servlet-webapp-authz-group-entra-id.md)]
-
-#### Deploying the Sample
+## Deploying the Sample
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 
@@ -49,5 +46,4 @@ To deploy the sample to WebLogic via the web console:
 
 1. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
 
-
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-group-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md)]

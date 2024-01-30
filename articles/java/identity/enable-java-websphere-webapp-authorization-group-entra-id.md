@@ -21,7 +21,7 @@ This article demonstrates how to create a Java Websphere web app that signs in u
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id.md](includes/enable-java-servlet-webapp-authz-group-entra-id.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
 
 #### Deploying the Sample
@@ -46,4 +46,4 @@ Top deploy the sample using the Websphere's Integrated Solutions Console:
 
 1. One it finishes deploying, navigate to http://localhost:9080/{whatever you set as the context root} and you should be able to see the application
 
-[!INCLUDE [enable-java-servlet-webapp-authz-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authz-group-entra-id-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-group-entra-id-explore.md)]

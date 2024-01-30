@@ -1,10 +1,10 @@
 ---
-title: Enable your Java Websphere Web App using MSAL4J to authenticate users into Azure Active Directory B2C
-description: Shows you how to develop a Java Websphere web app which supports sign-in by Azure Active Directory B2C.
+title: Enable your Java Websphere web app to sign in users and access resources on Microsoft Graph
+description: Shows you how to develop a Java Websphere web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
 documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Enable your Java Websphere Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+# Enable your Java Websphere web app to sign in users and access resources on Microsoft Graph
 
-This article demonstrates a Java Servlet web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java Websphere web app that signs in users and obtains an access token for calling [Microsoft Graph](https://docs.microsoft.com/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-[!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c.md)]
+![Overview](./media/topology.png)
 
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
-## Deploying the Sample
+#### Deploying the Sample
 
 (These instructions assume you have installed Websphere and set up some server ) Before you can deploy to Websphere, you will need to make some configuration changes in the sample itself and (re)build the package:
 
@@ -41,4 +42,4 @@ Top deploy the sample using the Websphere's Integrated Solutions Console:
 
 1. One it finishes deploying, navigate to http://localhost:9080/{whatever you set as the context root} and you should be able to see the application
 
-[!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authorization-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-entra-id-explore.md)]

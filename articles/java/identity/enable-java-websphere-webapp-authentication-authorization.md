@@ -45,22 +45,22 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |               |               |
 |---------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-websphere-webapp-authn-entra-id) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
-| <img src="media/sign-in-2.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-java-websphere-webapp-authn-azure-ad-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
+| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-websphere-webapp-authentication-entra-id) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
+| <img src="media/sign-in.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-java-websphere-webapp-authentication-azure-ad-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
 
 ### Chapter 2: Get an Access Token and call Microsoft Graph
 
 |                |               |
 |----------------|---------------|
-| <img src="media/topology.png" width="200"> | [**2.1 Acquire an Access Token from Entra ID and call Microsoft Graph**](./2enable-java-websphere-webapp-authz-entra-id) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
+| <img src="media/topology.png" width="200"> | [**2.1 Acquire an Access Token from Entra ID and call Microsoft Graph**](./2enable-java-websphere-webapp-authorization-entra-id) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
 
 
 ### Chapter 3: Restrict access to routes based on group and / or role membership
 
 |                |               |
 |----------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-java-websphere-webapp-authz-role-entra-id) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
-| <img src="media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-java-websphere-webapp-authz-group-entra-id) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
+| <img src="media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-java-websphere-webapp-authorization-role-entra-id) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
+| <img src="media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-java-websphere-webapp-authorization-group-entra-id) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
 
 ### Chapter 4: Deploy your app to Azure Virtual Machines
 

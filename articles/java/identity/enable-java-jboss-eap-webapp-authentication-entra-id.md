@@ -1,10 +1,10 @@
 ---
-title: Enable your Java Jboss EAP Web App using MSAL4J to authenticate users into Azure Active Directory B2C
-description: Shows you how to develop a Java Jboss EAP web app which supports sign-in by Azure Active Directory B2C.
+title: Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+description: Shows you how to develop a Java Jboss EAP web app which supports sign-in by Microsoft Entra account.
 services: active-directory
 documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -12,19 +12,21 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Enable your Java Jboss EAP Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+# Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
 
-This article demonstrates a Java Jboss EAP web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java JBoss EAP web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-[!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c.md)]
+![Overview](./media/topology-sign-in.png)
 
-## Deploying the Sample
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
+
+#### Deploying the Sample
 
 Before you can deploy to JBoss, you will need to make some configuration changes in the sample itself and (re)build the package:
 
 1. In the sample there is likely an application.properties or authentication.properties file where you configured the client ID, tenant, redirect URL, etc.
 
-1. In the above mentioned file, changed references to localhost:8080 or localhost:8443 to the URL/port JBoss will run on, which by default should be localhost:9990
+1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port JBoss will run on, which by default should be localhost:9990
 
 1. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
@@ -42,4 +44,4 @@ To deploy the sample to JBoss EAP via the web console:
 
 1. Once the application starts, navigate to http://localhost:9990/{whatever you named the application}/, and you should be able to access the application
 
-[!INCLUDE [enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authn-azure-ad-b2c-explore.md)]
+[!INCLUDE [enable-java-servlet-webapp-authentication-entra-id-explore.md](includes/enable-java-servlet-webapp-authentication-entra-id-explore.md)]
