@@ -36,19 +36,19 @@ If you prefer a fully automated solution that does all of these steps on your be
 - [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution mentioned earlier in the Quickstart: [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm) install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
-- After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. The *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* later.
+- If you are already registered, or after you've completed registration, you can locate the necessary credentials (*Pool IDs*) by following the steps outlined below. These *Pool IDs* will also be utilized as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
-  1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for the **Account Type**, as shown in the following screenshot.
+  1. The first time you sign in, you will be prompted to complete your profile. Depending on your usage, select either Personal or Corporate for the Account Type, as shown in the following screenshot.
 
      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of the Red Hat account window that shows the Account Type options with Personal selected." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
-  1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
+  1. Open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. In the row of controls under **All purchased Subscriptions** table, select **Active**. This ensures only active subscriptions are shown.
   1. Select the sortable column header for **End Date** until the value furthest in the future is shown as the first row.
-  1. Copy and write down the value following **Master Pools** from **Pool IDs**.
+  1. Select the first row. Then, copy and write down the value following **Master Pools** from **Pool IDs**.
 
 - A Java JDK, Version 11. In this guide, we recommend [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
 - [Git](https://git-scm.com/downloads); use `git --version` to test whether `git` works. This tutorial was tested with version 2.25.1.
@@ -165,13 +165,13 @@ Associate the subnets created previously to this network security group by using
 
 ```azurecli
 az network vnet subnet update \
-    --resource-group abc1110rg
+    --resource-group abc1110rg \
     --vnet-name myVNet \
     --name mySubnet \
     --network-security-group mynsg
 
 az network vnet subnet update \
-    --resource-group abc1110rg
+    --resource-group abc1110rg \
     --vnet-name myVNet \
     --name jbossVMGatewaySubnet \
     --network-security-group mynsg
@@ -308,6 +308,9 @@ Use the following steps to install:
    sudo subscription-manager attach --pool=${EAP_POOL}
    ```
 
+    > [!NOTE]
+    > This command will be ignored if you are using [Simple Content Access](https://access.redhat.com/articles/4903191) mode.
+   
 1. Use the following command to install OpenJDK 11:
 
    ```bash
@@ -370,6 +373,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --resource-group abc1110rg \
        --name myAdminOSDiskSnapshot \
        --source ${ADMIN_OS_DISK_ID}
+   ```
+1. Then start the `adminVM`:
+
+   ```azurecli
+   az vm start --resource-group abc1110rg --name adminVM
    ```
 
 1. Use the following steps to create `mspVM1`:
@@ -509,6 +517,7 @@ Then, retrieve the storage account key for later use by using the following comm
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
+    --resource-group abc1110rg \
     --account-name ${STORAGE_ACCOUNT_NAME} \
     --query "[0].value" \
     --output tsv)
@@ -664,11 +673,13 @@ Select the **Runtime** tab. In the navigation pane, select **Topology**. You sho
 Use SSH to connect to `mspVM1` as the `azureuser` user. Get the public IP address of the VM with the following command:
 
 ```bash
-az vm show \
+MSPVM_PUBLIC_IP=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
     --show-details \
-    --query publicIps
+    --query publicIps)
+
+ssh azureuser@$MSPVM_PUBLIC_IP
 ```
 
 Remember the password is the same as before, since `mspVM1` is simply a clone of `adminVM`.
@@ -842,12 +853,6 @@ az network application-gateway create \
     --servers ${MSPVM1_IP} ${MSPVM2_IP}
 ```
 
-After the application gateway is created, you can see these new features:
-
-- `appGatewayBackendPool` - A backend address pool includes the host controllers.
-- `appGatewayBackendHttpSettings` - Specifies that port 80 and an HTTP protocol is used for communication.
-- `rule1` - The default routing rule that's associated with *appGatewayHttpListener*.
-
 > [!NOTE]
 > This example sets up simple access to the Red Hat JBoss EAP servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 >
@@ -868,6 +873,7 @@ Use the following steps to create the database instance:
    export DATA_BASE_PASSWORD=Secret123456
 
    DB_SERVER_NAME="jbossdb$(date +%s)"
+   echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres server create \
        --resource-group abc1110rg \
        --name ${DB_SERVER_NAME}  \
@@ -949,10 +955,12 @@ You've started the database server, obtained the necessary resource ID, and inst
 1. Create data source by using the following commands:
 
    ```bash
-   export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
-   export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
+   # Replace the following values with your own
    export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb
    export DATA_BASE_USER=jboss@<database-server-name>
+   
+   export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
+   export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
    export DATA_BASE_PASSWORD=Secret123456
    export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
 
@@ -1032,19 +1040,19 @@ Use the following commands to unregister the Red Hat JBoss EAP servers and VMs f
 ```azurecli
 # Unregister domain controller
 az vm run-command invoke \
-    --resource-group ejb010329r \
+    --resource-group abc1110rg \
     --name adminVM \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 
 # Unregister host controllers
 az vm run-command invoke \
-    --resource-group ejb010329r \
+    --resource-group abc1110rg \
     --name mspVM1 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 az vm run-command invoke \
-    --resource-group ejb010329r \
+    --resource-group abc1110rg \
     --name mspVM2 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
