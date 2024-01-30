@@ -19,6 +19,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Build a ChatGPT Plugin with Azure Container Apps in Python](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
 |[Summarize Text using Azure AI Language with Azure Functions](https://github.com/Azure-Samples/function-python-ai-textsummarize)|Take text documents as input, summarize using Azure AI Language, and then output to another text document using Azure Functions.|
 |[Azure AI Python Template Gallery](https://aka.ms/azai/py/gallery)|For the full list of Azure AI templates, visit our gallery. All app templates in our gallery can be spun up and deployed using a single command: _azd up_.|
+|[Smart load balancing with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)|This solution is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
+|[Smart load balancing with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb/)|The enterprise solution shows how to create an Azure API Management Policy to seamlessly expose a single endpoint to your applications while keeping an efficient logic to consume two or more OpenAI or any API backends based on availability and priority.|
 
 ## Azure OpenAI
 
