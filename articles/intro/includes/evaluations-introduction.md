@@ -1,6 +1,4 @@
 
-# Get started with evaluating answers in a chat app
-
 This article shows you how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
 By following the instructions in this article, you will:
