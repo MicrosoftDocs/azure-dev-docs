@@ -131,13 +131,20 @@ These steps require the [Docker extension][6] for VS Code.
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Start the build image task.
+        **Step 1.** Create an Azure Container Registry.
         
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "Azure Container Registry".
-        * Select the task **Azure Container Registry: Build Image in Azure**.      
+        * Select the task **Azure Container Registry: Create Registry**. 
 
-        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
+        Follow the prompts to create a registry and a resource group:
+
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+        * **Select a SKU** &rarr; Select **Basic**.
+        * **Create a new resource group** &rarr; Select this option to create resource group.
+        * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
+        * **Location** &rarr; Select a location and wait until the notification that indicates the registry has been created.
+     
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
@@ -145,21 +152,26 @@ These steps require the [Docker extension][6] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
+        **Step 2.** Build the image.
+
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "Azure Container Registry".
+        * Select the task **Azure Container Registry: Build Image in Azure**.      
+
+        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
+
+        Follow the prompts to build the image.
         
         * **Tag image as** &rarr; Enter *pythoncontainer:latest*.
-        * **Create new registry** &rarr; Select this option to create new registry.
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **Select a SKU** &rarr; Select **Basic**.
-        * **Create a new resource group** &rarr; Select this option to create resource group.
-        * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
-        * **Location** &rarr; Select a location and wait a few seconds for the final prompt for the base image OS.
+        * **Registry provider** &rarr; Select **Azure**.
+        * **Registry** &rarr; Select the Container registry from the list.
         * **Select OS** &rarr; Select **Linux**.
 
         If you see an error in the **Output** window, see the [Troubleshooting section](#troubleshoot-deployment).
+
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-02.gif" alt-text="Screenshot showing how to specify configuration of a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-02.gif":::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -331,7 +343,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
         * **Server name** &rarr; Specify a **name** for the server.
            Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
 
-        * **Select the Postgres SKU and options** &rarr; Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
+        * **Select the Postgres SKU and options** &rarr; Select the **B1ms Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
 
         * **Administrator Username** &rarr; Create an administrator user name. This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
 
@@ -370,7 +382,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
     :::column span="1":::
         **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
 
-        You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.        
+        You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.
     :::column-end:::
 :::row-end:::
 
