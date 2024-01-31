@@ -94,6 +94,8 @@ In the past, Azure customers who wanted to use Confluent's Kafka service had to 
 
 Today, the customer experience is simpler, safer, and more seamless. Customers can provision and manage Confluent Cloud resources along with their Azure resources, as part of a unified workflow - and take advantage of fully managed connectors built for Azure Functions, Azure Blob Storage, Azure Event Hubs, Azure Data Lake Storage Gen2, and Microsoft SQL Server. Developers can continue to code using Apache Kafka client libraries.
 
+## Summary
+
 Joint development with partners for many of the above offerings is a continual, ongoing effort. As our partners continue to innovate on their offerings, we're working closely with them to quickly bring those same innovations to Azure - so that customers can deploy and scale their Java applications with confidence and ease.
 
 In summary, Azure supports your workload with an abundance of choice regardless of what you're doing with Java. You can build any Java app, use any framework, run any application server, and support any application architecture - from monolithic applications running on VMs or in containers to cloud-native, microservices-based applications running on fully managed services.

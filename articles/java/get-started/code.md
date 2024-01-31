@@ -40,7 +40,7 @@ Microsoft is actively investing time and resources to provide additional functio
 
 ## Azure Toolkit for Eclipse
 
-The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key Java libraries and drivers, including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to Java Web Apps to Azure App Service and custom containers in App Service, deploy Spring Boot applications to Azure Spring Apps and deploy serverless applications to Azure Functions using Maven or Gradle plugins - all through the Eclipse IDE.
+The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key Java libraries and drivers, including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to deploy Java Web Apps to Azure App Service and custom containers in App Service, deploy Spring Boot applications to Azure Spring Apps and deploy serverless applications to Azure Functions using Maven or Gradle plugins - all through the Eclipse IDE.
 
 ## Dependency management and build automation - Maven, Gradle, and GitHub
 
@@ -50,7 +50,7 @@ Maven and Gradle are two popular project management, dependency management, and 
 
 Maven plugins for Azure services let you extend your Maven development workflows to Azure, testing your Java applications locally and then deploying them to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The Maven plugin for Azure App Service helps you deploy Maven Java Web application projects to Azure App Service and to custom containers in App Service; the Maven plugin for Azure Spring Apps helps you deploy Maven Spring Boot application projects to Azure Spring Apps; and the Maven plugin for Azure Functions helps you deploy Maven serverless Java application projects to Azure Functions.
 
-:::image type="content" source="media/maven.png" alt-text="todo":::
+:::image type="content" source="media/maven.png" alt-text="":::
 
 ## Gradle Plugins for Azure Services
 
@@ -68,7 +68,7 @@ GitHub also supports development containers for Java, which you can access via G
 
 ## Jenkins Pipelines
 
-Azure Pipelines, part of the Azure DevOps service, lets you continuously build, test, and deploy your Java applications to any platform and cloud. It works with GitHub (or Azure Repos) for source control, enabling you to build using Maven or Gradle and then deploy to any of the Azure services for running your Java applications.
+Many Microsoft customers who run Java on Azure use Jenkins - an open-source automation server - to build, test, and deploy their applications. If you use Jenkins, you can manage your source code in Azure DevOps, GitHub, or any other source code management system while continuing to use Jenkins for your CI/CD builds - for example, triggering a Jenkins build when you push your code to your project's Git repository.
 
 ## Azure Pipelines
 
@@ -93,6 +93,8 @@ az spring app deploy \
     --config-file-pattern catalog/default \
     --source-path apps/acme-catalog
 ```
+
+## Summary
 
 Microsoft believes in and respects your right to choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines - and you can deploy your application to Azure on any application server or with any embedded application server.
 

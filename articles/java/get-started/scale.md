@@ -30,7 +30,7 @@ Azure Service Bus Premium tier supports JMS, the Java Messaging Service programm
 
 You can secure your Java applications by deploying them in an Azure Virtual Network (VNET) - the fundamental building block for your own private networks in Azure. VNET enables many types of Azure resources to securely communicate with each other, with the internet, and with your on-premises networks and systems. You can use a VNET to isolate your applications and supporting backend services from the Internet and place them on your private networks. You can assume full control of ingress and egress for your applications and backend systems.
 
-:::image type="content" source="azure-spring-apps-reference-architecture.png" alt-text="{alt-text}":::
+:::image type="content" source="media/azure-spring-apps-reference-architecture.png" alt-text="{alt-text}" lightbox="media/azure-spring-apps-reference-architecture.png":::
 
 ## Zero-Trust - Secure communications end-to-end
 
@@ -50,11 +50,11 @@ Many Java applications connect to supporting services using URLs and credentials
 
 :::image type="content" source="media/zero-trust.png" alt-text="{alt-text}":::
 
-Azure Key Vault provides a better, safer, and more secure way to safeguard secrets. It gives you full control over the storage and distribution of application secrets, using Role Based Access Control (RBAC) and the principle of least privilege to limit access. You keep control over your application secrets  - simply grant permission for your applications to use them as needed. Upon application startup, prior to granting access to secrets, the application authenticates with Azure Active Directory and Azure Key Vault authorizes using Azure RBAC. Azure Key Vault includes full audit capabilities and has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module (HSM)-protected keys.
+Azure Key Vault provides a better, safer, and more secure way to safeguard secrets. It gives you full control over the storage and distribution of application secrets, using Role Based Access Control (RBAC) and the principle of least privilege to limit access. You keep control over your application secrets  - simply grant permission for your applications to use them as needed. Upon application startup, prior to granting access to secrets, the application authenticates with Microsoft Entra ID and Azure Key Vault authorizes using Azure RBAC. Azure Key Vault includes full audit capabilities and has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module (HSM)-protected keys.
 
 ## End-user authentication and authorization
 
-Most enterprise Java applications require user authentication and authorization, which you can implement using Azure Active Directory - a complete identity and access management solution with integrated security. End-user accounts can be organizational identities or social identities from Facebook, Twitter, or Gmail using Azure Active Directory and AAD B2C. You can implement Azure Active Directory based solutions using the Microsoft Authentication Library for Java or Spring Boot Starter for Azure Active Directory. You can also use any identity provider of your choice - such as ForgeRock, Auth0, Ping, or Okta.
+Most enterprise Java applications require user authentication and authorization, which you can implement using Microsoft Entra ID - a complete identity and access management solution with integrated security. End-user accounts can be organizational identities or social identities from Facebook, Twitter, or Gmail using Microsoft Entra ID and Azure Active Directory B2C. You can implement Microsoft Entra ID based solutions using the Microsoft Authentication Library for Java or Spring Boot Starter for Microsoft Entra ID. You can also use any identity provider of your choice - such as ForgeRock, Auth0, Ping, or Okta.
 
 ## Monitor end-to-end
 
