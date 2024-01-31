@@ -2,7 +2,7 @@
 title: Overview of how to deploy a Python web app in Azure Container Apps
 description: Overview of how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: conceptual
-ms.date: 01/24/2024
+ms.date: 01/31/2024
 ms.custom: devx-track-python
 ---
 
