@@ -41,7 +41,7 @@ conceptualContent:
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Deploy Spring Cloud microservices
           itemType: quickstart
-          url: /azure/spring-apps/quickstart-sample-app-introduction?pivots=programming-language-java
+          url: /azure/spring-apps/enterprise/quickstart-sample-app-introduction?pivots=programming-language-java
       footerLink:
         text: See more
         url: quickstarts/index.yml
@@ -110,13 +110,13 @@ conceptualContent:
       links:
         - text: What is Azure Spring Apps?
           itemType: overview
-          url: /azure/spring-apps/overview
+          url: /azure/spring-apps/enterprise/overview
         - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
+          url: /azure/spring-apps/enterprise/quickstart?pivots=sc-enterprise
         - text: Enterprise tier
           itemType: overview
-          url: /azure/spring-apps/overview#enterprise-tier-overview
+          url: /azure/spring-apps/enterprise/overview#enterprise-tier-overview
       footerLink:
           text: See more
           url: /azure/spring-apps
@@ -131,7 +131,7 @@ conceptualContent:
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
+          url: /azure/spring-apps/enterprise/quickstart?pivots=sc-enterprise
       footerLink:
         text: See more
         url: spring-framework/index.yml
@@ -176,7 +176,7 @@ conceptualContent:
           url: ./fundamentals/java-get-started-with-logzio.md
         - text: Monitor Spring apps
           itemType: how-to-guide
-          url: /azure/spring-apps/diagnostic-services
+          url: /azure/spring-apps/enterprise/diagnostic-services
       footerLink:
         text: See Azure Monitor documentation
         url: /azure/azure-monitor
