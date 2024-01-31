@@ -335,7 +335,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ---
 
-After you clean up for the evaluations app, return to the chat app and [clean up](get-started-app-chat-template.md#clean-up-resources) its resources. 
+After you clean up for the evaluations app, return to the chat app and [clean up](../../python/get-started-app-chat-template.md#clean-up-resources) its resources. 
 
 ## Next steps
 
