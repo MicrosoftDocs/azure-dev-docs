@@ -92,7 +92,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         az acr login --name <registry-name>
         ```
         
-        The above command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
+        The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -149,7 +149,7 @@ These steps require the [Docker extension][6] for VS Code.
      
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-registry.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -162,7 +162,7 @@ These steps require the [Docker extension][6] for VS Code.
         * Type "Azure Container Registry".
         * Select the task **Azure Container Registry: Build Image in Azure**.      
 
-        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
+        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same task to build the image. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
 
         Follow the prompts to build the image.
         
@@ -175,7 +175,7 @@ These steps require the [Docker extension][6] for VS Code.
 
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start building a new container image in an Azure Container Registry with Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -372,7 +372,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
         
         * Search for and select **PostgreSQL: Configure Firewall**.  (Select a subscription if prompted.)
         
-        * Select the database you created above. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
+        * Select the database you created in the previous step. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
         
         * Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
 
@@ -563,7 +563,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         az acr credential show -n <registry-name>
         ```
 
-        Use the username and one of the passwords returned from the output of the above command.
+        Use the username and one of the passwords returned from the output of the command.
 
     :::column-end:::
 :::row-end:::
@@ -624,7 +624,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
     :::column span="1":::
         **Step 8.** Test the website.
 
-        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io". Navigate to the Url.
+        The `az containerapp create` command you entered previously outputs an application URL you can use to browse to the app. The URL ends in "azurecontainerapps.io". Navigate to the URL in a browser. Alternatively, you can use the [az containerapp browse](/cli/azure/containerapp#az-containerapp-browse) command.
 
     :::column-end:::
 :::row-end:::
@@ -653,7 +653,9 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Start the container apps create task.
+        **Step 2.** Create a container apps environment.
+
+        Start the container apps environment create task:
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "containers apps".
@@ -661,14 +663,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps create task in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Follow the steps to create the container environment.
+        Follow the prompts to create the container app environment:
 
         * **Enter a container apps environment name** &rarr; Enter a name.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
@@ -681,16 +676,16 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette.
+        **Step 3.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette. Then, follow the prompts to create the container app:
 
-        * **Select a container apps environment** &rarr; Select the environment created above.
+        * **Select a container apps environment** &rarr; Select the environment created in the previous step.
         * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
         * **Select an image source for the container app** &rarr; Select **Use image from registry**.
         * **Select a container registry** &rarr; Select **Azure Container Registry**.
         * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
         * **Select a repository** &rarr; Select **pythoncontainer**.
         * **Select a tag** &rarr; Select **latest**.
-        * **Set with environment variables file** &rarr; Select the *.env* file you created above.
+        * **Set with environment variables file** &rarr; Select the *.env* file you created in step one.
         * **Enable ingress for applications** &rarr; Select **Enable**.
         * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
         * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
@@ -703,7 +698,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+        **Step 4.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
         * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app you created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
@@ -717,7 +712,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Test the website.
+        **Step 5.** Test the website.
 
         * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
 
