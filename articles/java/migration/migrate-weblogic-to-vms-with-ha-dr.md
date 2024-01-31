@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
 ms.date: 01/03/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java,, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Virtual Machines with high availability and disaster recovery

@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: haiche
 ms.date: 04/27/2023
+ms.custom: devx-track-azurecli
 ---
 
 Use the following commands to create a private endpoint for the PostgreSQL server in your Virtual Network:

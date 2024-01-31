@@ -81,7 +81,7 @@ productDirectory:
       links:
         - url: ./java/fundamentals/java-jdk-install.md
           text: Install the JDK for Azure and Azure Stack
-        - url: /azure/spring-apps/quickstart
+        - url: /azure/spring-apps/enterprise/quickstart
           text: Deploy an app to Azure Spring Apps by using the Azure portal
         - url: /azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
