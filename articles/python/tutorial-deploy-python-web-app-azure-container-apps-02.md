@@ -2,7 +2,7 @@
 title: Build and deploy a Python web app with Azure Container Apps
 description: Describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/31/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -10,9 +10,9 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enables you to deploy containerized apps without managing complex infrastructure.
 
-In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
+In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you build the container image in the cloud and deploy it to Azure Container Apps. You define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
-The service diagram shown below highlights the components covered in this article: building and deploying a container image.
+This service diagram highlights the components covered in this article: building and deploying a container image.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
@@ -284,7 +284,7 @@ These steps require the [Docker extension][6] for VS Code.
 
 ## Create a PostgreSQL Flexible Server instance
 
-The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you'll create the server that will contain the database.
+The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you create the server that will contain the database.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -304,7 +304,7 @@ az postgres flexible-server create \
 ```
 
 * "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
-* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
+* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com". Allowed characters are "A"-"Z", "0"-"9", and "-".
 * *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
 * *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
 * *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
@@ -340,7 +340,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
+        **Step 2.** A series of prompts guides you through the process of creating the database. Fill in the information as follows.
 
         * **Select an Azure Database Server** &rarr; Select **PostgreSQL Flexible Server**.
 
@@ -453,7 +453,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 ## Create a database on the server
 
-At this point, you have a PostgreSQL server and now you'll create a database on the server.
+At this point, you have a PostgreSQL server. In this section, you create a database on the server.
 
 ### [psql](#tab/create-database-psql)
 
@@ -468,7 +468,7 @@ psql --host=<postgres-server-name>.postgres.database.azure.com \
      --dbname=postgres
 ```
 
-Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command above will prompt you for the admin password.
+Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command will prompt you for the admin password.
 
 If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service. 
 
@@ -510,7 +510,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
-If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
+If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
 
 ---
 
@@ -518,7 +518,7 @@ You can also connect to Azure PostgreSQL Flexible server and create a database u
 
 ## Deploy the web app to Container Apps
 
-Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you'll create the environment, a container inside the environment, and configure the container so that the website is visible externally.
+Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you create the environment, a container inside the environment, and configure the container so that the website is visible externally.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -670,7 +670,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 3.** Follow the steps to create the container environment.
 
-        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment** and specify a name.
+        * **Enter a container apps environment name** &rarr; Enter a name.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
 
         It will take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
@@ -683,9 +683,10 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 4.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette.
 
-        * **Select a resource** &rarr; Select the environment created above.
+        * **Select a container apps environment** &rarr; Select the environment created above.
         * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
-        * **Select a container registry** &rarr; Select **Azure Container Registries**.
+        * **Select an image source for the container app** &rarr; Select **Use image from registry**.
+        * **Select a container registry** &rarr; Select **Azure Container Registry**.
         * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
         * **Select a repository** &rarr; Select **pythoncontainer**.
         * **Select a tag** &rarr; Select **latest**.
@@ -704,7 +705,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
+        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app you created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
 
@@ -875,7 +876,7 @@ Here's an example of the sample website after adding a restaurant and two review
 * Your container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
   * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
-  * Make sure your credentials haven't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
+  * Make sure your credentials aren't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
 
 * Website returns "Bad Request (400)".
   * Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
