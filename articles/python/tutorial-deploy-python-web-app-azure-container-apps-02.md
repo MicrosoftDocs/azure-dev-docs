@@ -132,6 +132,8 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 1.** Create an Azure Container Registry.
+
+        Start the Create Registry task:
         
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "Azure Container Registry".
@@ -153,6 +155,8 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 2.** Build the image.
+
+        Start the Build Image in Azure task:
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "Azure Container Registry".
