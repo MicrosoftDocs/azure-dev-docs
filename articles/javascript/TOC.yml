@@ -35,9 +35,9 @@
     - name: JavaScript frontend + Python backend
       href: chat-app-with-separate-front-back-end.md
       display: building block, frontend, backend
-    - name: Generate text completions
-      href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      display: Azure OpenAI, OpenAI, AI
+    - name: Evaluate your chat app
+      href: get-started-app-chat-evaluations.md
+      display: Azure OpenAI
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
