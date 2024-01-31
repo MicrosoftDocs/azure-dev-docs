@@ -353,7 +353,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
         * **Administrator Password** &rarr; Create a password for the administrator and confirm it.
 
-        * **Select a resource group for new resources** &rarr; Select a user group to put the database in. Use the same resource group that you created the App Service in.
+        * **Select a resource group for new resources** &rarr; Select a resource group to put the database in. Use the same resource group that you created the App Service in.
         
         * **Select a location for new resources** &rarr; Select the same location as the resource group and App Service.
 
