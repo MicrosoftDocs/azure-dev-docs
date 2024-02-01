@@ -1,10 +1,11 @@
 ---
 title: Code using the Java tools you know and love
-description: This article ...
+titleSuffix: Azure
+description: This article provides an overview of the tools you can use for Java code development with Azure.
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/02/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -50,13 +51,13 @@ Maven and Gradle are two popular project management, dependency management, and 
 
 Maven plugins for Azure services let you extend your Maven development workflows to Azure, testing your Java applications locally and then deploying them to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The Maven plugin for Azure App Service helps you deploy Maven Java Web application projects to Azure App Service and to custom containers in App Service; the Maven plugin for Azure Spring Apps helps you deploy Maven Spring Boot application projects to Azure Spring Apps; and the Maven plugin for Azure Functions helps you deploy Maven serverless Java application projects to Azure Functions.
 
-:::image type="content" source="media/maven.png" alt-text="":::
+:::image type="content" source="media/maven.png" alt-text="Diagram that shows a laptop screen with the text 'mvn azure-webapp:deploy' and the heading Deploy Java Web App and Dependencies in One Step." border="false":::
 
 ## Gradle Plugins for Azure Services
 
 Gradle plugins for Azure services are similar to those for Maven; they let you deploy your Java applications to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The Gradle plugin for Azure App Service helps you deploy Gradle Java Web application projects to Azure App Service and to custom containers in App Service, and the Gradle plugin for Azure Functions helps you deploy Gradle serverless Java application projects to Azure Functions.
 
-:::image type="content" source="media/gradle.png" alt-text="todo":::
+:::image type="content" source="media/gradle.png" alt-text="Diagram that shows a laptop screen with the text 'gradle azureWebAppDeploy' and the heading Deploy Java Web App in One Step." border="false":::
 
 ## GitHub
 
@@ -98,4 +99,4 @@ az spring app deploy \
 
 Microsoft believes in and respects your right to choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines - and you can deploy your application to Azure on any application server or with any embedded application server.
 
-:::image type="content" source="media/code-using-tools-you-know.png" alt-text="Image with the text 'Code using the Java tools you know and love' and logos for IntelliJ IDEA, Eclipse, Maven, GitHub, Gradle, Playwright, Visual Studio Code, and Azure DevOps." lightbox="media/code-using-tools-you-know.png":::
+:::image type="content" source="media/code-using-tools-you-know.png" alt-text="Diagram with the text 'Code using the Java tools you know and love' and logos for the tools described in this article." border="false" lightbox="media/code-using-tools-you-know.png":::

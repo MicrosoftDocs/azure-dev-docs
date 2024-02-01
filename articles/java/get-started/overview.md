@@ -1,10 +1,11 @@
 ---
 title: Code, deploy, and scale Java your way
-description: This article ...
+titleSuffix: Azure
+description: This article provides an overview to a collection of articles that describe the tooling options for coding, deploying, and scaling Java applications with Azure.
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/02/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -16,9 +17,7 @@ Today, more and more Java developers are looking at how they can bring their exi
 - Deploy their Java applications using their preferred application servers and open-source software.
 - Scale their Java applications easily and confidently including necessities such as security, supporting data and messaging services, caching, monitoring, and automation.
 
-Microsoft Azure supports all these needs. As a company, Microsoft is committed to making Java developers as efficient and productive as possible, empowering them to use any tool, framework, and application server on any operating system. On the following pages, we'll examine how Azure delivers on this commitment, letting Java developers continue working the same way they do today—and continue using the tools and software of their choice—while leveraging the power of managed services in the cloud.
-
-The following articles ... :
+Microsoft Azure supports all these needs. As a company, Microsoft is committed to making Java developers as efficient and productive as possible, empowering them to use any tool, framework, and application server on any operating system. In the following articles, we'll examine how Azure delivers on this commitment, letting Java developers continue working the same way they do today—and continue using the tools and software of their choice—while leveraging the power of managed services in the cloud:
 
 - [Code using the Java tools you know and love][code.md]
 - [Deploy Java applications with confidence and ease][deploy.md]
