@@ -2,7 +2,7 @@
 title: Configure CI/CD for a Python web app in Azure Container Apps
 description: Set up CI/CD for a Python web app container in Azure Container Apps using GitHub Actions triggered on changes (like PRs) to the main branch of a repo.
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 01/31/2024
 ms.custom: devx-track-python
 ---
 
@@ -12,20 +12,13 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps practice of continuous integration / continuous delivery (CI/CD), which is automation of your app development workflow. Specifically, you use [GitHub Actions][20] for continuous deployment.
 
-The service diagram shown below highlights the components covered in this article: configuration of CI/CD.
+This service diagram highlights the components covered in this article: configuration of CI/CD.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Sections highlighted are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
 
-> [!NOTE]
-> If you're running the commands in this tutorial in a Git Bash shell on a Windows computer, enter the following command before proceeding:
->
-> ```bash
-> export MSYS_NO_PATHCONV=1
-> ```
-
 ## Prerequisites
 
-To set up continuous deployment, you'll need:
+To set up continuous deployment, you need:
 
 * The resources and their configuration created in the [previous article](./tutorial-deploy-python-web-app-azure-container-apps-02.md) of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
@@ -37,7 +30,7 @@ To set up continuous deployment, you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In this section, you set up continuous deployment using a GitHub Actions workflow. With continous deployment, a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
+In this section, you set up continuous deployment using a GitHub Actions workflow. With continuous deployment, a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -47,6 +40,12 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
+        If you're running commands in a Git Bash shell on a Windows computer, enter the following command before proceeding:
+
+        ```bash
+        export MSYS_NO_PATHCONV=1
+        ```
+        
         ```azurecli        
         az ad sp create-for-rbac \
         --name <app-name> \
@@ -153,7 +152,7 @@ If you followed the steps for the portal, the service principal was automaticall
 
 ## Redeploy web app with GitHub Actions
 
-In this section, you'll make a change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
+In this section, you make a change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
 If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or in your development environment from a command line with [Git][14].
 
@@ -171,7 +170,7 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
     :::column span="2":::
         **Step 2.** Make a change.
 
-        * Go to the  */templates/base.html* file.
+        * Go to the */templates/base.html* file. (For django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
         * Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
     :::column-end:::
@@ -214,7 +213,7 @@ git commit -a -m "Redeploy with title change."
 git push
 ```
 
-The first time using git, you may need to set global variables "user.name" and "user.email". For more information, see the help for [git-config][16].
+The first time using git, you might need to set global variables "user.name" and "user.email". For more information, see the help for [git-config][16].
 
 The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
