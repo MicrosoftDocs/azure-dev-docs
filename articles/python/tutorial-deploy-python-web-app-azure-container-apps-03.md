@@ -36,12 +36,16 @@ In this section, you set up continuous deployment using a GitHub Actions workflo
 
 Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
 
+If you're running commands in a Git Bash shell on a Windows computer, enter the following command before proceeding:
+
+```bash
+export MSYS_NO_PATHCONV=1
+```
+
 :::row:::
     :::column span="1":::
         **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
-        If you're running commands in a Git Bash shell on a Windows computer, enter the following command before proceeding: `export MSYS_NO_PATHCONV=1`. 
-        
         ```azurecli        
         az ad sp create-for-rbac \
         --name <app-name> \
