@@ -40,11 +40,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
-        If you're running commands in a Git Bash shell on a Windows computer, enter the following command before proceeding:
-
-        ```bash
-        export MSYS_NO_PATHCONV=1
-        ```
+        If you're running commands in a Git Bash shell on a Windows computer, enter the following command before proceeding: `export MSYS_NO_PATHCONV=1`. 
         
         ```azurecli        
         az ad sp create-for-rbac \
@@ -170,7 +166,7 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
     :::column span="2":::
         **Step 2.** Make a change.
 
-        * Go to the */templates/base.html* file. (For django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
+        * Go to the */templates/base.html* file. (For Django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
         * Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
     :::column-end:::
@@ -204,7 +200,7 @@ git pull
 
 **Step 2.** Make a change.
 
-Go to the *./templates/base.html* file (*./restaurant_review/templates/restaruant_review/base.html* for django) and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+Go to the *./templates/base.html* file (*./restaurant_review/templates/restaruant_review/base.html* for Django) and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
 **Step 3.** Commit and push the change to GitHub.
 
