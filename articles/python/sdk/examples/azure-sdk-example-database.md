@@ -68,21 +68,25 @@ For other database types, see:
     az login
     ```
 
-1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
+1. Set the `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS` environment variables. You can run the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID from the `id` property in the output. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP address.
 
     # [cmd](#tab/cmd)
 
     ```cmd
     set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    set PUBLIC_IP_ADDRESS=<Your public IP address>
     ```
 
     # [bash](#tab/bash)
 
     ```bash
     AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    PUBLIC_IP_ADDRESS=<Your public IP address>
     ```
 
     ---
+
+1. Optionally, set the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD`  environment variables; otherwise, code defaults are used.
 
 1. Run the script:
 
