@@ -16,6 +16,14 @@ adobe-target: true
 
 This article demonstrates a Java Tomcat web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
+[!INCLUDE [scenario-sign-in-aadb2c.md](includes/scenario-sign-in-aadb2c.md)]
+
+
+[!INCLUDE [prereqs-sign-in-aadb2c.md](includes/prereqs-sign-in-aadb2c.md)]
+[!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]

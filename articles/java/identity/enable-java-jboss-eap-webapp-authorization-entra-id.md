@@ -18,6 +18,13 @@ This sample demonstrates a Java Jboss EAP web app that signs in users and obtain
 
 ![Overview](./media/topology.png)
 
+[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+
+[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
+[!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
 #### Deploying the Sample

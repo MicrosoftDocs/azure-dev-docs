@@ -10,8 +10,6 @@ items:
     - name: Secure your Java Jboss EAP web app
       expanded: true
       items:
-      - name: Overview
-        href: enable-java-jboss-eap-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
         href: enable-java-jboss-eap-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
@@ -25,8 +23,6 @@ items:
     - name: Secure your Java Tomcat web app
       expanded: true
       items:
-      - name: Overview
-        href: enable-java-tomcat-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
         href: enable-java-tomcat-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
@@ -40,8 +36,6 @@ items:
     - name: Secure your Java WebLogic web app
       expanded: true
       items:
-      - name: Overview
-        href: enable-java-weblogic-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
         href: enable-java-weblogic-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
@@ -55,8 +49,6 @@ items:
     - name: Secure your Java Websphere web app
       expanded: true
       items:
-      - name: Overview
-        href: enable-java-websphere-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
         href: enable-java-websphere-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C

@@ -18,6 +18,13 @@ This sample demonstrates a Java Websphere web app that signs in users to your Mi
 
 ![Overview](./media/topology-sign-in.png)
 
+[!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
+
+[!INCLUDE [prereqs-sign-in-entra.md](includes/prereqs-sign-in-entra.md)]
+[!INCLUDE [prereqs-websphere.md](includes/prereqs-websphere.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 
 

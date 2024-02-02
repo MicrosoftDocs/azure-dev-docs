@@ -18,6 +18,13 @@ This article demonstrates a Java Websphere web app that signs in users and obtai
 
 ![Overview](./media/topology.png)
 
+[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+
+[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
+[!INCLUDE [prereqs-websphere.md](includes/prereqs-websphere.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
 #### Deploying the Sample

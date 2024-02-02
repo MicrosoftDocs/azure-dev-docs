@@ -18,6 +18,13 @@ This article demonstrates a Java Tomcat web app that signs in users to your Micr
 
 ![Overview](./media/topology-sign-in.png)
 
+[!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
+
+[!INCLUDE [prereqs-sign-in-entra.md](includes/prereqs-sign-in-entra.md)]
+[!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]

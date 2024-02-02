@@ -5,25 +5,6 @@ ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-
-## Scenario
-
-1. This web application uses **MSAL for Java (MSAL4J)** to sign in users an Microsoft Entra ID tenant and obtains an [ID Token](https://learn.microsoft.com/en-us/entra/identity-platform/id-tokens) from **Microsoft Entra ID**.
-2. The **ID Token** proves that a user has successfully authenticated with this tenant.
-3. The web application protects its routes according to user's authentication status and group membership.
-
-
-## Prerequisites
-
-- [JDK Version 8 or higher](https://jdk.java.net/8/)
-- [Maven 3](https://maven.apache.org/download.cgi)
-- An Microsoft Entra ID tenant. For more information on how to get an Microsoft Entra ID tenant, see [How to get an Microsoft Entra ID tenant](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-create-new-tenant)
-- A user account in your own Microsoft Entra ID tenant.
-- Two security groups, **GroupAdmin** and **GroupMember**, containing users you want to test with.
-
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
-
-
 ## Setup
 
 ### Clone or download this repository

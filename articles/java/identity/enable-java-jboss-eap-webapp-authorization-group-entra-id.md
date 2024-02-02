@@ -20,6 +20,13 @@ This article demonstrates how to create a Java Jboss EAP web app that signs in u
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
+[!INCLUDE [scenario-authz-groups.md](includes/scenario-authz-groups.md)]
+
+[!INCLUDE [prereqs-authz-groups.md](includes/prereqs-authz-groups.md)]
+[!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
 #### Deploying the Sample

@@ -18,6 +18,13 @@ This article demonstrates a Java Tomcat web app that signs in users and obtains 
 
 ![Overview](./media/topology.png)
 
+[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+
+[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
+[!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
+
+[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
 [!INCLUDE [deploy-tomcat-app-service.md](includes/deploy-tomcat-app-service.md)]
