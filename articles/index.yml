@@ -184,7 +184,7 @@ productDirectory:
           text: Get started
         - url: ./dev-tunnels/index.yml
           text: See more in the dev tunnels developer center
-    - title: Dev proxy
+    - title: Dev Proxy
       imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
       links:
         - url: /microsoft-cloud/dev/dev-proxy/overview
