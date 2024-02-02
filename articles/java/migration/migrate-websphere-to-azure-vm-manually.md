@@ -30,12 +30,11 @@ If you prefer a fully automated solution that does all of these steps on your be
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or later](/cli/azure/install-azure-cli) to run Azure CLI commands.
-  - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash, but either way, you must install the Azure CLI.
+  - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash. Either way, you must install the Azure CLI.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an IBMid. If you don't have one, create an IBM account at [Log in to IBM](https://myibm.ibm.com/dashboard/) and select **Create an IBMid**. Make note of your IBMid password and email.
-  
-  If you plan to use Version 8.5.5 of IBM WebSphere Application Server Network deployment, this IBMid must be entitled to use that version of the software. To learn about entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access or follow steps at [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement). 
+  - If you plan to use version 8.5.5 of IBM WebSphere Application Server Network eployment, this IBMid must be entitled to use that version of the software. To learn about entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access, or follow the steps at [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
 
 ## Prepare the environment
 
@@ -43,7 +42,7 @@ In this section, you set up the infrastructure within which you install IBM Inst
 
 ### Assumptions
 
-This tutorial configures a WAS cluster with a deployment manager and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs within the same availability set:
+This tutorial configures a WAS cluster with a deployment manager and two managed servers on a total of three VMs. To configure the cluster, you must create the following three Azure VMs within the same availability set:
 
 - The admin VM (VM name `adminVM`) has the deployment manager running.
 - The managed VMs (VM names `mspVM1` and `mspVM2`) have two managed servers running.
@@ -52,7 +51,9 @@ This tutorial configures a WAS cluster with a deployment manager and two managed
 
 ### Create a resource group
 
-Create a resource group by using [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `eastus` location:
+Create a resource group by using [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique.
+
+A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `eastus` location:
 
 ### [Bash](#tab/in-bash)
 
@@ -75,17 +76,19 @@ az group create `
 ### Create a virtual network
 
 > [!NOTE]
-> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified.
-> If you run these commands in PowerShell, ensure to declare environment parameters as indicated in the commands above.
-> To break a command line into multiple lines, in PowerShell you can use the backtick character (`) at the end of each line.
+> By default, the Azure CLI commands in this section follow the Bash style unless otherwise specified.
+>
+> If you run these commands in PowerShell, be sure to declare environment parameters as indicated in the earlier commands.
+>
+> To break a command line into multiple lines in PowerShell, you can use the backtick character (`) at the end of each line.
 
-The resources comprising your WebSphere Server cluster must communicate with each other, and the public internet, by using a virtual network. For a complete guide to planning your virtual network, see the Cloud Adoption Framework for Azure guide [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). For more information, see [Azure Virtual Network frequently asked questions](/azure/virtual-network/virtual-networks-faq).
+The resources that compose your WebSphere Server cluster must communicate with each other, and with the public internet, by using a virtual network. For a complete guide to planning your virtual network, see the Cloud Adoption Framework for Azure guide [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). For more information, see [Azure Virtual Network frequently asked questions](/azure/virtual-network/virtual-networks-faq).
 
-Use the following steps to create the virtual network. The example in this section creates a virtual network with address space `192.168.0.0/16` and creates a subnet used for VMs.
+Use the following steps to create the virtual network. The example in this section creates a virtual network with address space `192.168.0.0/16` and creates a subnet for VMs.
 
 1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a network named `myVNet`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet create \
@@ -94,7 +97,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.0/24
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet create `
@@ -107,7 +110,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 1. Create a subnet for the WAS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet subnet create \
@@ -117,7 +120,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.0/25
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet subnet create `
@@ -131,7 +134,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 1. Create a subnet for Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `wasGateway`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet subnet create \
@@ -141,7 +144,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.128/25
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet subnet create `
@@ -157,13 +160,15 @@ Use the following steps to create the virtual network. The example in this secti
 
 ## Get or install WAS on GNU/Linux
 
-The following sections describe the steps for getting or installing WAS on GNU/Linux. You can choose the operating system, and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
+The following sections describe the steps for getting or installing WAS on GNU/Linux. You can choose the operating system and WAS version according to your requirements, but you should verify that they're available in the [IBM WebSphere Application Server Network Deployment documentation](https://www.ibm.com/docs/en/was-nd).
 
-If want to use WAS V9, the instructions will use an Azure VM image that is maintained by IBM and Microsoft containing the latest supported version of the software. For the full list of WAS base images maintained by IBM and Microsoft, see [Azure Marketplace](https://aka.ms/was-vm-base-images). If you want to use WAS V8.5, the instructions will start with a base Red Hat Enterprise Linux VM and walk you through the steps of installing all of the necessary dependencies.
+If want to use WAS V9, the instructions use an Azure VM image that contains the latest supported version of the software. IBM and Microsoft maintain the image. For the full list of WAS base images that IBM and Microsoft maintain, see [Azure Marketplace](https://aka.ms/was-vm-base-images).
+
+If you want to use WAS V8.5, the instructions start with a base Red Hat Enterprise Linux VM and walk you through the steps of installing all of the necessary dependencies.
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-IBM and Microsoft maintain a VM base image that has WAS V9 pre-installed on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
+IBM and Microsoft maintain a VM base image that has WAS V9 preinstalled on the recommended version of Red Hat Enterprise Linux. For details on this image, see [the Azure portal](https://aka.ms/twas-base-vm-portal). If you take this approach, the Azure Marketplace image that you use to create the VMs is `ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2021-04-27-twas-cluster-base-image:2021-04-27-twas-cluster-base-image:latest`.
 
 ```azurecli
 export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
@@ -175,7 +180,7 @@ $Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-tw
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
-The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
+The Azure Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`.
 
 > [!NOTE]
 > You can query all the available Red Hat Enterprise Linux images provided by Red Hat by using [az vm image list](/cli/azure/vm/image#az-vm-image-list), as shown in the following example:
@@ -190,7 +195,7 @@ The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2
 >
 > For more information, see [Overview of Red Hat Enterprise Linux images](/azure/virtual-machines/workloads/redhat/redhat-images).
 >
-> If you use a different image, you may need to install extra libraries to enable the infrastructure used in this guide.
+> If you use a different image, you might need to install extra libraries to enable the infrastructure that this guide uses.
 
 ```azurecli
 export VM_URN="RedHat:rhel-raw:86-gen2:latest"
@@ -204,11 +209,11 @@ $Env:VM_URN="RedHat:rhel-raw:86-gen2:latest"
 
 ### Create a Red Hat Enterprise Linux machine
 
-Next, use the following steps to create a basic VM, ensure all the required tools are installed on it on it, take snapshot of its disk, and then create replicas based on the snapshot:
+Use the following steps to create a basic VM, ensure all the required tools are installed on it, take snapshot of its disk, and then create replicas based on the snapshot:
 
 1. Create a VM by using [az vm create](/cli/azure/vm). You run the deployment manager on this VM.
 
-   The following example creates a Red Hat Enterprise Linux machine by using a user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
+   The following example creates a Red Hat Enterprise Linux machine by using a username/password pair for the authentication. You can choose to use TLS/SSL authentication instead.
 
    ### [Bash](#tab/in-bash)
 
@@ -228,7 +233,7 @@ Next, use the following steps to create a basic VM, ensure all the required tool
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name adminVM `
@@ -247,7 +252,7 @@ Next, use the following steps to create a basic VM, ensure all the required tool
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
-   This step is already performed for you when using the VM base image.
+   This step is already performed for you when you use the VM base image.
 
    ### [WAS ND V85](#tab/was-nd-v85)
 
@@ -273,35 +278,35 @@ Next, use the following steps to create a basic VM, ensure all the required tool
 
    ---
 
-### Create Windows VM and set up X-server
+### Create a Windows VM and set up an X server
 
-This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a *jump box* and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
+This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a *jump box* and run an [X Window System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
 
-Use the following steps to provision a Windows 10 machine and install an X-server. If you already have a Windows machine within the same network as the Red Hat Enterprise Linux machine, you don't need to provision a new one from Azure. You can jump to the section that installs the X-server.
+Use the following steps to provision a Windows 10 machine and install an X server. If you already have a Windows machine within the same network as the Red Hat Enterprise Linux machine, you don't need to provision a new one from Azure. You can go directly to the section that installs the X server.
 
 [!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
 
-You're now ready to connect to the Red Hat Enterprise Linux machine and install the required tools with the graphical interface. The following sections guide you to install IBM Installation Manager and WebSphere Application Server Network Deployment traditional. You use `myWindowsVM` for the installation and configuration.
+You're now ready to connect to the Red Hat Enterprise Linux machine and install the required tools by using the graphical interface. The following sections guide you to install IBM Installation Manager and WebSphere Application Server Network Deployment traditional. You use `myWindowsVM` for the installation and configuration.
 
 ### Install dependencies
 
-Use the following steps to install the required dependencies to allow connection from X-server and enable graphical installation:
+Use the following steps to install the required dependencies to allow theconnection from the X server and enable graphical installation:
 
 1. Use the following steps to get the private IP address of `adminVM`:
 
    1. From the Azure portal, select the resource group `abc1110rg`.
    1. In the list of resources, select `adminVM`.
    1. On the overview pane, select **Properties**.
-   1. In the **Networking**, copy the value of **Private IP address**. In this example, the value is `192.168.0.4`.
+   1. In the **Networking** section, copy the value of **Private IP address**. In this example, the value is `192.168.0.4`.
 
-1. Open a command prompt from `myWindowsVM`, then SSH into `adminVM` by using `ssh`, as shown in the following example:
+1. Open a command prompt from `myWindowsVM`, and then connect to `adminVM` by using `ssh`, as shown in the following example:
 
    ```cmd
    set ADMINVM_IP="192.168.0.4"
    ssh azureuser@%ADMINVM_IP%
    ```
 
-1. Input the password *Secret123456*.
+1. Enter the password **Secret123456**.
 
 1. Use the following command to switch to the `root` user. This tutorial installs all the tools with the `root` user.
 
@@ -309,7 +314,7 @@ Use the following steps to install the required dependencies to allow connection
    sudo su -
    ```
 
-   You've now signed in using the `root` user.
+   You've now signed in by using the `root` user.
 
 1. Use the following commands to install dependencies:
 
@@ -327,13 +332,13 @@ Later, you continue to mount the data disk on `adminVM`, so keep this terminal o
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-This step is already performed for you when using the VM base image. Set the following environment variables in the shell on `adminVM`.
+This step is already performed for you when you use the VM base image. Set the following environment variables in the shell on `adminVM`.
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
 You store all the installation files and configurations to the data disk. Use the following steps to mount the disk. Run the commands as the `root` user. If you aren't working with `root`, run `sudo su -` to switch users.
 
-1. Use the following command to check for the last created disk device that you format for holding WAS files:
+1. Use the following command to check for the last-created disk device that you format for holding WAS files:
 
    ```bash
    ls -alt /dev/sd*|head -1
@@ -347,7 +352,7 @@ You store all the installation files and configurations to the data disk. Use th
 
 1. Use the following steps to format the device. As the `root` user, run `parted` on the device.
 
-   1. Use the following command to create a primary partition spanning the whole disk:
+   1. Use the following command to create a primary partition that spans the whole disk:
 
       ```bash
       parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
@@ -372,7 +377,7 @@ You store all the installation files and configurations to the data disk. Use th
       1      1049kB  107GB  107GB               xfspart
       ```
 
-1. Use the following commands to create a filesystem on the device partition:
+1. Use the following commands to create a file system on the device partition:
 
    ```bash
    mkfs.xfs /dev/sdc1
@@ -412,9 +417,9 @@ Later, you continue to install IBM Installation Manager on `adminVM`, so keep th
 
 ### Download and install IBM Installation Manager
 
-Use the following steps to download and install IBM Installation Manager by using the X-server on `myWindowsVM`:
+Use the following steps to download and install IBM Installation Manager by using the X server on `myWindowsVM`:
 
-1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to */datadrive/tmp*, then unzip the file to */datadrive/installer*.
+1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to */datadrive/tmp*, and then unzip the file to */datadrive/installer*.
 
    ```bash
    mkdir /datadrive/tmp
@@ -423,9 +428,9 @@ Use the following steps to download and install IBM Installation Manager by usin
    unzip -o agent.installer.linux.gtk.x86_64.zip -d /datadrive/installer
    ```
 
-1. Before launching the installer, set the `DISPLAY` variable, as shown in the following example. This variable allows the graphical installer to run on the Red Hat Linux VM, but display on `myWindowsVM`. The value of the `DISPLAY` variable includes the private IP address of `myWindowsVM`.
+1. Before you open the installer, set the `DISPLAY` variable, as shown in the following example. This variable allows the graphical installer to run on the Red Hat Linux VM but appear on `myWindowsVM`. The value of the `DISPLAY` variable includes the private IP address of `myWindowsVM`.
 
-   In this example, the IP address is `192.168.0.5`. Following the IP address of `myWindowsVM` is the display number. In the X Windows System, the most common display number is `:0.0`.
+   In this example, the IP address is `192.168.0.5`. The display number follows the IP address of `myWindowsVM`. In the X Window System, the most common display number is `:0.0`.
 
    ```bash
    export DISPLAY=<my-windows-VM-private-IP>:0.0
@@ -437,39 +442,39 @@ Use the following steps to download and install IBM Installation Manager by usin
    1. In the Azure portal, select `myWindowsVM`.
    1. On the overview pane, under **Properties**, in the **Networking** section, find **Private IP address**.
 
-1. Next, use the following commands to start the process of installing IBM Installation Manager:
+1. Use the following commands to start the process of installing IBM Installation Manager:
 
    ```bash
    cd /datadrive/installer
    ./install
    ```
 
-1. After a while, the installer displays, as shown in the following screenshot. If you don't see the user interface, troubleshoot the problem before proceeding. Keep the default settings.
+1. After a while, the installer appears, as shown in the following screenshot. If you don't see the user interface, troubleshoot the problem before proceeding. Keep the default settings.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-select-packages-to-install.png" alt-text="Screenshot of IBM Installation Manager Setup." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-select-packages-to-install.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-select-packages-to-install.png" alt-text="Screenshot of IBM Installation Manager setup." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-select-packages-to-install.png":::
 
 1. Select **Next**.
 
-1. Accept the license and then select **Next**.
+1. Accept the license agreement and then select **Next**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png" alt-text="Screenshot of IBM Installation Manager Accept License." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png" alt-text="Screenshot of the IBM Installation Manager license agreement." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png":::
 
-1. Set the Installation Manager Directory to */datadrive/IBM/InstallationManager/V1.9*, as shown in the following screenshot.
+1. Set the Installation Manager directory to */datadrive/IBM/InstallationManager/V1.9*, as shown in the following screenshot.
 
    > [!NOTE]
-   > Many of the steps in this guidance require you to copy values from this text and paste them directly into the installer UI. A typo in one of these values can cause the process to fail completely. We strongly recommend you open up a Notepad instance within the Windows jump box VM and use that as an intermediate place to paste values from this guidance. Then, inside the VM, do a separate copy/paste from the Notepad to the installer UI. This action minimizes the chances of a simple typo causing the guidance to fail.
+   > Many of the steps in this guidance require you to copy values from this text and paste them directly into the installer UI. A typo in one of these values can cause the process to fail completely. We strongly recommend that you open a Notepad instance within the Windows jump box VM and use that as an intermediate place to paste values from this guidance. Then, inside the VM, do a separate copy/paste operation from Notepad to the installer UI. This action minimizes the chances of a simple typo causing the guidance to fail.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-directory.png" alt-text="Screenshot of IBM Installation Manager Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-directory.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-directory.png" alt-text="Screenshot of the IBM Installation Manager directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-directory.png":::
 
-1. Select **Next** to see the summary, as shown in the following screenshot:
+1. Select **Next** to see the summary:
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-summary.png" alt-text="Screenshot of IBM Installation Manager Summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-summary.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-summary.png" alt-text="Screenshot of the IBM Installation Manager summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-summary.png":::
 
-1. Select **Install**. You're shown that the installation completed without error.
+1. Select **Install**. A verification shows that the installation finished without error.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png" alt-text="Screenshot of IBM Installation Manager Installation complete." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png" alt-text="Screenshot that shows successful installation of IBM Installation Manager." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png":::
 
-1. Exit the installer. The IBM Installation Manager is now installed in directory */datadrive/IBM/InstallationManager/V1.9*.
+1. Close the installer. IBM Installation Manager is now installed in the directory */datadrive/IBM/InstallationManager/V1.9*.
 
 Next, you continue to install WebSphere Application Server on `adminVM`, so keep this terminal open.
 
@@ -479,22 +484,22 @@ Next, you continue to install WebSphere Application Server on `adminVM`, so keep
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-By using the base image, WebSphere Application Server Network Deployment is already installed in directory */datadrive/IBM/WebSphere/ND/V9*.
+By using the base image, WebSphere Application Server Network Deployment is already installed in the directory */datadrive/IBM/WebSphere/ND/V9*.
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
-In this section, you use the X-server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional V8.5 running on `adminVM`. Use the following steps to view the installer and install the server:
+In this section, you use the X server on `myWindowsVM` to view the graphical installer for WebSphere Application Server Network Deployment traditional V8.5 running on `adminVM`. Use the following steps to view the installer and install the server:
 
 1. If you aren't using the previous terminal, set the `DISPLAY` variable by running `export DISPLAY=<my-windows-vm-private-ip>:0.0`.
 
-1. Then, use the following commands to start the process to install WAS:
+1. Use the following commands to start the process to install WAS:
 
    ```bash
    cd /datadrive/IBM/InstallationManager/V1.9/eclipse/
    ./IBMIM
    ```
 
-   After a while, the installer displays, as shown in the following screenshot. If you don't see the user interface, troubleshoot the problem before proceeding.
+   After a while, the installer appears. If you don't see the user interface, troubleshoot the problem before proceeding.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png" alt-text="Screenshot of IBM WebSphere Application Server installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation.png":::
 
@@ -502,54 +507,54 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png" alt-text="Screenshot of IBM WebSphere Application Server edit preferences." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png":::
 
-1. In **Repositories** pane, select **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be `https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85`. Fill in with the URL in the **Repository** pane, select **OK**.
+1. On the **Repositories** pane, select **Add Repository**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be `https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85`. Fill in the URL on the **Repository** pane, and then select **OK**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png" alt-text="Screenshot of IBM WebSphere Application Server add the product repository." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png" alt-text="Screenshot of the box for adding the product repository for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png":::
 
-1. After a while, the **Password Required** pane asks you to input your IBMid. Fill in your user name and password and select **Save password**.
+1. After a while, the **Password Required** pane asks you to enter your IBMid. Fill in your username and password, and then select **Save password**.
 
 > [!NOTE]
-> The IBMid you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, please contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
+> The IBMid that you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of IBM WebSphere Application Server Password Required." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of the Password Required pane for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
 
-1. Select **OK**. It takes a while to connect to the repository. If there's an error, you must make sure the IBMid and password are correct, and your IBMid has been entitled to access the product repository for IBM WebSphere Application Server Network Deployment V8.5.
+1. Select **OK**. It takes a while to connect to the repository. If you get an error, make sure that the IBMid and password are correct. Also make sure that your IBMid is entitled to access the product repository for IBM WebSphere Application Server Network Deployment V8.5.
 
 1. After the connection is complete, the product repository URL is in the **Repositories** list.
 
-    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of IBM WebSphere Application Server the product repository added." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
+    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of a product repository added to IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
 
-1. Select **OK** to close **Preferences** pane. You are back to the landing page of IBM Installation Manager.
+1. Select **OK** to close **Preferences** pane. You're back to the landing page of IBM Installation Manager.
 
-1. Select **Install**. It takes a while to prepare the installer. You may see a message similar to **Waiting for www-147.ibm.com**.
+1. Select **Install**. It takes a while to prepare the installer. You might see a message similar to `Waiting for www-147.ibm.com`.
 
-1. Once the connection is established, the **Install Packages** pane will be displayed. Select the top level IBM WebSphere Application Server Network Deployment version 8.5.5.x, as shown in the following screenshot. The exact version number can be different, but it must be the latest 8.5.5 version shown. Be sure to select the sub-checkboxes.
+1. After the connection is established, the **Install Packages** pane appears. Select the top-level IBM WebSphere Application Server Network Deployment version 8.5.5.x, as shown in the following screenshot. The exact version number can be different, but it must be the latest 8.5.5 version shown. Be sure to select the nested checkboxes.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png" alt-text="Screenshot of IBM WebSphere Application Server WAS8.5.5 installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png" alt-text="Screenshot of Install Packages pane and IBM WebSphere Application Server WAS 8.5.5 installation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation.png":::
 
-1. Select **Next**. It takes a while to prepare the installer. You may see a message similar to Waiting for www-147.ibm.com. If you are prompted to install fixes, please accept the installation of the recommended fixes and proceed.
+1. Select **Next**. It takes a while to prepare the installer. You might see a message similar to `Waiting for www-147.ibm.com`. If you're prompted to install fixes, accept the installation of the recommended fixes and proceed.
 
-1. Accept the license by selecting **I accept the terms in the license agreement**.
+1. Accept the license agreement by selecting **I accept the terms in the license agreement**.
 
 1. Select **Next**. Set **Shared Resources Directory** to */datadrive/IBM/IMShared*.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Shared Resources Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png" alt-text="Screenshot of the Shared Resources Directory box for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png":::
 
 1. Select **Next**. Set **Installation Directory** to */datadrive/IBM/WebSphere/ND/V85*.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png" alt-text="Screenshot of IBM WebSphere Application Server Installation Directory." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png" alt-text="Screenshot of the Installation Directory box for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png":::
 
-1. Select **Next**. On the **Install Packages** pane, keep **Translations** with the default value and select **Next**. On the next pane, keep the default value of IBM JDK selected. Select **Next**. Then the **summary** pane shows.
+1. Select **Next**. On the **Install Packages** pane, keep **Translations** with the default value and select **Next**. On the next pane, keep the default value of IBM JDK and select **Next**. Then the **Summary** tab appears.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png" alt-text="Screenshot of IBM WebSphere Application summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png" alt-text="Screenshot of an IBM WebSphere Application summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-summary.png":::
 
-1. Select **Install**. The install process should complete without errors. For **Which program do you want to start?**, select **None**.
+1. Select **Install**. The installation process should finish without errors. For **Which program do you want to start?**, select **None**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png" alt-text="Screenshot of IBM WebSphere Application Server Install Complete." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png" alt-text="Screenshot of completed package installation for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-complete.png":::
 
-1. Select **Finish**. If the **WebSphere Customization Toolbox** appears, close it. Exit the IBM Installation Manager.
+1. Select **Finish**. If the WebSphere Customization Toolbox appears, close it. Close IBM Installation Manager.
 
-1. Back in the shell from which you started the installation manager, verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
+1. Back in the shell from which you started IBM Installation Manager, verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
 
    ```bash
    ls -la /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement/pmt.sh
@@ -557,15 +562,15 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    If this file doesn't exist, correct the problem before proceeding.
 
-You've now installed WebSphere Application Server Network Deployment in directory */datadrive/IBM/WebSphere/ND/V85*.
+You've now installed WebSphere Application Server Network Deployment in the directory */datadrive/IBM/WebSphere/ND/V85*.
 
 ---
 
 ### Create machines for managed servers
 
-You've now installed WebSphere Application Server Network Deployment on `adminVM`, which runs the deployment manager. You still need to prepare machines to run the two managed servers. Next, you create a snapshot from disks of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You've now installed WebSphere Application Server Network Deployment on `adminVM`, which runs the deployment manager. You still need to prepare machines to run the two managed servers. Next, you create a snapshot from disks of `adminVM` and prepare machines for managed severs `mspVM1` and `mspVM2`.
 
-This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then use the following steps. This terminal isn't the Windows jump box.
+This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, and then use the following steps. This terminal isn't the Windows jump box.
 
 1. Use the following command to stop `adminVM`:
 
@@ -585,7 +590,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ---
 
-1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
+1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk:
 
    ### [Bash](#tab/in-bash)
 
@@ -617,7 +622,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ---
 
-1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk.
+1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk:
 
    ### [Bash](#tab/in-bash)
 
@@ -649,7 +654,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ---
 
-1. Use the following commands to query for the snapshot IDs that you use later:
+1. Use the following commands to query for the snapshot IDs that you'll use later:
 
    ### [Bash](#tab/in-bash)
 
@@ -691,12 +696,12 @@ Next, create `mspVM1` and `mspVM2`.
 
 Use the following steps to create `mspVM1`:
 
-1. First, create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
+1. Create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
 
    ```bash
-   # Create a new Managed Disk by using the OS snapshot ID.
+   # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -707,7 +712,7 @@ Use the following steps to create `mspVM1`:
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   # Create a new Managed Disk by using the OS snapshot ID.
+   # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -717,7 +722,7 @@ Use the following steps to create `mspVM1`:
 
    ---
 
-1. Next, use the following commands to create the VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
+1. Use the following commands to create the `mspVM1` VM by attaching OS disk `mspVM1_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
 
@@ -762,7 +767,7 @@ Use the following steps to create `mspVM1`:
 
    ```powershell
    # Create the VM by attaching the existing managed disk as an OS.
-   # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM1 `
@@ -792,7 +797,7 @@ Use the following steps to create `mspVM1`:
 
    ```powershell
    # Create the VM by attaching the existing managed disk as an OS.
-   # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM1 `
@@ -805,7 +810,7 @@ Use the following steps to create `mspVM1`:
 
    ---
 
-1. Next, create a managed disk from the data disk snapshot and attach to `mspVM1`.
+1. Create a managed disk from the data disk snapshot and attach it to `mspVM1`:
 
    ### [Bash](#tab/in-bash)
 
@@ -849,7 +854,7 @@ Use the following steps to create `mspVM1`:
 
    ---
 
-1. You've now created `mspVM1` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+1. You've now created `mspVM1` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM1`:
 
    ### [Bash](#tab/in-bash)
 
@@ -873,7 +878,7 @@ Use the following steps to create `mspVM1`:
 
    ---
 
-   When the command completes successfully, you're shown output similar to the following example:
+   When the command finishes successfully, you get output similar to the following example:
 
    ```json
    {
@@ -893,12 +898,12 @@ Use the following steps to create `mspVM1`:
 
 Use the following steps to create `mspVM2`:
 
-1. First, create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
+1. Create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
 
    ```bash
-   # Create a new Managed Disk by using the OS snapshot ID.
+   # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -909,7 +914,7 @@ Use the following steps to create `mspVM2`:
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   # Create a new Managed Disk by using the OS snapshot ID.
+   # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -919,7 +924,7 @@ Use the following steps to create `mspVM2`:
 
    ---
 
-1. Next, use the following commands to create the VM `mspVM2`, attaching OS disk `mspVM2_OsDisk_1`:
+1. Use the following commands to create the `mspVM2` VM by attaching OS disk `mspVM2_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
 
@@ -956,7 +961,7 @@ Use the following steps to create `mspVM2`:
        --output tsv)
 
    # Create the VM by attaching the existing managed disk as an OS.
-   # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2 `
@@ -973,7 +978,7 @@ Use the following steps to create `mspVM2`:
 
    ---
 
-1. Next, create a managed disk from the data snapshot and attach to `mspVM2`.
+1. Create a managed disk from the data snapshot and attach it to `mspVM2`:
 
    ### [Bash](#tab/in-bash)
 
@@ -1017,7 +1022,7 @@ Use the following steps to create `mspVM2`:
 
    ---
 
-1. You've now created `mspVM2` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM2`:
+1. You've now created `mspVM2` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM2`:
 
    ### [Bash](#tab/in-bash)
 
@@ -1041,7 +1046,7 @@ Use the following steps to create `mspVM2`:
 
    ---
 
-   When the command completes successfully, you're shown output similar to the following example:
+   When the command finishes successfully, you get output similar to the following example:
 
    ```json
    {
@@ -1057,9 +1062,9 @@ Use the following steps to create `mspVM2`:
    }
    ```
 
-Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Then, use the following steps to finish preparing the machines:
+Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. Then, use the following steps to finish preparing the machines:
 
-1. To continue, use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
+1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
 
    ### [Bash](#tab/in-bash)
 
@@ -1075,7 +1080,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
 
    ---
 
-1. Use the following commands to get and show the private IP addresses, which you use in later sections:
+1. Use the following commands to get and show the private IP addresses, which you'll use in later sections:
 
    ### [Bash](#tab/in-bash)
 
@@ -1151,15 +1156,15 @@ Now, all three machines are ready. Next, you configure a WAS cluster.
 
 ## Create WAS profiles and a cluster
 
-This section shows you how to create and configure a WAS cluster. When it comes to creating WAS profiles and a cluster, there is no significant difference between the 9.x series and the 8.5.x series. All the screenshots in this section have been captured using V9 as the basis.
+This section shows you how to create and configure a WAS cluster. In terms of creating WAS profiles and a cluster, there's no significant difference between the 9.x series and the 8.5.x series. All the screenshots in this section show V9 as the basis.
 
 ### Configure a deployment manager profile
 
-In this section, you use the X-server on `myWindowsVM` to create a management profile for the deployment manager to administer servers within the deployment manager cell by using the Profile Management Tool. For more information about profiles, see [Profile concepts](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=mpdios-profile-concepts). For more information about creating the deployment manager profile, see [Creating management profiles with deployment managers](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=interface-creating-management-profiles-deployment-managers).
+In this section, you use the X server on `myWindowsVM` to create a management profile for the deployment manager to administer servers within the deployment manager cell by using the Profile Management Tool. For more information about profiles, see [Profile concepts](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=mpdios-profile-concepts). For more information about creating the deployment manager profile, see [Creating management profiles with deployment managers](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=interface-creating-management-profiles-deployment-managers).
 
 Use the following steps to create and configure the management profile:
 
-1. Make sure you're still on your Windows machine. If you aren't, use the following commands to remote connect to `myWindowsVM`, then connect to `adminVM` from a command prompt:
+1. Make sure you're still on your Windows machine. If you aren't, use the following commands to remotely connect to `myWindowsVM`, and then connect to `adminVM` from a command prompt:
 
    ```bash
    set ADMINVM_IP="192.168.0.4"
@@ -1175,7 +1180,7 @@ Use the following steps to create and configure the management profile:
    # export DISPLAY=192.168.0.5:0.0
    ```
 
-1. Use the following commands to start Profile Management Tool:
+1. Use the following commands to start the Profile Management Tool:
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -1193,29 +1198,29 @@ Use the following steps to create and configure the management profile:
 
    ---
 
-   After a while, the Profile Management Tool displays, as shown in the following screenshot. If you don't see the user interface, check behind the command prompt.
+   After a while, the Profile Management Tool appears. If you don't see the user interface, check behind the command prompt.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool.png" alt-text="Screenshot of IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool.png" alt-text="Screenshot of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool.png":::
 
 1. Select **Create**. On the **Environment Selection** pane, select **Management**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile.png" alt-text="Screenshot of IBM Profile Management Tool, Environment Selection, Management." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile.png" alt-text="Screenshot of the Environment Selection pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile.png":::
 
 1. Select **Next**. On the **Server Type Selection** pane, select **Deployment Manager**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-deployment-manager.png" alt-text="Screenshot of IBM Profile Management Tool, Server Type Selection, Deployment Manager." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-deployment-manager.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-deployment-manager.png" alt-text="Screenshot of the Server Type Selection pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-deployment-manager.png":::
 
 1. Select **Next**. On the **Profile Creation Options** pane, select **Advanced profile creation**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-options-advanced.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-options-advanced.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-options-advanced.png" alt-text="Screenshot of the Profile Creation Options pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-options-advanced.png":::
 
-1. Select **Next**. On the **Optional Application Deployment** pane, ensure that **Deploy the administrative console (recommended).** is selected.
+1. Select **Next**. On the **Optional Application Deployment** pane, ensure that **Deploy the administrative console (recommended)** is selected.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png" alt-text="Screenshot of IBM Profile Management Tool, Optional Application Deployment, Deploy the administrative console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png" alt-text="Screenshot of the Optional Application Deployment pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png":::
 
 1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`, and the location depends on your WAS version.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of the Profile Name and Location pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -1223,47 +1228,47 @@ Use the following steps to create and configure the management profile:
 
    ### [WAS ND V85](#tab/was-nd-v85)
 
-   In WAS V85, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+   In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
 
    ---
 
 1. Select **Next**. On the **Node, Host, and Cell Names** pane, enter your node name, host name, and cell name. The host is the private IP address of `adminVM`. In this example, the node name is `adminvmCellManager01`, the host value is `192.168.0.4`, and the cell name is `adminvmCell01`.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png" alt-text="Screenshot of IBM Profile Management Tool, Node, Host, and Cell Name." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png" alt-text="Screenshot of the Node, Host, and Cell Names pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-node-host-cell.png":::
 
-1. Select **Next**. On the **Administrative Security** pane, enter your admin user name and password. In this example, the user name is `websphere`, and the password is `Secret123456`. Note down the user name and password so you can use it to sign in to the IBM console.
+1. Select **Next**. On the **Administrative Security** pane, enter your admin username and password. In this example, the username is `websphere`, and the password is `Secret123456`. Note down the username and password so you can use them to sign in to the IBM console.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-admin-security.png" alt-text="Screenshot of IBM Profile Management Tool, Administrative Security." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-admin-security.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-admin-security.png" alt-text="Screenshot of the Administrative Security pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-admin-security.png":::
 
-1. Select **Next**. For the security certificate (part 1), input your certificate if you have one. This example uses the default self-signed certificate.
+1. Select **Next**. For the security certificate (part 1), enter your certificate if you have one. This example uses the default self-signed certificate.
 
-1. Select **Next**. For the security certificate (part 2), input your certificate if you have one. This example uses the default self-signed certificate.
+1. Select **Next**. For the security certificate (part 2), enter your certificate if you have one. This example uses the default self-signed certificate.
 
-1. Select **Next**. On the **Port Values Assignment**, keep the default ports.
+1. Select **Next**. On the **Port Values Assignment** pane, keep the default ports.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-ports.png" alt-text="Screenshot of IBM Profile Management Tool, Port Values Assignment." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-ports.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-ports.png" alt-text="Screenshot of the Port Values Assignment pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-ports.png":::
 
-1. Select **Next**. On the **Linux Service Definition** pane, don't select **Run the deployment manager process as a Linux service.**. Later, you create the Linux service.
+1. Select **Next**. On the **Linux Service Definition** pane, don't select **Run the deployment manager process as a Linux service**. Later, you'll create the Linux service.
 
-1. Select **Next**. You're shown the **Profile Creation Summary**.
+1. Select **Next**. On the **Profile Creation Summary** pane, make sure that the information is correct.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png" alt-text="Screenshot of the Profile Creation Summary pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png":::
 
-1. Select **Create**. It takes a while to finish the profile creation. After the profile finishes, you see the **Profile Creation Complete** pane, as shown in the following screenshot. Select **Launch the First steps console**.
+1. Select **Create**. It takes a while to finish the profile creation. After the profile finishes, the **Profile Creation Complete** pane appears. Select **Launch the First steps console**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Complete." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png" alt-text="Screenshot of the Profile Creation Complete pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png":::
 
-1. Select **Finish**. The **First steps** console shows. Select **Installation verification**.
+1. Select **Finish**. The **First steps** console appears. Select **Installation verification**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps.png" alt-text="Screenshot of IBM Profile Management Tool, First steps console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps.png" alt-text="Screenshot of the First steps console of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps.png":::
 
-   The verification process starts and you're shown output similar to the following screenshot. If there are errors, you must resolve them before moving on.
+   The verification process starts, and output similar to the following example appears. If there are errors, you must resolve them before moving on.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps-output.png" alt-text="Screenshot of IBM Profile Management Tool, First steps console, Output." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps-output.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps-output.png" alt-text="Screenshot of First steps console output for the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-first-steps-output.png":::
 
-1. Now, the deployment manager process starts. You can exit the **First Steps Console** by closing the output pane and selecting **Exit** in the **First Steps Console**.
+1. The deployment manager process starts. You can close the **First steps** console by closing the output pane and selecting **Exit** in the console.
 
-   You've now finished the profile creation. You can close the WebSphere Customization ToolBox.
+   You've now finished the profile creation. You can close the WebSphere Customization Toolbox.
 
 1. To access the IBM console, open the firewall ports by using the following commands:
 
@@ -1288,9 +1293,9 @@ Use the following steps to create and configure the management profile:
    firewall-cmd --reload
    ```
 
-1. To start the deployment manager automatically at boot, create a Linux service for the process. Run the following commands to create a Linux service:
+1. To start the deployment manager automatically at startup, create a Linux service for the process. Run the following commands to create a Linux service:
 
-### [WAS ND V9](#tab/was-nd-v9)
+   ### [WAS ND V9](#tab/was-nd-v9)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
@@ -1303,7 +1308,7 @@ Use the following steps to create and configure the management profile:
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
 
-### [WAS ND V85](#tab/was-nd-v85)
+   ### [WAS ND V85](#tab/was-nd-v85)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01
@@ -1316,23 +1321,23 @@ Use the following steps to create and configure the management profile:
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
 
----
+   ---
 
-You must see the following output before continuing:
+Confirm that the following output appears:
 
 ```bash
 CWSFU0013I: Service [adminvmCellManager01] added successfully.
 ```
 
-If you don't see this output, troubleshoot and resolve the problem before continuing.
+If this output doesn't appear, troubleshoot and resolve the problem before continuing.
 
-The deployment manager is running on `adminVM`. From the jump box Windows VM, you can access IBM console at the URL `http://<admin-vm-private-ip>:9060/ibm/console/`.
+The deployment manager is running on `adminVM`. From the jump box Windows VM, you can access the IBM console at the URL `http://<admin-vm-private-ip>:9060/ibm/console/`.
 
 ### Configure custom profiles
 
-In this section, you use the X-server on `myWindowsVM` to create custom profiles for managed servers.
+In this section, you use the X server on `myWindowsVM` to create custom profiles for managed servers.
 
-Make sure you're still on your Windows machine. If you're not, remote connect to `myWindowsVM`.
+Make sure you're still on your Windows machine. If you're not, remotely connect to `myWindowsVM`.
 
 Then, configure custom profiles on `mspVM1` and `mspVM2`.
 
@@ -1454,7 +1459,7 @@ After a while, the Profile Management Tool displays. If you don't see the user i
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png" alt-text="Screenshot of IBM Profile Management Tool, Node and Host Names 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png":::
 
-1. Select **Next**. On the **Federation** pane, enter the deployment manager hostname and authentication. For **Deployment manager host name or IP address**, the value is the private IP address of `adminVM`, which is `192.168.0.4` here. For the **Deployment manager authentication**, in this example, the user name is `websphere`, and the password is `Secret123456`.
+1. Select **Next**. On the **Federation** pane, enter the deployment manager hostname and authentication. For **Deployment manager host name or IP address**, the value is the private IP address of `adminVM`, which is `192.168.0.4` here. For the **Deployment manager authentication**, in this example, the username is `websphere`, and the password is `Secret123456`.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png" alt-text="Screenshot of IBM Profile Management Tool, Federation 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png":::
 
@@ -1528,7 +1533,7 @@ You've now prepared the custom profile for two managed servers - `mspVM1` and `m
 
 In this section, you use the IBM console to create a WAS cluster and start managed servers by using the browser on `myWindowsVM`. Make sure you're still on your Windows machine. If you aren't, remote connect to `myWindowsVM`. Then, use the following steps:
 
-1. Open the Microsoft Edge browser and navigate to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane, then enter your administrative user name and password (`websphere/Secret123456`) to sign in to the IBM console. You're now able to administer clusters and servers.
+1. Open the Microsoft Edge browser and navigate to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane, then enter your administrative username and password (`websphere/Secret123456`) to sign in to the IBM console. You're now able to administer clusters and servers.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png":::
 
