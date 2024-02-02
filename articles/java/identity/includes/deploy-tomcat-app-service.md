@@ -5,8 +5,7 @@ ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-#### Deploy the sample to Azure App Service
-
+#### [Deploy the sample to Azure App Service](#tab/appsvc)
 
 You'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application to a Linux Tomcat server in [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. 
 
@@ -113,7 +112,8 @@ az group delete --name <your resource group name; for example: helloworld-169044
 
 This command may take a minute to run.
 
-#### Running the sample locally
+
+#### [Run the sample locally](#tab/local)
 
 To run the sample on Tomcat:
 
@@ -124,3 +124,5 @@ To run the sample on Tomcat:
 1. Copy the .war file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
 
 1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
+
+---
