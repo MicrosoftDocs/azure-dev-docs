@@ -45,21 +45,21 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |               |               |
 |---------------|---------------|
-| <img src="./media/sign-in.png" width="200"> | [**1.1 Sign-in with Microsoft Entra ID**](./1-Authentication/sign-in) </br> Sign your users in with **Microsoft Entra ID** and learn to work with **ID Tokens**.  |
-| <img src="./media/sign-in.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./1-Authentication/sign-in-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
+| <img src="./media/sign-in.png" width="200"> | [**1.1 Sign-in with Microsoft Entra ID**](./enable-spring-boot-webapp-authentication-entra-id.md) </br> Sign your users in with **Microsoft Entra ID** and learn to work with **ID Tokens**.  |
+| <img src="./media/sign-in.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-spring-boot-webapp-authentication-azure-ad-b2c.md) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
 
 ### Chapter 2: Get an Access Token and call Microsoft Graph
 
 |                |               |
 |----------------|---------------|
-| <img src="./media/call-graph.png" width="200"> | [**2.1 Acquire an Access Token from Microsoft Entra ID and call Microsoft Graph**](./2-Authorization-I/call-graph) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
+| <img src="./media/call-graph.png" width="200"> | [**2.1 Acquire an Access Token from Microsoft Entra ID and call Microsoft Graph**](./enable-spring-boot-webapp-authorization-entra-id.md) </br> Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. |
 
 ### Chapter 3: Restrict access to routes based on group and / or role membership
 
 |                |               |
 |----------------|---------------|
-| <img src="./media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./3-Authorization-II/roles) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
-| <img src="./media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./3-Authorization-II/groups) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
+| <img src="./media/sign-in.png" width="200"> | [**3.1 Acquire an ID Token with the roles claim**](./enable-spring-boot-webapp-authz-role-entra-id.md) </br> Enable your web app to acquire an ID Token with the **Roles** claim. Filter access to routes based on the role membership. |
+| <img src="./media/sign-in.png" width="200"> | [**3.2 Acquire an ID Token with the Groups claim**](./enable-spring-boot-webapp-authorization-group-entra-id.md) </br> Enable your web app to acquire an ID Token with a **Groups** claim. Filter access to routes based on the role membership. Learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token. |
 
 ### Chapter 4: Deploy your app to Azure
 

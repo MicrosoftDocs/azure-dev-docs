@@ -14,7 +14,7 @@ adobe-target: true
 
 
 
-# Tutorial: Get started with securing java application with Microsoft Identity platform
+# Get started with securing java application with Microsoft Identity platform
 
 This article provides an overview of recommended strategies for securing Java applications with Microsoft Identity Platform.
 
@@ -26,4 +26,3 @@ The [Microsoft identity platform](https://learn.microsoft.com/entra/identity-pla
 ## Next steps
 
 We recommend following the chapters in successive order. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
-
