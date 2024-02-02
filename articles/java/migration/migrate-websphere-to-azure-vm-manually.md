@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines"
-description: Provides step-by-step guidance to install IBM WebSphere Application Server on Azure VMs and form a cluster and expose it with Azure Application Gateway.
+description: Get step-by-step guidance to install IBM WebSphere Application Server on Azure VMs and form a cluster and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -9,31 +9,33 @@ recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java
 ---
 
-# Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines
+# Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure virtual machines
 
-This tutorial shows you how to install traditional IBM WebSphere Application Server (WAS) Network Deployment and configure a WAS cluster on Azure Virtual Machines (VMs) on GNU/Linux.
+This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Create a custom virtual network and create the VMs within the network.
-> - Install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface manually.
+> - Manually install WebSphere Application Server Network Deployment traditional (V9 or V8.5) on the VMs by using the graphical interface.
 > - Configure a WAS cluster by using the Profile Management Tool.
-> - Deploy and run a Java EE application in the cluster.
+> - Deploy and run a Java Platform Enterprise Edition (Java EE) application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md). A less automated, but still accelerated option is to skip the steps of installing JDK and WebSphere on the operating system by using a preconfigured Red Hat Linux base image. You can find these offers in Azure Marketplace with a [query for "WebSphere Application Server image 9.0.5.x"](https://aka.ms/was-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Deploy a WebSphere Application Server (traditional) cluster on Azure virtual machines](../ee/traditional-websphere-application-server-virtual-machines.md). A less automated, but still accelerated, option is to skip the steps of installing Java Development Kit (JDK) and WebSphere on the operating system by using a preconfigured Red Hat Linux base image. You can find these offers in Azure Marketplace by using a [query for "WebSphere Application Server image 9.0.5.x"](https://aka.ms/was-vm-base-images).
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
-  - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash, but either way, you must install Azure CLI.
-  - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- [Install Azure CLI version 2.46.0 or later](/cli/azure/install-azure-cli) to run Azure CLI commands.
+  - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash, but either way, you must install the Azure CLI.
+  - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an IBMid. If you don't have one, create an IBM account at [Log in to IBM](https://myibm.ibm.com/dashboard/) and select **Create an IBMid**. Make note of your IBMid password and email.
-   - If you plan to use Version 8.5.5 of IBM WebSphere Application Server Network deployment, this IBMid must be entitled to use that version of the software. To learn about entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access or follow steps at [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement). 
+  
+  If you plan to use Version 8.5.5 of IBM WebSphere Application Server Network deployment, this IBMid must be entitled to use that version of the software. To learn about entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access or follow steps at [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement). 
 
 ## Prepare the environment
 
@@ -67,12 +69,13 @@ az group create `
 --name $Env:RESOURCE_GROUP_NAME `
 --location eastus
 ```
+
 ---
 
 ### Create a virtual network
 
 > [!NOTE]
-> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified. 
+> By default, the Azure CLI commands provided below follow the Bash style unless otherwise specified.
 > If you run these commands in PowerShell, ensure to declare environment parameters as indicated in the commands above.
 > To break a command line into multiple lines, in PowerShell you can use the backtick character (`) at the end of each line.
 
@@ -81,14 +84,16 @@ The resources comprising your WebSphere Server cluster must communicate with eac
 Use the following steps to create the virtual network. The example in this section creates a virtual network with address space `192.168.0.0/16` and creates a subnet used for VMs.
 
 1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a network named `myVNet`:
-    
+
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network vnet create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name myVNet \
        --address-prefixes 192.168.0.0/24
    ```
+
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
@@ -97,11 +102,13 @@ Use the following steps to create the virtual network. The example in this secti
       --name myVNet `
       --address-prefixes 192.168.0.0/24
    ```
+
    ---
-    
+
 1. Create a subnet for the WAS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -109,7 +116,9 @@ Use the following steps to create the virtual network. The example in this secti
        --vnet-name myVNet \
        --address-prefixes 192.168.0.0/25
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az network vnet subnet create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -117,11 +126,13 @@ Use the following steps to create the virtual network. The example in this secti
       --vnet-name myVNet `
       --address-prefixes 192.168.0.0/25
    ```
+
    ---
 
 1. Create a subnet for Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `wasGateway`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -129,7 +140,9 @@ Use the following steps to create the virtual network. The example in this secti
        --vnet-name myVNet \
        --address-prefixes 192.168.0.128/25
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az network vnet subnet create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -137,10 +150,10 @@ Use the following steps to create the virtual network. The example in this secti
       --vnet-name myVNet `
       --address-prefixes 192.168.0.128/25
    ```
+
    ---
 
 [!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
-
 
 ## Get or install WAS on GNU/Linux
 
@@ -227,6 +240,7 @@ Next, use the following steps to create a basic VM, ensure all the required tool
        --public-ip-address '""' `
        --nsg '""' 
    ```
+
    ---
 
 1. Create and attach a new disk for WAS files by using the following command:
@@ -246,6 +260,7 @@ Next, use the following steps to create a basic VM, ensure all the required tool
          --size-gb 100 \
          --sku StandardSSD_LRS
    ```
+
    ```powershell
    az vm disk attach `
          --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -487,7 +502,7 @@ In this section, you use the X-server on `myWindowsVM` to view the graphical ins
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png" alt-text="Screenshot of IBM WebSphere Application Server edit preferences." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-edit-preferences.png":::
 
-1. In **Repositories** pane, select **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be `https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85`. Fill in with the URL in the **Repository** pane, select **OK**
+1. In **Repositories** pane, select **Add Repository...**. Find the repository URL from [the online product repository of IBM WebSphere Application Server offerings](https://www.ibm.com/docs/en/was/8.5.5?topic=installing-online-product-repositories-websphere-application-server-offerings). For WebSphere Application Server Network Deployment V8.5, the URL should be `https://www.ibm.com/software/repositorymanager/com.ibm.websphere.ND.v85`. Fill in with the URL in the **Repository** pane, select **OK**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png" alt-text="Screenshot of IBM WebSphere Application Server add the product repository." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-add-the-product-repository.png":::
 
@@ -555,21 +570,25 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use the following command to stop `adminVM`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # export RESOURCE_GROUP_NAME=abc1110rg
    az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
+
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
    # $Env:RESOURCE_GROUP_NAME = "abc1110rg"
    az vm stop --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
    ```
+
    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    export ADMIN_OS_DISK_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -581,7 +600,9 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --name myAdminOSDiskSnapshot \
       --source $ADMIN_OS_DISK_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    $Env:ADMIN_OS_DISK_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -593,11 +614,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminOSDiskSnapshot  `
        --source $Env:ADMIN_OS_DISK_ID
    ```
+
    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    export ADMIN_DATA_DISK_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -609,7 +632,9 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --name myAdminDataDiskSnapshot \
       --source $ADMIN_DATA_DISK_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    $Env:ADMIN_DATA_DISK_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -621,11 +646,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminDataDiskSnapshot `
        --source $Env:ADMIN_DATA_DISK_ID
    ```
+
    ---
 
 1. Use the following commands to query for the snapshot IDs that you use later:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Get the snapshot ID.
    export OS_SNAPSHOT_ID=$(az snapshot show \
@@ -639,7 +666,9 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --query '[id]' \
       --output tsv)
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Get the snapshot ID.
    $Env:OS_SNAPSHOT_ID=$(az snapshot show `
@@ -653,6 +682,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --query '[id]' `
        --output tsv)
    ```
+
    ---
 
 Next, create `mspVM1` and `mspVM2`.
@@ -664,6 +694,7 @@ Use the following steps to create `mspVM1`:
 1. First, create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Create a new Managed Disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -672,7 +703,9 @@ Use the following steps to create `mspVM1`:
       --name mspVM1_OsDisk_1 \
       --source $OS_SNAPSHOT_ID
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Create a new Managed Disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -681,11 +714,13 @@ Use the following steps to create `mspVM1`:
        --name mspVM1_OsDisk_1 `
        --source $Env:OS_SNAPSHOT_ID
    ```
+
    ---
 
 1. Next, use the following commands to create the VM `mspVM1`, attaching OS disk `mspVM1_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Get the resource ID of the managed disk.
    export MSPVM1_OS_DISK_ID=$(az disk show \
@@ -694,7 +729,9 @@ Use the following steps to create `mspVM1`:
       --query '[id]' \
       --output tsv)
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
@@ -703,10 +740,11 @@ Use the following steps to create `mspVM1`:
        --query '[id]' `
        --output tsv)
    ```
+
    ---
 
    ### [WAS ND V9](#tab/was-nd-v9)
-   
+
    ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
@@ -721,7 +759,7 @@ Use the following steps to create `mspVM1`:
       --public-ip-address "" \
       --nsg ""
    ```
-    
+
    ```powershell
    # Create the VM by attaching the existing managed disk as an OS.
    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
@@ -737,9 +775,9 @@ Use the following steps to create `mspVM1`:
        --public-ip-address '""' `
        --nsg '""'
     ```
-   
+
    ### [WAS ND V85](#tab/was-nd-v85)
-   
+
    ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
@@ -751,7 +789,7 @@ Use the following steps to create `mspVM1`:
       --public-ip-address "" \
       --nsg ""
    ```
-    
+
    ```powershell
    # Create the VM by attaching the existing managed disk as an OS.
    # For `public-ip-address`` and `nsg`, ensure to wrap the value "" in '' in PowerShell.
@@ -764,12 +802,13 @@ Use the following steps to create `mspVM1`:
        --public-ip-address '""' `
        --nsg '""'
    ```
-   
+
    ---
 
 1. Next, create a managed disk from the data disk snapshot and attach to `mspVM1`.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -787,7 +826,9 @@ Use the following steps to create `mspVM1`:
       --vm-name mspVM1 \
       --name $MSPVM1_DATA_DISK_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -805,11 +846,13 @@ Use the following steps to create `mspVM1`:
        --vm-name mspVM1 `
        --name $Env:MSPVM1_DATA_DISK_ID
    ```
+
    ---
 
 1. You've now created `mspVM1` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -817,7 +860,9 @@ Use the following steps to create `mspVM1`:
       --command-id RunShellScript \
       --scripts "sudo hostnamectl set-hostname mspVM1"
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az vm run-command invoke `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -825,6 +870,7 @@ Use the following steps to create `mspVM1`:
        --command-id RunShellScript `
        --scripts "sudo hostnamectl set-hostname mspVM1"
    ```
+
    ---
 
    When the command completes successfully, you're shown output similar to the following example:
@@ -850,6 +896,7 @@ Use the following steps to create `mspVM2`:
 1. First, create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Create a new Managed Disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -858,7 +905,9 @@ Use the following steps to create `mspVM2`:
       --name mspVM2_OsDisk_1 \
       --source $OS_SNAPSHOT_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Create a new Managed Disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -867,11 +916,13 @@ Use the following steps to create `mspVM2`:
        --name mspVM2_OsDisk_1 `
        --source $Env:OS_SNAPSHOT_ID
    ```
+
    ---
 
 1. Next, use the following commands to create the VM `mspVM2`, attaching OS disk `mspVM2_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Get the resource ID of the managed disk.
    export MSPVM2_OS_DISK_ID=$(az disk show \
@@ -893,7 +944,9 @@ Use the following steps to create `mspVM2`:
       --public-ip-address "" \
       --nsg ""
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM2_OS_DISK_ID=$(az disk show `
@@ -917,12 +970,13 @@ Use the following steps to create `mspVM2`:
        --nsg '""' 
 
    ```
+
    ---
-    
 
 1. Next, create a managed disk from the data snapshot and attach to `mspVM2`.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -940,7 +994,9 @@ Use the following steps to create `mspVM2`:
       --vm-name mspVM2 \
       --name $MSPVM2_DATA_DISK_ID
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -958,11 +1014,13 @@ Use the following steps to create `mspVM2`:
        --vm-name mspVM2 `
        --name $Env:MSPVM2_DATA_DISK_ID
    ```
+
    ---
 
 1. You've now created `mspVM2` with WAS installed. Because the VM was created from a snapshot of the `adminVM` disks, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM2`:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -970,7 +1028,9 @@ Use the following steps to create `mspVM2`:
       --command-id RunShellScript \
       --scripts "sudo hostnamectl set-hostname mspVM2"
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az vm run-command invoke `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -978,6 +1038,7 @@ Use the following steps to create `mspVM2`:
        --command-id RunShellScript `
        --scripts "sudo hostnamectl set-hostname mspVM2"
    ```
+
    ---
 
    When the command completes successfully, you're shown output similar to the following example:
@@ -995,24 +1056,29 @@ Use the following steps to create `mspVM2`:
        ]
    }
    ```
- 
+
 Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Then, use the following steps to finish preparing the machines:
 
 1. To continue, use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
    ```
+
    ---
 
 1. Use the following commands to get and show the private IP addresses, which you use in later sections:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    export ADMINVM_NIC_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -1044,7 +1110,9 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
    echo "Private IP of mspVM1: $MSPVM1_IP"
    echo "Private IP of mspVM2: $MSPVM2_IP"
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    $Env:ADMINVM_NIC_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1076,6 +1144,7 @@ Make sure you've completed the previous steps for both `mspVM1` and `mspVM2`. Th
    echo "Private IP of mspVM1: $Env:MSPVM1_IP"
    echo "Private IP of mspVM2: $Env:MSPVM2_IP"
    ```
+
    ---
 
 Now, all three machines are ready. Next, you configure a WAS cluster.
@@ -1109,17 +1178,20 @@ Use the following steps to create and configure the management profile:
 1. Use the following commands to start Profile Management Tool:
 
    ### [WAS ND V9](#tab/was-nd-v9)
+
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
+
    ### [WAS ND V85](#tab/was-nd-v85)
+
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
-   ---
 
+   ---
 
    After a while, the Profile Management Tool displays, as shown in the following screenshot. If you don't see the user interface, check behind the command prompt.
 
@@ -1230,7 +1302,7 @@ Use the following steps to create and configure the management profile:
    # Add service.
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
-   
+
 ### [WAS ND V85](#tab/was-nd-v85)
 
    ```bash
@@ -1351,6 +1423,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
+
 ---
 
 After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
@@ -1430,8 +1503,8 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
----
 
+---
 
 You must see the following output before continuing:
 
@@ -1467,16 +1540,16 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1`. 
+1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
-   The node is `mspvm1Node01 (ND 9.0.5.12)`. 
-   
+   The node is `mspvm1Node01 (ND 9.0.5.12)`.
+
    ### [WAS ND V85](#tab/was-nd-v85)
-   
+
    The node is `mspvm1Node01 (ND 8.5.5.24)`.
-   
+
    ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Member 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
@@ -1487,12 +1560,12 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
-   The node is `mspvm2Node01 (ND 9.0.5.12)`. 
-   
+   The node is `mspvm2Node01 (ND 9.0.5.12)`.
+
    ### [WAS ND V85](#tab/was-nd-v85)
-   
+
    The node is `mspvm2Node01 (ND 8.5.5.24)`.
-   
+
    ---
 
 1. Select **Add Member** to add the second node. There are two members listed in the table, as shown in the following screenshot:
@@ -1527,37 +1600,39 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
 1. Use the following steps to configure the Application Server Monitoring Policy settings to automatically start the managed server after the Node Agent starts.
 
-   Configure msp1
-    1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
-    1. Select the hyperlink for Application Server **msp1**.
-    1. Select **Java and process management** under the **Server Infrastructure** section.
-    1. Select **Monitoring policy**.
-    1. Ensure that **Automatic restart** is selected and then select **RUNNING** as the Node restart state, as shown in the following screenshot.
-    1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
-    1. You're shown a message saying "The configuration synchronization complete for cell."
-    1. Select **OK** to exit the configuration.
-    
+   To configure msp1:
+
+   1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
+   1. Select the hyperlink for Application Server **msp1**.
+   1. Select **Java and process management** under the **Server Infrastructure** section.
+   1. Select **Monitoring policy**.
+   1. Ensure that **Automatic restart** is selected and then select **RUNNING** as the Node restart state, as shown in the following screenshot.
+   1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
+   1. You're shown a message saying "The configuration synchronization complete for cell."
+   1. Select **OK** to exit the configuration.
+
     :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Server, Restart." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-application-automatic-restart.png":::
 
-   Configure msp2
-    1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
-    1. Select the hyperlink for Application Server **msp2**.
-    1. Select **Java and process management** under the **Server Infrastructure** section.
-    1. Select **Monitoring policy**.
-    1. Ensure that **Automatic restart** is selected and then select **RUNNING** as Node restart state, as shown in the following screenshot.
-    1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
-    1. You're shown a message saying "The configuration synchronization complete for cell."
-    1. Select **OK** to exit the configuration.
+   To configure msp2:
+
+   1. In the navigation pane, select **Servers**, select **Server Types**, and then select **WebSphere application servers**.
+   1. Select the hyperlink for Application Server **msp2**.
+   1. Select **Java and process management** under the **Server Infrastructure** section.
+   1. Select **Monitoring policy**.
+   1. Ensure that **Automatic restart** is selected and then select **RUNNING** as Node restart state, as shown in the following screenshot.
+   1. Select **Ok**. Now, go back to the **Middleware services** pane, in the **Messages** panel, select link **Review**, then select **Synchronize changes with Nodes** and **Save** to save and synchronize changes.
+   1. You're shown a message saying "The configuration synchronization complete for cell."
+   1. Select **OK** to exit the configuration.
 
 You've now configured `cluster1` with two managed servers `msp1` and `msp2`, and the cluster is up and running.
-    
+
 ## Deploy an application
 
 1. On the administrative console that you signed into earlier, select **Applications > New Application** and then select **New Enterprise Application**.
 
 2. On the next panel, select **Remote file system** and then select **Browse…**. You're given the option to browse the file systems of your installed servers.
 
-3. Select the system that begins with **adminvm**. You're shown the VM’s file system. From there, select **V9** (or **V85**) and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
+3. Select the system that begins with **adminvm**. You're shown the VM's file system. From there, select **V9** (or **V85**) and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
 
 Then, you're taken back to the page for selecting the application, which should look like the following screenshot:
 
@@ -1586,6 +1661,7 @@ Use the following steps to create the gateway:
 1. To expose WAS to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. In the shell with Azure CLI installed, use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), as shown in the following example.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network public-ip create \
      --resource-group $RESOURCE_GROUP_NAME \
@@ -1599,7 +1675,9 @@ Use the following steps to create the gateway:
      --query '[ipAddress]' \
      --output tsv)
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az network public-ip create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1613,11 +1691,13 @@ Use the following steps to create the gateway:
       --query '[ipAddress]' `
       --output tsv)
    ```
+
    ---
 
 1. Next, create an Azure Application Gateway. The following example creates an application gateway with the WebSphere managed servers in the default backend pool:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network application-gateway create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -1634,7 +1714,9 @@ Use the following steps to create the gateway:
        --priority 1001 \
        --servers ${MSPVM1_IP} ${MSPVM2_IP}
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az network application-gateway create  `
       --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -1651,11 +1733,13 @@ Use the following steps to create the gateway:
       --priority 1001 `
       --servers $Env:MSPVM1_IP $Env:MSPVM2_IP
    ```
+
    ---
 
 1. The managed servers expose their workloads with port `9080`. Use the following commands to update the `appGatewayBackendHttpSettings` by specifying backend port `9080` and creating a probe for it:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    az network application-gateway probe create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -1674,7 +1758,9 @@ Use the following steps to create the gateway:
        --port 9080 \
        --probe clusterProbe
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    az network application-gateway probe create  `
         --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -1693,11 +1779,13 @@ Use the following steps to create the gateway:
         --port 9080 `
         --probe clusterProbe
    ```
+
    ---
 
 1. Use the following commands to provision a rewrite rule for redirections:
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    # Create a rewrite rule set.
    az network application-gateway rewrite-rule set create \
@@ -1752,7 +1840,9 @@ Use the following steps to create the gateway:
        --negate false \
        --pattern "(https?):\/\/192.168.0.7:9080(.*)$"
    ```
-   ### [PowerShell](#tab/in-powershell)        
+
+   ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    # Create a rewrite rule set.
    az network application-gateway rewrite-rule set create `
@@ -1809,17 +1899,23 @@ Use the following steps to create the gateway:
        --pattern '"(https?):\/\/192.168.0.7:9080(.*)$"' 
        # Ensure to wrap the "" in ''
    ```
+
    ---
 
 You're now able to access the application with the URL produced by the following command:
+
 ### [Bash](#tab/in-bash)
+
 ```bash
 echo "http://${APPGATEWAY_IP}/snoop/"
 ```
-### [PowerShell](#tab/in-powershell)        
+
+### [PowerShell](#tab/in-powershell)
+
 ```powershell
 echo "http://${Env:APPGATEWAY_IP}/snoop/"
 ```
+
 ---
 
 > [!NOTE]
@@ -1830,6 +1926,7 @@ echo "http://${Env:APPGATEWAY_IP}/snoop/"
 If you don't want to use the jump box `myWindowsVM` to access the IBM console, but want to expose it to a public network, use the following commands to assign a public IP address to `adminVM`:
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 # Create a public IP address.
 az network public-ip create \
@@ -1876,7 +1973,9 @@ export ADMIN_PUBLIC_IP=$(az network public-ip show \
 
 echo "IBM Console public URL: https://${ADMIN_PUBLIC_IP}:9043/ibm/console/"
 ```
-### [PowerShell](#tab/in-powershell)        
+
+### [PowerShell](#tab/in-powershell)
+
 ```powershell
 # Create a public IP address.
 az network public-ip create `
@@ -1919,6 +2018,7 @@ $Env:ADMIN_PUBLIC_IP=$(az network public-ip show `
 
 echo "IBM Console public URL: https://${Env:ADMIN_PUBLIC_IP}:9043/ibm/console/"
 ```
+
 ---
 
 ## Test the WAS cluster configuration
@@ -1944,13 +2044,17 @@ If desired, remove the Windows machine by using the following commands. Alternat
 Delete `abc1110rg` by using the following command:
 
 ### [Bash](#tab/in-bash)
+
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
-### [PowerShell](#tab/in-powershell)        
+
+### [PowerShell](#tab/in-powershell)
+
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 ```
+
 ---
 
 ## Next steps
@@ -1959,4 +2063,3 @@ Learn more about deploying IBM WebSphere family on Azure by following this link:
 
 > [!div class="nextstepaction"]
 > [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
-
