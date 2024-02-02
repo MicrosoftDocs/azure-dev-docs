@@ -1,5 +1,5 @@
 items:
-- name: Securing Java apps using Microsoft Identity Platform
+- name: Secure Java apps using the Microsoft Identity platform
   href: index.yml
   items:
   - name: Get Started
@@ -7,7 +7,7 @@ items:
   - name: Overview
     expanded: true
     items: 
-    - name: Secure your Java Jboss EAP web app using the Microsoft identity platform
+    - name: Secure your Java Jboss EAP web app
       expanded: true
       items:
       - name: Overview
@@ -22,7 +22,7 @@ items:
         href: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-jboss-eap-webapp-authorization-group-entra-id.md      
-    - name: Secure your Java Tomcat web app using the Microsoft identity platform
+    - name: Secure your Java Tomcat web app
       expanded: true
       items:
       - name: Overview
@@ -37,7 +37,7 @@ items:
         href: enable-java-tomcat-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-tomcat-webapp-authorization-group-entra-id.md
-    - name: Enable your Java WebLogic web app to sign in users and call APIs with the Microsoft identity platform
+    - name: Secure your Java WebLogic web app
       expanded: true
       items:
       - name: Overview
@@ -52,7 +52,7 @@ items:
         href: enable-java-weblogic-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-weblogic-webapp-authorization-group-entra-id.md
-    - name: Enable your Java Websphere web app to sign in users and call APIs with the Microsoft identity platform
+    - name: Secure your Java Websphere web app
       expanded: true
       items:
       - name: Overview
@@ -67,7 +67,7 @@ items:
         href: enable-java-websphere-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-websphere-webapp-authorization-group-entra-id.md    
-    - name: Enable your Java Spring MVC web app web app to sign in users and call APIs with the Microsoft identity platform
+    - name: Secure your Java Spring MVC web app web app
       expanded: true
       items:
       - name: Overview

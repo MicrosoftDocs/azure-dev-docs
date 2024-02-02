@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
-title: Security for Java applications with the Microsoft Identity platform
+title: Secure Java apps using the Microsoft Identity platform
 summary: Learn how the Microsoft Identity Platform enables Java developers to acquire tokens from Microsoft Entra ID, Azure AD B2C, allowing applications to authenticate users and access secured web APIs, access Microsoft Graph, other Microsoft APIs, third-party web APIs, or your web API.
 
 metadata:
-  title: Security for Java applications with the Microsoft Identity platform
+  title: Secure Java apps using the Microsoft Identity platform
   description: Learn how the Microsoft Identity Platform enables Java developers to acquire tokens from Microsoft Entra ID,Azure AD B2C, allowing applications to authenticate users and access secured web APIs, access Microsoft Graph, other Microsoft APIs, third-party web APIs, or your web API.
   ms.date: 05/06/2022
   ms.topic: landing-page
 
 landingContent:
-  - title: Enable security for your Java JBoss EAP web app
+  - title: Secure your Java Jboss EAP web app
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -24,7 +24,7 @@ landingContent:
             url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md 
-  - title: Enable security for your Java Tomcat web app
+  - title: Secure your Java Tomcat web app
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -38,7 +38,7 @@ landingContent:
             url: enable-java-tomcat-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-tomcat-webapp-authorization-group-entra-id.md 
-  - title: Enable security for your Java WebLogic web app
+  - title: Secure your Java WebLogic web app
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -52,7 +52,7 @@ landingContent:
             url: enable-java-weblogic-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-weblogic-webapp-authorization-group-entra-id.md 
-  - title: Enable security for your Java Webshpere web app
+  - title: Secure your Java Websphere web app
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -66,7 +66,7 @@ landingContent:
             url: enable-java-websphere-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-websphere-webapp-authorization-group-entra-id.md 
-  - title: Enable security for your Java Spring MVC web app
+  - title: Secure your Java Spring MVC web app web app
     linkLists:
       - linkListType: how-to-guide
         links:
