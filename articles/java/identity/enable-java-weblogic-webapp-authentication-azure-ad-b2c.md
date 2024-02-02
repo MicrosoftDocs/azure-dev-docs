@@ -21,7 +21,7 @@ This article demonstrates a Java Servlet web application that authenticates user
 [!INCLUDE [prereqs-sign-in-aadb2c.md](includes/prereqs-sign-in-aadb2c.md)]
 [!INCLUDE [prereqs-weblogic.md](includes/prereqs-weblogic.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 ## Scenario
 

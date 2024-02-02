@@ -23,7 +23,7 @@ This article demonstrates a Java Tomcat web app that signs in users to your Micr
 [!INCLUDE [prereqs-sign-in-entra.md](includes/prereqs-sign-in-entra.md)]
 [!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 

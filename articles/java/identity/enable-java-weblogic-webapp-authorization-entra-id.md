@@ -23,7 +23,7 @@ This article demonstrates a Java WebLogic web app that signs in users and obtain
 [!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
 [!INCLUDE [prereqs-weblogic.md](includes/prereqs-weblogic.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 

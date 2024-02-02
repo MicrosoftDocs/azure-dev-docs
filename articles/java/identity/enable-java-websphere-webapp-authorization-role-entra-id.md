@@ -29,7 +29,7 @@ For more information about how the protocols work in this scenario and other sce
 [!INCLUDE [prereqs-authz-roles.md](includes/prereqs-authz-roles.md)]
 [!INCLUDE [prereqs-websphere.md](includes/prereqs-websphere.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-role-entra-id.md](includes/enable-java-servlet-webapp-authorization-role-entra-id.md)]
 

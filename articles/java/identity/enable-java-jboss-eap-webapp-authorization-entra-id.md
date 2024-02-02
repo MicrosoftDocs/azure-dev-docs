@@ -23,7 +23,7 @@ This sample demonstrates a Java Jboss EAP web app that signs in users and obtain
 [!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
 [!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 

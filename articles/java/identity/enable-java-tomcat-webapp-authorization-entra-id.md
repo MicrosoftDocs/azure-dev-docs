@@ -23,7 +23,7 @@ This article demonstrates a Java Tomcat web app that signs in users and obtains 
 [!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
 [!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 

@@ -25,7 +25,7 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 [!INCLUDE [prereqs-authz-groups.md](includes/prereqs-authz-groups.md)]
 [!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
 
-[!INCLUDE [java-servlet-overview-recommendation.md](java-servlet-overview-recommendation.md)]
+[!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
