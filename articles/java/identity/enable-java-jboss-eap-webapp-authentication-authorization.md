@@ -1,6 +1,6 @@
 ---
 title: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
-description: "Tutorial: Enable your Java Jboss EAP webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform."
+description: "Enable your Java Jboss EAP webapp to sign users in, protect endpoints, call APIs with the Microsoft identity platform."
 services: active-directory
 documentationcenter: java
 ms.date: 02/01/2024
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-# Tutorial: Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
+# Enable your Java Jboss EAP web app to sign in users and call APIs with the Microsoft identity platform
 
 The [Microsoft identity platform](https://learn.microsoft.com/entra/identity-platform/v2-overview), along with [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) (Entra ID) and [Azure Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the **Azure** cloud ecosystem. This tutorial aims to take you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 
