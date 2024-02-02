@@ -416,7 +416,7 @@
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [0.40.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.40.0/jar/) |  |  |
-| Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.0/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.0/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
