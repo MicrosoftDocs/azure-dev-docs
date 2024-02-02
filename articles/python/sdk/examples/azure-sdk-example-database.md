@@ -1,7 +1,7 @@
 ---
 title: Create an Azure MySQL database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL, PostgreSQL, or MariaDB database.
-ms.date: 02/27/2023
+ms.date: 02/02/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -28,7 +28,7 @@ Create a file named *requirements.txt* with the following contents:
 
 In a terminal with the virtual environment activated, install the requirements:
 
-```cmd
+```console
 pip install -r requirements.txt
 ```
 
@@ -41,7 +41,11 @@ Create a Python file named *provision_db.py* with the following code. The commen
 
 :::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
 
-[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
+### Authentication in the code
+
+Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code will run successfully.
+
+To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create resource groups and storage resources in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
 ### Reference links for classes used in the code
 
@@ -58,9 +62,33 @@ For other database types, see:
 
 ## 4: Run the script
 
-```cmd
-python provision_db.py
-```
+1. If you haven't already, sign in to Azure using the Azure CLI:
+
+    ```azurecli
+    az login
+    ```
+
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    ---
+
+1. Run the script:
+
+    ```console
+    python provision_db.py
+    ```
 
 ## 5: Insert a record and query the database
 
