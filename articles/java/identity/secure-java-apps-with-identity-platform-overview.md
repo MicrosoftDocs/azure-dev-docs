@@ -12,12 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 adobe-target: true
 ---
 
-
-
 # Get started with securing java application with Microsoft Identity platform
 
-This article provides an overview of recommended strategies for securing Java applications with Microsoft Identity Platform.
-
+This series of articles provides an overview of recommended strategies for securing Java applications with Microsoft Identity Platform.
 
 ## Get Started 
 
@@ -25,9 +22,10 @@ The [Microsoft identity platform](https://learn.microsoft.com/entra/identity-pla
 
 ## Next steps
 
-We recommend following the chapters in successive order. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
-
 The guidance is available for multiple server platforms: JBoss EAP, Tomcat, WebLogic, WebSphere and Java Spring MVC. 
+
+We recommend following the chapters in successive order for your platform of choice. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
+
 
 For each platform there is guidance on: 
 
