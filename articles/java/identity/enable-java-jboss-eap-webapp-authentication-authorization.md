@@ -45,7 +45,7 @@ Please refer to each sample's README for sample-specific recommendations.
 
 |               |               |
 |---------------|---------------|
-| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-jboss-eap-webapp-authentication-entra-id) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
+| <img src="media/sign-in.png" width="200"> | [**1.1 Sign-in with Entra ID**](./enable-java-jboss-eap-webapp-authentication-entra-id.md) </br> Sign your users in with **Entra ID** and learn to work with **ID Tokens**.  |
 | <img src="media/sign-in.png" width="200"> | [**1.2 Sign-in with Azure AD B2C**](./enable-java-jboss-eap-webapp-authentication-azure-ad-b2c) </br> Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**. |
 
 ### Chapter 2: Get an Access Token and call Microsoft Graph

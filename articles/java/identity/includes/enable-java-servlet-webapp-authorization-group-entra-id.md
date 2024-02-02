@@ -181,7 +181,9 @@ You have two different options available to you on how you can further configure
 ### Build .war File Using Maven
 
 1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
+
     ```
     mvn clean package
     ```
+
 1. This should generate a `.war` file which can be run on a variety of application servers
