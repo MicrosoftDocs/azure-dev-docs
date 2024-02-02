@@ -19,7 +19,7 @@ There are several Terraform providers that enable the management of Azure infras
 - [AzureAD](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs): Manage Microsoft Entra resources such as groups, users, service principals, and applications.
 - [AzureDevops](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs): Manage Azure DevOps resources such as agents, repositories, projects, pipelines, and queries.
 - [AzAPI](https://registry.terraform.io/providers/Azure/azapi/latest/docs): Manage Azure resources and functionality using the Azure Resource Manager APIs directly. This provider compliments the AzureRM provider by enabling the management of Azure resources that aren't released. For more information about the AzAPI provider, see [Terraform AzAPI provider](overview-azapi-provider.md).
-- [Azure Stack Hub](https://registry.terraform.io/providers/hashicorp/azurestack/latest/docs): Manage Azure Stack Hub resources such as virtual machines, DNS, virtual networks, and storage.
+- [AzureStack](https://registry.terraform.io/providers/hashicorp/azurestack/latest/docs): Manage Azure Stack Hub resources such as virtual machines, DNS, virtual networks, and storage.
 
 ## Benefits of Terraform with Azure
 
