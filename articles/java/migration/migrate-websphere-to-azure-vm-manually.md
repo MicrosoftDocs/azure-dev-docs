@@ -1329,7 +1329,7 @@ Confirm that the following output appears:
 CWSFU0013I: Service [adminvmCellManager01] added successfully.
 ```
 
-If this output doesn't appear, troubleshoot and resolve the problem before continuing.
+If the output doesn't appear, troubleshoot and resolve the problem before continuing.
 
 The deployment manager is running on `adminVM`. From the jump box Windows VM, you can access the IBM console at the URL `http://<admin-vm-private-ip>:9060/ibm/console/`.
 
@@ -1413,37 +1413,37 @@ Use the following steps to configure a custom profile on `mspVM1`:
    firewall-cmd --reload
    ```
 
-1. Use the following commands to start Profile Management Tool:
+1. Use the following commands to start the Profile Management Tool:
 
-### [WAS ND V9](#tab/was-nd-v9)
+   ### [WAS ND V9](#tab/was-nd-v9)
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
 
-### [WAS ND V85](#tab/was-nd-v85)
+   ### [WAS ND V85](#tab/was-nd-v85)
 
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
 
----
+   ---
 
-After a while, the Profile Management Tool displays. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
+   After a while, the Profile Management Tool appears. If you don't see the user interface, troubleshoot and resolve the problem before continuing.
 
 1. Select **Create**. On the **Environment Selection** pane, select **Custom profile**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile.png" alt-text="Screenshot of IBM Profile Management Tool, Custom profile 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile.png" alt-text="Screenshot of the Environment Selection pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile.png":::
 
 1. Select **Next**. On the **Profile Creation Options** pane, select **Advanced profile creation**.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Options, Advanced profile creation 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png" alt-text="Screenshot of the Profile Creation Options pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png":::
 
 1. Select **Next**. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`, and the location depends on your WAS version.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Name and Location 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of the Profile Name and Location pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -1457,33 +1457,33 @@ After a while, the Profile Management Tool displays. If you don't see the user i
 
 1. Select **Next**. On the **Node and Host Names** pane, enter your node name and host. The value of host is the private IP address of `mspVM1`. In this example, the host is `192.168.0.6` and the node name is `mspvm1Node01`.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png" alt-text="Screenshot of IBM Profile Management Tool, Node and Host Names 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png" alt-text="Screenshot of the Node and Host Names pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-node-host-name.png":::
 
-1. Select **Next**. On the **Federation** pane, enter the deployment manager hostname and authentication. For **Deployment manager host name or IP address**, the value is the private IP address of `adminVM`, which is `192.168.0.4` here. For the **Deployment manager authentication**, in this example, the username is `websphere`, and the password is `Secret123456`.
+1. Select **Next**. On the **Federation** pane, enter the deployment manager's host name and authentication. For **Deployment manager host name or IP address**, the value is the private IP address of `adminVM`, which is `192.168.0.4` here. For **Deployment manager authentication**, in this example, the username is `websphere` and the password is `Secret123456`.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png" alt-text="Screenshot of IBM Profile Management Tool, Federation 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png" alt-text="Screenshot of the Federation pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-deployment-manager.png":::
 
-1. Select **Next**. For the security certificate (part 1), input your certificate if you have one. This example uses the default self-signed certificate.
+1. Select **Next**. For the security certificate (part 1), enter your certificate if you have one. This example uses the default self-signed certificate.
 
-1. Select **Next**. For the security certificate (part 2), input your certificate if you have one. This example uses the default self-signed certificate.
+1. Select **Next**. For the security certificate (part 2), enter your certificate if you have one. This example uses the default self-signed certificate.
 
-1. Select **Next**. On the **Port Values Assignment**, keep the default ports.
+1. Select **Next**. On the **Port Values Assignment** pane, keep the default ports.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports.png" alt-text="Screenshot of IBM Profile Management Tool, Port Values Assignment 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports.png" alt-text="Screenshot of the Port Values Assignment pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-ports.png":::
 
-1. Select **Next**. You're shown the **Profile Creation Summary**.
+1. Select **Next**. On the **Profile Creation Summary** pane, make sure that the information is correct.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Summary 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary.png" alt-text="Screenshot of the Profile Creation Summary pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-summary.png":::
 
-1. Select **Create**. It takes a while to create the custom profile. On the **Profile Creation Complete** pane, unselect **Launch the First steps console**.
+1. Select **Create**. It takes a while to create the custom profile. On the **Profile Creation Complete** pane, clear the **Launch the First steps console** checkbox.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete.png" alt-text="Screenshot of IBM Profile Management Tool, Profile Creation Complete 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete.png" alt-text="Screenshot of the Profile Creation Complete pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-complete.png":::
 
-1. Select **Finish** to exit profile creation and close Profiles Management Tool.
+1. Select **Finish** to complete profile creation and close the Profile Management Tool.
 
-1. To start the server automatically at boot, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
+1. To start the server automatically at startup, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
-### [WAS ND V9](#tab/was-nd-v9)
+   ### [WAS ND V9](#tab/was-nd-v9)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
@@ -1496,7 +1496,7 @@ After a while, the Profile Management Tool displays. If you don't see the user i
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
 
-### [WAS ND V85](#tab/was-nd-v85)
+   ### [WAS ND V85](#tab/was-nd-v85)
 
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
@@ -1511,41 +1511,41 @@ After a while, the Profile Management Tool displays. If you don't see the user i
 
 ---
 
-You must see the following output before continuing:
+Confirm that the following output appears:
 
 ```bash
 CWSFU0013I: Service [mspvm1Node01] added successfully.
 ```
 
-If you don't see this output, troubleshoot and resolve the problem before continuing.
+If the output doesn't appear, troubleshoot and resolve the problem before continuing.
 
-You've now created a custom profile and `nodeagent` running on `mspVM1`. Exit from being `root` and exit the SSH connection to `mspVM1`.
+You've now created a custom profile and `nodeagent` running on `mspVM1`. Stop being the `root` user, and close the SSH connection to `mspVM1`.
 
 ### Do the same steps to set up mspVM2
 
-Make sure to go back to the beginning of this section, [Configure the custom profile for mspVM1](#configure-the-custom-profile-for-mspvm1) and do the same steps again for mspVM2. That is, wherever you used mspVM1 or similar, do the same, but for mspVM2.
+Go back to the beginning of the [Configure the custom profile for mspVM1](#configure-the-custom-profile-for-mspvm1) section and do the same steps for `mspVM2`. That is, wherever you used `mspVM1` or similar, do the same, but for `mspVM2`.
 
-- On the **Node and Host Names** panel, enter `mspvm2Node01` for the **Node name** and `192.168.0.7` for the **Host name**.
+On the **Node and Host Names** pane, enter `mspvm2Node01` for **Node name** and `192.168.0.7` for **Host name**.
 
-You've now prepared the custom profile for two managed servers - `mspVM1` and `mspVM2`. Continue ahead to create a WAS cluster.
+You've now prepared the custom profile for two managed servers: `mspVM1` and `mspVM2`. Continue ahead to create a WAS cluster.
 
 ### Create a cluster and start servers
 
-In this section, you use the IBM console to create a WAS cluster and start managed servers by using the browser on `myWindowsVM`. Make sure you're still on your Windows machine. If you aren't, remote connect to `myWindowsVM`. Then, use the following steps:
+In this section, you use the IBM console to create a WAS cluster and start managed servers by using the browser on `myWindowsVM`. Make sure you're still on your Windows machine. If you aren't, remotely connect to `myWindowsVM`. Then, use the following steps:
 
-1. Open the Microsoft Edge browser and navigate to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane, then enter your administrative username and password (`websphere/Secret123456`) to sign in to the IBM console. You're now able to administer clusters and servers.
+1. Open the Microsoft Edge browser and go to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane, and then enter your administrative username and password (`websphere/Secret123456`) to sign in to the IBM console. You can now administer clusters and servers.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png" alt-text="Screenshot of welcome information on the IBM console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png":::
 
-1. In navigation pane, select **Servers**, **Clusters**, **WebSphere application server clusters**. Select **New** to create a new cluster.
+1. On the left pane, select **Servers** > **Clusters** > **WebSphere application server clusters**. Then select **New** to create a new cluster.
 
 1. For **Create a new cluster** > **Step 1: Enter basic cluster information**, enter your cluster name. In this example, the cluster name is `cluster1`.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, New Cluster." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png" alt-text="Screenshot of the step for entering basic cluster information in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png":::
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name, and select node `mspvm1Node01`. In this example, the member name is `msp1`.
+1. For **Create a new cluster** > **Step 2: Create first cluster member**, enter your member name and select the node `mspvm1Node01`. In this example, the member name is `msp1`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -1557,11 +1557,11 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    ---
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Member 1." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of the step for creating a first cluster member in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
 
    Select **Next** to continue.
 
-1. For **Create a new cluster** > **Step 3: Create additional cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2`.
+1. For **Create a new cluster** > **Step 3: Create additional cluster members**, enter your second member name and select node `mspvm2Node01`. In this example, the member name is `msp2`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -1573,15 +1573,15 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    ---
 
-1. Select **Add Member** to add the second node. There are two members listed in the table, as shown in the following screenshot:
+1. Select **Add Member** to add the second node. Two members are listed in the table.
 
-   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp2.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Member 2." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp2.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp2.png" alt-text="Screenshot of the step for creating an additional cluster member in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp2.png":::
 
-1. Select **Next** to view **Create a new cluster** > **Step 4: Summary**, as shown in the following screenshot:
+1. Select **Next** to view **Create a new cluster** > **Step 4: Summary**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-summary.png" alt-text="Screenshot of IBM Profile Management Tool, IBM Console, Cluster, Summary." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-summary.png":::
 
-1. Select **Finish** to continue. It takes a while to create the cluster. After the cluster is created, you see `cluster1` listed in the table.
+1. Select **Finish**. It takes a while to create the cluster. After the cluster is created, you see `cluster1` listed in the table.
 
 1. Select **cluster1**, and select **Review** to review the information for `cluster1`.
 
