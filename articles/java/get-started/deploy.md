@@ -19,7 +19,7 @@ Tomcat, JBoss EAP, WildFly, WebLogic, and WebSphere are popular application serv
 
 ## Deploy Spring Boot or Java app to any application server - Tomcat and Jakarta EE
 
-With Azure, you can run any version and any distribution of Java and any application server, without restrictions, and without having to manage your own physical infrastructure. You decide how much control you want, or how much day-to-day management you want Azure to handle for you with options like virtual machines, containers, and fully managed services. If you are using a commercially supported Java app servers or frameworks -- such as VMware Spring Runtime, Red Hat JBoss EAP, Oracle WebLogic Server, or IBM WebSphere, Liberty, or OpenLiberty -- Azure offers jointly developed and supported offerings for all of them.
+With Azure, you can run any version and any distribution of Java and any application server, without restrictions, and without having to manage your own physical infrastructure. You decide how much control you want, or how much day-to-day management you want Azure to handle for you with options like virtual machines, containers, and fully managed services. If you are using a commercially supported Java app servers or frameworks - such as VMware Spring Runtime, Red Hat JBoss EAP, Oracle WebLogic Server, or IBM WebSphere, Liberty, or OpenLiberty - Azure offers jointly developed and supported offerings for all of them.
 
 ## Deployment options
 
@@ -37,13 +37,13 @@ You're free to use any distribution and version of Java - and any application se
 
 - Azure Red Hat OpenShift, which provides highly available, fully managed OpenShift clusters on-demand. OpenShift delivers added-value features to complement Kubernetes, making it a turnkey container platform that delivers significantly improved developer and operator experience.
 
-While you can deploy any Java runtime on all these IaaS and CaaS services, we recommend that you use:
+While you can deploy any Java runtime on all these IaaS and CaaS services, we recommend that you use one of the following runtimes:
 
 - Microsoft Build of OpenJDK for Java 11 or 17 - the base container images for which are supplied and maintained by Microsoft.
 
 - Eclipse Adoptium Temurin for Java 8 - the Java runtime for which is provided by the Eclipse Adoptium project (formerly the OpenJDK project).
 
-Both of these builds are available free-of-charge for local development and testing, and for building production-ready binaries using any platform or DevOps tools - without having to pay any licensing fees. We recommend them as a matter of convenience; when you use one of these builds, if you have any issues and have a qualifying support plan for Azure, you can simply open an Azure support ticket - without any additional costs. That said, it's worth pointing out that these recommendations are just that - the options that we recommend among various other freely-available builds of OpenJDK for ease-of-support.
+Both of these builds are available free-of-charge for local development and testing, and for building production-ready binaries using any platform or DevOps tools - without having to pay any licensing fees. We recommend them as a matter of convenience; when you use one of these builds, if you have any issues and have a qualifying support plan for Azure, you can simply open an Azure support ticket - without any additional costs. That said, it's worth pointing out that these recommendations are just that - the options that we recommend among various other freely-available builds of OpenJDK for ease-of-support. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 :::image type="content" source="media/build-migrate.png" alt-text="Diagram with the heading 'Build or Migrate Java Apps' and a chart showing the relationship between Java technologies and Azure service categories." border="false" lightbox="media/build-migrate.png":::
 
@@ -77,7 +77,7 @@ Jointly developed by Microsoft and Pivotal, Azure Spring Apps is a fully managed
 
 ## JBoss EAP (Red Hat)
 
-Red Hat is a leading provider of open-source solutions for the enterprise. One such solution is JBoss Enterprise Application Platform (EAP), a popular application server platform that's Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Red Hat is also a contributor for the Java standards, OpenJDK, MicroProfile, Jakarta EE, and Quarkus.
+Red Hat provides open-source solutions for the enterprise. One such solution is JBoss Enterprise Application Platform (EAP), a popular application server platform that's Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Red Hat is also a contributor for the Java standards, OpenJDK, MicroProfile, Jakarta EE, and Quarkus.
 
 We partnered with Red Hat to deliver Red Hat JBoss Enterprise Application Platform (EAP) on Azure App Service - enabling Java developers to deploy their Jakarta EE applications into App Service without requiring a separate Red Hat subscription or license with integrated support from both companies. We've since launched similar joint offerings for JBoss EAP on Azure VMs, on Azure VM Scale Sets, and on Azure RedHat OpenShift (ARO) - the latter also jointly operated by Microsoft and Red Hat.
 

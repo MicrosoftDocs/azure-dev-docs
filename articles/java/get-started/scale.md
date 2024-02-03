@@ -21,11 +21,11 @@ Now let's take a look at some key Azure services and features - and how you can 
 
 In addition to providing several options for running your Java code, Azure offers a broad range of fully managed services to support your database needs - including Azure Database for PostgreSQL, Azure Database for MySQL, MongoDB Atlas, Azure Cosmos DB, Azure SQL Database, and Azure SQL Managed Instance. The same holds true for messaging, with options that include Azure Service Bus, Azure Event Hubs, and Apache Kafka for Confluent Cloud.
 
-Azure Service Bus Premium tier supports JMS, the Java Messaging Service programming model. Regardless of whether your applications are running on VMs, in Kubernetes, or on fully managed PaaS services, you can quickly provision and leverage these fully managed data and messaging services using open-source clients, Azure Java SDKs, Spring starters, and application server integrations. They all provide the compliance, availability, and reliability guarantees that you would expect from Microsoft and Azure. Many Java and Spring developers want to use idiomatic libraries to simplify connections to their preferred cloud services. Microsoft maintains a comprehensive list of libraries, drivers, and modules that let you easily interact with Azure services across data, messaging, cache, storage, eventing, directory, and secrets management.
+Azure Service Bus Premium tier supports JMS, the Java Messaging Service programming model. Regardless of whether your applications are running on VMs, in Kubernetes, or on fully managed PaaS services, you can quickly provision and leverage these fully managed data and messaging services using open-source clients, Azure Java SDKs, Spring starters, and application server integrations. They all provide the compliance, availability, and reliability guarantees that you would expect from Microsoft and Azure. Many Java and Spring developers want to use idiomatic libraries to simplify connections to their preferred cloud services. Microsoft maintains a comprehensive list of libraries, drivers, and modules that let you easily interact with Azure services across data, messaging, cache, storage, eventing, directory, and secrets management. For more information, see the [Spring Cloud Azure developer guide](../spring-framework/developer-guide-overview.md) and [Java libraries, drivers, and Spring modules for Azure](../sdk/libraries-drivers-modules.md).
 
-:::image type="content" source="media/spring-cloud-azure.png" alt-text="{alt-text}" border="false" lightbox="media/spring-cloud-azure.png":::
+:::image type="content" source="media/spring-cloud-azure.png" alt-text="Diagram that lists the features of Spring Cloud Azure and the associated Azure services." border="false" lightbox="media/spring-cloud-azure.png":::
 
-:::image type="content" source="media/extend-capabilities.png" alt-text="{alt-text}" border="false" lightbox="media/extend-capabilities.png":::
+:::image type="content" source="media/extend-capabilities.png" alt-text="Diagram that shows the feature categories and associated Azure platform services supported by various Java libraries, drivers, and Spring modules." border="false" lightbox="media/extend-capabilities.png":::
 
 ## Zero-Trust - Secure network
 
@@ -49,9 +49,9 @@ Java or Spring Boot apps can securely load certificates from Azure Key Vault (di
 
 Many Java applications connect to supporting services using URLs and credentials - information that, if exposed, could be used to gain unauthorized access to sensitive data. Embedding such information in an app itself presents a huge security risk for many reasons, including discovery via a code repository. Many developers externalize such credentials using environment variables, so that multiple applications can load them, but this only shifts the risk from the code itself to the execution environment.
 
-:::image type="content" source="media/zero-trust.png" alt-text="{alt-text}" border="false" lightbox="media/zero-trust.png":::
+:::image type="content" source="media/zero-trust.png" alt-text="Diagram with the heading 'Zero Trust - manage secrets using Azure Key Vault' and including a summary of the features described in this section." border="false" lightbox="media/zero-trust.png":::
 
-Azure Key Vault provides a better, safer, and more secure way to safeguard secrets. It gives you full control over the storage and distribution of application secrets, using Role Based Access Control (RBAC) and the principle of least privilege to limit access. You keep control over your application secrets  - simply grant permission for your applications to use them as needed. Upon application startup, prior to granting access to secrets, the application authenticates with Microsoft Entra ID and Azure Key Vault authorizes using Azure RBAC. Azure Key Vault includes full audit capabilities and has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module (HSM)-protected keys.
+Azure Key Vault provides a better, safer, and more secure way to safeguard secrets. It gives you full control over the storage and distribution of application secrets, using Role Based Access Control (RBAC) and the principle of least privilege to limit access. You keep control over your application secrets - simply grant permission for your applications to use them as needed. Upon application startup, prior to granting access to secrets, the application authenticates with Microsoft Entra ID and Azure Key Vault authorizes using Azure RBAC. Azure Key Vault includes full audit capabilities and has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module (HSM)-protected keys.
 
 ## End-user authentication and authorization
 
@@ -73,13 +73,13 @@ We also realize that many customers want to continue using Grafana to query, vis
 
 As the workloads for your Java applications grow, you can increase performance by using Azure Cache for Redis to implement an in-memory caching layer for query results, session states, and static content. It's a great way to improve application throughput and reduce latency without having to rearchitect your underlying database. Azure Cache for Redis Enterprise tiers, developed in partnership with Redis and fully managed by Microsoft, is the most highly available and scalable deployment option for running Redis on Azure - including features such as active geo-replication, externalized session management, and high-speed search and indexing.
 
-:::image type="content" source="media/accelerate-scale.png" alt-text="{alt-text}" border="false" lightbox="media/accelerate-scale.png":::
+:::image type="content" source="media/accelerate-scale.png" alt-text="Diagram with the heading 'Accelerate and Scale Java apps with Redis Cache' and including a summary of the features described in this section." border="false" lightbox="media/accelerate-scale.png":::
 
 ## Automatic scaling
 
-All Azure "compute" services for running Java applications support automatic scaling (auto-scaling), which can help you maximize cost-efficiency and adapt to changing workloads without paying for more capacity than needed. Once enabled, you can rest assured that auto-scale will take care of your underlying infrastructure and your application workloads.
+All Azure "compute" services for running Java applications support automatic scaling (auto-scaling), which can help you maximize cost-efficiency and adapt to changing workloads without paying for more capacity than you need. Once enabled, you can rest assured that auto-scale will take care of your underlying infrastructure and your application workloads.
 
-:::image type="content" source="media/drive-higher-utilization.png" alt-text="{alt-text}" border="false" lightbox="media/drive-higher-utilization.png":::
+:::image type="content" source="media/drive-higher-utilization.png" alt-text="Diagram with the heading 'Drive higher utilization of apps with Autoscale' and including a summary of the features described in this section." border="false" lightbox="media/drive-higher-utilization.png":::
 
 You can automatically scale in or out based on load or schedule. In load-based (or metric-based) mode, your applications are horizontally scaled-out to the resources needed to handle the load, up to the limits that you set. Similarly, when load decreases, resources are horizontally scaled-in, never falling below the minimums that you set.
 
@@ -89,7 +89,7 @@ In schedule-based mode, your applications are scaled-in and scaled-out based on 
 
 As you move your applications to the cloud, you'll want to automate everything - as needed for Java development at enterprise scale. Of course, you'll need to consider auto-scaling to address application workloads, as covered above. But you'll also need to scale and automate your cloud environment as a whole - ideally from idea to production - including how to rapidly provision of new environments for test, QA, production, blue/green deployments, geographic expansion, and so on.
 
-:::image type="content" source="media/automate-idea-production.png" alt-text="{alt-text}" border="false" lightbox="media/automate-idea-production.png":::
+:::image type="content" source="media/automate-idea-production.png" alt-text="Diagram that shows boxes for Provision, Build, and Deploy categories with associated logos for the tools described in this section." border="false" lightbox="media/automate-idea-production.png":::
 
 Azure lets you automate from idea to production using a broad range of tools and platforms. At a high level, such automation pipelines can be broken down into three categories:
 

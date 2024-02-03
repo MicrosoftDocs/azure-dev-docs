@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Code, deploy, and scale Java your way
 
-Today, more and more Java developers are looking at how they can bring their existing  Java applications to the cloud—or at how to build new cloud-native applications. In doing so, they want to know they'll be able to:
+Today, more and more Java developers are looking at how they can bring their existing Java applications to the cloud—or at how to build new cloud-native applications. In doing so, they want to know they'll be able to:
 
 - Continue writing code using the Java tools and frameworks they already know and love.
 - Deploy their Java applications using their preferred application servers and open-source software.

@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Code using the Java tools you know and love
 
-As Java developers, we love the tools we use. We have our own unique way of working with them that gets us "into the flow" just as we have our shortcuts and secrets for getting things done faster and better. Whether we use IntelliJ, Eclipse, or VS Code for coding, or Junit for testing, or Maven or Gradle for dependency management and build automation, there is nothing that can compel us to toss aside our go-to tools and learn something new. That's why Azure empowers Java developers to bring their applications to the cloud on your favorite tools and frameworks and on the operating system of your choice. Let's take a closer look at some of these tools.
+As Java developers, we love the tools we use. We have our own unique way of working with them that helps us focus and stay productive, just as we have our shortcuts and secrets for getting things done faster and better. Whether we use IntelliJ, Eclipse, or VS Code for coding, or Junit for testing, or Maven or Gradle for dependency management and build automation, there is nothing that can compel us to toss aside our go-to tools and learn something new. That's why Azure empowers Java developers to bring their applications to the cloud on your favorite tools and frameworks and on the operating system of your choice. Let's take a closer look at some of these tools.
 
 ## IDEs - VS Code, IntelliJ, and Eclipse
 
@@ -23,9 +23,9 @@ Visual Studio Code (VS Code) is a lightweight, agnostic operating system that ru
 
 :::image type="content" source="media/visual-studio-code-deploy.png" alt-text="Screenshot of Visual Studio Code that shows a Java file and the Output window." lightbox="media/visual-studio-code-deploy.png":::
 
-VS Code supports and streamlines Java development workflows through a broad range of extensions. There are several hundred for Java alone, which you can search for from within the IDE itself. We've packaged key extensions for fundamental Java development into the Extension Pack for Java, including those for project management, Maven integration, code editing, code completion, code navigation, refactoring, linting, formatting, debugging, running and debugging Junit/TestNG test cases, and more. There's also a Spring Boot Extension Pack for developing and deploying Spring Boot applications - including Spring Initializr Support for integration with Azure Spring Apps, a fully managed service for running Spring Boot applications on Azure.
+VS Code supports and streamlines Java development workflows through a broad range of extensions. There are several hundred for Java alone, which you can search for from within the IDE itself. We've packaged key extensions for fundamental Java development into the Extension Pack for Java, including those for project management, Maven integration, code editing, code completion, code navigation, refactoring, linting, formatting, debugging, running and debugging Junit/TestNG test cases, and more. There's also a Spring Boot Extension Pack for developing and deploying Spring Boot applications - including Spring Initializr support for integration with Azure Spring Apps, a fully managed service for running Spring Boot applications on Azure.
 
-The Azure Tools Extension Pack, built by Azure engineering teams, provides a rich set of extensions for discovering and interacting with all the Azure cloud services that help power your Java applications - all from within VS Code as you're writing, debugging, and testing your Java app. When you're ready to deploy your app, the Azure Tools Extension Pack supports one-click deployment to the various compute services that Azure provides for running Java applications.Java in Visual Studio Code provides a good overview of the most popular Visual Studio Code extensions for Java development. It also provides instructions for getting started with Java development using Visual Studio Code, along with a walkthrough of the many ways it can help make Java developers more productive.
+The Azure Tools Extension Pack, built by Azure engineering teams, provides a rich set of extensions for discovering and interacting with all the Azure cloud services that help power your Java applications. You can use all the extensions from within VS Code as you're writing, debugging, and testing your Java app. When you're ready to deploy your app, the Azure Tools Extension Pack supports one-click deployment to the various compute services that Azure provides for running Java applications. Java in Visual Studio Code provides a good overview of the most popular Visual Studio Code extensions for Java development. It also provides instructions for getting started with Java development using Visual Studio Code, along with a walkthrough of the many ways it can help make Java developers more productive.
 
 Getting Started with Java in VS Code provides a short tutorial that covers setting-up VS Code for Java Development, including how to write and run the Hello World program. Similarly, there are short tutorials that show how to build a Java application using Visual Studio Code and then deploy it with a single click into Azure App Service, Azure Spring Apps, Azure Container Apps, and Azure Functions. If you're new to Java on VS Code be sure to try out the "Java: Tips for Beginners" command in its main Command Palette.
 
@@ -41,7 +41,11 @@ Microsoft is actively investing time and resources to provide additional functio
 
 ## Azure Toolkit for Eclipse
 
-The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key Java libraries and drivers, including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to deploy Java Web Apps to Azure App Service and custom containers in App Service, deploy Spring Boot applications to Azure Spring Apps and deploy serverless applications to Azure Functions using Maven or Gradle plugins - all through the Eclipse IDE.
+The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key Java libraries and drivers, including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to accomplish the following tasks from the Eclipse IDE:
+
+* Deploy Java Web Apps to Azure App Service and custom containers in App Service.
+* Deploy Spring Boot applications to Azure Spring Apps.
+* Deploy serverless applications to Azure Functions using Maven or Gradle plugins.
 
 ## Dependency management and build automation - Maven, Gradle, and GitHub
 
@@ -97,6 +101,6 @@ az spring app deploy \
 
 ## Summary
 
-Microsoft believes in and respects your right to choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines - and you can deploy your application to Azure on any application server or with any embedded application server.
+When you use Java with Azure, you can choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines. You can also deploy your application to Azure on any application server or with any embedded application server.
 
 :::image type="content" source="media/code-using-tools-you-know.png" alt-text="Diagram with the text 'Code using the Java tools you know and love' and logos for the tools described in this article." border="false" lightbox="media/code-using-tools-you-know.png":::
