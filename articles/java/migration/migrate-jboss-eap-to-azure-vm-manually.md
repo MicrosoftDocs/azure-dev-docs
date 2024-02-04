@@ -513,7 +513,7 @@ az storage account create \
     --access-tier Hot
 ```
 
-Then, retrieve the storage account key for later use by using the following command:
+Then, retrieve the storage account key for later use by using the following command. If you see an error, wait a few minutes and try again. The error may be caused by the previous command to create the storage account not fully completing.
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
