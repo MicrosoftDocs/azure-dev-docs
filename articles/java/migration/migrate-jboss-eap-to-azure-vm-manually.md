@@ -36,12 +36,12 @@ If you prefer a fully automated solution that does all of these steps on your be
 - [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution mentioned earlier in the Quickstart: [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution mentioned earlier (in [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) to install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
-- If you are already registered, or after you've completed registration, you can locate the necessary credentials (*Pool IDs*) by following the steps outlined below. These *Pool IDs* will also be utilized as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
+- If you're already registered, or after you've completed registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
-  1. The first time you sign in, you will be prompted to complete your profile. Depending on your usage, select either Personal or Corporate for the Account Type, as shown in the following screenshot.
+  1. The first time you sign in, you're prompted to complete your profile. Depending on your usage, select either **Personal** or **Corporate** for **Account Type**, as shown in the following screenshot:
 
      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png" alt-text="Screenshot of the Red Hat account window that shows the Account Type options with Personal selected." lightbox="media/migrate-jboss-eap-to-vm-manually/update-account-type-as-personal.png":::
 
@@ -308,8 +308,8 @@ Use the following steps to install:
    sudo subscription-manager attach --pool=${EAP_POOL}
    ```
 
-    > [!NOTE]
-    > This command will be ignored if you are using [Simple Content Access](https://access.redhat.com/articles/4903191) mode.
+   > [!NOTE]
+   > This command is ignored if you're using [Simple Content Access](https://access.redhat.com/articles/4903191) mode.
    
 1. Use the following command to install OpenJDK 11:
 
@@ -374,11 +374,10 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminOSDiskSnapshot \
        --source ${ADMIN_OS_DISK_ID}
    ```
-1. Then start the `adminVM`:
+1. Use the following command to start `adminVM`:
 
    ```azurecli
    az vm start --resource-group abc1110rg --name adminVM
-   ```
 
 1. Use the following steps to create `mspVM1`:
 
@@ -513,7 +512,7 @@ az storage account create \
     --access-tier Hot
 ```
 
-Then, retrieve the storage account key for later use by using the following command. If you see an error, wait a few minutes and try again. The error may be caused by the previous command to create the storage account not fully completing.
+Then, retrieve the storage account key for later use by using the following command. If you see an error, wait a few minutes and try again. The error might be caused by the previous command to create the storage account not fully completing.
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
@@ -958,7 +957,6 @@ You've started the database server, obtained the necessary resource ID, and inst
    # Replace the following values with your own
    export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb
    export DATA_BASE_USER=jboss@<database-server-name>
-   
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
    export DATA_BASE_PASSWORD=Secret123456
