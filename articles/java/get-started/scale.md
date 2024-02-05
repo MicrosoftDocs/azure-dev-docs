@@ -119,3 +119,7 @@ The Azure Architecture Center provides guidance for building solutions on Azure 
 For example, here's a reference architecture for Azure Spring Apps, showing how to implement a hub-and-spoke design in which Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. It's built with components to achieve the tenets in the Microsoft Azure Well-Architected Framework. To explore an implementation of this architecture, see the Azure Spring Apps Reference Architecture repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure "compute" destination - such as Azure App Service, Azure Container Apps, or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we've got a comprehensive set of migration guides and recommended strategies.
 
 :::image type="content" source="media/scale-end-to-end.png" alt-text="Diagram with the heading 'Scale with end-to-end security, monitoring and automation' and logos for the tools described in this article." border="false" lightbox="media/scale-end-to-end.png":::
+
+## Next steps
+
+[Azure for Java developer documentation](../index.yml)

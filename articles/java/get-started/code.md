@@ -104,3 +104,7 @@ az spring app deploy \
 When you use Java with Azure, you can choose your own tools. You can build test, debug, and troubleshoot any Java application (including polyglot applications) using the machine of your choice, including Windows, macOS, Linux, and cloud-based machines. You can also deploy your application to Azure on any application server or with any embedded application server.
 
 :::image type="content" source="media/code-using-tools-you-know.png" alt-text="Diagram with the text 'Code using the Java tools you know and love' and logos for the tools described in this article." border="false" lightbox="media/code-using-tools-you-know.png":::
+
+## Next steps
+
+[Deploy Java applications with confidence and ease](deploy.md)

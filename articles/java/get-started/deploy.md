@@ -102,3 +102,7 @@ Joint development with partners for many of the above offerings is a continual, 
 In summary, Azure supports your workload with an abundance of choice regardless of what you're doing with Java. You can build any Java app, use any framework, run any application server, and support any application architecture - from monolithic applications running on VMs or in containers to cloud-native, microservices-based applications running on fully managed services.
 
 :::image type="content" source="media/deploy-with-confidence.png" alt-text="Diagram with the heading 'Deploy Java applications with confidence and ease' and logos for the deployment options described in this article." border="false" lightbox="media/deploy-with-confidence.png":::
+
+## Next steps
+
+[Scale with end-to-end security, monitoring, and automation](scale.md)
