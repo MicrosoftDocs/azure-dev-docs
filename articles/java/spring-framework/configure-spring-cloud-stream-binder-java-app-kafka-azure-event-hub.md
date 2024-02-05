@@ -140,7 +140,7 @@ Use the following steps to configure your application to produce and consume mes
    ```
 
    > [!TIP]
-   > Support of connection string credentials has been deprecated from version `4.3.0`.
+   > Using connection string to connect to Azure Event Hubs for Kafka is not recommended since version 4.3.0, and will probably be removed in the future. please consider connect using a passwordless way.
 
    The following table describes the fields in the configuration:
 
