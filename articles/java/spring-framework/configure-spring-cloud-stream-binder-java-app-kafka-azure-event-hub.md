@@ -140,7 +140,7 @@ Use the following steps to configure your application to produce and consume mes
    ```
 
    > [!TIP]
-   > Using connection string to connect to Azure Event Hubs for Kafka is not recommended since version 4.3.0, and will probably be removed in the future. please consider connect using a passwordless way.
+   > We recommend that you don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in the future, so you should consider using passwordless connections instead.
 
    The following table describes the fields in the configuration:
 
