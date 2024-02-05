@@ -21,7 +21,7 @@ The deployment process to Azure App Service uses your Azure credentials from the
 
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
-```azurecli-interactive
+```cli
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 ```
 
@@ -29,7 +29,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 1. For **Define value for OS**, type **1** for Windows, or **2** for Linux, then **Enter**.
 1. For **Define value for javaVersion**, type **3** for Java 17, then **Enter**.
 1. For **Define value for webContainer**, type **1** for Tomcat 10.0, then **Enter**.
-1. For **Define value for pricingTier**, type **9** for P1v2, then **Enter**.
+1. For **Define value for pricingTier**, press **Enter** to select the default **P1v2** tier.
 1. For **Confirm**, type **Y**, then **Enter**.
 
     ```
@@ -93,25 +93,20 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-16
 
 ###### Deploy the app
 
-With all the configuration ready in your *pom.xml* file, you can deploy your Java app to Azure with one single command.
+Make sure you are logged into your Azure environment to execute the deployment. 
 
-```azurecli-interactive
+```cli
+az login
+```
+
+With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one single command.
+
+```cli
 mvn package azure-webapp:deploy
 ```
 Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1690440759246.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 **Congratulations!** You've deployed your Java app to App Service.
-
-##### Clean up resources
-
-In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
-
-```azurecli-interactive
-az group delete --name <your resource group name; for example: helloworld-1690440759246-rg> --yes
-```
-
-This command may take a minute to run.
-
 
 #### [Run the sample locally](#tab/local)
 
