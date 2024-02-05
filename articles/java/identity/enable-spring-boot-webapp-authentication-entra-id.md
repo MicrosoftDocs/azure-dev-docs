@@ -25,23 +25,6 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 ![Overview](./media/topology-spring.png)
 
-## Contents
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `AppCreationScripts/`                                                               | Scripts to automatically configure Microsoft Entra ID app registrations.                              |
-| `pom.xml`                                                                           | Application dependencies.                                                                   |
-| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
-| `src/main/resources/application.yml`                                                | Application and Microsoft Entra ID Boot Starter Library Configuration.                                |
-| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
-| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
-| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
-| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
-| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims                                                 |
-| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
-| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
-| `LICENSE`                                                                           | The license for the sample.                                                                 |
-
 ## Prerequisites
 
 - [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
@@ -49,6 +32,8 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An **Microsoft Entra ID** tenant. For more information see: [How to get an Microsoft Entra ID tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant)
 - A user account in your **Microsoft Entra ID** tenant. This sample will not work with a **personal Microsoft account**. Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a personal account and have never created a user account in your directory before, you need to do that now.
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 [!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
 
@@ -95,10 +80,11 @@ There is one project in this sample. To register the app on the portal, you can:
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
-
+   > [!Note]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
+### [Manual](#tab/Manual)
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -155,6 +141,23 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
 - You can also use the button on the top right to sign out. The status page will reflect this.
+
+## Contents
+
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `AppCreationScripts/`                                                               | Scripts to automatically configure Microsoft Entra ID app registrations.                              |
+| `pom.xml`                                                                           | Application dependencies.                                                                   |
+| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
+| `src/main/resources/application.yml`                                                | Application and Microsoft Entra ID Boot Starter Library Configuration.                                |
+| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
+| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
+| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
+| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
+| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims                                                 |
+| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
+| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
+| `LICENSE`                                                                           | The license for the sample.                                                                 |
 
 
 ## About the code

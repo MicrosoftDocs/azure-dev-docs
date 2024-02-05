@@ -23,22 +23,6 @@ This article demonstrates a Java Spring Boot web app that signs in users and obt
 1. This Java Spring MVC web app leverages the **Microsoft Entra ID Spring Boot Starter client library for Java** to obtain an [Access Token](https://learn.microsoft.com/entra/identity-platform/access-tokens) for [Microsoft Graph](https://docs.microsoft.com/graph/overview) from **Microsoft Entra ID**.
 1. The **Access Token** proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
 
-## Contents
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `AppCreationScripts/`                                                               | Scripts to automatically configure Microsoft Entra ID app registrations.                              |
-| `pom.xml`                                                                           | Application dependencies.                                                                   |
-| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
-| `src/main/resources/application.yml`                                                | Application and Microsoft Entra ID Boot Starter Library Configuration.                                |
-| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
-| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
-| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
-| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
-| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims, MS Graph SDK initialization and use).          |
-| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
-| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
-| `LICENSE`                                                                           | The license for the sample.                                                                 |
 
 ## Prerequisites
 
@@ -47,6 +31,8 @@ This article demonstrates a Java Spring Boot web app that signs in users and obt
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An **Microsoft Entra ID** tenant. For more information see: [How to get an Microsoft Entra ID tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant)
 - A user account in your **Microsoft Entra ID** tenant. This sample will not work with a **personal non-Microsoft account**. Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a personal account and have never created a user account in your directory before, you need to do that now.
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 [!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
 
@@ -97,7 +83,7 @@ There is one project in this sample. To register it, you can:
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
-
+   > [!Note]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
@@ -166,6 +152,22 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 - Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) endpoint and see a selection of user details obtained.
 - You can also use the button on the top right to sign out. The status page will reflect this.
 
+## Contents
+
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `AppCreationScripts/`                                                               | Scripts to automatically configure Microsoft Entra ID app registrations.                              |
+| `pom.xml`                                                                           | Application dependencies.                                                                   |
+| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
+| `src/main/resources/application.yml`                                                | Application and Microsoft Entra ID Boot Starter Library Configuration.                                |
+| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
+| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
+| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
+| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
+| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims, MS Graph SDK initialization and use).          |
+| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
+| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
+| `LICENSE`                                                                           | The license for the sample.                                                                 |
 
 ## About the code
 

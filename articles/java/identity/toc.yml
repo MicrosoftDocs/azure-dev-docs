@@ -62,8 +62,6 @@ items:
     - name: Secure your Java Spring MVC web app web app
       expanded: true
       items:
-      - name: Overview
-        href: enable-spring-boot-webapp-authentication-authorization.md
       - name: Enable sign in with Entra ID
         href: enable-spring-boot-webapp-authentication-entra-id.md
       - name: Enable sign in with Azure AD B2C
