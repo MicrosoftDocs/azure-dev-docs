@@ -31,17 +31,17 @@
 | Container Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/container-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/) |
 | Content Safety | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0/sdk/contentsafety/ai-content-safety-rest/) |
 | Core - Client - Abort Controller | npm [2.0.0](https://www.npmjs.com/package/@azure/abort-controller/v/2.0.0) | [docs](/javascript/api/overview/azure/abort-controller-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_2.0.0/sdk/core/abort-controller/) |
-| Core - Client - AMQP | npm [4.1.0](https://www.npmjs.com/package/@azure/core-amqp/v/4.1.0) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.1.0/sdk/core/core-amqp/) |
-| Core - Client - Auth | npm [1.5.0](https://www.npmjs.com/package/@azure/core-auth/v/1.5.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.5.0/sdk/core/core-auth/) |
-| Core - Client - Client | npm [1.7.3](https://www.npmjs.com/package/@azure/core-client/v/1.7.3) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.7.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.7.3/sdk/core/core-client/) |
+| Core - Client - AMQP | npm [4.2.0](https://www.npmjs.com/package/@azure/core-amqp/v/4.2.0) | [docs](/javascript/api/overview/azure/core-amqp-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.2.0/sdk/core/core-amqp/) |
+| Core - Client - Auth | npm [1.6.0](https://www.npmjs.com/package/@azure/core-auth/v/1.6.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.6.0/sdk/core/core-auth/) |
+| Core - Client - Client | npm [1.8.0](https://www.npmjs.com/package/@azure/core-client/v/1.8.0) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.8.0/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest/) |
-| Core - Client - Core Rest Pipeline | npm [1.13.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.13.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.13.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.13.0/sdk/core/core-rest-pipeline/) |
-| Core - Client - Core Utils | npm [1.6.1](https://www.npmjs.com/package/@azure/core-util/v/1.6.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.6.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.6.1/sdk/core/core-util/) |
+| Core - Client - Core Rest Pipeline | npm [1.14.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.14.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.14.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.14.0/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Utils | npm [1.7.0](https://www.npmjs.com/package/@azure/core-util/v/1.7.0) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.7.0/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [3.0.4](https://www.npmjs.com/package/@azure/core-http/v/3.0.4) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [3.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.4/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [2.0.1](https://www.npmjs.com/package/@azure/core-http-compat/v/2.0.1) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.0.1/sdk/core/core-http-compat/) |
 | Core - Client - Logger | npm [1.0.4](https://www.npmjs.com/package/@azure/logger/v/1.0.4) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.4/sdk/core/logger/) |
-| Core - Client - LRO | npm [2.5.4](https://www.npmjs.com/package/@azure/core-lro/v/2.5.4) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.5.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.5.4/sdk/core/core-lro/) |
-| Core - Client - Rest | npm [1.1.7](https://www.npmjs.com/package/@azure-rest/core-client/v/1.1.7) |  | GitHub [1.1.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.7/sdk/core/core-client-rest/) |
+| Core - Client - LRO | npm [2.6.0](https://www.npmjs.com/package/@azure/core-lro/v/2.6.0) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.6.0/sdk/core/core-lro/) |
+| Core - Client - Rest | npm [1.2.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.2.0) |  | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.2.0/sdk/core/core-client-rest/) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.4](https://www.npmjs.com/package/@azure/core-xml/v/1.3.4) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.4/sdk/core/core-xml/) |
 | Core - Paging | npm [1.5.0](https://www.npmjs.com/package/@azure/core-paging/v/1.5.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.5.0/sdk/core/core-paging/) |
@@ -415,7 +415,6 @@
 | Web Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-websearch/v/3.0.1) |  |  |
 | @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) |  |  |
 | Web PubSub CloudEvents Handlers for Express | npm [0.0.1-security.3](https://www.npmjs.com/package/azure-web-pubsub-express/v/0.0.1-security.3) |  |  |
-| Resource Management - Machine Learning | npm [1.2.0-preview](https://www.npmjs.com/package/azure-arm-machinelearning/v/1.2.0-preview) |  |  |
 |  | npm [2.5.6](https://www.npmjs.com/package/ms-rest/v/2.5.6) |  |  |
 |  | npm [3.0.2](https://www.npmjs.com/package/ms-rest-azure/v/3.0.2) |  |  |
 | @autorest/adl | npm [0.0.2](https://www.npmjs.com/package/@autorest/adl/v/0.0.2) |  |  |
@@ -423,7 +422,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240129.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240129.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240203.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240203.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -504,7 +503,7 @@
 | AutoRest - Go | npm [4.0.0-preview.61](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.61) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.674](https://www.npmjs.com/package/@autorest/powershell/v/4.0.674) |  | GitHub [4.0.674](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.12.3](https://www.npmjs.com/package/@autorest/python/v/6.12.3) |  | GitHub [6.12.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.12.4](https://www.npmjs.com/package/@autorest/python/v/6.12.4) |  | GitHub [6.12.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -520,11 +519,11 @@
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
 | Stream Analytics CI/CD | npm [3.1.4](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/3.1.4) |  |  |
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
-| Tools - Azcopy Darwin | npm [10.22.2](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.22.2) |  | GitHub [10.22.2](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Linux | npm [10.22.2](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.22.2) |  | GitHub [10.22.2](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Darwin | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Linux | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Node | npm [3.1.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.1.0) |  | GitHub [3.1.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win32 | npm [10.22.2](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.22.2) |  | GitHub [10.22.2](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win64 | npm [10.22.2](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.22.2) |  | GitHub [10.22.2](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win32 | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win64 | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.8.0](https://www.npmjs.com/package/@azure-tools/datastore/v/4.8.0) |  | GitHub [4.8.0](https://github.com/Azure/perks) |
 | Tools - OpenAPI Tools Common | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/openapi-tools-common/v/1.2.2) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/template-dpg/v/1.0.0-beta.1) |  |  |
